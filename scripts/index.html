@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+  Directory index for /scripts/ — physics.magflowmeters.com
+  Reader-facing front-matter only. States zero new physics; lists files.
+  Lets the trailing-slash /scripts/ link resolve without server autoindex.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scripts — Fable reproducibility bundle (21 scripts + driver)</title>
+<style>
+  :root{--ink:#1a1c20;--muted:#5a6068;--line:#dfe2e7;--bg:#fbfcfd;--accent:#2b4a6f;--accent-soft:#eef3f8;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:820px;margin:0 auto;padding:34px 22px 60px}
+  h1{font-size:25px;margin:0 0 6px;color:var(--accent)}
+  h2{font-size:18px;margin:26px 0 8px;color:var(--accent)}
+  p{margin:0 0 14px}
+  a{color:var(--accent)}
+  .muted{color:var(--muted)}
+  .small{font-size:14px;line-height:1.55}
+  ul{margin:0 0 14px;padding-left:22px}
+  li{margin:0 0 6px}
+  code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em}
+  .back{font-size:14px;margin-bottom:18px;display:inline-block}
+  .runner{border:1px solid var(--line);border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:8px;padding:14px 16px;margin:16px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="/">&larr; back to the landing page</a>
+  <h1>Reproducibility bundle &mdash; scripts directory</h1>
+  <p class="small muted">
+    21 target-blind Fable verification scripts plus a top-level driver. Each script runs under the
+    corpus's CFCA discipline; a green run is a consistency / structural check, <strong>not</strong> a proof
+    of the theory. Several scripts are <em>stubs-that-refuse</em> (their deliverable is a fail-closed
+    refusal that routes an owner-only physics act to Chris) and exit non-zero <strong>by design</strong>.
+    Full one-line descriptions are in <a href="/scripts/MANIFEST.md">MANIFEST.md</a>; output artifacts are
+    under <a href="/scripts/outputs/">/scripts/outputs/</a>.
+  </p>
+
+  <div class="runner">
+    <p class="small" style="margin:0 0 6px"><strong>Run them all:</strong>
+      <a href="/scripts/reproduce_all.py"><code>reproduce_all.py</code></a> &mdash; the top-level driver.
+      It runs every script in turn and prints PASS / REFUSED-by-design / FAIL per script plus a summary
+      (it is self-contained and has no dependence on any <code>/gut/scripts/</code> tree).</p>
+    <p class="small muted" style="margin:0">
+      <code>python reproduce_all.py</code> &mdash; exits 0 when every script ran as intended; exits 1 only
+      if a script genuinely fails (unexpected exit or uncaught exception). The two by-design non-zero exits
+      (<code>bg10_four_fix.py</code> exit 2; <code>strongcp_realizationB.py</code> exit 1, a banked
+      honest-negative) are reported distinctly and are not failures.
+    </p>
+  </div>
+
+  <h2>Driver &amp; manifest</h2>
+  <ul class="small">
+    <li><a href="/scripts/reproduce_all.py"><code>reproduce_all.py</code></a> &mdash; top-level driver (runs all 21 scripts)</li>
+    <li><a href="/scripts/MANIFEST.md"><code>MANIFEST.md</code></a> &mdash; honest index of the 21 scripts and their outputs</li>
+    <li><a href="/scripts/outputs/"><code>outputs/</code></a> &mdash; 24 JSON/CSV result artifacts</li>
+  </ul>
+
+  <h2>The 21 verification scripts</h2>
+  <ul class="small">
+    <li><a href="/scripts/bg10_four_fix.py"><code>bg10_four_fix.py</code></a> <span class="muted">&mdash; Gap-10 baryogenesis stub-that-refuses (exits 2 by design)</span></li>
+    <li><a href="/scripts/c_loop_NLO_match.py"><code>c_loop_NLO_match.py</code></a></li>
+    <li><a href="/scripts/gap04_chamber_exclusion.py"><code>gap04_chamber_exclusion.py</code></a></li>
+    <li><a href="/scripts/gap04_cloop_casimir_firstprinciples.py"><code>gap04_cloop_casimir_firstprinciples.py</code></a></li>
+    <li><a href="/scripts/gap04_cloop_density_sign.py"><code>gap04_cloop_density_sign.py</code></a></li>
+    <li><a href="/scripts/gap04_convention_audit.py"><code>gap04_convention_audit.py</code></a></li>
+    <li><a href="/scripts/gap04_disjointness.py"><code>gap04_disjointness.py</code></a></li>
+    <li><a href="/scripts/gap04_full_supertrace_residue.py"><code>gap04_full_supertrace_residue.py</code></a> <span class="muted">&mdash; T1, the highest-yield test</span></li>
+    <li><a href="/scripts/gap04_higher_operator_wall.py"><code>gap04_higher_operator_wall.py</code></a></li>
+    <li><a href="/scripts/gap04_intloop_principle_check.py"><code>gap04_intloop_principle_check.py</code></a></li>
+    <li><a href="/scripts/gap04_litim_scheme_branch.py"><code>gap04_litim_scheme_branch.py</code></a></li>
+    <li><a href="/scripts/gap04_oneloop_consistency.py"><code>gap04_oneloop_consistency.py</code></a></li>
+    <li><a href="/scripts/gap04_reason_hunt.py"><code>gap04_reason_hunt.py</code></a></li>
+    <li><a href="/scripts/gap04_spectral_positivity_optionA.py"><code>gap04_spectral_positivity_optionA.py</code></a></li>
+    <li><a href="/scripts/gap04_uv1_optionB_resummed_determinant.py"><code>gap04_uv1_optionB_resummed_determinant.py</code></a></li>
+    <li><a href="/scripts/gap04_zeta_continuation_frg2.py"><code>gap04_zeta_continuation_frg2.py</code></a></li>
+    <li><a href="/scripts/inflation_sigma_map_read.py"><code>inflation_sigma_map_read.py</code></a></li>
+    <li><a href="/scripts/lambda_L1L3_radstab.py"><code>lambda_L1L3_radstab.py</code></a></li>
+    <li><a href="/scripts/strongcp_realizationB.py"><code>strongcp_realizationB.py</code></a> <span class="muted">&mdash; Gap-03 banked-negative (exits 1 by design)</span></li>
+    <li><a href="/scripts/uv1_axiom_payoff_search.py"><code>uv1_axiom_payoff_search.py</code></a></li>
+    <li><a href="/scripts/uv1_frozen_functional.py"><code>uv1_frozen_functional.py</code></a></li>
+  </ul>
+</div>
+</body>
+</html>
