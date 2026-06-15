@@ -4,14 +4,14 @@ This page is the **priority stamp**: it asserts that this exact set of files, wi
 
 | Field | Value |
 |---|---|
-| **Version** | 1.0.0 |
+| **Version** | 1.0.1 |
 | **Date released** | 2026-06-15 |
 | **Author** | Chris Bergstrom |
 | **Canonical site** | https://physics.magflowmeters.com/ |
 | **Community / narrative** | https://chrisbergstrom42.substack.com/ |
 | **License** | CC-BY-4.0 |
-| **DOI** | `(pending — minted by Zenodo on the v1.0.0 GitHub release; fill in here, in CITATION.cff, and on the paper title pages once issued)` |
-| **Git tag** | `v1.0.0` |
+| **DOI** | [10.5281/zenodo.20709154](https://doi.org/10.5281/zenodo.20709154) (this version) · concept (all versions): 10.5281/zenodo.20709153 |
+| **Git tag** | `v1.0.1` |
 | **`HASHES.sha256` manifest digest (SHA-256)** | `405dcd337c3d1c569e16a9668e673e9a8d75424c090a47e9122fe5a910a5e64b` |
 | **Files frozen** | 46 (papers, scripts, supporting, audit) |
 | **Status** | NOT peer-reviewed — in submission to *Physical Review D* and *Foundations of Physics* |

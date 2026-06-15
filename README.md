@@ -33,7 +33,7 @@ This work is **NOT peer-reviewed.** It is currently **in submission to *Physical
 
 ## How to cite
 
-See [`CITATION.cff`](CITATION.cff). Once archived on Zenodo, please cite the **versioned DOI** (filled into `RELEASE.md` and `CITATION.cff` on release).
+See [`CITATION.cff`](CITATION.cff). **Cite the DOI:** [10.5281/zenodo.20709153](https://doi.org/10.5281/zenodo.20709153) (Zenodo). See `CITATION.cff`.
 
 ## Integrity / priority
 
