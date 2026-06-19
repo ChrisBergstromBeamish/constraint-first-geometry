@@ -2203,6 +2203,10 @@ The QC bridge changes:
 
 A **no-feedback firewall** is in force: no QC number (the ~9.6–14.5 memory-floor band, the 3.24 fallback, the ~8.4× decoder-channel advantage, the 10,000-logical-qubit reference, the (12,3)/(8,3) anchors) ever feeds back into any UQF status, tier, geometry object, or $\Sigma$ computation (no-target-loading). The retired sub-2 ratios remain withdrawn on the record and appear nowhere as claims.
 
+## 12.1 The overhead is a floor at scale — the two-stage design
+
+At the **same engineering grade** as the bridge above — *simulated design*, not a fabricated chip — one further property of that external QC note is recorded here, and it **changes no UQF status, promotes nothing, and makes no new physics claim** (the geometry remains configuration input). The headline ~9.6–14.5 band (robust 3.24 fallback) is a **floor at scale**: it is **substantially independent of the logical-qubit count** — it does *not* grow as more logical qubits are added. It is evaluated at a reference of **10,000 logical qubits** (the standing-gate count) and continues to hold at larger counts (e.g. 20,000), where it stays a floor rather than climbing (BOUNDED, SIMULATED). That count-independence is not assumed; it is produced by a **two-stage design**. **Stage 1** restricts the search to the regime where the overhead *stops depending on qubit count* — isolating the scale-invariant floor. **Stage 2** runs a **topological search inside that regime** to select the code; its endpoints are the **(12,3) binary-lever-locked anchor (~14.5×)** and the **(8,3) X-verified frontier (~9.6×)**. This remains a **memory floor**, not a full-algorithm ratio, and the separate **decoder-channel ~8.4× advantage (CI 4.2–16.9)** is a different quantity on the decoded channel, not a memory ratio. The no-feedback firewall above continues to apply: none of these numbers feeds back into the UQF rows, tiers, geometry objects, $\Sigma$ computation, or certificate statuses.
+
 See **Paper III, https://physics.magflowmeters.com/articles/Quantum.html**.
 
 Reviewer prompt checks are externalized in **Paper III, https://physics.magflowmeters.com/articles/Quantum.html**.
