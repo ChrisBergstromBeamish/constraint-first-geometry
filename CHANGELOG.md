@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.2.0 — 2026-06-19
+
+- **Companion refreshed.** *In Search of Nature's Elegance* updated to the expanded edition (120 pp, up from 107): adds "The Case in Sixty Seconds," a Technical Abstract, "The Gauntlet," "Predictions," "The Four Numbers and the One Law," and a Falsification Challenge. Cross-references point to the rendered site papers; author/contact footer retained.
+- **Public-review layer.** Added `CONTRIBUTING.md` (How to Break This), `FALSIFIERS.md` (open claims + named falsifiers), `ERRATA.md` (public delta ledger), `CODE_OF_CONDUCT.md`, and `.github/ISSUE_TEMPLATE/` (falsification / reproduction / hidden-input); spliced a "How this is reviewed" section into the README. Issues + Discussions enabled and the first four falsifiers seeded as issues.
+- **Citation metadata.** Added a README Zenodo DOI badge; synced `CITATION.cff` + `.zenodo.json` to the concept DOI and current version, with author affiliation and a GitHub-repo related identifier.
+- Regenerated `HASHES.sha256` (manifest digest `854df0303c95a7f3ef63fa41b5f48d94f5f9389651bf19a8f70ab3543bf119e9`).
+
 ## v1.1.1 — 2026-06-19
 
 - **Quantum:** restored the §12.1 note *"The overhead is a floor at scale — the two-stage design"* (the two-stage scale-invariant QC memory-floor record) into the External Engineering Bridge Pointer; re-rendered `Quantum.pdf`. Regenerated `HASHES.sha256`.

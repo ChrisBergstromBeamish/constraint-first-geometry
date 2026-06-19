@@ -1,7 +1,3 @@
-# In Search of Nature's Elegance
-
-*A plain-language summary — physics.magflowmeters.com*
-
 **IN SEARCH OF NATURE’S ELEGANCE**
 
 How Four Measured Numbers and One Unbreakable Law
