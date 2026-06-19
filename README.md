@@ -2,12 +2,14 @@
 
 > One small thirteen-dimensional shape. Four measured numbers in. Twenty-two-plus quantities out — and every place it breaks, named first.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20709153.svg)](https://doi.org/10.5281/zenodo.20709153)
+
 This repository is the **frozen, citable record** for a constraint-first derivation program in fundamental physics. A single frozen internal geometry, fed four measured anchors, is used to read the gauge sector and nineteen-plus flavor observables off the geometry — including the most arbitrary-looking fact in physics, *why there are exactly three families of matter*, which comes out as an integer the shape counts, with no dial to turn it to two or four.
 
 - **Canonical reading site:** https://physics.magflowmeters.com/
 - **Community & narrative (Substack):** https://chrisbergstrom42.substack.com/
 - **Author:** Chris Bergstrom
-- **Version:** 1.0.0 · **Released:** 2026-06-15
+- **Version:** 1.1.1 · **Released:** 2026-06-19 (priority first established 2026-06-15)
 
 ## Status — read this first
 
@@ -23,7 +25,8 @@ This work is **NOT peer-reviewed.** It is currently **in submission to *Physical
 
 | Path | What it is |
 |---|---|
-| `papers/` | The four manuscripts (PDF + Markdown): **TOE** (capstone & tie-breaker), **GUT** (the certificate paper), **Forces**, **Quantum**. |
+| `papers/` | The five manuscripts (PDF + Markdown): **TOE** (capstone & tie-breaker), **GUT** (the certificate paper), **Forces**, **Quantum**, **Particles** (observed-spectrum closure). |
+| `In_Search_of_Natures_Elegance.{md,pdf}` | Plain-language summary — the non-technical on-ramp to the whole program. |
 | `scripts/` | The reproducibility bundle. Run `python scripts/reproduce_all.py` — it runs the suite and prints PASS / REFUSED-by-design / FAIL per script. |
 | `supporting/` | Method (CFCA — Constraint-First Consilient Abduction), the Gap-04 close-out documentation, and the referee-aid reader guides. |
 | `audit/` | Completeness & exact-path audit, the narrative frame, and the deploy manifest. |
@@ -33,7 +36,7 @@ This work is **NOT peer-reviewed.** It is currently **in submission to *Physical
 
 ## How to cite
 
-See [`CITATION.cff`](CITATION.cff). **Cite the DOI:** [10.5281/zenodo.20709153](https://doi.org/10.5281/zenodo.20709153) (Zenodo). See `CITATION.cff`.
+See [`CITATION.cff`](CITATION.cff). **Cite the concept DOI (always resolves to the latest version):** [10.5281/zenodo.20709153](https://doi.org/10.5281/zenodo.20709153) (Zenodo).
 
 ## Integrity / priority
 

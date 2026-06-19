@@ -3,6 +3,7 @@
 ## v1.1.1 — 2026-06-19
 
 - **Quantum:** restored the §12.1 note *"The overhead is a floor at scale — the two-stage design"* (the two-stage scale-invariant QC memory-floor record) into the External Engineering Bridge Pointer; re-rendered `Quantum.pdf`. Regenerated `HASHES.sha256`.
+- **Zenodo:** this release auto-minted versioned DOI `10.5281/zenodo.20763136`; cite the **concept DOI** `10.5281/zenodo.20709153` (always resolves to the latest version).
 
 ## v1.1.0 — 2026-06-19
 
