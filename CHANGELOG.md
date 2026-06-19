@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.3.0 — 2026-06-19
+
+- **Worked examples added** (`examples/`). Eight short "does it get the right numbers?" notes, each shrinking the geometry to four dimensions and checking it against known physics: Einstein's 1.75″ light-bending (*The Sun as a Lens*), the hydrogen spectrum, Newton's law from single-graviton exchange, the muon-decay law, all four forces from one shape, the three-family count (LEP N_ν = 2.984 ± 0.008), the three-qubit bit-flip QEC rate, and one clearly-labeled speculative toy-metric note (*The Road in Front of the Ship* — a screening story, **not** a drive or FTL). Each is a reproduce-known consistency check, not a proof. See `examples/README.md`.
+- Regenerated `HASHES.sha256` (59 files; manifest digest `20bd91bcf9607e4438f8957fcbd411d16aec9809478201a13075cf09eeec0852`).
+
 ## v1.2.0 — 2026-06-19
 
 - **Companion refreshed.** *In Search of Nature's Elegance* updated to the expanded edition (120 pp, up from 107): adds "The Case in Sixty Seconds," a Technical Abstract, "The Gauntlet," "Predictions," "The Four Numbers and the One Law," and a Falsification Challenge. Cross-references point to the rendered site papers; author/contact footer retained.

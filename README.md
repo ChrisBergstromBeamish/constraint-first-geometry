@@ -43,6 +43,7 @@ Every confirmed flaw is recorded in public, with the finder credited, and the af
 |---|---|
 | `papers/` | The five manuscripts (PDF + Markdown): **TOE** (capstone & tie-breaker), **GUT** (the certificate paper), **Forces**, **Quantum**, **Particles** (observed-spectrum closure). |
 | `In_Search_of_Natures_Elegance.{md,pdf}` | Plain-language summary — the non-technical on-ramp to the whole program. |
+| `examples/` | Eight worked-example notes — *"does the geometry give the right numbers?"* Each reduces the geometry to 4D and reproduces a known result (light-bending, hydrogen, the muon law, …). See [`examples/README.md`](examples/README.md). |
 | `scripts/` | The reproducibility bundle. Run `python scripts/reproduce_all.py` — it runs the suite and prints PASS / REFUSED-by-design / FAIL per script. |
 | `supporting/` | Method (CFCA — Constraint-First Consilient Abduction), the Gap-04 close-out documentation, and the referee-aid reader guides. |
 | `audit/` | Completeness & exact-path audit, the narrative frame, and the deploy manifest. |
