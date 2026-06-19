@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.1.0 — 2026-06-19
+
+Documentation refresh and companions added.
+
+- Updated **GUT / Forces / Quantum / TOE** to the current reformatted manuscripts (the post-passes reader versions).
+- Added **Particles** — *Observed Particle Spectrum Closure* companion (PDF + Markdown).
+- Added **In Search of Nature's Elegance** — a plain-language summary of the whole series (PDF + Markdown).
+- Added an author/contact footer (Chris Bergstrom · cbergstr@gmail.com · physics.magflowmeters.com) to every document.
+- Regenerated `HASHES.sha256` over the 50 files in this release.
+- The v1.0.0 Zenodo DOI (10.5281/zenodo.20709154) continues to identify the frozen 1.0.0 release; a new DOI would be minted separately for 1.1.0.
+
 ## v1.0.0 — 2026-06-15
 
 Initial public, frozen release.
