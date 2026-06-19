@@ -6,6 +6,7 @@
 - **Public-review layer.** Added `CONTRIBUTING.md` (How to Break This), `FALSIFIERS.md` (open claims + named falsifiers), `ERRATA.md` (public delta ledger), `CODE_OF_CONDUCT.md`, and `.github/ISSUE_TEMPLATE/` (falsification / reproduction / hidden-input); spliced a "How this is reviewed" section into the README. Issues + Discussions enabled and the first four falsifiers seeded as issues.
 - **Citation metadata.** Added a README Zenodo DOI badge; synced `CITATION.cff` + `.zenodo.json` to the concept DOI and current version, with author affiliation and a GitHub-repo related identifier.
 - Regenerated `HASHES.sha256` (manifest digest `854df0303c95a7f3ef63fa41b5f48d94f5f9389651bf19a8f70ab3543bf119e9`).
+- **Zenodo:** this release auto-minted versioned DOI `10.5281/zenodo.20763694`; cite the **concept DOI** `10.5281/zenodo.20709153` (always resolves to the latest version).
 
 ## v1.1.1 — 2026-06-19
 

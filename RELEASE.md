@@ -10,7 +10,7 @@ This page is the **priority stamp**: it asserts that this exact set of files, wi
 | **Canonical site** | https://physics.magflowmeters.com/ |
 | **Community / narrative** | https://chrisbergstrom42.substack.com/ |
 | **License** | CC-BY-4.0 |
-| **DOI** | concept (all versions, cite this): [10.5281/zenodo.20709153](https://doi.org/10.5281/zenodo.20709153) · the v1.2.0 versioned DOI is minted on the [GitHub release](https://github.com/ChrisBergstromBeamish/constraint-first-geometry/releases/tag/v1.2.0) |
+| **DOI** | [10.5281/zenodo.20763694](https://doi.org/10.5281/zenodo.20763694) (this version) · concept (all versions, cite this): [10.5281/zenodo.20709153](https://doi.org/10.5281/zenodo.20709153) |
 | **Git tag** | `v1.2.0` |
 | **`HASHES.sha256` manifest digest (SHA-256)** | `854df0303c95a7f3ef63fa41b5f48d94f5f9389651bf19a8f70ab3543bf119e9` |
 | **Files frozen** | 50 (papers, scripts, supporting, audit) |
