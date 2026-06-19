@@ -1,19 +1,19 @@
-# Release v1.0.0 — Frozen Public Record
+# Release v1.1.1 — Frozen Public Record
 
-This page is the **priority stamp**: it asserts that this exact set of files, with these hashes, existed publicly on the date below.
+This page is the **priority stamp**: it asserts that this exact set of files, with these hashes, existed publicly on the date below. Priority was first established **2026-06-15** with v1.0.1 (versioned DOI 10.5281/zenodo.20709154); this record now reflects the current **v1.1.1** set.
 
 | Field | Value |
 |---|---|
-| **Version** | 1.0.1 |
-| **Date released** | 2026-06-15 |
+| **Version** | 1.1.1 |
+| **Date released** | 2026-06-19 (priority first established 2026-06-15) |
 | **Author** | Chris Bergstrom |
 | **Canonical site** | https://physics.magflowmeters.com/ |
 | **Community / narrative** | https://chrisbergstrom42.substack.com/ |
 | **License** | CC-BY-4.0 |
-| **DOI** | [10.5281/zenodo.20709154](https://doi.org/10.5281/zenodo.20709154) (this version) · concept (all versions): 10.5281/zenodo.20709153 |
-| **Git tag** | `v1.0.1` |
-| **`HASHES.sha256` manifest digest (SHA-256)** | `405dcd337c3d1c569e16a9668e673e9a8d75424c090a47e9122fe5a910a5e64b` |
-| **Files frozen** | 46 (papers, scripts, supporting, audit) |
+| **DOI** | [10.5281/zenodo.20763136](https://doi.org/10.5281/zenodo.20763136) (this version) · concept (all versions): [10.5281/zenodo.20709153](https://doi.org/10.5281/zenodo.20709153) |
+| **Git tag** | `v1.1.1` |
+| **`HASHES.sha256` manifest digest (SHA-256)** | `88e558ff4afb42a7c281d132f30e5855084c5568ff4141ce92451792c0b53b4b` |
+| **Files frozen** | 50 (papers, scripts, supporting, audit) |
 | **Status** | NOT peer-reviewed — in submission to *Physical Review D* and *Foundations of Physics* |
 
 ## What is frozen here
