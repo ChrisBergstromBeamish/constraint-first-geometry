@@ -15,6 +15,22 @@ This repository is the **frozen, citable record** for a constraint-first derivat
 
 This work is **NOT peer-reviewed.** It is currently **in submission to *Physical Review D* and *Foundations of Physics***. It is a *front door for external review*, not a settled result. It is offered honestly: maybe right, maybe wrong, maybe partly each — with every open question carrying a named way it could be proven wrong.
 
+## How this is reviewed — and how to break it
+
+This repository is both a **frozen, citable record** and a **living public review**. Those are not in conflict:
+
+- The **tagged releases**, the **Zenodo DOI**, and `HASHES.sha256` are the *frozen* snapshots — cite those.
+- The **`main` branch** is the *living*, reviewed version, which changes as flaws are found and fixed.
+- **[`ERRATA.md`](ERRATA.md)** is the public ledger of every delta between them: each confirmed flaw, dated, attributed, with its resolution (`fixed` / `downgraded` / `refuted`). Each accepted fix bumps a release.
+
+The request is not that you believe this — it is that you **try to break it**.
+
+- **[`FALSIFIERS.md`](FALSIFIERS.md)** — every open claim with a named way to kill it. Each entry is a ready-to-open issue. Two checks take the spine and are the best place to start: the **anomaly witness** (30 seconds, by hand) and the **counting claim** (does the over-determination survive an audit of output independence and freeze-before-compare?).
+- **[`CONTRIBUTING.md`](CONTRIBUTING.md)** — *How to Break This*: where to push, the four-grade vocabulary, and how to file a finding so it can be acted on. A finding needs a **specific locus** (paper + section, or script + line) and a **specific mismatch** — "I don't believe it" is a prior, not a bug report.
+- **Issues** are for checkable claims; **Discussions** are for "I smell a problem but can't yet name the locus."
+
+Every confirmed flaw is recorded in public, with the finder credited, and the affected claim is fixed, downgraded, or withdrawn. **Finding flaws is the success condition of this repository, not the failure condition.**
+
 ## What this claims, and what it does not
 
 **Claims.** One frozen 13-dimensional shape + four measured numbers reproduces a large amount of the Standard Model's structure; more independent answers come out than numbers go in (the "four in → twenty-two-plus out" economy); the family count (three) is a topological integer, not a fitted dial.
