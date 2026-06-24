@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.4.0 — 2026-06-23
+
+- **Plain-language summary expanded.** *In Search of Nature's Elegance* gains a "How This Was Made" section — an honest account of the human + AI collaboration and the discipline (PROMOTIONS = 0, no fitting, freeze-before-compare) that governed it.
+- **New narrative companion — *The Last Wall*** (`The_Last_Wall.{md,pdf}`): a ~21,500-word first-person account, told by the AI orchestrator, of the program's final quarter — the axiom ledger driven from a long pile down to three irreducible posits, the dead ends and the grind, the firewall that caught a circular result, and the principled near-no-go on the electroweak hierarchy. No new physics; the honest *no* is the result.
+- **AI test kit added** (`FABLE_FOUNDATIONS_TESTFILE.md`, `DOWNLOAD_PROMPT.md`, `HUMAN_SUMMARY.md`): a single self-verifying file plus a neutral, deliberately-skeptical review prompt, so a reader can hand the work to their own AI and get an honest, unled assessment.
+- Regenerated `HASHES.sha256` (64 files; manifest digest `f825cf646dec7a1f2fbbc01ee3bbb89a7f38b1d2101f0e31930d53a548358e34`).
+- **Zenodo:** publishing this GitHub release auto-mints a versioned DOI for v1.4.0; cite the **concept DOI** `10.5281/zenodo.20709153` (always resolves to the latest version).
+
 ## v1.3.0 — 2026-06-19
 
 - **Worked examples added** (`examples/`). Eight short "does it get the right numbers?" notes, each shrinking the geometry to four dimensions and checking it against known physics: Einstein's 1.75″ light-bending (*The Sun as a Lens*), the hydrogen spectrum, Newton's law from single-graviton exchange, the muon-decay law, all four forces from one shape, the three-family count (LEP N_ν = 2.984 ± 0.008), the three-qubit bit-flip QEC rate, and one clearly-labeled speculative toy-metric note (*The Road in Front of the Ship* — a screening story, **not** a drive or FTL). Each is a reproduce-known consistency check, not a proof. See `examples/README.md`.

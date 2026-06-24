@@ -32,6 +32,24 @@ Take **one** small shape that lives in thirteen dimensions. Feed in **four numbe
 
 Here is what should make a physicist pause: **more independent answers come out of the shape than numbers go into it.** Four in; more than twenty out. That ratio is the signature of a theory that is **constrained, not curve-fitted** — a shape with no adjustable knobs cannot hit two dozen targets by luck. That economy, maximal consequence drawn from minimal assumption, is precisely what the word *elegance* means here. None of it is settled; all of it is checkable, by hand and by public script. The rest of this book is the chain of reasoning that leads, step by forced step, from one observation to that claim — and a standing invitation to break it.
 
+**How This Was Made**
+
+# A Human, an AI, and a Discipline
+
+A fair reader will stop at the first page and ask the obvious question: *how does someone who is not a physicist produce three thousand pages of frozen technical content?* The honest answer is that he did not do it alone. This work was made by a human and an artificial intelligence (Anthropic's Claude) in close collaboration over six months — and the only reason the result deserves a reader's time is a discipline imposed on that collaboration from the first day.
+
+The division of labor is worth stating plainly, because it is the whole of the credibility. The human supplied the question — a twenty-year-old conviction that the universe is elegant — the persistence to chase it, and the detective's method that runs through every page: assume only what must be true, eliminate what cannot be, and follow what survives. The AI supplied the reach — the differential geometry, the representation theory, the literature, and the derivations the human could never have completed alone. That much is simply what research looks like now.
+
+But anyone who has worked with these tools knows their failure mode: left unsupervised, an AI will produce confident, fluent, beautiful nonsense — and assure you it is brilliant. An assistant that flatters is precisely how a researcher fools himself for six months and emerges with a polished delusion. So the real labor was not the mathematics. It was a process built to make self-deception structurally difficult:
+
+- **Nothing is promoted to "proven" unless it genuinely is.** A result that merely renames an assumption is recorded as a *failure*, not a win. (In the corpus this is the rule *promotions = 0*.)
+- **No fitting to the answer.** Every predicted number is frozen — hashed — *before* it is compared to the measured one. The one time a result was reverse-engineered to land on its target, the embarrassment was kept in the record as a permanent warning.
+- **The AI's standing instruction was to attack the work, not defend it** — to play the hostile referee against the author's own best ideas, and to report what breaks against his interest.
+
+That last instruction is why this book contains as many walls as results. The cosmological constant — the hardest number in physics — defeated the author's best idea, and the failure is published rather than hidden. The most tempting shortcut to the mass hierarchy was proven, by the review itself, to be a dead end. Fourteen of the eighteen open problems remain open on purpose, each with a named way to kill it. These negatives are not the method failing; they are the evidence that it worked. An assistant trying to please its author would never have produced a single one of them.
+
+So this book is, honestly, two things at once: a candidate physics program the reader is invited to check at every gate, and a worked demonstration of how genuine research can be done with an AI — the human supplying the vision and, above all, the refusal to be flattered; the machine supplying the reach. If any of what follows survives, it is because the process that produced it was built, first, to tear it down.
+
 **For the Specialist**
 
 # Technical Abstract
