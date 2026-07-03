@@ -1,17 +1,19 @@
-# Release v1.6.0 — Frozen Public Record
+# Release v1.6.1 — Frozen Public Record
 
-This page is the **priority stamp**: it asserts that this exact set of files, with these hashes, existed publicly on the date below. Priority was first established **2026-06-15** with v1.0.x (versioned DOI 10.5281/zenodo.20709154); this record now reflects the current **v1.6.0** set.
+This page is the **priority stamp**: it asserts that this exact set of files, with these hashes, existed publicly on the date below. Priority was first established **2026-06-15** with v1.0.x (versioned DOI 10.5281/zenodo.20709154); this record now reflects the current **v1.6.1** set.
+
+> **v1.6.1 is a metadata-only patch over v1.6.0** — the frozen content (137 files, manifest digest below) is byte-identical. It corrects the `.zenodo.json` deposit metadata (which had gone stale at 1.4.0) so the versioned Zenodo DOI mints correctly. All physics/site content is exactly as in v1.6.0.
 
 | Field | Value |
 |---|---|
-| **Version** | 1.6.0 |
+| **Version** | 1.6.1 |
 | **Date released** | 2026-07-03 (priority first established 2026-06-15) |
 | **Author** | Chris Bergstrom |
 | **Canonical site** | https://physics.magflowmeters.com/ |
 | **Community / narrative** | https://chrisbergstrom42.substack.com/ |
 | **License** | CC-BY-4.0 |
-| **DOI** | versioned DOI for v1.6.0 is auto-minted when this GitHub release is published (see the Zenodo record) · concept (all versions, cite this): [10.5281/zenodo.20709153](https://doi.org/10.5281/zenodo.20709153) |
-| **Git tag** | `v1.6.0` |
+| **DOI** | versioned DOI for v1.6.1 is auto-minted when this GitHub release is published (see the Zenodo record) · concept (all versions, cite this): [10.5281/zenodo.20709153](https://doi.org/10.5281/zenodo.20709153) |
+| **Git tag** | `v1.6.1` |
 | **`HASHES.sha256` manifest digest (SHA-256)** | `115b20bd0f7b1fa8800c1713358eddb65483e6e06b4d53091a8c211847c64604` |
 | **Files frozen** | 137 (top-level summaries + narrative + AI test kit, papers, examples, scripts, supporting, audit, and the public site sections under `site/` including the early-universe granularity test suite and the "what the geometry forces" insight page) |
 | **Status** | NOT peer-reviewed — in submission to *Physical Review D* and *Foundations of Physics* |

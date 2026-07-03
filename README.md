@@ -9,7 +9,7 @@ This repository is the **frozen, citable record** for a constraint-first derivat
 - **Canonical reading site:** https://physics.magflowmeters.com/
 - **Community & narrative (Substack):** https://chrisbergstrom42.substack.com/
 - **Author:** Chris Bergstrom
-- **Version:** 1.6.0 · **Released:** 2026-07-03 (priority first established 2026-06-15)
+- **Version:** 1.6.1 · **Released:** 2026-07-03 (priority first established 2026-06-15)
 
 ## Status — read this first
 

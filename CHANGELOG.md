@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.6.1 — 2026-07-03
+
+- **Metadata-only patch.** Frozen content is byte-identical to v1.6.0 (137 files; manifest digest `115b20bd0f7b1fa8800c1713358eddb65483e6e06b4d53091a8c211847c64604` unchanged).
+- **Fix: Zenodo deposit metadata.** `.zenodo.json` had gone stale at `version: 1.4.0` / `2026-06-23` and was never bumped for v1.5.0 or v1.6.0, so Zenodo's GitHub integration was trying to mint each new release under the already-published 1.4.0 version — a conflict that silently prevented a versioned DOI from being minted for the last two releases. `.zenodo.json` is now bumped to `1.6.1` / `2026-07-03` (with a refreshed description), so this release mints correctly.
+- No physics or site changes. Posture unchanged: **PROMOTIONS = 0**, nothing physics-CLOSED.
+
 ## v1.6.0 — 2026-07-03
 
 - **Gap-08 (inflation σ-slope) — CLOSED-NEGATIVE.** The headline λ²=1/6 is **retired** as a forced geometric prediction: the frozen 13D internal-curvature term is a valid target-blind lever whose canonical slopes are 8/3, 4, 22/9 — none is 1/6 (which came only from the separate convention λ²:=4/K_σσ). Verified three independent ways (specialist theorem + independent recomputation + first-principles radion). The branch-independent falsifier r ∈ [3.5, 36]×10⁻³ is unaffected. See `supporting/GAP08_INFLATION_CLOSED_NEGATIVE.md`.
