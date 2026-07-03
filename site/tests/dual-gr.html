@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 1 — Dual GR, Both Ways — The Tests</title>
+<meta name="description" content="Solar light-bending worked two independent ways from the same shape, checked against Einstein's 1.75 arcsec and the Cassini PPN bound. Not peer-reviewed. PROMOTIONS:0.">
+<style>
+  :root{
+    --ink:#1b1f23; --ink-soft:#4a5056; --paper:#fbfaf7; --paper-alt:#f2efe8;
+    --line:#d8d3c7; --accent:#6b3f2a; --accent-2:#1f4e5f; --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper); color:var(--ink); font-family: Georgia, 'Times New Roman', Cambria, serif; line-height:1.6; font-size:17px; -webkit-font-smoothing:antialiased;}
+  a{color:var(--accent-2);} a:hover{color:var(--accent);}
+  h1,h2,h3,h4{font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif; line-height:1.25; font-weight:700; color:var(--ink);}
+  code, pre{font-family: Consolas, 'Courier New', monospace; background:var(--paper-alt); border:1px solid var(--line); border-radius:3px;}
+  code{padding:0.05em 0.35em; font-size:0.92em;} pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{margin:1em 0; padding:0.4em 1.1em; border-left:3px solid var(--accent); background:var(--paper-alt); color:var(--ink-soft);}
+  .skip-link{position:absolute; left:-999px; top:auto;}
+  .skip-link:focus{left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);}
+  .topbar{background:var(--ink); color:#eee; font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif; font-size:0.82rem;}
+  .topbar-inner{max-width:var(--maxw); margin:0 auto; padding:0.4em 1.2em; display:flex; flex-wrap:wrap; gap:0.6em 1.2em; align-items:center; justify-content:space-between;}
+  .stamp{display:inline-flex; align-items:center; gap:0.5em; color:#e7c9a9; letter-spacing:0.01em;}
+  .stamp b{color:#fff; font-weight:700;} .topbar-site{color:#c9c2b3;}
+  header.site-header{background:var(--paper); border-bottom:1px solid var(--line);}
+  .brand-row{max-width:var(--maxw); margin:0 auto; padding:1.1em 1.2em 0.6em; display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:0.4em;}
+  .brand-row h1{margin:0; font-size:1.5rem; letter-spacing:0.01em;}
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{font-family: Georgia, serif; font-style:italic; color:var(--ink-soft); font-size:0.95rem;}
+  nav.main-nav{max-width:var(--maxw); margin:0 auto; padding:0 1.2em;}
+  nav.main-nav ul{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:0.2em; border-top:1px solid var(--line);}
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{display:block; padding:0.8em 0.9em; color:var(--ink); text-decoration:none; font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif; font-size:0.92rem; font-weight:600; border-bottom:3px solid transparent; white-space:nowrap;}
+  nav.main-nav a:hover{border-bottom-color:var(--accent); color:var(--accent);}
+  nav.main-nav a[aria-current="page"]{border-bottom-color:var(--accent-2); color:var(--accent-2);}
+  .layout{max-width:var(--maxw); margin:0 auto; padding:2em 1.2em 3em; display:grid; grid-template-columns:220px 1fr; gap:2.4em; align-items:start;}
+  .subnav{position:sticky; top:1.2em; font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif; font-size:0.88rem;}
+  .subnav-box{border:1px solid var(--line); background:var(--paper-alt); border-radius:4px; padding:1em 1.1em;}
+  .subnav-box h2{margin:0 0 0.6em; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft);}
+  .subnav-box ul{list-style:none; margin:0; padding:0;} .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{text-decoration:none; color:var(--ink);}
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{color:var(--accent-2); font-weight:700;}
+  main{min-width:0;}
+  main h2{margin-top:1.9em; padding-bottom:0.25em; border-bottom:1px solid var(--line); font-size:1.5rem;}
+  main h2:first-child{margin-top:0;} main h3{font-size:1.18rem; margin-top:1.5em;} main p{margin:0.9em 0;}
+  .lede{font-size:1.12rem; color:var(--ink-soft);}
+  .callout{border:1px solid var(--line); border-left:4px solid var(--accent-2); background:var(--paper-alt); padding:1em 1.2em; margin:1.4em 0; border-radius:0 4px 4px 0;}
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{border:1px dashed var(--accent); background:#fbf3ea; padding:1em 1.2em; margin:1.4em 0; border-radius:4px; font-size:0.95rem;}
+  .card-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:1em; margin:1.4em 0;}
+  .card{border:1px solid var(--line); background:#fff; padding:1em 1.1em; border-radius:4px;}
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;} .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{display:inline-block; font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif; font-weight:700; font-size:0.92rem; text-decoration:none; padding:0.7em 1.3em; border-radius:4px; border:1px solid var(--accent-2); color:var(--accent-2); background:transparent;}
+  .btn:hover{background:var(--accent-2); color:#fff;} .btn-solid{background:var(--accent-2); color:#fff;} .btn-solid:hover{background:var(--accent);}
+  .chip{display:inline-block; font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:0.03em; text-transform:uppercase; padding:0.2em 0.6em; border-radius:99px; border:1px solid var(--line); background:#fff; color:var(--ink-soft);}
+  .chip.agree{border-color:#3f7a4a; color:#2c5a34; background:#eef6ef;}
+  .chip.consistency{border-color:#3a6a8a; color:#254a63; background:#e9f2f7;}
+  footer.site-footer{background:var(--ink); color:#cfc9bd; font-size:0.85rem;}
+  .footer-inner{max-width:var(--maxw); margin:0 auto; padding:2em 1.2em; display:flex; flex-wrap:wrap; gap:1.6em 3em; justify-content:space-between;}
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{margin:0 0 0.5em; color:#fff; font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em;}
+  .footer-honesty{max-width:var(--maxw); margin:0 auto; padding:0 1.2em 1.6em; font-size:0.8rem; color:#a49c8c;}
+  .footer-honesty .stamp{color:#e7c9a9;} .footer-honesty .stamp b{color:#fff;}
+  .pagenav{display:flex; justify-content:space-between; margin-top:2.4em; padding-top:1em; border-top:1px solid var(--line); font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif; font-size:0.92rem;}
+  @media (max-width:820px){.layout{grid-template-columns:1fr;} .subnav{position:static;}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/" aria-current="page">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>The six tests</h2>
+      <ul>
+        <li><a href="/tests/dual-gr.html" aria-current="page">1. Dual GR, both ways</a></li>
+        <li><a href="/tests/two-to-nine.html">2. Two numbers &rarr; nine</a></li>
+        <li><a href="/tests/early-universe.html">3. Early-universe blind predictions</a></li>
+        <li><a href="/tests/nasa-calculators.html">4. NASA-facing calculators</a></li>
+        <li><a href="/tests/quantum-computer.html">5. The quantum computer</a></li>
+        <li><a href="/tests/gates-table.html">6. Gates &times; Constraints table</a></li>
+      </ul>
+      <h2 style="margin-top:1.1em;">On this page</h2>
+      <ul>
+        <li><a href="#what-was-done">What was done</a></li>
+        <li><a href="#both-ways">Both ways?</a></li>
+        <li><a href="#result">Honest result</a></li>
+        <li><a href="#sources">Data sources</a></li>
+        <li><a href="#limits">What this does not show</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <p><span class="chip consistency">Consistency check</span> <span class="chip agree">Agrees, both ways</span></p>
+    <h2 style="border-bottom:none; margin-bottom:0.2em;">Test 1 — Dual GR, both ways</h2>
+    <p class="lede">Does the shape's low-energy limit bend starlight the way Einstein's General Relativity says
+    it should — and does it give the same answer if you compute it two different, independent ways from the
+    same geometry?</p>
+
+    <h2 id="what-was-done">What was done</h2>
+    <p>The program's candidate shape — four familiar dimensions carrying a compact internal geometry — is only
+    useful if, reduced back down to ordinary four-dimensional spacetime, it reproduces General Relativity in
+    the regime GR has already been tested in. The specific check: take a light ray grazing the limb of the
+    Sun, and compute how far it bends.</p>
+    <p>This was worked as two separate derivations from the same underlying shape: a reduction of the full
+    geometry down to the four-dimensional metric and a direct post-Newtonian expansion of that metric
+    (extracting the PPN parameter &gamma;), compared against the standard general-relativistic light-bending
+    formula
+    <code>&alpha; = (1+&gamma;)&middot;2GM/(c&sup2;&middot;b)</code>
+    evaluated at the solar limb (impact parameter b = R&#8857;).</p>
+
+    <h2 id="both-ways">Both ways?</h2>
+    <p>Yes — this is the point of the test. The write-up explicitly describes the result as
+    <strong>"worked two independent ways that land on the same number."</strong> The two routes start from the
+    same frozen geometry but take different technical paths down to the observable; agreement between them is
+    an internal consistency check (does the geometry's own machinery contradict itself when you reduce it two
+    different ways?), not an external validation by itself. The external validation is the second half: the
+    resulting number is then checked against Einstein's known value and the modern experimental bound.</p>
+
+    <h2 id="result">Honest result</h2>
+    <table>
+      <thead><tr><th>Quantity</th><th>Value from the shape</th><th>Comparison value</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Solar-limb light deflection</td>
+          <td>1.75 arcsec (post-Newtonian &gamma; = 1)</td>
+          <td>Einstein's classic prediction, 1.75 arcsec; Eddington's 1919 eclipse target value 1.7505 arcsec</td>
+          <td><span class="chip agree">Agrees</span></td>
+        </tr>
+        <tr>
+          <td>PPN &gamma;</td>
+          <td>&gamma; = 1, exactly, from the reduction</td>
+          <td>Cassini bound: &gamma; = 1 &plusmn; 2&times;10&#8315;&sup5; (Bertotti, Iess &amp; Tortora 2003)</td>
+          <td><span class="chip agree">Well inside bound</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Both independent derivations return the same post-Newtonian &gamma; = 1, and the resulting deflection
+    angle matches Einstein's textbook value comfortably inside the tightest modern experimental bound on
+    &gamma; (the Cassini spacecraft radio-tracking measurement). The Relativistic Optics Lab's own
+    reproduction of this same textbook figure — an independently coded calculator, built as part of the
+    <a href="/tests/nasa-calculators.html">NASA-facing calculator suite</a> — lands at 1.7511903&hellip; arcsec
+    against the 1.7505 arcsec Eddington target, a relative error of about 4&times;10&#8315;&sup4;, well inside
+    its declared 0.05% tolerance. See <a href="/tests/nasa-calculators.html">Test 4</a> for that validation
+    run in full.</p>
+
+    <h2 id="sources">Data sources</h2>
+    <ul>
+      <li><strong>Einstein's classic prediction</strong> and Eddington's 1919 eclipse expedition target value
+      (1.7505 arcsec) — standard textbook general relativity (e.g. Will, <em>Theory and Experiment in
+      Gravitational Physics</em>, 2018 edition).</li>
+      <li><strong>Cassini PPN bound</strong> &gamma; = 1 &plusmn; 2.3&times;10&#8315;&sup5; — Bertotti, Iess &amp;
+      Tortora, <em>Nature</em> 425:374 (2003), from the spacecraft's radio-tracking Doppler signature during
+      solar conjunction.</li>
+      <li><strong>Independent calculator cross-check</strong> — the Relativistic Optics Lab's Light Deflection
+      calculator and its validation suite (<code>ANALYTIC.deflection.solar_limb</code>,
+      <code>PUBLIC.deflection.solar_limb_canonical</code>, <code>HORIZONS.deflection.mercury_grazing</code> in
+      <code>validation_report.json</code>), using IAU 2009 solar GM and IAU 2015 nominal solar radius.</li>
+    </ul>
+
+    <h2 id="limits">What this does not show</h2>
+    <div class="callout">
+      <p style="margin:0;">This is a <strong>reproduce-known</strong> check: it returns the same number
+      general relativity already gives, with or without the new geometry. A mismatch here would have been
+      fatal to the whole program — it would mean the shape, reduced to ordinary spacetime, contradicts a
+      century of solar-system tests. A match is necessary but not sufficient: it shows the machinery hasn't
+      quietly broken General Relativity in the one regime everyone agrees on. It does not prove the larger
+      thirteen-dimensional shape is correct, and it does not replace Einstein's theory — it is required to be
+      consistent with it.</p>
+    </div>
+
+    <div class="pagenav">
+      <a href="/tests/">&larr; All tests</a>
+      <a href="/tests/two-to-nine.html">Test 2: Two numbers &rarr; nine-plus &rarr;</a>
+    </div>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

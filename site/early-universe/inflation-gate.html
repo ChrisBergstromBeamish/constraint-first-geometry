@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Inflation Gate (Gap-08) — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="One inflaton candidate dead, one surviving as an exponential-plateau candidate with a projected, falsifiable tensor-to-scalar-ratio range — checked against a real upcoming satellite mission, honestly labeled candidate, not a prediction in the reserved sense.">
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <!--SUBNAV-->
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html" aria-current="page">The inflation gate (Gap-08)</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+    <!--MAIN-->
+    <h2 style="border-bottom:none; margin-bottom:0.2em;">The inflation gate — Gap-08</h2>
+    <p class="lede">Did the candidate geometry supply a field capable of driving inflation — the brief burst of
+    accelerated expansion widely thought to have set the initial conditions for the observable universe — and does
+    the pattern that field would leave in the cosmic microwave background match what has actually been measured?
+    This page reports the gate's status exactly as it stands today: <strong>one candidate dead, one
+    candidate surviving</strong>, and the surviving candidate held at candidate grade, not prediction grade.</p>
+
+    <div class="honesty-box">
+      <strong>Headline status:</strong> Gap-08 is <strong>OPEN (cascade)</strong> — conditional, with a named gate.
+      The surviving candidate (the "σ-inflaton") projects a spectral tilt <code>n_s ∈ [0.9643, 0.9679]</code> and a
+      tensor-to-scalar ratio <code>r ∈ [3.5, 10]×10⁻³</code> on its currently-operative branch. These are reported
+      as <strong>CANDIDATE / PROJECTED</strong> — not as predictions in the reserved sense the word carries once a
+      result is certificate-grade. The gate is forward-moving mainly on one thing: a satellite measurement (LiteBIRD,
+      ~2030) that can rule the surviving candidate out entirely if it measures <code>r</code> outside
+      <code>[3.5, 36]×10⁻³</code>.
+    </div>
+
+    <h2 id="two-candidates">1. Two candidate inflatons, one dead, one alive</h2>
+    <p>The candidate geometry offers two internal degrees of freedom that could in principle have driven inflation
+    — informally called the "breathing modes" of the compact internal geometry. Each was checked as a candidate
+    inflaton, independently:</p>
+    <div class="card-grid">
+      <div class="card">
+        <h4>The ρ-inflaton — DEAD</h4>
+        <p>This candidate is <strong>too stiff</strong> to inflate: its internal restoring force (its
+        Kaluza&#8211;Klein stiffness) is too strong for the slow, gradual rolling that inflation requires. This
+        verdict is recorded at qualitative grade — the mode is disqualified in kind, not by a razor-thin numeric
+        miss — and is treated as sufficient to retire this candidate. No sharper, certificate-grade kill has been
+        computed, and none is needed: the gate does not depend on it.</p>
+      </div>
+      <div class="card">
+        <h4>The σ-inflaton — SURVIVES as a CANDIDATE</h4>
+        <p>This candidate produces an <strong>exponential-plateau</strong> potential — the same broad family of
+        inflation models (α-attractor-like) that independently fits the observed cosmic microwave background well.
+        Its slope is asserted to be fixed by the internal geometry's dimension split (6 internal dimensions, 2, and
+        1 — the structure of the compact space), not chosen by hand. It survives every check run against it so
+        far and is carried forward as the gate's live candidate.</p>
+      </div>
+    </div>
+
+    <h2 id="the-numbers">2. What the surviving candidate projects</h2>
+    <p>For the σ-inflaton, the geometry's dimension split is asserted to fix the plateau's slope via
+    <code>λ² = 4/K_σσ = 1/6</code>. Feeding that slope through the standard slow-roll relations for an exponential
+    plateau produces:</p>
+    <table>
+      <thead><tr><th>Observable</th><th>Projected value</th><th>Status</th><th>Comparator</th></tr></thead>
+      <tbody>
+        <tr><td>Spectral index, <code>n_s</code></td><td>[0.9643, 0.9679]</td><td>PROJECTED / CANDIDATE</td><td>Planck (measured) — dead-center of this range</td></tr>
+        <tr><td>Tensor-to-scalar ratio, <code>r</code> (operative branch)</td><td>[3.5, 10]×10⁻³</td><td>PROJECTED / CANDIDATE</td><td>current bound <code>r &lt; 0.036</code> (measured) — survived</td></tr>
+        <tr><td><code>r</code>, union across all four normalization-convention branches</td><td>[3.5, 36]×10⁻³</td><td>pre-registered falsifier</td><td>LiteBIRD, ~2030</td></tr>
+      </tbody>
+    </table>
+    <p>Two words matter in that table and are used deliberately, not loosely: <strong>PROJECTED</strong> means the
+    number is a computed output of the candidate structure, not yet certificate-grade; <strong>CANDIDATE</strong>
+    means the underlying physical claim behind the number — that the plateau's slope really is forced by the
+    geometry's dimension split, rather than an assumption dressed up as a derivation — has not yet been confirmed
+    against the underlying source computation. The chain from "geometry" to "these two numbers" is reported here
+    exactly as strong as it currently is: promising and internally consistent, but not yet locked down.</p>
+
+    <h2 id="why-a-range">3. Why there is a range, not a single number, for r</h2>
+    <p>The tensor-to-scalar ratio depends on a normalization convention inside the geometry's kinetic-term
+    bookkeeping that has not yet been pinned to a single choice — specifically, whether a particular dimensional
+    factor in the σ-field's kinetic normalization is <code>11</code> (one candidate reading of the source geometry)
+    or the plain four-dimensional textbook value of <code>2</code>. Because that choice has not been closed, the
+    honest thing to report is not a single number dressed up as more certain than it is, but the full menu of four
+    possible bands the convention could produce, plus their union:</p>
+    <table>
+      <thead><tr><th>Branch</th><th>Convention</th><th>Projected r band</th><th>Standing</th></tr></thead>
+      <tbody>
+        <tr><td>T6</td><td>textbook normalization, one internal mode only</td><td>[3.5, 10]×10⁻³</td><td>currently the operative (frozen) branch</td></tr>
+        <tr><td>T_u</td><td>textbook normalization, uniform across all internal modes</td><td>[6.1, 17]×10⁻³</td><td>where a textbook reading would land if a different structural declaration is operative</td></tr>
+        <tr><td>D6</td><td>alternate normalization, one internal mode only</td><td>[8, 24]×10⁻³</td><td>survives the current bound</td></tr>
+        <tr><td>D_u</td><td>alternate normalization, uniform across all internal modes</td><td>[10, 36]×10⁻³</td><td>survives the current bound</td></tr>
+      </tbody>
+    </table>
+    <p>Every one of these four bands sits inside the pre-registered union falsifier, <code>[3.5, 36]×10⁻³</code> —
+    that is the number that matters for the honest falsifiability claim, because it does not depend on resolving
+    the open convention question. Whichever of the four branches turns out to be operative is a separate, narrower
+    question this program has not yet closed, and which the LiteBIRD measurement itself may help answer by reading
+    off which band the real universe's <code>r</code> falls into.</p>
+
+    <h2 id="falsifier">4. The falsifier: LiteBIRD, ~2030</h2>
+    <div class="callout">
+      <h3 style="margin-top:0;">A real, named, dated test</h3>
+      <p style="margin:0 0 0.6em;"><strong>LiteBIRD</strong> is a planned satellite mission expected to measure the
+      polarization of the cosmic microwave background with enough sensitivity to constrain the tensor-to-scalar
+      ratio far below today's bound, around 2030.</p>
+      <ul style="margin:0.2em 0 0.6em; padding-left:1.3em;">
+        <li>If LiteBIRD measures <code>r</code> <strong>outside</strong> <code>[3.5, 36]×10⁻³</code>, the σ-inflaton
+        candidate is falsified — regardless of which normalization convention turns out to be correct. This is a
+        real, pre-registered, binary risk the candidate is exposed to.</li>
+        <li>If LiteBIRD measures <code>r</code> <strong>inside</strong> that union range, the σ-inflaton survives,
+        and because the four branches separate from each other at LiteBIRD's expected resolution, the measurement
+        would also read off which normalization convention is operative — turning an internal bookkeeping question
+        into an observable.</li>
+      </ul>
+      <p style="margin:0;">Until that measurement happens, this gate cannot close by computation alone. Put
+      plainly: this gap does not close on computation alone — <code>r</code> is an observable that only a
+      real experiment can pin down.</p>
+    </div>
+
+    <h2 id="what-candidate-means">5. Why "candidate," not "prediction"</h2>
+    <p>This page avoids calling the σ-inflaton numbers a "prediction" in the sense that word carries once a result
+    is locked down and certificate-grade, for a specific, named reason: the claim that the plateau's slope is
+    <em>forced</em> by the geometry's dimension split — rather than merely consistent with it — rests on a source
+    derivation that has not yet been confirmed in this pass. The arithmetic step (that a slope of <code>1/6</code>
+    corresponds to a particular internal kinetic coefficient) is straightforward bookkeeping and is not in
+    question. The physics step — that the geometry forces that particular coefficient, with no adjustable dial —
+    is the part still open. Until it is confirmed, the honest label is <strong>CANDIDATE</strong>, and the bands
+    computed from it are <strong>PROJECTED</strong>, exactly as strong as they have actually earned.</p>
+
+    <h2 id="what-else-is-open">6. What else is open, named plainly</h2>
+    <p>Beyond the LiteBIRD measurement and the slope-forcing confirmation above, the gate carries a small number
+    of other named open items, each bounded and specific rather than a vague "more work needed":</p>
+    <ul>
+      <li>The absolute amplitude of the scalar spectrum (<code>A_s</code>) is not yet computed — it depends on one
+      further loop-level coefficient and one confirmatory read of a frozen internal-geometry file, neither of
+      which is done yet.</li>
+      <li>The number of e-folds of inflation (<code>N_*</code>) that the reported bands assume has not been
+      published alongside the bands themselves — the bands are reported as computed, but their
+      dependence on the exact e-fold count is an open consistency question, not a hidden free parameter tuned
+      after the fact.</li>
+      <li>A separate, longer-horizon question about the global stability of the compact internal geometry at very
+      short distances is on record as open and tied to the same difficulty behind the cosmological-constant
+      problem — but it is explicitly non-blocking for the testable spectrum reported above, which lives in a
+      region of the theory this deeper question does not reach.</li>
+    </ul>
+    <p>None of these open items change the falsifier: the union range <code>[3.5, 36]×10⁻³</code> for LiteBIRD
+    holds regardless of how they resolve.</p>
+
+    <h2 id="bottom-line">7. Bottom line</h2>
+    <p>One candidate inflaton is dead on qualitative grounds and is not being revived. One candidate survives every
+    check run against it, sits at the dead center of the measured spectral tilt, and comes with a pre-registered,
+    falsifiable range for the tensor-to-scalar ratio that a real, dated satellite mission will test. Every number
+    on this page is reported at the strength it has actually earned — CANDIDATE and PROJECTED, not PREDICTED or
+    CONFIRMED — and the gate's overall status remains OPEN until that measurement happens.</p>
+
+    <p><a href="/early-universe/" class="btn">← Back to Early &amp; Distant Universe overview</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

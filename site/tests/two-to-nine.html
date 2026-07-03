@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 2 — Two Numbers Fix Nine-Plus — The Tests</title>
+<meta name="description" content="Two declared flavor anchors lock the quark, charged-lepton, and neutrino chamber; nineteen-plus independent outputs come back, with the weakest link named. Not peer-reviewed. PROMOTIONS:0.">
+<style>
+  :root{
+    --ink:#1b1f23; --ink-soft:#4a5056; --paper:#fbfaf7; --paper-alt:#f2efe8;
+    --line:#d8d3c7; --accent:#6b3f2a; --accent-2:#1f4e5f; --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper); color:var(--ink); font-family: Georgia, 'Times New Roman', Cambria, serif; line-height:1.6; font-size:17px; -webkit-font-smoothing:antialiased;}
+  a{color:var(--accent-2);} a:hover{color:var(--accent);}
+  h1,h2,h3,h4{font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif; line-height:1.25; font-weight:700; color:var(--ink);}
+  code, pre{font-family: Consolas, 'Courier New', monospace; background:var(--paper-alt); border:1px solid var(--line); border-radius:3px;}
+  code{padding:0.05em 0.35em; font-size:0.92em;} pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{margin:1em 0; padding:0.4em 1.1em; border-left:3px solid var(--accent); background:var(--paper-alt); color:var(--ink-soft);}
+  .skip-link{position:absolute; left:-999px; top:auto;}
+  .skip-link:focus{left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);}
+  .topbar{background:var(--ink); color:#eee; font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif; font-size:0.82rem;}
+  .topbar-inner{max-width:var(--maxw); margin:0 auto; padding:0.4em 1.2em; display:flex; flex-wrap:wrap; gap:0.6em 1.2em; align-items:center; justify-content:space-between;}
+  .stamp{display:inline-flex; align-items:center; gap:0.5em; color:#e7c9a9; letter-spacing:0.01em;}
+  .stamp b{color:#fff; font-weight:700;} .topbar-site{color:#c9c2b3;}
+  header.site-header{background:var(--paper); border-bottom:1px solid var(--line);}
+  .brand-row{max-width:var(--maxw); margin:0 auto; padding:1.1em 1.2em 0.6em; display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:0.4em;}
+  .brand-row h1{margin:0; font-size:1.5rem; letter-spacing:0.01em;}
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{font-family: Georgia, serif; font-style:italic; color:var(--ink-soft); font-size:0.95rem;}
+  nav.main-nav{max-width:var(--maxw); margin:0 auto; padding:0 1.2em;}
+  nav.main-nav ul{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:0.2em; border-top:1px solid var(--line);}
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{display:block; padding:0.8em 0.9em; color:var(--ink); text-decoration:none; font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif; font-size:0.92rem; font-weight:600; border-bottom:3px solid transparent; white-space:nowrap;}
+  nav.main-nav a:hover{border-bottom-color:var(--accent); color:var(--accent);}
+  nav.main-nav a[aria-current="page"]{border-bottom-color:var(--accent-2); color:var(--accent-2);}
+  .layout{max-width:var(--maxw); margin:0 auto; padding:2em 1.2em 3em; display:grid; grid-template-columns:220px 1fr; gap:2.4em; align-items:start;}
+  .subnav{position:sticky; top:1.2em; font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif; font-size:0.88rem;}
+  .subnav-box{border:1px solid var(--line); background:var(--paper-alt); border-radius:4px; padding:1em 1.1em;}
+  .subnav-box h2{margin:0 0 0.6em; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft);}
+  .subnav-box ul{list-style:none; margin:0; padding:0;} .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{text-decoration:none; color:var(--ink);}
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{color:var(--accent-2); font-weight:700;}
+  main{min-width:0;}
+  main h2{margin-top:1.9em; padding-bottom:0.25em; border-bottom:1px solid var(--line); font-size:1.5rem;}
+  main h2:first-child{margin-top:0;} main h3{font-size:1.18rem; margin-top:1.5em;} main p{margin:0.9em 0;}
+  .lede{font-size:1.12rem; color:var(--ink-soft);}
+  .callout{border:1px solid var(--line); border-left:4px solid var(--accent-2); background:var(--paper-alt); padding:1em 1.2em; margin:1.4em 0; border-radius:0 4px 4px 0;}
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{border:1px dashed var(--accent); background:#fbf3ea; padding:1em 1.2em; margin:1.4em 0; border-radius:4px; font-size:0.95rem;}
+  .btn{display:inline-block; font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif; font-weight:700; font-size:0.92rem; text-decoration:none; padding:0.7em 1.3em; border-radius:4px; border:1px solid var(--accent-2); color:var(--accent-2); background:transparent;}
+  .btn:hover{background:var(--accent-2); color:#fff;} .btn-solid{background:var(--accent-2); color:#fff;} .btn-solid:hover{background:var(--accent);}
+  .chip{display:inline-block; font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:0.03em; text-transform:uppercase; padding:0.2em 0.6em; border-radius:99px; border:1px solid var(--line); background:#fff; color:var(--ink-soft);}
+  .chip.agree{border-color:#3f7a4a; color:#2c5a34; background:#eef6ef;}
+  .chip.mixed{border-color:#8a5a3a; color:#7a4a24; background:#f9ede2;}
+  footer.site-footer{background:var(--ink); color:#cfc9bd; font-size:0.85rem;}
+  .footer-inner{max-width:var(--maxw); margin:0 auto; padding:2em 1.2em; display:flex; flex-wrap:wrap; gap:1.6em 3em; justify-content:space-between;}
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{margin:0 0 0.5em; color:#fff; font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em;}
+  .footer-honesty{max-width:var(--maxw); margin:0 auto; padding:0 1.2em 1.6em; font-size:0.8rem; color:#a49c8c;}
+  .footer-honesty .stamp{color:#e7c9a9;} .footer-honesty .stamp b{color:#fff;}
+  .pagenav{display:flex; justify-content:space-between; margin-top:2.4em; padding-top:1em; border-top:1px solid var(--line); font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif; font-size:0.92rem;}
+  @media (max-width:820px){.layout{grid-template-columns:1fr;} .subnav{position:static;}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/" aria-current="page">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>The six tests</h2>
+      <ul>
+        <li><a href="/tests/dual-gr.html">1. Dual GR, both ways</a></li>
+        <li><a href="/tests/two-to-nine.html" aria-current="page">2. Two numbers &rarr; nine</a></li>
+        <li><a href="/tests/early-universe.html">3. Early-universe blind predictions</a></li>
+        <li><a href="/tests/nasa-calculators.html">4. NASA-facing calculators</a></li>
+        <li><a href="/tests/quantum-computer.html">5. The quantum computer</a></li>
+        <li><a href="/tests/gates-table.html">6. Gates &times; Constraints table</a></li>
+      </ul>
+      <h2 style="margin-top:1.1em;">On this page</h2>
+      <ul>
+        <li><a href="#what-was-done">What was done</a></li>
+        <li><a href="#both-ways">Independent?</a></li>
+        <li><a href="#result">Honest result</a></li>
+        <li><a href="#sources">Data sources</a></li>
+        <li><a href="#limits">What this does not show</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <p><span class="chip agree">Over-determination check</span> <span class="chip mixed">One weak row, named</span></p>
+    <h2 style="border-bottom:none; margin-bottom:0.2em;">Test 2 — Two numbers fix nine-plus (the quark, lepton, and neutrino sector)</h2>
+    <p class="lede">Standard Model flavor physics — the masses and mixings of the quarks, charged leptons, and
+    neutrinos — is normally described with roughly a dozen and a half independently-inserted numbers. This
+    test asks: if the internal geometry's flavor structure is frozen first, how many of those measured numbers
+    can be read off instead of inserted?</p>
+
+    <h2 id="what-was-done">What was done</h2>
+    <p>The internal geometry carries a fixed "flavor chamber" — a set of frozen operators built from the
+    geometry's own structure (its modular fixed point, its sector projectors, its Wilson-line data), not a
+    free 3&times;3 matrix per particle sector. Before any measured value is read, this chamber already has
+    almost everything shaped; it has exactly <strong>two open blanks</strong>: an overall up-sector mass scale,
+    and a single mixing angle.</p>
+    <p>Two measured numbers are declared, in order, to fill those two blanks:</p>
+    <table>
+      <thead><tr><th>Step</th><th>Anchor read</th><th>Value</th><th>What it fixes</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Fix 1 — the scale</td>
+          <td>Top-quark Yukawa coupling y<sub>t</sub>(M<sub>Z</sub>)</td>
+          <td>0.9665</td>
+          <td>The up-sector normalization; once pinned, the charm and up masses are <strong>forced</strong>
+          through fixed geometric ratios, not fit independently. The down-sector scale then arrives from the
+          geometry itself, from a separate frozen calculation — not from a third measurement.</td>
+        </tr>
+        <tr>
+          <td>Fix 2 — the angle</td>
+          <td>CKM mixing element |V<sub>us</sub>|</td>
+          <td>0.22436</td>
+          <td>The chamber's single mixing angle; once pinned, every other quark-mixing magnitude
+          (|V<sub>cb</sub>|, |V<sub>ub</sub>|, |V<sub>td</sub>|, |V<sub>ts</sub>|, |V<sub>tb</sub>|,
+          |V<sub>cd</sub>|, |V<sub>cs</sub>|, |V<sub>ud</sub>|) is forced, along with the CP-violating phase.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>After these two fixes, the freeze record closes: nothing in the flavor pipeline is adjustable
+    afterward. Every other flavor quantity reported is a frozen output, not a further input.</p>
+
+    <h2 id="both-ways">Independent?</h2>
+    <p>The discipline enforced here is <strong>over-determination, not zero-input derivation</strong>: two
+    declared calibration inputs are openly counted, and the manuscript does not claim otherwise. What makes
+    the check meaningful is that the outputs were fixed structurally <em>before</em> being compared to data —
+    the chamber's operators are frozen by the geometry, not chosen after seeing the answer — and the count of
+    independent outputs is strictly larger than the count of declared inputs. Two of the most striking rows
+    (the charged-lepton masses and every neutrino observable) use <strong>zero further anchors</strong> at
+    all — eight further observables including all three neutrino mixing angles and a leptonic CP phase come
+    out with no additional measured input whatsoever.</p>
+
+    <h2 id="result">Honest result</h2>
+    <table>
+      <thead><tr><th>Sector</th><th>Independent frozen outputs</th><th>Calibration inputs used</th></tr></thead>
+      <tbody>
+        <tr><td>Quark, within-sector (up &amp; down)</td><td>m<sub>t</sub>/m<sub>c</sub>, m<sub>c</sub>/m<sub>u</sub>, m<sub>b</sub>/m<sub>s</sub>, m<sub>s</sub>/m<sub>d</sub></td><td>&mdash;</td></tr>
+        <tr><td>Quark, between-sector</td><td>|y<sub>t</sub>/y<sub>b</sub>|(M<sub>Z</sub>)</td><td>&mdash;</td></tr>
+        <tr><td>Quark mixing (CKM)</td><td>|V<sub>cb</sub>|, |V<sub>ub</sub>|, |V<sub>cd</sub>|, |V<sub>cs</sub>|, |V<sub>td</sub>|, |V<sub>ts</sub>|, |V<sub>tb</sub>|</td><td>&mdash;</td></tr>
+        <tr><td>Quark CP violation</td><td>&delta;<sub>CKM</sub> / Jarlskog invariant J<sub>CKM</sub></td><td>&mdash;</td></tr>
+        <tr><td>Charged leptons</td><td>m<sub>e</sub>, m<sub>&mu;</sub>, m<sub>&tau;</sub></td><td>&mdash;</td></tr>
+        <tr><td>Neutrinos</td><td>two mass-squared splittings, three PMNS mixing angles, leptonic CP phase</td><td>&mdash;</td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>19 or more independent outputs</strong></td><td><strong>2 (y<sub>t</sub>, |V<sub>us</sub>|)</strong></td></tr>
+      </tbody>
+    </table>
+    <p>Selected agreements: |V<sub>ub</sub>| comes out 0.00378 against a PDG value of 0.00382; |V<sub>cb</sub>|
+    comes out 0.0408 against 0.04079; the CKM CP-violating phase comes out at +60.0&deg; (from the geometry's
+    raw holonomy of &minus;120&deg;, aligned to the standard Wolfenstein convention) against a measured 65.5&deg;
+    &plusmn; 1.5&deg;, a sub-1&sigma; pull at the declared ~10% structural precision; the Jarlskog invariant
+    comes out 2.92&times;10&#8315;&#8309; against a measured 3.00&times;10&#8315;&#8309;. The leptonic CP phase
+    comes out around 260.2&deg;, inside the NuFIT global-fit band of 195&deg;&ndash;270&deg;.</p>
+    <p><strong>The named weakest link:</strong> the up-quark mass row lands at roughly 4.4&sigma; from its
+    measured value. This is disclosed as a consequence of the rigid mass-ratio ladder used (there is no
+    separate up-quark-mass anchor to tune it back into line), not hidden or dropped from the ledger.</p>
+
+    <h2 id="sources">Data sources</h2>
+    <ul>
+      <li><strong>y<sub>t</sub>(M<sub>Z</sub>) = 0.9665</strong> and <strong>|V<sub>us</sub>| = 0.22436</strong>
+      — Particle Data Group (PDG) values, declared and hashed before comparison.</li>
+      <li><strong>Comparison values</strong> for all nineteen-plus outputs (quark mass ratios, CKM matrix
+      elements, the CP-violating phase, charged-lepton masses, neutrino mass-squared splittings and mixing
+      angles) — PDG world averages; the neutrino sector compared against the NuFIT global-fit bands.</li>
+      <li><strong>Source document:</strong> the GUT manuscript's flavor-closure chapter (the F&#8314; chamber
+      construction, the two-anchor fixing, and the full per-observable certificate with pulls disclosed row by
+      row, including the 4.4&sigma; up-quark row).</li>
+    </ul>
+
+    <h2 id="limits">What this does not show</h2>
+    <div class="callout">
+      <p style="margin:0;">This is <strong>not claimed as a zero-input derivation</strong> of Standard Model
+      flavor physics. Two measured numbers are openly used as calibration inputs, and the manuscript does not
+      claim the flavor sector is "solved" or that CKM is fully closed — those exact phrases are explicitly
+      forbidden in the source document unless every row independently upgrades to closure status. What is
+      claimed is <em>parameter-counted compression</em>: a chamber that is frozen before comparison, that
+      forbids per-entry tuning, and that returns strictly more independent outputs than it consumes as inputs
+      — with its one weak row (the up-quark mass) disclosed rather than hidden. A reviewer's strongest attack
+      on this test is exactly this: is the flavor chamber a real derivation, or compressed curve-fitting under
+      a different name? The source document poses that objection against itself and answers it with the
+      frozen-before-comparison discipline described above — a reader should judge that answer independently.</p>
+    </div>
+
+    <div class="pagenav">
+      <a href="/tests/dual-gr.html">&larr; Test 1: Dual GR, both ways</a>
+      <a href="/tests/early-universe.html">Test 3: Early-universe blind predictions &rarr;</a>
+    </div>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

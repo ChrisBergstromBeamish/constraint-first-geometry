@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.5.0 — 2026-07-02
+
+- **Expanded public program — five new site sections** (frozen under `site/`, rendered as deployed to the canonical site): **The Process** (the constraint-first method, physics abstracted), **The Tests** (independent consistency checks — dual-GR collapse, the 2→9 fixing, early-universe, NASA calculators, quantum-computer, gates × load-bearing constraints), **Early & Distant Universe** (blind, compute-before-compare cosmology predictions — an honestly-reported blocked test rather than a tuned number), **Emergent Separability / Theory of Differentiated Unity** (the ontology, explicitly subordinate in rigor to the tested method), and **Consciousness** (a clearly-labeled speculative framework — *not solvable by physics alone*).
+- **Nomenclature adopted:** deep roots → **Foundational Constraints**; the ontology → **Theory of Differentiated Unity**; the method → **Constraint-Based Reconstruction Theory (CBRT)**. Gates / Closure retained.
+- Honest posture unchanged: **PROMOTIONS = 0**, nothing physics-CLOSED, every claim carries an honest status label; open questions named as open.
+- Regenerated `HASHES.sha256` (89 files; manifest digest `4fbf3433af746b8bb75a04c4abc16c1f1c51c739de95c0cb45a64a5bf5439455`).
+- **Zenodo:** publishing this GitHub release auto-mints a versioned DOI for v1.5.0; cite the **concept DOI** `10.5281/zenodo.20709153` (always resolves to the latest version).
+
 ## v1.4.0 — 2026-06-23
 
 - **Plain-language summary expanded.** *In Search of Nature's Elegance* gains a "How This Was Made" section — an honest account of the human + AI collaboration and the discipline (PROMOTIONS = 0, no fitting, freeze-before-compare) that governed it.

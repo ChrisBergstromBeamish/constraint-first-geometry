@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Process We Built to Attack Them — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="A narrative account of the disciplined, auditable process used to attack open questions honestly — that it exists, what it guarantees, and why it is trustworthy, without the internal mechanics.">
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+  .step-num{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:1.9em; height:1.9em;
+    border-radius:50%;
+    background:var(--accent-2);
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.95rem;
+    margin-right:0.5em;
+    flex:none;
+  }
+  .step-row{
+    display:flex;
+    align-items:flex-start;
+    gap:0.2em;
+    margin:1.1em 0;
+  }
+  .step-row .step-body h4{margin:0 0 0.2em;}
+  .step-row .step-body p{margin:0.2em 0 0; color:var(--ink-soft); font-size:0.96rem;}
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/" aria-current="page">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>The Process</h2>
+      <ul>
+        <li><a href="/process/">Overview</a></li>
+        <li><a href="/process/thought-experiment.html">1. The thought experiment</a></li>
+        <li><a href="/process/constraints-to-shape.html">2. Constraints &rarr; a shape</a></li>
+        <li><a href="/process/testing-the-shape.html">3. Testing the shape</a></li>
+        <li><a href="/process/gut-quantum-toe.html">4. GUT / Quantum / TOE</a></li>
+        <li><a href="/process/the-process-we-built.html" aria-current="page">5. The process we built</a></li>
+        <li><a href="/process/closure-paths.html">6. Closure paths</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <h2 style="border-bottom:none; margin-bottom:0.2em;">5. The process we built to attack them</h2>
+    <p class="lede">Doing all of this honestly, across dozens of open questions, could not be a one-off argument.
+    It required an actual process: a repeatable, disciplined way of attacking each open question, grading the
+    result on a fixed and honest scale, and refusing to let a finding get quietly upgraded in status without new
+    work earning it. This page describes that process at the level a reader needs to trust it — what it is,
+    what it guarantees, and how to check it — without walking through its internal mechanics.</p>
+
+    <div class="honesty-box">
+      <strong>What this page is, and is not.</strong> This is a narrative account of an audited internal
+      discipline, not a technical manual. The internal step-by-step procedure is not published here; what is
+      published is that the procedure exists, what it is designed to prevent, and the visible trail every claim
+      leaves because of it.
+    </div>
+
+    <h2>What the process is for</h2>
+    <p>Every open question in the shape — a gate, in this program's language — gets attacked individually rather
+    than waved at with a general argument. Each attack ends in one of a small number of honest outcomes: proved
+    outright, reduced to one of the Foundational Constraints, reduced to a measured input the program already
+    relies on elsewhere, or left explicitly open with a stated path to close it. There is no outcome in the
+    system that lets a result sit in an ambiguous, unlabeled middle ground.</p>
+
+    <h2>The two rules that make it trustworthy</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h4>No silent promotions</h4>
+        <p>A finding's status can only change when new, checkable work earns the change. The running count of
+        how many findings have been promoted without that work is tracked and published: <strong>PROMOTIONS:0</strong>,
+        visible in the footer of every page on this site.</p>
+      </div>
+      <div class="card">
+        <h4>A visible trail, not just a verdict</h4>
+        <p>Every claim carries not just a status label but a pointer to where that status came from — which
+        constraint it reduces to, which measured anchor it relies on, or what would need to happen to close it.
+        A reader does not have to take a bare assertion on faith.</p>
+      </div>
+    </div>
+
+    <h2>Two independent checks, not one author grading their own work</h2>
+    <p>The discipline is built so that proposing a result and accepting a result are not the same act. One role
+    generates candidate arguments and computations; a second, independent role checks each one before it is
+    allowed to change a status. A result that only the side that produced it believes does not count as
+    established — it stays open until an independent check passes it. This separation is what makes "PROMOTIONS:0"
+    a meaningful claim rather than a slogan: it is a count that an independent check is actively trying to move.</p>
+
+    <h2>Why share this much and no more</h2>
+    <p>This program shares the physics — the reasoning, the constraints, and the closure status of every gate —
+    in enough depth that a working physicist can check it and, where a gate is open, build on it. What this
+    program does not publish here is the internal operational machinery of how the attacks are organized and
+    audited day to day. That is process detail, not a physics result, and withholding it costs a reader nothing:
+    every physics claim this process produces is checkable directly, on its own terms, on
+    <a href="/tests/">The Tests</a> and <a href="/gates/">Gates</a>, regardless of how the internal work was
+    organized.</p>
+
+    <h2>How to check this yourself</h2>
+    <p>You do not have to trust a description of the process — you can audit its output directly:</p>
+    <ul>
+      <li>Read the honest-status label on any claim on this site and follow its link to see what it actually
+      rests on.</li>
+      <li>Look at the <strong>PROMOTIONS:0</strong> stamp and the open items on <a href="/gates/">Gates</a> —
+      an honest process should have a visible backlog of unresolved questions, not a clean scorecard.</li>
+      <li>Run the by-hand checks on <a href="/process/testing-the-shape.html">Testing the shape</a> yourself, with
+      a calculator or any competent AI, and compare against the stated expected values.</li>
+    </ul>
+
+    <h2>Where this goes next</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h4><a href="/process/closure-paths.html">6. Closure paths</a></h4>
+        <p>A high-level map of the honest endpoints an open question can actually reach.</p>
+      </div>
+      <div class="card">
+        <h4><a href="/gates/">Gates</a></h4>
+        <p>The open questions and structural checkpoints, tracked individually with current status.</p>
+      </div>
+    </div>
+
+    <p><a href="/process/closure-paths.html" class="btn btn-solid">Next: Closure paths &rarr;</a>
+    &nbsp; <a href="/process/gut-quantum-toe.html" class="btn">&larr; Back: GUT / Quantum / TOE</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

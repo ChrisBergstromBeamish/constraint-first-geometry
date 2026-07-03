@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Theory of Consciousness (Speculative) — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="A speculative framework that asks how far physics can take consciousness, and names the point — subjective feel, meaning, selfhood, agency, value — where it runs out. Not established science.">
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  /* ---------- Page-specific: speculative banner + root cards ---------- */
+  .spec-banner{
+    display:flex;
+    align-items:flex-start;
+    gap:0.9em;
+    border:2px solid var(--accent);
+    background:#fbf3ea;
+    padding:1.1em 1.3em;
+    margin:0 0 1.6em;
+    border-radius:6px;
+  }
+  .spec-banner .flag{
+    font-size:1.5rem;
+    line-height:1;
+    flex:0 0 auto;
+  }
+  .spec-banner h2{
+    margin:0 0 0.35em;
+    padding:0;
+    border:0;
+    font-size:1.05rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--accent);
+  }
+  .spec-banner p{margin:0.3em 0; font-size:0.96rem; color:var(--ink-soft);}
+  .root-table th, .root-table td{vertical-align:top;}
+  .root-table td.status, .root-table th.status{white-space:nowrap;}
+  .status-pill{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.72rem;
+    font-weight:700;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    color:#6b3f2a;
+    background:#f2e3d0;
+    border:1px solid #d8b98d;
+    border-radius:3px;
+    padding:0.25em 0.5em;
+    white-space:nowrap;
+  }
+  .chain{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    text-align:center;
+    padding:1.1em 0.6em;
+    color:var(--accent-2);
+    font-size:1.02rem;
+    letter-spacing:0.01em;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:4px;
+    margin:1.2em 0 1.6em;
+    overflow-x:auto;
+    white-space:nowrap;
+  }
+  .not-claim{
+    border:1px solid #b5453a;
+    background:#fbeceb;
+    border-radius:4px;
+    padding:0.9em 1.1em;
+    margin:0.6em 0;
+  }
+  .not-claim .no{color:#8a2f27; font-weight:700;}
+  .not-claim .yes{color:#1f4e5f; font-weight:700;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/" aria-current="page">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this page</h2>
+      <ul>
+        <li><a href="#status">Status</a></li>
+        <li><a href="#question">The question</a></li>
+        <li><a href="#route">The reduction route</a></li>
+        <li><a href="#roots">Five terminal roots</a></li>
+        <li><a href="#not-claiming">What this does not claim</a></li>
+        <li><a href="#relation">How this relates to the physics</a></li>
+        <li><a href="#bottom-line">Bottom line</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <p class="lede">Theory of Consciousness (Speculative Framework)</p>
+    <h1 style="margin:0 0 0.6em; font-size:2.1rem;">How far can physics take consciousness — and where does it stop?</h1>
+
+    <div class="spec-banner" id="status">
+      <span class="flag" aria-hidden="true">⚑</span>
+      <div>
+        <h2>Speculative framework — not an established scientific result</h2>
+        <p><strong>Status: Speculative theoretical framework.</strong> This model is not established science and should be read as a structured proposal for further analysis, not as a finding of the physics program described elsewhere on this site.</p>
+        <p>It is intended as a structured philosophical and theoretical framework. Its central proposal is that consciousness can be modeled as a persistent <strong>record&ndash;thought&ndash;record loop</strong> inside a shared root reality — but the framework does <strong>not</strong> claim to have solved qualia, free will, or quantum outcome selection.</p>
+      </div>
+    </div>
+
+    <h2 id="question">The question this page asks</h2>
+    <p>Everywhere else on this site, Constraint-Based Reconstruction Theory is applied to physics: geometry, gauge groups, particle content. This page asks a different, much less settled question — <strong>can the same constraint-first method say anything useful about consciousness?</strong></p>
+    <p>The approach here is the same in spirit as the rest of the program: don't assert an answer, reduce the problem until you hit something that either resolves or doesn't, and name the residue honestly. Applied to consciousness, that reduction runs out before it reaches a physical mechanism for first-person experience. The honest endpoint is a set of named, physics-terminal roots — not a solution.</p>
+
+    <h2 id="route">The reduction route</h2>
+    <p>The proposed route tries to get as far as physics can plausibly go before stopping:</p>
+    <div class="chain">Records &rarr; thought &rarr; observation &rarr; conscious loop &rarr; terminal roots</div>
+    <p>Physics has real, non-trivial things to say about the left-hand side of that chain: substrates, causal channels, neural dynamics, computation, the structure of records, embodiment, and behavior. The claim of this framework is narrower and more cautious than it might sound: that a persistent loop — record, thought about the record, a new record produced by that thought — is a workable physical-level model of what a conscious process is doing mechanically.</p>
+    <p>What the framework does <em>not</em> claim is that this loop explains why any of it is <em>felt</em> from the inside, or why the content of a thought is <em>about</em> anything, or why it is centered on a "self," or why some outcomes matter more than others, or whether the process choosing between futures is anything more than dynamics or randomness. Those five questions are where the reduction stops — not because no one has tried hard enough, but because the questions appear to change kind partway through: they stop being questions a third-person physical description can, even in principle, be the whole answer to.</p>
+
+    <h2 id="roots">Five physics-terminal roots</h2>
+    <p>Reducing consciousness this way does not dissolve it into physics. It isolates a small number of places where physics runs out. This framework names five:</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h4>1. Subjective feel</h4>
+        <p>Why does any physical loop feel like something from the inside, rather than nothing at all?</p>
+      </div>
+      <div class="card">
+        <h4>2. Meaning / intentionality</h4>
+        <p>How does a physical state become <em>about</em> something, rather than just correlated with it?</p>
+      </div>
+      <div class="card">
+        <h4>3. Selfhood / first-person perspective</h4>
+        <p>Why is experience centered as "mine" rather than being an unowned pattern of events?</p>
+      </div>
+      <div class="card">
+        <h4>4. Agency / free will</h4>
+        <p>Is choice more than deterministic dynamics or randomness — and if so, more in what sense?</p>
+      </div>
+      <div class="card">
+        <h4>5. Value / salience</h4>
+        <p>Why does anything matter to the observer at all?</p>
+      </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+      <table class="root-table">
+        <thead>
+          <tr><th>Root</th><th>Question</th><th class="status">Closure status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Subjective feel</td><td>Why does any physical loop feel like something from the inside?</td><td class="status"><span class="status-pill">Not closed by physics alone</span></td></tr>
+          <tr><td>Meaning / intentionality</td><td>How does a physical state become about something?</td><td class="status"><span class="status-pill">Not closed by physics alone</span></td></tr>
+          <tr><td>Selfhood / first-person perspective</td><td>Why is experience centered as "mine"?</td><td class="status"><span class="status-pill">Not closed by physics alone</span></td></tr>
+          <tr><td>Agency / free will</td><td>Is choice more than deterministic dynamics or randomness?</td><td class="status"><span class="status-pill">Not closed by physics alone</span></td></tr>
+          <tr><td>Value / salience</td><td>Why does anything matter to the observer?</td><td class="status"><span class="status-pill">Not closed by physics alone</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <h3>Why "not closed by physics alone," not "unsolvable by physics"</h3>
+      <p>Physics can constrain all five roots. It can identify correlates, mechanisms, dependencies, and failure modes — what has to be true of a substrate for a record&ndash;thought&ndash;record loop to run at all, what breaks it, what it depends on causally. What it may not be able to do is fully <em>derive</em> the first-person or normative content of the experience from third-person equations. That is a narrower and more careful claim than "physics cannot explain consciousness," and it is the one this framework is willing to make.</p>
+    </div>
+
+    <h2 id="not-claiming">What this framework does not claim</h2>
+    <div class="not-claim">
+      <p><span class="no">Not claimed:</span> <em>"This proves consciousness creates reality."</em></p>
+      <p><span class="yes">Claimed instead:</span> This proposes that thought shapes observer-level reality by classifying accessible records and selecting future record paths.</p>
+    </div>
+    <p>That distinction matters. The stronger sentence is a metaphysical claim this framework has no way to establish. The narrower sentence is a structural proposal about what a thinking process is doing to the records it has access to and the records it produces next — defensible as a model, not offered as proof of anything about the fundamental nature of reality.</p>
+    <p>Likewise, this page does not claim to have solved qualia, does not claim to have solved free will, and does not claim to have resolved how or whether consciousness plays any role in quantum outcome selection. Where other material connected to this program discusses observers or measurement, that is physics language about records and causal structure — it is not to be read as an implicit solution to the roots named above.</p>
+
+    <h2 id="relation">How this relates to the rest of the program</h2>
+    <p>Everywhere else on this site, "Constraint-Based Reconstruction Theory" names a method applied to physics, and results are labeled with an honest status — derived, reduced, open, or refuted — never rounded up. This page borrows the same discipline and applies it to a much harder target. The output is structurally the same kind of thing: a reduction plus a named, honest residue. It is not the same kind of result. Nothing on this page is a physics finding, and nothing here should be read as extending the physics program's evidentiary claims.</p>
+    <p>The plain summary: physics may explain the machinery of consciousness; it may not fully explain why the machinery is experienced from the inside.</p>
+
+    <h2 id="bottom-line">Bottom line</h2>
+    <div class="honesty-box">
+      <p><strong>The Theory of Consciousness is a speculative framework, not an established scientific result.</strong> It uses Constraint-Based Reconstruction to reduce consciousness to its apparent terminal roots — subjective feel, meaning, first-person perspective, agency, and value — and treats each as a place where physics can constrain the problem but may not be able to fully close it alone. Read it as a structured proposal for further analysis, not as a claim that consciousness has been explained.</p>
+    </div>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a><br>
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Standard Model as Interface — Emergent Separability</title>
+<meta name="description" content="Why the Standard Model's product gauge structure is best read as a low-energy separability interface, not necessarily the deep geometry — and what is and is not proven about that.">
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/" aria-current="page">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/emergent-separability/">Overview</a></li>
+        <li><a href="/emergent-separability/one-but-separate.html">One but Separate</a></li>
+        <li><a href="/emergent-separability/separation-certificate.html">The Separation Certificate</a></li>
+        <li><a href="/emergent-separability/standard-model-interface.html" aria-current="page">The Standard Model as Interface</a></li>
+        <li><a href="/emergent-separability/kinds-of-separation.html">Kinds of Separation</a></li>
+        <li><a href="/emergent-separability/new-physics.html">Where This Opens New Physics</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <h2 style="border-bottom:none; margin-bottom:0.2em;">The Standard Model as Interface</h2>
+    <p class="lede">The candidate shape used elsewhere on this site describes the extra dimensions of the universe
+    as a <strong>product</strong> of three separate geometric pieces, one associated with each Standard Model
+    gauge group. This page explains why that product structure is not free — and what the honest current status
+    of "is it the deep geometry, or just the low-energy interface?" actually is.</p>
+
+    <div class="honesty-box">
+      <strong>Status:</strong> the claim that the product structure must be <strong>paid</strong> rather than
+      assumed is a specific, worked result from the gate-closure work.
+      The claim that a <em>deeper, single, irreducible</em> geometry might underlie it — with the product
+      appearing only as a low-energy description — is <strong>conjecture, not established</strong>, and is
+      labeled as such throughout this page.
+    </div>
+
+    <h2 id="the-setup">The setup: why a product looked natural</h2>
+    <p>The Standard Model's gauge group is a direct product of three commuting pieces:</p>
+    <blockquote>SU(3) (color) &times; SU(2) (weak) &times; U(1) (hypercharge), up to a finite shared center.</blockquote>
+    <p>It was natural, in building a candidate higher-dimensional shape, to assign one separate geometric factor
+    to each gauge group — a small internal space whose own geometric symmetries reproduce exactly that group.
+    That gives three separate pieces multiplied together, plus the four familiar dimensions of ordinary
+    spacetime.</p>
+
+    <h2 id="the-problem">Why that is not automatically allowed</h2>
+    <p>Here is the problem a careful audit surfaced. A geometric <strong>product</strong> of pieces has a special
+    mathematical property: it comes with a unique, canonical way of being split back apart into those same
+    pieces. That is exactly the kind of <strong>preferred, unpaid decomposition</strong> that the Nonseparability
+    constraint is built to forbid — the same reasoning that rules out treating any arbitrary region of space as
+    privileged also rules out silently assuming a privileged geometric product, unless something else pays for
+    it.</p>
+    <p>So the honest question became: is the three-factor product structure <em>forced</em> by the program's
+    constraints, or was it quietly assumed — a minimality shortcut dressed up as a derivation?</p>
+
+    <h2 id="the-resolution">What the gate work actually found</h2>
+    <p>Working through the admissibility questions systematically (using the elimination logic described under
+    <a href="/gates/">Gates</a>), the result was this: a product structure with no spectator factors and no
+    continuous mixing between the sectors is the only structure consistent with the constraints, <strong>given
+    that the observed Standard Model gauge group is itself a direct product of commuting factors.</strong> That
+    last clause matters — it is doing real work. The product is not conjured from the abstract constraints alone;
+    it is licensed by an already-observed fact about the world (that the SM gauge group really does factor that
+    way), combined with the rule that gauge symmetry corresponds to geometric symmetry.</p>
+    <p>In the program's own terminology, the honest status of this result is:</p>
+    <div class="callout">
+      <h3 style="margin-top:0;">Current status of the product-structure result</h3>
+      <p style="margin:0;"><strong>Proven, given</strong> homogeneity of the internal geometry (itself a separate,
+      earlier result), gauge symmetry = geometric symmetry, the observed Standard Model gauge group and matter
+      content, and the Nonseparability constraint. <strong>Not</strong> proven from the abstract constraints
+      alone, and not a claim that the product is somehow inevitable independent of what the Standard Model
+      happens to look like.</p>
+    </div>
+    <p>Put plainly: the no-spectator, no-mixing part of the argument is solid and constraint-driven. The
+    three-factor <em>product itself</em> is <strong>paid for</strong> by the observed structure of the Standard
+    Model, not derived from nothing. That is a meaningfully different — and more honest — claim than "the
+    constraints force this geometry."</p>
+
+    <h2 id="the-fork">The open fork: interface, or deep geometry?</h2>
+    <p>Because a canonical product is exactly the kind of structure Nonseparability treats with suspicion, there
+    is a live, unresolved fork in how to think about what is really going on:</p>
+    <div class="card-grid">
+      <div class="card">
+        <h4>Option A — the product is the paid structure</h4>
+        <p>The three-factor product really is the internal geometry, and it is legitimate precisely because it
+        is paid for by the observed Standard Model gauge group. This is the cleaner, more conservative reading,
+        and the one currently written up as the primary result.</p>
+      </div>
+      <div class="card">
+        <h4>Option B — the product is a low-energy interface</h4>
+        <p><strong>Conjecture.</strong> A single, irreducible, more unified internal geometry could contain the
+        same SU(3)&times;SU(2)&times;U(1) structure as commuting substructures <em>without</em> ever having a
+        canonical product split — meaning the "product" we observe would be a description that only becomes
+        exact in the low-energy limit, not the deepest layer of the geometry itself.</p>
+      </div>
+    </div>
+    <p>Option B is the more interesting possibility, and the one this section's name gestures toward — but it is
+    explicitly <strong>not settled</strong>. Nobody has produced a specific candidate unified geometry and shown
+    it reduces correctly. Until that happens, the honest, defensible position is Option A: the product is real,
+    paid, and current — not a placeholder for a hidden deeper unity.</p>
+
+    <h2 id="the-honest-line">The line to hold</h2>
+    <div class="honesty-box">
+      <strong>What can be said today:</strong> the Standard Model's product gauge structure is the tested,
+      audited, low-energy structure of this program's candidate shape, and it is legitimately paid for by
+      observation rather than assumed for free. <strong>What cannot yet be said:</strong> that this product is
+      merely a shadow of some deeper single unified geometry. That remains an open, named conjecture — not a
+      result.
+    </div>
+
+    <p><a href="/emergent-separability/kinds-of-separation.html" class="btn btn-solid">Next: Kinds of Separation →</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>
