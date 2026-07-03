@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 13 — GUT Symmetry-Breaking Relic Test — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Test 13 of the Early Universe Granularity Test Suite: does GUT-scale symmetry breaking overproduce monopole relics, and does inflationary dilution resolve it? Verdict: CLOSED-AS-COMPRESSED-RECORD (shared with ΛCDM).">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Test-page specific ---------- */
+  .backlinks{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+    margin-bottom:1em;
+  }
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
+    padding:0.35em 0.9em;
+    border-radius:4px;
+    background:#1f4e5f;
+    color:#fff;
+    letter-spacing:0.02em;
+  }
+  .class-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.78rem;
+    padding:0.3em 0.7em;
+    border-radius:12px;
+    border:1px solid var(--line);
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    margin-left:0.5em;
+  }
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:0.6em;
+    margin:0.6em 0 1.2em;
+  }
+  .datatable td:first-child, .datatable th:first-child{white-space:nowrap;}
+  .step-list li{margin:0.5em 0;}
+  .headnum{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.75rem;
+    font-weight:700;
+    color:var(--ink-soft);
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:0.15em 0.6em;
+    margin-right:0.5em;
+    vertical-align:middle;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <p class="backlinks">
+      <a href="/early-universe/">&larr; Early &amp; Distant Universe</a> ·
+      <a href="/early-universe/tests/">&larr; Granularity test suite index</a>
+    </p>
+
+    <h2 style="border-bottom:none; margin-bottom:0.2em;">Test 13 — GUT Symmetry-Breaking Relic Test</h2>
+    <p class="lede">Any proposed grand-unified-theory (GUT) symmetry breaking must explain, or dilute away, the
+    topological relics it inevitably produces — magnetic monopoles above all. This test asks whether the
+    granularity doctrine's transition at the GUT scale is compatible with the near-total non-observation of such
+    relics, using the standard Kibble-mechanism monopole-overproduction calculation and the standard inflationary
+    dilution mechanism that resolves it.</p>
+
+    <div class="meta-row">
+      <span class="verdict-badge">Verdict: CLOSED-AS-COMPRESSED-RECORD</span>
+      <span class="class-badge">Shared with &Lambda;CDM</span>
+    </div>
+
+    <div class="honesty-box">
+      <strong>Read this before anything else on this page.</strong> A <strong>CLOSED-AS-COMPRESSED-RECORD</strong>
+      verdict here means the granularity <em>interpretation</em> of this epoch is <strong>consistent</strong> with
+      the standard resolution of the monopole problem — it is <strong>not</strong> a claim that this framework
+      derives a specific GUT gauge group, a specific breaking chain, or a specific inflaton sector that performs
+      the required dilution. This test is <strong>SHARED-WITH-&Lambda;CDM</strong>: the monopole problem and its
+      inflationary resolution are standard grand-unified-cosmology results, not something unique to this
+      framework's geometry. This framework has not supplied its own GUT gauge group or breaking chain to check
+      against homotopy-group topology; the calculation below uses the generic, textbook GUT-monopole numbers. A
+      qualitative "inflation would dilute any such relic" story is not treated here as a calculation — the
+      numbers below are worked explicitly.
+    </div>
+
+    <h2><span class="headnum">1</span>Verdict</h2>
+    <p><strong>CLOSED-AS-COMPRESSED-RECORD.</strong> This framework does not (at this stage) derive a specific
+    GUT gauge group, a specific symmetry-breaking chain, or a from-first-principles inflaton sector — so it
+    cannot yet be checked at the level of "which homotopy group, which topological defect, from which
+    breaking." What it <em>can</em> be checked against is the generic, model-independent statement the granularity
+    doctrine requires: that a proposed GUT-scale differentiation event does not silently overproduce relics that
+    would already have been seen or would overclose the universe. That generic check passes: any GUT with a
+    breaking chain producing 't~Hooft&ndash;Polyakov monopoles at \(M_{GUT}\sim10^{16}\) GeV overproduces them by
+    roughly 20 orders of magnitude relative to the closure bound if unquenched, and a period of inflation with as
+    few as &sim;16 e-folds <em>after</em> monopole production is sufficient to dilute them below the closure
+    bound &mdash; far fewer than the &sim;50&ndash;60 e-folds standard inflation is independently required to
+    supply for the horizon and flatness problems. So the record actually available is the <em>compressed</em>
+    one: "monopoles are not observed, consistent with inflationary dilution," not a first-principles derivation
+    of the breaking chain itself. That is precisely what CLOSED-AS-COMPRESSED-RECORD is for.</p>
+
+    <h2><span class="headnum">2</span>Tested Claim</h2>
+    <p>The precise claim under test: <em>"A GUT-scale symmetry-breaking differentiation event is a valid
+    granularity transition only if the topological relics (monopoles, domain walls, strings) it produces are
+    either absent by the symmetry-breaking topology, or diluted/removed by a quantified mechanism consistent
+    with their non-observation."</em> If a GUT breaking chain produced monopoles with no dilution mechanism, the
+    relic density would overclose the universe by many orders of magnitude &mdash; a direct contradiction with
+    observation &mdash; and this test would report CONTRADICTED. If the breaking chain produces no monopoles
+    (e.g., because the vacuum manifold has trivial second homotopy group) the test would report CLOSED outright.
+    Because this framework has not committed to a specific GUT gauge group and breaking chain, the honest
+    intermediate verdict is that the <em>generic problem is solved by a known, quantified mechanism</em> &mdash;
+    hence "compressed record," not full derivation.</p>
+
+    <h2><span class="headnum">3</span>Data Used</h2>
+    <table class="datatable">
+      <tr><th>Quantity</th><th>Value</th><th>Source</th></tr>
+      <tr><td>Generic GUT unification scale</td><td>\(M_{GUT}\sim 2\times10^{16}\) GeV</td><td>Standard grand-unification order-of-magnitude, e.g. gauge-coupling running to unification in minimal SUSY GUTs; Particle Data Group review, "Grand Unified Theories" section (PDG 2024)</td></tr>
+      <tr><td>GUT gauge coupling at unification</td><td>\(\alpha_{GUT}\sim 1/25\)</td><td>Standard SUSY-GUT coupling-unification estimate (PDG 2024, GUT review)</td></tr>
+      <tr><td>'t Hooft&ndash;Polyakov monopole mass</td><td>\(M_{mono}\sim M_{GUT}/\alpha_{GUT}\sim 5\times10^{17}\) GeV</td><td>Standard monopole-mass relation (Preskill, Ann. Rev. Nucl. Part. Sci. 34, 461, 1984, "Cosmological Production of Superheavy Magnetic Monopoles")</td></tr>
+      <tr><td>Relativistic degrees of freedom at \(T_{GUT}\)</td><td>\(g_*\approx 106.75\)</td><td>Standard Model + minimal GUT particle content at high T (standard thermodynamic bookkeeping, e.g. Kolb &amp; Turner, "The Early Universe")</td></tr>
+      <tr><td>Reduced/standard Planck mass</td><td>\(M_{Pl}=1.22\times10^{19}\) GeV</td><td>CODATA / PDG 2024 value of Newton's constant, converted</td></tr>
+      <tr><td>Present-day matter density (closure bound proxy)</td><td>\(\Omega_m h^2 = 0.1430\pm0.0011\)</td><td>Planck 2018 results VI, Table 2 (arXiv:1807.06209, A&amp;A 2020)</td></tr>
+      <tr><td>Present-day entropy density (photons+neutrinos)</td><td>\(s_0\approx 2891\ \text{cm}^{-3}\)</td><td>Standard cosmological entropy bookkeeping from \(T_{CMB}=2.7255\)&nbsp;K (Fixsen 2009) and \(N_{eff}=3.044\) (Planck 2018 / Bennett et al. 2021)</td></tr>
+      <tr><td>Minimum e-folds required for horizon/flatness problems</td><td>\(N\sim 50\text{&ndash;}60\)</td><td>Standard inflationary-cosmology requirement, e.g. Liddle &amp; Lyth, "Cosmological Inflation and Large-Scale Structure" (2000); Baumann, TASI lecture notes on inflation</td></tr>
+      <tr><td>Direct monopole search bounds</td><td>Flux \(\lesssim 10^{-16}\ \text{cm}^{-2}\,\text{s}^{-1}\,\text{sr}^{-1}\) (Parker bound comparable order)</td><td>MACRO Collaboration final results, Eur. Phys. J. C 25, 511 (2002); Parker bound from galactic magnetic-field survival (Parker 1970; Turner, Parker &amp; Bogdan 1982)</td></tr>
+    </table>
+
+    <h2><span class="headnum">4</span>Calculation Summary</h2>
+    <p><strong>Step 1 &mdash; window definition.</strong> \(W\) = {GUT-scale symmetry-breaking transition at
+    \(T\sim T_{GUT}\sim2\times10^{16}\) GeV, radiation domination, prior to or coincident with the start of
+    inflation}. The relevant process is the Kibble mechanism: as a gauge symmetry \(G\to H\) breaks at a phase
+    transition, causally disconnected regions (of size at most the horizon) choose the vacuum orientation
+    independently, and topological defects (monopoles, if \(\pi_2(G/H)\neq 0\)) are trapped at the boundaries
+    between regions with roughly one defect per horizon volume.</p>
+    <p><strong>Step 2 &mdash; homotopy / relic-type identification.</strong> For a generic simple GUT group (e.g.
+    \(SU(5)\)) breaking to the Standard Model gauge group with its \(U(1)\) factor, the vacuum manifold has
+    \(\pi_2(G/H)\cong\mathbb{Z}\), guaranteeing 't Hooft&ndash;Polyakov monopole production &mdash; this is the
+    generic, model-independent obstruction the granularity doctrine must confront (this framework has not
+    specified whether its own breaking chain avoids this via a non-simple or non-simply-connected group choice,
+    so the generic case is used here rather than assumed away).</p>
+    <p><strong>Step 3 &mdash; raw (undiluted) relic abundance.</strong> Horizon size at \(T_{GUT}\) under standard
+    radiation-domination Hubble expansion, \(H\approx 1.66\sqrt{g_*}\,T^2/M_{Pl}\):
+    \[
+    H(T_{GUT}) \approx 1.66\sqrt{106.75}\,\frac{(2\times10^{16}\,\text{GeV})^2}{1.22\times10^{19}\,\text{GeV}}
+    \approx 5.6\times10^{14}\ \text{GeV}, \qquad d_H = H^{-1}\approx1.8\times10^{-15}\ \text{GeV}^{-1}.
+    \]
+    With roughly one monopole per horizon volume (\(n_{mono}\sim d_H^{-3}\)) and entropy density
+    \(s=(2\pi^2/45)g_*T^3\), the monopole-to-entropy ratio at production is
+    \[
+    \frac{n_{mono}}{s}\Big|_{\text{no dilution}} \approx 5\times10^{-7}.
+    \]
+    Converting to a present-day closure fraction using \(M_{mono}\approx5\times10^{17}\) GeV and
+    \(s_0\approx2891\ \text{cm}^{-3}\) (assuming, as the naive comparison does, that \(n/s\) were conserved with
+    no dilution) gives
+    \[
+    \Omega_{mono}h^2\Big|_{\text{no dilution}} \sim 6\times10^{19},
+    \]
+    compared to the observed total matter density \(\Omega_m h^2 = 0.143\) (Planck 2018). This is the textbook
+    monopole-overproduction problem (Preskill 1979): roughly <strong>20 orders of magnitude</strong> too many
+    monopoles if no dilution mechanism intervenes.</p>
+    <p><strong>Step 4 &mdash; does inflation dilute them?</strong> Comoving number density is diluted by
+    \(e^{-3N}\) for \(N\) e-folds of inflation occurring <em>after</em> monopole production. Requiring
+    \(\Omega_{mono}h^2\) to fall below an acceptable ceiling (taken generously here as the total matter density,
+    \(0.143\), so any tighter observational bound only strengthens the conclusion):
+    \[
+    e^{-3N} \lesssim \frac{0.143}{6\times10^{19}} \approx 2\times10^{-21}
+    \quad\Rightarrow\quad
+    N \gtrsim \frac{-\ln(2\times10^{-21})}{3} \approx 16.
+    \]
+    Standard inflationary cosmology independently requires \(N\sim50\text{&ndash;}60\) e-folds to solve the
+    horizon and flatness problems (Test 04 of this suite; Liddle &amp; Lyth 2000). Since \(50\text{&ndash;}60 \gg
+    16\), <em>any</em> inflationary episode long enough to solve the horizon problem is automatically long
+    enough to dilute GUT monopoles produced before or during its first &sim;16 e-folds to a cosmologically
+    harmless density &mdash; provided the GUT transition occurs before or during early inflation, not after
+    reheating.</p>
+    <p><strong>Step 5 &mdash; record check.</strong> The fossil record here is a <em>null</em> result: no
+    magnetic monopole has ever been detected. The MACRO experiment's final flux limit
+    (\(\lesssim10^{-16}\ \text{cm}^{-2}\text{s}^{-1}\text{sr}^{-1}\), Eur. Phys. J. C 25, 511, 2002) and the
+    independent Parker bound from the survival of galactic magnetic fields are both consistent with (and were
+    historically part of the original motivation for) inflationary dilution of a GUT-era monopole population.
+    This absence-of-relic is itself the observational record the granularity doctrine must be checked against.</p>
+    <p><strong>Step 6 &mdash; cross-epoch consistency.</strong> Diluting monopoles by \(e^{-3N}\) with
+    \(N\sim16\text{&ndash;}60\) does not disturb BBN (which depends on reheating after inflation restoring
+    entropy, not on the pre-inflationary monopole abundance), CMB acoustic physics, or BAO/LSS &mdash; all of
+    which depend on post-reheating physics that is set by reheating temperature and \(\eta=n_b/n_\gamma\)
+    (Test 21 of this suite), not by the diluted relic density. No other test in this suite requires a
+    pre-inflation monopole population to survive.</p>
+
+    <h2><span class="headnum">5</span>Granularity Interpretation</h2>
+    <p>Under the doctrine "cosmic history is the history of increasing recordable distinction," a GUT-scale
+    symmetry-breaking event is a real granularity transition (the unified gauge symmetry differentiates into
+    the Standard Model's product structure), but not every topological by-product of that transition survives
+    to become a stable, recordable distinction. Monopoles produced by the Kibble mechanism are a genuine,
+    quantifiable prediction of the breaking topology &mdash; but the rule "a distinction is valid in window
+    \(W\) only if it can be coupled, encoded, stabilized, and/or observed at that window's physical resolution"
+    is satisfied here in the negative: the calculation shows these relics are diluted below any
+    observationally-accessible density by the time the window closes. The doctrine does not require that
+    every topologically-possible defect become a permanent record; it requires that the theory correctly
+    predict which of them do. Here, the generic prediction (monopoles are overproduced, then diluted below
+    detectability) matches the generic observational record (none detected) &mdash; a compressed match, not a
+    first-principles derivation of this framework's own breaking chain.</p>
+
+    <h2><span class="headnum">6</span>Gate Routing</h2>
+    <p>This test informs the <strong>GUT-to-sector differentiation gate</strong> (Test 13 of the Early Universe
+    Granularity Test Suite), with primary terminal-anchor pressure on <strong>Distinction / Encoding</strong>
+    (speculative ontology layer &mdash; interpretive label, not a physics result).
+    Because the calculation above uses a generic GUT gauge group and the standard inflationary-dilution
+    mechanism rather than a gauge group, breaking chain, or inflaton sector derived from this framework's own
+    geometry, this closure sits on the <strong>SHARED-WITH-&Lambda;CDM</strong> side of the ledger. It is a
+    necessary-consistency check (the doctrine does not conflict with the standard monopole-problem resolution),
+    not a framework-specific derivation of a GUT structure. It is closely coupled to
+    <a href="/early-universe/tests/">Test 14 (Monopole Production and Dilution)</a> and
+    <a href="/early-universe/tests/">Test 15 (Cosmic Strings and Topological Defects)</a>, which carry the
+    detailed defect-by-defect ledger, and to the framework-specific inflation-gate tests (07&ndash;09), where
+    this framework's own inflaton-slope prediction is explicitly <strong>not</strong> geometrically forced (see
+    <a href="/early-universe/inflation-gate.html">the inflation gate, Gap-08</a>).</p>
+
+    <h2><span class="headnum">7</span>Failure Mode</h2>
+    <p>This test did not fail outright, but it is intentionally graded as compressed rather than fully closed,
+    for these reasons: (a) this framework has not supplied a specific GUT gauge group or breaking chain, so the
+    homotopy-group calculation in Step 2 uses the generic textbook case rather than this framework's own
+    vacuum manifold; (b) the inflaton sector performing the dilution in Step 4 is the standard, model-independent
+    inflationary mechanism, not a framework-derived field; (c) no claimed monopole, string, or wall in this test
+    is asserted as observed &mdash; the record used is a null result (non-detection) cross-checked with a
+    numerical overproduction-then-dilution calculation, avoiding the specific failure mode of "a relic is
+    asserted but no abundance calculation is supplied."</p>
+
+    <h2><span class="headnum">8</span>Next Action</h2>
+    <p>Derivation, not data lookup: the outstanding work is to specify this framework's own GUT (or GUT-like)
+    gauge structure and breaking chain from its geometry, compute \(\pi_2(G/H)\) (and \(\pi_0\), \(\pi_1\) for
+    domain walls and strings) for that specific chain, and re-run Steps 3&ndash;4 with the framework-specific
+    monopole mass and production epoch rather than the generic \(2\times10^{16}\) GeV benchmark used here. Until
+    that derivation exists, this test remains correctly labeled CLOSED-AS-COMPRESSED-RECORD: consistent with the
+    standard resolution, not yet a framework-specific prediction. See also Tests 14 and 15 for the
+    defect-type-specific follow-up ledger.</p>
+
+    <div class="callout">
+      <h4>Bottom line</h4>
+      <p>Grand-unified symmetry breaking generically overproduces magnetic monopoles by roughly twenty orders of
+      magnitude relative to the observed matter density &mdash; and the standard inflationary mechanism, already
+      required in far greater quantity (&sim;50&ndash;60 e-folds) to solve the horizon and flatness problems,
+      comfortably dilutes them (only &sim;16 e-folds needed) below any observational bound. The granularity
+      doctrine survives this generic check. What remains open is framework-specific: this program has not yet
+      derived its own GUT gauge group, breaking chain, or inflaton sector to check against this same arithmetic.</p>
+    </div>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

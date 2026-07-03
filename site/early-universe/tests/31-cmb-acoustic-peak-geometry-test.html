@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 31 — CMB Acoustic Peak Geometry — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Early-universe granularity test 31: checks whether the CMB TT acoustic-peak positions and relative heights, read as a compressed record of pre-recombination granularity, match Planck 2018 data. Verdict: CLOSED-AS-COMPRESSED-RECORD, shared with ΛCDM.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Test-page specific ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    letter-spacing:0.03em;
+    padding:0.45em 1em;
+    border-radius:4px;
+    background:#1f4e5f;
+    color:#fff;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:0.25em 0.65em;
+    border-radius:3px;
+    margin-left:0.5em;
+    vertical-align:middle;
+  }
+  .tag-shared{background:#e4ecee; color:var(--accent-2); border:1px solid var(--accent-2);}
+  .tag-specific{background:#f3e9de; color:var(--accent); border:1px solid var(--accent);}
+  .breadcrumb{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-bottom:1em;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <div class="breadcrumb">
+      <a href="/early-universe/">Early &amp; Distant Universe</a> ›
+      <a href="/early-universe/tests/">Granularity Test Suite</a> ›
+      Test 31
+    </div>
+
+    <h2 style="border-bottom:none; margin-bottom:0.3em;">Test 31 — CMB Acoustic Peak Geometry Test</h2>
+    <p class="lede">The photon-baryon plasma before recombination rang like a bell: pressure waves driven by
+      gravity and photon pressure froze into a pattern of harmonic peaks in the Cosmic Microwave Background (CMB)
+      temperature power spectrum. If early-universe history really is "increasing recordable distinction," this
+      peak pattern is one of the richest compressed records of that history that exists — a single angular power
+      spectrum encoding the sound horizon, the baryon-to-photon ratio, the matter and radiation content, and the
+      spatial curvature, all at once. Does the peak structure predicted by the model's cosmological parameters
+      match what has actually been measured?</p>
+
+    <p>
+      <span class="verdict-badge">CLOSED-AS-COMPRESSED-RECORD</span>
+      <span class="tag tag-shared">SHARED-WITH-ΛCDM</span>
+    </p>
+
+    <div class="honesty-box">
+      <strong>Read this before anything else on this page:</strong> this framework does not run its own independent
+      Boltzmann code and does not derive the acoustic-peak positions or heights from first principles. It inherits
+      the standard ΛCDM cosmological parameters (\(\Omega_b h^2\), \(\Omega_c h^2\), \(H_0\), curvature, radiation
+      content, recombination physics) and the standard linear-perturbation-theory machinery that predicts the peak
+      structure from those parameters. A <strong>CLOSED-AS-COMPRESSED-RECORD</strong> verdict here means: the
+      granularity reading — "the acoustic peaks are a compressed record of pre-recombination granularity, not a
+      primitive object the framework must derive from scratch" — is an honest and consistent way to describe data
+      that is already fully explained by standard cosmology. It is <strong>not</strong> a claim that this framework
+      predicted the peak positions, derived the sound horizon from its own geometry, or adds any new physics beyond
+      what ΛCDM already supplies.
+    </div>
+
+    <h2>1. Verdict</h2>
+    <p><strong>CLOSED-AS-COMPRESSED-RECORD</strong> — the observed TT, TE, and EE acoustic-peak positions and
+      relative heights are reproduced by the standard cosmological parameter set (baryon density, cold dark matter
+      density, Hubble constant, spatial curvature consistent with zero, standard radiation content including
+      \(N_{\rm eff}=3.044\), and standard recombination physics) using the standard linear Boltzmann transport
+      framework (e.g. CAMB/CLASS), as fit to Planck 2018 data. This framework does not independently derive that
+      fit; it adopts it, and the granularity doctrine's only added claim is an interpretive one: the peak pattern is
+      the correctly-identified compressed record of the pre-recombination photon-baryon plasma, not a phenomenon the
+      framework needs to (or claims to) generate from a different underlying calculation. No deviation from the
+      standard multi-peak acoustic structure is predicted or required by the granularity doctrine.</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>The precise granularity claim under test: the photon-baryon plasma between weak-scale relic decoupling and
+      recombination (\(z\approx1089\), \(t\approx380{,}000\) yr, \(T\approx0.26\) eV) supported acoustic
+      oscillations whose compression/rarefaction phases at the moment of last scattering are "frozen in" as a
+      harmonic series of peaks in the CMB angular power spectrum \(C_\ell^{TT}\), \(C_\ell^{TE}\), \(C_\ell^{EE}\).
+      If the granularity doctrine's picture of this epoch is right — that the plasma's oscillation pattern is a
+      valid, stable, recordable distinction fixed at the recombination window and read out unchanged today — then
+      (a) the peak positions \(\ell_n\) should follow the standard acoustic scale set by the sound horizon at last
+      scattering divided by the angular diameter distance to last scattering, and (b) the peak height ratios
+      (odd peaks suppressed relative to even peaks) should follow the standard baryon-loading signature set by
+      \(\Omega_b h^2\). This is a consistency check against the fully standard ΛCDM calculation, not a test of a
+      framework-specific alternative mechanism.</p>
+
+    <h2>3. Data Used</h2>
+    <ul>
+      <li><strong>Planck 2018 final cosmological parameters</strong> (Planck Collaboration VI, 2020, A&amp;A 641,
+        A6, arXiv:1807.06209), TT,TE,EE+lowE+lensing baseline (base-ΛCDM column, Table 2):
+        \(\Omega_b h^2 = 0.02237\pm0.00015\), \(\Omega_c h^2 = 0.1200\pm0.0012\), \(H_0 = 67.36\pm0.54\) km/s/Mpc,
+        \(n_s = 0.9649\pm0.0042\), spatial curvature consistent with zero (\(\Omega_K = 0.0007^{+0.0037}_{-0.0037}\)),
+        angular acoustic scale \(100\,\theta_* = 1.04092\pm0.00031\).</li>
+      <li><strong>Planck 2018 measured peak multipoles</strong> (Planck Collaboration V, 2020, A&amp;A 641, A5,
+        arXiv:1907.12875; Planck 2018 power-spectra/likelihood release): first acoustic peak at
+        \(\ell_1 \approx 220\), second peak at \(\ell_2 \approx 537\), third peak at \(\ell_3 \approx 810\)
+        (standard literature values consistent with the Planck 2018 TT spectrum, e.g. also tabulated in
+        earlier WMAP/Planck peak-fitting papers such as Hinshaw et al. 2013, ApJS 208:19, arXiv:1212.5226, for the
+        same peak sequence with earlier-mission precision).</li>
+      <li><strong>Sound horizon at recombination:</strong> Planck 2018 base-ΛCDM value
+        \(r_* = 144.43\pm0.26\) Mpc (comoving sound horizon at last scattering, Planck Collaboration VI 2020,
+        Table 2).</li>
+      <li><strong>Angular diameter distance to last scattering:</strong> Planck 2018 base-ΛCDM value
+        \(D_A(z_*) \approx 13.87\) Gpc (comoving angular diameter distance, consistent with
+        \(100\,\theta_* = 1.04092\)).</li>
+      <li><strong>Baryon-loading / peak-height physics:</strong> standard result that odd-peak amplitudes are
+        suppressed relative to even peaks by a factor controlled by \(\Omega_b h^2\) (Hu &amp; Sugiyama 1996,
+        ApJ 471:542; Hu &amp; Dodelson 2002, Annu. Rev. Astron. Astrophys. 40:171, arXiv:astro-ph/0110414) —
+        the Planck 2018 best-fit \(\Omega_b h^2=0.02237\) reproduces the observed second/first and third/first peak
+        height ratios within the quoted Planck likelihood errors (Planck Collaboration VI 2020, §2 and Fig. 1).</li>
+      <li><strong>Recombination redshift:</strong> \(z_* = 1089.92\pm0.25\) (Planck Collaboration VI 2020,
+        Table 2), consistent with Test 29 (Recombination Visibility Function Test) in this suite.</li>
+    </ul>
+
+    <h2>4. Calculation Summary</h2>
+    <p><strong>Step 1 — Acoustic scale from sound horizon and angular diameter distance.</strong> The characteristic
+      angular scale of the peaks is set by
+      \[
+      \theta_* = \frac{r_*}{D_A(z_*)} .
+      \]
+      Using the Planck 2018 values \(r_*=144.43\) Mpc and \(D_A(z_*)\approx13.87\) Gpc \(=13{,}870\) Mpc:
+      \[
+      \theta_* \approx \frac{144.43}{13{,}870} \approx 1.0413\times10^{-2}\ {\rm rad} = 0.5966^\circ ,
+      \]
+      i.e. \(100\,\theta_* \approx 1.0413\), consistent (to the precision retained here) with the Planck-quoted
+      \(100\,\theta_*=1.04092\pm0.00031\).</p>
+    <p><strong>Step 2 — First peak location from the acoustic scale.</strong> The first peak occurs at
+      \(\ell_1 \approx \pi/\theta_*\) to leading order (a standard approximation; the exact location is shifted
+      slightly by driving effects, see Hu &amp; Sugiyama 1996):
+      \[
+      \ell_1 \approx \frac{\pi}{1.0413\times10^{-2}} \approx 302 ,
+      \]
+      which overshoots the precise, radiation-driving-corrected observed value \(\ell_1\approx220\) by about
+      \(37\%\) — exactly as expected, because the naive \(\pi/\theta_*\) formula omits the well-known phase shift
+      from the early-Integrated-Sachs-Wolfe / radiation-driving effect (a shift of roughly \(\Delta\ell\sim-\)tens,
+      driven by the still-nontrivial radiation density at recombination; see Hu &amp; Sugiyama 1996; Doran &amp;
+      Lilley 2002, MNRAS 330:965, arXiv:astro-ph/0104486, who quantify this phase shift explicitly). This is a
+      standard, well-documented correction in ΛCDM cosmology, not a framework-specific discrepancy — full Boltzmann
+      codes (CAMB/CLASS) reproduce \(\ell_1\approx220\) exactly once the phase shift and multipole-vs-angle mapping
+      are treated properly; the simplified formula used here is only a back-of-envelope cross-check, not the
+      precision calculation.</p>
+    <p><strong>Step 3 — Peak spacing.</strong> To leading order, subsequent peaks are approximately evenly spaced in
+      \(\ell\) by the same acoustic scale, \(\Delta\ell\approx\pi/\theta_*\approx302\), though harmonic spacing is
+      also modified by the same driving-phase corrections. The observed spacings,
+      \(\ell_2-\ell_1\approx537-220=317\) and \(\ell_3-\ell_2\approx810-537=273\), bracket this leading-order
+      estimate and match the full Boltzmann-code prediction for the Planck 2018 base-ΛCDM parameters (this
+      bracketing/near-even-spacing pattern is itself a classic, textbook consistency signature of a
+      spatially-flat, standard-radiation-content universe — see Hu &amp; Dodelson 2002, §3).</p>
+    <p><strong>Step 4 — Peak-height ratio (baryon loading).</strong> The standard qualitative and quantitative
+      result (Hu &amp; Sugiyama 1996; Hu &amp; Dodelson 2002) is that increasing \(\Omega_b h^2\) suppresses odd
+      peaks (compressions resisted by baryon inertia are enhanced; rarefactions, i.e. even peaks in some
+      conventions, are relatively enhanced) — the Planck best-fit \(\Omega_b h^2=0.02237\) reproduces the observed
+      second-peak-to-first-peak height ratio (\(C_2/C_1\sim0.4\)–\(0.45\) in the Planck TT spectrum) within Planck's
+      quoted likelihood uncertainties (Planck Collaboration VI 2020, Fig. 1, residuals plot). No separate baryon
+      density is needed for the peak-height fit than the one already fixed independently by BBN-CMB concordance
+      (see Test 21 in this suite) — the same \(\Omega_b h^2\) closes both checks simultaneously, which is itself a
+      nontrivial internal consistency property of the standard model, not something this framework adds.</p>
+    <p><strong>Cross-epoch consistency (required check per suite method).</strong> The parameters used here
+      (\(\Omega_b h^2\), \(N_{\rm eff}=3.044\), \(z_*\approx1090\)) are the same parameters checked in Tests 21
+      (baryon-to-photon ratio), 22 (neutrino decoupling / \(N_{\rm eff}\)), 28 (matter-radiation equality), and 29
+      (recombination visibility function) elsewhere in this suite; nothing computed here requires a different value
+      for any of those quantities, so closing this test does not create tension with BBN, neutrino decoupling, or
+      recombination-timing results elsewhere in the suite.</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>On the framework's reading, the acoustic peaks are the paradigm case of a "compressed record": the
+      photon-baryon plasma's pressure-wave oscillations do not themselves need to be treated as a new granularity
+      event requiring a first-principles derivation from this framework's geometry. Instead, the peak pattern is
+      the observable, frozen-in signature of granularity distinctions that were already established earlier
+      (baryon density fixed at baryogenesis and checked at BBN; radiation content fixed by particle content and
+      checked via \(N_{\rm eff}\); spatial geometry and expansion history fixed by the background cosmology) —
+      recombination simply "reads out" those pre-existing distinctions into a single, extraordinarily
+      information-dense angular power spectrum. This is exactly the kind of record the granularity doctrine expects
+      to find: a physical process (Thomson scattering shutting off as the universe becomes neutral) that converts a
+      transient dynamical pattern into a permanent, recordable, observer-accessible relic. No new "newly
+      distinguishable" object is being claimed here beyond what standard cosmology already asserts.</p>
+
+    <h2>6. Gate Routing</h2>
+    <p>This test informs the <strong>Compressed cosmic record gate</strong> in the Physics/GUT/TOE program, with
+      primary anchor pressure on <strong>Encoding / Distinction</strong> (speculative terminal-anchor layer, labeled
+      here only for cross-reference, not asserted as established). The acoustic-peak positions, heights, and the
+      underlying sound horizon and angular diameter distance are all routed as <strong>OBSERVED-GIVEN /
+      SHARED-WITH-ΛCDM</strong> inputs — this framework does not derive any of \(\Omega_b h^2\), \(\Omega_c h^2\),
+      \(H_0\), \(r_*\), or the recombination redshift from its own geometry at this layer; it only certifies that
+      reading the peak structure as a "compressed record" of granularity does not conflict with, and does not
+      require any deviation from, the standard ΛCDM fit to Planck 2018 data.</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>Not applicable in the strict sense — the compressed-record reading is consistent with the data as fit by
+      standard cosmological parameters. For completeness, the specific failure modes named in the test-suite
+      document's guardrails, and confirmed absent here:</p>
+    <ul>
+      <li><strong>No qualitative-match substitution:</strong> Section 4 above ties the verdict to explicit
+        numerical checks (acoustic scale, peak spacing, peak-height ratio against \(\Omega_b h^2\)), not a
+        narrative-only claim that "the plasma rang like a bell."</li>
+      <li><strong>No measured-value-treated-as-derived error:</strong> \(\Omega_b h^2\), \(\Omega_c h^2\), \(H_0\),
+        \(r_*\), and \(z_*\) are explicitly carried as observed/fit inputs from Planck 2018, not claimed as
+        first-principles outputs of this framework's geometry.</li>
+      <li><strong>No terminal-anchor problem disguised as closure:</strong> this test does not claim the framework
+        derives the peak structure; it claims only that the compressed-record interpretive label is consistent
+        with data that standard ΛCDM already fully explains.</li>
+      <li><strong>Simplified-formula caveat flagged honestly:</strong> the leading-order \(\ell_1\approx\pi/\theta_*\)
+        estimate in Step 2 overshoots the precise observed \(\ell_1\) by \(\sim\)37% because it omits the
+        radiation-driving phase shift; this is disclosed explicitly rather than silently corrected to match data,
+        and the discrepancy is attributed to a known, named physical effect (not a framework failure) with a
+        citation to the literature that quantifies it.</li>
+    </ul>
+
+    <h2>8. Next Action</h2>
+    <p>Data lookup / monitoring, not derivation: (a) if this framework's own GUT/TOE construction ever proposes a
+      mechanism that would shift \(\Omega_b h^2\), \(N_{\rm eff}\), the recombination redshift, or the background
+      expansion history away from the Planck 2018 base-ΛCDM values, re-run this consistency check against the
+      resulting peak spectrum using a full Boltzmann code (CAMB/CLASS) rather than the leading-order estimates used
+      here; (b) monitor ACT DR6 and SPT-3G high-\(\ell\) polarization data and any future CMB-S4 release for
+      refinements to the peak positions/heights and to \(\Omega_b h^2\), \(N_{\rm eff}\); (c) no terminal-anchor
+      routing is needed beyond the OBSERVED-GIVEN/SHARED-WITH-ΛCDM status already assigned to the underlying
+      cosmological parameters — this test only certifies that the compressed-record interpretation of the acoustic
+      peaks does not conflict with that standard fit.</p>
+
+    <div class="callout">
+      <h3>Bottom line</h3>
+      <p>This is a <strong>SHARED-WITH-ΛCDM</strong> result: the acoustic-peak positions and heights belong to
+        standard hot-Big-Bang cosmology and linear perturbation theory, which this framework inherits wholesale
+        and does not independently derive. The framework's only addition is an interpretive label — reading the
+        peaks as a compressed record of pre-recombination granularity rather than as a primitive object requiring
+        a first-principles derivation — and that label is consistent with, but not independently confirmed or
+        predicted by, the Planck 2018 data checked here.</p>
+    </div>
+
+    <p><a class="btn" href="/early-universe/tests/">&larr; Back to the granularity test suite</a>
+       &nbsp; <a class="btn" href="/early-universe/">&larr; Back to Early &amp; Distant Universe</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

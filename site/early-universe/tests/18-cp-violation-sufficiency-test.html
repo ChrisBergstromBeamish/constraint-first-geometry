@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 18 — CP-Violation Sufficiency Test — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Test 18 of the early-universe granularity suite: does any proposed matter-antimatter mechanism supply enough CP violation and departure from equilibrium to match the observed baryon asymmetry? Run honestly, verdict OPEN.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{ position:absolute; left:-999px; top:auto; }
+  .skip-link:focus{ left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line); }
+
+  .topbar{ background:var(--ink); color:#eee; font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif; font-size:0.82rem; }
+  .topbar-inner{ max-width:var(--maxw); margin:0 auto; padding:0.4em 1.2em; display:flex; flex-wrap:wrap; gap:0.6em 1.2em; align-items:center; justify-content:space-between; }
+  .stamp{ display:inline-flex; align-items:center; gap:0.5em; color:#e7c9a9; letter-spacing:0.01em; }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  header.site-header{ background:var(--paper); border-bottom:1px solid var(--line); }
+  .brand-row{ max-width:var(--maxw); margin:0 auto; padding:1.1em 1.2em 0.6em; display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:0.4em; }
+  .brand-row h1{ margin:0; font-size:1.5rem; letter-spacing:0.01em; }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{ font-family: Georgia, serif; font-style:italic; color:var(--ink-soft); font-size:0.95rem; }
+  nav.main-nav{ max-width:var(--maxw); margin:0 auto; padding:0 1.2em; }
+  nav.main-nav ul{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:0.2em; border-top:1px solid var(--line); }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{ display:block; padding:0.8em 0.9em; color:var(--ink); text-decoration:none; font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif; font-size:0.92rem; font-weight:600; border-bottom:3px solid transparent; white-space:nowrap; }
+  nav.main-nav a:hover{ border-bottom-color:var(--accent); color:var(--accent); }
+  nav.main-nav a[aria-current="page"]{ border-bottom-color:var(--accent-2); color:var(--accent-2); }
+
+  .layout{ max-width:var(--maxw); margin:0 auto; padding:2em 1.2em 3em; display:grid; grid-template-columns:220px 1fr; gap:2.4em; align-items:start; }
+  .subnav{ position:sticky; top:1.2em; font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif; font-size:0.88rem; }
+  .subnav-box{ border:1px solid var(--line); background:var(--paper-alt); border-radius:4px; padding:1em 1.1em; }
+  .subnav-box h2{ margin:0 0 0.6em; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft); }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{ text-decoration:none; color:var(--ink); }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{ color:var(--accent-2); font-weight:700; }
+  .subnav-empty{ color:var(--ink-soft); font-style:italic; font-size:0.85rem; }
+
+  main{min-width:0;}
+  main h2{ margin-top:1.9em; padding-bottom:0.25em; border-bottom:1px solid var(--line); font-size:1.5rem; }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{ font-size:1.12rem; color:var(--ink-soft); }
+  .callout{ border:1px solid var(--line); border-left:4px solid var(--accent-2); background:var(--paper-alt); padding:1em 1.2em; margin:1.4em 0; border-radius:0 4px 4px 0; }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{ border:1px dashed var(--accent); background:#fbf3ea; padding:1em 1.2em; margin:1.4em 0; border-radius:4px; font-size:0.95rem; }
+  .card-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:1em; margin:1.4em 0; }
+  .card{ border:1px solid var(--line); background:#fff; padding:1em 1.1em; border-radius:4px; }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{ display:inline-block; font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif; font-weight:700; font-size:0.92rem; text-decoration:none; padding:0.7em 1.3em; border-radius:4px; border:1px solid var(--accent-2); color:var(--accent-2); background:transparent; }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  footer.site-footer{ background:var(--ink); color:#cfc9bd; font-size:0.85rem; }
+  .footer-inner{ max-width:var(--maxw); margin:0 auto; padding:2em 1.2em; display:flex; flex-wrap:wrap; gap:1.6em 3em; justify-content:space-between; }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{ margin:0 0 0.5em; color:#fff; font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; }
+  .footer-honesty{ max-width:var(--maxw); margin:0 auto; padding:0 1.2em 1.6em; font-size:0.8rem; color:#a49c8c; }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    letter-spacing:0.03em;
+    padding:0.35em 0.9em;
+    border-radius:4px;
+    background:#e8dfc9;
+    color:#6b4a1a;
+    border:1px solid #c9a45c;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    padding:0.2em 0.6em;
+    border-radius:3px;
+    margin-left:0.5em;
+  }
+  .tag-shared{ background:#dce8ea; color:#1f4e5f; border:1px solid #9dc0c6; }
+  .breadcrumb{ font-size:0.9rem; color:var(--ink-soft); margin-bottom:0.6em; }
+  .breadcrumb a{margin-right:0.3em;}
+  .num-box{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:0.9em 1.1em;
+    margin:1em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <div class="breadcrumb">
+      <a href="/early-universe/">Early &amp; Distant Universe</a> ›
+      <a href="/early-universe/tests/">Granularity Test Suite</a> ›
+      Test 18
+    </div>
+
+    <h2 style="border-bottom:none; margin-bottom:0.15em;">Test 18 — CP-Violation Sufficiency Test</h2>
+    <p class="lede">
+      <span class="verdict-badge">OPEN</span>
+      <span class="tag tag-shared">SHARED-WITH-&Lambda;CDM</span>
+    </p>
+    <p class="lede">Does any proposed matter-antimatter selection mechanism carry enough CP violation and
+      departure from equilibrium to produce the observed baryon asymmetry &mdash; and does this framework supply a
+      dynamical calculation of that asymmetry, or only a qualitative "actualization selected matter" story?</p>
+
+    <div class="honesty-box">
+      <strong>Read this before the numbers below:</strong> this test checks a general requirement of
+      <em>any</em> baryogenesis mechanism (the Sakharov conditions, made quantitative), not a framework-specific
+      prediction. The Standard Model's own CP violation and its own electroweak phase transition are known,
+      textbook-level results, independently of this program. This program does not currently supply its own
+      dynamical CP-source-and-washout calculation, so it inherits the open problem rather than resolving it. A
+      qualitative match to "there was CP violation and a departure from equilibrium" is not proof of anything —
+      see the guardrails in the <a href="/early-universe/blind-prediction-method.html">blind prediction method</a>.
+    </div>
+
+    <h3>1. Verdict</h3>
+    <p><span class="verdict-badge">OPEN</span> &mdash; the route (some baryogenesis mechanism supplies the observed
+      asymmetry via CP violation + departure from equilibrium + baryon-number violation) is physically plausible
+      and required by the data, but this program has not supplied its own dynamical CP-source and washout
+      calculation. Secondary note: if this program's only content here turns out to be "actualization selected the
+      matter branch" with no dynamics behind it, that specific claim would route to <strong>TERMINAL-ANCHOR</strong>
+      (Actualization &mdash; one of the program's speculative-ontology-layer terminal anchors; an interpretive
+      label, not a physics result) rather than counting as a physics closure.</p>
+
+    <h3>2. Tested Claim</h3>
+    <p>The claim under test: <em>any</em> mechanism this framework proposes for the matter&ndash;antimatter
+      asymmetry must (a) satisfy the three Sakharov (1967) conditions &mdash; baryon-number violation, C and CP
+      violation, and departure from thermal equilibrium &mdash; and (b) when the CP-violating source terms are
+      propagated through the relevant Boltzmann / density-matrix evolution including inverse (washout) processes,
+      must reproduce the observed baryon-to-photon ratio
+      \( \eta_B \equiv n_B/n_\gamma \) to within the precision of the data, with parameters that are independently
+      defensible (not tuned solely to match \(\eta_B\)).</p>
+
+    <h3>3. Data Used</h3>
+    <table>
+      <tr><th>Quantity</th><th>Value</th><th>Source</th></tr>
+      <tr><td>Observed baryon asymmetry, \(\eta_B = n_B/n_\gamma\)</td>
+          <td>\( (6.12 \pm 0.04)\times10^{-10} \)</td>
+          <td>Planck 2018 (Planck Collaboration VI, A&amp;A 641, A6, 2020), \(\Omega_b h^2 = 0.02237\pm0.00015\)
+              converted via standard \(\eta_B \approx 273.9\times10^{-10}\,\Omega_b h^2\)</td></tr>
+      <tr><td>Baryon density from BBN (independent cross-check)</td>
+          <td>\(\eta_{10} = 6.09^{+0.42}_{-0.39}\) (D/H-inferred)</td>
+          <td>Particle Data Group, Big-Bang Nucleosynthesis review, 2024 edition</td></tr>
+      <tr><td>CKM CP-violating (Jarlskog) invariant</td>
+          <td>\(J \approx 3.0\times10^{-5}\)</td>
+          <td>Particle Data Group, CKM Quark-Mixing Matrix review, 2024 edition</td></tr>
+      <tr><td>SM-CKM baryon asymmetry ceiling from CP violation alone</td>
+          <td>\(\eta_B^{\rm SM,CKM} \lesssim 10^{-20}\) (dimensional/Jarlskog-suppressed estimate)</td>
+          <td>Gavela, Hernandez, Orloff, Pene, Quimbay, Mod. Phys. Lett. A9 (1994); Huet &amp; Sather, Phys. Rev. D51 (1995) &mdash; standard result, textbook-cited (e.g. Kolb &amp; Turner; Cline TASI lectures)</td></tr>
+      <tr><td>Electroweak phase-transition order at measured Higgs mass</td>
+          <td>\(m_H = 125.25\pm0.17\) GeV &rarr; crossover, not first-order, for \(m_H \gtrsim 70{-}80\) GeV</td>
+          <td>Particle Data Group 2024 (Higgs mass); Kajantie, Laine, Rummukainen, Shaposhnikov, Phys. Rev. Lett. 77 (1996), lattice result establishing the SM EWPT endpoint</td></tr>
+      <tr><td>Sakharov conditions (framework requirement, not a measurement)</td>
+          <td>B-violation + C/CP-violation + non-equilibrium</td>
+          <td>Sakharov, JETP Lett. 5 (1967)</td></tr>
+    </table>
+
+    <h3>4. Calculation Summary</h3>
+    <div class="num-box">
+      <p><strong>Step 1 &mdash; window.</strong> \(W\) = {GUT epoch through electroweak epoch, \(T \sim 10^{16}\,\text{GeV}\) down to \(T\sim 160\,\text{GeV}\); expansion-dominated, weak sphalerons active for \(T \gtrsim 130\)&ndash;\(160\) GeV}.</p>
+      <p><strong>Step 2 &mdash; identify CP-violating parameters.</strong> This program has not specified a UV completion (GUT multiplet content, right-handed neutrino spectrum for leptogenesis, or a new CP-violating scalar sector) with computed phases. The only CP violation currently on the table anywhere in the Standard Model + this framework's inherited low-energy content is the CKM phase, quantified by the Jarlskog invariant \(J\approx3.0\times10^{-5}\) (PDG 2024).</p>
+      <p><strong>Step 3 &mdash; asymmetry before washout (order-of-magnitude, SM-CKM channel).</strong> The dimensionally-suppressed estimate for CP-violating effects in the SM at the electroweak scale scales roughly as
+        \[ \delta_{CP} \sim J \cdot \prod_i \frac{\Delta m_i^2}{T^2} \sim 10^{-20} \]
+        at \(T\sim100\) GeV, following Gavela et al. (1994) / Huet &amp; Sather (1995). This gives \(\eta_B^{\rm SM,CKM}\lesssim10^{-20}\), roughly ten orders of magnitude below the observed \(\eta_B \approx 6.1\times10^{-10}\).</p>
+      <p><strong>Step 4 &mdash; departure from equilibrium.</strong> Electroweak baryogenesis additionally requires a strongly first-order electroweak phase transition to provide the non-equilibrium bubble walls. Lattice calculations (Kajantie et al. 1996) show the SM electroweak transition is a smooth crossover once \(m_H \gtrsim 70\)&ndash;\(80\) GeV; the measured Higgs mass \(m_H = 125.25\) GeV (PDG 2024) is well above that bound. So the second Sakharov condition also fails in the unmodified SM.</p>
+      <p><strong>Step 5 &mdash; compare to observed \(\eta_B\).</strong> \(\eta_B^{\rm SM} \ll \eta_B^{\rm observed}\) by roughly ten orders of magnitude, and the required non-equilibrium condition is absent in the unmodified SM. This is not a new result &mdash; it is the standard reason the field concludes physics beyond the Standard Model is required for baryogenesis (extra CP phases, extra scalars, leptogenesis via heavy right-handed neutrinos, etc.).</p>
+      <p><strong>Step 6 &mdash; does this framework supply its own mechanism?</strong> No dynamical CP-source-and-washout calculation specific to this framework has been produced. No candidate new CP-violating phase, new scalar sector, or leptogenesis spectrum tied to the framework's geometry has been computed and checked against \(\eta_B\).</p>
+    </div>
+
+    <h3>5. Granularity Interpretation</h3>
+    <p>In the framework's language, the baryogenesis epoch is where the universe first fixes a <em>stable,
+      recordable</em> sign for the baryon number &mdash; the matter/antimatter distinction becomes permanent and
+      propagates forward as an observable relic (\(\eta_B\), fixed at freeze-out and diluted only by known entropy
+      production afterward). The granularity claim under test is that this fixing event is a legitimate,
+      dynamically-computed distinction event, not simply an unexplained given. At present the record check passes
+      (\(\eta_B\) is a well-measured, stable, cross-checked fossil &mdash; CMB and BBN agree to good precision), but
+      the encoding/actualization mechanism that produced that specific number is not supplied by this framework. The
+      distinction (matter over antimatter) is certainly recordable; what is open is whether this framework's physics,
+      as opposed to unspecified new physics, did the recording.</p>
+
+    <h3>6. Gate Routing</h3>
+    <p>
+    <pre>Baryogenesis mechanism gate -> OPEN -> SM-CKM+EWPT ceiling ~10 orders of magnitude short of eta_B; no framework-specific CP source/washout calculation supplied -> open gap: need explicit new CP phase + non-equilibrium mechanism computed from this framework's field content, checked against eta_B = (6.12 +/- 0.04)e-10 (Planck 2018)</pre>
+    </p>
+    <p>This routes to the same <strong>Baryogenesis mechanism gate</strong> the test suite names, and cross-links
+      to <a href="/early-universe/tests/17-electroweak-sphaleron-and-baryogenesis-test.html">Test 17 (electroweak
+      sphaleron and baryogenesis)</a> where it exists, since both share the same open requirement: a working
+      non-equilibrium, CP-violating mechanism, not yet supplied natively.</p>
+
+    <h3>7. Failure Mode</h3>
+    <p>The specific reason this test does not close as CLOSED: the only CP violation currently on the table (SM CKM)
+      is known, by an established and widely cited calculation, to be roughly ten orders of magnitude too small,
+      and the required non-equilibrium condition (a first-order electroweak phase transition) is independently
+      excluded by the measured Higgs mass. This program has not proposed and computed a replacement mechanism.
+      Per the test suite's explicit rule: <em>"If the theory only says 'actualization selected matter,' mark
+      TERMINAL-ANCHOR unless it provides a dynamical asymmetry calculation."</em> No dynamical calculation has been
+      provided, so the honest status is OPEN rather than CLOSED, and any temptation to describe this as "the
+      framework accounts for matter dominance" without a calculation would be a terminal-anchor problem disguised
+      as a physics closure &mdash; explicitly guarded against here.</p>
+
+    <h3>8. Next Action</h3>
+    <p>To move this test toward CLOSED or CLOSED-AS-COMPRESSED-RECORD, the program needs one of: (a) a specific
+      leptogenesis mechanism (e.g. right-handed neutrino masses and CP phases) derived from the framework's field
+      content, with a computed \(\eta_B\) compared to \(6.12\times10^{-10}\); (b) a specific electroweak
+      baryogenesis extension (new scalar sector altering the phase-transition order) derived from the framework,
+      with a lattice- or perturbation-theory-based washout calculation; or (c) an explicit admission that this
+      sector is presently a TERMINAL-ANCHOR / OBSERVED-GIVEN input, not a derived one. Until one of these exists,
+      this test stays OPEN. No further public claim about "why there is more matter than antimatter" should be made
+      pending that calculation.</p>
+
+    <div class="callout">
+      <h4>Is this a framework-specific result?</h4>
+      <p><strong>No.</strong> The insufficiency of Standard Model CP violation for baryogenesis, and the exclusion
+        of a first-order electroweak phase transition at the measured Higgs mass, are established results of
+        mainstream cosmology and particle physics, independent of this program (Sakharov 1967; Gavela et al. 1994;
+        Huet &amp; Sather 1995; Kajantie et al. 1996; Higgs mass measurement, ATLAS/CMS, confirmed in PDG 2024). This
+        program inherits the open problem along with the rest of standard hot-big-bang cosmology; it has not yet
+        contributed a framework-specific resolution. Labeled here as <strong>SHARED-WITH-&Lambda;CDM</strong>.</p>
+    </div>
+
+    <p style="margin-top:2.2em;">
+      <a class="btn" href="/early-universe/tests/">&larr; Back to the granularity test suite</a>
+      <a class="btn" href="/early-universe/" style="margin-left:0.6em;">&larr; Back to Early &amp; Distant Universe</a>
+    </p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

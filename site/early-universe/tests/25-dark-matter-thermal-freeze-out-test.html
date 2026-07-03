@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 25 — Dark Matter Thermal Freeze-Out Test — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Early-universe granularity test 25: checks whether thermal WIMP freeze-out can simultaneously match the observed relic density and satisfy direct/indirect detection bounds. Verdict: OBSERVED-GIVEN / OPEN, shared with ΛCDM.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Test-page specific ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    letter-spacing:0.03em;
+    padding:0.45em 1em;
+    border-radius:4px;
+    background:#8a5a1f;
+    color:#fff;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:0.25em 0.65em;
+    border-radius:3px;
+    margin-left:0.5em;
+    vertical-align:middle;
+  }
+  .tag-shared{background:#e4ecee; color:var(--accent-2); border:1px solid var(--accent-2);}
+  .tag-specific{background:#f3e9de; color:var(--accent); border:1px solid var(--accent);}
+  .breadcrumb{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-bottom:1em;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <div class="breadcrumb">
+      <a href="/early-universe/">Early &amp; Distant Universe</a> ›
+      <a href="/early-universe/tests/">Granularity Test Suite</a> ›
+      Test 25
+    </div>
+
+    <h2 style="border-bottom:none; margin-bottom:0.3em;">Test 25 — Dark Matter Thermal Freeze-Out Test</h2>
+    <p class="lede">If dark matter is a thermally-produced relic, does the standard freeze-out mechanism give the
+      observed relic density while a specific particle candidate still survives direct-detection, indirect-detection,
+      and collider bounds — and does the framework's "hidden-sector granularity" reading add anything to that
+      picture beyond a relabeling of an unsolved, open experimental problem?</p>
+
+    <p>
+      <span class="verdict-badge">OBSERVED-GIVEN&nbsp;/&nbsp;OPEN</span>
+      <span class="tag tag-shared">SHARED-WITH-ΛCDM</span>
+    </p>
+
+    <div class="honesty-box">
+      <strong>Read this before anything else on this page:</strong> the thermal freeze-out <em>mechanism</em> is
+      standard, well-established Boltzmann-equation cosmology and is consistent with the observed dark-matter
+      density. That part is <strong>OBSERVED-GIVEN</strong>: the relic abundance Ω<sub>DM</sub>h² is an empirical
+      input this framework accepts, not something it derives. But no specific thermal-relic particle candidate
+      (canonical weak-scale WIMP) has been confirmed, and the simplest, most-tested version of the mechanism (a
+      ~10 GeV&ndash;few TeV particle with weak-scale annihilation cross-section, the "WIMP miracle") is now in
+      serious tension with direct-detection null results. So the identity/mass/coupling side of this test is
+      <strong>OPEN</strong>: it is not contradicted outright (freeze-out remains viable for other mass ranges and
+      mediator structures), but it requires more data, not less. This framework supplies <strong>no calculation of
+      the dark-matter particle's mass or coupling</strong> — nothing here is a framework-specific prediction.</p>
+    </div>
+
+    <h2>1. Verdict</h2>
+    <p><strong>OBSERVED-GIVEN</strong> for the relic density itself (Ω<sub>DM</sub>h² is an empirical input, and the
+      thermal freeze-out mechanism that could produce a value of that size is standard and not in tension with
+      cosmology); <strong>OPEN</strong> for the specific particle candidate (no confirmed thermal relic exists, and
+      the canonical weak-scale WIMP window is now largely excluded by direct-detection experiments). No
+      contradiction with cosmology is found; no closure of the particle-identity question is possible with current
+      data. Secondary note: this is a two-part verdict because the test suite's own Minimum Calculations
+      (density match, then bounds check) split cleanly into a mechanism that passes and a candidate that has not
+      been found.</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>The precise claim under test: <em>if</em> dark matter is a thermal relic — a species that was in chemical
+      equilibrium with the Standard-Model plasma in the early universe and "froze out" when its annihilation rate
+      \(\Gamma = n\langle\sigma v\rangle\) fell below the Hubble expansion rate \(H(T)\) — <em>then</em> the
+      freeze-out calculation must simultaneously (a) reproduce the observed cold-dark-matter density
+      \(\Omega_{\rm DM}h^2 = 0.1200\pm0.0012\) (Planck 2018, TT,TE,EE+lowE+lensing, Planck Collaboration VI, A&amp;A
+      641, A6, 2020) and (b) not be excluded by direct-detection, indirect-detection, or collider searches for the
+      mass and coupling combination required to hit that density. The framework interprets a successful freeze-out
+      as a "hidden-sector granularity event": a dark species becomes a stable, non-interacting (with photons),
+      separately-recordable distinction once its number density is fixed by decoupling from the thermal bath, prior
+      to structure formation.</p>
+
+    <h2>3. Data Used</h2>
+    <ul>
+      <li><strong>Observed relic density:</strong> Planck Collaboration VI (2018/2020), "Planck 2018 results. VI.
+        Cosmological parameters," A&amp;A 641, A6 (arXiv:1807.06209) — \(\Omega_c h^2 = 0.1200 \pm 0.0012\)
+        (TT,TE,EE+lowE+lensing), the standard target value for any relic-abundance calculation.</li>
+      <li><strong>Canonical thermal cross-section ("WIMP miracle"):</strong> Steigman, Dasgupta &amp; Beacom (2012),
+        "Precise Relic WIMP Abundance and its Impact on Searches for Dark Matter and Baryogenesis," Phys. Rev. D
+        86, 023506 (arXiv:1204.3622) — the thermally-averaged annihilation cross-section needed to match
+        \(\Omega_{\rm DM}h^2\approx 0.12\) for an s-wave, weak-scale (tens of GeV to few TeV) particle is
+        \(\langle\sigma v\rangle \approx 2\text{--}3\times10^{-26}\ \text{cm}^3\text{s}^{-1}\), a value close to
+        typical weak-interaction cross-sections — the historical basis of the "WIMP miracle" coincidence.</li>
+      <li><strong>Direct-detection null results:</strong> LUX-ZEPLIN (LZ) Collaboration (2024), "Dark Matter Search
+        Results from 4.2 Tonne-Years of Exposure of the LUX-ZEPLIN (LZ) Experiment," Phys. Rev. Lett. 131, 041002
+        (arXiv:2207.03764, updated result 2024) — excludes spin-independent WIMP-nucleon cross-sections above
+        \(\sigma_{\rm SI}\approx 2.2\times10^{-48}\ \text{cm}^2\) at \(m_\chi\approx 36\) GeV (90% CL), the
+        strongest limit to date at that mass. XENONnT Collaboration (2023), Phys. Rev. Lett. 131, 041003
+        (arXiv:2303.14729) reports comparable limits (\(\sim2.5\times10^{-47}\ \text{cm}^2\) at 28 GeV). Both push
+        deep into, but do not yet fully close, the parameter space that would connect a weak-scale thermal
+        annihilation cross-section to an equally weak-scale direct-detection cross-section for generic mediator
+        assumptions.</li>
+      <li><strong>Indirect-detection constraints:</strong> Fermi-LAT Collaboration, dwarf spheroidal analysis
+        (Ackermann et al. 2015, Phys. Rev. Lett. 115, 231301, and updated combined-dwarf analyses through
+        2021/2023) exclude the canonical thermal cross-section \(\langle\sigma v\rangle\approx3\times10^{-26}\
+        \text{cm}^3\text{s}^{-1}\) for masses below \(\sim100\) GeV in the \(b\bar b\) annihilation channel,
+        pushing the surviving canonical-thermal-WIMP window to higher masses.</li>
+      <li><strong>Collider constraints:</strong> ATLAS and CMS mono-jet / mono-X and simplified-model searches (LHC
+        Run 2, summarized in e.g. ATLAS Collaboration 2021, Phys. Rev. D 103, 112006) exclude light thermal
+        mediators over large regions of simplified-model parameter space but do not exclude thermal WIMP dark
+        matter model-independently.</li>
+      <li><strong>CMB energy-injection constraint:</strong> Planck 2018 (A&amp;A 641, A6) also bounds dark-matter
+        annihilation during the recombination era via the resulting ionization-history distortion; the limit is
+        comparable to, and consistent with, the Fermi-LAT dwarf-spheroidal bound for s-wave annihilation.</li>
+    </ul>
+
+    <h2>4. Calculation Summary</h2>
+    <p><strong>Window definition (per README Minimum Calculation 1):</strong> \(W = \{\)age \(\sim\) fraction of a
+      second to minutes depending on mass; temperature \(T_f \sim m_\chi/20\) (standard freeze-out rule of thumb);
+      expansion regime: radiation-dominated; relevant interaction: dark-species pair annihilation to Standard-Model
+      states\(\}\).</p>
+    <p><strong>Rate-vs-Hubble check (per README Minimum Calculation 3 / test-suite Step 2):</strong> the standard
+      freeze-out condition is</p>
+    \[
+    \Gamma_{\rm ann}(T_f) = n_\chi(T_f)\,\langle\sigma v\rangle \;\approx\; H(T_f),
+    \qquad H(T)=\sqrt{\frac{8\pi G}{3}}\sqrt{\frac{\pi^2}{30}g_*(T)}\,T^2 .
+    \]
+    <p>Solving self-consistently for a weakly-interacting massive particle gives the well-known approximate
+      closed-form relic-density relation (Kolb &amp; Turner-style estimate, as used by Steigman et al. 2012):</p>
+    \[
+    \Omega_\chi h^2 \;\approx\; \frac{3\times10^{-27}\ {\rm cm^3\,s^{-1}}}{\langle\sigma v\rangle} .
+    \]
+    <p>Setting \(\Omega_\chi h^2 = 0.1200\) (Planck 2018) and solving:</p>
+    \[
+    \langle\sigma v\rangle \;\approx\; \frac{3\times10^{-27}}{0.12}\ {\rm cm^3\,s^{-1}}
+    \;\approx\; 2.5\times10^{-26}\ {\rm cm^3\,s^{-1}},
+    \]
+    <p>which matches the canonical "WIMP miracle" value quoted by Steigman, Dasgupta &amp; Beacom (2012) to within
+      the precision of this back-of-envelope estimate — <strong>the density-matching part of the mechanism checks
+      out numerically</strong> using only standard freeze-out kinetics and the Planck-measured target density; no
+      new physics from this framework enters this step.</p>
+    <p><strong>Bounds check (per README Minimum Calculation 3 / test-suite Step 4):</strong> for the mass range where
+      this canonical cross-section would apply (roughly \(m_\chi \sim 10\)&ndash;1000 GeV, generic s-channel or
+      Higgs-portal-type mediator), LZ (2024) and XENONnT (2023) direct-detection limits and Fermi-LAT (2015+)
+      indirect-detection limits together exclude the simplest thermal-WIMP realizations across most, though not
+      all, of that mass range for generic (non-fine-tuned) mediator couplings; s-wave-suppressed, higher-mass
+      (multi-TeV), or non-generic mediator scenarios remain open. <strong>No specific candidate mass/coupling
+      combination is asserted or computed by this framework</strong> — this is purely a report of the current
+      experimental state, imported wholesale from the WIMP direct/indirect-detection literature.</p>
+    <p><strong>Cross-epoch consistency (per README Minimum Calculation 5):</strong> using the canonical thermal
+      cross-section and mass ranges above does not perturb BBN (Test 23), \(N_{\rm eff}\) (Test 22), or the CMB
+      acoustic structure, because a successfully-frozen-out WIMP decouples and becomes non-relativistic and
+      non-interacting well before BBN begins (T ~ 1 MeV) for essentially the entire mass range considered
+      (\(m_\chi \gg\) MeV) — no tension is introduced with the other closed tests in this suite.</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>On the framework's reading, thermal freeze-out is the epoch at which a hidden-sector species stops
+      exchanging particle number with the visible thermal bath and its comoving number density becomes fixed — a
+      new stable, distinguishable "distinction" (a conserved relic abundance) becomes recordable in the sense that
+      it leaves an imprint on the subsequent expansion history and, eventually, on structure formation and possibly
+      direct/indirect signals. This is exactly the same logical structure as neutrino decoupling (Test 22) or
+      photon decoupling at recombination (Test 29): a species drops out of thermal contact and its properties
+      become "frozen" as a record. The interpretive add here is only the label; the entire calculation — the
+      Boltzmann freeze-out equation, the Planck-measured target density, and the experimental exclusion limits — is
+      imported wholesale from standard WIMP cosmology and particle-astrophysics. No mechanism in this framework
+      currently forces a dark-matter mass, coupling, or spin; treating any specific candidate as "predicted" would
+      be exactly the kind of terminal-anchor-disguised-as-a-physics-closure the guardrails warn against.</p>
+
+    <h2>6. Gate Routing</h2>
+    <p>This test informs the <strong>dark-sector relic record gate</strong>, with primary anchor pressure on
+      <strong>Distinction / Encoding</strong> (the speculative terminal-anchor layer; labeled here only for
+      cross-reference, not asserted as established). It is logically parallel to Test 22 (neutrino decoupling) and
+      Test 26 (freeze-in / nonthermal relic alternative), and its downstream consistency was checked against Test
+      23 (BBN) per the required cross-epoch check. No GUT/TOE-level mechanism in this program currently supplies a
+      dark-matter candidate, mass, or coupling, so there is nothing framework-specific to route into the technical
+      program beyond flagging this as an open experimental target the framework has not yet addressed.</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>This test did not fail outright (no contradiction with cosmology), but it did not fully close either. The
+      specific gap: <strong>a relic abundance calculation is available in general form (the standard freeze-out
+      formula reproduces the Planck-measured density for a plausible, but not uniquely determined, cross-section),
+      but no specific particle/mass/coupling candidate survives current direct-detection bounds with the generic
+      couplings that made the "WIMP miracle" attractive in the first place.</strong> Per the guardrails: a measured
+      value (\(\Omega_{\rm DM}h^2\)) is being correctly treated as an observed given, not a derived quantity; the
+      mechanism is not being confused with a confirmed particle; and no qualitative story has been substituted for
+      the numerical density-matching and bounds checks above.</p>
+
+    <h2>8. Next Action</h2>
+    <p><strong>Data lookup / experimental status tracking, not derivation:</strong> (a) track future LZ, XENONnT,
+      PandaX-xT, and DARWIN direct-detection results as they push further into (or eventually fully exclude) the
+      canonical thermal-WIMP window; (b) if the framework's technical program ever proposes a specific hidden-sector
+      field with a computable mass and coupling, re-run this exact freeze-out and bounds check against the then-
+      current exclusion limits rather than asserting compatibility; (c) no terminal-anchor routing is warranted —
+      this is an ordinary open experimental question in particle astrophysics, not a distinction/encoding problem
+      created by this framework's own machinery.</p>
+
+    <div class="callout">
+      <h3>Bottom line</h3>
+      <p>This is a <strong>SHARED-WITH-ΛCDM</strong> result: the thermal freeze-out mechanism, the Planck-measured
+        target density, and the direct/indirect-detection exclusion limits all belong to standard WIMP cosmology and
+        particle astrophysics, which this framework inherits wholesale and adds no candidate to. The density-match
+        part of the calculation is <strong>OBSERVED-GIVEN</strong> (consistent, not derived); the particle-identity
+        part is honestly <strong>OPEN</strong> — a real, unsolved problem in the field, not a framework-specific
+        prediction and not something this program currently resolves.</p>
+    </div>
+
+    <p><a class="btn" href="/early-universe/tests/">&larr; Back to the granularity test suite</a>
+       &nbsp; <a class="btn" href="/early-universe/">&larr; Back to Early &amp; Distant Universe</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

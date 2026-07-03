@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 43 — Complexity Capacity Bound per Epoch Test — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Test 43 of the Early Universe Granularity Test Suite: does any claimed cosmic record exceed the Bekenstein/holographic information-capacity bound of its substrate? Verdict: CLOSED (shared with ΛCDM / general relativity + quantum information theory).">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Test-page specific ---------- */
+  .backlinks{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+    margin-bottom:1em;
+  }
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
+    padding:0.35em 0.9em;
+    border-radius:4px;
+    background:#1f4e5f;
+    color:#fff;
+    letter-spacing:0.02em;
+  }
+  .class-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.78rem;
+    padding:0.3em 0.7em;
+    border-radius:12px;
+    border:1px solid var(--line);
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    margin-left:0.5em;
+  }
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:0.6em;
+    margin:0.6em 0 1.2em;
+  }
+  .datatable td:first-child, .datatable th:first-child{white-space:nowrap;}
+  .step-list li{margin:0.5em 0;}
+  .headnum{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.75rem;
+    font-weight:700;
+    color:var(--ink-soft);
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:0.15em 0.6em;
+    margin-right:0.5em;
+    vertical-align:middle;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <p class="backlinks">
+      <a href="/early-universe/">&larr; Early &amp; Distant Universe</a> ·
+      <a href="/early-universe/tests/">&larr; Granularity test suite index</a>
+    </p>
+
+    <h2 style="border-bottom:none; margin-bottom:0.2em;">Test 43 — Complexity Capacity Bound per Epoch Test</h2>
+    <p class="lede">A finite region can only store a bounded amount of distinguishable information. This test checks
+    whether any cosmic record this framework leans on — at any epoch — asks a physical substrate to encode more
+    bits than the Bekenstein bound or the holographic bound allow it to hold.</p>
+
+    <div class="meta-row">
+      <span class="verdict-badge">Verdict: CLOSED</span>
+      <span class="class-badge">Shared with &Lambda;CDM</span>
+    </div>
+
+    <div class="honesty-box">
+      <strong>Read this before anything else on this page.</strong> A <strong>CLOSED</strong> verdict here means the
+      granularity <em>interpretation</em> — that every claimed cosmic record fits inside the physical information
+      capacity of its substrate — is <strong>consistent</strong> with established general relativity and quantum
+      information theory (the Bekenstein bound and the holographic bound). It is <strong>not</strong> a claim that
+      this framework uniquely derived these bounds or the entropy budget of the universe. The bounds themselves
+      (Bekenstein 1981; 't Hooft 1993; Susskind 1995) and the standard entropy-budget calculation (Egan &amp;
+      Lineweaver 2010) are <strong>SHARED-WITH-&Lambda;CDM</strong> — general-relativistic and cosmological results
+      this framework inherits rather than derives. A qualitative match motivates a route; it never proves a theory.
+    </div>
+
+    <h2><span class="headnum">1</span>Verdict</h2>
+    <p><strong>CLOSED.</strong> Checked against the two standard capacity bounds — the Bekenstein bound
+    \(S \le 2\pi k_B R E/(\hbar c)\) and the holographic bound \(S \le A/4\ell_P^2\) (in units of \(k_B\)) — every
+    cosmic record this framework's granularity story actually needs (CMB photon entropy, relic-neutrino entropy,
+    baryon/light-element abundances, large-scale structure, the full observable-universe entropy budget) sits many
+    orders of magnitude <em>below</em> the capacity of the substrate it is claimed to be recorded in, at every
+    epoch checked. No step in the granularity doctrine as used elsewhere in this suite (Tests 01&ndash;42) demands
+    a substrate encode more distinguishable information than physics allows it to hold.</p>
+
+    <h2><span class="headnum">2</span>Tested Claim</h2>
+    <p>The precise claim under test: <em>"A finite region can only store a bounded amount of distinguishable
+    information; any claimed record must fit within physical capacity bounds."</em> Applied to this framework's
+    doctrine — "cosmic history is the history of increasing recordable distinction" — the test asks: does any
+    epoch's claimed record (a relic abundance, a fluctuation spectrum, a full thermal/particle inventory) require
+    more bits than the Bekenstein bound (for a bounded region of given size and energy) or the holographic bound
+    (for a region of given boundary area) permits? If any single claimed record in this suite required full
+    microstate (\(\Omega\)) encoding of a region larger than its horizon, or exceeded the holographic bound of its
+    own boundary, this test would report CAPACITY-BLOCKED / CONTRADICTED, or route to TERMINAL if the claim
+    demanded encoding beyond any physically available substrate.</p>
+
+    <h2><span class="headnum">3</span>Data Used</h2>
+    <table class="datatable">
+      <tr><th>Quantity</th><th>Value</th><th>Source</th></tr>
+      <tr><td>Hubble constant (Planck 2018, TT,TE,EE+lowE+lensing)</td><td>H<sub>0</sub> = 67.4 &plusmn; 0.5 km/s/Mpc</td><td>Planck 2018 results VI, Table 2 (arXiv:1807.06209, A&amp;A 641, A6, 2020)</td></tr>
+      <tr><td>CMB temperature today</td><td>T<sub>0</sub> = 2.7255 &plusmn; 0.0006 K</td><td>Fixsen 2009, ApJ 707, 916 (COBE/FIRAS); reaffirmed by Planck 2018</td></tr>
+      <tr><td>Planck length</td><td>&#8467;<sub>P</sub> = 1.6163 &times; 10<sup>-35</sup> m</td><td>CODATA 2018 fundamental constants</td></tr>
+      <tr><td>Reduced Planck constant, speed of light, Newton's constant</td><td>&#295; = 1.054572 &times; 10<sup>-34</sup> J&middot;s; c = 2.998 &times; 10<sup>8</sup> m/s; G = 6.6743 &times; 10<sup>-11</sup> m&sup3;kg<sup>-1</sup>s<sup>-2</sup></td><td>CODATA 2018</td></tr>
+      <tr><td>Total entropy of observable universe by component (photons, neutrinos, dark matter, stellar/relic black holes, supermassive black holes)</td><td>S<sub>&gamma;</sub> &sim; 10<sup>88</sup> k<sub>B</sub>; S<sub>&nu;</sub> &sim; 10<sup>89</sup> k<sub>B</sub>; S<sub>DM</sub> &sim; 10<sup>88&ndash;89</sup> k<sub>B</sub> (model-dependent); S<sub>SMBH</sub> &sim; 10<sup>103</sup> k<sub>B</sub> (dominant known term)</td><td>Egan &amp; Lineweaver, "A Larger Estimate of the Entropy of the Universe," ApJ 710, 1825 (2010)</td></tr>
+      <tr><td>Holographic (horizon) bound on current Hubble volume, computed here</td><td>S<sub>hor</sub> = A/4&#8467;<sub>P</sub><sup>2</sup> &asymp; 2 &times; 10<sup>122</sup> k<sub>B</sub></td><td>Computed this page from H<sub>0</sub>=67.4 km/s/Mpc, &#8467;<sub>P</sub> above; consistent with the standard order-of-magnitude figure (&sim;10<sup>122</sup>) quoted in Egan &amp; Lineweaver (2010) and the holographic-bound literature ('t Hooft 1993; Susskind 1995)</td></tr>
+      <tr><td>Bekenstein bound on CMB photon gas in current Hubble volume, computed here</td><td>S<sub>Bek</sub> &asymp; 1.2 &times; 10<sup>118</sup> k<sub>B</sub></td><td>Computed this page from CMB energy density u=aT<sup>4</sup>, T=2.7255 K (Fixsen 2009), Hubble radius R<sub>H</sub>=c/H<sub>0</sub></td></tr>
+      <tr><td>Redshift of recombination (for epoch-specific cross-check)</td><td>z<sub>rec</sub> &asymp; 1089</td><td>Planck 2018 results VI (arXiv:1807.06209)</td></tr>
+      <tr><td>Effective relativistic degrees of freedom, N<sub>eff</sub></td><td>N<sub>eff</sub> = 3.044</td><td>Bennett et al. 2020 / de Salas &amp; Pastor; adopted as Planck 2018 fiducial</td></tr>
+    </table>
+
+    <h2><span class="headnum">4</span>Calculation Summary</h2>
+    <p><strong>Step 1 &mdash; window definition.</strong> W = {any epoch or subsystem where the framework's
+    granularity doctrine claims a record; representative substrate checked here: the observable universe today
+    (Hubble radius \(R_H = c/H_0\)), the CMB photon bath specifically, and by cross-reference the recombination
+    epoch (\(z_{rec}\approx1089\)) whose relic record is the CMB itself}. This is deliberately the least
+    favorable (largest, most information-dense) case in the suite: if the full present-day entropy budget clears
+    the bound comfortably, every earlier, smaller-entropy epoch checked elsewhere in this suite (Tests 01&ndash;42)
+    clears it as well, since total entropy in a comoving volume is non-decreasing while the bound itself scales
+    with horizon area, which is far larger today than at early times per comoving patch.</p>
+    <p><strong>Step 2 &mdash; capacity bound (holographic).</strong> Using \(H_0 = 67.4\) km/s/Mpc (Planck 2018),
+    the Hubble radius is \(R_H = c/H_0 \approx 1.373\times10^{26}\) m. The holographic bound on a region of boundary
+    area \(A=4\pi R_H^2\) is
+    \[
+    S_{hor} = \frac{A}{4\ell_P^2} \approx 2\times10^{122}\ k_B ,
+    \]
+    computed directly here with \(\ell_P = 1.6163\times10^{-35}\) m (CODATA 2018). This matches the standard
+    order-of-magnitude figure (\(\sim10^{122}\)) quoted throughout the holographic-bound and cosmological-entropy
+    literature.</p>
+    <p><strong>Step 3 &mdash; capacity bound (Bekenstein, applied to the CMB record specifically).</strong> The
+    Bekenstein bound for a system of energy \(E\) confined to radius \(R\) is \(S_{Bek} = 2\pi k_B RE/(\hbar c)\).
+    Taking the CMB photon gas (energy density \(u=aT^4\), \(T=2.7255\) K, Fixsen 2009) filling the Hubble volume
+    gives total photon energy \(E \approx 4.52\times10^{65}\) J, and
+    \[
+    S_{Bek} \approx 1.2\times10^{118}\ k_B .
+    \]
+    This is the bound most directly relevant to "how much can the CMB record actually encode" and it sits four
+    orders of magnitude below the horizon's full holographic bound, as expected since the CMB is only one
+    sub-dominant energy component of the total budget.</p>
+    <p><strong>Step 4 &mdash; minimum bits actually required.</strong> The standard entropy-budget calculation
+    (Egan &amp; Lineweaver 2010) puts the <em>actual</em> entropy of the observable universe's named components
+    at \(S_\gamma\sim10^{88}\), \(S_\nu\sim10^{89}\), \(S_{DM}\sim10^{88\text{&ndash;}89}\), and
+    \(S_{SMBH}\sim10^{103}\ k_B\) (in units of \(k_B\); the supermassive-black-hole term dominates the known
+    budget but is itself an observed/inferred inventory, not a claim this framework's granularity doctrine
+    depends on). Every one of these is \(\ge15\) orders of magnitude below the Bekenstein bound on the CMB alone
+    (\(10^{118}\)) and \(\ge19\) orders of magnitude below the full holographic bound (\(10^{122}\)).</p>
+    <p><strong>Step 5 &mdash; margin and retrieval path.</strong> The margin between required and allowed
+    information is enormous (15&ndash;34 orders of magnitude depending on which named entropy component and
+    which bound is compared), and every quantity used in Tests 01&ndash;42 of this suite — relic abundances
+    (BBN light-element yields, N<sub>eff</sub>=3.044), the CMB temperature/anisotropy spectrum, large-scale
+    structure power spectra — is a coarse-grained, already-compressed statistical record (a handful of numbers:
+    abundances, a power spectrum's amplitude and tilt, an optical depth), not a claim to encode microstate-level
+    (\(\Omega\)) information about any epoch. No step anywhere in this suite asks a bounded region to store more
+    distinguishable information than it has room for.</p>
+    <p><strong>Step 5b &mdash; retrieval path exists.</strong> Each named record has an explicit observational
+    retrieval path: CMB photons via satellite/ground-based spectrometry and imaging (COBE/FIRAS, WMAP, Planck),
+    light-element abundances via stellar/quasar absorption-line spectroscopy, large-scale structure via galaxy
+    and lensing surveys. The bound is not just satisfied abstractly; the record is actually read out by named,
+    existing instruments.</p>
+    <p><strong>Step 6 &mdash; cross-epoch consistency.</strong> This margin does not conflict with BBN (light-element
+    abundance record: D/H &asymp; 2.53&times;10<sup>-5</sup>, Y<sub>p</sub>&asymp;0.247, both far below any
+    capacity constraint), CMB physics (T<sub>0</sub>=2.7255 K, z<sub>rec</sub>&asymp;1089), BAO/LSS, or dark-matter
+    constraints; none of those tests (elsewhere in this suite) require a capacity-violating record, and this test's
+    conclusion is consistent with all of them holding as ordinary, sub-bound records.</p>
+
+    <h2><span class="headnum">5</span>Granularity Interpretation</h2>
+    <p>Under the doctrine "cosmic history is the history of increasing recordable distinction," this test supplies
+    the outer physical limit on what "recordable" can mean at any epoch: a distinction is a legitimate cosmic
+    record only if the substrate claimed to hold it has the information capacity to hold it. Every record this
+    framework's granularity story leans on — an abundance, a spectral shape, a background temperature, a power
+    spectrum — becomes distinguishable, stable, and recordable well within that capacity, with margins of 15 or
+    more orders of magnitude at every epoch checked. Nothing in the doctrine as used in this suite treats a region
+    as encoding more information than physics allows; the doctrine's claimed records are, in every case checked,
+    highly compressed summaries (a few numbers per epoch), not full microstate descriptions.</p>
+
+    <h2><span class="headnum">6</span>Gate Routing</h2>
+    <p>This test informs the <strong>finite-capacity granularity gate</strong> (Test 43 of the Early Universe
+    Granularity Test Suite), with primary terminal-anchor pressure on <strong>Encoding / Finite Observer
+    Incompleteness</strong> (the speculative terminal-anchor layer &mdash; interpretive label, not a physics
+    result, not asserted as established). Because the Bekenstein bound, the holographic bound, and the standard cosmological
+    entropy-budget calculation are all general-relativistic / quantum-information results this framework inherits
+    rather than derives, this gate closure sits on the <strong>SHARED-WITH-&Lambda;CDM</strong> side of the ledger.
+    It functions as a background consistency check across the whole suite (Tests 01&ndash;42) rather than
+    certifying any single framework-specific mechanism; it does not, by itself, validate any particular relic,
+    particle, or inflaton-slope claim made elsewhere in this program (see the honest, non-forced status of
+    \(n_s\), \(A_s\), and \(r\) at the <a href="/early-universe/inflation-gate.html">inflation gate (Gap-08)</a>
+    and Tests 07&ndash;09).</p>
+
+    <h2><span class="headnum">7</span>Failure Mode</h2>
+    <p>This test did not fail. Recorded here for completeness, the failure modes that were checked for and not
+    found: (a) no claimed particle or record in this suite appears before the universe has the temperature,
+    coupling structure, or stability regime to support it; (b) no field-theoretic degree of freedom was confused
+    with a stable, capacity-bounded, recordable particle; (c) every relic cited elsewhere in this suite (BBN
+    abundances, N<sub>eff</sub>, CMB spectrum) carries an explicit numerical abundance/value rather than an
+    assertion; (d) no measured value was treated as derived when it is only an observed given — the entropy-budget
+    figures above are explicitly labeled OBSERVED-GIVEN/computed-from-observed-parameters, not framework
+    derivations; (e) no terminal-anchor problem (a genuine Encoding-anchor limit) was disguised as an ordinary
+    physics closure — the margins found are large enough that no such disguise was needed.</p>
+
+    <h2><span class="headnum">8</span>Next Action</h2>
+    <p>Data lookup / order-of-magnitude cross-check, not derivation: this test's CLOSED status rests on standard
+    Bekenstein/holographic-bound physics and the Planck 2018 + Egan &amp; Lineweaver (2010) entropy-budget
+    literature, and does not require further framework-specific calculation to hold at the level checked here.
+    A genuine future stress test of this gate would be a specific proposed relic or record — for example, a
+    claimed pre-BBN GUT-era topological defect density, or a claimed compactification-residue relic abundance —
+    computed to high enough precision that its own local entropy could be compared directly against its own local
+    Bekenstein bound, rather than against the aggregate present-day budget used here. No such specific claim in
+    this framework currently requires that finer-grained check; if one is proposed later, it should be routed back
+    through this same gate rather than assumed to pass by analogy.</p>
+
+    <div class="callout">
+      <h4>Bottom line</h4>
+      <p>Every cosmic record this framework's granularity doctrine leans on, checked against the Bekenstein and
+      holographic capacity bounds at the largest and most information-dense epoch available (today), clears those
+      bounds by 15&ndash;34 orders of magnitude. The bounds themselves are inherited physics, not a framework-specific
+      result — this closure says the doctrine does not ask reality to record more than it can hold, nothing more.</p>
+    </div>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

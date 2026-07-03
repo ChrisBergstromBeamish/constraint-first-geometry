@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 29 — Recombination Visibility Function Test — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Early-universe granularity test 29: checks whether hydrogen recombination and the CMB last-scattering (visibility function) epoch match Planck 2018 z* and optical-depth constraints. Verdict: CLOSED, shared with ΛCDM.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Test-page specific ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    letter-spacing:0.03em;
+    padding:0.45em 1em;
+    border-radius:4px;
+    background:#1f4e5f;
+    color:#fff;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:0.25em 0.65em;
+    border-radius:3px;
+    margin-left:0.5em;
+    vertical-align:middle;
+  }
+  .tag-shared{background:#e4ecee; color:var(--accent-2); border:1px solid var(--accent-2);}
+  .tag-specific{background:#f3e9de; color:var(--accent); border:1px solid var(--accent);}
+  .breadcrumb{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-bottom:1em;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <div class="breadcrumb">
+      <a href="/early-universe/">Early &amp; Distant Universe</a> ›
+      <a href="/early-universe/tests/">Granularity Test Suite</a> ›
+      Test 29
+    </div>
+
+    <h2 style="border-bottom:none; margin-bottom:0.3em;">Test 29 — Recombination Visibility Function Test</h2>
+    <p class="lede">Do neutral hydrogen atoms and freely-streaming photons — the pairing that becomes the cosmic
+      microwave background — form at the redshift, over the duration, and with the optical-depth profile that
+      standard recombination physics and the Planck 2018 last-scattering measurement say they must?</p>
+
+    <p>
+      <span class="verdict-badge">CLOSED</span>
+      <span class="tag tag-shared">SHARED-WITH-ΛCDM</span>
+    </p>
+
+    <div class="honesty-box">
+      <strong>Read this before anything else on this page:</strong> a CLOSED verdict here means the granularity
+      <em>interpretation</em> — "recombination/last-scattering is the epoch at which atoms and free-streaming
+      photons first become stable, encodable, publicly recordable distinctions" — is <strong>consistent with</strong>
+      the standard recombination physics (Saha/Peebles ionization history) and the Planck 2018 measurement of the
+      last-scattering redshift and its thickness. It is <strong>not</strong> a claim that this framework derived the
+      recombination redshift, the hydrogen binding energy, the baryon-to-photon ratio, or the shape of the
+      visibility function. All of those numbers are imported from atomic physics and the Planck collaboration. This
+      test only checks that the framework's granularity reading of an already-established cosmological epoch does
+      not conflict with it.
+    </div>
+
+    <h2>1. Verdict</h2>
+    <p><strong>CLOSED</strong> — the standard recombination history (Saha-then-Peebles ionization fraction
+      \(x_e(z)\)) predicts hydrogen recombination and photon decoupling at a redshift and over a duration that match
+      the Planck 2018 measurement of the last-scattering surface to high precision, using measured
+      \(\Omega_b h^2\) and \(T_{\rm CMB,0}\) as inputs. No framework-specific mechanism is invoked or needed; this is
+      a consistency check against Planck's own measured value, not a derivation of it. Secondary note: the framework
+      adds only an interpretive label ("this is where the atom/photon record becomes stable and public"), which does
+      not conflict with, and is not independently confirmed beyond, the standard result.</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>The precise granularity claim under test: as the universe cools, hydrogen recombination
+      (\(e^- + p \rightarrow \mathrm{H} + \gamma\)) must occur, and the photon mean free path must grow past the
+      Hubble radius (photon decoupling), at a redshift \(z_*\) and over a finite-thickness "last-scattering surface"
+      set by ordinary atomic physics plus the measured baryon-to-photon ratio and expansion history — not at some
+      other, framework-tuned epoch. The framework interprets this transition as the point where two new stable,
+      recordable distinctions are minted simultaneously: (a) a neutral, bound hydrogen atom as opposed to a free
+      electron+proton pair, and (b) a freely propagating photon that no longer Thomson-scatters and can therefore
+      carry an undisturbed, encodable record (the CMB) forward for the observer to read billions of years later.
+      A qualitative match to "atoms and light decouple somewhere in the early universe" is not sufficient; the
+      redshift, duration, and optical-depth profile must match the measured visibility function.</p>
+
+    <h2>3. Data Used</h2>
+    <ul>
+      <li><strong>Photon-decoupling redshift and last-scattering thickness:</strong> Planck Collaboration 2018,
+        "Planck 2018 results. VI. Cosmological parameters," A&amp;A 641, A6 (arXiv:1807.06209) — TT,TE,EE+lowE+lensing
+        base-ΛCDM chains give \(z_* = 1089.92 \pm 0.25\) (redshift at which the photon optical depth
+        \(\tau(z_*)=1\)) and \(z_{\rm drag} = 1059.94 \pm 0.30\) (baryon-drag epoch); the angular size of the
+        sound horizon at last scattering, \(\theta_* = (1.04109 \pm 0.00030)\times10^{-2}\) rad, is measured to
+        0.03% precision and is the single most constraining number in the whole Planck fit.</li>
+      <li><strong>Baryon density (recombination input):</strong> Planck 2018, \(\Omega_b h^2 = 0.02237 \pm 0.00015\)
+        (A&amp;A 641, A6, Table 2) — sets the baryon-to-photon ratio \(\eta_b \approx 6.1\times10^{-10}\) that
+        controls the Saha-suppression delay of recombination relative to the naive \(kT \sim 13.6\) eV expectation.</li>
+      <li><strong>CMB monopole temperature:</strong> Fixsen (2009), ApJ 707, 916, COBE/FIRAS,
+        \(T_{\rm CMB,0} = 2.7255 \pm 0.0006\) K — used to convert \(z_*\) into the temperature at last scattering,
+        \(T(z_*) = T_{\rm CMB,0}(1+z_*)\).</li>
+      <li><strong>Last-scattering surface thickness:</strong> Planck 2018 and standard recombination-code (RECFAST/
+        CosmoRec/HyRec, e.g. Chluba &amp; Thomas 2011, MNRAS 412, 748) results give a visibility-function full width
+        of \(\Delta z \approx 195\) (roughly \(\Delta z/z_* \approx 0.18\)), corresponding to a finite-duration
+        "surface" rather than an instantaneous transition — standard result, not framework-specific.</li>
+      <li><strong>Reionization optical depth (downstream, distinguished from \(z_*\)):</strong> Planck 2018,
+        \(\tau_{\rm reio} = 0.0544 \pm 0.0073\) (A&amp;A 641, A6) — the much later (\(z\sim7\)–\(10\)) partial
+        re-ionization by first stars/galaxies, kept explicitly separate here from the \(z_*\approx1090\)
+        recombination optical-depth-unity surface that this test concerns.</li>
+      <li><strong>Hydrogen binding energy:</strong> \(E_1 = 13.6057\) eV (CODATA), standard atomic physics input to
+        the Saha equation, not a framework output.</li>
+    </ul>
+
+    <h2>4. Calculation Summary</h2>
+    <p><strong>Window definition (per README Minimum Calculation 1):</strong> \(W = \){ age \(\approx 372{,}000\) yr
+      (Planck 2018 best-fit; often rounded to "~380,000 years" in popular accounts), redshift \(z_*\approx1090\),
+      temperature \(T(z_*) \approx 2973\) K, density/expansion regime: matter-dominated (matter-radiation equality
+      already passed, per Test 28, at \(z_{\rm eq}\approx3400\)), relevant interaction: Thomson scattering of
+      photons off free electrons, competing against Hubble expansion and hydrogen recombination removing free
+      electrons }.</p>
+    <p><strong>Why recombination happens at \(kT \ll 13.6\) eV, not \(kT\sim13.6\) eV (Saha suppression):</strong>
+      the naive expectation is that hydrogen recombines when the thermal photon energy drops to the binding
+      energy, \(kT\sim13.6\) eV. The actual measured temperature at \(z_*\) is:</p>
+    \[
+    T(z_*) = T_{\rm CMB,0}(1+z_*) = 2.7255\ \text{K} \times (1+1089.92) \approx 2973\ \text{K}
+    \]
+    \[
+    kT(z_*) = (8.617\times10^{-5}\ \text{eV/K}) \times 2973\ \text{K} \approx 0.256\ \text{eV}
+    \]
+    <p>This is a factor of \(13.6/0.256 \approx 53\) below the hydrogen binding energy — recombination is delayed
+      to much lower temperature than the naive binding-energy estimate because of the enormous
+      photon-to-baryon ratio (\(\eta_b^{-1}\sim1.6\times10^9\) photons per baryon): even at \(kT\ll13.6\) eV, the
+      exponential tail of the photon Planck distribution above 13.6 eV still contains enough photons per baryon to
+      keep re-ionizing newly-formed atoms, via the Saha equation</p>
+    \[
+    \frac{n_e n_p}{n_{\rm H}} = \left(\frac{m_e kT}{2\pi\hbar^2}\right)^{3/2} e^{-E_1/kT}.
+    \]
+    <p>This factor-of-~50 suppression is a textbook, well-established result (e.g. Peebles 1968, ApJ 153, 1;
+      standard cosmology texts such as Dodelson &amp; Schmidt, "Modern Cosmology," 2nd ed., ch. 3) — it is exactly
+      the kind of "rate/threshold check against a naive expectation" the README's Minimum Calculation 3 asks for,
+      and it passes: the measured \(z_*\) is consistent with the Saha-suppressed calculation, not with the naive
+      \(kT\sim13.6\) eV estimate (which would predict a much higher, wrong redshift \(z\sim6000\) if the
+      photon-to-baryon ratio were ignored).</p>
+    <p><strong>Decoupling condition (photon mean free path vs. Hubble):</strong> photons decouple once the Thomson
+      scattering rate \(\Gamma = n_e \sigma_T c\) drops below the Hubble expansion rate \(H(z)\). Because
+      \(n_e \propto x_e(z)\,(1+z)^3\) falls steeply as \(x_e\) collapses from \(\sim1\) toward \(\sim10^{-4}\)
+      over a narrow redshift range (the Peebles-equation "recombination" itself, following the initial Saha
+      collapse), \(\Gamma/H\) crosses unity at \(z_*\approx1090\) — consistent, within the precision of the
+      full Boltzmann-code treatment (RECFAST/CosmoRec/HyRec), with the Planck-measured \(z_*=1089.92\pm0.25\).</p>
+    <p><strong>Finite-thickness check (visibility function width):</strong> because \(x_e(z)\) does not drop
+      instantaneously, the "surface" of last scattering has finite width. Standard recombination codes give
+      \(\Delta z \approx 195\), i.e. \(\Delta z/z_*\approx0.18\) — a ~18% fractional thickness, not a razor-thin
+      surface. This finite width is itself a measured/derived feature of the visibility function (its peak location
+      is \(z_*\); its width is \(\Delta z\)) and is what sets the CMB's photon diffusion (Silk) damping scale,
+      independently cross-checked against the Planck TT damping-tail data (used in Test 31, CMB Acoustic Peak
+      Geometry). No inconsistency is found between the recombination-code width and the Planck-fit damping tail.</p>
+    <p><strong>Cross-epoch consistency (README Minimum Calculation 5):</strong> the same \(\Omega_b h^2=0.02237\)
+      used here is the identical value used in the BBN light-element test (Test 23) and the baryon-to-photon-ratio
+      test (Test 21) — no separate, inconsistent baryon density is introduced for this test. Matter-radiation
+      equality (Test 28, \(z_{\rm eq}\approx3400\)) occurs safely before \(z_*\approx1090\), as required for the
+      standard matter-dominated growth of perturbations assumed in the recombination/last-scattering calculation
+      and in the subsequent acoustic-peak fit (Test 31).</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>On the framework's reading, recombination/last-scattering is the epoch at which two new distinctions become
+      simultaneously stable and publicly recordable: (a) the neutral hydrogen atom, as a bound, stable
+      configuration distinguishable from the free electron-proton plasma that preceded it; and (b) the
+      free-streaming photon, no longer erased by Thomson rescattering, which becomes a high-fidelity compressed
+      record — not a full copy of the plasma, but its statistical imprint (temperature, polarization, and their
+      correlations) frozen in at the moment of decoupling and carried forward largely undisturbed for 13.8 billion
+      years to the observer. This matches the framework's validity rule: prior to \(z_*\), a "distinction" between
+      individual photon and electron trajectories could not be stabilized or encoded (each photon was rescattered
+      \(\mathcal{O}(10^{3}\text{-}10^{4})\) times before decoupling); after \(z_*\), the distinction between
+      free-streaming-photon and neutral-atom is stable at the window's physical resolution and becomes the
+      cosmic microwave background — the compressed record actually used by every subsequent CMB observation.</p>
+
+    <h2>6. Gate Routing</h2>
+    <p>This test informs the <strong>atom-and-photon record decoupling gate</strong>, with primary anchor pressure
+      on <strong>Encoding / Observation</strong> (the speculative terminal-anchor layer; labeled here only for
+      cross-reference, not asserted as established). It depends on and is consistent with Test 21 (baryon-to-photon
+      ratio), Test 23 (BBN light elements, same \(\Omega_b h^2\)), and Test 28 (matter-radiation equality, which
+      must precede \(z_*\)); it feeds forward into Test 30 (CMB blackbody/spectral distortions), Test 31 (CMB
+      acoustic peak geometry, which uses the same \(z_*\) and sound horizon), and Test 32 (CMB polarization and the
+      separate, later reionization optical depth \(\tau_{\rm reio}\), which this test explicitly does not conflate
+      with the \(z_*\) optical-depth-unity surface).</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>Not applicable in the strict sense — the recombination timing and visibility-function width match the
+      Planck 2018 constraints using only standard atomic physics and the measured baryon density as inputs. For
+      completeness, the specific failure modes this test screened for (per the test suite's guardrails), and
+      confirmed absent:</p>
+    <ul>
+      <li><strong>No premature-appearance error:</strong> the calculation confirms recombination does not occur at
+        the naive binding-energy temperature (\(kT\sim13.6\) eV, which would place it far too early, near
+        \(z\sim6000\)); the Saha-suppression factor of ~53 correctly delays it to \(z_*\approx1090\), matching
+        Planck.</li>
+      <li><strong>No field-versus-particle confusion:</strong> the "atom" and "free-streaming photon" here are
+        genuinely stable, long-lived, individually trackable objects (mean atomic lifetime against re-ionization at
+        \(z\ll z_*\) is cosmologically long; photon mean free path exceeds the Hubble radius after decoupling) —
+        not a field-theoretic degree of freedom mistaken for a stable particle.</li>
+      <li><strong>No measured-value-as-derived confusion:</strong> \(z_*\), \(\Omega_b h^2\), \(T_{\rm CMB,0}\), and
+        the hydrogen binding energy are all explicitly flagged as imported measured/atomic-physics inputs, not
+        framework outputs.</li>
+      <li><strong>No conflation of \(z_*\) with reionization:</strong> the much later, partial reionization optical
+        depth \(\tau_{\rm reio}=0.0544\pm0.0073\) (Test 32's concern) is kept separate from the
+        optical-depth-unity surface \(z_*\) that defines recombination/last-scattering.</li>
+    </ul>
+
+    <h2>8. Next Action</h2>
+    <p>Data lookup / cross-check, not derivation: (a) carry \(z_*=1089.92\), \(\Delta z\approx195\), and
+      \(\theta_*=1.04109\times10^{-2}\) rad forward as fixed inputs to Test 31 (CMB acoustic peak geometry) rather
+      than re-deriving them there; (b) if the framework's technical program ever proposes a modified baryon density,
+      extra relativistic species, or a nonstandard recombination history, re-run a full recombination code
+      (RECFAST/CosmoRec/HyRec) against the Planck likelihood to confirm the proposal does not shift \(z_*\) or
+      \(\theta_*\) outside the measured uncertainty; (c) no terminal-anchor routing is needed for this test — it
+      resolved as a consistency check against firmly established recombination physics and the Planck 2018
+      measurement, not as an unresolved distinction/encoding question.</p>
+
+    <div class="callout">
+      <h3>Bottom line</h3>
+      <p>This is a <strong>SHARED-WITH-ΛCDM</strong> result: the recombination redshift, the Saha-suppression
+        mechanism that sets it, the finite thickness of the last-scattering surface, and its role as the origin of
+        the cosmic microwave background all belong to standard atomic physics and the standard hot Big Bang model,
+        which this framework inherits wholesale. The framework's only addition is an interpretive label — reading
+        recombination/decoupling as the epoch where the atom-and-photon record first becomes stable and publicly
+        readable — and that label is consistent with, but not independently confirmed by, the Planck data checked
+        here.</p>
+    </div>
+
+    <p><a class="btn" href="/early-universe/tests/">&larr; Back to the granularity test suite</a>
+       &nbsp; <a class="btn" href="/early-universe/">&larr; Back to Early &amp; Distant Universe</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

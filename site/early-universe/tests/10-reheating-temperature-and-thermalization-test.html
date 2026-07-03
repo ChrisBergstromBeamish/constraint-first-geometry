@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 10 — Reheating Temperature and Thermalization Test — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Test 10 of the Early Universe Granularity Test Suite: does the transition from inflationary energy to a thermal particle bath land at a viable reheating temperature? Honest gate outcome, shown with sourced numbers.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Verdict badge ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.95rem;
+    letter-spacing:0.02em;
+    padding:0.4em 0.9em;
+    border-radius:4px;
+    background:var(--accent-2);
+    color:#fff;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.03em;
+    padding:0.25em 0.6em;
+    border-radius:3px;
+    text-transform:uppercase;
+  }
+  .tag-shared{background:#e4ecef; color:var(--accent-2);}
+  .tag-framework{background:#f3e6d8; color:var(--accent);}
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <p><a href="/early-universe/tests/">&larr; Back to the granularity test suite</a> ·
+    <a href="/early-universe/">&larr; Back to Early &amp; Distant Universe</a></p>
+
+    <h2 style="border-bottom:none; margin-bottom:0.2em;">Test 10 — Reheating Temperature and Thermalization Test</h2>
+    <p class="lede">Does the transition from inflationary energy into a thermal particle bath land at a physically
+    viable reheating temperature, and does it thermalize without overproducing excluded relics? Part of the
+    44-test Early Universe Granularity Test Suite, which checks whether the doctrine "cosmic history is the history
+    of increasing recordable distinction" is <em>consistent</em> with standard cosmology at each epoch — not whether
+    it uniquely predicts that epoch.</p>
+
+    <div class="honesty-box">
+      <strong>Read this before the verdict:</strong> a <strong>CLOSED</strong> or <strong>OBSERVED-GIVEN</strong>
+      result on this page means the granularity <em>interpretation</em> is consistent with established physics.
+      It is <strong>not</strong> a claim that this framework uniquely predicted reheating, and it is not a
+      derivation of the reheating temperature from first principles. Reheating physics in this test is almost
+      entirely <strong>SHARED-WITH-&Lambda;CDM</strong> — inherited directly from standard inflationary cosmology
+      and particle-decay theory, not something specific to this framework's geometry. A qualitative match only
+      motivates the route; it never proves it.
+    </div>
+
+    <p>
+      <span class="verdict-badge">Verdict: OBSERVED-GIVEN / CLOSED-AS-COMPRESSED-RECORD</span>
+      &nbsp; <span class="tag tag-shared">SHARED-WITH-&Lambda;CDM</span>
+    </p>
+
+    <h2>1. Verdict</h2>
+    <p><strong>OBSERVED-GIVEN, with a CLOSED-AS-COMPRESSED-RECORD secondary note.</strong></p>
+    <p>The reheating temperature itself is not derived from this framework's geometry — no first-principles
+    inflaton-decay rate is computed here. What the test can honestly check is the <em>generic viability window</em>:
+    the well-established lower bound \(T_{\rm reh} \gtrsim\) few MeV (from BBN and CMB \(N_{\rm eff}\) constraints)
+    and the well-established upper bound \(T_{\rm reh} \lesssim 10^{16}\ {\rm GeV}\) (from the tensor-to-scalar
+    ratio bound on the inflationary energy scale). The framework's granularity story — "unified energy converts
+    into a distinguishable particle bath" — is <strong>consistent</strong> with this window but does not narrow it.
+    That consistency is accepted as an empirical/observed-given constraint at this layer, and the compressed
+    record actually available (BBN light-element abundances + CMB \(N_{\rm eff}\)) is correctly identified as
+    the fossil trace of reheating rather than a direct measurement of \(T_{\rm reh}\) itself.</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>The precise claim under test: <em>"The post-inflation transition from unified (inflaton) energy into a
+    thermalized Standard-Model particle bath occurs at a reheating temperature and rate that (a) completes before
+    Big Bang Nucleosynthesis, (b) does not overproduce excluded relics (dark matter overabundance, extra
+    relativistic species, monopoles, gravitinos, etc.), and (c) can be honestly read as the first major
+    granularity transition — unified energy becoming a recordable, thermalized particle bath."</em></p>
+    <p>This is evaluated as a <strong>consistency</strong> claim, not a derivation claim: does the framework's
+    granularity interpretation of reheating conflict with anything established cosmology requires? It does not
+    claim the framework computes \(T_{\rm reh}\), \(\Gamma_\phi\), or the reheating e-folds from its own geometry.</p>
+
+    <h2>3. Data Used</h2>
+    <table>
+      <tr><th>Quantity</th><th>Value</th><th>Source</th></tr>
+      <tr><td>BBN lower bound on reheating temperature</td><td>\(T_{\rm reh} \gtrsim 4\)&ndash;\(10\ {\rm MeV}\)
+        (commonly quoted floor \(\approx 4\ {\rm MeV}\), tightened to \(\sim 4.4\ {\rm MeV}\) (95% C.L.) in
+        refined neutrino-thermalization treatments)</td>
+        <td>Kawasaki, Kohri &amp; Moroi (2000), Phys.Rev.D 62, 023506; de Salas et al. (2015), Phys.Rev.D 92, 123534;
+        Hasegawa et al. (2019), JCAP</td></tr>
+      <tr><td>Effective number of neutrino species (SM prediction / measured)</td>
+        <td>\(N_{\rm eff} = 3.044\) (SM, incl. QED/flavor corrections); Planck 2018 measured:
+        \(N_{\rm eff} = 2.99 \pm 0.17\)</td>
+        <td>Bennett et al. (2021), JCAP 04, 073 (SM \(N_{\rm eff}=3.044\)); Planck Collaboration 2018 (arXiv:1807.06209),
+        Table 2</td></tr>
+      <tr><td>Upper bound on inflation energy scale (from tensor-to-scalar ratio)</td>
+        <td>\(r < 0.036\) (95% C.L.) &rArr; \(V^{1/4} \lesssim 1.6\times10^{16}\ {\rm GeV}\), giving an absolute
+        ceiling on any subsequent reheating temperature of \(T_{\rm reh}\lesssim 10^{16}\ {\rm GeV}\)</td>
+        <td>BICEP/Keck 2021 (arXiv:2110.00483), Planck 2018 inflation (arXiv:1807.06211)</td></tr>
+      <tr><td>BBN light-element abundances (fossil record of pre-BBN thermal history)</td>
+        <td>\(Y_p \approx 0.245\), D/H \(\approx (2.53\pm0.04)\times10^{-5}\)</td>
+        <td>Particle Data Group 2024 Big-Bang Nucleosynthesis review; Aver, Olive &amp; Skillman (2015);
+        Cooke et al. (2018)</td></tr>
+      <tr><td>Baryon density</td><td>\(\Omega_b h^2 = 0.02237 \pm 0.00015\)</td>
+        <td>Planck 2018 (arXiv:1807.06209), TT,TE,EE+lowE+lensing</td></tr>
+    </table>
+
+    <h2>4. Calculation Summary</h2>
+    <p><strong>Step 1 — generic reheating-temperature estimate.</strong> For perturbative inflaton decay with rate
+    \(\Gamma_\phi\), reheating completes roughly when the Hubble rate drops to the decay rate,
+    \(H(T_{\rm reh}) \approx \Gamma_\phi\), giving the standard instantaneous-thermalization estimate:</p>
+    \[
+    T_{\rm reh} \;\approx\; \left(\frac{90}{8\pi^3 g_*}\right)^{1/4} \sqrt{\Gamma_\phi\, M_{\rm Pl}}
+    \]
+    <p>with \(g_* \approx 106.75\) (full SM relativistic degrees of freedom) and \(M_{\rm Pl} = 2.435\times10^{18}\
+    {\rm GeV}\) (reduced Planck mass). This equation is standard inflationary-cosmology machinery (Kolb &amp;
+    Turner; Mukhanov) — it is <strong>not</strong> derived from this framework's geometry. Because \(\Gamma_\phi\)
+    depends on the (framework-unspecified) inflaton coupling, this test does not compute a single number; it
+    checks the window \(\Gamma_\phi\) must occupy.</p>
+    <p><strong>Step 2 — lower-bound check (BBN).</strong> Requiring \(T_{\rm reh}\) above the BBN floor
+    \(\approx 4\ {\rm MeV}\) (de Salas et al. 2015; Hasegawa et al. 2019) is necessary so that neutrinos, photons,
+    and baryons are fully thermalized before nucleosynthesis begins (\(T_{\rm BBN}\sim 0.1\)&ndash;\(1\ {\rm MeV}\)).
+    A reheating temperature below this floor measurably distorts \(N_{\rm eff}\) and light-element yields relative
+    to the SM prediction \(N_{\rm eff}=3.044\) — which is <em>not</em> what is observed
+    (\(N_{\rm eff}=2.99\pm0.17\), Planck 2018). This is a real, numerical exclusion check, not a qualitative one.</p>
+    <p><strong>Step 3 — upper-bound check (inflation energy scale).</strong> The tensor-to-scalar ratio bound
+    \(r<0.036\) (BICEP/Keck 2021) caps the inflationary Hubble scale at \(H_{\rm inf}\lesssim6\times10^{13}\
+    {\rm GeV}\), which caps the total energy available to reheat into and therefore \(T_{\rm reh}\lesssim
+    \mathcal{O}(10^{16}\ {\rm GeV})\) in the most optimistic (instantaneous, maximal-efficiency) case.</p>
+    <p><strong>Step 4 — relic-overproduction check.</strong> Standard constraints (gravitino problem in
+    supergravity-completed models, monopole/defect dilution, dark-matter relic abundance) require, in generic
+    high-scale completions, \(T_{\rm reh}\lesssim10^9\)&ndash;\(10^{10}\ {\rm GeV}\) to avoid gravitino
+    overproduction — but this bound is model-dependent (applies only if gravitinos exist in the completion) and
+    is <strong>not</strong> forced by this framework's geometry, which does not specify the reheating sector.
+    This is flagged as an open, model-dependent constraint rather than folded into the verdict.</p>
+    <p><strong>Result:</strong> a wide window \(4\ {\rm MeV} \lesssim T_{\rm reh} \lesssim 10^{16}\ {\rm GeV}\)
+    (16 orders of magnitude) is allowed by data and standard theory. The framework's granularity claim — that
+    this transition is where a recordable thermal particle bath first appears — is consistent with any point in
+    this window and is not falsified by the data cited. It is likewise not narrowed by the framework: no
+    computation here selects a specific \(T_{\rm reh}\) from the geometry.</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>What newly becomes distinguishable/recordable at reheating: prior to reheating, energy is stored in a
+    coherent, homogeneous inflaton condensate — a single global mode, not a set of separately trackable particle
+    species. After reheating, that energy is converted into a bath of individual Standard-Model quanta (photons,
+    quarks, leptons, gauge bosons) in local thermal equilibrium, each species now separately countable via its
+    own occupation number, temperature-dependent abundance, and (eventually) its own decoupling history. This is
+    the framework's proposed first instance of "unified energy" becoming a "recordable particle-bath" distinction.
+    The fossil record actually available today is <em>not</em> a direct trace of reheating; it is the downstream,
+    compressed imprint left in BBN light-element abundances and \(N_{\rm eff}\), which constrain that thermalization
+    happened early and completely enough to reproduce those abundances. That is a much weaker claim than "reheating
+    is observed" — it is "reheating's downstream consequences are observed and are consistent."</p>
+
+    <h2>6. Gate Routing</h2>
+    <p>Routes to the <strong>Particle-bath emergence gate</strong> in the Physics/GUT/TOE ledger:</p>
+    <pre>Particle-bath emergence gate -> OBSERVED-GIVEN (viability window) / CLOSED-AS-COMPRESSED-RECORD (BBN+N_eff fossil trace)
+  -> supporting calculation: T_reh window [4 MeV, ~10^16 GeV] bounded by BBN floor + tensor-ratio ceiling
+  -> open gap: framework does not specify Gamma_phi or the reheating sector, so no T_reh value is derived;
+     gravitino/relic bound is model-dependent and not evaluated here.</pre>
+    <p>Primary terminal-anchor pressure: <strong>Encoding</strong> (speculative ontology layer) — reheating is
+    read as the first point where energy becomes lawfully encodable as a countable particle spectrum rather than
+    a single coherent field mode. This anchor label is interpretive, not a physics result.</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>This test does not fully close for two honest reasons:</p>
+    <ul>
+      <li><strong>No derived \(T_{\rm reh}\).</strong> The framework does not supply an inflaton-decay mechanism
+      or coupling, so it cannot predict a specific reheating temperature — only that some value in the standard
+      viable window exists. Per the GAP08 constraint on this suite, the framework's inflaton-slope claim
+      (\(\lambda^2=1/6\)) is not geometrically forced (it requires a convention stack on top of the genuine
+      radion slope of 8/3), so anything downstream of the inflaton sector — including reheating dynamics driven
+      by that same field — inherits the same non-forced status.</li>
+      <li><strong>Relic-overproduction bound not evaluated.</strong> The gravitino/monopole overproduction ceiling
+      that would tighten the window from above is model-dependent (only applies if such relics exist in the
+      full completion) and was not computed here; it is flagged as a further calculation, not resolved.</li>
+    </ul>
+    <p>Because the window check passes and no numerical exclusion is found, the outcome is not CONTRADICTED — but
+    because no framework-specific derivation exists, it does not rise to a framework-specific CLOSED either.</p>
+
+    <h2>8. Next Action</h2>
+    <ul>
+      <li><strong>Data lookup:</strong> track future \(N_{\rm eff}\) precision from CMB-S4 / Simons Observatory,
+      which will tighten the BBN-era thermalization constraint below the current Planck 2018 \(\pm0.17\).</li>
+      <li><strong>Derivation (if pursued):</strong> would require the framework to specify an actual inflaton
+      identification and its couplings to Standard-Model fields — not attempted in this test and not currently
+      part of the framework's specified sectors.</li>
+      <li><strong>Terminal-anchor routing:</strong> the "unified energy becomes recordable particle bath" framing
+      remains at the <strong>Encoding</strong> anchor as a speculative interpretive layer; it is not promoted to
+      a physics closure by this test.</li>
+    </ul>
+
+    <div class="callout">
+      <h4>Bottom line</h4>
+      <p>Standard cosmology already requires reheating to land in a 16-order-of-magnitude-wide window between the
+      BBN floor (~4 MeV) and the tensor-ratio ceiling (~10<sup>16</sup> GeV), and current BBN/CMB data (Planck 2018,
+      PDG 2024) show no conflict with that requirement. This framework's granularity reading of reheating —
+      "unified energy becomes a recordable particle bath" — is <strong>consistent</strong> with that established
+      picture. It does not derive, narrow, or uniquely predict the reheating temperature, and the relevant physics
+      here is inherited wholesale from standard inflationary cosmology and particle-decay theory
+      (<strong>SHARED-WITH-&Lambda;CDM</strong>), not specific to this framework's geometry.</p>
+    </div>
+
+    <p style="margin-top:2.4em;"><a href="/early-universe/tests/">&larr; Back to the granularity test suite</a> ·
+    <a href="/early-universe/">&larr; Back to Early &amp; Distant Universe</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

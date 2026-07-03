@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 32 — CMB Polarization and Reionization Optical-Depth Test — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Early-universe granularity test 32: checks whether the CMB's large-scale E-mode polarization and reionization optical depth τ are consistent with the framework's scattering-record reading. Verdict: CLOSED, shared with ΛCDM.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Test-page specific ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    letter-spacing:0.03em;
+    padding:0.45em 1em;
+    border-radius:4px;
+    background:#1f4e5f;
+    color:#fff;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:0.25em 0.65em;
+    border-radius:3px;
+    margin-left:0.5em;
+    vertical-align:middle;
+  }
+  .tag-shared{background:#e4ecee; color:var(--accent-2); border:1px solid var(--accent-2);}
+  .tag-specific{background:#f3e9de; color:var(--accent); border:1px solid var(--accent);}
+  .breadcrumb{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-bottom:1em;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <div class="breadcrumb">
+      <a href="/early-universe/">Early &amp; Distant Universe</a> ›
+      <a href="/early-universe/tests/">Granularity Test Suite</a> ›
+      Test 32
+    </div>
+
+    <h2 style="border-bottom:none; margin-bottom:0.3em;">Test 32 — CMB Polarization and Reionization Optical-Depth Test</h2>
+    <p class="lede">Roughly 380,000 years after the Big Bang, free electrons and photons decoupled at recombination
+      — but the universe did not stay neutral. Ultraviolet light from the first stars and galaxies re-ionized the
+      intergalactic medium sometime around redshift \(z\sim6\)–\(10\), and that re-ionization re-scattered a small
+      fraction of CMB photons, imprinting a large-scale "reionization bump" in the E-mode polarization spectrum and
+      a measurable Thomson-scattering optical depth \(\tau\). Does the framework's scattering-record reading — "the
+      universe's ionization history is a single, coherently double-scattered record, not two independent or
+      conflicting stories" — hold up against the measured \(\tau\), the EE polarization spectrum, and independent
+      reionization-timing probes?</p>
+
+    <p>
+      <span class="verdict-badge">CLOSED</span>
+      <span class="tag tag-shared">SHARED-WITH-ΛCDM</span>
+    </p>
+
+    <div class="honesty-box">
+      <strong>Read this before anything else on this page:</strong> a CLOSED verdict here means the granularity
+      <em>interpretation</em> — that the recombination scattering record and the later reionization scattering
+      record are both genuine, mutually consistent, recordable distinctions imprinted on the same photon bath — is
+      <strong>consistent with</strong> the measured CMB optical depth, the observed large-scale E-mode polarization,
+      and independent constraints on when reionization completed. It is <strong>not</strong> a claim that this
+      framework predicted the value of \(\tau\), predicted when or how reionization happened, or explains the
+      astrophysics of the first ionizing sources. \(\tau\) and the reionization history are measured/empirical
+      inputs that standard \(\Lambda\)CDM cosmology already supplies; the framework's granularity doctrine only
+      checks that treating both scattering epochs as stable, non-conflicting records is not contradicted by data.
+    </div>
+
+    <h2>1. Verdict</h2>
+    <p><strong>CLOSED</strong> — the Planck-measured reionization optical depth \(\tau = 0.0544 \pm 0.0073\)
+      (Planck 2018, TT,TE,EE+lowE+lensing baseline) is consistent, via the standard instantaneous-reionization
+      approximation, with a reionization redshift \(z_{\rm re}\approx 7.7\) — a value that sits inside the window
+      independently bounded by quasar Gunn-Peterson-trough and Ly\(\alpha\)-forest data (reionization complete by
+      \(z\approx 6\), consistent with a more extended process beginning as early as \(z\sim10\)–\(15\)). The
+      large-scale EE polarization "reionization bump" at \(\ell\lesssim10\) required to produce this \(\tau\) is
+      observed at the amplitude and shape standard \(\Lambda\)CDM + reionization physics predicts, with no need for
+      an anomalous ionization history, an anomalously early or late reionization, or an over-/under-ionized
+      universe. Secondary note: \(\tau\) itself dropped substantially between WMAP-era (\(\tau\approx0.089\), WMAP9
+      2013) and Planck-era (\(\tau\approx0.054$-$0.058\), Planck 2015→2018) measurements as large-scale polarization
+      systematics were brought under control — the framework does not depend on which historical value is used,
+      only on internal self-consistency of the current best value with the EE spectrum and independent probes,
+      which holds.</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>The precise granularity claim under test: the epoch window \(W=\{\)recombination (\(z\approx1089\),
+      \(t\approx380{,}000\) yr) through reionization (\(z\sim6\)–\(15\), \(t\sim0.3\)–\(1\) Gyr)\(\}\) leaves behind
+      <em>two</em> distinguishable, stable, jointly-recordable scattering signatures on the same photon bath: (a)
+      the primary recombination-epoch polarization pattern sourced by the quadrupole at last scattering
+      (routed separately in Test 29/31), and (b) a secondary, large-angular-scale polarization "bump" sourced by
+      Thomson scattering off the small fraction of free electrons re-ionized by early structure formation. The
+      framework's rule — a distinction is valid in a window only if it can be coupled, encoded, stabilized, and/or
+      observed at that window's physical resolution — requires that this second scattering event be actually
+      detectable as a distinguishable, non-conflicting addition on top of the primary recombination signal, not a
+      contradiction of it, and that the total inferred \(\tau\) be consistent with independent (non-CMB)
+      reionization-timing data.</p>
+
+    <h2>3. Data Used</h2>
+    <ul>
+      <li><strong>CMB optical depth \(\tau\):</strong> Planck Collaboration VI (2020), "Planck 2018 results.
+        VI. Cosmological parameters," A&amp;A 641, A6, arXiv:1807.06209 — baseline
+        TT,TE,EE+lowE+lensing: \(\tau = 0.0544 \pm 0.0073\).</li>
+      <li><strong>Earlier (superseded) value, for context:</strong> WMAP nine-year results (Hinshaw et al. 2013,
+        ApJS 208:19, arXiv:1212.5226): \(\tau = 0.089 \pm 0.014\); Planck 2015 (Planck Collaboration XIII, 2016,
+        A&amp;A 594, A13, arXiv:1502.01589): \(\tau = 0.066 \pm 0.016\), later refined downward as large-angle
+        polarization systematics (dust foreground removal, HFI processing) improved.</li>
+      <li><strong>Independent reionization-timing constraint:</strong> Ly\(\alpha\)-forest Gunn-Peterson-trough
+        studies establish the intergalactic medium is highly ionized by \(z\approx6\) (Fan, Carilli &amp; Keating
+        2006, ARA&amp;A 44:415; Fan et al. 2006, AJ 132:117); quasar-damping-wing and Ly\(\alpha\)-emitter studies
+        push the tail of reionization to \(z\sim6.5\)–\(7\) (e.g. Davies et al. 2018, ApJ 864:142, arXiv:1802.06066;
+        Bosman et al. 2022, MNRAS 514:55, arXiv:2108.03699); an extended reionization process beginning as early as
+        \(z\sim10\)–\(15\) is favored by JWST-era early-galaxy UV-luminosity-function results (e.g. Finkelstein et
+        al. 2019, ApJ 879:36; reviewed post-JWST in Robertson 2022, ARA&amp;A 60:121, arXiv:2110.13160).</li>
+      <li><strong>EE polarization reionization bump:</strong> Planck 2018 low-\(\ell\) EE likelihood (Planck
+        Collaboration V, 2020, A&amp;A 641, A5, arXiv:1907.12875) — detects the large-scale EE reionization bump at
+        \(\ell\lesssim10\) at the amplitude corresponding to \(\tau\approx0.05\)–\(0.06\), consistent with the
+        headline parameter-fit value above.</li>
+      <li><strong>Instantaneous-reionization \(\tau\)-to-\(z_{\rm re}\) conversion:</strong> standard relation used
+        in Planck likelihood pipelines (e.g. Planck Collaboration XIII 2016, Sec. 6.2; CAMB/CLASS reionization
+        module documentation), assuming a fiducial flat \(\Lambda\)CDM background (\(H_0=67.4\) km/s/Mpc,
+        \(\Omega_m=0.315\), Planck 2018).</li>
+    </ul>
+
+    <h2>4. Calculation Summary</h2>
+    <p><strong>Step 1 — Free-electron fraction after recombination.</strong> After recombination
+      (\(z\approx1089\)), the residual free-electron fraction from recombination physics alone falls to
+      \(x_e\sim10^{-4}\) by \(z\sim200\) and stays negligible through the cosmic "dark ages." Reionization by UV
+      radiation from the first stars/galaxies/quasars then drives \(x_e\) from \(\sim10^{-4}\) back up toward
+      \(\approx1\) (fully ionized hydrogen, plus singly-ionized helium) somewhere in the range \(z\sim6\)–\(15\),
+      consistent with the ionization histories used in the Planck reionization likelihood (Planck Collaboration VI
+      2020, Sec. 6.2 model comparison of instantaneous vs. extended reionization parameterizations, e.g. \(\tanh(z)\)
+      vs. FlexKnot models — both give consistent \(\tau\)).</p>
+    <p><strong>Step 2 — \(\tau\)-to-\(z_{\rm re}\) conversion (instantaneous approximation).</strong> The Thomson
+      optical depth to reionization is
+      \[
+      \tau = \int_0^{z_{\rm re}} n_e(z)\,\sigma_T\,\frac{c\,dz}{(1+z)H(z)} ,
+      \]
+      where \(n_e(z)\) is the free-electron number density (assuming full hydrogen ionization, with helium
+      ionizing in step), \(\sigma_T\) is the Thomson cross-section, and \(H(z)\) is the Planck-2018 background
+      expansion rate. Solving this relation for the value \(\tau=0.0544\pm0.0073\) under the standard sharp
+      (instantaneous) reionization approximation gives
+      \[
+      z_{\rm re} \approx 7.7 \; (\text{68\% range roughly } 6.5\text{–}8.9,\ \text{Planck Collaboration VI 2020,
+      Table 2}).
+      \]</p>
+    <p><strong>Step 3 — Cross-check against independent (non-CMB) reionization timing.</strong> The Planck-derived
+      \(z_{\rm re}\approx7.7\) is compared against the Ly\(\alpha\)-forest/quasar constraint that the intergalactic
+      medium is \(\gtrsim99.9\%\) ionized by \(z\approx6\) (Fan et al. 2006) and that the tail end of reionization
+      (last \(\sim1\)–\(2\%\) of neutral hydrogen) persists to \(z\sim6.5\)–\(7\) (Bosman et al. 2022; Davies et al.
+      2018). These two numbers, \(z_{\rm re}({\rm CMB})\approx7.7\) versus \(z_{\rm end}({\rm quasars})\approx6\)–7,
+      are not required to be numerically identical — the CMB \(\tau\) measures a scattering-weighted midpoint of an
+      extended process, while the quasar data pin the tail end. The ordering (\(z_{\rm re,\,CMB}\) somewhat above
+      \(z_{\rm end,\,quasar}\), consistent with reionization being an extended process rather than instantaneous)
+      is exactly what standard extended-reionization models predict (Planck Collaboration VI 2020, Fig. 19; Robertson
+      2022) — there is no contradiction between the two data sets.</p>
+    <p><strong>Step 4 — EE bump consistency.</strong> The amplitude of the large-scale (\(\ell\lesssim10\)) EE
+      reionization bump scales approximately as \(\tau^2\) at fixed scalar amplitude \(A_s\) (the well-known
+      \(\tau\)–\(A_s\) degeneracy in the temperature spectrum is broken by this EE feature). The Planck 2018 low-\(\ell\)
+      EE likelihood directly measures this bump and returns \(\tau=0.051\pm0.006\) to \(0.0544\pm0.0073\) depending
+      on exact likelihood combination (Planck Collaboration V 2020) — consistent with the TT,TE,EE+lowE+lensing
+      headline value used above, confirming the polarization data and the temperature-spectrum-inferred \(\tau\)
+      agree.</p>
+    <p><strong>Cross-epoch consistency (required check per suite method).</strong> This reionization/\(\tau\)
+      reading does not disturb BBN (light-element yields are fixed at \(T\sim0.1\)–1 MeV, far earlier), the primary
+      recombination visibility function (Test 29) and acoustic-peak geometry (Test 31) remain the dominant CMB
+      signal (the reionization bump is a small, well-separated large-angle addition, not a modification of the
+      primary peaks), and \(N_{\rm eff}=3.044\) (Test 22) is unaffected — reionization is a late-time
+      (\(z\lesssim15\)), astrophysical (not particle-physics) process layered on top of an otherwise-standard
+      thermal history.</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>On the framework's reading, this test asks whether two temporally separated scattering events — primary
+      recombination scattering (\(z\approx1089\)) and secondary reionization scattering (\(z\sim6\)–\(15\)) — can
+      both leave stable, mutually consistent, independently observable records on the same photon bath without one
+      erasing or contradicting the other. The data show they do: the reionization bump is a genuinely new,
+      distinguishable feature (a second "encoding" event, in the framework's language) added at large angular
+      scales on top of the primary recombination polarization pattern, and its inferred timing is independently
+      corroborated by a physically unrelated tracer (quasar absorption spectra). This is consistent with the
+      framework's rule that a distinction is valid in a window only if it can be coupled, encoded, and observed at
+      that window's resolution — reionization's imprint is exactly at the resolution (large angular scale, small
+      \(\tau\)) that Planck-era polarization measurements can and do resolve. Nothing here motivates or requires an
+      additional granularity event beyond the two already accounted for by standard cosmology.</p>
+
+    <h2>6. Gate Routing</h2>
+    <p>This test informs the <strong>Scattering-record gate</strong> in the Physics/GUT/TOE program, with primary
+      anchor pressure on <strong>Encoding / Observation</strong> (speculative terminal-anchor layer, labeled here
+      only for cross-reference, not asserted as established). The value of \(\tau\) and the detailed reionization
+      history (astrophysics of the first ionizing sources — Population III stars, first galaxies, possible AGN
+      contribution) are routed as <strong>OBSERVED-GIVEN</strong> inputs at this layer — this framework does not
+      derive the timing or mechanism of reionization from first principles; it only checks that the measured
+      scattering record is internally consistent and does not conflict with the recombination-epoch record handled
+      in Tests 29 and 31.</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>Not applicable in the strict sense — the consistency check passed. For completeness, the specific failure
+      modes named in the test suite's guardrails, and confirmed absent here:</p>
+    <ul>
+      <li><strong>No over-/under-ionization:</strong> the Planck-inferred \(z_{\rm re}\approx7.7\) and the
+        quasar-inferred end-of-reionization \(z\approx6\)–7 are ordered exactly as an extended reionization process
+        predicts; neither dataset requires an anomalously early (\(z\gg15\)) or anomalously late (\(z\ll6\))
+        reionization that would contradict the other.</li>
+      <li><strong>No measured-value-treated-as-derived error:</strong> \(\tau\) and the reionization history are
+        explicitly carried here as empirical/astrophysical inputs, not claimed as framework predictions.</li>
+      <li><strong>No terminal-anchor problem disguised as closure:</strong> the mild historical drift in the
+        measured value of \(\tau\) (WMAP9 \(\to\) Planck 2015 \(\to\) Planck 2018) is reported as-is, as a
+        measurement-systematics story, not smoothed over.</li>
+      <li><strong>Qualitative-match guardrail:</strong> this verdict rests on the explicit \(\tau\)-to-\(z_{\rm re}\)
+        conversion and cross-check against quasar data in Section 4, not a narrative-only claim that "reionization
+        happened."</li>
+    </ul>
+
+    <h2>8. Next Action</h2>
+    <p>Data lookup / monitoring, not derivation: (a) track future improvements to \(\tau\) from next-generation
+      CMB polarization experiments (e.g. LiteBIRD, CMB-S4) and from further JWST/ELT constraints on the early-galaxy
+      UV-luminosity function driving reionization, to see whether the extended-reionization picture sharpens; (b) if
+      this framework's own GUT/TOE construction proposes a nonstandard early-ionizing source (e.g. exotic particle
+      decays injecting ionizing photons before \(z\sim15\)), re-run this consistency check against that mechanism's
+      predicted \(\tau\) and ionization history rather than assuming standard astrophysical reionization; (c) no
+      terminal-anchor routing is needed beyond the OBSERVED-GIVEN status already assigned to \(\tau\) and the
+      reionization history — this test only certifies that the two scattering-record epochs are mutually
+      consistent, not that their astrophysical origin is derived.</p>
+
+    <div class="callout">
+      <h3>Bottom line</h3>
+      <p>This is a <strong>SHARED-WITH-ΛCDM</strong> result: the consistency between the CMB-measured optical depth
+        \(\tau\), the large-scale EE polarization "reionization bump," and independent quasar-based reionization
+        timing all belong to standard hot-Big-Bang cosmology plus standard structure-formation astrophysics, which
+        this framework inherits wholesale. The framework's only addition is an interpretive label — reading the
+        recombination and reionization scattering events as two independently stable, mutually consistent
+        "records" imprinted on the same photon bath — and that label is consistent with, but not independently
+        confirmed or predicted by, the data checked here. The timing, mechanism, and sources of reionization
+        remain unexplained, observed-given/astrophysical inputs.</p>
+    </div>
+
+    <p><a class="btn" href="/early-universe/tests/">&larr; Back to the granularity test suite</a>
+       &nbsp; <a class="btn" href="/early-universe/">&larr; Back to Early &amp; Distant Universe</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

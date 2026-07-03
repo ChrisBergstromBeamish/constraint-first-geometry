@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 15 — Cosmic Strings and Topological Defects Test — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Honest run of the Cosmic Strings and Topological Defects Test: GUT-scale string tension estimate vs. Planck 2018 CMB and NANOGrav 15-yr pulsar-timing bounds. Verdict: CLOSED-AS-COMPRESSED-RECORD, shared with ΛCDM+GUT model space.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Verdict badge ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.95rem;
+    letter-spacing:0.02em;
+    padding:0.4em 0.9em;
+    border-radius:4px;
+    background:#eef4f1;
+    border:1px solid #3f7a5f;
+    color:#215039;
+  }
+  .class-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    padding:0.3em 0.7em;
+    border-radius:3px;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    color:var(--ink-soft);
+  }
+  .backlinks{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+    margin-bottom:1.2em;
+  }
+  .framework-honesty-box{
+    border:1px dashed #8a4a1f;
+    background:#fdf2e6;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.93rem;
+  }
+  .framework-honesty-box strong{color:#8a4a1f;}
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <p class="backlinks">
+      <a href="/early-universe/">&larr; Early &amp; Distant Universe</a> ·
+      <a href="/early-universe/tests/">&larr; All granularity tests</a>
+    </p>
+
+    <h2 style="border-bottom:none; margin-bottom:0.3em;">Test 15 — Cosmic Strings and Topological Defects Test</h2>
+    <p class="lede">If a symmetry-breaking transition in the early universe left behind cosmic strings, domain walls,
+    or other topological defects, do the properties those defects would have match — or exceed — the bounds set
+    by CMB anisotropy, stochastic gravitational-wave, and lensing surveys?</p>
+
+    <p>
+      <span class="verdict-badge">Verdict: CLOSED-AS-COMPRESSED-RECORD</span>
+      &nbsp; <span class="class-badge">SHARED-WITH-&Lambda;CDM</span>
+    </p>
+
+    <div class="honesty-box">
+      <strong>Read this before anything else on this page.</strong> A "CLOSED" or "CLOSED-AS-COMPRESSED-RECORD"
+      verdict below means the interpretation is <em>consistent</em> with standard cosmology and standard
+      defect-formation phenomenology at this epoch — it is not a claim that this framework uniquely predicted the
+      result. The numerical bound comparison performed here (a generic GUT-scale string-tension estimate against
+      Planck 2018 CMB and NANOGrav 15-yr pulsar-timing bounds) is standard cosmic-string phenomenology, inherited
+      wholesale; it is <strong>not</strong> a framework-specific output. See the <a href="/early-universe/blind-prediction-method.html">blind
+      prediction method</a> for how framework-specific claims elsewhere in this section are held to a stricter
+      no-peeking discipline.
+    </div>
+
+    <div class="framework-honesty-box">
+      <strong>Framework-honesty note:</strong> this program's frozen 13D geometric anchor set (K&#8326; = SU(3)/T&sup2;,
+      D=13, with the four calibration anchors {M<sub>Pl</sub>, &alpha;<sub>i</sub>, y<sub>t</sub>, |V<sub>us</sub>|}) does
+      not, on its own, force a specific GUT-scale gauge-symmetry-breaking chain with a computed symmetry-breaking
+      scale &eta; and defect-forming topology. No framework-native defect-production calculation exists in this
+      program's technical files. What follows is therefore a <em>generic</em> GUT-scale-defect sanity check —
+      the kind any candidate GUT-completion sitting at the standard unification scale would have to pass — used
+      here to test whether the framework's silence on defects is itself consistent with the absence of excluded
+      relics, not to claim the framework predicted string tension from first principles.
+    </div>
+
+    <h3>1. Verdict</h3>
+    <p><strong>CLOSED-AS-COMPRESSED-RECORD.</strong> The framework does not derive a specific defect-forming
+    symmetry-breaking chain, a specific defect type, or a specific string tension. What it can honestly claim is
+    the compressed record actually available: (a) a generic GUT-scale string tension estimate, computed from the
+    standard unification scale, sits well above current CMB and pulsar-timing exclusion bounds, so <em>if</em> the
+    framework's eventual GUT-completion produces stable cosmic strings at the naive GUT scale, that specific
+    scenario is already in tension with data (see Calculation Summary); (b) the absence of any detected cosmic-string
+    or domain-wall signal in current CMB, gravitational-wave, and lensing data is itself the correctly-identified
+    compressed record — no defects observed, at current sensitivity, is consistent with either no defects having
+    formed, defects having diluted below detectability, or defects being absent because the true symmetry-breaking
+    pattern does not produce stable ones (e.g., via embedding that makes the relevant homotopy group trivial). This
+    test does not distinguish between those three; it only confirms none of them is currently excluded.</p>
+
+    <h3>2. Tested Claim</h3>
+    <p>The precise granularity claim under test: <em>"symmetry-breaking defects must obey CMB, gravitational-wave,
+    lensing, and structure constraints."</em> Framed under the master doctrine that early-universe history is
+    increasing recordable distinction: if a GUT-scale (or hidden-sector) symmetry-breaking transition created a
+    topologically stable defect network, that network is itself a candidate "recordable distinction" — a fossil
+    record of a symmetry-breaking event. The test asks whether such a record, if it exists, is compatible with
+    (or already excluded by) what has actually been observed.</p>
+
+    <h3>3. Data Used</h3>
+    <table>
+      <tr><th>Quantity</th><th>Value</th><th>Source</th></tr>
+      <tr><td>Reduced Planck mass M<sub>Pl</sub></td><td>1.22 &times; 10<sup>19</sup> GeV</td><td>PDG 2024 Review of Particle Physics, "Astrophysical constants"</td></tr>
+      <tr><td>Canonical GUT unification scale &eta; &sim; M<sub>GUT</sub></td><td>&sim;2 &times; 10<sup>16</sup> GeV (order-of-magnitude, standard SU(5)/SO(10) 1-loop running estimate)</td><td>Standard textbook GUT running (e.g. Langacker reviews; PDG 2024 "Grand unified theories" summary); this program's frozen anchor set does not itself fix this number</td></tr>
+      <tr><td>Nambu&ndash;Goto string CMB bound</td><td>G&mu;/c&sup2; &lt; 1.3 &times; 10<sup>&minus;7</sup> (95% CL)</td><td>Planck 2018 results X (Constraints on inflation), arXiv:1807.06211; Planck 2018 CMB power-spectrum string bound as summarized in Planck 2018 VI cosmological parameters, arXiv:1807.06209, published 2020</td></tr>
+      <tr><td>Stable-cosmic-string stochastic-GW bound (loop-emission model dependent)</td><td>G&mu; &lesssim; 10<sup>&minus;10</sup>&ndash;10<sup>&minus;11</sup></td><td>NANOGrav 15-yr dataset, cosmic-string interpretation, arXiv:2306.16219 (2023); see also Ellis &amp; Lewicki, arXiv:2306.17147 (2023)</td></tr>
+      <tr><td>Domain-wall energy-density bound (if stable, w &ne; &minus;1 walls overclose)</td><td>Zel'dovich&ndash;Kobzarev&ndash;Okun bound: stable walls with &sigma; &gtrsim; MeV&sup3; scale overclose the universe unless diluted</td><td>Zel'dovich, Kobzarev &amp; Okun 1974 (classic result); restated in Vilenkin &amp; Shellard, "Cosmic Strings and Other Topological Defects" (1994, standard reference)</td></tr>
+      <tr><td>Monopole abundance constraint (context; see Test 14)</td><td>&Omega;<sub>monopole</sub> must be diluted by inflation; no detection</td><td>Cross-referenced from Test 14 (Monopole Production and Dilution Test) in this suite</td></tr>
+    </table>
+
+    <h3>4. Calculation Summary</h3>
+    <p><strong>Window definition (W):</strong> GUT-scale and possible hidden-sector symmetry-breaking phase
+    transitions, occurring at temperatures T &sim; &eta; &sim; 10<sup>15</sup>&ndash;10<sup>16</sup> GeV, i.e. cosmic
+    age t &sim; 10<sup>&minus;38</sup>&ndash;10<sup>&minus;36</sup> s in the standard radiation-dominated estimate
+    t &sim; M<sub>Pl</sub>/T&sup2; (natural units); observationally accessed today through CMB anisotropy power
+    spectra, pulsar-timing-array stochastic gravitational-wave backgrounds, and weak-lensing/structure surveys.</p>
+    <p><strong>Step 1 &mdash; defect-type identification.</strong> Whether a symmetry-breaking transition <code>G &rarr; H</code>
+    produces defects depends on the topology of the vacuum manifold <code>G/H</code>: domain walls form if
+    &pi;<sub>0</sub>(G/H) is nontrivial, strings if &pi;<sub>1</sub>(G/H) is nontrivial, monopoles if &pi;<sub>2</sub>(G/H)
+    is nontrivial. A generic GUT breaking chain such as SU(5) &rarr; SM or SO(10) &rarr; SM via various intermediate
+    steps generically produces monopoles (Test 14, already treated) and, in many intermediate-symmetry-breaking
+    chains, cosmic strings from a broken U(1) factor. This program does not have a framework-derived breaking chain
+    on record, so this test uses the generic U(1)-breaking string case as the standard exemplar.</p>
+    <p><strong>Step 2 &mdash; string tension estimate.</strong> For a field-theoretic (Nambu&ndash;Goto / Kibble)
+    cosmic string formed at symmetry-breaking scale &eta;, the tension scales as</p>
+    <p>\[ \mu \sim \eta^2 \quad\Rightarrow\quad G\mu \sim \left(\frac{\eta}{M_{Pl}}\right)^2 \]</p>
+    <p>Using the canonical GUT scale &eta; &sim; 2 &times; 10<sup>16</sup> GeV and M<sub>Pl</sub> = 1.22 &times; 10<sup>19</sup> GeV:</p>
+    <p>\[ G\mu \sim \left(\frac{2\times10^{16}}{1.22\times10^{19}}\right)^2 \approx (1.64\times10^{-3})^2 \approx 2.7\times10^{-6} \]</p>
+    <p><strong>Step 3 &mdash; comparison to bounds.</strong> Comparing this generic GUT-scale estimate to the two
+    cited bounds:</p>
+    <ul>
+      <li>vs. Planck 2018 CMB bound (G&mu; &lt; 1.3 &times; 10<sup>&minus;7</sup>): the naive GUT-scale estimate exceeds
+      this bound by a factor of &sim;21.</li>
+      <li>vs. NANOGrav 15-yr stable-string bound (G&mu; &lesssim; 10<sup>&minus;10</sup>): the naive GUT-scale estimate
+      exceeds this bound by a factor of &sim;2.7 &times; 10<sup>4</sup>.</li>
+    </ul>
+    <p>A naive, stable, GUT-scale cosmic-string network is therefore <strong>excluded by roughly one to four orders
+    of magnitude</strong>, depending on which bound and which loop-decay assumption is used. This is a standard,
+    well-known tension in generic GUT model-building (not a new result of this program) that is typically resolved
+    in viable GUT models by: (i) the symmetry-breaking chain not producing stable strings at all (trivial
+    &pi;<sub>1</sub>(G/H) for the actual breaking pattern chosen), (ii) strings that are metastable and decay via
+    monopole-pair nucleation before reaching cosmological significance, or (iii) sufficient dilution (e.g. by a
+    late period of inflation or entropy production after string formation).</p>
+    <p><strong>Rate/threshold check:</strong> the exclusion factors above (21&times; and 2.7&times;10<sup>4</sup>&times;)
+    are the threshold check requested by the test's minimum-calculation requirements — they show a naive stable
+    GUT-string scenario is quantitatively, not just qualitatively, disfavored.</p>
+    <p><strong>Record check:</strong> the fossil record checked against is (a) the Planck 2018 CMB temperature power
+    spectrum (no excess small-angle anisotropy attributable to strings), and (b) the NANOGrav 15-yr pulsar-timing
+    stochastic gravitational-wave background, which shows a signal consistent with supermassive black-hole binaries
+    and does <em>not</em> require (though does not strictly exclude at all G&mu;) a cosmic-string origin. No
+    lensing events attributable to cosmic strings have been reported.</p>
+    <p><strong>Cross-epoch consistency:</strong> closing this test as "no excluded stable GUT-scale string network"
+    does not disturb BBN, CMB, BAO, or structure-formation results elsewhere in this suite, because the conclusion
+    is negative (absence of a detected/required defect population) rather than a claim that inserts new physics
+    into those pipelines. It is consistent with Test 14 (monopoles), which reaches the same qualitative structure:
+    the framework has not shown its GUT sector avoids defect overproduction, but standard resolution mechanisms
+    (non-defect-forming breaking pattern, metastability, or dilution) are available and not excluded by data.</p>
+
+    <h3>5. Granularity Interpretation</h3>
+    <p>Under the framework's interpretive doctrine, a topological defect network would be a "recordable distinction"
+    fossilized from a symmetry-breaking transition — a permanent, stable record of a granularity-increasing event.
+    The observational absence of such a record (no detected strings, walls, or their gravitational-wave/lensing
+    signatures) is read here as: either no such transition left a topologically stable record, or any record that
+    formed failed the encoding/stabilization test (decayed, diluted, or never had access to a channel that would
+    make it observer-accessible at current resolution). Either reading is compatible with the master doctrine —
+    the doctrine does not require every symmetry-breaking event to leave a permanent record, only that a claimed
+    stable record must actually be consistent with what is observed. Here, no such stable record is claimed by the
+    framework, and none is required to explain current data.</p>
+
+    <h3>6. Gate Routing</h3>
+    <p>Routes to: <strong>Defect-record relic gate</strong> (this test's designated gate), cross-referenced with the
+    <strong>Topological record gate</strong> (Test 14, monopoles), since both draw on the same unresolved
+    GUT-symmetry-breaking-chain gap. Per the required mapping:</p>
+    <pre>Defect-record relic gate -> CLOSED-AS-COMPRESSED-RECORD -> generic GUT-scale Gmu ~ 2.7e-6 exceeds Planck 2018 CMB bound (1.3e-7) by ~21x and NANOGrav 15-yr stable-string bound (~1e-10) by ~2.7e4x -> open gap: framework has no derived symmetry-breaking chain, defect topology, or native string-tension calculation; resolution (non-defect-forming breaking, metastability, or dilution) not yet shown</pre>
+
+    <h3>7. Failure Mode</h3>
+    <p>This test does not contradict outright, but it does not achieve a full framework-native CLOSED either. What
+    keeps it at CLOSED-AS-COMPRESSED-RECORD rather than CLOSED: (a) the framework supplies no derived
+    symmetry-breaking chain, so there is no framework-specific defect topology or tension to check — the number
+    checked here (&eta; &sim; 2 &times; 10<sup>16</sup> GeV) is the generic textbook GUT value, not a framework output;
+    (b) the naive calculation shows that <em>if</em> the eventual GUT-completion does produce stable defects at the
+    naive scale, that specific outcome is already excluded by 1&ndash;4 orders of magnitude — meaning this is a real
+    constraint the framework's eventual GUT sector must satisfy, not a free pass; (c) no mechanism (non-defect
+    topology, metastability, or dilution) has actually been demonstrated within this program's technical files —
+    it is asserted as "available in principle" by analogy to standard GUT model-building, not shown to hold for
+    this framework's specific compactification.</p>
+
+    <h3>8. Next Action</h3>
+    <p>Three next actions, none yet performed: (1) determine whether this framework's K&#8326; = SU(3)/T&sup2;
+    compactification and its associated gauge-symmetry-breaking pattern (if and when derived) actually produces a
+    nontrivial &pi;<sub>1</sub>(G/H) — i.e., whether cosmic strings are topologically possible at all in this
+    specific construction, as opposed to the generic textbook case used here; (2) if strings are topologically
+    possible, compute the framework-native symmetry-breaking scale (rather than borrowing the generic &sim;2 &times;
+    10<sup>16</sup> GeV value) and re-run this bound comparison; (3) if defects are found to be required and
+    excluded, identify which dilution/metastability mechanism (if any) this framework's own reheating and inflation
+    history (see Tests 07&ndash;11) can supply. Until (1) is done, this test cannot be promoted past
+    CLOSED-AS-COMPRESSED-RECORD.</p>
+
+    <div class="callout">
+      <h4>In one sentence</h4>
+      <p>No cosmic strings, domain walls, or other topological defects have been detected, and a naive GUT-scale
+      stable-string estimate is already excluded by current CMB and pulsar-timing bounds by one to four orders of
+      magnitude — a standard ΛCDM+GUT constraint this framework inherits but has not yet shown its own
+      (undetermined) symmetry-breaking sector actually satisfies.</p>
+    </div>
+
+    <p class="backlinks" style="margin-top:2em;">
+      <a href="/early-universe/tests/">&larr; All granularity tests</a> ·
+      <a href="/early-universe/">&larr; Early &amp; Distant Universe</a> ·
+      <a href="/early-universe/inflation-gate.html">Inflation gate (Gap-08) &rarr;</a>
+    </p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

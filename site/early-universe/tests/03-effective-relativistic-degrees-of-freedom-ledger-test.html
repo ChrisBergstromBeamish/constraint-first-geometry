@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 03 — Effective Relativistic Degrees of Freedom Ledger — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Early-universe granularity test 03: checks the g*(T) / g*_s(T) ledger of active relativistic species against standard thermal-history cosmology. Verdict: CLOSED, shared with ΛCDM.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Test-page specific ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    letter-spacing:0.03em;
+    padding:0.45em 1em;
+    border-radius:4px;
+    background:#1f4e5f;
+    color:#fff;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:0.25em 0.65em;
+    border-radius:3px;
+    margin-left:0.5em;
+    vertical-align:middle;
+  }
+  .tag-shared{background:#e4ecee; color:var(--accent-2); border:1px solid var(--accent-2);}
+  .tag-specific{background:#f3e9de; color:var(--accent); border:1px solid var(--accent);}
+  .breadcrumb{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-bottom:1em;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <div class="breadcrumb">
+      <a href="/early-universe/">Early &amp; Distant Universe</a> ›
+      <a href="/early-universe/tests/">Granularity Test Suite</a> ›
+      Test 03
+    </div>
+
+    <h2 style="border-bottom:none; margin-bottom:0.3em;">Test 03 — Effective Relativistic Degrees of Freedom Ledger Test</h2>
+    <p class="lede">Does the standard-cosmology ledger of active relativistic species, \(g_*(T)\) and \(g_{*s}(T)\), change
+      in the right order — and by the right accounting — as the universe cools, on the granularity reading that this is
+      a history of species becoming massive, confined, nonrelativistic, or decoupled?</p>
+
+    <p>
+      <span class="verdict-badge">CLOSED</span>
+      <span class="tag tag-shared">SHARED-WITH-ΛCDM</span>
+    </p>
+
+    <div class="honesty-box">
+      <strong>Read this before anything else on this page:</strong> a CLOSED verdict here means the granularity
+      <em>interpretation</em> — "cooling reduces the count of distinct, thermally coupled relativistic degrees of
+      freedom, and each reduction leaves a specific fossil record" — is <strong>consistent with</strong> the
+      established \(g_*(T)\) ledger of the hot Big Bang / Standard Model of particle physics. It is <strong>not</strong>
+      a claim that this framework uniquely predicted the Standard Model particle content, its masses, or the
+      confinement scale of QCD. All of those are inherited, measured inputs. This test only checks that the
+      framework's re-description of the ledger does not double-count, omit, or mis-order anything relative to the
+      accepted account.
+    </div>
+
+    <h2>1. Verdict</h2>
+    <p><strong>CLOSED</strong> — the active relativistic-degrees-of-freedom ledger, ordered by temperature from the
+      electroweak era down through \(e^+e^-\) annihilation, is internally consistent and matches the accepted
+      thermal-history account. Secondary note: this is a bookkeeping consistency check, not a derivation of the
+      Standard Model spectrum or the QCD transition temperature — those numbers are imported from particle physics
+      and lattice QCD, not derived from the framework's granularity doctrine.</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>The precise granularity claim under test: as the universe cools from the electroweak era (\(T \sim 160\text{
+      GeV}\)) through the QCD transition (\(T \sim 155\text{ MeV}\)) to \(e^+e^-\) annihilation (\(T \sim 0.5\text{
+      MeV}\)), the number of thermally active relativistic degrees of freedom \(g_*(T)\) and the entropy-weighted
+      count \(g_{*s}(T)\) must (a) only ever change at physically motivated thresholds — mass thresholds, confinement,
+      or decoupling — (b) never create or destroy degrees of freedom without a matching entropy transfer, and (c)
+      leave the specific, already-observed relic signatures (photon-to-neutrino temperature ratio, \(N_\text{eff}\))
+      that standard cosmology requires. The framework interprets each such step-down in \(g_*\) as a distinct
+      "granularity event": a class of field excitations losing thermal-coupling distinguishability and either
+      freezing into a stable relic record or being absorbed into the entropy of the remaining bath.</p>
+
+    <h2>3. Data Used</h2>
+    <ul>
+      <li><strong>Standard Model relativistic species count at \(T \gtrsim 170\) GeV (full SM, above top-quark
+        threshold):</strong> \(g_* = 106.75\). This is the textbook full-Standard-Model count (e.g. Kolb &amp;
+        Turner; Husdal 2016, "On Effective Degrees of Freedom in the Early Universe," <em>Galaxies</em> 4(4):78) —
+        photon (2), gluons (16), \(W^\pm, Z\) (9, after electroweak symmetry breaking counting — see note below),
+        3 generations of charged leptons (Dirac, 4 each = 12) and neutrinos (2 each if Weyl = 6, or handled via the
+        7/8 fermionic weight), 6 quark flavors × 3 colors × 2 spin × 2 (particle/antiparticle, Dirac) with the 7/8
+        fermionic statistical weight, plus 1 real Higgs scalar. The standard tally (Husdal 2016, Table 1;
+        Particle Data Group *Review of Particle Physics* 2024, "Big-Bang Nucleosynthesis" review, sec. on \(g_*\))
+        gives \(g_{*,\text{SM}} = 106.75\) for \(T\) above the top-quark mass (\(m_t \approx 172.5\) GeV, PDG 2024).</li>
+      <li><strong>QCD confinement / hadronization transition:</strong> pseudo-critical temperature
+        \(T_c \approx 156.5 \pm 1.5\) MeV, from lattice QCD (HotQCD Collaboration, Bazavov et al. 2019, Phys. Rev. D
+        100, 094510; consistent with Wuppertal-Budapest Collaboration, Borsanyi et al. 2020). Below \(T_c\), quarks
+        and gluons (which carried \(2\times8=16\) gluon + \(6\times3\times2\times2\times\tfrac{7}{8}=63\) quark
+        degrees of freedom while deconfined) are replaced by a hadron gas dominated by pions (3 light pion states),
+        dropping \(g_*\) sharply.</li>
+      <li><strong>Neutrino decoupling and \(e^+e^-\) annihilation:</strong> neutrinos decouple at \(T \sim 2\text{–}3\)
+        MeV (well above electron mass \(m_e = 0.511\) MeV, PDG 2024), then \(e^+e^-\) annihilate into photons near
+        \(T \sim 0.2\text{–}0.5\) MeV, heating the photon bath but not the already-decoupled neutrino bath. Standard
+        result: photon temperature today exceeds neutrino temperature by the entropy-conservation factor
+        \((11/4)^{1/3} \approx 1.401\), giving \(T_{\nu,0} \approx 1.95\) K against measured \(T_{\text{CMB},0} =
+        2.7255 \pm 0.0006\) K (Fixsen 2009; used as the standard reference value, e.g. Planck 2018 VI, A&amp;A 641,
+        A6).</li>
+      <li><strong>Effective number of neutrino species:</strong> Standard Model prediction with instantaneous-decoupling
+        correction, \(N_\text{eff} = 3.044\) (Bennett et al. 2021, Phys. Rev. D 104, 083524; de Salas &amp; Pastor
+        2016 give 3.045 — later re-computation with QED corrections lowers to 3.043–3.044, adopted as 3.044 in Planck
+        2018-era literature). Measured value: Planck 2018 (A&amp;A 641, A6) \(N_\text{eff} = 2.99 \pm 0.17\) (TT,TE,EE+lowE+lensing),
+        fully consistent with the Standard-Model prediction at the ~1σ level. No new relativistic species are
+        required or excluded by this test.</li>
+      <li><strong>Full temperature-resolved \(g_*(T)\), \(g_{*s}(T)\) tables:</strong> Husdal, L. (2016), "On Effective
+        Degrees of Freedom in the Early Universe," <em>Galaxies</em> 4(4), 78 (arXiv:1609.04979) — tabulates \(g_*\)
+        from \(g_*=106.75\) (SM high-T) down to \(g_*=3.36\) (today, photons+neutrinos) through every SM threshold,
+        cross-checked against lattice QCD equation-of-state data.</li>
+    </ul>
+
+    <h2>4. Calculation Summary</h2>
+    <p>The ledger is built as a monotone-in-temperature (but non-monotone-in-\(g_*\)) step function. Each step is
+      checked against a threshold condition and an entropy-conservation identity rather than asserted qualitatively.</p>
+    <p><strong>Governing relations</strong> (standard cosmology, e.g. Kolb &amp; Turner Ch. 3):</p>
+    \[
+    \rho_{\text{rad}} = \frac{\pi^2}{30}\,g_*(T)\,T^4, \qquad
+    s = \frac{2\pi^2}{45}\,g_{*s}(T)\,T^3,
+    \]
+    with the standard fermion/boson weighting
+    \[
+    g_*(T) = \sum_{\text{bosons } i} g_i \left(\frac{T_i}{T}\right)^4 + \frac{7}{8}\sum_{\text{fermions } j} g_j \left(\frac{T_j}{T}\right)^4 .
+    \]
+    <p><strong>Threshold check — species becomes nonrelativistic when</strong> \(m_i \gtrsim 3\,T\) (standard
+      Boltzmann-suppression rule of thumb). Applied to the top quark (\(m_t = 172.5\) GeV) this occurs at
+      \(T \lesssim 57\) GeV, consistent with its removal from the active count used in tables below \(T\sim 80\)–\(170\)
+      GeV. Applied to \(e^\pm\) (\(m_e = 0.511\) MeV) this occurs at \(T \lesssim 0.17\) MeV, consistent with the
+      accepted \(e^+e^-\) annihilation window of \(T\sim 0.2\)–\(0.5\) MeV (annihilation is not instantaneous; the
+      standard treatment integrates the Boltzmann equation, but the order-of-magnitude threshold check passes).</p>
+    <p><strong>Confinement check:</strong> comparing the QCD confinement scale \(T_c \approx 156.5\) MeV (lattice,
+      HotQCD 2019) against the temperatures at which quark/gluon degrees of freedom (79 dof) are replaced by a pion-
+      dominated hadron gas (~17.25 dof just below \(T_c\), per Husdal 2016 Table 1) confirms the transition occurs
+      in the correct regime — well above \(e^+e^-\) annihilation and well below electroweak symmetry breaking, so the
+      ordering \(T_\text{EW} \gg T_\text{QCD} \gg T_{e^+e^-} \gg T_\text{rec}\) required by the ledger holds
+      numerically: \(160\text{ GeV} \gg 0.156\text{ GeV} \gg 0.0005\text{ GeV} \gg 0.26\text{ eV}\) (recombination,
+      Planck 2018 \(z_\text{rec}\approx1089\), for reference only — outside this test's window).</p>
+    <p><strong>Entropy-conservation check (photon reheating from \(e^+e^-\) annihilation):</strong> before annihilation,
+      photons and \(e^\pm\) share a common temperature with \(g_{*s} = 2 + \tfrac{7}{8}(4) = 4\); neutrinos have already
+      decoupled at their own temperature with \(g_{*s,\nu} = \tfrac{7}{8}(6) = 5.25\) in a separate comoving entropy
+      reservoir. Conserving entropy in the photon+\(e^\pm\) sector alone across annihilation,
+      \(g_{*s,\text{before}}\,a_\text{before}^3 T_\text{before}^3 = g_{*s,\text{after}}\,a_\text{after}^3
+      T_\text{after}^3\), with \(g_{*s,\text{after}} = 2\) (photons only), yields
+      \[
+      \frac{T_\gamma}{T_\nu} = \left(\frac{11}{4}\right)^{1/3} \approx 1.401,
+      \]
+      which is the standard textbook result and matches the observed \(T_{\text{CMB},0}=2.7255\) K against the
+      predicted relic neutrino temperature \(T_{\nu,0} \approx 1.945\) K. This is the direct numerical fingerprint of
+      the \(e^+e^-\) "granularity event" (the disappearance of \(e^\pm\) as active relativistic degrees of freedom)
+      and it is not free — it is fixed once entropy conservation and the neutrino-decoupling timing are fixed. The
+      test therefore has a genuine numerical trip-wire, not just a qualitative story.</p>
+    <p><strong>\(N_\text{eff}\) cross-check:</strong> the same bookkeeping, carried through with the small non-instantaneous-decoupling
+      correction (neutrinos are not perfectly decoupled when \(e^+e^-\) annihilation starts, so they absorb a small
+      residual heating), predicts \(N_\text{eff} = 3.044\) (Bennett et al. 2021) against the Planck 2018 measured
+      \(N_\text{eff} = 2.99 \pm 0.17\) — consistent within 1σ, with no room for an additional fully-thermalized
+      relativistic species at this epoch (see also Test 22, Neutrino Decoupling and \(N_\text{eff}\) Test, for the
+      dedicated treatment of this bound).</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>On the framework's reading, each downward step in \(g_*(T)\) is a point where a class of field excitations
+      stops being a distinguishable, thermally coupled record-carrier and either (a) freezes into a new stable,
+      recordable relic — the QCD transition freezes color charge into confined hadrons, and \(e^+e^-\) annihilation
+      freezes the neutrino bath's temperature ratio into a permanent, in-principle-observable relic signature (the
+      cosmic neutrino background, addressed separately in Test 41) — or (b) is absorbed as extra entropy into the
+      remaining, still-coupled bath (the photon bath, which is reheated relative to neutrinos). Both outcomes are
+      allowed under the framework's validity rule ("a distinction is valid in window \(W\) only if it can be coupled,
+      encoded, stabilized, and/or observed at that window's resolution"): confinement produces a stabilized,
+      later-observable record (hadron/baryon abundances, indirectly the \(\eta_B\) ratio); the photon-reheating step
+      produces an encoded record in a global thermodynamic ratio that is, in principle, observable via \(N_\text{eff}\)
+      and, if the cosmic neutrino background is ever directly detected, directly confirmable. No step in the standard
+      ledger requires inventing a new distinguishable entity, and no step erases entropy that current cosmology says
+      must persist. That is the entirety of what this test checks — it does not claim the framework derived the
+      Standard Model spectrum, the value of \(T_c\), the electron mass, or the number of quark colors; all of those
+      are imported, measured, or lattice-computed values that the ledger consistency check treats as given.</p>
+
+    <h2>6. Gate Routing</h2>
+    <p>This test informs the <strong>particle appearance and disappearance ledger</strong> route into the
+      Physics/GUT/TOE program, with primary anchor pressure on <strong>Distinction / Encoding</strong> (the
+      speculative terminal-anchor layer; labeled here only for cross-reference, not asserted as established). It is
+      the bookkeeping backbone that the QCD confinement test (Test 19), the lattice-QCD equation-of-state test
+      (Test 20), the neutrino-decoupling / \(N_\text{eff}$ test (Test 22), and the BBN light-element test (Test 23)
+      each draw on for a consistent, non-double-counted degrees-of-freedom baseline. A failure here — an inconsistent
+      or double-counted ledger — would propagate as a silent error into all four of those downstream tests, so this
+      test's role is to certify the baseline they can trust, not to independently derive anything new about the
+      framework's granularity claim.</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>Not applicable in the strict sense — the ledger check passed. For completeness, the specific failure modes this
+      test screened for (per the test suite's guardrails), and confirmed absent:</p>
+    <ul>
+      <li><strong>No premature appearance:</strong> no species in the ledger is placed above the temperature its mass
+        or coupling structure would allow (checked via the \(m_i \gtrsim 3T\) threshold rule for the top quark and
+        \(e^\pm\), and via the lattice \(T_c\) for confinement).</li>
+      <li><strong>No field/particle conflation:</strong> gauge-redundant field components (e.g. the would-be Goldstone
+        modes absorbed into \(W^\pm, Z\) longitudinal polarizations) are not double-counted as separate physical
+        degrees of freedom in the standard tally used here; this is enforced by using the published Husdal
+        (2016)/PDG-consistent counting rather than an independent re-derivation.</li>
+      <li><strong>No un-sourced relic claim:</strong> the one relic abundance figure invoked (\(T_\gamma/T_\nu\),
+        \(N_\text{eff}\)) is tied to a specific published calculation and a specific measured value with its
+        uncertainty, not asserted qualitatively.</li>
+      <li><strong>No measured-value-as-derived confusion:</strong> \(m_t\), \(m_e\), \(T_c\), and the SM particle
+        content are explicitly flagged above as imported/measured/lattice-computed, not as outputs of the framework's
+        granularity doctrine.</li>
+    </ul>
+
+    <h2>8. Next Action</h2>
+    <p>Data lookup / cross-check, not derivation: (a) carry this exact \(g_*\)/\(g_{*s}\) baseline forward into Tests
+      19, 20, 22, and 23 rather than re-deriving it in each; (b) when the framework's dark-sector or hidden-sector
+      proposals (if any) are evaluated (Tests 25–27), re-run this same threshold-and-entropy check to confirm no
+      additional relativistic species is silently introduced without a matching \(N_\text{eff}\) or entropy
+      accounting; (c) no terminal-anchor routing is needed for this test — it resolved as a bookkeeping consistency
+      check against firmly established data, not as an unresolved distinction/encoding question.</p>
+
+    <div class="callout">
+      <h3>Bottom line</h3>
+      <p>This is a <strong>SHARED-WITH-ΛCDM</strong> result: the entire \(g_*(T)\) ledger, its thresholds, and its
+        entropy-conservation bookkeeping belong to the standard hot Big Bang / Standard Model of particle physics,
+        which this framework inherits wholesale. The framework's only addition is an interpretive label — reading
+        each threshold as a "granularity event" — and that label is consistent with, but not independently confirmed
+        by, the numbers checked here.</p>
+    </div>
+
+    <p><a class="btn" href="/early-universe/tests/">&larr; Back to the granularity test suite</a>
+       &nbsp; <a class="btn" href="/early-universe/">&larr; Back to Early &amp; Distant Universe</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

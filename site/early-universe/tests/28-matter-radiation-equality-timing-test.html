@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 28 — Matter–Radiation Equality Timing — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Early-universe granularity test 28: checks the matter-radiation equality redshift z_eq computed from Planck 2018 density parameters against the CMB/LSS-inferred value. Verdict: CLOSED, shared with ΛCDM.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Test-page specific ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    letter-spacing:0.03em;
+    padding:0.45em 1em;
+    border-radius:4px;
+    background:#1f4e5f;
+    color:#fff;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:0.25em 0.65em;
+    border-radius:3px;
+    margin-left:0.5em;
+    vertical-align:middle;
+  }
+  .tag-shared{background:#e4ecee; color:var(--accent-2); border:1px solid var(--accent-2);}
+  .tag-specific{background:#f3e9de; color:var(--accent); border:1px solid var(--accent);}
+  .breadcrumb{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-bottom:1em;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <div class="breadcrumb">
+      <a href="/early-universe/">Early &amp; Distant Universe</a> ›
+      <a href="/early-universe/tests/">Granularity Test Suite</a> ›
+      Test 28
+    </div>
+
+    <h2 style="border-bottom:none; margin-bottom:0.3em;">Test 28 — Matter–Radiation Equality Timing Test</h2>
+    <p class="lede">Does the redshift at which matter density overtakes radiation density, computed from the
+      measured density parameters, land where the cosmic microwave background and large-scale-structure data
+      independently say it must — and does the framework's "structure can finally grow" granularity reading add
+      anything beyond restating that standard result?</p>
+
+    <p>
+      <span class="verdict-badge">CLOSED</span>
+      <span class="tag tag-shared">SHARED-WITH-ΛCDM</span>
+    </p>
+
+    <div class="honesty-box">
+      <strong>Read this before anything else on this page:</strong> a CLOSED verdict here means the granularity
+      <em>interpretation</em> — "matter-radiation equality is the epoch at which density-perturbation distinctions
+      in the matter component become stable and recordable enough to start growing gravitationally, rather than
+      being washed out by radiation pressure" — is <strong>consistent with</strong> the standard \(\Lambda\)CDM
+      value of \(z_\text{eq}\) as measured by Planck. It is <strong>not</strong> a claim that this framework
+      derives \(\Omega_m\), \(\Omega_r\), or \(z_\text{eq}\) from its own geometry. All of the density parameters
+      used below are Planck-collaboration fits to CMB data; this test only checks that combining them the standard
+      way reproduces the equality redshift Planck also reports directly, and that the framework's interpretive
+      label does not conflict with either number.</div>
+
+    <h2>1. Verdict</h2>
+    <p><strong>CLOSED</strong> — the matter-radiation equality redshift computed from Planck 2018 density
+      parameters, \(z_\text{eq} \approx 3422\), agrees with the Planck-reported directly-fit value \(z_\text{eq} =
+      3402 \pm 26\) to within about 0.6%, well inside the combined systematic budget of the two independent ways
+      of extracting it (density-parameter ratio vs. direct CMB-peak fit). Secondary note: this is a consistency
+      check of measured cosmological parameters against each other, not a derivation of \(\Omega_m\), \(\Omega_r\),
+      or \(z_\text{eq}\) from the framework's own geometric machinery — all inputs are Planck-collaboration
+      observed givens.</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>The precise granularity claim under test: the transition from radiation-dominated to matter-dominated
+      expansion — defined by \(1+z_\text{eq} = \Omega_m/\Omega_r\), i.e. the redshift at which the matter and
+      radiation energy densities are equal — must occur at the redshift/time independently inferred from the
+      cosmic microwave background acoustic-peak structure and the turnover scale of the matter power spectrum.
+      The framework reads this transition as a granularity event: below \(z_\text{eq}\), matter density
+      perturbations are no longer suppressed by radiation pressure and can grow via gravitational instability,
+      so density contrasts become "stable, recordable distinctions" (the seeds of large-scale structure) for the
+      first time, rather than transient radiation-pressure-supported oscillations.</p>
+
+    <h2>3. Data Used</h2>
+    <ul>
+      <li><strong>Planck 2018 cosmological parameters</strong> (Planck Collaboration VI, 2020, "Planck 2018
+        results. VI. Cosmological parameters," A&amp;A 641, A6, arXiv:1807.06209), base-\(\Lambda\)CDM,
+        TT,TE,EE+lowE+lensing+BAO column (Table 2):
+        <ul>
+          <li>\(\Omega_m h^2 = 0.1430 \pm 0.0011\)</li>
+          <li>\(h = 0.6766 \pm 0.0042\) (so \(\Omega_m = 0.3127 \pm 0.0060\))</li>
+          <li>directly-fit equality redshift: \(z_\text{eq} = 3402 \pm 26\)</li>
+        </ul>
+      </li>
+      <li><strong>CMB temperature</strong> (photon density input): \(T_{\text{CMB},0} = 2.7255 \pm 0.0006\) K,
+        Fixsen (2009), "The Temperature of the Cosmic Microwave Background," ApJ 707, 916 (COBE/FIRAS), giving the
+        standard \(\Omega_\gamma h^2 = 2.47\times10^{-5}\) used in all subsequent \(\Omega_r h^2\) calculations.</li>
+      <li><strong>Effective neutrino number</strong>: \(N_\text{eff} = 3.044\), Bennett et al. (2021),
+        "Towards a precision calculation of \(N_\text{eff}\) in the Standard Model," JCAP 04 (2021) 073
+        (arXiv:2012.02726) — refines the historical \(N_\text{eff}=3.046\), used here in the standard
+        \(\Omega_r h^2 = \Omega_\gamma h^2(1+0.2271\,N_\text{eff})\) relation for the neutrino contribution to
+        radiation density.</li>
+      <li><strong>Large-scale-structure cross-check (independent of CMB):</strong> the matter power spectrum
+        turnover scale near the equality wavenumber \(k_\text{eq}\), as measured by galaxy-clustering and BAO
+        surveys (e.g. eBOSS DR16, Alam et al. 2021, Phys. Rev. D 103, 083533, arXiv:2007.08991), is consistent
+        with the same \(z_\text{eq}\) inferred from the CMB — used as the "compare to CMB and large-scale-structure
+        inferred equality" step the test-suite procedure requires.</li>
+    </ul>
+
+    <h2>4. Calculation Summary</h2>
+    <p><strong>Governing relation</strong> (standard \(\Lambda\)CDM background cosmology):</p>
+    \[
+    1+z_\text{eq} \;=\; \frac{\Omega_m}{\Omega_r}\;=\;\frac{\Omega_m h^2}{\Omega_r h^2}.
+    \]
+    <p><strong>Step 1 — radiation density parameter:</strong></p>
+    \[
+    \Omega_r h^2 \;=\; \Omega_\gamma h^2\,\bigl(1 + 0.2271\,N_\text{eff}\bigr)
+    \;=\; 2.47\times10^{-5}\times\bigl(1 + 0.2271\times3.044\bigr)
+    \;=\; 4.177\times10^{-5}.
+    \]
+    <p><strong>Step 2 — equality redshift from the parameter ratio:</strong></p>
+    \[
+    1+z_\text{eq} \;=\; \frac{0.1430}{4.177\times10^{-5}} \;=\; 3423,
+    \qquad z_\text{eq}^{\text{(computed)}} \;\approx\; 3422.
+    \]
+    <p><strong>Step 3 — compare to the Planck-reported direct fit:</strong> \(z_\text{eq}^{\text{(Planck, direct)}}
+      = 3402\pm26\). The fractional difference is</p>
+    \[
+    \frac{3422-3402}{3402} \;\approx\; 0.6\%,
+    \]
+    <p>which is within the combined uncertainty budget once the small approximations in Step 1 (e.g. treating
+      \(N_\text{eff}\) neutrinos as exactly massless and the photon-to-neutrino temperature ratio as the
+      instantaneous-decoupling value) are accounted for — this is the expected, well-documented level of agreement
+      between the parameter-ratio method and Planck's own direct multi-parameter fit, not a discrepancy.</p>
+    <p><strong>Cross-check against large-scale structure:</strong> the equality wavenumber implied by
+      \(z_\text{eq}\approx3400\) sets the turnover scale of the linear matter power spectrum; galaxy-survey and BAO
+      measurements of this turnover (eBOSS DR16 and earlier SDSS/BOSS results) are consistent with the CMB-inferred
+      value within their (larger) survey uncertainties, satisfying the "compare to CMB and large-scale-structure
+      inferred equality" step independently of the CMB-only number above.</p>
+    <p><strong>Sensitivity check (Step 3 of the minimum calculations):</strong> extra relativistic species (a
+      higher \(N_\text{eff}\)) or an early-dark-energy component would each shift \(\Omega_r h^2\) or \(\Omega_m
+      h^2\) and hence \(z_\text{eq}\); Planck's own joint fit already marginalizes over \(N_\text{eff}\) and finds
+      no significant deviation from the Standard-Model value 3.044, so no such shift is required or favored by the
+      current data (Planck 2018 VI, §6.3; Bennett et al. 2021).</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>On the framework's reading, matter-radiation equality is the point at which matter density-contrast
+      distinctions become stable and recordable in the sense the validity rule requires: before \(z_\text{eq}\),
+      radiation pressure suppresses the growth of matter overdensities (they oscillate rather than collapse); after
+      \(z_\text{eq}\), matter perturbations grow via gravitational instability essentially unimpeded, laying down
+      the density field that later CMB decoupling (Test 29) and structure-formation surveys (Tests 34–38) record.
+      The fossil record this test relies on is twofold and mutually consistent: the location of the equality
+      "turnover" imprinted in the linear matter power spectrum, and the amplitude/phase relationships of the CMB
+      acoustic peaks (which depend on the ratio of radiation to matter density at recombination). Nothing new is
+      created at this epoch that is not already tracked by \(\Omega_m\) and \(\Omega_r\) — the transition is a
+      change in which distinctions can grow, not the appearance of a new object requiring its own accounting.</p>
+
+    <h2>6. Gate Routing</h2>
+    <p>This test informs the <strong>structure-growth regime gate</strong>, with primary anchor pressure on
+      <strong>Distinction / Encoding</strong> (the speculative terminal-anchor layer, labeled here only for
+      cross-reference, not asserted as established). It feeds forward into Test 29 (Recombination Visibility
+      Function), Test 31 (CMB Acoustic Peak Geometry, which is directly sensitive to the matter/radiation ratio at
+      recombination), and Tests 34–36 (primordial power spectrum to large-scale structure, BAO, and
+      \(\sigma_8\)/\(S_8\)), all of which depend on this equality epoch having occurred at the value fixed here.</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>Not applicable in the strict sense — the two independent extractions of \(z_\text{eq}\) (parameter-ratio
+      calculation and Planck's direct multi-parameter fit) agree to within 0.6%, and the large-scale-structure
+      cross-check is consistent within its (larger) uncertainties. For completeness, the specific failure modes
+      this test screened for (per the test suite's guardrails), and confirmed absent:</p>
+    <ul>
+      <li><strong>No hidden-sector or early-dark-energy shift:</strong> Planck's joint fit finds no significant
+        deviation of \(N_\text{eff}\) from the Standard-Model value, so no additional relativistic or early-dark-
+        energy component is required to explain the data, and none is smuggled in here.</li>
+      <li><strong>No measured-value-as-derived confusion:</strong> \(\Omega_m h^2\), \(\Omega_r h^2\), \(h\), and
+        \(N_\text{eff}\) are all explicitly flagged as Planck-collaboration observed givens, not outputs of the
+        framework's own geometric or granularity machinery.</li>
+      <li><strong>No single-method reliance:</strong> the CMB parameter-ratio value and the independent
+        large-scale-structure turnover-scale value are cross-checked against each other rather than one number
+        being taken on faith.</li>
+    </ul>
+
+    <h2>8. Next Action</h2>
+    <p>Data lookup / cross-check, not derivation: (a) carry \(z_\text{eq}\approx3400\) forward as a fixed input to
+      Tests 29, 31, and 34–36 rather than re-deriving it there; (b) if the framework's technical program ever
+      proposes an extra relativistic species, early dark energy, or a hidden sector with cosmologically relevant
+      density, re-run this same ratio-vs-direct-fit comparison to confirm the proposal does not shift
+      \(z_\text{eq}\) outside the Planck-allowed range; (c) no terminal-anchor routing is needed for this test — it
+      resolved as a consistency check between two independent extractions of an already-measured quantity, not as
+      an unresolved distinction/encoding question.</p>
+
+    <div class="callout">
+      <h3>Bottom line</h3>
+      <p>This is a <strong>SHARED-WITH-ΛCDM</strong> result: \(\Omega_m\), \(\Omega_r\), and the resulting
+        \(z_\text{eq}\) all belong to standard \(\Lambda\)CDM cosmology as measured by Planck, which this framework
+        inherits wholesale. The framework's only addition is an interpretive label — reading matter-radiation
+        equality as the granularity event at which matter-density distinctions become stable enough to grow into
+        structure — and that label is consistent with, but not independently confirmed by, the data checked here.</p>
+    </div>
+
+    <p><a class="btn" href="/early-universe/tests/">&larr; Back to the granularity test suite</a>
+       &nbsp; <a class="btn" href="/early-universe/">&larr; Back to Early &amp; Distant Universe</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 06 — Planck Boundary / Quantum-Gravity Terminal Test — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Honest run of the Planck Boundary / Quantum-Gravity Terminal Test: whether sub-Planckian claims are treated as a terminal anchor rather than pretending to close by standard physics.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Test-page specific ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
+    padding:0.5em 1em;
+    border-radius:4px;
+    background:var(--accent-2);
+    color:#fff;
+    letter-spacing:0.02em;
+  }
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    margin:0.8em 0 1.4em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.85rem;
+  }
+  .pill{
+    display:inline-block;
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:999px;
+    padding:0.25em 0.85em;
+    color:var(--ink-soft);
+  }
+  .pill.shared{border-color:#7a8a99; color:#25404f; background:#eaf1f5;}
+  .pill.specific{border-color:var(--accent); color:var(--accent); background:#fbf3ea;}
+  .backlinks{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+    margin-bottom:0.4em;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <p class="backlinks">
+      <a href="/early-universe/">&larr; Early &amp; Distant Universe</a> ·
+      <a href="/early-universe/tests/">&larr; All granularity tests</a>
+    </p>
+
+    <h2 style="border-bottom:none; margin-bottom:0.2em;">Test 06 — Planck Boundary / Quantum-Gravity Terminal Test</h2>
+    <p class="lede">Part of the 44-test Early-Universe Granularity Test Suite. This test asks a narrow question:
+    when the framework's "increasing recordable distinction" story reaches the Planck boundary, does it correctly
+    stop and call that a terminal anchor — or does it quietly pretend standard particles, records, and spacetime
+    already exist below the Planck scale?</p>
+
+    <div class="meta-row">
+      <span class="verdict-badge">Verdict: TERMINAL-ANCHOR</span>
+      <span class="pill shared">SHARED-WITH-&Lambda;CDM</span>
+      <span class="pill">Anchor pressure: Unity</span>
+      <span class="pill">Gate route: Pre-physics boundary gate</span>
+    </div>
+
+    <div class="honesty-box">
+      <strong>Read this before anything else on this page.</strong> This page reports a self-check, not a
+      peer-reviewed result. A "TERMINAL-ANCHOR" verdict here is not a discovery — it is an admission that no
+      known physics (this framework's or anyone else's) has a validated theory of what, if anything, happens at
+      or before the Planck scale. Every number quoted below is a standard textbook Planck-unit calculation, not a
+      novel prediction. This test is <strong>SHARED-WITH-&Lambda;CDM</strong>: every physical cosmology, this
+      framework included, hits the same wall at the same scale for the same reason (no experimentally validated
+      quantum-gravity theory exists). See <a href="/process/">The Process</a> for how these tests are run and
+      graded, and <a href="/tests/">The Tests</a> for the full ledger.
+      <br><br>
+      <strong>On "anchor pressure" / "terminal anchor" below:</strong> these terms name the program's speculative
+      ontology layer — seven interpretive labels (Unity/Root-Unity, Distinction/Primitive-Distinction, Encoding,
+      Knowing, Actualization, Experience, Value) used for internal cross-reference. They are <strong>not</strong>
+      a recognized physics classification and carry no physics content of their own; see
+      <a href="/anchors/">Foundational Constraints</a>.
+    </div>
+
+    <h2>1. Verdict</h2>
+    <p><strong>TERMINAL-ANCHOR.</strong> The claim "cosmic history is the history of increasing recordable
+    distinction," when run backward to the Planck boundary, correctly terminates rather than closing. The
+    framework does not supply — and does not claim to supply — a validated quantum-gravity formalism that would
+    license treating pre-Planckian or Planckian-era structure as ordinary distinguishable, recordable physics.
+    The test therefore routes to the terminal anchor <strong>Root Unity</strong> (speculative ontology layer —
+    interpretive label, not a physics result; undifferentiated prior to the
+    first admissible distinction) rather than to a physics closure. This is the correct and honest outcome under
+    the test's own pass criteria — a false CLOSED verdict here would be the specific failure mode the test exists
+    to catch.</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>The precise claim under evaluation: <em>"Any claim about physics at, near, or before
+    \(t \lesssim t_{\text{Planck}} \approx 5.39\times10^{-44}\,\text{s}\), or requiring ordinary semiclassical
+    spacetime and standard particle content below the Planck length \(\ell_{\text{Planck}}\), should be marked as
+    a terminal-anchor / pre-physics boundary — not treated as a standard-cosmology closure."</em> This is a
+    negative/gatekeeping claim: it tests whether the framework's own narrative avoids over-claiming inside a
+    regime where neither this framework nor mainstream physics has an empirically validated theory.</p>
+
+    <h2>3. Data Used</h2>
+    <table>
+      <thead><tr><th>Quantity</th><th>Value</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Reduced Planck constant \(\hbar\)</td><td>1.054571817 &times; 10<sup>&minus;34</sup> J&middot;s</td><td>CODATA 2018 (exact, via defined \(h\))</td></tr>
+        <tr><td>Newtonian constant \(G\)</td><td>6.67430(15) &times; 10<sup>&minus;11</sup> m&sup3; kg&sup1; s&sup2;</td><td>CODATA 2018</td></tr>
+        <tr><td>Speed of light \(c\)</td><td>299,792,458 m/s (exact, SI-defined)</td><td>SI 2019 redefinition</td></tr>
+        <tr><td>Planck time \(t_{\text{Pl}}\)</td><td>5.391 &times; 10<sup>&minus;44</sup> s</td><td>computed below</td></tr>
+        <tr><td>Planck length \(\ell_{\text{Pl}}\)</td><td>1.616 &times; 10<sup>&minus;35</sup> m</td><td>computed below</td></tr>
+        <tr><td>Planck energy \(E_{\text{Pl}}\)</td><td>1.221 &times; 10<sup>19</sup> GeV</td><td>computed below</td></tr>
+        <tr><td>Reduced Planck mass \(M_{\text{Pl}}\)</td><td>2.435 &times; 10<sup>18</sup> GeV</td><td>computed below (standard cosmology convention, \(8\pi G\) normalization)</td></tr>
+        <tr><td>Earliest epoch with any direct particle-physics test</td><td>electroweak scale, \(T\sim100\)&ndash;246 GeV, \(t\sim10^{-11}\)&ndash;10<sup>&minus;12</sup> s</td><td>Particle Data Group 2024 review, LHC electroweak measurements</td></tr>
+        <tr><td>Earliest epoch with direct cosmological (relic) confirmation</td><td>Big Bang Nucleosynthesis, \(T\sim1\) MeV, \(t\sim1\)&ndash;200 s</td><td>PDG 2024 BBN review; Planck 2018 (arXiv:1807.06209) &Omega;<sub>b</sub>h&sup2; = 0.0224</td></tr>
+      </tbody>
+    </table>
+    <p>No inflationary-epoch parameters are used in this test; those are covered separately (and under the
+    GAP08 constraint) in Tests 07&ndash;09.</p>
+
+    <h2>4. Calculation Summary</h2>
+    <p>Planck units are fixed points where \(\hbar\), \(G\), and \(c\) combine to a single scale in each
+    dimension, using standard dimensional analysis:</p>
+    <p>
+    \[
+    t_{\text{Pl}} = \sqrt{\frac{\hbar G}{c^{5}}}, \qquad
+    \ell_{\text{Pl}} = \sqrt{\frac{\hbar G}{c^{3}}}, \qquad
+    M_{\text{Pl,energy}} = \sqrt{\frac{\hbar c^{5}}{G}}, \qquad
+    M_{\text{Pl,reduced}} = \sqrt{\frac{\hbar c}{8\pi G}}
+    \]
+    </p>
+    <p>Substituting the CODATA 2018 values above (computed numerically, SI units throughout):</p>
+    <pre>t_Pl  = sqrt(ħG/c^5)      = 5.391246 × 10⁻⁴⁴ s
+ℓ_Pl  = sqrt(ħG/c^3)      = 1.616255 × 10⁻³⁵ m
+E_Pl  = sqrt(ħc^5/G)      = 1.220890 × 10¹⁹ GeV   (non-reduced)
+M_Pl  = sqrt(ħc/8πG)      = 2.435323 × 10¹⁸ GeV   (reduced, cosmology convention)</pre>
+    <p>These reproduce the standard textbook values to the precision CODATA 2018 supports (dominated by the
+    uncertainty in <i>G</i>, the least precisely known of the three constants, at the ~2 &times; 10<sup>&minus;5</sup>
+    relative level). This is not a novel calculation — it is the standard Planck-unit construction, run here as
+    the "minimum calculation" the test requires before any qualitative story is allowed.</p>
+    <p><strong>Threshold check.</strong> The earliest epoch with a directly tested particle-physics process
+    (electroweak symmetry breaking, probed at colliders and consistent with the thermal electroweak epoch at
+    \(t\sim10^{-11}\)&ndash;10<sup>&minus;12</sup> s) sits roughly:</p>
+    <p>
+    \[
+    \frac{t_{\text{Pl}}}{t_{\text{EW}}} \sim \frac{5.4\times10^{-44}\,\text{s}}{10^{-11}\,\text{s}} \sim 5\times10^{-33}
+    \]
+    </p>
+    <p>i.e., the Planck boundary is roughly <strong>33 orders of magnitude</strong> in time (and comparable
+    orders in energy, \(E_{\text{Pl}}/E_{\text{EW}} \sim 10^{17}\)) earlier/higher than the earliest regime where
+    any particle or field has been directly probed. No experiment, collider, or cosmological observation reaches
+    the Planck scale directly; the gap is not a rounding matter, it is many orders of magnitude of extrapolation.
+    This numerically confirms — rather than merely asserts — that "standard particles/records/spacetime" is an
+    extrapolation, not a measurement, at and before the Planck boundary.</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>Under the framework's own rule (a distinction is valid in a window <var>W</var> only if it can be coupled,
+    encoded, stabilized, and/or observed at that window's physical resolution), the Planck-scale regime fails the
+    validity test by construction: no known coupling, encoding, or stabilization mechanism is defined below
+    \(\ell_{\text{Pl}}\), because there is no validated quantum-gravity theory describing what "distinguishable"
+    even means at that resolution (whether spacetime itself remains a valid distinguishing structure is exactly
+    the open question). Nothing becomes newly distinguishable, recordable, stable, or observer-accessible at the
+    Planck boundary under this framework — the honest statement is the reverse: this is the boundary at which the
+    framework's own recordability criterion stops being applicable, because the substrate (semiclassical
+    spacetime) it presupposes is not established to exist there.</p>
+
+    <h2>6. Gate Routing</h2>
+    <p>Routes to the <strong>Pre-physics boundary gate</strong>, with primary terminal-anchor pressure on
+    <strong>Root Unity</strong> (undifferentiated-prior) and secondary pressure on <strong>Primitive
+    Distinction</strong> (the first admissible cut). Per the required ledger form:</p>
+    <pre>Pre-physics boundary gate -> TERMINAL-ANCHOR -> Planck-unit dimensional check (t_Pl, ℓ_Pl, E_Pl via ħ,G,c)
+  -> open gap: no validated quantum-gravity formalism exists (framework-agnostic; shared by all physical cosmology)</pre>
+    <p>This closure does not prove any part of the technical Physics/GUT/TOE program. It only confirms that the
+    program's early-universe narrative does not silently smuggle standard particles or spacetime into the
+    sub-Planckian regime — the specific failure mode this test exists to catch.</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>This test would <strong>fail (CONTRADICTED)</strong> if the framework's narrative, or the associated
+    technical program, treated any of the following as established rather than terminal:</p>
+    <ul>
+      <li>A specific particle, field configuration, or compactification residue existing "before" or "at" the
+      Planck time as an ordinary recordable object, without a stated quantum-gravity formalism and audit path.</li>
+      <li>Semiclassical spacetime (metric, causal structure, particle propagation) extended below \(\ell_{\text{Pl}}\)
+      without flagging that this is an extrapolation of unknown validity.</li>
+      <li>A qualitative narrative ("granularity increases smoothly from the Planck scale onward") substituted for
+      the numerical threshold check performed above.</li>
+    </ul>
+    <p>None of these failure modes are present in the current framework narrative reviewed for this test — the
+    narrative explicitly treats the pre-Planckian regime as outside its validity window. That is why the verdict
+    is TERMINAL-ANCHOR (correct routing) rather than CONTRADICTED.</p>
+
+    <h2>8. Next Action</h2>
+    <p>No derivation is owed here, and none is claimed. The honest next actions, in order of tractability:</p>
+    <ul>
+      <li><strong>Terminal-anchor routing (done, this page):</strong> record the Planck boundary as a Root-Unity
+      terminal anchor in the gate ledger, not a closure.</li>
+      <li><strong>Data lookup (ongoing):</strong> keep the Planck-unit inputs pinned to the current CODATA release;
+      re-run this numeric check whenever CODATA revises \(G\), \(\hbar\), or \(c\)-dependent constants.</li>
+      <li><strong>No simulation or further derivation is planned</strong> for this test specifically — sub-Planckian
+      structure is out of scope for a framework that does not claim a quantum-gravity formalism. Any future claim
+      about Planck-era physics must supply its own formalism and audit path before this verdict can move off
+      TERMINAL-ANCHOR.</li>
+    </ul>
+
+    <h2>Why this counts as SHARED-WITH-&Lambda;CDM, not framework-specific</h2>
+    <p>Every viable cosmological model in use today — &Lambda;CDM included — stops making particle-physics claims
+    at or before the Planck boundary, because no experiment probes that regime and no quantum-gravity theory is
+    empirically validated. This framework inherits that boundary; it does not move it, sharpen it, or claim to
+    cross it. The only framework-specific content on this page is the vocabulary used to name the boundary
+    (a "terminal anchor" rather than simply "beyond current physics") — the physics content of the verdict is
+    identical to any textbook treatment of the Planck scale.</p>
+
+    <p class="backlinks" style="margin-top:2em;">
+      <a href="/early-universe/tests/">&larr; All granularity tests</a> ·
+      <a href="/early-universe/">&larr; Early &amp; Distant Universe</a>
+    </p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

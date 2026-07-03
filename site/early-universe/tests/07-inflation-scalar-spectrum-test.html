@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 07 — Inflation Scalar Spectrum Test — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Honest run of the Inflation Scalar Spectrum Test: n_s and A_s checked against Planck 2018 and BICEP/Keck 2021; verdict OBSERVED-GIVEN with a FRAMEWORK-SPECIFIC candidate-grade note, not a forced framework prediction.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Test-page specific ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.95rem;
+    padding:0.35em 0.9em;
+    border-radius:999px;
+    background:var(--accent-2);
+    color:#fff;
+    letter-spacing:0.02em;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    padding:0.25em 0.6em;
+    border-radius:4px;
+    margin:0 0.3em 0.3em 0;
+  }
+  .tag-shared{background:#e4ecef; color:var(--accent-2); border:1px solid #b9cdd4;}
+  .tag-specific{background:#f3e7da; color:var(--accent); border:1px solid #ddbfa1;}
+  .out-heading{
+    margin-top:2.2em;
+    padding:0.5em 0.8em;
+    background:var(--paper-alt);
+    border-left:4px solid var(--accent);
+    font-size:1.15rem;
+  }
+  .out-heading .n{
+    display:inline-block;
+    width:1.6em;
+    color:var(--ink-soft);
+    font-weight:400;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <p><a href="/early-universe/tests/">&larr; All granularity tests</a> &middot; <a href="/early-universe/">&larr; Early &amp; Distant Universe overview</a></p>
+
+    <h2 style="border-bottom:none; margin-bottom:0.2em;">Test 07 &mdash; Inflation Scalar Spectrum Test</h2>
+    <p class="lede">Part of the 44-test <a href="/early-universe/">Early Universe Granularity Test Suite</a>, which
+    checks the doctrine "cosmic history is the history of increasing recordable distinction" against standard
+    cosmology, one epoch at a time. This test asks whether the framework's account of the primordial scalar
+    curvature perturbation &mdash; amplitude <code>A_s</code> and tilt <code>n_s</code> &mdash; is consistent with
+    the measured cosmic microwave background power spectrum.</p>
+
+    <div class="honesty-box">
+      <strong>Read this before the verdict below:</strong> a CLOSED-type verdict on this page means the
+      granularity <em>interpretation</em> is consistent with established standard cosmology at this epoch. It is
+      <strong>not</strong> a claim that this framework uniquely predicted <code>n_s</code> or <code>A_s</code>. The
+      numerical match tested here is <strong>shared with &Lambda;CDM</strong> &mdash; standard hot-big-bang
+      cosmology, which this framework inherits wholesale for the observational side of this test. Only the
+      <em>mechanism</em> offered for generating the spectrum is framework-specific, and that mechanism is graded
+      separately, at candidate strength, below.
+      <span class="tag tag-shared">Shared-with-&Lambda;CDM: the A_s / n_s numbers</span>
+      <span class="tag tag-specific">Framework-specific: the proposed inflaton mechanism</span>
+    </div>
+
+    <p><strong>Class for this test: FRAMEWORK-SPECIFIC (mechanism) riding on SHARED-WITH-&Lambda;CDM (data).</strong>
+    The data comparison itself is not something this framework contributes uniquely; the framework's own claim
+    about <em>why</em> the spectrum looks this way was on trial and that question is now settled: the plateau slope
+    is not forced to <code>1/6</code>. What remains open is the narrower question of a replacement prediction.</p>
+
+    <div class="out-heading"><span class="n">1</span>Verdict</div>
+    <p><span class="verdict-badge">OBSERVED-GIVEN</span> &nbsp;<em>(secondary note: CLOSED-AS-COMPRESSED-RECORD for
+    the &Lambda;CDM-shared numerical comparison; the framework-specific slope-forcing question is
+    <strong>RESOLVED &mdash; CLOSED-NEGATIVE</strong>: <code>&lambda;&sup2; = 1/6</code> is retired as a forced
+    geometric prediction, the verified genuine curvature-lever slope is <code>8/3</code>, and <code>&lambda;&sup2;
+    := 4/K</code> stands as a declared convention, not a derivation &mdash; see &sect;5 below and the
+    <a href="/early-universe/inflation-gate.html">inflation gate (Gap-08)</a>)</em>.</p>
+    <p>The measured values of <code>A_s</code> and <code>n_s</code> are accepted here as empirical inputs, exactly
+    as standard cosmology accepts them. The framework does not independently re-derive these numbers from first
+    principles at certificate grade; it offered one candidate structural mechanism (the &sigma;-inflaton,
+    exponential-plateau potential) whose projected tilt happens to sit inside the measured band, but the claim that
+    the plateau's slope is <em>forced</em> by the internal geometry &mdash; rather than fit to it after the fact by
+    a choice of normalization convention &mdash; has now been checked and closed negative: a verified curvature-lever
+    theorem shows the frozen-geometry canonical slopes are <code>8/3</code> (K6-only), <code>4</code> (S&sup2;-only),
+    and <code>22/9</code> (uniform) &mdash; none of which is <code>1/6</code>. Per the suite's own guardrail ("a
+    measured value is treated as derived when it is only an observed given"), this test is routed to OBSERVED-GIVEN
+    rather than CLOSED; the slope-forcing question itself is no longer open &mdash; it is closed, negatively.</p>
+
+    <div class="out-heading"><span class="n">2</span>Tested Claim</div>
+    <p>The precise granularity claim under test: <em>the theory must reproduce the observed scalar fluctuation
+    amplitude and tilt if it claims to explain the first large-scale recordable distinctions</em> &mdash; i.e., that
+    quantum vacuum fluctuations during inflation are converted, by a named physical mechanism, into the classical,
+    recordable curvature perturbations that seeded the cosmic microwave background anisotropies and all subsequent
+    large-scale structure. The rule being checked: a distinction (here, the primordial density perturbation) is
+    valid in this window only if it can be coupled, encoded, stabilized, and observed at the window's physical
+    resolution &mdash; which for this epoch means the horizon-crossing / horizon-re-entry mechanism of standard
+    inflationary perturbation theory.</p>
+
+    <div class="out-heading"><span class="n">3</span>Data Used</div>
+    <ul>
+      <li><strong>Planck 2018 (Planck Collaboration, "Planck 2018 results. VI. Cosmological parameters," A&amp;A 641, A6, published 2020):</strong>
+        scalar spectral index <code>n_s = 0.9649 &plusmn; 0.0042</code> (TT,TE,EE+lowE+lensing, 68% CL);
+        scalar amplitude <code>ln(10&sup1;&sup0; A_s) = 3.044 &plusmn; 0.014</code>, i.e. <code>A_s &asymp; 2.10 &times; 10&#8315;&#8313;</code>,
+        at pivot scale <code>k_0 = 0.05</code> Mpc&#8315;&sup1;.</li>
+      <li><strong>BICEP/Keck 2021 ("Improved Constraints on Primordial Gravitational Waves...," Phys. Rev. Lett. 127, 151301, published 2021):</strong>
+        tensor-to-scalar ratio bound <code>r &lt; 0.036</code> at <code>k_0 = 0.05</code> Mpc&#8315;&sup1; (95% CL),
+        combined with Planck+BAO.</li>
+      <li><strong>Framework-internal (this program's own inflation-gate dossier, current live state as of 2026-07-03, see the
+        <a href="/early-universe/inflation-gate.html">inflation gate page</a>):</strong> two internal breathing-mode
+        candidates for the inflaton; the &rho;-mode is dead (too stiff to roll slowly); the &sigma;-mode survives as
+        an exponential-plateau candidate. Its slope was originally asserted as <code>&lambda;&sup2; =
+        4/K_&sigma;&sigma; = 1/6</code>; that forcing claim is now RESOLVED CLOSED-NEGATIVE &mdash; a verified
+        curvature-lever theorem gives frozen-geometry canonical slopes of <code>8/3</code> (K6-only), <code>4</code>
+        (S&sup2;-only), and <code>22/9</code> (uniform), and <code>&lambda;&sup2; := 4/K</code> is retained only as a
+        declared convention. The historical <code>1/6</code>-based projection, <code>n_s &isin; [0.9643,
+        0.9679]</code> and, depending on the (unresolved) kinetic normalization convention, <code>r</code> bands
+        ranging from <code>[3.5, 10]&times;10&#8315;&sup3;</code> (operative branch) up to a union of
+        <code>[3.5, 36]&times;10&#8315;&sup3;</code> across all four normalization branches, is carried forward
+        strictly as a phenomenological fit, not a forced prediction.</li>
+    </ul>
+
+    <div class="out-heading"><span class="n">4</span>Calculation Summary</div>
+    <p><strong>Step 1 &mdash; window.</strong> W = {epoch: inflation and the moment of horizon re-entry that sets
+    initial conditions for the CMB; no absolute age assigned (inflation's duration is model-dependent, not
+    independently dated); regime: quantum-vacuum fluctuations of a slowly rolling scalar field stretched to
+    super-horizon scales and frozen as classical curvature perturbations &delta;&phi;/&phi; upon horizon exit}.</p>
+    <p><strong>Step 2 &mdash; observed comparison (&Lambda;CDM-shared, no new framework computation required).</strong>
+    Standard single-field slow-roll inflation predicts a nearly scale-invariant, slightly red-tilted spectrum,
+    <code>n_s &#8776; 1 &minus; 6&epsilon; + 2&eta;</code> for slow-roll parameters &epsilon;, &eta; &#8810; 1. The
+    measured Planck 2018 value <code>n_s = 0.9649 &plusmn; 0.0042</code> confirms this qualitative shape (red tilt,
+    order <code>10&#8315;&sup2;</code> deviation from scale invariance) for standard inflation generally. This part
+    of the check is not specific to this framework &mdash; any single-field slow-roll model with small &epsilon;,
+    &eta; passes it, and the framework inherits this fit exactly as &Lambda;CDM does.</p>
+    <p><strong>Step 3 &mdash; framework-specific mechanism check.</strong> The framework's candidate &sigma;-inflaton
+    was originally asserted (in the inflation-gate dossier) to produce an exponential-plateau potential with slope
+    fixed at <code>&lambda;&sup2; = 1/6</code> by the internal geometry's dimension split. Feeding
+    <code>&lambda;&sup2; = 1/6</code> through the standard exponential-plateau slow-roll relations for
+    <code>N_* &#8776; 50&ndash;60</code> e-folds gives a projected <code>n_s &isin; [0.9643, 0.9679]</code> &mdash;
+    which does sit at the center of the measured Planck band, a genuine qualitative match. <strong>That
+    slope-forcing question is now RESOLVED, per the GAP-08 constraint carried on this site:</strong> a verified
+    curvature-lever theorem shows <code>&lambda;&sup2; = 1/6</code> is <em>not</em> geometrically forced from first
+    principles &mdash; the genuine frozen-geometry canonical slopes are <code>8/3</code> (K6-only), <code>4</code>
+    (S&sup2;-only), and <code>22/9</code> (uniform), none of which is <code>1/6</code>; <code>&lambda;&sup2; :=
+    4/K</code> is a declared convention (it happens to equal the geometric slope only for no positive dimension).
+    The answer to "is <code>1/6</code> forced?" is settled: no, and the program now knows why (see the
+    <a href="/early-universe/inflation-gate.html">inflation gate</a>, &sect;5, "why 'candidate,' not 'prediction'").
+    The narrower, still-open item is a <em>replacement</em> inflaton prediction, which is OPEN-BLOCKED pending the
+    3-modulus <code>V_bdry</code>/<code>V_Wilson</code>/<code>V_loop</code> data and the blocked <code>c_loop</code>
+    sign. The branch-independent, convention-free falsifier this program can honestly stand behind in the meantime
+    is the tensor-to-scalar-ratio union range <code>r &isin; [3.5, 36]&times;10&#8315;&sup3;</code>, testable by
+    LiteBIRD (~2030) against the current bound <code>r &lt; 0.036</code> (BICEP/Keck 2021).</p>
+    <p><strong>Step 4 &mdash; record check.</strong> The fossil record for this test is the CMB temperature and
+    polarization angular power spectrum itself (Planck 2018 TT/TE/EE + lowE + lensing), which is the observational
+    basis for both <code>n_s</code> and the bound on <code>r</code>.</p>
+    <p><strong>Step 5 &mdash; cross-epoch consistency.</strong> Accepting the measured <code>A_s</code>, <code>n_s</code>
+    as empirical inputs at this layer does not break BBN, later CMB acoustic-peak fits, or large-scale-structure
+    constraints &mdash; those all consume the same measured primordial spectrum as an input, consistently, across
+    the suite (see e.g. Test 34, primordial power spectrum to large-scale structure).</p>
+
+    <div class="out-heading"><span class="n">5</span>Granularity Interpretation</div>
+    <p>What (if anything) becomes newly distinguishable, recordable, stable, or observer-accessible at this window:
+    quantum-mechanical vacuum fluctuations of the inflaton field, stretched across the inflationary horizon and
+    frozen into classical, super-horizon curvature perturbations upon horizon exit. This is the first point in
+    cosmic history, under the standard picture (inherited here, not uniquely supplied by this framework), where a
+    genuinely quantum degree of freedom becomes a classical, statistically recordable distinction &mdash; the seed
+    of every later structure in the universe. The framework's own contribution is a proposed <em>identity</em> for
+    the field doing the fluctuating (an internal-geometry breathing mode) and a proposed reason its potential has
+    the observed shape; both are candidate-grade, not confirmed, per &sect;4 above.</p>
+
+    <div class="out-heading"><span class="n">6</span>Gate Routing</div>
+    <p>Routes to the <strong>Primordial fluctuation record gate</strong>, tracked in this program's ledger as
+    <strong>Gap-08</strong> (see the dedicated <a href="/early-universe/inflation-gate.html">inflation gate</a>
+    page for the full candidate ledger: one dead candidate, one surviving candidate, and the LiteBIRD falsifier).
+    Per the suite's ledger format:</p>
+    <pre>Primordial fluctuation record gate -> OBSERVED-GIVEN (data) / CANDIDATE (mechanism)
+  -> supporting calculation: exponential-plateau slow-roll, historically fit with lambda^2 = 1/6
+  -> slope-forcing question: RESOLVED CLOSED-NEGATIVE (1/6 retired; verified curvature-lever
+     slopes are 8/3 K6-only / 4 S2-only / 22/9 uniform; lambda^2:=4/K is a declared convention)
+  -> remaining open item (narrower, distinct): a REPLACEMENT inflaton prediction is
+     OPEN-BLOCKED on the 3-modulus V_bdry/V_Wilson/V_loop data and the blocked c_loop sign
+  -> falsifier in force meanwhile: r-band union [3.5,36]x10^-3 (LiteBIRD, ~2030)</pre>
+
+    <div class="out-heading"><span class="n">7</span>Failure Mode</div>
+    <p>This test does not fully close, but not because the slope-forcing question is unsettled &mdash; that question
+    is closed. The named reason it stays at OBSERVED-GIVEN: the framework's mechanism-level claim ("the plateau
+    slope is forced by the internal geometry's dimension split") was checked and found false as originally stated.
+    The verified curvature-lever slopes are <code>8/3</code> (K6-only), <code>4</code> (S&sup2;-only), and
+    <code>22/9</code> (uniform) &mdash; not <code>1/6</code>; <code>&lambda;&sup2; := 4/K</code> is a declared
+    convention, not a derivation. Presenting <code>1/6</code> as a geometrically forced prediction would be exactly
+    the failure mode this suite's guardrails warn against ("a measured value is treated as derived when it is only
+    an observed given" / "a qualitative story is substituted for a numerical constraint") &mdash; which is precisely
+    why it is retired here rather than carried forward. The <em>data</em> side of the test (Planck <code>n_s</code>,
+    <code>A_s</code>) is not in question and is not this framework's failure &mdash; it is inherited, shared
+    ground with &Lambda;CDM. The one genuinely open item is narrower: a <em>replacement</em> forced inflaton
+    prediction, which is OPEN-BLOCKED on the 3-modulus data and the <code>c_loop</code> sign (see &sect;8).</p>
+
+    <div class="out-heading"><span class="n">8</span>Next Action</div>
+    <ul>
+      <li><strong>Derivation:</strong> the slope-forcing question itself is closed (1/6 retired; genuine slope
+      8/3). The remaining, narrower derivation task is a <em>replacement</em> inflaton prediction, which is
+      OPEN-BLOCKED pending the 3-modulus <code>V_bdry</code>/<code>V_Wilson</code>/<code>V_loop</code> data and
+      resolution of the blocked <code>c_loop</code> sign; until then the &sigma;-inflaton is reported strictly as a
+      phenomenological plateau fit to <code>n_s</code>.</li>
+      <li><strong>Data lookup:</strong> monitor LiteBIRD (~2030) for a direct measurement of <code>r</code>; a result
+      outside <code>[3.5, 36]&times;10&#8315;&sup3;</code> falsifies the surviving candidate outright, independent
+      of the convention question.</li>
+      <li><strong>Terminal-anchor routing:</strong> not invoked for this test &mdash; the open item is a
+      calculation/data-availability gap (the 3-modulus data and <code>c_loop</code> sign), not a terminal-anchor
+      problem.</li>
+    </ul>
+
+    <div class="callout" style="margin-top:2em;">
+      <h3 style="margin-top:0;">Bottom line</h3>
+      <p style="margin:0;">The measured scalar spectrum (<code>n_s = 0.9649 &plusmn; 0.0042</code>, Planck 2018) is
+      accepted as an empirical given, exactly as standard cosmology accepts it &mdash; that part of this test is
+      shared with &Lambda;CDM, not a unique output of this framework. The framework's own candidate mechanism
+      lands qualitatively in the right place but rested on a slope-forcing claim (<code>&lambda;&sup2; = 1/6</code>)
+      that this program has now RESOLVED CLOSED-NEGATIVE: not geometrically forced, with the genuine slope being
+      <code>8/3</code>. Verdict: <strong>OBSERVED-GIVEN</strong>, with the framework-specific mechanism carried
+      forward as a phenomenological fit, not a forced prediction, and with a narrower <em>replacement</em>-prediction
+      question left OPEN-BLOCKED on the 3-modulus data / <code>c_loop</code> sign, tied to the same pre-registered
+      LiteBIRD falsifier documented on the <a href="/early-universe/inflation-gate.html">inflation gate</a> page.</p>
+    </div>
+
+    <p style="margin-top:2em;"><a href="/early-universe/tests/" class="btn">&larr; All granularity tests</a>
+    &nbsp; <a href="/early-universe/" class="btn">&larr; Early &amp; Distant Universe overview</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> &middot;
+        <a href="/process/">The Process</a> &middot;
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> &middot;
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> &middot;
+        <a href="/emergent-separability/">Emergent Separability</a> &middot;
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted &mdash; never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 26 — Dark Matter Freeze-In / Nonthermal Relic Test — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Test 26 of the Early Universe Granularity Test Suite: can a never-thermalized, feebly-coupled dark-matter candidate match the observed relic density without violating radiation, structure, or decay bounds? Honest gate outcome, shown with sourced numbers.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Verdict badge ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.95rem;
+    letter-spacing:0.02em;
+    padding:0.4em 0.9em;
+    border-radius:4px;
+    background:var(--accent-2);
+    color:#fff;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.03em;
+    padding:0.25em 0.6em;
+    border-radius:3px;
+    text-transform:uppercase;
+  }
+  .tag-shared{background:#e4ecef; color:var(--accent-2);}
+  .tag-framework{background:#f3e6d8; color:var(--accent);}
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <p><a href="/early-universe/tests/">&larr; Back to the granularity test suite</a> ·
+    <a href="/early-universe/">&larr; Back to Early &amp; Distant Universe</a></p>
+
+    <h2 style="border-bottom:none; margin-bottom:0.2em;">Test 26 — Dark Matter Freeze-In / Nonthermal Relic Test</h2>
+    <p class="lede">If dark matter is never in thermal equilibrium with the visible sector — a "freeze-in" or
+    other nonthermal relic — can its feeble-portal production route still match the observed relic density without
+    overproducing radiation, warming structure beyond bounds, or accidentally thermalizing? Part of the 44-test
+    Early Universe Granularity Test Suite, which checks whether the doctrine "cosmic history is the history of
+    increasing recordable distinction" is <em>consistent</em> with standard cosmology and particle physics at each
+    epoch — not whether it uniquely predicts that epoch.</p>
+
+    <div class="honesty-box">
+      <strong>Read this before the verdict:</strong> this test does not certify that dark matter <em>is</em> a
+      freeze-in relic, nor that this framework specifies a portal coupling, mass, or hidden sector for one. It
+      checks something narrower and fully generic to the freeze-in mechanism: <em>is the general freeze-in
+      production route — never thermalizing, building up an abundance through a feeble portal — compatible in
+      principle with the measured dark-matter density, structure-formation bounds, and radiation bounds?</em> The
+      freeze-in mechanism itself, the relic-density formula, and every bound used here are
+      <strong>SHARED-WITH-&Lambda;CDM</strong> particle-cosmology results, not outputs of this framework's geometry.
+      This framework supplies no specific portal coupling or hidden-sector field content to test; a qualitative
+      match only motivates the route, it never proves it.
+    </div>
+
+    <p>
+      <span class="verdict-badge">Verdict: OPEN</span>
+      &nbsp; <span class="tag tag-shared">SHARED-WITH-&Lambda;CDM</span>
+    </p>
+
+    <h2>1. Verdict</h2>
+    <p><strong>OPEN.</strong> The freeze-in mechanism as a generic class is well-defined, numerically
+    self-consistent, and does not conflict with current data for a broad and well-studied range of portal couplings
+    and masses (Hall, Jedamzik, March-Russell &amp; West 2010; Bernal et al. 2017 review). But this framework does
+    not supply a specific hidden-sector field, portal operator, coupling value, or dark-matter mass to plug into
+    that mechanism. Without a specific candidate, the abundance, free-streaming length, and lifetime cannot be
+    computed as framework outputs — only shown, generically, to be satisfiable in principle by the freeze-in class
+    of models. Per the guardrail in the test's governing README ("vague hidden-sector language" must be marked
+    OPEN unless abundance and stability are quantified for an actual candidate), this test stays OPEN rather than
+    CLOSED.</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>The precise claim under test: <em>"If dark matter is produced non-thermally through a feebly-coupled portal
+    (freeze-in / FIMP), misalignment, direct decay, gravitational production, or a phase transition — and never
+    thermalizes with the Standard Model bath — its produced abundance can match
+    \(\Omega_{\rm DM}h^2 = 0.120\pm0.001\) (Planck 2018) while (a) remaining cold/warm enough to satisfy
+    free-streaming and structure-formation bounds, (b) not overproducing dark radiation beyond
+    \(\Delta N_{\rm eff}\), and (c) not decaying too fast or too slowly relative to cosmological and astrophysical
+    lifetime bounds."</em> This is evaluated as a <strong>generic mechanism-consistency</strong> claim: the
+    framework does not name a specific hidden-sector particle, portal coupling, or mass, so no specific numerical
+    prediction is being derived or checked — only whether the class of mechanism remains viable in principle.</p>
+
+    <h2>3. Data Used</h2>
+    <table>
+      <tr><th>Quantity</th><th>Value</th><th>Source</th></tr>
+      <tr><td>Dark matter relic density</td>
+        <td>\(\Omega_{\rm DM} h^2 = 0.120 \pm 0.001\)</td>
+        <td>Planck 2018 (arXiv:1807.06209), TT,TE,EE+lowE+lensing, Table 2</td></tr>
+      <tr><td>Freeze-in ("FIMP") mechanism definition and benchmark couplings</td>
+        <td>Renormalizable-operator freeze-in via a feeble Yukawa/portal coupling
+        \(y \sim 10^{-11}\text{--}10^{-12}\) reproduces \(\Omega_{\rm DM}h^2\approx0.12\) for
+        \(m_{\rm DM}\sim{\rm keV}\text{--}{\rm TeV}\), depending on the portal operator's mass dimension</td>
+        <td>Hall, Jedamzik, March-Russell &amp; West, JHEP 03 (2010) 080 (arXiv:0911.1120); Bernal, Heikinheimo,
+        Tenkanen, Tuominen &amp; Vaskonen, Int. J. Mod. Phys. A 32 (2017) 1730023 (arXiv:1706.07442), review of
+        freeze-in benchmarks</td></tr>
+      <tr><td>Structure-formation / free-streaming (warmness) bound</td>
+        <td>Non-thermal ("FIMP") spectra are typically colder than a thermal relic of equal mass; Lyman-&alpha;-forest
+        bounds on thermal warm dark matter require \(m_{\rm WDM}\gtrsim5.3\ {\rm keV}\) (thermal-relic equivalent);
+        non-thermal spectra shift the effective bound by an \(\mathcal{O}(1)\) factor depending on the production
+        channel</td>
+        <td>Ir&scaron;i&scaron; et al. (2017), Phys. Rev. D 96, 023522 (arXiv:1702.01764); Merle &amp; Totzauer,
+        JCAP 1506 (2015) 011 (arXiv:1502.01011), non-thermal free-streaming spectra</td></tr>
+      <tr><td>Dark-radiation bound on any thermalized-then-decoupled or directly-produced relativistic hidden
+        sector</td>
+        <td>\(N_{\rm eff} = 2.99\pm0.17\) (Planck 2018 alone); combined with BBN, \(\Delta N_{\rm eff}\lesssim0.3\)
+        at 95% CL for extra light species</td>
+        <td>Planck 2018 (arXiv:1807.06209), Table 2; standard \(\Delta N_{\rm eff}\) budget used across the
+        neutrino-decoupling literature</td></tr>
+      <tr><td>Decay-lifetime bounds on a metastable nonthermal relic (if the candidate decays)</td>
+        <td>Cosmologically, a would-be dark-matter particle must have lifetime \(\tau \gg t_0 \approx 13.8\ {\rm
+        Gyr}\); indirect-detection and structure bounds push stable/quasi-stable candidates to
+        \(\tau \gtrsim 10^{27}\ {\rm s}\) for decaying-DM channels with visible products</td>
+        <td>Planck 2018 age of universe, Table 2; Audren et al. (2014), JCAP 1412 (2014) 028 (arXiv:1407.2418),
+        decaying dark matter lifetime bounds from CMB+LSS</td></tr>
+    </table>
+
+    <h2>4. Calculation Summary</h2>
+    <p><strong>Step 1 — window definition.</strong> Define the physical window
+    \(W = \{\text{reheating through late universe},\ T_{\rm RH}\ \text{down to}\ T_0=2.7255\ {\rm K},\
+    \text{feeble portal coupling},\ \text{hidden sector never in chemical/kinetic equilibrium with the SM bath}\}\).
+    This spans essentially the entire post-reheating history, unlike the sharply localized freeze-out window of a
+    thermal WIMP.</p>
+    <p><strong>Step 2 — granularity condition.</strong> The candidate claim is that a hidden-sector field, never
+    thermally populated, becomes a stable, individually countable relic through one specific channel: renormalizable
+    freeze-in (IR-dominated, abundance set by the coupling and \(m_{\rm DM}\) alone), UV freeze-in (dominated by the
+    highest temperature reached, typically \(T_{\rm RH}\)), misalignment (axion-like), direct decay of a parent
+    field, gravitational production (during reheating/inflaton oscillation), or a first-order phase transition. Per
+    the procedure's Step 3 ("check that the sector never thermalizes if freeze-in is claimed"), the defining
+    consistency condition is \(\Gamma_{\rm portal}(T) \ll H(T)\) at all times \(T \lesssim T_{\rm RH}\) — the portal
+    interaction rate must stay below the Hubble rate throughout, which is precisely what keeps the abundance
+    "frozen in" rather than thermalized and then frozen out.</p>
+    <p><strong>Step 3 — rate/threshold check (generic, renormalizable IR freeze-in benchmark).</strong> For a
+    dimension-4 portal (e.g. a Yukawa coupling \(y\) to a bath fermion/scalar), the freeze-in yield is dominated at
+    \(T\sim m_{\rm DM}\) (IR-dominated) with comoving abundance
+    \(Y_{\rm DM} \sim \dfrac{135\sqrt{10}}{1.66\times4\pi^{7}g_*^{3/2}}\, y^2\, M_{\rm Pl}/m_{\rm DM}\)-type scaling
+    from a Boltzmann-equation solution as given in Hall et al. (2010); requiring
+    \(\Omega_{\rm DM}h^2 = m_{\rm DM}\,Y_{\rm DM}\,s_0/\rho_{\rm crit}/h^2 = 0.120\) fixes
+    \(y\sim10^{-11}\)&ndash;\(10^{-12}\) for \(m_{\rm DM}\) in the keV&ndash;TeV range (Hall et al. 2010; Bernal et
+    al. 2017 review, their Fig. 2-3 benchmark curves). At this coupling, \(\Gamma_{\rm portal}\sim y^2 T \sim
+    10^{-22}\text{--}10^{-24}\,T \ll H(T)\sim T^2/M_{\rm Pl}\) is satisfied by many orders of magnitude across the
+    relevant temperature range, confirming the sector genuinely never thermalizes — the defining self-consistency
+    check for freeze-in.</p>
+    <p><strong>Step 4 — structure/warmness check.</strong> A non-thermally produced relic generically has a
+    non-thermal (often colder, sometimes hotter depending on channel) momentum spectrum compared to a thermal relic
+    of the same mass (Merle &amp; Totzauer 2015). Using the thermal-relic Lyman-&alpha; bound
+    \(m_{\rm WDM}\gtrsim5.3\ {\rm keV}\) (Ir&scaron;i&scaron; et al. 2017) as a reference point, IR-dominated
+    freeze-in spectra are typically colder than a thermal relic of equal mass, so a freeze-in candidate with
+    \(m_{\rm DM}\gtrsim{\rm few}\ {\rm keV}\) is generically consistent with structure-formation bounds; UV
+    freeze-in or gravitational-production channels can instead be warmer and require case-by-case checking. No
+    universal number closes this for "freeze-in in general" — it depends on the specific channel and mass, which
+    this framework does not specify.</p>
+    <p><strong>Step 5 — record check / cross-epoch consistency.</strong> None of the generic freeze-in benchmark
+    points reviewed here (Hall et al. 2010; Bernal et al. 2017) violate \(N_{\rm eff}\), BBN, or \(\Omega_{\rm
+    DM}h^2\) bounds when the coupling and mass are tuned to reproduce the observed relic density — this is by
+    construction, since the benchmark curves are built to satisfy \(\Omega_{\rm DM}h^2=0.120\) exactly.  This
+    confirms the mechanism class is <em>not excluded</em>, but is silent on whether any specific realization sits
+    inside this framework's own field content, because the framework does not specify one.</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>What would newly become distinguishable/recordable, <em>if</em> a specific freeze-in candidate were
+    specified: a hidden-sector field that was never a resolvable, thermally-populated species (its occupation
+    number stays parametrically small, \(f\ll1\), throughout cosmic history) would nonetheless leave a stable,
+    individually countable relic population with a fixed comoving number density — a distinction encoded not by
+    thermal equilibrium but by a feeble, one-way portal interaction integrated over the full expansion history.
+    This is a genuinely different granularity route than thermal freeze-out (Test 25): the "recordable distinction"
+    (a countable relic) appears without the sector ever crossing an equilibrium threshold. Without a named
+    candidate, this is a statement about what the mechanism <em>could</em> encode, not a claim that this framework's
+    geometry does encode it.</p>
+
+    <h2>6. Gate Routing</h2>
+    <p>Routes to the <strong>Hidden-sector weak-coupling gate</strong> in the Physics/GUT/TOE ledger:</p>
+    <pre>Hidden-sector weak-coupling gate -> OPEN
+  -> supporting calculation: generic IR-dominated freeze-in benchmark reproduces Omega_DM h^2 = 0.120 (Planck 2018)
+     for portal coupling y ~ 1e-11-1e-12, m_DM ~ keV-TeV (Hall, Jedamzik, March-Russell, West 2010;
+     Bernal et al. 2017); self-consistency check Gamma_portal << H(T) satisfied by many orders of magnitude
+     at these couplings, confirming no thermalization; structure-formation Lyman-alpha bound (thermal-relic
+     equivalent m_WDM >~ 5.3 keV, Irsic et al. 2017) is satisfiable for keV-scale-and-above freeze-in candidates;
+     no N_eff or BBN conflict at the tuned benchmark points.
+  -> open gap: this framework specifies no hidden-sector field, portal operator, coupling value, or dark-matter
+     mass of its own. The generic freeze-in mechanism is shown viable in principle; no framework-specific
+     candidate exists to compute an abundance, lifetime, or free-streaming length for.</pre>
+    <p>Primary terminal-anchor pressure: <strong>Encoding / Distinction</strong> (speculative ontology layer) — a
+    freeze-in relic would be read as a distinction that becomes lawfully encoded via cumulative feeble coupling
+    rather than via a thermal-equilibrium threshold. This anchor label is interpretive, not a physics result, and
+    is not activated as a closure here because no specific candidate exists to encode.</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>This test does not close, for one honest reason distinct from a data conflict:</p>
+    <ul>
+      <li><strong>No quantified candidate.</strong> Per the test's own guardrail ("mark vague hidden-sector language
+      OPEN unless abundance and stability are quantified"), this framework does not supply a specific portal
+      coupling, hidden-sector field, or dark-matter mass. The freeze-in mechanism class is shown numerically viable
+      using literature benchmark points, but a benchmark point is not the same as a framework-derived candidate.
+      Nothing here is a field-theoretic degree of freedom being mistaken for a stable relic (the guardrail's other
+      failure mode) — rather, there is simply no candidate object to test yet.</li>
+    </ul>
+    <p>No numerical exclusion or conflict was found for the generic mechanism; the outcome is not CONTRADICTED.
+    Because no framework-specific candidate exists to quantify, the outcome is not CLOSED or
+    CLOSED-AS-COMPRESSED-RECORD either — it is graded <strong>OPEN</strong>, meaning the route is plausible but
+    requires more input before it can be evaluated as a framework claim.</p>
+
+    <h2>8. Next Action</h2>
+    <ul>
+      <li><strong>Derivation (if pursued):</strong> would require the framework to identify a specific hidden-sector
+      field, portal operator, and coupling from its own geometry (e.g., from a compactification modulus or a
+      forced weak-coupling direction), from which \(\Omega_{\rm DM}h^2\), the free-streaming length, and the
+      lifetime could then be computed and checked against the same bounds cited here.</li>
+      <li><strong>Data lookup:</strong> monitor Lyman-&alpha; and 21-cm constraints on non-thermal warm-dark-matter
+      spectra (companion to Test 37), and CMB-S4/next-generation \(N_{\rm eff}\) sensitivity, which will tighten the
+      dark-radiation bound used above.</li>
+      <li><strong>Terminal-anchor routing:</strong> the "feeble coupling encodes a stable relic" framing remains at
+      the <strong>Encoding / Distinction</strong> anchor as a speculative interpretive layer; it is not promoted to
+      a physics closure by this test, and cannot be until a specific candidate exists.</li>
+    </ul>
+
+    <div class="callout">
+      <h4>Bottom line</h4>
+      <p>The freeze-in ("FIMP") mechanism is a well-studied, numerically self-consistent way to produce a
+      never-thermalized dark-matter relic: generic benchmark points with portal coupling
+      \(y\sim10^{-11}\text{--}10^{-12}\) and mass in the keV&ndash;TeV range reproduce
+      \(\Omega_{\rm DM}h^2=0.120\pm0.001\) (Planck 2018) while satisfying \(\Gamma_{\rm portal}\ll H(T)\)
+      (never thermalizing), structure-formation free-streaming bounds (Lyman-&alpha;, Ir&scaron;i&scaron; et al.
+      2017), and \(N_{\rm eff}\) bounds. That mechanism class and every bound used to check it are
+      <strong>SHARED-WITH-&Lambda;CDM</strong>. This framework, however, does not supply its own specific
+      hidden-sector field, portal, coupling, or mass — so there is no framework-specific candidate to run the
+      abundance/lifetime/free-streaming calculation on. The test is graded <strong>OPEN</strong>: the route remains
+      plausible and unexcluded, but requires a quantified candidate before it can be closed one way or the other.</p>
+    </div>
+
+    <p style="margin-top:2.4em;"><a href="/early-universe/tests/">&larr; Back to the granularity test suite</a> ·
+    <a href="/early-universe/">&larr; Back to Early &amp; Distant Universe</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

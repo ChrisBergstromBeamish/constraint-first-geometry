@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 16 — Electroweak Symmetry Breaking Mass Turn-On — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Early-universe granularity test 16: checks whether W/Z and fermion mass-distinction claims are timed consistently with the finite-temperature electroweak crossover. Verdict: CLOSED, shared with the Standard Model + ΛCDM.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Test-page specific ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    letter-spacing:0.03em;
+    padding:0.45em 1em;
+    border-radius:4px;
+    background:#1f4e5f;
+    color:#fff;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:0.25em 0.65em;
+    border-radius:3px;
+    margin-left:0.5em;
+    vertical-align:middle;
+  }
+  .tag-shared{background:#e4ecee; color:var(--accent-2); border:1px solid var(--accent-2);}
+  .tag-specific{background:#f3e9de; color:var(--accent); border:1px solid var(--accent);}
+  .breadcrumb{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-bottom:1em;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <div class="breadcrumb">
+      <a href="/early-universe/">Early &amp; Distant Universe</a> ›
+      <a href="/early-universe/tests/">Granularity Test Suite</a> ›
+      Test 16
+    </div>
+
+    <h2 style="border-bottom:none; margin-bottom:0.3em;">Test 16 — Electroweak Symmetry Breaking Mass Turn-On Test</h2>
+    <p class="lede">W/Z and fermion masses become physically meaningful only after electroweak symmetry breaking (EWSB).
+      Does the granularity reading — "mass is a distinction that turns on at the EWSB crossover, not before" — line up
+      with finite-temperature electroweak theory and the accepted thermal history?</p>
+
+    <p>
+      <span class="verdict-badge">CLOSED</span>
+      <span class="tag tag-shared">SHARED-WITH-ΛCDM / STANDARD MODEL</span>
+    </p>
+
+    <div class="honesty-box">
+      <strong>Read this before anything else on this page:</strong> a CLOSED verdict here means the granularity
+      <em>interpretation</em> — "the W, Z, and fermion mass distinctions are not physically meaningful until the
+      electroweak crossover completes, and their zero-temperature values apply only after that window" — is
+      <strong>consistent with</strong> finite-temperature electroweak theory and lattice results on the electroweak
+      transition. It is <strong>not</strong> a claim that this framework predicted the Higgs mechanism, the Higgs
+      mass, the vacuum expectation value, or the fact that the transition is a smooth crossover rather than a
+      first-order phase transition. All of those are imported, measured, or lattice-computed inputs that the
+      framework's granularity doctrine treats as given.
+    </div>
+
+    <h2>1. Verdict</h2>
+    <p><strong>CLOSED</strong> — the claim that W/Z and fermion mass-distinctions "turn on" through the electroweak
+      crossover, rather than existing at their zero-temperature values beforehand, matches finite-temperature
+      electroweak theory and lattice-QCD-adjacent lattice-electroweak results. Secondary note: this is a timing/
+      consistency check against known Standard Model finite-temperature physics, not a derivation of the Higgs
+      mechanism, the measured Higgs mass, or why the transition is a crossover instead of a genuine first-order phase
+      transition (which itself matters for electroweak baryogenesis, treated separately in Test 17).</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>The precise granularity claim under test: prior to the electroweak crossover, the Higgs field's thermal
+      expectation value \(v(T)\) is suppressed relative to its zero-temperature value \(v_0 \approx 246\) GeV, so
+      W, Z, and Yukawa-coupled fermion masses — which scale as \(m_i(T) \propto v(T)\) — are correspondingly
+      suppressed or effectively absent as stable, distinguishable mass-carrying degrees of freedom above the
+      crossover temperature. Only once \(v(T)\) approaches \(v_0\), through the crossover window around
+      \(T_c \sim 159\)–\(163\) GeV, do zero-temperature mass values become the physically applicable description.
+      The framework's granularity doctrine reads this as a "mass-distinction emergence" event: before the crossover,
+      "W boson," "top quark," and "electron" name field-theoretic degrees of freedom without a stable, recordable
+      mass gap; after the crossover, they name distinct, mass-gapped, in-principle-recordable particle species.</p>
+
+    <h2>3. Data Used</h2>
+    <ul>
+      <li><strong>Zero-temperature electroweak parameters:</strong> Higgs vacuum expectation value \(v_0 = 246.22\)
+        GeV (derived from the Fermi constant \(G_F = 1.1663788\times10^{-5}\,\text{GeV}^{-2}\), PDG 2024, Particle
+        Data Group <em>Review of Particle Physics</em>, "Electroweak Model and Constraints on New Physics"); Higgs
+        boson mass \(m_H = 125.20 \pm 0.11\) GeV (PDG 2024 world average, combining ATLAS and CMS Run 2 results);
+        \(W\) mass \(m_W = 80.3692 \pm 0.0133\) GeV and \(Z\) mass \(m_Z = 91.1876 \pm 0.0021\) GeV (PDG 2024); top
+        quark mass \(m_t = 172.57 \pm 0.29\) GeV (PDG 2024 world average).</li>
+      <li><strong>Nature and temperature of the electroweak transition:</strong> Kajantie, Laine, Rummukainen &amp;
+        Shaposhnikov (1996), "Is There a Hot Electroweak Phase Transition at \(m_H \gtrsim m_W\)?", Phys. Rev. Lett.
+        77, 2887 — established via lattice that for a Higgs mass above roughly 72–80 GeV, the electroweak transition
+        is not a first-order phase transition but a smooth analytic crossover. D'Onofrio &amp; Rummukainen (2016),
+        "Standard model cross-over on the lattice," Phys. Rev. D 93, 025003 — dedicated lattice-EW study at the
+        physical Higgs mass (\(m_H\approx125\) GeV) confirming a crossover, with the transition/crossover
+        temperature region \(T_c \approx 159\)–\(163\) GeV depending on the precise observable used to define the
+        crossover midpoint.</li>
+      <li><strong>Finite-temperature effective potential framework:</strong> standard finite-temperature field theory
+        (e.g. Quiros 1999, "Finite temperature field theory and phase transitions," hep-ph/9901312; Kolb &amp; Turner,
+        <em>The Early Universe</em>, Ch. 8) giving the thermal effective potential
+        \(V_{\text{eff}}(\phi,T) = \tfrac{1}{2}(\lambda T^2 - \mu^2)\phi^2 - \ldots\), whose minimum \(v(T)\)
+        interpolates from \(v(T)=0\) at high \(T\) to \(v(T)\to v_0\) at \(T\to0\), passing through the crossover
+        region identified by lattice above.</li>
+      <li><strong>Cosmological placement of the crossover (age/expansion regime):</strong> for a temperature
+        \(T\sim160\) GeV in the radiation-dominated era with \(g_*\approx106.75\) active relativistic degrees of
+        freedom (Husdal 2016, <em>Galaxies</em> 4(4):78, arXiv:1609.04979 — same ledger used in Test 03), the standard
+        radiation-era relation \(t \approx 0.301\, g_*^{-1/2}\,(M_{\text{Pl}}/T^2)\) (Kolb &amp; Turner Ch. 3, natural
+        units) gives an age of order \(t_{\text{EW}}\sim10^{-11}\) s, consistent with textbook thermal-history
+        timelines (e.g. Baumann, <em>Cosmology</em> 2022, Ch. 3 timeline table).</li>
+    </ul>
+
+    <h2>4. Calculation Summary</h2>
+    <p><strong>Threshold/order-of-magnitude check.</strong> The finite-temperature Higgs mass-squared parameter picks
+      up a thermal correction of order \(c\,T^2\) (with \(c\) an \(O(1)\) combination of Standard Model couplings),
+      so the effective potential's symmetric-phase minimum \(v(T)=0\) is preferred for \(T \gtrsim T_c\) and the
+      broken-phase minimum \(v(T)\to v_0=246\) GeV is preferred for \(T \lesssim T_c\), with
+      \[
+      T_c \approx 159\text{–}163\ \text{GeV}
+      \]
+      per lattice (D'Onofrio &amp; Rummukainen 2016). Because \(m_W(T) = \tfrac12 g\, v(T)\), \(m_Z(T) =
+      \tfrac12\sqrt{g^2+g'^2}\,v(T)\), and \(m_f(T) = y_f\, v(T)/\sqrt2\) for a fermion with Yukawa coupling
+      \(y_f\), all of these masses scale linearly with \(v(T)\) and are suppressed above \(T_c\) and asymptote to
+      their measured zero-temperature values (\(m_W=80.37\) GeV, \(m_Z=91.19\) GeV, \(m_t=172.57\) GeV, etc.) only
+      once \(T\) drops through and below the crossover window. This directly falsifies the failure mode named in the
+      test suite: a theory that assigns zero-temperature masses to W, Z, or fermions <em>before</em> the crossover
+      (i.e., at \(T \gg T_c\)) would be in error, because \(v(T)\approx0\) there and those mass terms are not
+      physically meaningful at that resolution.</p>
+    <p><strong>Crossover vs. phase transition (why this matters for the record check).</strong> Because \(m_H\approx
+      125\) GeV lies well above the lattice-determined critical Higgs mass of roughly 72–80 GeV needed for a genuine
+      first-order transition (Kajantie et al. 1996), the transition is a smooth crossover with no exactly-defined
+      "moment," no latent heat, and no bubble nucleation. This means there is no sharp phase-transition relic
+      (no gravitational-wave background from bubble collisions, no primordial magnetic fields from a violent
+      first-order EWPT) expected from the Standard Model electroweak transition alone — consistent with the absence
+      of any observed signal of this kind, and consistent with why electroweak baryogenesis in the Standard Model
+      alone is now considered insufficient (addressed in Tests 17–18, sphaleron/CP-violation sufficiency).</p>
+    <p><strong>Rate/window check.</strong> The crossover is smooth over a temperature range of order \(\Delta T/T_c
+      \sim \text{few percent}\) (D'Onofrio &amp; Rummukainen 2016), occurring at an age
+      \(t_{\text{EW}} \sim 10^{-11}\) s after the start of the hot Big Bang epoch (order-of-magnitude, radiation-era
+      formula above), well within the regime where the universe is radiation-dominated, in local thermal
+      equilibrium, and causally connected on scales relevant to the transition (particle mean free paths and
+      interaction rates \(\Gamma \gg H\) at this epoch, per standard thermal-history bookkeeping — see also Test 02
+      for the rate-vs.-Hubble decoupling framework applied elsewhere in this suite). No superluminal or acausal
+      claim is required.</p>
+    <p><strong>Record check.</strong> The "fossil record" of EWSB is indirect but real: it is encoded in the measured
+      zero-temperature values themselves (\(m_W\), \(m_Z\), \(m_H\), fermion masses, all PDG 2024) which are only
+      meaningful, stable, and directly measurable in collider experiments precisely because the universe has been
+      cold compared to \(T_c\) for its entire subsequent history. There is no independent primordial relic (no
+      gravitational-wave background, no topological defect) expected or required from a crossover-type transition,
+      and none is claimed here.</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>On the framework's reading, the electroweak crossover is the point at which "W boson," "Z boson," "top
+      quark," "electron," and the other Yukawa-coupled fermions stop being merely field-theoretic degrees of freedom
+      with an ill-defined or vanishing mass gap, and become stable, mass-gapped, individually distinguishable
+      particle species whose properties (masses, in particular) are physically meaningful and — once the universe
+      cools further and interaction rates permit — directly measurable. Before the crossover, at \(T\gg T_c\), the
+      "mass" label does not name a stable, recordable distinction: \(v(T)\approx0\) and the mass terms in the
+      Lagrangian are not the dominant physics. After the crossover, at \(T\ll T_c\), mass is a stable, recordable
+      quantity carried forward (eventually) into a laboratory measurement more than 13 billion years later. This is
+      exactly the kind of transition the framework's validity rule is built to describe: a distinction (particle
+      mass) becomes valid in a window once it can be "coupled, encoded, stabilized, and/or observed at that window's
+      physical resolution" — and here the resolution-dependent quantity is temperature relative to \(T_c\), with the
+      lattice-computed crossover supplying the actual number.</p>
+
+    <h2>6. Gate Routing</h2>
+    <p>This test informs the <strong>Mass-distinction emergence gate</strong> in the Physics/GUT/TOE program, with
+      primary anchor pressure on <strong>Encoding</strong> (speculative terminal-anchor layer, labeled here only for
+      cross-reference, not asserted as established). Because baryogenesis is sometimes attached to the electroweak
+      transition, this test hands off directly to the <strong>electroweak sphaleron and baryogenesis</strong> route
+      (Test 17) and the <strong>CP-violation sufficiency</strong> route (Test 18); this test only certifies the
+      mass-turn-on timing and the crossover (not first-order) character of the transition that those two downstream
+      tests depend on.</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>Not applicable in the strict sense — the mass-turn-on timing check passed. For completeness, the specific
+      failure modes named in the test suite's guardrails, and confirmed absent here:</p>
+    <ul>
+      <li><strong>No premature zero-temperature mass assignment:</strong> the calculation above explicitly shows
+        \(m_i(T)\propto v(T)\to0\) above \(T_c\), so a claim that used \(m_W=80.37\) GeV, \(m_t=172.57\) GeV, etc. to
+        describe physics at, say, \(T=1\) TeV (well above \(T_c\)) would fail this test. No such claim is made by the
+        framework's granularity doctrine as tested here.</li>
+      <li><strong>No field/particle conflation:</strong> the Higgs field's finite-temperature vacuum expectation
+        value \(v(T)\) is kept distinct from the zero-temperature, on-shell particle masses \(m_W\), \(m_Z\),
+        \(m_t\); the transition between the two regimes is the object being tested, not elided.</li>
+      <li><strong>No unresolved finite-temperature dynamics smuggled in as closed:</strong> the precise numerical
+        value of \(T_c\) still carries lattice-scheme dependence (roughly a few GeV spread across published
+        determinations of "the" crossover temperature, since a crossover has no unique critical point by
+        definition) — this residual imprecision is noted, not hidden, and does not affect the pass/fail timing
+        argument at the order-of-magnitude level used here.</li>
+      <li><strong>No first-order-transition relic asserted:</strong> because the Standard Model transition is a
+        crossover (Kajantie et al. 1996; D'Onofrio &amp; Rummukainen 2016), no gravitational-wave or topological-defect
+        relic is claimed from this transition alone, consistent with current non-observation.</li>
+    </ul>
+
+    <h2>8. Next Action</h2>
+    <p>Data lookup / cross-check, not derivation: (a) carry the \(T_c\approx159\)–163 GeV crossover placement and the
+      "no first-order relic" conclusion forward into Test 17 (sphaleron/baryogenesis) and Test 18 (CP-violation
+      sufficiency), where the crossover-not-phase-transition character is precisely why Standard-Model-only
+      electroweak baryogenesis is now considered quantitatively insufficient; (b) if the framework's own GUT/TOE
+      construction proposes any additional scalar sector or extended Higgs structure that would change the crossover
+      into a genuine first-order transition, re-run this test's lattice-comparison logic against that specific
+      extension rather than the Standard Model alone; (c) no terminal-anchor routing is needed for this test — it
+      resolved as a timing/consistency check against firmly established finite-temperature electroweak theory and
+      lattice results, not as an unresolved distinction/encoding question.</p>
+
+    <div class="callout">
+      <h3>Bottom line</h3>
+      <p>This is a <strong>SHARED-WITH-ΛCDM / Standard Model</strong> result: the existence, temperature, and
+        crossover (not first-order) character of electroweak symmetry breaking, and the resulting turn-on of W/Z/
+        fermion masses, belong to the Standard Model of particle physics and its finite-temperature extension, which
+        this framework inherits wholesale. The framework's only addition is an interpretive label — reading the
+        crossover as a "mass-distinction emergence" event — and that label is consistent with, but not independently
+        confirmed by, the lattice and collider data checked here.</p>
+    </div>
+
+    <p><a class="btn" href="/early-universe/tests/">&larr; Back to the granularity test suite</a>
+       &nbsp; <a class="btn" href="/early-universe/">&larr; Back to Early &amp; Distant Universe</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

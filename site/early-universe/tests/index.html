@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Early Universe Granularity Tests — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="44 consistency tests of the granularity/recordability doctrine against standard cosmology, from the Planck epoch to the CMB and large-scale structure. Honest scoreboard: verdicts, SHARED-WITH-ΛCDM vs FRAMEWORK-SPECIFIC labels, and open items.">
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+    --ok:#1f5f3f;
+    --ok-bg:#eaf5ee;
+    --warn:#8a6d1a;
+    --warn-bg:#fbf6e6;
+    --bad:#8a2a1a;
+    --bad-bg:#fbeae6;
+    --neutral:#4a5056;
+    --neutral-bg:#eef0f1;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-scroll{
+    max-height:60vh;
+    overflow-y:auto;
+    margin-top:0.6em;
+    padding-top:0.6em;
+    border-top:1px solid var(--line);
+  }
+  .subnav-scroll ul{list-style:none; margin:0; padding:0;}
+  .subnav-scroll li{margin:0.3em 0;}
+  .subnav-scroll a{text-decoration:none; color:var(--ink-soft); font-size:0.86rem;}
+  .subnav-scroll a:hover{color:var(--accent);}
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+
+  /* ---------- Scoreboard-specific ---------- */
+  .doctrine-box{
+    border:2px solid var(--accent);
+    background:#fff;
+    padding:1.1em 1.4em;
+    margin:1.4em 0;
+    border-radius:6px;
+    text-align:center;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:1.15rem;
+    font-weight:700;
+    color:var(--accent);
+  }
+  .doctrine-box .doctrine-sub{
+    display:block;
+    margin-top:0.4em;
+    font-family:Georgia,serif;
+    font-weight:400;
+    font-style:italic;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+  }
+  .stat-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.8em;
+    margin:1.2em 0 1.6em;
+  }
+  .stat-pill{
+    flex:1 1 130px;
+    border:1px solid var(--line);
+    background:#fff;
+    border-radius:6px;
+    padding:0.7em 0.9em;
+    text-align:center;
+  }
+  .stat-pill .num{
+    display:block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:800;
+    font-size:1.5rem;
+    color:var(--accent-2);
+  }
+  .stat-pill .lbl{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--ink-soft);
+  }
+  .verdict-pill{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.72rem;
+    font-weight:800;
+    letter-spacing:0.02em;
+    padding:0.3em 0.6em;
+    border-radius:3px;
+    white-space:nowrap;
+    line-height:1.3;
+  }
+  .v-closed{background:var(--ok-bg); color:var(--ok); border:1px solid #b8dcc4;}
+  .v-record{background:var(--ok-bg); color:var(--ok); border:1px solid #b8dcc4;}
+  .v-observed{background:var(--warn-bg); color:var(--warn); border:1px solid #e6d18a;}
+  .v-open{background:var(--bad-bg); color:var(--bad); border:1px solid #e6b8ab;}
+  .v-terminal{background:var(--neutral-bg); color:var(--neutral); border:1px solid #c9ccd0;}
+  .class-tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.68rem;
+    font-weight:700;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    padding:0.2em 0.5em;
+    border-radius:3px;
+    white-space:nowrap;
+  }
+  .class-shared{background:#e4ecef; color:var(--accent-2); border:1px solid #c3d3d9;}
+  .class-framework{background:#f3e8da; color:var(--accent); border:1px solid #e0c9a8;}
+  .epoch-head td{
+    background:var(--ink);
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.85rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    padding:0.5em 0.7em;
+  }
+  .score-table{font-size:0.92rem;}
+  .score-table th{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+  .score-table td.num-cell{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+  .score-table td.title-cell a{
+    text-decoration:none;
+    font-weight:600;
+  }
+  .score-table td.title-cell a:hover{text-decoration:underline;}
+  .score-table td.oneline-cell{
+    color:var(--ink-soft);
+    font-size:0.88rem;
+    line-height:1.5;
+  }
+  .table-wrap{overflow-x:auto; margin:1.2em 0;}
+  .legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin:1em 0 1.6em;
+    padding:0.8em 1em;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:4px;
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity Test Suite</a></li>
+      </ul>
+      <div class="subnav-scroll">
+        <ul>
+          <li><a href="#epoch-planck">Planck / Quantum Gravity</a></li>
+          <li><a href="#epoch-inflation">Inflation &amp; Reheating</a></li>
+          <li><a href="#epoch-relics">GUT Relics &amp; Defects</a></li>
+          <li><a href="#epoch-ew">Electroweak Epoch</a></li>
+          <li><a href="#epoch-qcd">QCD &amp; Baryons</a></li>
+          <li><a href="#epoch-neutrino">Neutrinos &amp; BBN</a></li>
+          <li><a href="#epoch-dm">Dark Matter &amp; Axions</a></li>
+          <li><a href="#epoch-cmb">Matter–Radiation to CMB</a></li>
+          <li><a href="#epoch-lss">Large-Scale Structure</a></li>
+          <li><a href="#epoch-late">Dark Ages to First Stars</a></li>
+          <li><a href="#epoch-other">Relics, PBHs &amp; Fields</a></li>
+          <li><a href="#epoch-ledger">Ledger &amp; Capacity Checks</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <h2 style="border-bottom:none; margin-bottom:0.2em;">Early Universe Granularity Tests</h2>
+    <p class="lede">Testing whether particles, fields, atoms, and cosmic records emerge in the correct order as
+    the universe gains stable, distinguishable structure.</p>
+
+    <div class="honesty-box">
+      <strong>Read this before the table.</strong> These are <strong>consistency tests</strong>, not
+      confirmations. A <strong>CLOSED</strong> verdict means the granularity <em>interpretation</em> is
+      <strong>consistent with established standard cosmology</strong> at that epoch — it is <strong>not</strong>
+      a claim that this framework uniquely predicted the result. Most tests below are
+      <span class="class-tag class-shared">SHARED-WITH-ΛCDM</span>: standard hot-Big-Bang cosmology, which this
+      framework inherits rather than replaces. A qualitative match only <em>motivates</em> the granularity route;
+      it never proves it. Where the framework makes a genuinely distinctive prediction — inflation — that
+      prediction is honestly <strong>not yet forced</strong> by the geometry; see the
+      <a href="/early-universe/inflation-gate.html">inflation gate (Gap-08)</a> for the full account of why the
+      inflaton-slope claim (λ²=1/6) is a convention-dependent candidate, not a geometric derivation, and why the
+      branch-independent falsifier is r ∈ [3.5, 36]×10⁻³.
+    </div>
+
+    <div class="doctrine-box">
+      "Cosmic history is the history of increasing recordable distinction."
+      <span class="doctrine-sub">The master doctrine under test across all 44 items below — not assumed, checked epoch by epoch.</span>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-pill"><span class="num">44</span><span class="lbl">Tests run</span></div>
+      <div class="stat-pill"><span class="num">~28</span><span class="lbl">CLOSED / closed-as-record</span></div>
+      <div class="stat-pill"><span class="num">~8</span><span class="lbl">Observed-given</span></div>
+      <div class="stat-pill"><span class="num">7</span><span class="lbl">Open</span></div>
+      <div class="stat-pill"><span class="num">1</span><span class="lbl">Terminal anchor <em style="font-style:italic; font-weight:400; font-size:0.9em;">(speculative label)</em></span></div>
+      <div class="stat-pill"><span class="num">0</span><span class="lbl">Promotions</span></div>
+    </div>
+
+    <div class="legend" style="display:block;">
+      <p style="margin:0 0 0.7em; font-weight:700; color:var(--ink);">Legend</p>
+      <p style="margin:0 0 0.8em;"><strong>Verdict and class tags</strong> (below) describe how each row was
+      graded against standard cosmology. <strong>"Terminal anchor" labels</strong> (Root-Unity, Distinction,
+      Encoding, Knowing, Actualization, Experience, Value) are this program's <strong>speculative ontology
+      layer</strong> — an interpretive vocabulary for where a chain of reasoning is routed when it bottoms out,
+      <em>not</em> a recognized physics classification and not a measurement or a closure. Wherever a
+      "terminal anchor" / "anchor pressure" term appears on this page (e.g. Test 06's routing to
+      <span title="speculative ontology layer — interpretive label, not a physics result">Root-Unity</span>),
+      treat it as that speculative label, not a physics result.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:0.6em 1.2em; align-items:center;">
+        <span><span class="verdict-pill v-closed">CLOSED</span> consistent, load-bearing check passes</span>
+        <span><span class="verdict-pill v-record">CLOSED-AS-RECORD</span> consistent, framework label only</span>
+        <span><span class="verdict-pill v-observed">OBSERVED-GIVEN</span> viable but unforced / imported</span>
+        <span><span class="verdict-pill v-open">OPEN</span> honestly unresolved</span>
+        <span><span class="verdict-pill v-terminal">TERMINAL-ANCHOR</span> correctly routed to a speculative-ontology anchor, not a closure</span>
+        <span><span class="class-tag class-shared">SHARED-ΛCDM</span> inherited standard cosmology</span>
+        <span><span class="class-tag class-framework">FRAMEWORK-SPECIFIC</span> distinctive to this program</span>
+      </div>
+    </div>
+
+    <h2>Scoreboard</h2>
+    <p>Grouped by epoch, earliest first. Click any test title to open its full page (tested claim, method,
+    numbers, sources, and honest residual).</p>
+
+    <div class="table-wrap">
+    <table class="score-table">
+      <thead>
+        <tr>
+          <th style="width:3em;">#</th>
+          <th>Test</th>
+          <th style="width:9.5em;">Verdict</th>
+          <th style="width:8em;">Class</th>
+          <th>Summary</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr class="epoch-head" id="epoch-planck"><td colspan="5">Planck Boundary / Quantum Gravity</td></tr>
+        <tr>
+          <td class="num-cell">06</td>
+          <td class="title-cell"><a href="/early-universe/tests/06-planck-boundary-quantum-gravity-terminal-test.html">Planck Boundary / Quantum-Gravity Terminal Test</a></td>
+          <td><span class="verdict-pill v-terminal">TERMINAL-ANCHOR</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Planck-unit check (t_Pl≈5.39×10⁻⁴⁴s, CODATA 2018) confirms ~33 orders-of-magnitude gap to any tested physics; correctly routes to the "Root-Unity" terminal anchor — a speculative-ontology label (see legend), not a physics classification — rather than a closure.</td>
+        </tr>
+
+        <tr class="epoch-head" id="epoch-inflation"><td colspan="5">Inflation &amp; Reheating</td></tr>
+        <tr>
+          <td class="num-cell">07</td>
+          <td class="title-cell"><a href="/early-universe/tests/07-inflation-scalar-spectrum-test.html">Inflation Scalar Spectrum Test</a></td>
+          <td><span class="verdict-pill v-observed">OBSERVED-GIVEN</span></td>
+          <td><span class="class-tag class-framework">FRAMEWORK-SPECIFIC</span></td>
+          <td class="oneline-cell">Planck n_s=0.9649±0.0042 matches standard slow-roll (shared with ΛCDM); framework's λ²=1/6 slope-forcing is unconfirmed, so verdict is OBSERVED-GIVEN, mechanism CANDIDATE. Secondary: CLOSED-AS-COMPRESSED-RECORD for the ΛCDM-shared data.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">08</td>
+          <td class="title-cell"><a href="/early-universe/tests/08-inflation-tensor-bound-test.html">Inflation Tensor Bound Test</a></td>
+          <td><span class="verdict-pill v-observed">OBSERVED-GIVEN</span></td>
+          <td><span class="class-tag class-framework">FRAMEWORK-SPECIFIC</span></td>
+          <td class="oneline-cell">Framework's candidate r-bands all sit under BICEP/Keck 2021 (r&lt;0.036), but since λ²=1/6 isn't geometrically forced (true slope 8/3), verdict is OBSERVED-GIVEN with LiteBIRD ~2030 falsifier r ∈ [3.5, 36]×10⁻³.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">09</td>
+          <td class="title-cell"><a href="/early-universe/tests/09-inflation-non-gaussianity-test.html">Inflation Non-Gaussianity Test</a></td>
+          <td><span class="verdict-pill v-observed">OBSERVED-GIVEN</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Measured f_NL consistent with zero as generic single-field slow-roll predicts (Planck 2018); framework has no independent f_NL derivation, so accepted as observed-given, not framework-CLOSED.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">10</td>
+          <td class="title-cell"><a href="/early-universe/tests/10-reheating-temperature-and-thermalization-test.html">Reheating Temperature and Thermalization Test</a></td>
+          <td><span class="verdict-pill v-observed">OBSERVED-GIVEN</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Standard T_reh window (BBN floor ~4 MeV to tensor-ratio ceiling ~10¹⁶ GeV) is unviolated; framework doesn't derive T_reh, only inherits the consistency check. Secondary: CLOSED-AS-COMPRESSED-RECORD.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">11</td>
+          <td class="title-cell"><a href="/early-universe/tests/11-reheating-entropy-dilution-relic-reset-test.html">Reheating Entropy Dilution / Relic Reset Test</a></td>
+          <td><span class="verdict-pill v-record">CLOSED-AS-COMPRESSED-RECORD</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Dilution e^(-3N), N≳60 gives ~78 orders suppression vs ~14–20 needed for GUT monopoles; T_RH window [4 MeV, 10⁶–10¹⁰ GeV] non-empty; framework supplies no new numbers, only the recordability re-description.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">12</td>
+          <td class="title-cell"><a href="/early-universe/tests/12-primordial-isocurvature-constraint-test.html">Primordial Isocurvature Constraint Test</a></td>
+          <td><span class="verdict-pill v-closed">CLOSED</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Single-clock inflation predicts negligible isocurvature, consistent with Planck 2018's null detection (β_iso&lt;0.038, 95% CL) — inherited ΛCDM result, not framework-specific.</td>
+        </tr>
+
+        <tr class="epoch-head" id="epoch-relics"><td colspan="5">GUT Relics &amp; Topological Defects</td></tr>
+        <tr>
+          <td class="num-cell">13</td>
+          <td class="title-cell"><a href="/early-universe/tests/13-gut-symmetry-breaking-relic-test.html">GUT Symmetry-Breaking Relic Test</a></td>
+          <td><span class="verdict-pill v-record">CLOSED-AS-COMPRESSED-RECORD</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Generic GUT monopoles overproduce Ωh² by ~20 orders of magnitude, but standard inflation's ~50–60 e-folds (needing only ~16) dilutes them below the null-detection bound.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">14</td>
+          <td class="title-cell"><a href="/early-universe/tests/14-monopole-production-and-dilution-test.html">Monopole Production and Dilution Test</a></td>
+          <td><span class="verdict-pill v-record">CLOSED-AS-COMPRESSED-RECORD</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">GUT Kibble-mechanism monopole overproduction (~10¹⁷× closure) is diluted ~60 further orders by standard ~60 e-fold inflation, consistent with MACRO/IceCube null flux limits.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">15</td>
+          <td class="title-cell"><a href="/early-universe/tests/15-cosmic-strings-and-topological-defects-test.html">Cosmic Strings and Topological Defects Test</a></td>
+          <td><span class="verdict-pill v-record">CLOSED-AS-COMPRESSED-RECORD</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Generic GUT-scale stable-string estimate (Gμ~2.7×10⁻⁶) exceeds Planck 2018 CMB and NANOGrav 15-yr bounds by 21×–2.7×10⁴×; no defects detected; framework has no native symmetry-breaking chain to check.</td>
+        </tr>
+
+        <tr class="epoch-head" id="epoch-ew"><td colspan="5">Electroweak Epoch</td></tr>
+        <tr>
+          <td class="num-cell">16</td>
+          <td class="title-cell"><a href="/early-universe/tests/16-electroweak-symmetry-breaking-mass-turn-on-test.html">Electroweak Symmetry Breaking Mass Turn-On Test</a></td>
+          <td><span class="verdict-pill v-closed">CLOSED</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">W/Z/fermion mass turn-on via the EWSB crossover (Tc≈159–163 GeV, D'Onofrio &amp; Rummukainen 2016) matches finite-T EW theory; CLOSED, shared with the Standard Model.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">17</td>
+          <td class="title-cell"><a href="/early-universe/tests/17-electroweak-sphaleron-and-baryogenesis-test.html">Electroweak Sphaleron and Baryogenesis Test</a></td>
+          <td><span class="verdict-pill v-open">OPEN</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Sphaleron equilibrium/freeze-out physics checks out quantitatively, but the CP-violating out-of-equilibrium source of η_B≈6.1×10⁻¹⁰ is unsupplied by SM or framework — honestly OPEN.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">18</td>
+          <td class="title-cell"><a href="/early-universe/tests/18-cp-violation-sufficiency-test.html">CP-Violation Sufficiency Test</a></td>
+          <td><span class="verdict-pill v-open">OPEN</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">SM CKM CP violation (J≈3×10⁻⁵) gives η_B≲10⁻²⁰, ~10 orders short of Planck's 6.12×10⁻¹⁰, and EWPT is a crossover at m_H=125 GeV; no framework mechanism supplied, so OPEN.</td>
+        </tr>
+
+        <tr class="epoch-head" id="epoch-qcd"><td colspan="5">QCD Confinement &amp; Baryons</td></tr>
+        <tr>
+          <td class="num-cell">19</td>
+          <td class="title-cell"><a href="/early-universe/tests/19-qcd-confinement-hadronization-test.html">QCD Confinement / Hadronization Test</a></td>
+          <td><span class="verdict-pill v-record">CLOSED-AS-COMPRESSED-RECORD</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Hadrons become recordable only after the lattice-QCD crossover (T_c=156.5 MeV, ~20 μs); baryon number conserved; consistent, not framework-derived.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">20</td>
+          <td class="title-cell"><a href="/early-universe/tests/20-lattice-qcd-equation-of-state-transition-test.html">Lattice QCD Equation-of-State Transition Test</a></td>
+          <td><span class="verdict-pill v-closed">CLOSED</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Lattice QCD EoS (HotQCD/Wuppertal-Budapest) crossover at Tc≈156.5 MeV matches g*(T) ledger; CLOSED as inherited ΛCDM physics, no new dof required.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">21</td>
+          <td class="title-cell"><a href="/early-universe/tests/21-baryon-to-photon-ratio-consistency-test.html">Baryon-to-Photon Ratio Consistency Test</a></td>
+          <td><span class="verdict-pill v-closed">CLOSED</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">CMB (Planck 2018, Ωbh²=0.02237) and BBN-deuterium (Cooke 2018, Ωbh²=0.02166) baryon densities agree to ~3% (1–2σ); no late entropy injection needed; η_b remains OBSERVED-GIVEN.</td>
+        </tr>
+
+        <tr class="epoch-head" id="epoch-neutrino"><td colspan="5">Neutrino Decoupling &amp; Nucleosynthesis</td></tr>
+        <tr>
+          <td class="num-cell">22</td>
+          <td class="title-cell"><a href="/early-universe/tests/22-neutrino-decoupling-and-n-eff-test.html">Neutrino Decoupling and N_eff Test</a></td>
+          <td><span class="verdict-pill v-record">CLOSED-AS-COMPRESSED-RECORD</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Neutrino decoupling (~2–3 MeV) and Standard Model N_eff=3.044 are consistent with Planck 2018 (2.99±0.17) and BBN (2.86 +0.27/−0.28); shared with ΛCDM, not framework-derived.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">23</td>
+          <td class="title-cell"><a href="/early-universe/tests/23-big-bang-nucleosynthesis-light-element-test.html">Big Bang Nucleosynthesis Light-Element Test</a></td>
+          <td><span class="verdict-pill v-record">CLOSED-AS-COMPRESSED-RECORD</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">D/H and He-4 match standard BBN to ~0.2–0.7σ (Planck 2018 η_B, PDG 2024); Li-7 over-predicted ~3×, tension reported honestly, not resolved.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">24</td>
+          <td class="title-cell"><a href="/early-universe/tests/24-lithium-7-tension-handling-test.html">Lithium-7 Tension Handling Test</a></td>
+          <td><span class="verdict-pill v-open">OPEN</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">SBBN predicts Li-7/H ~5.3×10⁻¹⁰ vs observed Spite-plateau ~1.5×10⁻¹⁰ (factor ~3–4); no mechanism endorsed, honestly left OPEN, D/H and Yp unaffected.</td>
+        </tr>
+
+        <tr class="epoch-head" id="epoch-dm"><td colspan="5">Dark Matter &amp; Axions</td></tr>
+        <tr>
+          <td class="num-cell">25</td>
+          <td class="title-cell"><a href="/early-universe/tests/25-dark-matter-thermal-freeze-out-test.html">Dark Matter Thermal Freeze-Out Test</a></td>
+          <td><span class="verdict-pill v-observed">OBSERVED-GIVEN</span> <span class="verdict-pill v-open">OPEN</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Standard freeze-out reproduces Ω_DM h²=0.12 (Planck 2018) for ⟨σv⟩≈2.5×10⁻²⁶ cm³/s, but no WIMP candidate survives LZ/XENONnT bounds — mechanism OK, candidate OPEN.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">26</td>
+          <td class="title-cell"><a href="/early-universe/tests/26-dark-matter-freeze-in-nonthermal-relic-test.html">Dark Matter Freeze-In / Nonthermal Relic Test</a></td>
+          <td><span class="verdict-pill v-open">OPEN</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Generic freeze-in mechanism (y~10⁻¹¹–10⁻¹², Hall et al. 2010) satisfies Ω_DM h²=0.120, N_eff, and Lyman-α bounds, but framework names no specific portal/candidate, so graded OPEN.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">27</td>
+          <td class="title-cell"><a href="/early-universe/tests/27-axion-alp-misalignment-and-defect-test.html">Axion / ALP Misalignment and Defect Test</a></td>
+          <td><span class="verdict-pill v-observed">OBSERVED-GIVEN</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Standard axion misalignment/defect/isocurvature machinery (PDG 2024, Planck 2018) is viable, but θ_i is an unforced empirical input and no framework-specific field is named yet.</td>
+        </tr>
+
+        <tr class="epoch-head" id="epoch-cmb"><td colspan="5">Matter–Radiation Equality to the CMB</td></tr>
+        <tr>
+          <td class="num-cell">28</td>
+          <td class="title-cell"><a href="/early-universe/tests/28-matter-radiation-equality-timing-test.html">Matter–Radiation Equality Timing Test</a></td>
+          <td><span class="verdict-pill v-closed">CLOSED</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Computed z_eq≈3422 (Planck 2018 Ωmh²/Ωrh², N_eff=3.044) matches Planck's direct fit z_eq=3402±26 to ~0.6%; CLOSED, SHARED-WITH-ΛCDM.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">29</td>
+          <td class="title-cell"><a href="/early-universe/tests/29-recombination-visibility-function-test.html">Recombination Visibility Function Test</a></td>
+          <td><span class="verdict-pill v-closed">CLOSED</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Planck 2018 z*=1089.92±0.25 and Saha-suppressed recombination (kT(z*)≈0.256 eV, ~53× below 13.6 eV) confirm the atom/photon record epoch; framework label only, CLOSED.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">30</td>
+          <td class="title-cell"><a href="/early-universe/tests/30-cmb-blackbody-and-spectral-distortion-test.html">CMB Blackbody and Spectral Distortion Test</a></td>
+          <td><span class="verdict-pill v-closed">CLOSED</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">FIRAS blackbody + μ/y bounds (|μ|&lt;9×10⁻⁵, |y|&lt;1.5×10⁻⁵) sit ~4 orders above the ΛCDM Silk-damping floor (μ~2×10⁻⁸, y~4×10⁻⁹); framework adds only an interpretive fossil-record label.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">31</td>
+          <td class="title-cell"><a href="/early-universe/tests/31-cmb-acoustic-peak-geometry-test.html">CMB Acoustic Peak Geometry Test</a></td>
+          <td><span class="verdict-pill v-record">CLOSED-AS-COMPRESSED-RECORD</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Planck 2018 peak positions/heights (ℓ₁≈220, ℓ₂≈537, ℓ₃≈810; θ*=1.041×10⁻²) match standard ΛCDM; framework only labels peaks a compressed granularity record, doesn't derive them.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">32</td>
+          <td class="title-cell"><a href="/early-universe/tests/32-cmb-polarization-and-reionization-optical-depth-test.html">CMB Polarization and Reionization Optical-Depth Test</a></td>
+          <td><span class="verdict-pill v-closed">CLOSED</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Planck 2018 τ=0.0544±0.0073 → z_re≈7.7, consistent with quasar-based end-of-reionization z≈6–7 and the EE polarization bump; CLOSED, SHARED-WITH-ΛCDM.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">33</td>
+          <td class="title-cell"><a href="/early-universe/tests/33-cmb-lensing-and-growth-consistency-test.html">CMB Lensing and Growth Consistency Test</a></td>
+          <td><span class="verdict-pill v-closed">CLOSED</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Planck 2018 lensing-reconstruction amplitude A_lens^φφ=1.011±0.023 matches the base-ΛCDM growth prediction at &gt;40σ; CLOSED, shared with ΛCDM.</td>
+        </tr>
+
+        <tr class="epoch-head" id="epoch-lss"><td colspan="5">Large-Scale Structure</td></tr>
+        <tr>
+          <td class="num-cell">34</td>
+          <td class="title-cell"><a href="/early-universe/tests/34-primordial-power-spectrum-to-large-scale-structure-test.html">Primordial Power Spectrum to Large-Scale Structure Test</a></td>
+          <td><span class="verdict-pill v-record">CLOSED-AS-COMPRESSED-RECORD</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Planck n_s/A_s transfer-function P(k) shape matches DES Y3/KiDS-1000 clustering+lensing; S8 tension (~2–3σ) is real, open, routed to Test 36, not closed here.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">35</td>
+          <td class="title-cell"><a href="/early-universe/tests/35-bao-standard-ruler-consistency-test.html">BAO Standard-Ruler Consistency Test</a></td>
+          <td><span class="verdict-pill v-closed">CLOSED</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">BAO distances (BOSS/eBOSS/DESI) match Planck 2018 r_drag=147.09 Mpc within 1–2% across z=0.15–2.33; standard ΛCDM inherited, not framework-specific.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">36</td>
+          <td class="title-cell"><a href="/early-universe/tests/36-sigma8-s8-growth-tension-gate.html">Sigma8 / S8 Growth-Tension Gate</a></td>
+          <td><span class="verdict-pill v-observed">OBSERVED-GIVEN</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Recomputed S8 tension (Planck 0.8315 vs KiDS-1000 2.8σ, DES Y3 2.6σ) is a real, unresolved ΛCDM anomaly the framework inherits but does not resolve.</td>
+        </tr>
+
+        <tr class="epoch-head" id="epoch-late"><td colspan="5">Dark Ages, Cosmic Dawn &amp; First Galaxies</td></tr>
+        <tr>
+          <td class="num-cell">37</td>
+          <td class="title-cell"><a href="/early-universe/tests/37-21-cm-dark-ages-cosmic-dawn-granularity-test.html">21-cm Dark Ages / Cosmic Dawn Granularity Test</a></td>
+          <td><span class="verdict-pill v-observed">OBSERVED-GIVEN</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Standard thermal decoupling/Lyman-α coupling correctly places a cosmic-dawn 21-cm trough near z~17, but EDGES's −500mK claim (2× the ~−230mK ceiling) is unconfirmed by SARAS 3 — open sub-note.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">38</td>
+          <td class="title-cell"><a href="/early-universe/tests/38-early-galaxies-and-first-star-formation-test.html">Early Galaxies and First-Star Formation Test</a></td>
+          <td><span class="verdict-pill v-record">CLOSED-AS-COMPRESSED-RECORD</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Atomic-cooling halo thresholds and reionization timing (Planck 2018 τ=0.054, z_re=7.68) check out vs JWST high-z galaxies; bright-end UV-LF overabundance flagged OPEN, not absorbed into CLOSED.</td>
+        </tr>
+
+        <tr class="epoch-head" id="epoch-other"><td colspan="5">Relics, Primordial Black Holes &amp; Magnetic Fields</td></tr>
+        <tr>
+          <td class="num-cell">39</td>
+          <td class="title-cell"><a href="/early-universe/tests/39-primordial-black-hole-constraint-test.html">Primordial Black Hole Constraint Test</a></td>
+          <td><span class="verdict-pill v-observed">OBSERVED-GIVEN</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Framework forces no small-scale spectrum boost, so no PBH abundance to check; standard f_PBH(M) bounds (Carr et al. 2021, LZ/LIGO/Planck) are imported wholesale, unbroken.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">40</td>
+          <td class="title-cell"><a href="/early-universe/tests/40-primordial-magnetic-field-test.html">Primordial Magnetic Field Test</a></td>
+          <td><span class="verdict-pill v-open">OPEN</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Established CMB (0.69 nG)/BBN and blazar (~3×10⁻¹⁷ G) bounds define a real ~7-order-of-magnitude window, but framework supplies no magnetogenesis mechanism/amplitude to check against it — OPEN.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">41</td>
+          <td class="title-cell"><a href="/early-universe/tests/41-cosmic-neutrino-background-indirect-evidence-test.html">Cosmic Neutrino Background Indirect Evidence Test</a></td>
+          <td><span class="verdict-pill v-record">CLOSED-AS-COMPRESSED-RECORD</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">CνB correctly treated as indirect-only relic record (N_eff=3.044 vs 2.99±0.17 Planck / 2.86 BBN; CMB free-streaming phase shift; Σmν&lt;0.12 eV); no direct detection exists (PTOLEMY is prototype-stage).</td>
+        </tr>
+
+        <tr class="epoch-head" id="epoch-ledger"><td colspan="5">Ledger &amp; Capacity Self-Checks</td></tr>
+        <tr>
+          <td class="num-cell">42</td>
+          <td class="title-cell"><a href="/early-universe/tests/42-recordability-distinguishability-ledger-test.html">Recordability / Distinguishability Ledger Test</a></td>
+          <td><span class="verdict-pill v-record">CLOSED-AS-COMPRESSED-RECORD</span></td>
+          <td><span class="class-tag class-framework">FRAMEWORK-SPECIFIC</span></td>
+          <td class="oneline-cell">Self-audit ledger applying the recordability rule to suite claims (GUT relics, monopoles, inflaton, dark matter, CνB) finds no smuggled non-recordable primitive; bookkeeping, not new physics.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">43</td>
+          <td class="title-cell"><a href="/early-universe/tests/43-complexity-capacity-bound-per-epoch-test.html">Complexity Capacity Bound per Epoch Test</a></td>
+          <td><span class="verdict-pill v-closed">CLOSED</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Every cosmic record the framework uses clears the Bekenstein/holographic capacity bounds by 15–34 orders of magnitude; CLOSED, shared with ΛCDM.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">44</td>
+          <td class="title-cell"><a href="/early-universe/tests/44-decoherence-versus-hubble-time-cosmic-record-test.html">Decoherence versus Hubble Time Cosmic Record Test</a></td>
+          <td><span class="verdict-pill v-record">CLOSED-AS-COMPRESSED-RECORD</span> <span class="verdict-pill v-terminal">TERMINAL-ANCHOR</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Thomson-scattering rate ≈130× Hubble rate at z*≈1090 (Planck 2018) and cited inflationary squeezing results confirm decoherence≫H, justifying "classical record" language while "Actualization" — a speculative-ontology anchor label, not a physics result — is routed, not solved.</td>
+        </tr>
+
+      </tbody>
+    </table>
+    </div>
+
+    <div class="table-wrap">
+    <table class="score-table" style="margin-top:2.2em;">
+      <caption style="text-align:left; font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif; font-size:0.85rem; color:var(--ink-soft); margin-bottom:0.5em; caption-side:top;">Tests 01–05: the age–temperature and entropy scaffolding every later epoch leans on.</caption>
+      <thead>
+        <tr>
+          <th style="width:3em;">#</th>
+          <th>Test</th>
+          <th style="width:9.5em;">Verdict</th>
+          <th style="width:8em;">Class</th>
+          <th>Summary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num-cell">01</td>
+          <td class="title-cell"><a href="/early-universe/tests/01-age-temperature-expansion-consistency-test.html">Age–Temperature Expansion Consistency Test</a></td>
+          <td><span class="verdict-pill v-closed">CLOSED</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Checked QCD (~155 MeV/~10 μs), ν-decoupling (~1 MeV/~1s), BBN (~0.08 MeV/~200s), recombination (z=1089.9, Planck 2018) — all consistent with standard g*(T) age–temperature relation; CLOSED, SHARED-WITH-ΛCDM.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">02</td>
+          <td class="title-cell"><a href="/early-universe/tests/02-interaction-rate-versus-hubble-rate-decoupling-test.html">Interaction Rate versus Hubble Rate Decoupling Test</a></td>
+          <td><span class="verdict-pill v-closed">CLOSED</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Γ≈H freeze-out criterion checked numerically via neutrino decoupling (~1–2 MeV, brackets literature 0.8–1 MeV); CLOSED, standard ΛCDM mechanism inherited unchanged.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">03</td>
+          <td class="title-cell"><a href="/early-universe/tests/03-effective-relativistic-degrees-of-freedom-ledger-test.html">Effective Relativistic Degrees of Freedom Ledger Test</a></td>
+          <td><span class="verdict-pill v-closed">CLOSED</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">g*(T)/g*_s(T) ledger across EW→QCD→e⁺e⁻ annihilation is internally consistent with standard cosmology (Husdal 2016, HotQCD 2019, Planck 2018, N_eff=3.044); CLOSED, SHARED-WITH-ΛCDM.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">04</td>
+          <td class="title-cell"><a href="/early-universe/tests/04-causal-horizon-and-record-propagation-test.html">Causal Horizon and Record Propagation Test</a></td>
+          <td><span class="verdict-pill v-closed">CLOSED</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">CMB superhorizon correlation (θ_H≈1–2° vs full-sky isotropy) requires inflation as named mechanism; standard ΛCDM result, inherited not novel.</td>
+        </tr>
+        <tr>
+          <td class="num-cell">05</td>
+          <td class="title-cell"><a href="/early-universe/tests/05-entropy-conservation-and-scale-factor-consistency-test.html">Entropy Conservation and Scale-Factor Consistency Test</a></td>
+          <td><span class="verdict-pill v-closed">CLOSED</span></td>
+          <td><span class="class-tag class-shared">SHARED-ΛCDM</span></td>
+          <td class="oneline-cell">Comoving entropy conservation across e⁺e⁻ annihilation gives T_γ/T_ν=(11/4)^(1/3)≈1.401, consistent with N_eff≈3.044 — standard ΛCDM, framework-consistent, not framework-derived.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p style="font-size:0.85rem; color:var(--ink-soft);">Note: Tests 01–05 are placed last in this view only
+    because they were rendered as a follow-on scaffolding table; they are read first in sequence (the
+    age–temperature and entropy relations every later epoch test assumes). All 44 tests are listed exactly once
+    across the two tables above.</p>
+
+    <h2>What this scoreboard is not</h2>
+    <p>It is not a claim that Constraint-Based Reconstruction Theory has been confirmed by cosmology. Most rows
+    are <span class="class-tag class-shared">SHARED-WITH-ΛCDM</span> — the framework inherits standard hot-Big-Bang
+    cosmology's successes rather than deriving them independently, and a CLOSED verdict there just means "this
+    framework does not contradict established cosmology at this epoch." The handful of
+    <span class="class-tag class-framework">FRAMEWORK-SPECIFIC</span> rows (inflation, the recordability ledger)
+    are exactly where the program's own claims are on the hook — and there, the honest status is OBSERVED-GIVEN or
+    OPEN, not CLOSED, because the geometry does not yet force the inflaton slope. Seven tests are OPEN outright
+    (baryogenesis's CP source, the Lithium-7 tension, dark-matter candidate identity ×2, primordial magnetic
+    fields) and are reported as open, not folded into a rounded-up summary.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h4><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></h4>
+        <p>Full account of why λ²=1/6 is a convention-dependent candidate slope, not a forced geometric
+        derivation, and the branch-independent falsifier r ∈ [3.5, 36]×10⁻³ that LiteBIRD can test around 2030.</p>
+      </div>
+      <div class="card">
+        <h4><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></h4>
+        <p>The discipline that keeps these tests honest: native computation before comparison, and a documented
+        rule against loading observed data before a prediction exists.</p>
+      </div>
+      <div class="card">
+        <h4><a href="/early-universe/">Back to Early &amp; Distant Universe</a></h4>
+        <p>The section overview: what "the beginning" means here, and the two separate open questions (inflation;
+        the cosmological constant and expansion history).</p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

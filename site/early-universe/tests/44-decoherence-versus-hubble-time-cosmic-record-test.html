@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 44 — Decoherence versus Hubble Time Cosmic Record Test — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Early-universe granularity test 44: checks whether decoherence (Compton/Thomson scattering, photon-baryon coupling) occurs fast enough relative to the Hubble expansion rate to justify treating cosmological perturbations and recombination-era structure as classical records. Verdict: CLOSED-AS-COMPRESSED-RECORD, shared with LambdaCDM/decoherence theory, with actualization stated as unresolved.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Test-page specific ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    letter-spacing:0.03em;
+    padding:0.45em 1em;
+    border-radius:4px;
+    background:#1f4e5f;
+    color:#fff;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:0.25em 0.65em;
+    border-radius:3px;
+    margin-left:0.5em;
+    vertical-align:middle;
+  }
+  .tag-shared{background:#e4ecee; color:var(--accent-2); border:1px solid var(--accent-2);}
+  .tag-specific{background:#f3e9de; color:var(--accent); border:1px solid var(--accent);}
+  .breadcrumb{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-bottom:1em;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <div class="breadcrumb">
+      <a href="/early-universe/">Early &amp; Distant Universe</a> ›
+      <a href="/early-universe/tests/">Granularity Test Suite</a> ›
+      Test 44
+    </div>
+
+    <h2 style="border-bottom:none; margin-bottom:0.3em;">Test 44 — Decoherence versus Hubble Time Cosmic Record Test</h2>
+    <p class="lede">Quantum alternatives only become classical, recordable history if decoherence — the loss of
+      quantum coherence to an environment — happens fast enough relative to cosmic expansion and the relevant
+      interaction rates. Does that hold at the epochs this framework treats as "new recordable distinctions,"
+      and does citing decoherence quietly smuggle in a solution to the harder problem of why one single outcome
+      is actualized?</p>
+
+    <p>
+      <span class="verdict-badge">CLOSED-AS-COMPRESSED-RECORD</span>
+      <span class="tag tag-shared">SHARED-WITH-&Lambda;CDM</span>
+    </p>
+
+    <div class="honesty-box">
+      <strong>Read this before anything else on this page:</strong> decoherence theory is mainstream, well-tested
+      physics (Zurek 2003; Joos et al. 2003; Schlosshauer 2007) and its application to cosmology (Polarski &amp;
+      Starobinsky 1996; Kiefer &amp; Polarski 2009; Guth &amp; Pi 1985 for the closely related squeezing argument)
+      is standard, not something unique to this framework. What decoherence explains is why an interference
+      pattern between alternatives becomes practically unobservable and why a pointer-basis variable (density
+      contrast, photon polarization, ionization state) becomes a stable, redundantly-recorded classical field.
+      What decoherence does <strong>not</strong> explain is why any <em>one</em> outcome out of the decohered
+      branches is the one that is actualized — that is the separate, unsolved <em>measurement problem</em> /
+      preferred-outcome question. This page verifies the rate comparison (decoherence fast relative to Hubble
+      time) at the two epochs this framework's other tests actually lean on, and explicitly routes the
+      single-outcome question to the <strong>Actualization</strong> terminal anchor (speculative ontology layer
+      &mdash; interpretive label, not a physics result) rather than pretending decoherence answers it.</div>
+
+    <h2>1. Verdict</h2>
+    <p><strong>CLOSED-AS-COMPRESSED-RECORD</strong>, with a secondary <strong>TERMINAL-ANCHOR</strong> note. The
+      framework does not derive a new decoherence mechanism of its own; it inherits the standard cosmological and
+      quantum-optics decoherence machinery. What is verified here is the compressed, honest record that this
+      framework is entitled to claim: at both epochs checked below (Thomson-scattering-coupled photon-baryon
+      plasma before recombination, and superhorizon curvature perturbations during/after inflation) decoherence
+      rates or squeezing-driven classicalization are enormously faster than the Hubble rate, so the "cosmic
+      record" language used throughout this test suite (CMB anisotropies, density-perturbation seeds) is
+      justified as tracking a genuinely classical, redundantly-recorded field. The unresolved <em>which single
+      history actually happened</em> question is routed honestly to <strong>Actualization</strong>, not claimed
+      as solved.</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>The precise granularity claim under test: this framework treats several early-universe transitions — the
+      freeze-out of the primordial curvature perturbation into a classical seed field (Tests 5, 7, 34), and the
+      photon-baryon plasma's transition into the classical last-scattering surface recorded in the CMB (Tests 28,
+      29, 31) — as points where a quantum degree of freedom becomes a stable, recordable classical distinction.
+      That labeling is only justified if decoherence of the relevant quantum alternatives is fast compared to (a)
+      the Hubble expansion rate at that epoch and (b) any competing interaction timescale, so that interference
+      between alternatives is suppressed and a pointer-basis variable is left as a stable record before the
+      universe expands substantially further.</p>
+
+    <h2>3. Data Used</h2>
+    <ul>
+      <li><strong>Planck 2018 cosmological parameters</strong> (Planck Collaboration VI, 2020, A&amp;A 641, A6,
+        arXiv:1807.06209), base-&Lambda;CDM, TT,TE,EE+lowE+lensing:
+        <ul>
+          <li>\(H_0 = 67.36 \pm 0.54\) km/s/Mpc</li>
+          <li>\(\Omega_b h^2 = 0.02237 \pm 0.00015\)</li>
+          <li>\(\Omega_m = 0.3153 \pm 0.0073\)</li>
+          <li>redshift of recombination \(z_\ast = 1089.92 \pm 0.25\) (Table 2, TT,TE,EE+lowE+lensing)</li>
+        </ul>
+      </li>
+      <li><strong>Thomson scattering cross-section</strong> (CODATA 2018/PDG): \(\sigma_T = 6.6524587\times
+        10^{-25}\,\text{cm}^2\).</li>
+      <li><strong>Cosmological decoherence of curvature perturbations</strong>: Polarski, D. &amp; Starobinsky,
+        A.A. (1996), "Semiclassicality and decoherence of cosmological perturbations," Class. Quantum Grav. 13,
+        377, arXiv:gr-qc/9504030; Kiefer, C. &amp; Polarski, D. (2009), "Why do cosmological perturbations look
+        classical to us?," Adv. Sci. Lett. 2, 164, arXiv:0810.0087 — both establish that squeezing during
+        inflation drives the effective decoherence/classicalization rate of superhorizon curvature-perturbation
+        modes to values that exceed the Hubble rate by factors that grow exponentially with the number of
+        e-folds since horizon exit, i.e. decoherence is parametrically much faster than \(H\) for any mode that
+        has been outside the horizon for more than a few e-folds.</li>
+      <li><strong>General decoherence theory</strong>: Zurek, W.H. (2003), "Decoherence, einselection, and the
+        quantum origins of the classical," Rev. Mod. Phys. 75, 715, arXiv:quant-ph/0105127; Schlosshauer, M.
+        (2007), <em>Decoherence and the Quantum-to-Classical Transition</em>, Springer — canonical statements that
+        decoherence explains suppression of interference and einselection of a pointer basis, but not which
+        single outcome is realized (the "and-and to or" step, i.e. the actualization/measurement problem).</li>
+    </ul>
+
+    <h2>4. Calculation Summary</h2>
+    <p><strong>Check A — photon-baryon plasma before recombination (Thomson-scattering environmental coupling).</strong>
+      Baryon number density today from \(\Omega_b h^2\):</p>
+    \[
+    n_{b,0} = \frac{\Omega_b h^2 \,\rho_{\text{crit},0}/h^2}{m_p}
+    \approx 2.51\times10^{-7}\ \text{cm}^{-3},
+    \]
+    <p>using \(\rho_{\text{crit},0} = 1.878\times10^{-29}h^2\ \text{g/cm}^3\) and \(m_p = 1.673\times10^{-24}\
+      \text{g}\). Scaling to \(z_\ast = 1089.92\) (Planck 2018):</p>
+    \[
+    n_{b}(z_\ast) = n_{b,0}(1+z_\ast)^3 \approx 3.26\times10^{2}\ \text{cm}^{-3}.
+    \]
+    <p>Taking the free-electron (ionization) fraction \(x_e \approx 1\) (i.e. evaluating just before recombination
+      collapses \(x_e\), which is the physically relevant regime for the "still coupled" side of the transition),
+      the Compton/Thomson interaction rate on photons is:</p>
+    \[
+    \Gamma_T = n_e\,\sigma_T\,c = x_e\,n_b(z_\ast)\,\sigma_T\,c
+    \approx 6.5\times10^{-12}\ \text{s}^{-1}.
+    \]
+    <p>The Hubble rate at \(z_\ast\) (matter-dominated approximation, \(\Omega_m=0.3153\), small radiation
+      correction \(\Omega_r\approx9.24\times10^{-5}\)):</p>
+    \[
+    H(z_\ast) = H_0\sqrt{\Omega_m(1+z_\ast)^3+\Omega_r(1+z_\ast)^4}
+    \approx 5.07\times10^{-14}\ \text{s}^{-1}.
+    \]
+    <p><strong>Result:</strong> \(\Gamma_T/H(z_\ast) \approx 1.3\times10^{2}\) at fixed \(x_e=1\). Scanning
+      \(z=1000\)&ndash;\(1200\) at fixed \(x_e=1\) gives the same result to within a factor of order unity
+      (\(\Gamma_T/H\) ranges \(\approx\)114&ndash;146 over that range) — Compton coupling to the photon-baryon
+      fluid is two orders of magnitude faster than the expansion rate right through the recombination epoch.
+      Physically, the actual decoupling of photons from the plasma (Test 29) is driven by \(x_e\) collapsing via
+      Saha/Peebles recombination physics on top of this already-large rate ratio, not by \(\Gamma_T\) itself
+      dropping below \(H\) while \(x_e\) stays near unity — the interaction channel that would decohere any
+      "quantum superposition of scattering histories" is comfortably fast compared to expansion up to and through
+      last scattering.</p>
+    <p><strong>Check B — superhorizon curvature perturbations (inflationary squeezing/decoherence).</strong> The
+      Polarski &amp; Starobinsky (1996) / Kiefer &amp; Polarski (2009) result (cited, not re-derived here) is that
+      the squeezing parameter of a curvature-perturbation mode that exited the horizon \(N\) e-folds ago grows as
+      \(\sim e^{2N}\), and the effective decoherence rate induced by the mode's coupling to shorter-wavelength
+      modes/tensor perturbations scales with this squeezing. For the observationally relevant modes (horizon exit
+      \(N\gtrsim 50\)&ndash;60 e-folds before the end of inflation, consistent with the pivot-scale requirement
+      used in Tests 7&ndash;9), the squeezing factor \(e^{2N}\) is astronomically larger than unity
+      (\(e^{100}\sim10^{43}\)), so the induced decoherence rate exceeds \(H\) during inflation by a
+      correspondingly enormous margin. This is a qualitative-order-of-magnitude citation of an established result,
+      not a fresh numerical derivation by this framework.</p>
+    <p><strong>Cross-epoch consistency check (guardrail from the test-suite procedure):</strong> both checks are
+      consistency checks on inherited standard-cosmology and standard-decoherence-theory rates; they do not modify
+      \(z_\ast\), \(\Omega_b h^2\), the BBN abundances (Test 23), \(N_{\text{eff}}\) (Test 22), or the acoustic-peak
+      geometry (Test 31). No cross-epoch damage is introduced by this test.</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>What becomes newly stable and recordable at each checked epoch: (a) at recombination, the photon
+      polarization/temperature pattern imprinted by Thomson scattering off the still-coupled electron-baryon fluid
+      becomes a redundantly-recorded classical field the instant the interaction rate stays far above \(H\) — many
+      "copies" of the same scattering information are deposited across the last-scattering surface, which is
+      exactly the redundancy condition decoherence theory (quantum Darwinism, Zurek 2003) requires for a
+      classical record; (b) during inflation, a superhorizon curvature-perturbation mode's phase information
+      becomes practically unobservable (squeezed into an effectively classical stochastic field) once its
+      squeezing factor is large, which is what licenses treating the primordial power spectrum (Tests 7, 34) as a
+      classical, stochastic initial condition rather than a live quantum superposition. In both cases, decoherence
+      answers <em>why the alternatives stop interfering and a pointer variable becomes stable</em> — it does not
+      answer <em>why this particular realized curvature/temperature pattern, rather than some other decohered
+      branch, is the one observed</em>. That second question is the actualization/measurement problem and is
+      routed, not solved, by this test.</p>
+
+    <h2>6. Gate Routing</h2>
+    <p>This test informs the <strong>classical-record emergence gate</strong>, with primary anchor pressure on
+      <strong>Actualization / Encoding</strong> (the speculative terminal-anchor layer, labeled here only for
+      cross-reference, not asserted as established). It underwrites the record-language used by Test 5 (entropy
+      and scale-factor continuity), Test 7 (inflationary scalar spectrum), Test 28&ndash;31 (matter&ndash;radiation
+      equality through CMB acoustic peaks), and Test 42 (the recordability/distinguishability ledger): those tests
+      are entitled to call their respective fossils "classical records" precisely because this test confirms the
+      relevant decoherence/squeezing rates are fast compared to \(H\). The single-outcome/actualization residual
+      is explicitly <strong>not</strong> closed by this test and is carried forward as an open terminal-anchor
+      question, consistent with Test 43's finite-observer-capacity framing.</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>No failure in the rate calculation itself — both checks reproduce standard, citable results (\(\Gamma_T \gg
+      H\) near recombination; squeezing-driven decoherence \(\gg H\) for super-horizon inflationary modes).
+      The failure mode this test is specifically designed to catch, and that this page avoids, is the following
+      substitution error flagged in the test-suite guardrails: <em>treating "decoherence is fast" as equivalent to
+      "the single-outcome/measurement problem is solved."</em> It is not — decoherence explains loss of
+      interference and einselection of a pointer basis (a many-branches, reduced-density-matrix statement); it
+      does not by itself explain why one branch is the one that is experienced/actualized. This page states that
+      distinction explicitly in &sect;5 rather than quietly using "decoherence" and "actualization" as
+      interchangeable words, which is the specific failure mode named in the test suite
+      ("confuses decoherence with single outcome").</p>
+
+    <h2>8. Next Action</h2>
+    <p>Terminal-anchor routing, not further derivation at this layer: the single-outcome/actualization residual
+      identified in &sect;5&ndash;7 is routed to the <strong>Actualization</strong> terminal anchor (speculative
+      ontology layer) rather than claimed as solved by decoherence. Within standard physics, no further
+      calculation is owed here — the rate comparisons in &sect;4 are the complete minimum check the test-suite
+      procedure requires, and both are consistent with the established decoherence and cosmological-perturbation
+      literature cited in &sect;3. Future data (higher-precision CMB polarization from LiteBIRD/CMB-S4, or direct
+      tests of squeezing signatures such as non-Gaussianity, Test 9) could sharpen the inflationary-epoch estimate
+      in Check B, but would not change the qualitative conclusion that decoherence rates vastly exceed \(H\) at
+      both epochs checked.</p>
+
+    <div class="callout">
+      <h3>Bottom line</h3>
+      <p>This is a <strong>SHARED-WITH-&Lambda;CDM</strong> result built on standard decoherence theory: Thomson
+        scattering keeps the photon-baryon plasma's interaction rate \(\approx\)100&ndash;150\(\times\) the Hubble
+        rate right through recombination (this page's own recomputation from Planck 2018 parameters), and
+        published cosmological-perturbation-decoherence results (Polarski &amp; Starobinsky 1996; Kiefer &amp;
+        Polarski 2009) show squeezing-driven decoherence of superhorizon curvature modes vastly exceeds \(H\)
+        during inflation. Both results justify the "classical cosmic record" language this framework's other
+        tests rely on. What is <strong>not</strong> closed, and is explicitly routed to the Actualization
+        terminal anchor (speculative ontology layer &mdash; interpretive label, not a physics result) rather than
+        glossed over, is why one single decohered outcome is the one actually
+        recorded — that is a genuine open problem shared with all of decoherence-theory-based cosmology, not a
+        gap unique to this framework.</p>
+    </div>
+
+    <p><a class="btn" href="/early-universe/tests/">&larr; Back to the granularity test suite</a>
+       &nbsp; <a class="btn" href="/early-universe/">&larr; Back to Early &amp; Distant Universe</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

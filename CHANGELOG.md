@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.6.0 — 2026-07-03
+
+- **Gap-08 (inflation σ-slope) — CLOSED-NEGATIVE.** The headline λ²=1/6 is **retired** as a forced geometric prediction: the frozen 13D internal-curvature term is a valid target-blind lever whose canonical slopes are 8/3, 4, 22/9 — none is 1/6 (which came only from the separate convention λ²:=4/K_σσ). Verified three independent ways (specialist theorem + independent recomputation + first-principles radion). The branch-independent falsifier r ∈ [3.5, 36]×10⁻³ is unaffected. See `supporting/GAP08_INFLATION_CLOSED_NEGATIVE.md`.
+- **Early-Universe Granularity Test Suite** (`site/early-universe/tests/`, 44 tests + index) — epoch-by-epoch consistency of "cosmic history = increasing recordable distinction," each honestly tagged SHARED-WITH-ΛCDM vs framework-specific (a CLOSED verdict = *consistent with standard cosmology*, not a unique prediction).
+- **New insight page — "What the geometry forces, and what it measures"** (`site/process/what-geometry-forces.html`): the geometry forces the DISCRETE/topological quantities (N_ν=3=χ, the gauge group, the dimensions, Born p=2) but not the CONTINUOUS magnitudes (couplings, masses, Λ), which stay measured. The top-Yukawa RG infrared quasi-fixed-point — the one continuous candidate with a real mechanism — was tested (1- and 2-loop) and does **not** reduce y_t; it stays measured. Full triage: `supporting/JUST_IS_LEDGER.md`.
+- **Anchor status:** M_Pl = CERTIFIED-IRREDUCIBLE (Buckingham-π); the finest-ℤ₆ shape sub-choice = CERTIFIED-IRREDUCIBLE (pinned on the unmeasured SM line-operator spectrum). No anchor-count reduction — the five honest measured anchors stand.
+- **Gate count corrected to 33** site-wide (a stale "31" string; two dated 2026-07-02 additions, θ̄-QCD and deeproot-scale).
+- Regenerated `HASHES.sha256` (137 files; manifest digest `115b20bd0f7b1fa8800c1713358eddb65483e6e06b4d53091a8c211847c64604`).
+- Honest posture unchanged: **PROMOTIONS = 0**, nothing physics-CLOSED. Cite the concept DOI `10.5281/zenodo.20709153`.
+
 ## v1.5.0 — 2026-07-02
 
 - **Expanded public program — five new site sections** (frozen under `site/`, rendered as deployed to the canonical site): **The Process** (the constraint-first method, physics abstracted), **The Tests** (independent consistency checks — dual-GR collapse, the 2→9 fixing, early-universe, NASA calculators, quantum-computer, gates × load-bearing constraints), **Early & Distant Universe** (blind, compute-before-compare cosmology predictions — an honestly-reported blocked test rather than a tuned number), **Emergent Separability / Theory of Differentiated Unity** (the ontology, explicitly subordinate in rigor to the tested method), and **Consciousness** (a clearly-labeled speculative framework — *not solvable by physics alone*).

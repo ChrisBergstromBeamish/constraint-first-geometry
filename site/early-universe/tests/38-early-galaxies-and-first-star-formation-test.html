@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 38 — Early Galaxies and First-Star Formation — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Early-universe granularity test 38: checks atomic-cooling halo mass thresholds and the reionization timeline against Planck 2018 optical depth and JWST high-redshift galaxy surveys. Verdict: CLOSED-AS-COMPRESSED-RECORD, shared with ΛCDM astrophysics, with an open observational tension flagged honestly.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Test-page specific ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    letter-spacing:0.03em;
+    padding:0.45em 1em;
+    border-radius:4px;
+    background:#1f4e5f;
+    color:#fff;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:0.25em 0.65em;
+    border-radius:3px;
+    margin-left:0.5em;
+    vertical-align:middle;
+  }
+  .tag-shared{background:#e4ecee; color:var(--accent-2); border:1px solid var(--accent-2);}
+  .tag-specific{background:#f3e9de; color:var(--accent); border:1px solid var(--accent);}
+  .breadcrumb{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-bottom:1em;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <div class="breadcrumb">
+      <a href="/early-universe/">Early &amp; Distant Universe</a> ›
+      <a href="/early-universe/tests/">Granularity Test Suite</a> ›
+      Test 38
+    </div>
+
+    <h2 style="border-bottom:none; margin-bottom:0.3em;">Test 38 — Early Galaxies and First-Star Formation Test</h2>
+    <p class="lede">Do the mass and timing thresholds for the first atomic-cooling halos to light up as galaxies,
+      checked against the reionization optical depth and the current high-redshift galaxy census, land where
+      standard structure-formation physics says they must — and is the JWST-era tension over how many bright
+      galaxies exist at \(z>10\) a problem for the framework, or simply an open astrophysics question it inherits
+      unmodified?</p>
+
+    <p>
+      <span class="verdict-badge">CLOSED-AS-COMPRESSED-RECORD</span>
+      <span class="tag tag-shared">SHARED-WITH-ΛCDM</span>
+    </p>
+
+    <div class="honesty-box">
+      <strong>Read this before anything else on this page:</strong> this page does <strong>not</strong> derive
+      the halo mass function, the star-formation efficiency, the escape fraction of ionizing photons, or the
+      timing of reionization from the framework's own geometry. Those are outputs of standard structure-formation
+      astrophysics (Press–Schechter/excursion-set halo statistics, gas cooling physics, and radiative-transfer
+      reionization modeling) layered on top of the \(\Lambda\)CDM initial conditions this framework inherits
+      wholesale (Tests 28, 34–36). The verdict <strong>CLOSED-AS-COMPRESSED-RECORD</strong> means the framework
+      does not compute the full first-star/first-galaxy epoch — it correctly identifies the compressed records
+      that are actually available (halo mass thresholds, reionization optical depth, high-\(z\) galaxy counts) and
+      confirms its "luminous-structure emergence" granularity label does not conflict with them. A live
+      observational tension (the JWST bright-galaxy overabundance at \(z\gtrsim10\), first reported 2022-2023 and
+      still debated as of 2024-2025) is flagged honestly below as <strong>OPEN</strong>, not swept into the
+      verdict.
+    </div>
+
+    <h2>1. Verdict</h2>
+    <p><strong>CLOSED-AS-COMPRESSED-RECORD</strong> — the minimum mass for a dark-matter halo to host atomic
+      hydrogen line cooling (virial temperature \(T_\text{vir}\gtrsim10^4\,\text{K}\)) falls from
+      \(\sim5\times10^{7}\,M_\odot\) at \(z=15\) to \(\sim1.7\times10^{8}\,M_\odot\) at \(z=6\) using the standard
+      Barkana &amp; Loeb (2001) scaling, comfortably below the halo masses inferred for spectroscopically
+      confirmed JWST galaxies at those redshifts (typically \(10^{9}\text{–}10^{10}\,M_\odot\) in stellar mass,
+      implying larger host halos). The reionization midpoint implied by these first luminous halos,
+      \(z_\text{re}=7.68\pm0.79\) (Planck 2018 VI, tanh model), is consistent with the JWST-era picture of a
+      partially-ionized intergalactic medium by \(z\sim7\text{–}8\) inferred from quasar and galaxy spectra. The
+      framework's granularity label — first stars as the "dark-to-luminous record" transition — is consistent
+      with, but adds nothing beyond, these standard results. <strong>Secondary note (OPEN sub-item):</strong> the
+      normalization of the bright end of the JWST UV luminosity function at \(z>10\) exceeds most pre-JWST
+      theoretical predictions by a factor of several (Finkelstein et al. 2023; Casey et al. 2024 UNCOVER
+      analysis); this is a live, unresolved astrophysics tension that this framework neither predicts nor
+      resolves, and it is <strong>not</strong> counted toward the CLOSED verdict.</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>The precise granularity claim under test: the timing and abundance of the first luminous structures —
+      Population III stars and the first galaxies — must follow from standard primordial power-spectrum and gas
+      cooling physics, and the point at which halos cross the atomic-cooling mass threshold marks the framework's
+      claimed transition "from dark records to luminous public records": before this threshold, baryonic matter
+      is gravitationally bound into halos but cannot cool, collapse, and fragment into stars (a "dark," unrecorded
+      distinction); after it, radiative cooling allows collapse to stellar densities, producing the first
+      spectroscopically and photometrically recordable objects.</p>
+
+    <h2>3. Data Used</h2>
+    <ul>
+      <li><strong>Reionization optical depth</strong> (Planck Collaboration VI, 2020, "Planck 2018 results. VI.
+        Cosmological parameters," A&amp;A 641, A6, arXiv:1807.06209): \(\tau = 0.0544^{+0.0070}_{-0.0081}\)
+        (TT,TE,EE+lowE), implying a tanh-model reionization midpoint \(z_\text{re} = 7.68 \pm 0.79\).</li>
+      <li><strong>Atomic-cooling halo mass threshold:</strong> Barkana &amp; Loeb (2001), "In the beginning: the
+        first sources of light and the reionization of the universe," Phys. Rep. 349, 125 (arXiv:astro-ph/0010468),
+        standard virial-temperature scaling \(M_\text{vir}(T_\text{vir}=10^4\,\text{K}, z)\).</li>
+      <li><strong>Planck 2018 background parameters</strong> (same reference as above, base-\(\Lambda\)CDM
+        TT,TE,EE+lowE+lensing+BAO column): \(H_0 = 67.66\pm0.42\ \text{km s}^{-1}\text{Mpc}^{-1}\),
+        \(\Omega_m = 0.3111\pm0.0056\), \(\Omega_\Lambda = 0.6889\).</li>
+      <li><strong>High-redshift JWST galaxy census:</strong> Finkelstein et al. (2023), "CEERS Key Paper. I.
+        An Early Look into the First 500 Myr of Galaxy Formation with JWST," ApJ Letters 946, L13
+        (arXiv:2211.05792) — UV luminosity function at \(z\sim9\text{–}11\) exceeding most pre-JWST model
+        predictions; Curtis-Lake et al. (2023), "Spectroscopic confirmation of four metal-poor galaxies at
+        \(z=10.3\text{–}13.2\)," Nature Astronomy 7, 622 (arXiv:2212.04568); Naidu et al. (2022), GLASS-z13/z11
+        candidates (arXiv:2207.09434); Carniani et al. (2024), "GS-z14-0, the most distant spectroscopically
+        confirmed galaxy at \(z=14.32\)," A&amp;A (arXiv:2405.18485).</li>
+      <li><strong>Bright-end UV-luminosity-function overabundance tension:</strong> Casey et al. (2024), "JWST
+        UNCOVER: the overabundance of ultraviolet-luminous galaxies at \(z>9\)," MNRAS, arXiv:2308.10932 (also
+        published as MNRAS 532, 1780, doi:10.1093/mnras/stae1260) — reports UV-bright galaxy number densities at
+        \(z\gtrsim9\) a factor of several above most theoretical forecasts, with proposed explanations including
+        low dust attenuation, bursty star formation, a top-heavy initial mass function at low metallicity, or
+        AGN contamination; as of the 2024-2025 literature this remains unresolved.</li>
+    </ul>
+
+    <h2>4. Calculation Summary</h2>
+    <p><strong>Step 1 — atomic-cooling halo mass threshold</strong> (Barkana &amp; Loeb 2001, standard
+      simplified scaling for \(T_\text{vir}=10^4\,\text{K}\), \(\mu=0.6\), \(\Omega_m h^2\approx0.143\)):</p>
+    \[
+    M_\text{vir}(T_\text{vir}=10^4\,\text{K}, z) \;\approx\; 1\times10^{8}\,M_\odot\,\left(\frac{1+z}{10}\right)^{-3/2}.
+    \]
+    <table>
+      <tr><th>\(z\)</th><th>\(M_\text{vir}\) (atomic cooling)</th><th>\(1/H(z)\) (Hubble time at that epoch)</th></tr>
+      <tr><td>15</td><td>\(4.9\times10^{7}\,M_\odot\)</td><td>0.41 Gyr</td></tr>
+      <tr><td>12</td><td>\(6.8\times10^{7}\,M_\odot\)</td><td>0.55 Gyr</td></tr>
+      <tr><td>10</td><td>\(8.7\times10^{7}\,M_\odot\)</td><td>0.71 Gyr</td></tr>
+      <tr><td>8</td><td>\(1.2\times10^{8}\,M_\odot\)</td><td>0.96 Gyr</td></tr>
+      <tr><td>6</td><td>\(1.7\times10^{8}\,M_\odot\)</td><td>1.39 Gyr</td></tr>
+    </table>
+    <p>\(H(z)\) computed from the Planck 2018 \(\Lambda\)CDM background: \(H(z) = H_0\sqrt{\Omega_m(1+z)^3 +
+      \Omega_\Lambda}\). These halo masses are well below the largest halos already assembling by these epochs in
+      \(\Lambda\)CDM structure formation, so atomic-cooling halos are not a rare-peak problem — the threshold is
+      crossed by a large, growing population starting well before \(z=15\), consistent with the "first
+      luminous structures should appear gradually, not abruptly" expectation.</p>
+    <p><strong>Step 2 — reionization timing check:</strong> the tanh-model midpoint from Planck's measured optical
+      depth, \(z_\text{re}=7.68\pm0.79\), requires that a substantial ionizing-photon-producing galaxy population
+      exist by \(z\sim8\text{–}9\). Spectroscopically confirmed galaxies now exist out to \(z=14.32\) (Carniani et
+      al. 2024) and photometric candidates to \(z\sim13\text{–}14\) (Naidu et al. 2022), i.e. structures exist
+      well before the reionization midpoint requires them — no timing violation.</p>
+    <p><strong>Step 3 — abundance check (where the tension lives):</strong> the number density of UV-bright
+      (\(M_\text{UV}<-20\)) galaxies actually observed by JWST at \(z\gtrsim10\) exceeds most pre-JWST
+      theoretical UV luminosity function forecasts by a factor of several to an order of magnitude (Finkelstein
+      et al. 2023; Casey et al. 2024). This is an <em>overproduction</em> relative to naive expectations, not an
+      underproduction — the opposite direction from the failure mode ("model underproduces early luminous
+      structure") the test suite warns about, but still a quantitative mismatch between simple models and
+      data that the current literature attributes to astrophysical modeling choices (dust, burstiness, IMF, AGN
+      contamination), not to new fundamental physics.</p>
+    <p><strong>Cross-epoch consistency (Step 5 of the minimum calculations):</strong> none of the halo-mass,
+      reionization-timing, or luminosity-function numbers used here require adjusting \(\Omega_b h^2\),
+      \(N_\text{eff}\), or the BBN light-element abundances (Tests 21–24), and the reionization optical depth is
+      independently cross-checked against Planck's own polarization data (Test 32) — no cross-epoch conflict is
+      introduced by adopting the standard atomic-cooling/reionization picture here.</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>On the framework's reading, the atomic-cooling threshold is the point at which gravitationally bound
+      baryonic overdensities — already "distinctions" in the gravitational sense since matter-radiation equality
+      (Test 28) — become capable of radiating away binding energy, collapsing to stellar densities, and emitting
+      light. That light is the first <em>publicly, remotely recordable</em> signature of structure: a distant
+      observer with a telescope, not just a local gravitational or thermal probe, can now register the
+      distinction. This is explicitly labeled a compressed-record reading, not a derivation: the framework
+      supplies no independent calculation of the halo mass function, cooling rates, star-formation efficiency, or
+      escape fraction — it borrows all of them from standard astrophysics and only asserts that the
+      dark-halo-to luminous-galaxy transition is a legitimate example of the "distinction becomes recordable at
+      this window's resolution" pattern the master doctrine claims runs through cosmic history. The JWST
+      bright-galaxy overabundance is, on this reading, an open question about <em>how efficiently</em> baryons
+      convert to observable light in the earliest halos — not a question about whether the halos exist or when
+      they crossed the cooling threshold, both of which check out numerically above.</p>
+
+    <h2>6. Gate Routing</h2>
+    <p>This test informs the <strong>luminous-structure emergence gate</strong>, with primary anchor pressure on
+      <strong>Distinction / Encoding</strong> (the speculative terminal-anchor layer, labeled here only for
+      cross-reference, not asserted as established). It depends on Test 28 (matter-radiation equality, which sets
+      when density perturbations can grow into halos in the first place) and feeds forward into Test 32 (CMB
+      polarization / reionization optical depth) and Test 37 (21-cm dark ages / cosmic dawn), which probe the
+      same epoch from the CMB-scattering and 21-cm-absorption sides respectively.</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>The core timing and threshold checks did not fail: no claimed halo or galaxy appears before the universe
+      has had time to assemble a halo of the required mass (Step 1 above), and no reionization-timing conflict
+      arises from the confirmed high-\(z\) galaxy population (Step 2). The specific failure modes the test-suite
+      document asks to watch for, checked explicitly:</p>
+    <ul>
+      <li><strong>Overproduction/underproduction of early luminous structure:</strong> partially present — not
+        as a framework failure, but as an <em>observational</em> excess of bright galaxies relative to
+        pre-JWST theoretical models (Casey et al. 2024). This is flagged as <strong>OPEN</strong> astrophysics,
+        explicitly not resolved or predicted by this framework, and not allowed to inflate the verdict to a plain
+        CLOSED.</li>
+      <li><strong>Field-theoretic degree of freedom confused with a stable, recordable particle:</strong> not
+        applicable here — halos and Population III/early galaxies are macroscopic astrophysical objects, not
+        field excitations being mistaken for particles.</li>
+      <li><strong>Relic asserted without an abundance calculation:</strong> avoided — the halo mass thresholds in
+        the table above are numerical, not qualitative.</li>
+      <li><strong>Measured value treated as derived:</strong> avoided — \(\tau\), \(H_0\), \(\Omega_m\), and the
+        JWST luminosity-function normalization are all explicitly labeled observed givens from Planck and JWST
+        surveys, not framework outputs.</li>
+      <li><strong>Terminal-anchor problem disguised as a physics closure:</strong> avoided — the Distinction/
+        Encoding label is flagged as speculative interpretive language layered on top of, not a substitute for,
+        the numerical checks above.</li>
+    </ul>
+
+    <h2>8. Next Action</h2>
+    <p>Data lookup / literature tracking, not derivation: (a) monitor the JWST bright-galaxy overabundance
+      literature (Casey et al. 2024 and follow-ups) as it resolves toward a specific astrophysical explanation
+      (dust, burstiness, IMF, AGN contamination) or, less likely, toward a genuine tension with \(\Lambda\)CDM
+      structure formation — either outcome is a standard-cosmology matter, not a framework-specific one; (b) carry
+      \(z_\text{re}\approx7.7\) and the atomic-cooling mass-threshold scaling forward as fixed inputs to Test 32
+      (CMB polarization / optical depth) and Test 37 (21-cm cosmic dawn) rather than re-deriving them there; (c)
+      no terminal-anchor routing is needed — this test resolved as a standard-astrophysics consistency check with
+      one flagged open observational tension, not as an unresolved distinction/encoding question intrinsic to the
+      framework.</p>
+
+    <div class="callout">
+      <h3>Bottom line</h3>
+      <p>This is a <strong>SHARED-WITH-ΛCDM</strong> result: the halo mass thresholds, reionization timing, and
+        high-redshift galaxy population all belong to standard structure-formation astrophysics layered on
+        \(\Lambda\)CDM initial conditions, which this framework inherits wholesale. The framework's only addition
+        is an interpretive label — reading the atomic-cooling threshold as the "dark record becomes luminous
+        record" granularity transition — and that label is consistent with, but not independently confirmed or
+        challenged by, the data checked here. The JWST bright-galaxy-count tension is real, active as of
+        2024-2025, and explicitly left <strong>OPEN</strong> rather than absorbed into a false CLOSED verdict.</p>
+    </div>
+
+    <p><a class="btn" href="/early-universe/tests/">&larr; Back to the granularity test suite</a>
+       &nbsp; <a class="btn" href="/early-universe/">&larr; Back to Early &amp; Distant Universe</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

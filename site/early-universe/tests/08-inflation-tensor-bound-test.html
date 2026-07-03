@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 08 — Inflation Tensor Bound Test — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Early-universe granularity test 08: does the framework's inflaton tensor-to-scalar ratio prediction respect the current CMB B-mode bound? Run honestly, dated sources, OBSERVED-GIVEN verdict.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- verdict badge ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.85rem;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    padding:0.35em 0.8em;
+    border-radius:999px;
+    background:#e7c9a9;
+    color:#4a2c15;
+    border:1px solid #c99a63;
+  }
+  .test-meta{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin:0.4em 0 1.2em;
+  }
+  .test-meta span{margin-right:1.2em; display:inline-block;}
+  .backlinks{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.85rem;
+    margin-bottom:1em;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <!--SUBNAV-->
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+    <!--MAIN-->
+    <p class="backlinks">
+      <a href="/early-universe/tests/">&larr; All early-universe granularity tests</a> ·
+      <a href="/early-universe/">Early &amp; Distant Universe overview</a>
+    </p>
+
+    <h2 style="border-bottom:none; margin-bottom:0.2em;">Test 08 — Inflation Tensor Bound Test</h2>
+    <p class="test-meta">
+      <span><strong>Verdict:</strong> <span class="verdict-badge">OBSERVED-GIVEN</span></span>
+      <span><strong>Class:</strong> FRAMEWORK-SPECIFIC (bound itself is SHARED-WITH-&Lambda;CDM)</span>
+      <span><strong>Anchor pressure:</strong> Encoding <span style="font-weight:400; font-size:0.85em;">(speculative ontology layer — interpretive label, not a physics result)</span></span>
+      <span><strong>Gate route:</strong> Primordial gravitational-wave record gate</span>
+    </p>
+
+    <div class="honesty-box">
+      <strong>Read this before the numbers below:</strong> a <strong>CLOSED</strong>-style verdict on this site means
+      the granularity interpretation is <em>consistent with</em> established standard cosmology at this epoch — it is
+      <strong>not</strong> a claim that this framework uniquely predicted the result. The current bound on the
+      tensor-to-scalar ratio, <code>r &lt; 0.036</code>, is a <strong>SHARED-WITH-&Lambda;CDM</strong> constraint: any
+      viable inflation model, in any framework, must respect it. What is <strong>framework-specific</strong> here is
+      only the question of whether this program's own candidate inflaton sits inside that bound — and, as recorded on
+      the <a href="/early-universe/inflation-gate.html">inflation gate page</a>, the question of whether this
+      framework's slope value (<code>&lambda;&sup2; = 1/6</code>) is geometrically forced is <strong>RESOLVED,
+      CLOSED-NEGATIVE</strong>: it is not forced; the verified curvature-lever theorem gives frozen-geometry canonical
+      slopes of <code>8/3</code> (K6-only), <code>4</code> (S&sup2;-only), and <code>22/9</code> (uniform), and
+      <code>&lambda;&sup2; := 4/K</code> is a declared convention, not a derivation. The honest verdict here is
+      therefore <strong>OBSERVED-GIVEN</strong>, not CLOSED — the framework does not uniquely force a value of
+      <code>r</code>; it produces a family of candidate bands, all of which happen to sit under the current bound,
+      with one clean, dated, falsifiable target for a future measurement. A narrower, distinct question &mdash;
+      whether a <em>replacement</em> forced prediction exists &mdash; remains OPEN-BLOCKED (see &sect;6/&sect;8).
+    </div>
+
+    <h2>1. Verdict</h2>
+    <p><strong>OBSERVED-GIVEN</strong>, with the slope-forcing question <strong>RESOLVED CLOSED-NEGATIVE</strong>
+    (not the same as still-open) and a narrower, distinct <strong>OPEN-BLOCKED</strong> item on a replacement
+    prediction.</p>
+    <p>The tensor-to-scalar ratio itself is an empirical input accepted at this layer: no derivation on this site
+    fixes its value from first principles without first fixing a convention, and the question of whether the
+    originally-asserted slope was geometrically forced has been checked and closed negative. The framework's own
+    candidate (the &sigma;-inflaton, see the inflation gate page) produces a family of projected bands that are
+    compatible with the current bound rather than excluded by it — that compatibility is the actual, honest content
+    of this test. It is not a forced, branch-independent numerical prediction, and it is not presented as one.</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>Per the test suite's tested claim: <em>"Any inflation/granularity mechanism must respect current bounds on
+    tensor modes."</em> Concretely: does the framework's candidate inflaton produce a tensor-to-scalar ratio
+    <code>r</code> that is (a) below the current CMB B-mode exclusion bound, and (b) either a sharp, falsifiable
+    numeric target, or an honestly-labeled range where the underlying slope is a declared convention rather than a
+    forced value?</p>
+    <p>This is explicitly <strong>not</strong> a test of whether the framework derives the observed value of
+    <code>r</code> from nothing — per the GAP08 constraint recorded on this site, the question of whether the
+    framework's inflaton-slope value <code>&lambda;&sup2; = 1/6</code> is geometrically forced is <strong>RESOLVED,
+    CLOSED-NEGATIVE</strong> (a verified curvature-lever theorem shows the genuine frozen-geometry canonical slopes
+    are <code>8/3</code> K6-only, <code>4</code> S&sup2;-only, and <code>22/9</code> uniform — none is
+    <code>1/6</code> — and <code>&lambda;&sup2; := 4/K</code> is retained only as a declared convention). So the
+    observable content of this test is bound-compatibility, not unique prediction; the still-open item is the
+    narrower question of a <em>replacement</em> forced prediction, which is blocked on separate data (see
+    &sect;6).</p>
+
+    <h2>3. Data Used</h2>
+    <table>
+      <thead><tr><th>Quantity</th><th>Value</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Tensor-to-scalar ratio bound, <code>r</code></td><td><code>r &lt; 0.036</code> (95% CL, at pivot scale
+        <code>k = 0.05 Mpc⁻¹</code>)</td><td>BICEP/Keck 2021 (BK18) combined with Planck + BAO, published 2021</td></tr>
+        <tr><td>Spectral index, <code>n_s</code></td><td><code>0.9649 &plusmn; 0.0042</code></td><td>Planck 2018 (arXiv:1807.06211), final cosmological parameters release</td></tr>
+        <tr><td>Scalar amplitude, <code>A_s</code></td><td><code>ln(10¹⁰ A_s) = 3.044 &plusmn; 0.014</code></td><td>Planck 2018</td></tr>
+        <tr><td>Pivot scale</td><td><code>k_* = 0.05 Mpc⁻¹</code></td><td>Planck 2018 convention</td></tr>
+        <tr><td>Framework candidate bands, <code>r</code> (four normalization branches)</td>
+        <td><code>[3.5,10]&times;10⁻³</code> (operative), <code>[6.1,17]&times;10⁻³</code>, <code>[8,24]&times;10⁻³</code>,
+        <code>[10,36]&times;10⁻³</code>; union <code>[3.5,36]&times;10⁻³</code></td>
+        <td>this program's internal inflation-gate ledger (Gap-08), reported at CANDIDATE / PROJECTED grade, not certificate grade</td></tr>
+        <tr><td>Framework candidate <code>n_s</code> band</td><td><code>[0.9643, 0.9679]</code></td><td>same internal ledger, PROJECTED grade</td></tr>
+        <tr><td>Future falsifier mission</td><td>LiteBIRD, expected launch/observation window ~2028&ndash;2030</td><td>LiteBIRD collaboration mission planning (public mission documentation, ongoing as of 2024&ndash;2025)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>4. Calculation Summary</h2>
+    <p><strong>Window definition, W:</strong> the inflationary epoch and the surface of last scattering that records
+    its imprint — physically, the epoch is not directly dated in cosmic time the way BBN or recombination are;
+    it is constrained indirectly through the primordial power spectra it leaves in the CMB, observed today at
+    <code>z &asymp; 1089</code> (Planck 2018 recombination redshift).</p>
+    <p><strong>Step 1 &mdash; extract the model prediction.</strong> The framework's candidate inflaton (the
+    "&sigma;-inflaton") was asserted to produce an exponential-plateau potential with slope parameter
+    <code>&lambda;&sup2; = 4/K_{&sigma;&sigma;}</code>. Under the framework's originally-adopted normalization
+    convention this evaluates to <code>&lambda;&sup2; = 1/6</code>. <strong>Per the GAP08 constraint, the question of
+    whether this specific numeric value is geometrically forced is now RESOLVED, CLOSED-NEGATIVE</strong> — a
+    verified curvature-lever theorem gives frozen-geometry canonical slopes of <code>8/3</code> (K6-only),
+    <code>4</code> (S&sup2;-only), and <code>22/9</code> (uniform); none is <code>1/6</code>, and
+    <code>&lambda;&sup2; := 4/K</code> is retained only as a declared convention (it coincides with the geometric
+    slope only for no positive dimension). This is recorded here explicitly, not glossed over.</p>
+    <p><strong>Step 2 &mdash; convert to r.</strong> Standard single-field slow-roll relations for an
+    exponential-plateau (&alpha;-attractor-like) potential give, for <code>N_* &asymp; 50&ndash;60</code> e-folds:</p>
+    \[ n_s \approx 1 - \frac{2}{N_*}, \qquad r \approx \frac{12\,\lambda^2}{N_*^{2}} \]
+    <p>Feeding the framework's slope value and e-fold range through these relations (as reported on the inflation gate
+    page) yields the projected bands above. Because the normalization convention that fixes the numeric prefactor in
+    front of <code>&lambda;&sup2;</code> is itself unresolved (a choice between a factor of <code>2</code>, the plain
+    four-dimensional textbook value, and <code>11</code>, an alternate reading of the internal-geometry kinetic term),
+    the honest output is <strong>four candidate bands</strong>, not one number.</p>
+    <p><strong>Step 3 &mdash; compare against the latest CMB B-mode bound.</strong> All four candidate bands
+    (<code>[3.5,10]</code>, <code>[6.1,17]</code>, <code>[8,24]</code>, <code>[10,36]</code>, all &times;10⁻³) sit
+    strictly below the current bound <code>r &lt; 0.036</code> (BICEP/Keck 2021). The union of all four,
+    <code>r &isin; [3.5, 36]&times;10⁻³</code>, is also strictly below <code>0.036</code>. So on every branch the
+    framework's candidate currently survives — none of the branches is excluded today.</p>
+    <p><strong>Step 4 &mdash; stochastic background / detectability.</strong> The framework does not predict a
+    detectable stochastic tensor background outside the CMB B-mode channel; no distinct high-frequency
+    gravitational-wave signature (e.g. a PTA-band or LISA-band relic) is asserted from this mechanism. This is
+    treated as an omission-check pass: the mechanism's only tensor signature is the standard inflationary B-mode
+    channel, and that is the one being tested.</p>
+    <p><strong>Step 5 &mdash; the branch-independent falsifier.</strong> Because the union range
+    <code>[3.5, 36]&times;10⁻³</code> is fully specified without needing to resolve which normalization convention is
+    correct, it functions as a genuine pre-registered, branch-independent falsifier: if the LiteBIRD mission (~2030)
+    measures <code>r</code> outside <code>[3.5, 36]&times;10⁻³</code>, the &sigma;-inflaton candidate is falsified
+    outright, regardless of which convention turns out to be operative.</p>
+    <p><strong>Cross-epoch consistency check:</strong> nothing in this tensor-bound calculation touches BBN light-element
+    abundances, the CMB acoustic peak geometry, or structure growth &mdash; the tensor channel is a separate
+    observable from the scalar channel that drives those. No cross-epoch conflict is introduced by this test.</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>Framed in the master doctrine under test (cosmic history as increasing recordable distinction): a nonzero
+    tensor-to-scalar ratio would represent a primordial gravitational-wave background that becomes, in principle,
+    a <em>recordable distinction</em> imprinted on the CMB's B-mode polarization pattern &mdash; a record of the
+    inflationary energy scale itself, stamped into photons that free-stream to us across cosmic time. The
+    granularity condition being tested is whether the framework's proposed encoding mechanism (the &sigma;-inflaton's
+    plateau dynamics) produces a distinction that is <strong>encodable at the window's physical resolution</strong>:
+    a signal weak enough to have evaded detection so far (respecting the current bound) but not so vanishingly small
+    that it becomes unrecordable in principle by any planned instrument. The framework's candidate bands satisfy
+    exactly this: below current sensitivity, but inside LiteBIRD's projected reach &mdash; i.e., a distinction that is
+    valid (per the framework's own encodability rule) in the observational window LiteBIRD will open.</p>
+
+    <h2>6. Gate Routing</h2>
+    <p>This test informs the <strong>Primordial gravitational-wave record gate</strong>, tracked in this program's
+    ledger as part of <strong>Gap-08</strong> (the inflation gate). Routing:</p>
+    <pre>Primordial gravitational-wave record gate -> OBSERVED-GIVEN (bound itself; SHARED-WITH-&Lambda;CDM)
+                                            -> slope-forcing question: RESOLVED CLOSED-NEGATIVE
+                                               (lambda^2 = 1/6 retired; verified curvature-lever slopes are
+                                               8/3 K6-only / 4 S2-only / 22/9 uniform; lambda^2:=4/K is a
+                                               declared convention)
+                                            -> supporting calc: slow-roll r(lambda^2, N_*) vs BICEP/Keck 2021 r<0.036
+                                            -> remaining open item (narrower): a REPLACEMENT inflaton prediction
+                                               is OPEN-BLOCKED on the 3-modulus V_bdry/V_Wilson/V_loop data and
+                                               the blocked c_loop sign
+                                            -> falsifier: LiteBIRD ~2030, union band [3.5,36]x10^-3</pre>
+    <p>A closure here would not prove the full GUT/TOE program, and this test does not even reach closure in the
+    CLOSED sense &mdash; it only shows that the currently-known tensor bound does not block the framework's surviving
+    candidate. See <a href="/early-universe/inflation-gate.html">the inflation gate page</a> for the full ledger,
+    including the dead &rho;-inflaton candidate.</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>This test does not fail outright &mdash; the candidate bands are not excluded &mdash; but it does not reach
+    CLOSED. This is not because the slope-forcing question is unsettled: that question <strong>is</strong> settled.
+    Per the GAP08 constraint, a verified curvature-lever theorem confirms that the genuinely forced frozen-geometry
+    slopes are <code>8/3</code> (K6-only), <code>4</code> (S&sup2;-only), and <code>22/9</code> (uniform), and that
+    <code>1/6</code> was never one of them &mdash; <code>&lambda;&sup2; := 4/K</code> is a declared convention.
+    Presenting <code>1/6</code> as a forced framework prediction would be the exact failure mode this suite is built
+    to catch: <em>"a measured/assumed value is treated as derived when it is only an observed given"</em> and
+    <em>"a qualitative story is substituted for a numerical constraint"</em> &mdash; which is exactly why it has been
+    retired rather than carried forward as a prediction. This page avoids both failure modes by reporting the
+    closed-negative result explicitly and by naming the branch-independent union range as the only fully honest,
+    forcing-independent falsifiable claim. The one genuinely open item is narrower and distinct: a
+    <em>replacement</em> forced inflaton prediction is OPEN-BLOCKED pending the 3-modulus data and the
+    <code>c_loop</code> sign (see &sect;8).</p>
+
+    <h2>8. Next Action</h2>
+    <ul>
+      <li><strong>Derivation:</strong> the slope-forcing question is closed (1/6 retired; genuine slopes 8/3 /
+      4 / 22/9). The remaining, narrower derivation task is a <em>replacement</em> inflaton prediction, which is
+      OPEN-BLOCKED pending the 3-modulus <code>V_bdry</code>/<code>V_Wilson</code>/<code>V_loop</code> data and
+      resolution of the blocked <code>c_loop</code> sign; until then the four candidate bands stand as a
+      phenomenological family, not a forced, collapsed single number.</li>
+      <li><strong>Data lookup:</strong> monitor LiteBIRD mission timeline and any interim ground-based B-mode results
+      (e.g. BICEP Array, Simons Array/Simons Observatory) that could tighten the bound below <code>0.036</code> before
+      2030.</li>
+      <li><strong>Terminal-anchor routing:</strong> none required at this stage &mdash; this test does not reduce to
+      a terminal anchor; it remains a live, falsifiable, forward-moving observational gate.</li>
+    </ul>
+
+    <div class="callout">
+      <h3 style="margin-top:0;">One-paragraph honest summary</h3>
+      <p style="margin:0;">The bound this test checks against &mdash; <code>r &lt; 0.036</code> (BICEP/Keck 2021)
+      &mdash; is a standard-cosmology constraint this framework simply inherits (SHARED-WITH-&Lambda;CDM). What is
+      framework-specific is whether this program's own candidate inflaton respects it: it does, on every one of four
+      normalization-convention branches, with a combined falsifiable target of <code>r &isin; [3.5, 36]&times;10⁻³</code>
+      for LiteBIRD (~2030). The question of whether the framework's slope value feeding that calculation is
+      geometrically forced has been RESOLVED CLOSED-NEGATIVE (the verified forced value is <code>8/3</code>, not
+      <code>1/6</code>), so the correct verdict here is <strong>OBSERVED-GIVEN</strong>, not CLOSED — this is
+      bound-compatibility, not a proven, unique prediction. A narrower <em>replacement</em>-prediction question
+      remains OPEN-BLOCKED on separate 3-modulus data.</p>
+    </div>
+
+    <p class="backlinks" style="margin-top:2em;">
+      <a href="/early-universe/tests/">&larr; All early-universe granularity tests</a> ·
+      <a href="/early-universe/">Early &amp; Distant Universe overview</a> ·
+      <a href="/early-universe/inflation-gate.html">Full inflation gate ledger (Gap-08)</a>
+    </p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

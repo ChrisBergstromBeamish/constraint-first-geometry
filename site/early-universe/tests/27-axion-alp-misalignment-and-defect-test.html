@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 27 — Axion / ALP Misalignment and Defect Test — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Early-universe granularity test 27: checks axion/ALP misalignment relic abundance, string/domain-wall defect contributions, and isocurvature bounds against Planck 2018 and PDG 2024 data. Verdict: OBSERVED-GIVEN, shared with ΛCDM.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Test-page specific ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    letter-spacing:0.03em;
+    padding:0.45em 1em;
+    border-radius:4px;
+    background:#6b3f2a;
+    color:#fff;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:0.25em 0.65em;
+    border-radius:3px;
+    margin-left:0.5em;
+    vertical-align:middle;
+  }
+  .tag-shared{background:#e4ecee; color:var(--accent-2); border:1px solid var(--accent-2);}
+  .tag-specific{background:#f3e9de; color:var(--accent); border:1px solid var(--accent);}
+  .breadcrumb{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-bottom:1em;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <div class="breadcrumb">
+      <a href="/early-universe/">Early &amp; Distant Universe</a> ›
+      <a href="/early-universe/tests/">Granularity Test Suite</a> ›
+      Test 27
+    </div>
+
+    <h2 style="border-bottom:none; margin-bottom:0.3em;">Test 27 — Axion / ALP Misalignment and Defect Test</h2>
+    <p class="lede">If the framework's technical program ever invokes an axion-like field, does its relic
+      abundance — from vacuum misalignment, and from any cosmic-string/domain-wall network if the Peccei-Quinn-like
+      symmetry breaks after inflation — land somewhere viable, and does its isocurvature signature (if the symmetry
+      instead breaks before or during inflation) stay under the Planck bound?</p>
+
+    <p>
+      <span class="verdict-badge">OBSERVED-GIVEN</span>
+      <span class="tag tag-shared">SHARED-WITH-ΛCDM</span>
+    </p>
+
+    <div class="honesty-box">
+      <strong>Read this before anything else on this page:</strong> this framework does not currently have a
+      finished technical GUT/TOE sector-construction that names a specific axion-like field, decay constant, or
+      misalignment angle. This test therefore cannot check a framework-specific number against data — there is no
+      framework-specific number to check yet. What it <em>can</em> and does do is (a) lay out the standard
+      misalignment/defect relic-abundance machinery that any future axion-like proposal in the technical program
+      would have to satisfy, (b) run the generic numerical checks against Particle Data Group 2024 and Planck 2018
+      inputs, and (c) pre-register the exact viability window and the two failure modes (excluded isocurvature,
+      wrong relic density) that would sink a future proposal. The verdict is <strong>OBSERVED-GIVEN</strong>
+      because the one genuinely free input — the initial misalignment angle \(\theta_i\) — is not derived by
+      anything in this program and must be treated as an empirical/statistical input, exactly as standard axion
+      cosmology treats it.
+    </div>
+
+    <h2>1. Verdict</h2>
+    <p><strong>OBSERVED-GIVEN</strong> — no axion-like field is currently specified by this framework's technical
+      program, so there is no framework-specific relic-abundance or isocurvature number to test against data.
+      The standard misalignment + defect machinery is viable and well-constrained by data (Particle Data Group
+      2024; Planck 2018), and would remain available as a consistent slot if a future version of the program
+      proposes a compactification-residue axion-like field. The initial misalignment angle \(\theta_i\), which
+      controls the misalignment-only relic abundance in the pre-inflationary case, is an empirical input in
+      standard cosmology and is <strong>not derived here</strong> — per the test suite's own routing rule
+      ("route unknown initial angle to OBSERVED-GIVEN unless the theory derives it"). Secondary note: nothing in
+      this check is CONTRADICTED — the generic machinery is self-consistent with current bounds — but nothing is
+      CLOSED either, because there is no specific claim yet to close.</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>The precise granularity claim under test: <em>if</em> axion-like fields appear in this framework's
+      technical program (e.g., as a compactification modulus/axion arising from a higher-dimensional form field,
+      as is generic in string- and Kaluza-Klein-type constructions), then their relic abundance and any associated
+      topological-defect history (cosmic strings from a broken global \(U(1)\)-like symmetry, and domain walls if
+      the low-energy theory has a discrete domain-wall number \(N_{DW}>1\)) must not overproduce or underproduce
+      dark matter relative to the measured value, must not violate isocurvature bounds if the symmetry breaks
+      before or during inflation, and must not leave a stable domain-wall network that would come to dominate the
+      energy density (the cosmological domain-wall problem). This is a generic viability gate on any future
+      axion-like proposal, not a check of an existing framework prediction.</p>
+
+    <h2>3. Data Used</h2>
+    <ul>
+      <li><strong>Misalignment relic-abundance formula (post-inflationary and pre-inflationary PQ breaking):</strong>
+        Particle Data Group, "Axions and Other Similar Particles," Review of Particle Physics 2024, Phys. Rev. D
+        110, 030001 (2024) (pdg.lbl.gov/2024/reviews) — anharmonic-corrected misalignment formula
+        \(\Omega_a h^2 \approx 0.12\,\langle\theta_i^2 F(\theta_i)\rangle\,(f_a/5\times10^{11}\,\text{GeV})^{7/6}\),
+        with \(F(\theta)\to1\) for \(\theta_i \lesssim \pi/2\) and \(F(\theta)\) growing via the anharmonic
+        (hilltop) correction as \(\theta_i \to \pi\).</li>
+      <li><strong>Post-inflationary (string + wall network) relic abundance:</strong> Klaer &amp; Moore (2017),
+        "The dark-matter axion mass," JCAP 11 (2017) 049 (arXiv:1708.07521), and Buschmann et al. (2022), "Dark
+        matter from axion strings with adaptive mesh refinement," Nat. Commun. 13, 1049 (arXiv:2108.05368) —
+        lattice simulations of the post-inflationary axion-string network give a decay constant that saturates the
+        observed dark-matter density in the range \(f_a \approx (0.5\text{–}4)\times10^{10}\,\text{GeV}\)
+        (equivalently \(m_a \approx 40\text{–}500\,\mu\text{eV}\)), with the string-and-wall contribution
+        comparable to or several times the pure vacuum-realignment contribution — the precise numerical prefactor
+        remains debated between simulation groups (a factor of a few), flagged honestly rather than rounded to a
+        single number.</li>
+      <li><strong>Dark matter relic density (target):</strong> Planck 2018 (Planck Collaboration, Aghanim et al.,
+        "Planck 2018 results. VI. Cosmological parameters," A&amp;A 641, A6, 2020) — \(\Omega_c h^2 = 0.120\pm
+        0.001\) (cold dark matter), the value any axion relic abundance must reproduce if axions are to be all of
+        dark matter.</li>
+      <li><strong>Isocurvature bound (pre-inflationary / symmetry-breaking-during-inflation case):</strong> Planck
+        2018 results X, "Constraints on inflation," A&amp;A 641, A10 (2020) — uncorrelated cold dark-matter
+        isocurvature fraction \(\beta_{iso} < 0.038\) (95% CL, Planck TT,TE,EE+lowE+lensing); translated in the
+        axion-cosmology literature (e.g., Ballesteros et al. 2016, JCAP 08 (2017) 001, arXiv:1610.01639; Marsh
+        2016, Phys. Rept. 643, 1, arXiv:1510.07633) into a bound on the inflationary Hubble scale
+        \(H_{inf} \lesssim 10^{7}\,\text{GeV}\,(f_a/10^{11}\,\text{GeV})^{0.4}\) when axions are all of dark
+        matter and the Peccei-Quinn-like symmetry is already broken during inflation.</li>
+      <li><strong>Domain-wall-number bound:</strong> Sikivie (1982), Phys. Rev. Lett. 48, 1156, and subsequent
+        literature — a domain-wall number \(N_{DW}>1\) after post-inflationary breaking produces a stable wall
+        network that overcloses the universe unless a wall-destabilizing operator is added; this is the standard
+        "domain-wall problem," reflected in the failure criteria below.</li>
+      <li><strong>Tensor-to-scalar-ratio cross-check on \(H_{inf}\):</strong> BICEP/Keck 2021, Phys. Rev. Lett. 127,
+        151301 (2021) — \(r<0.036\) (95% CL) bounds \(H_{inf}\) directly via
+        \(H_{inf} \approx 6\times10^{13}\,\text{GeV}\,(r/0.01)^{1/2}\), independent of any axion assumption; used
+        here only as a cross-check that the isocurvature-derived \(H_{inf}\) bound above is far below (not in
+        tension with) the tensor-mode bound.</li>
+    </ul>
+
+    <h2>4. Calculation Summary</h2>
+    <p><strong>Step 1 — before or after inflation.</strong> Two branches, both carried through since the
+      framework does not currently specify which applies (no compactification-residue axion field has been
+      named):</p>
+    <p><strong>Branch A — PQ-like symmetry breaks after inflation (post-inflationary).</strong> \(\theta_i\) is
+      randomized independently in each causally disconnected Hubble patch, so the effective \(\langle\theta_i^2
+      \rangle\) is fixed by the statistics of a uniform \([-\pi,\pi]\) distribution
+      (\(\langle\theta_i^2\rangle = \pi^2/3 \approx 3.29\)), and a network of cosmic strings (and domain walls, if
+      \(N_{DW}>1\)) forms and decays, adding a comparable-order relic contribution on top of vacuum
+      misalignment. Using the PDG formula with \(\langle\theta^2 F\rangle \sim \mathcal{O}(1\text{–}10)\) (vacuum
+      misalignment piece alone) and requiring \(\Omega_a h^2 = 0.120\):
+      \[
+      0.120 \approx 0.12\times\langle\theta^2F\rangle \times\left(\frac{f_a}{5\times10^{11}\,\text{GeV}}\right)^{7/6}
+      \ \Rightarrow\ f_a \sim \text{few}\times10^{10}\text{–}10^{11}\,\text{GeV (misalignment alone)}.
+      \]
+      Including the lattice-simulated string-and-wall contribution (Klaer &amp; Moore 2017; Buschmann et al. 2022)
+      shifts the DM-saturating value down to \(f_a\approx(0.5\text{–}4)\times10^{10}\,\text{GeV}\)
+      (\(m_a\approx 40\text{–}500\,\mu\text{eV}\)) — the currently favored target range for post-inflationary QCD
+      axion dark matter, with the residual factor-of-a-few spread reflecting genuine, acknowledged disagreement
+      between simulation groups on the string-network's radiated-power spectrum, not a framework input.</p>
+    <p><strong>Branch B — PQ-like symmetry breaks before or during inflation (pre-inflationary).</strong>
+      \(\theta_i\) is a single, undetermined constant across the observable universe — an initial condition, not a
+      statistical average — and isocurvature fluctuations \(\delta\theta \sim H_{inf}/(2\pi f_a)\) are imprinted.
+      Requiring the resulting CDM isocurvature fraction stay under the Planck bound \(\beta_{iso}<0.038\) gives
+      \[
+      H_{inf} \lesssim 10^{7}\,\text{GeV}\left(\frac{f_a}{10^{11}\,\text{GeV}}\right)^{0.4},
+      \]
+      which for \(f_a\sim10^{11}\)–\(10^{12}\,\text{GeV}\) (misalignment-only DM-saturating range for
+      \(\theta_i\sim\mathcal{O}(1)\)) requires \(H_{inf}\lesssim10^{7\text{–}7.5}\,\text{GeV}\) — a low-scale
+      inflation requirement, far below the BICEP/Keck 2021 tensor-mode bound
+      \(H_{inf}<6\times10^{13}\,\text{GeV}\,(0.036)^{1/2}\approx1.1\times10^{13}\,\text{GeV}\), so the two bounds
+      do not conflict; the isocurvature bound is simply the tighter of the two in this branch.</p>
+    <p><strong>Domain-wall check:</strong> if the low-energy effective theory yields \(N_{DW}=1\) (as in the KSVZ
+      axion with a single heavy-quark multiplet), the wall network is unstable and decays without a domain-wall
+      problem; if \(N_{DW}>1\) (as in DFSZ-type constructions), an explicit PQ-breaking operator must be added to
+      destabilize the walls, or Branch B (pre-inflationary, no walls at all after reheating) must apply. This
+      framework does not currently specify which case its (not-yet-built) axion-like sector would fall into, so
+      this check is pre-registered as a requirement on any future proposal rather than resolved.</p>
+    <p><strong>Record check:</strong> the fossil record is the measured cold dark-matter density itself
+      (\(\Omega_c h^2=0.120\), Planck 2018) plus, if axions are not all of dark matter, direct/indirect
+      axion-search null results (haloscopes, helioscopes) that bound \(g_{a\gamma\gamma}\) and \(m_a\)
+      independently — not cited in numerical detail here since the framework does not name a coupling to compare.</p>
+    <p><strong>Cross-epoch consistency:</strong> neither branch, at the parameter values that saturate the observed
+      dark-matter density, disturbs BBN (Test 23), \(N_{eff}\) (Test 22), or the CMB acoustic-peak fit (Test 31)
+      — axion dark matter is cold and pressureless by the time of matter-radiation equality regardless of
+      production channel, so it enters those tests identically to any other cold dark matter candidate.</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>On the framework's reading, the PQ-like symmetry-breaking scale is the window at which a would-be
+      continuous field-space distinction (the axion's angular direction on its vacuum manifold) becomes a
+      newly stable, coherently oscillating, cold and recordable distinction once the field's mass turns on near
+      the QCD scale (\(3H(T_*)\approx m_a(T_*)\)) — the same "freeze/oscillation onset" pattern used elsewhere in
+      this test suite (e.g. Test 25, WIMP freeze-out) but for a bosonic field rolling rather than a particle
+      species decoupling. The string-and-wall network, where it exists, is the framework's example of a
+      *topological* distinction (winding number) that is real and countable but only conditionally recordable —
+      it must decay away before dominating the energy density, or it becomes an excluded "false record" (the
+      domain-wall problem). Because no specific field has been named yet, this test currently identifies only the
+      *shape* of the granularity window an axion-like proposal would have to fit into, not a filled-in instance
+      of it.</p>
+
+    <h2>6. Gate Routing</h2>
+    <p>This test informs the <strong>field-to-relic granularity gate</strong>, with primary anchor pressure on
+      <strong>Encoding / Actualization</strong> (the speculative terminal-anchor layer; labeled here only for
+      cross-reference, not asserted as established). It is held open as a pre-registered constraint for any future
+      compactification-residue axion-like proposal in the technical program, and cross-links to Test 12
+      (Primordial Isocurvature), Test 14/15 (Monopole/Defect production and dilution — shares the topological-defect
+      machinery), Test 19/20 (QCD confinement/lattice EoS — sets the QCD-scale mass turn-on), and Test 25/26 (Dark
+      Matter Freeze-Out/Freeze-In — the axion is a third, non-thermal production channel alongside those two).</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>This test did not fail (nothing is CONTRADICTED), but it also did not close, for a specific reason: the
+      framework does not yet specify an axion-like field, its decay constant, or its misalignment angle, so there
+      is no framework-specific numerical claim to check against data. Per the guardrails, this is exactly the
+      situation that must be routed to OBSERVED-GIVEN or OPEN rather than CLOSED. Specific failure modes
+      pre-registered for a future proposal, per the test suite:</p>
+    <ul>
+      <li><strong>Wrong relic density:</strong> a future proposal that fixes \(f_a\) and \(\theta_i\) (or a
+        specific compactification modulus interpreted as an axion) without checking \(\Omega_a h^2\) against
+        \(0.120\pm0.001\) (Planck 2018) would fail this test outright.</li>
+      <li><strong>Excluded isocurvature:</strong> a proposal placing PQ-like breaking before or during inflation
+        at \(H_{inf}\) above the \(\beta_{iso}<0.038\) bound (Planck 2018) for its stated \(f_a\) would be
+        CONTRADICTED, not merely OPEN.</li>
+      <li><strong>Unstable/stable wall confusion:</strong> a proposal with \(N_{DW}>1\) and post-inflationary
+        breaking that does not supply an explicit wall-destabilizing mechanism would overclose the universe and
+        fail (the classical domain-wall problem).</li>
+      <li><strong>Field-versus-particle confusion:</strong> treating the axion field's existence as a Lagrangian
+        degree of freedom as automatically equivalent to a stable, recordable dark-matter relic, without running
+        the misalignment/defect abundance calculation, would be exactly the "field-theoretic degree of freedom
+        confused with a stable, recordable particle" failure mode the guardrails name explicitly.</li>
+    </ul>
+
+    <h2>8. Next Action</h2>
+    <p><strong>Data lookup and derivation, not yet performed:</strong> (a) if and when the technical program names
+      a specific compactification-residue field as an axion-like candidate, compute its decay constant \(f_a\)
+      and coupling from the geometry, and re-run this exact misalignment/defect/isocurvature check with that
+      framework-specific number rather than the generic PDG/Planck window used here; (b) determine, from the
+      geometry's discrete symmetry content, whether any such candidate would have domain-wall number \(N_{DW}=1\)
+      or \(>1\), since this is a hard pass/fail branch, not a continuous parameter; (c) until that construction
+      exists, this test remains pre-registered and OBSERVED-GIVEN rather than OPEN-pending-calculation, because
+      the missing piece (a named field) is a modeling choice not yet made, not a calculation not yet finished.</p>
+
+    <div class="callout">
+      <h3>Bottom line</h3>
+      <p>This is a <strong>SHARED-WITH-ΛCDM</strong> result in the sense that all the machinery checked here
+        (misalignment abundance, string/wall relic contributions, the isocurvature bound, the domain-wall problem)
+        is standard axion cosmology, inherited wholesale and unmodified. The framework does not currently add a
+        framework-specific axion field, decay constant, or prediction to check — so there is nothing here yet that
+        could be called FRAMEWORK-SPECIFIC. The honest verdict is OBSERVED-GIVEN: the initial misalignment angle
+        is, and remains, an empirical input in every version of this calculation, including any this framework
+        might eventually propose.</p>
+    </div>
+
+    <p><a class="btn" href="/early-universe/tests/">&larr; Back to the granularity test suite</a>
+       &nbsp; <a class="btn" href="/early-universe/">&larr; Back to Early &amp; Distant Universe</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

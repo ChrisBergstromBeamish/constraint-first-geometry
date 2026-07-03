@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 22 — Neutrino Decoupling and N_eff Test — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Test 22 of the Early Universe Granularity Test Suite: do neutrinos become a separately-evolving relic sector at the correct epoch, leaving the correct effective radiation density N_eff? Honest gate outcome, shown with sourced numbers.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Verdict badge ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.95rem;
+    letter-spacing:0.02em;
+    padding:0.4em 0.9em;
+    border-radius:4px;
+    background:var(--accent-2);
+    color:#fff;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.03em;
+    padding:0.25em 0.6em;
+    border-radius:3px;
+    text-transform:uppercase;
+  }
+  .tag-shared{background:#e4ecef; color:var(--accent-2);}
+  .tag-framework{background:#f3e6d8; color:var(--accent);}
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <p><a href="/early-universe/tests/">&larr; Back to the granularity test suite</a> ·
+    <a href="/early-universe/">&larr; Back to Early &amp; Distant Universe</a></p>
+
+    <h2 style="border-bottom:none; margin-bottom:0.2em;">Test 22 — Neutrino Decoupling and N_eff Test</h2>
+    <p class="lede">Do neutrinos become a separately-evolving relic sector — thermally decoupled from the photon
+    bath but still gravitationally connected — at the correct epoch, leaving behind the correct effective
+    radiation density \(N_{\rm eff}\)? Part of the 44-test Early Universe Granularity Test Suite, which checks
+    whether the doctrine "cosmic history is the history of increasing recordable distinction" is
+    <em>consistent</em> with standard cosmology and particle physics at each epoch — not whether it uniquely
+    predicts that epoch.</p>
+
+    <div class="honesty-box">
+      <strong>Read this before the verdict:</strong> a <strong>CLOSED</strong> result on this page means the
+      granularity <em>interpretation</em> — "neutrinos become a separate, thermally-disconnected relic sector at
+      the weak-interaction freeze-out epoch, while remaining gravitationally connected" — is consistent with the
+      standard thermal history of the universe and with the current measured value of \(N_{\rm eff}\). It is
+      <strong>not</strong> a claim that this framework uniquely predicted neutrino decoupling or the number
+      3.044, and it is not a derivation of the weak coupling, the neutrino masses, or the number of neutrino
+      species from this framework's own geometry. The decoupling temperature, the entropy-transfer calculation,
+      and the Standard Model value of \(N_{\rm eff}\) are <strong>SHARED-WITH-&Lambda;CDM</strong> — inherited
+      directly from Standard Model weak interactions and standard thermal-history cosmology, not something
+      specific to this framework's geometry. A qualitative match only motivates the route; it never proves it.
+    </div>
+
+    <p>
+      <span class="verdict-badge">Verdict: CLOSED-AS-COMPRESSED-RECORD</span>
+      &nbsp; <span class="tag tag-shared">SHARED-WITH-&Lambda;CDM</span>
+    </p>
+
+    <h2>1. Verdict</h2>
+    <p><strong>CLOSED-AS-COMPRESSED-RECORD.</strong> The framework does not derive the weak interaction coupling,
+    the neutrino decoupling temperature, or the Standard Model particle content (three light neutrino species)
+    from its own geometry — those are taken wholesale from the electroweak sector of the Standard Model and
+    standard thermal-history cosmology. What the test can honestly check, and what does check out numerically, is
+    the <em>timing and consistency</em> claim: that neutrinos stop exchanging energy with the photon-electron-
+    positron plasma (the weak interaction rate falls below the Hubble rate) at the correct temperature, that the
+    subsequent \(e^+e^-\) annihilation dumps entropy into photons but not into the already-decoupled neutrinos
+    (producing the well-known photon/neutrino temperature ratio), and that the resulting predicted effective
+    number of relativistic species, \(N_{\rm eff}=3.044\) (Standard Model, no extra light species), is consistent
+    with the current best measurements from both the CMB and Big Bang Nucleosynthesis (BBN). No extra light
+    relativistic species and no anomalous decoupling behavior is required or indicated.</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>The precise claim under test: <em>"The three Standard Model neutrino species, in thermal equilibrium with
+    the photon-electron-positron plasma via weak interactions at high temperature, decouple (freeze out) from
+    that plasma at \(T_\nu^{\rm dec}\sim2\)&ndash;\(3\ {\rm MeV}\), when the weak interaction rate drops below the
+    Hubble expansion rate. After decoupling, neutrinos free-stream and evolve as a separate relic sector,
+    connected to the rest of the universe only gravitationally, while \(e^+e^-\) annihilation shortly afterward
+    (\(T\sim m_e\approx0.511\ {\rm MeV}\)) transfers entropy into the photon bath but not (fully) into the
+    neutrino bath, producing a predicted photon-to-neutrino temperature ratio and an effective relativistic
+    species count \(N_{\rm eff}=3.044\), consistent with observed CMB and BBN constraints."</em></p>
+    <p>This is evaluated as a <strong>consistency and timing</strong> claim, not a derivation claim: the framework
+    does not compute the weak coupling \(G_F\), the number of neutrino species, or the neutrino masses from its
+    own geometry. It claims only that its granularity story — "neutrinos become a separate, distinguishable,
+    thermally-disconnected sector at freeze-out, still coupled to the rest of the universe only through gravity"
+    — does not conflict with what Standard Model weak-interaction physics and precision cosmology jointly
+    require.</p>
+
+    <h2>3. Data Used</h2>
+    <table>
+      <tr><th>Quantity</th><th>Value</th><th>Source</th></tr>
+      <tr><td>Neutrino decoupling temperature</td>
+        <td>\(T_\nu^{\rm dec}\approx2\)&ndash;\(3\ {\rm MeV}\) (weak-interaction freeze-out;
+        \(\nu_e\) decouples slightly later, \(\nu_\mu,\nu_\tau\) slightly earlier)</td>
+        <td>Standard thermal-history result, e.g. Kolb &amp; Turner (1990), <em>The Early Universe</em>;
+        Dolgov, Phys. Rept. 370 (2002) 333, neutrino cosmology review</td></tr>
+      <tr><td>Effective number of relativistic species (Standard Model prediction)</td>
+        <td>\(N_{\rm eff} = 3.044\) (three active neutrinos, including finite-temperature QED corrections to the
+        photon plasma and non-instantaneous/flavor-dependent decoupling)</td>
+        <td>Bennett, Buldgen, de Salas, Drewes, Gariazzo, Pastor &amp; Wong, JCAP 04 (2021) 073 (arXiv:2012.02726);
+        consistent with Akita &amp; Yamaguchi, JCAP 08 (2020) 012 (\(N_{\rm eff}=3.043\))</td></tr>
+      <tr><td>\(N_{\rm eff}\) from CMB (Planck 2018, +BAO)</td>
+        <td>\(N_{\rm eff} = 2.99 \pm 0.17\) (TT,TE,EE+lowE+lensing+BAO, 68% CL)</td>
+        <td>Planck 2018 VI, A&amp;A 641 (2020) A6 (arXiv:1807.06209), Table 2</td></tr>
+      <tr><td>\(N_{\rm eff}\) from Big Bang Nucleosynthesis</td>
+        <td>\(N_{\rm eff} = 2.86^{+0.27}_{-0.28}\) (BBN light-element abundances combined with CMB baryon density),
+        broadly consistent range across compilations</td>
+        <td>Fields, Olive, Yeh &amp; Young, JCAP 03 (2020) 010 (arXiv:1912.01132); PDG 2024 Big-Bang Nucleosynthesis
+        review</td></tr>
+      <tr><td>Photon/neutrino temperature ratio after \(e^+e^-\) annihilation</td>
+        <td>\(T_\nu/T_\gamma = (4/11)^{1/3} \approx 0.7138\) in the instantaneous-decoupling approximation
+        (exact Standard Model value differs slightly, folded into \(N_{\rm eff}=3.044\))</td>
+        <td>Standard entropy-conservation argument, e.g. Kolb &amp; Turner (1990); Peebles (1993), <em>Principles
+        of Physical Cosmology</em></td></tr>
+      <tr><td>Electron mass (annihilation threshold scale)</td>
+        <td>\(m_e = 0.5110\ {\rm MeV}\)</td>
+        <td>PDG 2024 Review of Particle Physics</td></tr>
+      <tr><td>Present-day CMB temperature</td>
+        <td>\(T_{\rm CMB,0} = 2.7255 \pm 0.0006\ {\rm K}\)</td>
+        <td>Fixsen (2009), ApJ 707, 916, as adopted in Planck 2018 (arXiv:1807.06209)</td></tr>
+    </table>
+
+    <h2>4. Calculation Summary</h2>
+    <p><strong>Step 1 — window definition.</strong> Define the physical window
+    \(W = \{t\approx0.4\text{--}6\ {\rm s},\ T\approx0.5\text{--}3\ {\rm MeV},\ \text{weak-interaction
+    freeze-out and }e^+e^-\text{ annihilation},\ \text{radiation-dominated expansion}\}\). This spans neutrino
+    decoupling (\(T\sim2\)&ndash;\(3\ {\rm MeV}\), \(t\sim1\ {\rm s}\)) through \(e^+e^-\) annihilation
+    (\(T\sim m_e/3\sim0.2\)&ndash;\(0.5\ {\rm MeV}\), \(t\sim6\ {\rm s}\)), immediately before BBN begins
+    (\(t\sim1\)&ndash;\(3\ {\rm min}\)).</p>
+    <p><strong>Step 2 — granularity condition.</strong> Above \(T_\nu^{\rm dec}\), neutrinos are tightly coupled
+    to the photon-electron-positron plasma via weak interactions (\(\nu e\leftrightarrow\nu e\),
+    \(e^+e^-\leftrightarrow\nu\bar\nu\)) and share a common temperature with it — they are not a separately
+    trackable thermal sector. Below \(T_\nu^{\rm dec}\), the weak interaction rate has fallen below the Hubble
+    rate, and neutrinos free-stream: they become a distinguishable, separately-evolving relic sector with their
+    own temperature history, still gravitationally coupled to everything else (via their contribution to the
+    total energy density and hence \(H(t)\)) but no longer thermally exchanging energy with photons or baryons.
+    This is the "Separate but Connected" transition the test is built to check.</p>
+    <p><strong>Step 3 — rate/threshold check.</strong> The weak interaction rate for processes like
+    \(\nu e\leftrightarrow\nu e\) scales as \(\Gamma_\nu \sim G_F^2 T^5\), while the Hubble rate in the
+    radiation era scales as \(H\sim 1.66\sqrt{g_*}\,T^2/M_{\rm Pl}\). Setting \(\Gamma_\nu = H\) and solving for
+    \(T\) with \(G_F = 1.166\times10^{-5}\ {\rm GeV}^{-2}\) (PDG 2024) gives the standard textbook result
+    \(T_\nu^{\rm dec}\approx1\ {\rm MeV}\times(G_F^2 M_{\rm Pl})^{-1/3}\)-type scaling, numerically evaluated in
+    the literature (Kolb &amp; Turner 1990; Enqvist, Kainulainen &amp; Maalampi 1992; Dolgov 2002) to
+    \(T_\nu^{\rm dec}\approx2\)&ndash;\(3\ {\rm MeV}\), with \(\nu_e\) decoupling marginally later than
+    \(\nu_\mu,\nu_\tau\) because of its additional charged-current coupling to electrons. This is well above the
+    electron mass (\(m_e=0.511\ {\rm MeV}\)), so neutrino decoupling completes <em>before</em> \(e^+e^-\)
+    annihilation begins in earnest — the ordering required for the standard entropy-transfer argument below to
+    hold.</p>
+    <p><strong>Step 4 — entropy transfer and \(N_{\rm eff}\).</strong> Because neutrinos have already decoupled
+    when \(e^+e^-\) pairs annihilate near \(T\sim m_e\), the entropy released by annihilation
+    (\(s = \tfrac{2\pi^2}{45}g_{*s}T^3\)) heats the photon bath but not the neutrino bath. Entropy conservation in
+    the photon-electron-positron sector before and after annihilation
+    (\(g_{*s}^{\rm before}=2+\tfrac74\times4=\tfrac{11}{2}\) &rarr; \(g_{*s}^{\rm after}=2\)) gives the standard
+    instantaneous-decoupling ratio \((T_\nu/T_\gamma)^3 = 4/11\), i.e. \(T_\nu/T_\gamma\approx0.7138\). A more
+    careful, non-instantaneous kinetic-theory treatment — which accounts for the small residual coupling during
+    annihilation and finite-temperature QED corrections to the photon plasma — raises the Standard Model
+    prediction slightly above the naive 3 neutrino species to \(N_{\rm eff}=3.044\) (Bennett et al. 2021;
+    consistent 3.043, Akita &amp; Yamaguchi 2020), replacing older calculations that gave \(N_{\rm eff}\approx
+    3.046\) (Mangano et al. 2005). This 3.044 is a Standard-Model calculation, not a free parameter and not
+    something this framework computes independently.</p>
+    <p><strong>Step 5 — record check / cross-epoch consistency.</strong> \(N_{\rm eff}\) leaves two independent
+    fossil records: (a) it changes the Hubble expansion rate during BBN, altering the neutron-to-proton freeze-out
+    ratio and hence the helium-4 and deuterium abundances — the BBN-inferred value is
+    \(N_{\rm eff}=2.86^{+0.27}_{-0.28}\) (Fields et al. 2020); and (b) it changes the CMB damping tail and the
+    early-ISW effect — the Planck 2018 CMB+BAO value is \(N_{\rm eff}=2.99\pm0.17\). Both independent
+    measurements, separated by roughly 380,000 years of cosmic history and probing completely different physics
+    (nuclear reaction rates vs. photon diffusion damping), are statistically consistent with each other and with
+    the Standard Model prediction of 3.044, to within \(\lesssim1\sigma\). No extra light relativistic species
+    (e.g. a sterile neutrino, a light dark-sector particle, or a modified decoupling history) is required or
+    favored by current data. This closes without tension against BBN, CMB, or the standard thermal-history
+    picture.</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>What newly becomes distinguishable/recordable at this transition: before \(T_\nu^{\rm dec}\), neutrinos are
+    not a separately-trackable sector — they share a single common temperature and equilibrium distribution with
+    photons, electrons, and positrons, exchanging energy freely. After decoupling, neutrinos become a
+    distinguishable relic population with their own free-streaming distribution function and their own
+    temperature history, forever after connected to the rest of the universe only through gravity (their
+    contribution to the total energy density, and via free-streaming damping imprinted on the CMB and structure
+    growth) — never again through direct thermal contact until, if ever, a future detector directly measures the
+    cosmic neutrino background (see the companion Test 41). This is the clean "Separate but Connected" case the
+    test suite calls for: a sector that is thermally cut off but remains gravitationally coupled and hence
+    indirectly recordable through \(N_{\rm eff}\)'s imprint on BBN and the CMB.</p>
+
+    <h2>6. Gate Routing</h2>
+    <p>Routes to the <strong>Relic-neutrino separation gate</strong> in the Physics/GUT/TOE ledger:</p>
+    <pre>Relic-neutrino separation gate -> CLOSED-AS-COMPRESSED-RECORD
+  -> supporting calculation: T_nu_dec ~ 2-3 MeV (weak freeze-out, Gamma_nu ~ G_F^2 T^5 = H(T));
+     e+e- annihilation at T~m_e=0.511 MeV occurs after decoupling, transferring entropy to photons only;
+     Standard Model prediction N_eff = 3.044 (Bennett et al. 2021, arXiv:2012.02726);
+     measured N_eff = 2.99 +/- 0.17 (Planck 2018 CMB+BAO, arXiv:1807.06209) and
+     N_eff = 2.86 (+0.27/-0.28) (BBN, Fields et al. 2020, arXiv:1912.01132) -- both consistent with 3.044
+     to within ~1 sigma; no extra light species indicated.
+  -> open gap: framework does not derive G_F, the number of neutrino species, or neutrino masses from its
+     own geometry; the 3.044 figure and the decoupling temperature are Standard Model / standard
+     thermal-history inputs taken as given.</pre>
+    <p>Primary terminal-anchor pressure: <strong>Distinction / Encoding</strong> (speculative ontology layer) —
+    decoupling is read as the point where the neutrino sector becomes lawfully encodable as a separate,
+    distinguishable relic record (a distinct temperature history and free-streaming imprint), while remaining
+    connected through gravity. This anchor label is interpretive, not a physics result.</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>This test does not rise to a framework-specific derivation, for one honest reason:</p>
+    <ul>
+      <li><strong>No derived weak coupling or species count.</strong> \(G_F\), the neutrino decoupling
+      temperature, and the count of three light neutrino species are Standard Model inputs, not outputs of this
+      framework's geometry. The framework supplies only the interpretive claim — "neutrinos become a separate,
+      distinguishable, thermally-disconnected but gravitationally-connected relic sector at freeze-out" — and
+      that claim is checked for consistency against BBN and CMB data, not derived from first principles here.</li>
+    </ul>
+    <p>No numerical exclusion or conflict was found: the freeze-out rate comparison, the entropy-transfer
+    calculation giving \(N_{\rm eff}=3.044\), and the independent BBN and CMB measurements of \(N_{\rm eff}\) all
+    check out against dated, sourced values, with both measurements statistically consistent with the Standard
+    Model prediction and with each other. Because the check passes and no data conflict exists, the outcome is
+    not CONTRADICTED; because the framework does not derive the weak coupling or the species count itself, this
+    is graded CLOSED-AS-COMPRESSED-RECORD rather than a framework-specific CLOSED.</p>
+
+    <h2>8. Next Action</h2>
+    <ul>
+      <li><strong>Data lookup:</strong> monitor tightening \(N_{\rm eff}\) constraints from CMB-S4 (projected
+      \(\sigma(N_{\rm eff})\sim0.03\)&ndash;\(0.06\)) and from improved BBN abundance determinations, which will
+      sharpen the test's discriminating power for any small deviation from 3.044.</li>
+      <li><strong>Derivation (if pursued):</strong> would require the framework to derive the weak coupling
+      \(G_F\) (equivalently the electroweak scale and gauge structure) and the number of light fermion generations
+      from its own geometry — not attempted here; see the companion electroweak symmetry-breaking test (Test 16)
+      and the framework's gauge-coupling program elsewhere on this site for related, separately-tracked gaps.</li>
+      <li><strong>Terminal-anchor routing:</strong> the "decoupling makes the neutrino sector lawfully encodable as
+      a separate relic record" framing remains at the <strong>Distinction / Encoding</strong> anchor as a
+      speculative interpretive layer; it is not promoted to a physics closure by this test.</li>
+    </ul>
+
+    <div class="callout">
+      <h4>Bottom line</h4>
+      <p>Standard weak-interaction physics places neutrino decoupling at \(T_\nu^{\rm dec}\approx2\)&ndash;
+      \(3\ {\rm MeV}\) (\(t\sim1\ {\rm s}\)), ahead of \(e^+e^-\) annihilation at \(T\sim m_e=0.511\ {\rm MeV}\),
+      giving the Standard Model prediction \(N_{\rm eff}=3.044\) (Bennett et al. 2021). Both independent
+      cosmological probes of this number — BBN, \(N_{\rm eff}=2.86^{+0.27}_{-0.28}\) (Fields et al. 2020), and
+      the CMB, \(N_{\rm eff}=2.99\pm0.17\) (Planck 2018) — are statistically consistent with 3.044 and with each
+      other, with no evidence for extra light relativistic species. This framework's granularity reading of
+      decoupling — "neutrinos become a separate, thermally-disconnected but gravitationally-connected relic
+      sector at freeze-out" — is <strong>consistent</strong> with that established picture. It does not derive the
+      weak coupling, the decoupling temperature, or the number of neutrino species, and the relevant physics here
+      is inherited wholesale from the Standard Model and standard thermal-history cosmology
+      (<strong>SHARED-WITH-&Lambda;CDM</strong>), not specific to this framework's geometry.</p>
+    </div>
+
+    <p style="margin-top:2.4em;"><a href="/early-universe/tests/">&larr; Back to the granularity test suite</a> ·
+    <a href="/early-universe/">&larr; Back to Early &amp; Distant Universe</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

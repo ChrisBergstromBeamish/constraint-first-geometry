@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What the geometry forces, and what it measures — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="A sharp, honest line runs through the theory's numbers: geometry forces the discrete/topological quantities (counts, symmetries, dimensions) but not the continuous magnitudes (couplings, masses, Λ), which stay measured — with the top-quark Yukawa as the one continuous exception worth watching.">
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"],["$","$"]]},svg:{fontCache:"global"}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root{--ink:#1b1f23;--ink-soft:#4a5056;--paper:#fbfaf7;--paper-alt:#f2efe8;--line:#d8d3c7;--accent:#6b3f2a;--accent-2:#1f4e5f;--maxw:1180px;}
+  *{box-sizing:border-box;} html,body{margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:Georgia,'Times New Roman',Cambria,serif;line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;}
+  a{color:var(--accent-2);} a:hover{color:var(--accent);}
+  h1,h2,h3,h4{font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;line-height:1.25;font-weight:700;color:var(--ink);}
+  table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.94rem;} th,td{border:1px solid var(--line);padding:.5em .7em;text-align:left;vertical-align:top;} th{background:var(--paper-alt);font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;}
+  code{font-family:Consolas,'Courier New',monospace;background:var(--paper-alt);border:1px solid var(--line);border-radius:3px;padding:.05em .35em;font-size:.92em;}
+  .topbar{background:var(--ink);color:#eee;font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;font-size:.82rem;}
+  .topbar-inner{max-width:var(--maxw);margin:0 auto;padding:.4em 1.2em;display:flex;flex-wrap:wrap;gap:.6em 1.2em;align-items:center;justify-content:space-between;}
+  .stamp{display:inline-flex;align-items:center;gap:.5em;color:#e7c9a9;} .stamp b{color:#fff;} .topbar-site{color:#c9c2b3;}
+  header.site-header{background:var(--paper);border-bottom:1px solid var(--line);}
+  .brand-row{max-width:var(--maxw);margin:0 auto;padding:1.1em 1.2em .6em;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:.4em;}
+  .brand-row h1{margin:0;font-size:1.4rem;} .brand-row h1 a{color:var(--ink);text-decoration:none;} .brand-tag{font-style:italic;color:var(--ink-soft);font-size:.95rem;}
+  nav.main-nav{max-width:var(--maxw);margin:0 auto;padding:0 1.2em;} nav.main-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.2em;border-top:1px solid var(--line);}
+  nav.main-nav a{display:block;padding:.8em .9em;color:var(--ink);text-decoration:none;font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;font-size:.92rem;font-weight:600;border-bottom:3px solid transparent;white-space:nowrap;}
+  nav.main-nav a:hover{border-bottom-color:var(--accent);color:var(--accent);} nav.main-nav a[aria-current="page"]{border-bottom-color:var(--accent-2);color:var(--accent-2);}
+  .wrap{max-width:820px;margin:0 auto;padding:2em 1.2em 3.5em;}
+  main h2{margin-top:1.9em;padding-bottom:.25em;border-bottom:1px solid var(--line);font-size:1.5rem;} main h3{font-size:1.16rem;margin-top:1.5em;} p{margin:.9em 0;}
+  .lede{font-size:1.15rem;color:var(--ink-soft);}
+  .callout{border:1px solid var(--line);border-left:4px solid var(--accent-2);background:var(--paper-alt);padding:1em 1.2em;margin:1.4em 0;border-radius:0 4px 4px 0;}
+  .honesty-box{border:1px dashed var(--accent);background:#fbf3ea;padding:1em 1.2em;margin:1.4em 0;border-radius:4px;font-size:.95rem;}
+  .big{font-size:1.05rem;text-align:center;font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;background:var(--ink);color:#f3ede2;padding:1.1em 1.2em;border-radius:5px;margin:1.6em 0;}
+  .big b{color:#e7c9a9;}
+  footer.site-footer{background:var(--ink);color:#cfc9bd;font-size:.85rem;margin-top:2em;} .footer-inner{max-width:var(--maxw);margin:0 auto;padding:2em 1.2em;} footer.site-footer a{color:#e7c9a9;}
+  .footer-honesty{max-width:var(--maxw);margin:0 auto;padding:0 1.2em 1.6em;font-size:.8rem;color:#a49c8c;}
+  @media(max-width:820px){.wrap{padding:1.4em 1em 3em;}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner"><span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span><span class="topbar-site">physics.magflowmeters.com</span></div></div>
+<header class="site-header">
+  <div class="brand-row"><h1><a href="/">Constraint-Based Reconstruction Theory</a></h1><span class="brand-tag">a constraint-first program, shown honestly</span></div>
+  <nav class="main-nav" aria-label="Main"><ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/process/" aria-current="page">The Process</a></li>
+    <li><a href="/tests/">The Tests</a></li>
+    <li><a href="/anchors/">Foundational Constraints</a></li>
+    <li><a href="/gates/">Gates</a></li>
+    <li><a href="/early-universe/">Early &amp; Distant Universe</a></li>
+    <li><a href="/emergent-separability/">Emergent Separability</a></li>
+    <li><a href="/consciousness/">Consciousness</a></li>
+  </ul></nav>
+</header>
+
+<div class="wrap"><main id="main-content">
+<p style="font-size:.85rem;margin:0 0 .5em;"><a href="/process/">← The Process</a></p>
+<h1>What the geometry forces, and what it measures</h1>
+<p class="lede">Sort every number this theory could be asked to explain into two piles — "the geometry forces this" and "this is measured" — and a sharp line appears. It runs exactly between the <strong>discrete</strong> and the <strong>continuous</strong>.</p>
+
+<div class="big">The geometry forces the <b>counts</b>. It does not force the <b>constants</b>.</div>
+
+<p>This is not a slogan we chose; it is a pattern that fell out of auditing the whole list of "just-is" numbers one by one. It is worth stating plainly because it is simultaneously one of the framework's strongest claims and one of its most honest admissions of limits.</p>
+
+<h2>The forced side — discrete and topological</h2>
+<p>Some quantities the geometry genuinely pins, and it pins them as a consequence of shape, not as a fitted value:</p>
+<ul>
+<li><strong>The number of matter generations, N = 3.</strong> This is the topological index \(|\chi(K_6, E)| = 3\) of the internal shape — an <em>integer</em>. You cannot smoothly dial an integer; it survives any continuous deformation of the geometry. Given the frozen shape and the observed matter content, three families is <em>forced</em>, not chosen. (Reported honestly as <code>DERIVED-GIVEN-E</code>.)</li>
+<li><strong>The gauge group SU(3)×SU(2)×U(1).</strong> The forces are the isometries (symmetries) of the internal factors — color from \(K_6=SU(3)/T^2\), the weak force from \(S^2\), hypercharge from the circle.</li>
+<li><strong>The dimension count, 13 = 4 + 6 + 2 + 1,</strong> and how it splits.</li>
+<li><strong>Simple structural ratios</strong> — e.g. the Born exponent \(p=2\), and the curvature/kinetic ratio \(8/3\) that governs the inflaton's steepness.</li>
+</ul>
+<p><strong>Why these are forced:</strong> a topological invariant is <em>rigid</em>. An index, a symmetry, a dimension — none of them can change under a smooth deformation. Geometry is exactly the right kind of thing to pin them.</p>
+
+<h2>The measured side — continuous magnitudes</h2>
+<p>Other quantities the theory does <em>not</em> derive, and it says so:</p>
+<ul>
+<li>the Planck scale \(M_{\rm Pl}\),</li>
+<li>the gauge couplings \(\alpha_i\),</li>
+<li>the fermion masses / Yukawa couplings,</li>
+<li>the flavor mixing angles (e.g. the Cabibbo angle \(|V_{us}|\)),</li>
+<li>the cosmological constant \(\Lambda\).</li>
+</ul>
+<p>These are <em>soft</em>. They carry units, they run with energy under the renormalization group, and they depend on boundary conditions. A geometry that is dimensionless and deformation-invariant is, almost by definition, the wrong kind of thing to pin a running, dimensionful number. So we take them as <strong>measured inputs</strong> — a small set of anchors — and we say plainly that they are measured, not derived. (You also cannot get a scale from nothing: dimensional analysis forces at least one measured dimensionful anchor.)</p>
+
+<div class="callout">
+<h3>Why the line falls exactly there</h3>
+<p><strong>Topology is rigid; magnitudes flow.</strong> That single sentence predicts the whole pattern — and it predicts our own near-misses, which is the real test of an idea. A clean-looking inflaton slope that <em>looked</em> like \(1/6\), and a mixing angle that looked like it might be a simple geometric ratio, both turned out <em>not</em> to be forced — exactly as "continuous ⇒ soft" says. Meanwhile the discrete count, three families, <em>is</em> forced — exactly as "discrete ⇒ rigid" says. The framework's honesty here is not a retreat; it is the pattern working in both directions.</p>
+</div>
+
+<h2>The one candidate we tested — the top quark</h2>
+<p>There is a single continuous number that might have broken the rule, and for an interesting reason. The <strong>top-quark Yukawa coupling</strong> \(y_t\) has a candidate forcing mechanism that is <em>not</em> topological: the renormalization-group <strong>infrared quasi-fixed-point</strong>. If the top coupling were pulled toward its value by the flow of the equations themselves — a dynamical attractor — rather than being a free input, it would have been the first <em>continuous</em> magnitude the framework forces: a derivation from dynamics, not shape.</p>
+<p><strong>We ran the computation — and it does not reduce \(y_t\).</strong> At one loop, the infrared attractor sits near \(y_t \approx 1.34\), while the measured value is \(0.9665\); reproducing the measurement requires a high-scale coupling <em>below</em> the natural range, so the measured top Yukawa is simply not the fixed-point value. (Checked target-blind, and independently reproduced.) So \(y_t\) stays an honestly measured anchor — and the pattern holds with <em>no</em> continuous exception: the single best candidate was put to the test, and the constants remain measured.</p>
+
+<h2>The honest bottom line</h2>
+<p>The theory's real, checkable wins are the <strong>discrete structure of the Standard Model</strong> — three families as a topological integer, the gauge group as a set of symmetries, the dimension count. Its <strong>continuous constants are measured inputs</strong>, stated as such. That division — <em>forced counts, measured constants</em> — is itself one of the clearest and most falsifiable things the framework says: if a future result showed a family count that wasn't an integer index, or a coupling that <em>was</em> geometrically forced with no dynamical mechanism, the picture would have to change.</p>
+<div class="honesty-box">
+<strong>Status.</strong> Nothing here is physics-closed and nothing is peer-reviewed; the whole program is under honest audit, and <strong>PROMOTIONS = 0</strong>. "Forced" means <em>derived given the framework's small set of measured anchors and its frozen shape</em> — never "derived from nothing." The shape itself is <em>selected</em> (and over-determined by independent requirements), not proven unique.
+</div>
+</main></div>
+
+<footer class="site-footer"><div class="footer-inner">
+<p style="margin:0;"><strong>Constraint-Based Reconstruction Theory</strong> — <a href="/">Home</a> · <a href="/process/">The Process</a> · <a href="/anchors/">Foundational Constraints</a> · <a href="/gates/">Gates</a></p>
+<p style="margin:.6em 0 0;">Chris Bergstrom · <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a></p>
+</div>
+<div class="footer-honesty"><span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span> Findings are reported as derived, reduced, measured, open, or refuted — never rounded up.</div>
+</footer>
+</body>
+</html>

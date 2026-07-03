@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 37 — 21-cm Dark Ages / Cosmic Dawn Granularity Test — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Early-universe granularity test 37: checks whether the 21-cm hyperfine transition of neutral hydrogen during the dark ages and cosmic dawn is consistent with standard thermal/structure history. Verdict: OBSERVED-GIVEN (qualitative match), with the EDGES 2018 absorption-depth anomaly flagged unresolved.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Test-page specific ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    letter-spacing:0.03em;
+    padding:0.45em 1em;
+    border-radius:4px;
+    background:#1f4e5f;
+    color:#fff;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:0.25em 0.65em;
+    border-radius:3px;
+    margin-left:0.5em;
+    vertical-align:middle;
+  }
+  .tag-shared{background:#e4ecee; color:var(--accent-2); border:1px solid var(--accent-2);}
+  .tag-specific{background:#f3e9de; color:var(--accent); border:1px solid var(--accent);}
+  .breadcrumb{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-bottom:1em;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <div class="breadcrumb">
+      <a href="/early-universe/">Early &amp; Distant Universe</a> ›
+      <a href="/early-universe/tests/">Granularity Test Suite</a> ›
+      Test 37
+    </div>
+
+    <h2 style="border-bottom:none; margin-bottom:0.3em;">Test 37 — 21-cm Dark Ages / Cosmic Dawn Granularity Test</h2>
+    <p class="lede">Does the 21-cm hyperfine transition of neutral hydrogen during the dark ages and cosmic dawn —
+      the global absorption/emission signal and its power spectrum — show up at the redshift, temperature, and
+      amplitude that standard thermal and structure history predict, and does the one claimed detection to date
+      survive scrutiny?</p>
+
+    <p>
+      <span class="verdict-badge">OBSERVED-GIVEN</span>
+      <span class="tag tag-shared">SHARED-WITH-ΛCDM</span>
+    </p>
+
+    <div class="honesty-box">
+      <strong>Read this before anything else on this page:</strong> the qualitative picture tested here — neutral
+      hydrogen gas thermally decoupling from the CMB, cooling faster than the photon bath, and briefly absorbing
+      21-cm photons against the CMB once the first stars turn on Lyman-alpha coupling — is standard cosmology, not a
+      framework-specific prediction. The one claimed <em>detection</em> of this signal (EDGES 2018) has an
+      anomalously large amplitude that is <strong>not independently confirmed</strong> by a second instrument
+      (SARAS 3, 2022) and remains actively disputed in the literature. This page does <strong>not</strong> claim the
+      framework predicted, derived, or explains the EDGES anomaly. It only checks that the framework's granularity
+      reading of the dark-ages/cosmic-dawn epoch — "this is where the neutral-gas record becomes thermally
+      distinguishable from the photon bath" — is not contradicted by the standard picture, and it flags the
+      contested amplitude as an open observational question the framework does not currently have any additional
+      leverage on.
+    </div>
+
+    <h2>1. Verdict</h2>
+    <p><strong>OBSERVED-GIVEN</strong>, with a secondary <strong>OPEN</strong> note on the EDGES amplitude anomaly.
+      The qualitative thermal history — Compton decoupling of the gas from the CMB around \(z\sim200\), subsequent
+      adiabatic gas cooling faster than the CMB temperature, and a predicted 21-cm absorption trough once
+      Lyman-alpha photons from the first stars couple the 21-cm spin temperature to the (colder) gas temperature
+      near cosmic dawn (\(z\sim15\)-\(20\)) — is standard, well-established physics that this framework inherits
+      wholesale; it is not a framework-specific derivation. The one reported detection of a cosmic-dawn absorption
+      feature (EDGES, Bowman et al. 2018) is real as an observation of <em>something</em> at the right frequency
+      band, but its claimed depth is roughly twice the standard maximum and has not been confirmed by an independent
+      instrument (SARAS 3, Singh et al. 2022) that specifically targeted the same frequency range and reported no
+      detection at the EDGES amplitude, later reinforced by a dedicated re-analysis (Singh et al. 2022, Nature
+      Astronomy) suggesting the EDGES profile is more consistent with an uncorrected foreground/instrumental
+      systematic than a cosmological signal. Because the anomaly is unresolved and the data are contested, this
+      cannot be marked CLOSED; because the underlying thermal-decoupling and Lyman-alpha-coupling physics is
+      standard and not falsified by anything here, it is not CONTRADICTED either. It is graded OBSERVED-GIVEN: the
+      framework accepts the standard 21-cm cosmology as an external input and notes, honestly, that the sharpest
+      current data point in this exact window is itself disputed.</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>The precise granularity claim under test: as the universe expands through the "dark ages" (\(z\sim200\) down
+      to \(z\sim30\), no significant radiation sources) into "cosmic dawn" (\(z\sim30\) down to \(z\sim6\)-\(15\),
+      first stars and early X-ray sources turn on), neutral hydrogen's 21-cm hyperfine transition should record a
+      characteristic, calculable signature: first a weak absorption or emission signal set purely by the gas/CMB
+      temperature difference and Wouthuysen-Field (Lyman-alpha) coupling efficiency, then a deepening absorption
+      trough as the first stars couple the spin temperature to the colder gas, then a transition to emission or a
+      washing-out as X-ray heating and reionization proceed. The framework interprets this as the epoch where the
+      neutral intergalactic medium becomes, for the first time since recombination (Test 29), a new kind of
+      recordable distinction: not a single global temperature/ionization state, but a spatially and temporally
+      varying signal (a "map," not a snapshot) that in principle could be read as a 3D tomographic record of
+      structure formation. A qualitative match to "there should be some 21-cm signal somewhere in this redshift
+      range" is not sufficient; the claimed redshift, amplitude, and duration must be checked against the standard
+      calculation and against what has actually been measured or bounded.</p>
+
+    <h2>3. Data Used</h2>
+    <ul>
+      <li><strong>21-cm hyperfine rest frequency:</strong> \(\nu_{21}=1420.405751\) MHz (CODATA/standard atomic
+        constant) — fixes the observed-frequency-to-redshift mapping \(\nu_{\rm obs}=\nu_{21}/(1+z)\) used
+        throughout.</li>
+      <li><strong>CMB monopole temperature:</strong> Fixsen (2009), ApJ 707, 916 (COBE/FIRAS),
+        \(T_{\rm CMB,0}=2.7255\pm0.0006\) K.</li>
+      <li><strong>Claimed absorption-feature detection:</strong> Bowman, Rogers, Monsalve, Mozdzen &amp; Mahesh
+        (2018), "An absorption profile centred at 78 megahertz in the sky-averaged spectrum," Nature 555, 67 —
+        EDGES low-band instrument, reported an absorption trough centered at \(78.1\pm0.1\) MHz
+        (\(z\approx17.2\)), full width \(\approx19\) MHz, with best-fit amplitude \(-500^{+88}_{-50}\) mK (99%
+        confidence), roughly twice the maximum depth (\(\approx-230\) mK) allowed by standard \(\Lambda\)CDM thermal
+        history with no exotic cooling or extra radio background.</li>
+      <li><strong>Independent non-confirmation:</strong> Singh, Nambissan T. J., Subrahmanyan et al. (2022), "On the
+        detection of a cosmic dawn signal in the radio background," Nature Astronomy 6, 607 — the SARAS 3 experiment,
+        observing at the same frequencies from Antarctica-adjacent (Dome-C-region, actually a lake-based Indian
+        deployment) sites with a different antenna/analysis chain, found no absorption feature consistent with the
+        EDGES profile and statistically disfavored the EDGES best-fit shape, casting doubt on the EDGES result as
+        cosmological rather than instrumental/foreground in origin.</li>
+      <li><strong>Power-spectrum upper limits (cosmic dawn / reionization):</strong> HERA Collaboration (2023),
+        "HERA Phase I Limits on the Cosmic 21-cm Signal: Constraints on Astrophysics and Cosmology during the
+        Epoch of Reionization," ApJ 945, 124 (arXiv:2210.04912) — upper limits on the 21-cm power spectrum at
+        \(z\approx7.9\) and \(z\approx10.4\) that already exclude some very-cold (excess-cooling) IGM scenarios,
+        without themselves constituting a detection.</li>
+      <li><strong>Standard thermal-decoupling redshift:</strong> \(z_{\rm dec}\approx200\) for Compton coupling of
+        the baryon gas temperature to the CMB (standard result, e.g. Peebles 1968; Furlanetto, Oh &amp; Briggs
+        2006, Phys. Rept. 433, 181, the standard 21-cm cosmology review) — used below in the adiabatic-cooling
+        check.</li>
+    </ul>
+
+    <h2>4. Calculation Summary</h2>
+    <p><strong>Window definition (per README Minimum Calculation 1):</strong> \(W=\){ age \(\sim100\)-\(400\) Myr
+      after the Big Bang, redshift range \(z\sim6\)-\(200\) (dark ages: \(z\sim200\)-\(30\); cosmic dawn:
+      \(z\sim30\)-\(6\)), density/expansion regime: matter-dominated, mostly neutral intergalactic medium, relevant
+      interactions: 21-cm hyperfine spin-flip transition, Wouthuysen-Field (Lyman-alpha) coupling once the first
+      stars form, Compton/adiabatic cooling of the gas }.</p>
+    <p><strong>Frequency-redshift mapping (checks the EDGES claim lands in the right physical window):</strong></p>
+    \[
+    \nu_{\rm obs}(z) = \frac{\nu_{21}}{1+z} = \frac{1420.406\ \text{MHz}}{1+z}
+    \]
+    <p>Evaluating at a few reference redshifts:</p>
+    <table>
+      <tr><th>\(z\)</th><th>\(\nu_{\rm obs}\) (MHz)</th><th>Epoch</th></tr>
+      <tr><td>6</td><td>202.9</td><td>End of reionization</td></tr>
+      <tr><td>17.2</td><td>78.1</td><td>EDGES claimed feature (cosmic dawn)</td></tr>
+      <tr><td>30</td><td>45.8</td><td>Dark-ages / cosmic-dawn boundary</td></tr>
+      <tr><td>200</td><td>7.1</td><td>Gas-CMB thermal decoupling</td></tr>
+    </table>
+    <p>The EDGES-claimed \(78.1\) MHz maps to \(z=1420.406/78.1-1\approx17.2\) — exactly the cosmic-dawn window
+      where standard theory expects the first-star-triggered absorption trough to appear (Furlanetto, Oh &amp;
+      Briggs 2006). The claim is at least in the physically correct place; the dispute is entirely about amplitude
+      and detection reliability, not epoch placement.</p>
+    <p><strong>Adiabatic gas cooling vs. CMB temperature (why an absorption trough is expected at all):</strong>
+      after Compton coupling ends near \(z_{\rm dec}\approx200\), the baryon gas temperature falls adiabatically as
+      \(T_{\rm gas}\propto(1+z)^2\) while the CMB temperature falls only as \(T_{\rm CMB}\propto(1+z)\):</p>
+    \[
+    T_{\rm CMB}(z)=T_{\rm CMB,0}(1+z), \qquad
+    T_{\rm gas}(z)\approx T_{\rm CMB}(z_{\rm dec})\left(\frac{1+z}{1+z_{\rm dec}}\right)^{2}
+    \]
+    <p>Using \(T_{\rm CMB,0}=2.7255\) K and \(z_{\rm dec}=200\):</p>
+    <table>
+      <tr><th>\(z\)</th><th>\(T_{\rm CMB}(z)\) (K)</th><th>\(T_{\rm gas}(z)\), adiabatic (K)</th></tr>
+      <tr><td>200</td><td>547.8</td><td>547.8</td></tr>
+      <tr><td>30</td><td>84.5</td><td>13.0</td></tr>
+      <tr><td>17.2</td><td>49.4</td><td>4.5</td></tr>
+      <tr><td>6</td><td>19.1</td><td>0.66</td></tr>
+    </table>
+    <p>By \(z\approx17\), the (purely adiabatic, no extra heating) gas temperature has fallen to
+      \(\approx4.5\) K — more than a factor of ten below the CMB temperature of \(\approx49\) K at that redshift.
+      Once Lyman-alpha photons from the first stars couple the 21-cm spin temperature toward this cold gas
+      temperature (Wouthuysen-Field effect), the spin temperature drops well below \(T_{\rm CMB}\) and the gas
+      absorbs 21-cm photons out of the CMB, producing exactly the qualitative absorption trough EDGES reports —
+      this part is a correct, standard consequence of the thermal history, not something EDGES or this framework
+      invented.</p>
+    <p><strong>Amplitude discrepancy (rate/threshold check per README Minimum Calculation 3):</strong> the maximum
+      possible absorption depth in the standard picture — obtained in the limit of perfect Lyman-alpha coupling
+      (spin temperature fully pinned to the gas temperature) with no exotic extra cooling or extra radio
+      background — is \(\delta T_b\approx-230\) mK at \(z\sim17\)-\(20\) (Furlanetto, Oh &amp; Briggs 2006; standard
+      21-cm brightness-temperature formula applied with the adiabatic \(T_{\rm gas}\) above). EDGES reports
+      \(-500^{+88}_{-50}\) mK, roughly \(2\times\) this ceiling. Explaining the excess within \(\Lambda\)CDM requires
+      either additional gas cooling (e.g. dark-matter-baryon scattering, itself constrained by other data) or an
+      additional radio background above the CMB (e.g. from an early radio-loud source population) — both remain
+      speculative add-ons, not required by any other observation, and neither is part of this framework's technical
+      program. SARAS 3's non-confirmation (Singh et al. 2022) means the \(-500\) mK figure itself may not be
+      real; it could be an uncorrected ground/ionospheric/instrumental systematic in the EDGES antenna
+      calibration, a possibility EDGES's own team and independent groups (e.g. Hills et al. 2018, Nature 564, E32,
+      commenting on a sinusoidal ringing artifact in the reported spectrum) have flagged.</p>
+    <p><strong>Cross-epoch consistency (README Minimum Calculation 5):</strong> the standard thermal-decoupling
+      redshift \(z_{\rm dec}\approx200\) used here is downstream of, and consistent with, recombination
+      (\(z_*\approx1090\), Test 29) and does not require revisiting the baryon density \(\Omega_b h^2=0.02237\)
+      (Planck 2018, used in Tests 21/23/29). The HERA power-spectrum limits (2023) at \(z\approx8\)-\(10\) are
+      consistent with, and partially overlap, the tail end of the cosmic-dawn window discussed here; they do not
+      confirm or exclude the EDGES global-signal claim, since a power-spectrum non-detection and a
+      global-signal detection are different observables with different systematics.</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>On the framework's reading, the dark ages and cosmic dawn are where the neutral intergalactic medium first
+      becomes a spatially resolved, time-varying record rather than a single global number: the 21-cm brightness
+      temperature at each point in the sky and each observed frequency (redshift slice) in principle encodes local
+      gas density, temperature, and ionization state, in a way the CMB (Test 29, a single last-scattering surface)
+      cannot. Whether this distinction is currently <em>stably recordable</em>, in the framework's validity-rule
+      sense, is precisely what is contested: the global (all-sky-averaged) signal claimed by EDGES has not survived
+      an independent-instrument check, meaning the observational record at this window's resolution is not yet
+      settled. The tomographic (power-spectrum / imaging) version of the record is further behind: HERA's 2023
+      limits show only that some extreme thermal histories are excluded, not that any signal has been positively
+      recorded. This matches, rather than strains, the framework's validity rule — it correctly predicts that this
+      window's recordability is genuinely marginal today (upper limits and one disputed claim, not a clean
+      detection), rather than asserting a distinction is settled when the data do not yet support that.</p>
+
+    <h2>6. Gate Routing</h2>
+    <p>This test informs the <strong>first-neutral-gas record gate</strong>, with primary anchor pressure on
+      <strong>Encoding / Observation</strong> (the speculative terminal-anchor layer; labeled here only for
+      cross-reference, not asserted as established). It depends on Test 29 (recombination/last-scattering, which
+      sets the initial neutral, cold baryon gas that later thermally decouples from the CMB) and is logically
+      upstream of Test 38 (early galaxies and first-star formation, whose luminous output is the Lyman-alpha/X-ray
+      source that drives the cosmic-dawn 21-cm signature) and Test 32 (CMB polarization/reionization optical depth,
+      which bounds the end of the epoch this test covers). No framework-specific mechanism is invoked for the 21-cm
+      physics itself; the gate routing here is bookkeeping, not derivation.</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>This test does not fully close, for a specific, nameable reason: <strong>the sharpest available data point
+      (EDGES 2018) is itself unresolved</strong> — an anomalously deep absorption feature at the right redshift,
+      not independently confirmed (SARAS 3, 2022), with a plausible systematic-artifact explanation on the table.
+      Per the test suite's guardrails, the specific failure modes screened for:</p>
+    <ul>
+      <li><strong>No premature-appearance error:</strong> the claimed \(78.1\) MHz / \(z\approx17.2\) feature maps
+        to a redshift where standard thermal history already predicts gas colder than the CMB and where the first
+        stars are expected to exist — the epoch placement is not physically premature.</li>
+      <li><strong>No field-versus-particle confusion:</strong> not applicable here; the observable is a
+        collective brightness-temperature signal from a large ensemble of neutral hydrogen atoms, correctly treated
+        as such throughout.</li>
+      <li><strong>Measured-value-as-derived check:</strong> the EDGES \(-500\) mK amplitude, the SARAS 3
+        non-confirmation, and the HERA power-spectrum limits are all explicitly flagged here as external, contested
+        observational inputs — none is claimed as a framework derivation or framework-confirmed result.</li>
+      <li><strong>A relic asserted without an abundance/amplitude calculation:</strong> avoided — the standard
+        maximum absorption depth (\(\approx-230\) mK) is stated and compared explicitly against the EDGES claim
+        (\(-500\) mK), rather than asserting a qualitative "yes there's a dip" match.</li>
+      <li><strong>Overinterpreting a controversial observation:</strong> this is the live risk for this specific
+        test, and it is the reason the verdict is OBSERVED-GIVEN/OPEN rather than CLOSED — EDGES is treated here as
+        disputed, not as a confirmed detection the framework can lean on.</li>
+    </ul>
+
+    <h2>8. Next Action</h2>
+    <p>Data lookup and monitoring, not derivation: (a) track forthcoming cosmic-dawn global-signal experiments
+      (e.g. REACH, PRATUSH, and further SARAS runs) for an independent confirmation or refutation of an
+      absorption feature near 60-90 MHz; (b) track HERA and future SKA-low 21-cm power-spectrum results for a
+      first positive detection (as of the 2023 HERA Phase I limits, none exists); (c) if a confirmed detection
+      ever shows an amplitude requiring new physics (extra cooling or an excess radio background) beyond standard
+      \(\Lambda\)CDM, re-open this test and check whether such new physics is compatible with, or in tension with,
+      this framework's technical program — no such check is possible or warranted today, since the anomaly itself
+      is unconfirmed; (d) no terminal-anchor routing is needed at this stage — the open question is empirical
+      (does the EDGES amplitude survive independent confirmation?), not a distinction/encoding puzzle intrinsic to
+      the framework.</p>
+
+    <div class="callout">
+      <h3>Bottom line</h3>
+      <p>This is a <strong>SHARED-WITH-ΛCDM</strong> result at the level of the underlying physics: gas-CMB thermal
+        decoupling, adiabatic cooling below the CMB temperature, and Lyman-alpha (Wouthuysen-Field) coupling once
+        the first stars ignite are all standard cosmology, correctly placing an expected 21-cm absorption trough
+        near \(z\sim15\)-\(20\). The one claimed detection of that trough (EDGES 2018) reports an amplitude roughly
+        double the standard ceiling and has not been confirmed by an independent instrument (SARAS 3, 2022); this
+        page treats that anomaly as an open, disputed observational question, not as framework-relevant evidence
+        either for or against the granularity interpretation. The framework's only addition is an interpretive
+        label — reading the dark ages/cosmic dawn as the epoch where the neutral intergalactic medium first becomes
+        a spatially resolved, time-varying record — and that label is not contradicted by, but is also not
+        confirmed beyond, the current unsettled data.</p>
+    </div>
+
+    <p><a class="btn" href="/early-universe/tests/">&larr; Back to the granularity test suite</a>
+       &nbsp; <a class="btn" href="/early-universe/">&larr; Back to Early &amp; Distant Universe</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 05 — Entropy Conservation and Scale-Factor Consistency — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Honest run of the Entropy Conservation and Scale-Factor Consistency Test: checks the granularity-transition doctrine against the standard e+/e- annihilation entropy dump and the neutrino-to-photon temperature ratio. Verdict: CLOSED (SHARED-WITH-ΛCDM).">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+    --good:#2f6b3a;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Test-page specific ---------- */
+  .verdict-banner{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:0.8em 1.4em;
+    border:2px solid var(--good);
+    background:#eef6ee;
+    border-radius:6px;
+    padding:1em 1.3em;
+    margin:1.2em 0 1.6em;
+  }
+  .verdict-banner .verdict-label{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:800;
+    font-size:1.3rem;
+    color:var(--good);
+  }
+  .tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.75rem;
+    font-weight:700;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:0.25em 0.6em;
+    border-radius:3px;
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--ink-soft);
+  }
+  .tag.shared{border-color:#1f4e5f; color:#1f4e5f; background:#eaf2f5;}
+  .tag.specific{border-color:var(--accent); color:var(--accent); background:#fbf3ea;}
+  .backlinks{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+    margin-bottom:0.6em;
+  }
+  .headings-list{
+    font-size:0.85rem;
+    color:var(--ink-soft);
+  }
+  .calc-block{
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:1em 1.3em;
+    margin:1em 0;
+    overflow-x:auto;
+  }
+  .num-table td:first-child, .num-table th:first-child{white-space:nowrap;}
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <p class="backlinks">&larr; <a href="/early-universe/tests/">All granularity tests</a> &nbsp;|&nbsp;
+    <a href="/early-universe/">Early &amp; Distant Universe overview</a></p>
+
+    <h2 style="border-bottom:none; margin-bottom:0.15em;">Test 05 — Entropy Conservation and Scale-Factor Consistency Test</h2>
+    <p class="lede">Does the framework's granularity-transition doctrine survive the one place standard cosmology
+    keeps a hard, checkable ledger: whether entropy is conserved (or its dilution correctly accounted for) across
+    the transitions that separate the photon bath from the neutrino bath?</p>
+
+    <div class="honesty-box">
+      <strong>Read this before the verdict:</strong> a CLOSED verdict on this page means the granularity
+      <em>interpretation</em> is consistent with standard hot-Big-Bang cosmology at this epoch — not that this
+      framework uniquely predicted the result. The physics below (comoving entropy conservation, the
+      <i>e</i>⁺<i>e</i>⁻ annihilation entropy dump, the resulting neutrino-to-photon temperature ratio) is standard
+      ΛCDM thermal history, which this framework inherits rather than replaces. See
+      <a href="/early-universe/blind-prediction-method.html">the blind prediction method</a> for how this site
+      distinguishes inherited physics from framework-specific claims.
+    </div>
+
+    <div class="verdict-banner">
+      <span class="verdict-label">Verdict: CLOSED</span>
+      <span class="tag shared">SHARED-WITH-&Lambda;CDM</span>
+      <span class="tag">Gate: Thermal-history continuity gate</span>
+      <span class="tag">Anchor pressure: Encoding</span>
+    </div>
+    <p style="font-size:0.85em; color:var(--ink-soft, #555);"><em>"Anchor pressure" refers to the program's
+    speculative ontology layer (Unity, Distinction, Encoding, Knowing, Actualization, Experience, Value) — an
+    interpretive label, not a recognized physics classification or a physics result. See
+    <a href="/anchors/">Foundational Constraints</a> for the full disclaimer.</em></p>
+
+    <h2>1. Verdict</h2>
+    <p><strong>CLOSED.</strong> The proposed granularity transition (photon bath and neutrino bath becoming
+    separately "recordable" thermal records once neutrinos decouple and the <i>e</i>⁺<i>e</i>⁻ annihilation entropy
+    dump lands entirely in the photon sector) is consistent with current standard cosmology and the comoving
+    entropy-conservation law it uses. This is a <strong>SHARED-WITH-&Lambda;CDM</strong> result: the calculation
+    below is textbook thermal-history cosmology, not a framework-specific derivation. The framework's contribution
+    is only the <em>interpretive</em> claim that this thermal split counts as an "increase in recordable
+    distinction" — a claim that a qualitative match motivates but does not prove.</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>Per the test suite's Tested Claim: <em>"Granularity transitions must conserve entropy appropriately or
+    specify entropy production/dilution."</em> Applied to this epoch, the specific claim under test is: the
+    transition in which neutrinos decouple from the photon–electron–positron plasma, and then <i>e</i>⁺<i>e</i>⁻
+    pairs annihilate and dump their entropy into the photon bath alone, is a valid granularity event — i.e. photons
+    and neutrinos become separately stable, recordable thermal distinctions — <em>and</em> the entropy accounting
+    across that split matches the accepted temperature-ratio relation, rather than silently creating or destroying
+    entropy.</p>
+
+    <h2>3. Data Used</h2>
+    <table class="num-table">
+      <tr><th>Quantity</th><th>Value</th><th>Source</th></tr>
+      <tr><td>CMB temperature today, T<sub>&gamma;,0</sub></td><td>2.7255 &plusmn; 0.0006 K</td><td>Fixsen 2009 (COBE/FIRAS); reaffirmed Planck 2018 (Planck Collaboration VI, A&amp;A 641, A6, 2020)</td></tr>
+      <tr><td>Effective neutrino species, N<sub>eff</sub></td><td>3.044</td><td>Bennett et al. 2020/2021 (arXiv:2012.02726); Akita &amp; Yamaguchi 2020 (arXiv:2005.07047) — refines the historical Standard-Model value 3.046 down to 3.044</td></tr>
+      <tr><td>Standard Model value quoted by Planck 2018</td><td>N<sub>eff</sub> = 3.046 (legacy), 3.044 (current)</td><td>Planck 2018 VI; Mangano et al. 2005 (original 3.046 calculation)</td></tr>
+      <tr><td>Electron mass (annihilation threshold scale)</td><td>m<sub>e</sub>c&sup2; = 0.511 MeV</td><td>PDG 2024 Review of Particle Physics</td></tr>
+      <tr><td>Neutrino decoupling temperature (approx.)</td><td>T<sub>dec</sub> &asymp; 2&ndash;3 MeV</td><td>Standard weak-interaction freeze-out estimate (e.g. Dolgov 2002 review, hep-ph/0202122; Kolb &amp; Turner, <i>The Early Universe</i>)</td></tr>
+      <tr><td>Baryon density (context / cross-check)</td><td>&Omega;<sub>b</sub>h&sup2; = 0.02237 &plusmn; 0.00015</td><td>Planck 2018 VI, Table 2</td></tr>
+    </table>
+
+    <h2>4. Calculation Summary</h2>
+    <p>The generic entropy-conservation rule for a comoving volume in an expanding, adiabatic universe is</p>
+    <div class="calc-block">
+      \[ s\,a^3 = \text{const}, \qquad s = \frac{2\pi^2}{45}\,g_{*s}(T)\,T^3 \]
+    </div>
+    <p>where \(g_{*s}(T)\) is the effective number of entropy-carrying relativistic degrees of freedom at
+    temperature \(T\). Before <i>e</i>⁺<i>e</i>⁻ annihilation (but after neutrino decoupling at
+    T<sub>dec</sub> &asymp; 2&ndash;3 MeV), the photon+electron+positron plasma and the already-decoupled neutrino
+    sector share a common temperature-history normalization, but only the photon+<i>e</i>⁺<i>e</i>⁻ sector
+    continues to exchange entropy:</p>
+    <div class="calc-block">
+      \[ g_{*s}^{\text{before}} = g_\gamma + \tfrac{7}{8}\big(g_{e^-} + g_{e^+}\big) = 2 + \tfrac{7}{8}(2+2) = 5.5 \]
+      \[ g_{*s}^{\text{after}} = g_\gamma = 2 \]
+    </div>
+    <p>Conservation of comoving entropy in the photon+<i>e</i>⁺<i>e</i>⁻ sector across the annihilation
+    (\(a^3 g_{*s} T^3 = \text{const}\), with the neutrino sector's own comoving entropy separately conserved
+    because it has already decoupled) gives the standard result:</p>
+    <div class="calc-block">
+      \[ \frac{T_\gamma}{T_\nu} = \left(\frac{11}{4}\right)^{1/3} \approx 1.401 \]
+    </div>
+    <p>Numerically (computed for this test, not copied from a table): with
+    \(g_{*s}^{\text{before}}/g_{*s}^{\text{after}} = 5.5/2 = 2.75\), and \((11/4) = 2.75\), the ratio checks:
+    \((11/4)^{1/3} = 1.40102\ldots\) Applying this to today's measured CMB temperature,</p>
+    <div class="calc-block">
+      \[ T_{\nu,0} = T_{\gamma,0}\left(\frac{4}{11}\right)^{1/3} = 2.7255\ \text{K} \times 0.71375 \approx 1.9454\ \text{K} \]
+    </div>
+    <p>This predicted relic neutrino temperature (&asymp; 1.95 K, or &asymp; 1.68 &times; 10&#8315;&#8308; eV) is the
+    standard cosmic-neutrino-background temperature quoted throughout the literature, and it is the temperature
+    ratio baked into the standard calculation of N<sub>eff</sub> &asymp; 3.044 (small deviations from the naive
+    integer 3 come from finite-temperature QED corrections and incomplete neutrino decoupling during annihilation
+    — see Bennett et al. 2020/2021, Akita &amp; Yamaguchi 2020 — not from any new physics required by this
+    framework). No entropy is created or destroyed in this accounting: the "loss" of entropy from the disappearing
+    <i>e</i>⁺<i>e</i>⁻ degrees of freedom reappears fully in the photon temperature boost relative to the neutrino
+    sector, exactly as the comoving-entropy law requires.</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>Under the framework's master doctrine ("cosmic history is the history of increasing recordable
+    distinction"), this transition marks the point where the photon bath and the neutrino bath become two
+    <em>separately</em> stable, recordable thermal records rather than one shared plasma. Before this event,
+    photons, electrons/positrons, and (loosely) neutrinos are all part of one exchanging thermal system; after
+    <i>e</i>⁺<i>e</i>⁻ annihilation, the neutrino sector is a causally disconnected, colder, permanently
+    free-streaming record (in principle observable today as the cosmic neutrino background), and the photon sector
+    carries an extra, distinguishable temperature offset that is a permanent fossil of the annihilation event. This
+    is exactly the kind of "new stable distinction becomes recordable" event the doctrine predicts should occur
+    somewhere in the early universe — but the specific mechanism (fermion-pair annihilation dumping entropy into a
+    decoupled boson bath) is pure Standard Model thermal field theory, not a consequence unique to this framework's
+    geometry or granularity postulates. The doctrine is <em>consistent</em> with this event; it did not predict its
+    existence or its numerical ratio independently of inheriting the Standard Model calculation.</p>
+
+    <h2>6. Gate Routing</h2>
+    <p>Routes to the <strong>Thermal-history continuity gate</strong>, under anchor pressure
+    <strong>Encoding</strong> (per the test-suite index). Ledger entry:</p>
+    <div class="calc-block" style="font-family:Consolas,'Courier New',monospace; font-size:0.92rem;">
+      Thermal-history continuity gate &rarr; CLOSED (SHARED-WITH-&Lambda;CDM) &rarr;
+      comoving entropy conservation across <i>e</i>&#8314;<i>e</i>&#8315; annihilation,
+      T&#947;/T&#957; = (11/4)^(1/3) &asymp; 1.401, consistent with N_eff &asymp; 3.044
+      &rarr; no open gap for this specific transition.
+    </div>
+    <p>This closure does not certify the framework's broader inflation, baryogenesis, or dark-matter claims — it
+    only certifies that the neutrino-decoupling / <i>e</i>⁺<i>e</i>⁻ annihilation entropy transition, as read
+    through the granularity doctrine, does not conflict with standard cosmology's entropy bookkeeping.</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>This test did <strong>not</strong> fail. For completeness, the failure modes it was checked against (per
+    the test suite's guardrails) and why none apply here:</p>
+    <ul>
+      <li><strong>Silent entropy creation/destruction:</strong> not present — the comoving-entropy identity
+      \(g_{*s}a^3T^3=\text{const}\) is used directly and closes exactly to the standard 4/11 ratio.</li>
+      <li><strong>Particle appearing before the universe supports it:</strong> not applicable — this test concerns
+      an annihilation (disappearance) event with a well-established threshold (T &sim; m<sub>e</sub>c² = 0.511 MeV),
+      not a new particle claim.</li>
+      <li><strong>Measured value mistaken for derived value:</strong> avoided — N<sub>eff</sub> &asymp; 3.044 and
+      T<sub>&gamma;,0</sub> = 2.7255 K are explicitly labeled OBSERVED-GIVEN inputs/cross-checks in this
+      write-up, not framework outputs.</li>
+      <li><strong>Qualitative story substituted for numerical constraint:</strong> avoided — the 1.401 ratio and
+      1.945 K value are computed explicitly above, not asserted narratively.</li>
+    </ul>
+
+    <h2>8. Next Action</h2>
+    <p>No further derivation is required for this specific transition — it is a closed, shared-with-&Lambda;CDM
+    thermal-history result. Remaining open work in the suite that bears on the same "Encoding" anchor pressure and
+    "thermal-history continuity" gate: Test 22 (Neutrino Decoupling and N<sub>eff</sub> Test) should be checked for
+    consistency with the same T<sub>&gamma;</sub>/T<sub>&nu;</sub> ratio used here, and Test 03 (Effective
+    Relativistic Degrees of Freedom Ledger Test) should confirm the same \(g_{*s}\) bookkeeping is used
+    consistently across all annihilation/decoupling transitions in the suite (QCD hadronization, muon
+    annihilation, etc.) so that no other transition in the ledger double-counts or drops degrees of freedom. No
+    data lookup or simulation is needed beyond what is cited above; any future refinement would only track further
+    decimal-place corrections to N<sub>eff</sub> (e.g. non-instantaneous decoupling effects), which do not change
+    this verdict.</p>
+
+    <div class="callout">
+      <h4>What this page does and does not claim</h4>
+      <p>It does <strong>not</strong> claim this framework predicted the neutrino temperature or N<sub>eff</sub>.
+      It <strong>does</strong> claim that reading this well-established thermal-history transition through the
+      framework's granularity doctrine produces no contradiction, no double-counted entropy, and no
+      out-of-order distinction claim — the minimum bar for this gate to stay open for the rest of the framework's
+      early-universe program.</p>
+    </div>
+
+    <p class="headings-list">Suite reference: Test 05 of 44, Early Universe Granularity Test Suite. Anchor
+    pressure: Encoding (speculative ontology layer — interpretive label, not a physics result). Gate route:
+    Thermal-history continuity gate. Master doctrine under test (not assumed):
+    "Cosmic history is the history of increasing recordable distinction."</p>
+
+    <p class="backlinks">&larr; <a href="/early-universe/tests/">All granularity tests</a> &nbsp;|&nbsp;
+    <a href="/early-universe/">Early &amp; Distant Universe overview</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

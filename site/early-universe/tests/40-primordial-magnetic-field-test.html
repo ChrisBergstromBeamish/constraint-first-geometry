@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 40 — Primordial Magnetic Field Test — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Early-universe granularity test 40: checks whether any primordial magnetic field the framework's symmetry-breaking sectors could generate stays inside the observational window bounded below by blazar/gamma-ray limits and above by CMB and BBN bounds. Verdict: OPEN, shared with ΛCDM.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+
+  /* ---------- Top bar: identity + honesty stamp ---------- */
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  /* ---------- Main nav ---------- */
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+
+  /* ---------- Layout: subnav + main ---------- */
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+
+  /* ---------- Test-page specific ---------- */
+  .verdict-badge{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    letter-spacing:0.03em;
+    padding:0.45em 1em;
+    border-radius:4px;
+    background:#8a5a2a;
+    color:#fff;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:0.25em 0.65em;
+    border-radius:3px;
+    margin-left:0.5em;
+    vertical-align:middle;
+  }
+  .tag-shared{background:#e4ecee; color:var(--accent-2); border:1px solid var(--accent-2);}
+  .tag-specific{background:#f3e9de; color:var(--accent); border:1px solid var(--accent);}
+  .breadcrumb{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-bottom:1em;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+    <div class="breadcrumb">
+      <a href="/early-universe/">Early &amp; Distant Universe</a> ›
+      <a href="/early-universe/tests/">Granularity Test Suite</a> ›
+      Test 40
+    </div>
+
+    <h2 style="border-bottom:none; margin-bottom:0.3em;">Test 40 — Primordial Magnetic Field Test</h2>
+    <p class="lede">If a primordial magnetic field was generated in the early universe — by inflation, a phase
+      transition, or some other mechanism — does its present-day strength and coherence length have to sit inside
+      the narrow observational window bounded below by blazar/gamma-ray non-detections and above by CMB and BBN
+      bounds? And does the framework currently supply a mechanism and an amplitude prediction, or only the
+      obligation to check one if it ever proposes one?</p>
+
+    <p>
+      <span class="verdict-badge">OPEN</span>
+      <span class="tag tag-shared">SHARED-WITH-ΛCDM</span>
+    </p>
+
+    <div class="honesty-box">
+      <strong>Read this before anything else on this page:</strong> an OPEN verdict here means the framework has
+      not yet supplied a specific, calculable primordial-magnetogenesis mechanism with a predicted present-day
+      field amplitude and coherence length. What <em>is</em> established, and shared wholesale with standard
+      ΛCDM cosmology, is the observational window itself: a lower bound from blazar/gamma-ray cascade
+      non-detections and an upper bound from CMB (Planck) and BBN constraints. This page reports that window
+      honestly and states the check any future framework-specific magnetogenesis proposal must pass — it does
+      not claim the framework has produced, or ruled out, a magnetic-field mechanism of its own.</p>
+    </div>
+
+    <h2>1. Verdict</h2>
+    <p><strong>OPEN</strong> — the observational bracket on cosmological magnetic fields is well established
+      (see Data Used below), and it is a real, numerically stated window: roughly six to seven orders of
+      magnitude in field strength between the blazar/gamma-ray lower bound on present-day void fields and the
+      CMB/BBN upper bounds on primordial comoving fields. But the framework's technical program, as currently
+      built through the gates already exercised earlier in this test suite (electroweak symmetry breaking,
+      QCD confinement, GUT-scale symmetry breaking), does not yet specify a calculable magnetogenesis mechanism
+      — inflationary, phase-transition, or otherwise — with a predicted field amplitude and coherence length.
+      Without that mechanism there is no framework-specific number to check against the window, so this test
+      cannot be marked CLOSED. It is not CONTRADICTED either: nothing the framework currently asserts conflicts
+      with the data. The honest status is OPEN, pending a specific magnetogenesis proposal.</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>The precise granularity claim under test: <em>if</em> the framework's early-universe sector (inflationary
+      dynamics, a GUT- or electroweak-scale phase transition, or some other symmetry-breaking event already
+      appearing in this test suite) generates a primordial magnetic field, that field's present-day comoving
+      amplitude and coherence length must fall inside the window allowed by (a) non-detection of secondary GeV
+      cascade emission from TeV blazars, which sets a <em>lower</em> bound on present-day intergalactic void
+      fields, and (b) CMB anisotropy/polarization and BBN light-element constraints, which set an <em>upper</em>
+      bound on the comoving field amplitude at the relevant epoch. The framework reads a successful field
+      (should one ever be proposed and computed) as a long-lived, recordable "fossil" of the symmetry-breaking
+      event that generated it — a magnetic relic analogous to the topological-defect relics checked in Test 14
+      (monopoles) and Test 15 (cosmic strings).</p>
+
+    <h2>3. Data Used</h2>
+    <ul>
+      <li><strong>CMB upper bound (Planck 2018, ionization-history + anisotropy combination):</strong> the 95%-CL
+        constraint on the root-mean-square comoving field amplitude from Planck 2018 data combined with its impact
+        on the cosmic ionization history is \(\sqrt{\langle B^2\rangle} < 0.69\)&nbsp;nG (Paoletti, Chluba,
+        Finelli &amp; Rubiño-Martín, "Constraints on Primordial Magnetic Fields from their impact on the
+        ionization history with Planck 2018," arXiv:2204.06302, 2022, building on Planck Collaboration 2015,
+        "Planck 2015 results. XIX. Constraints on primordial magnetic fields," A&amp;A 594, A19,
+        arXiv:1502.01594). Related Planck-based analyses give \(B \lesssim 0.75\)&nbsp;nG for a scale-invariant,
+        inflation-generated spectrum, or \(B \lesssim 30\)&nbsp;nG for a causal, phase-transition-generated
+        spectrum with its characteristically blue-tilted shape — the bound is spectrum-shape dependent.</li>
+      <li><strong>BBN upper bound:</strong> Cheng, Schramm &amp; Truran (1994), Phys. Rev. D 49, 5006, and Kernan,
+        Starkman &amp; Vachaspati (1996), Phys. Rev. D 54, 7207 (arXiv:astro-ph/9509126) — a conservative bound on
+        the magnetic-field energy density at the end of nucleosynthesis (\(T \approx 0.01\)&nbsp;MeV,
+        \(\rho_B/\rho_\nu \lesssim 0.27\)) corresponds to a physical field strength at that epoch of roughly
+        \(B(T{=}0.01\text{ MeV}) \lesssim 2\times10^{9}\)&nbsp;G. This bound is comparable to or weaker than the
+        Faraday-rotation and CMB bounds once redshifted to a comoving equivalent (see Calculation Summary).</li>
+      <li><strong>Lower bound from blazar/gamma-ray cascade non-detection:</strong> Neronov &amp; Vovk (2010),
+        Science 328, 73 (arXiv:1006.3504) — non-observation of GeV-band cascade emission from TeV blazars implies
+        a present-day void magnetic field \(B \gtrsim 3\times10^{-16}\)&nbsp;G (scaling as
+        \(\lambda_B^{-1/2}\) for correlation lengths below \(\sim 1\)&nbsp;Mpc). More recent, more conservative
+        reanalyses tighten and revise this: Acciari et al. (2023), A&amp;A 670, A145, using combined MAGIC/HESS/
+        VERITAS/Fermi-LAT data on blazar 1ES 0229+200, give \(B \gtrsim 1.8\times10^{-17}\)&nbsp;G; a 2026
+        reanalysis (arXiv:2506.22285) revises the conservative bound further. Taken together, the current
+        literature places the void-field lower bound in the range \(\sim 10^{-17}\)–\(3\times10^{-14}\)&nbsp;G,
+        depending on assumptions about blazar duty cycle and beam-plasma-instability systematics that remain
+        debated.</li>
+      <li><strong>Redshift/comoving scaling relation:</strong> standard flux-freezing magnetohydrodynamics gives
+        \(B(z) \propto (1+z)^2\) for a field with fixed comoving flux (e.g. Durrer &amp; Neronov, "Cosmological
+        Magnetic Fields," Astron. Astrophys. Rev. 21, 62, 2013, arXiv:1303.7121); used below to convert the BBN
+        bound to a comoving-equivalent strength for direct comparison with the CMB bound.</li>
+      <li><strong>Planck 2018 cosmological parameters</strong> (\(T_{\rm CMB}=2.7255\)&nbsp;K) used for the
+        redshift conversion: Planck Collaboration, "Cosmological Parameters," A&amp;A 641, A6 (2020),
+        arXiv:1807.06209 — same values used elsewhere in this suite (Tests 01, 21, 30).</li>
+    </ul>
+
+    <h2>4. Calculation Summary</h2>
+    <p><strong>Step 1 — redshift of the BBN epoch.</strong> Using \(T = T_{\rm CMB}(1+z)\) with
+      \(T_{\rm CMB} = 2.7255\)&nbsp;K \(= 2.348\times10^{-4}\)&nbsp;eV (Planck 2018) and the BBN reference
+      temperature \(T = 0.01\)&nbsp;MeV \(= 10^{4}\)&nbsp;eV:</p>
+    \[
+    1+z_{\rm BBN} = \frac{T}{T_{\rm CMB}} = \frac{10^{4}\ {\rm eV}}{2.348\times10^{-4}\ {\rm eV}} \approx 4.3\times10^{7}.
+    \]
+    <p><strong>Step 2 — redshift the BBN field bound to a comoving-equivalent strength</strong>, using
+      \(B(z) \propto (1+z)^2 \Rightarrow B_{\rm comoving} = B(z_{\rm BBN})/(1+z_{\rm BBN})^2\):</p>
+    \[
+    B_{\rm comoving}^{\rm BBN} \approx \frac{2\times10^{9}\ {\rm G}}{(4.3\times10^{7})^{2}} \approx 1\times10^{-6}\ {\rm G} \approx 1.1\times10^{3}\ {\rm nG}.
+    \]
+    <p>This confirms the qualitative statement in the literature that the BBN bound (\(\sim 1.1\times10^{3}\)&nbsp;nG
+      comoving-equivalent) is roughly three orders of magnitude <em>weaker</em> than the Planck 2018 CMB bound
+      (\(0.69\)&nbsp;nG comoving) — BBN constrains the total radiation-like energy density budget
+      (via \(N_{\rm eff}\)-type accounting) rather than the field's later imprint on CMB anisotropies and
+      ionization history, so the CMB bound dominates for large-scale, small-amplitude fields.</p>
+    <p><strong>Step 3 — state the allowed window.</strong> Combining the CMB upper bound with the blazar/
+      gamma-ray lower bound gives the present-day allowed comoving-field window for Mpc-scale intergalactic
+      fields:</p>
+    \[
+    3\times10^{-17}\ {\rm G} \ \lesssim\ B_{0} \ \lesssim\ 0.69\ {\rm nG} = 6.9\times10^{-10}\ {\rm G},
+    \]
+    <p>a window spanning roughly <strong>seven orders of magnitude</strong> in field strength
+      (\(\log_{10}(6.9\times10^{-10}/3\times10^{-17}) \approx 6.4\)). This is the numerical target any
+      framework-specific magnetogenesis mechanism would need to land inside.</p>
+    <p><strong>Framework-specific check (not yet performable).</strong> To close this test the framework would
+      need to (i) name a specific magnetogenesis mechanism tied to one of its already-identified symmetry-breaking
+      events (inflationary, electroweak, or GUT-scale — Tests 07–09, 13, 16), (ii) compute a predicted comoving
+      field amplitude and coherence length from that mechanism's coupling structure, and (iii) show the predicted
+      value lands inside, or below, the window above (a value above the CMB bound would be CONTRADICTED; a value
+      below the blazar lower bound would imply the mechanism cannot explain the observed void fields, which is
+      allowed but uninformative). No such mechanism is currently specified in the framework's technical program,
+      so step (ii) cannot be performed and the test remains OPEN rather than CLOSED or CONTRADICTED.</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>On the framework's reading, a primordial magnetic field — if generated — would be a long-lived,
+      spatially-coherent "record" of the symmetry-breaking or inflationary event that sourced it, in the same
+      family as the topological-defect relics checked in Tests 14–15: a distinction created at high energy that
+      remains coupled, encoded, and in principle observable (via Faraday rotation, blazar cascades, or CMB
+      B-mode statistics) at much later, much lower-resolution windows. But a "recordable distinction" claim
+      requires an actual record to point to, or an actual predicted amplitude to check — and at this stage the
+      framework supplies neither. The honest granularity reading is therefore: the <em>window</em> a
+      magnetic-field record would have to fall in is itself a real, already-recorded fact of standard cosmology
+      (established independently of this framework), but the framework has not yet produced the object whose
+      recordability the window would test.</p>
+
+    <h2>6. Gate Routing</h2>
+    <p>This test informs the <strong>field-record relic gate</strong> with primary anchor pressure on
+      <strong>Encoding / Distinction</strong> (the speculative terminal-anchor layer; labeled here only for
+      cross-reference, not asserted as established). It is downstream of, and would need to draw its mechanism
+      from, whichever symmetry-breaking gate ends up proposing a magnetogenesis channel — most plausibly Test 07
+      (inflation scalar spectrum), Test 13 (GUT symmetry-breaking relic), or Test 16 (electroweak symmetry
+      breaking). Per the GAP-08 constraint already governing Tests 07–09 in this suite, the framework's
+      inflaton-slope prediction is not geometrically forced (the genuine radion slope is \(8/3\), not the
+      convention-dependent \(1/6\)), so any inflation-sourced magnetogenesis amplitude computed from that slope
+      would inherit the same non-forced, OBSERVED-GIVEN status rather than being presented as a first-principles
+      framework prediction.</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>The specific gap that keeps this test from closing: <strong>a mechanism is asserted only qualitatively,
+      with no amplitude calculation supplied.</strong> Per the test suite's guardrails, this is exactly the
+      failure mode to watch for — "a relic is asserted but no abundance [here: amplitude] calculation is
+      supplied." The framework has not (yet) claimed a specific primordial magnetic field exists; it has also not
+      supplied the calculation that would be required to check one if it did. Both the CMB/BBN upper bounds and
+      the blazar/gamma-ray lower bound used here are imported, established results from standard cosmology and
+      astrophysics, not framework outputs — flagged explicitly so this is not mistaken for a framework-derived
+      constraint.</p>
+
+    <h2>8. Next Action</h2>
+    <p><strong>Derivation, not data lookup:</strong> the outstanding work is for the framework's technical program
+      to (a) determine whether any of its symmetry-breaking sectors (inflationary, GUT, or electroweak) naturally
+      couples to an Abelian gauge field in a way that seeds a primordial magnetic field (e.g. via a
+      kinetic-coupling or conformal-symmetry-breaking mechanism during inflation, or via bubble-collision MHD
+      turbulence at a first-order phase transition); (b) if so, compute the predicted comoving amplitude and
+      coherence length; (c) check that value against the window derived here
+      (\(3\times10^{-17}\ {\rm G} \lesssim B_0 \lesssim 0.69\ {\rm nG}\)), updating the CMB bound if a newer
+      Planck-successor (LiteBIRD, CMB-S4) result supersedes the 2018/2022 value used here, and the blazar lower
+      bound if the 2026 reanalysis (arXiv:2506.22285) is confirmed. No terminal-anchor routing is warranted at
+      this stage — the gap is a missing calculation, not an unresolved distinction/encoding question.</p>
+
+    <div class="callout">
+      <h3>Bottom line</h3>
+      <p>This is a <strong>SHARED-WITH-ΛCDM</strong> observational window — the CMB (Planck 2018), BBN, and
+        blazar/gamma-ray bounds on cosmological magnetic fields are all established, independent results this
+        framework inherits wholesale. The framework contributes only the standing obligation to check any future
+        magnetogenesis proposal against that window, and it has not yet made such a proposal. The verdict is
+        <strong>OPEN</strong>, not CLOSED: a real numerical window exists, but there is no framework-specific
+        number yet to place inside it.</p>
+    </div>
+
+    <p><a class="btn" href="/early-universe/tests/">&larr; Back to the granularity test suite</a>
+       &nbsp; <a class="btn" href="/early-universe/">&larr; Back to Early &amp; Distant Universe</a></p>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

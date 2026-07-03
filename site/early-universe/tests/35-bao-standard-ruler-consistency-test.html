@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 35 — BAO Standard-Ruler Consistency Test — Constraint-Based Reconstruction Theory</title>
+<meta name="description" content="Test 35 of the Early-Universe Granularity Test Suite: does the baryon acoustic oscillation scale match the same sound horizon recorded by the CMB? Verdict: CLOSED, shared with ΛCDM.">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+    --good:#2e6b3e;
+    --bad:#8a2e2e;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{ position:absolute; left:-999px; top:auto; }
+  .skip-link:focus{ left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line); }
+
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+
+  header.site-header{ background:var(--paper); border-bottom:1px solid var(--line); }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{ margin:0; font-size:1.5rem; letter-spacing:0.01em; }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{ font-family: Georgia, serif; font-style:italic; color:var(--ink-soft); font-size:0.95rem; }
+  nav.main-nav{ max-width:var(--maxw); margin:0 auto; padding:0 1.2em; }
+  nav.main-nav ul{
+    list-style:none; margin:0; padding:0;
+    display:flex; flex-wrap:wrap; gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block; padding:0.8em 0.9em;
+    color:var(--ink); text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem; font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{ border-bottom-color:var(--accent); color:var(--accent); }
+  nav.main-nav a[aria-current="page"]{ border-bottom-color:var(--accent-2); color:var(--accent-2); }
+
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{ position:sticky; top:1.2em; font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif; font-size:0.88rem; }
+  .subnav-box{ border:1px solid var(--line); background:var(--paper-alt); border-radius:4px; padding:1em 1.1em; }
+  .subnav-box h2{ margin:0 0 0.6em; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft); }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{ text-decoration:none; color:var(--ink); }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{ color:var(--accent-2); font-weight:700; }
+
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.4rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.1rem; margin-top:1.4em;}
+  main p{margin:0.9em 0;}
+  .lede{ font-size:1.1rem; color:var(--ink-soft); }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:1em; margin:1.4em 0; }
+  .card{ border:1px solid var(--line); background:#fff; padding:1em 1.1em; border-radius:4px; }
+  .card h4{margin:0 0 0.4em; font-size:1.0rem;}
+  .card p{margin:0.4em 0 0; font-size:0.92rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block; font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700; font-size:0.9rem; text-decoration:none;
+    padding:0.6em 1.1em; border-radius:4px; border:1px solid var(--accent-2);
+    color:var(--accent-2); background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+
+  footer.site-footer{ background:var(--ink); color:#cfc9bd; font-size:0.85rem; }
+  .footer-inner{
+    max-width:var(--maxw); margin:0 auto; padding:2em 1.2em;
+    display:flex; flex-wrap:wrap; gap:1.6em 3em; justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em; color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em;
+  }
+  .footer-honesty{ max-width:var(--maxw); margin:0 auto; padding:0 1.2em 1.6em; font-size:0.8rem; color:#a49c8c; }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+
+  /* ---------- Test-page specific ---------- */
+  .test-meta{
+    display:flex; flex-wrap:wrap; gap:0.5em 1.4em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.85rem; color:var(--ink-soft);
+    margin:0.4em 0 1.2em;
+  }
+  .test-meta b{color:var(--ink);}
+  .verdict-badge{
+    display:inline-flex; align-items:center; gap:0.5em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700; font-size:1.05rem;
+    padding:0.5em 1em;
+    border-radius:5px;
+    background:#e9f3ec;
+    border:1px solid var(--good);
+    color:var(--good);
+    margin:0.4em 0 1em;
+  }
+  .class-tag{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.78rem; font-weight:700; letter-spacing:0.04em;
+    text-transform:uppercase;
+    padding:0.25em 0.6em;
+    border-radius:3px;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    color:var(--ink-soft);
+  }
+  .backlinks{
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+    margin-bottom:0.6em;
+  }
+  table.data-table td, table.data-table th{ font-size:0.92rem; }
+  .src{font-size:0.82rem; color:var(--ink-soft);}
+
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">Constraint-Based Reconstruction Theory</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/" aria-current="page">Early &amp; Distant Universe</a></li>
+      <li><a href="/emergent-separability/">Emergent Separability</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>On this section</h2>
+      <ul>
+        <li><a href="/early-universe/">Overview</a></li>
+        <li><a href="/early-universe/blind-prediction-method.html">The blind prediction method</a></li>
+        <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/" aria-current="page">Granularity test suite</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+    <div class="backlinks">
+      <a href="/early-universe/">&larr; Early &amp; Distant Universe</a> ·
+      <a href="/early-universe/tests/">&larr; All granularity tests</a>
+    </div>
+
+    <h2 style="border-bottom:none; margin-bottom:0.1em;">Test 35 — BAO Standard-Ruler Consistency Test</h2>
+    <p class="lede">Part of the 44-test Early-Universe Granularity Test Suite. This test asks whether the baryon
+    acoustic oscillation (BAO) scale — a "ruler" imprinted in the distribution of galaxies today — matches the same
+    sound horizon that the cosmic microwave background (CMB) recorded roughly 380,000 years after the Big Bang.</p>
+
+    <div class="test-meta">
+      <span><b>Anchor pressure:</b> Encoding / Observation <em>(speculative ontology layer &mdash; interpretive
+        label, not a physics result)</em></span>
+      <span><b>Gate route:</b> Acoustic fossil record gate</span>
+      <span><b>Epoch:</b> pre-recombination acoustic waves &rarr; late-time galaxy surveys</span>
+    </div>
+
+    <div class="verdict-badge">✓ CLOSED <span class="class-tag" style="margin-left:0.6em;">SHARED WITH ΛCDM</span></div>
+
+    <div class="honesty-box">
+      <strong>Read this before the verdict below:</strong> "CLOSED" here means the granularity
+      <em>interpretation</em> of this test — that the BAO scale is a late-time fossil record of the same acoustic
+      physics the CMB recorded — is <strong>consistent with established standard cosmology</strong> at this epoch.
+      It is <strong>not</strong> a claim that this framework uniquely predicted the sound horizon or the BAO scale.
+      Almost the entirety of the physics tested here is inherited, unmodified, from standard hot-big-bang &Lambda;CDM
+      cosmology. This test is labeled <span class="class-tag">SHARED-WITH-&Lambda;CDM</span>, not
+      <span class="class-tag">FRAMEWORK-SPECIFIC</span>: the framework adds an interpretive gloss (BAO as a
+      "recordable distinction" fossilized from early plasma), not a new physical mechanism or a new number.
+    </div>
+
+    <h2>1. Verdict</h2>
+    <p><strong>CLOSED</strong> — the granularity interpretation (BAO distances as a late-time, large-scale-structure
+    fossil record of the same acoustic-oscillation physics that set the CMB sound horizon) is consistent with the
+    current standard-cosmology comparison between CMB-inferred and BAO-measured sound-horizon quantities, within
+    reported uncertainties. Secondary note: a small (roughly 1&ndash;2&sigma;, non-definitive) tension between the
+    CMB-inferred sound-horizon-times-Hubble-parameter combination and some BAO-based low-redshift determinations
+    exists in the literature (part of the broader Hubble-tension conversation) and is reported here for honesty,
+    but it is a standard-cosmology-level tension under active study, not something this framework introduces,
+    resolves, or is in a position to adjudicate.</p>
+
+    <h2>2. Tested Claim</h2>
+    <p>The precise granularity claim under test: <em>the acoustic oscillations imprinted in the primordial baryon-photon
+    plasma before recombination froze in a characteristic comoving length scale (the sound horizon at the baryon
+    drag epoch, \(r_d\)); this length scale is a stable, recordable distinction that survives as (a) the CMB
+    acoustic-peak spacing at \(z\approx1089\) and (b) a preferred clustering scale in the distribution of galaxies at
+    much lower redshift (BAO). Both records must therefore recover the same underlying \(r_d\), within measurement
+    uncertainty, unless the model explicitly changes early-universe physics between the two epochs.</em> This
+    framework does not propose any such change to early-universe physics for this test, so the claim reduces to
+    the standard &Lambda;CDM consistency check.</p>
+
+    <h2>3. Data Used</h2>
+    <table class="data-table">
+      <tr><th>Quantity</th><th>Value</th><th>Source</th></tr>
+      <tr><td>Sound horizon at drag epoch, \(r_{drag}\) (Planck base-&Lambda;CDM, CMB-inferred)</td>
+          <td>147.09 &plusmn; 0.26 Mpc</td>
+          <td class="src">Planck Collaboration 2018 (Aghanim et al. 2020), <em>A&amp;A</em> 641, A6, TT,TE,EE+lowE+lensing</td></tr>
+      <tr><td>\(\Omega_b h^2\)</td><td>0.02237 &plusmn; 0.00015</td>
+          <td class="src">Planck 2018, as above</td></tr>
+      <tr><td>\(T_{CMB}\)</td><td>2.7255 &plusmn; 0.0006 K</td>
+          <td class="src">Fixsen 2009 (COBE/FIRAS), as adopted by Planck 2018</td></tr>
+      <tr><td>BOSS DR12 consensus BAO: \(D_V/r_d\), \(D_M/r_d\), \(D_H/r_d\) at \(z=0.38, 0.51, 0.61\)</td>
+          <td>consistent with Planck &Lambda;CDM \(r_d\) at the &sim;1% level</td>
+          <td class="src">Alam et al. 2017 (BOSS DR12), <em>MNRAS</em> 470, 2617</td></tr>
+      <tr><td>eBOSS DR16 final consensus BAO+RSD (quasars, LRGs, ELGs, Ly&alpha;), \(z=0.15\text{&ndash;}2.33\)</td>
+          <td>joint fit consistent with Planck &Lambda;CDM within quoted errors</td>
+          <td class="src">Alam et al. 2021 (eBOSS DR16), <em>Phys. Rev. D</em> 103, 083533</td></tr>
+      <tr><td>DESI DR1 BAO (2024): \(r_d h\) and per-tracer \(D_M/r_d\), \(D_H/r_d\)</td>
+          <td>\(r_d h \approx 101.8\) Mpc; consistent with Planck &Lambda;CDM at the &sim;1&ndash;2&sigma; level per tracer</td>
+          <td class="src">DESI Collaboration 2024, arXiv:2404.03002 (DR1 BAO cosmology paper)</td></tr>
+      <tr><td>\(n_s\) (scalar spectral index, context)</td><td>0.9649 &plusmn; 0.0042</td>
+          <td class="src">Planck 2018, as above</td></tr>
+    </table>
+
+    <h2>4. Calculation Summary</h2>
+    <p><strong>Step 1 — sound horizon at drag epoch, model value.</strong> The comoving sound horizon at the baryon
+    drag epoch is</p>
+    \[ r_d = \int_{z_d}^{\infty} \frac{c_s(z)}{H(z)}\,dz, \qquad c_s(z) = \frac{c}{\sqrt{3\left(1+\frac{3\rho_b}{4\rho_\gamma}\right)}} \]
+    <p>evaluated with standard &Lambda;CDM background parameters (\(\Omega_b h^2\), \(\Omega_c h^2\), \(T_{CMB}\),
+    \(N_{eff}=3.044\)). This framework does not modify \(H(z)\), \(\rho_b\), \(\rho_\gamma\), or \(N_{eff}\) prior to
+    recombination for this test, so the model value of \(r_d\) is the standard Planck 2018 value,
+    \(r_{drag}=147.09\pm0.26\) Mpc. There is no framework-specific alternative computation being checked against
+    this — per the Minimum-Calculations guardrail (item 3 in the README), this test's rate/threshold check is:
+    is the sound-crossing time before baryon drag \((z_d\approx1060)\) short enough, relative to the Hubble time at
+    that epoch, for the oscillation to complete and freeze in a well-defined comoving scale? Standard cosmology
+    answers yes (the plasma is tightly coupled by Compton scattering down to \(z_d\), giving a well-defined,
+    calculable \(r_d\)); this framework inherits that answer without modification.</p>
+    <p><strong>Step 2 — compare with BAO measurements across redshift.</strong> Galaxy-survey BAO measurements
+    (BOSS DR12, eBOSS DR16, DESI DR1) report the ratio of transverse/radial comoving distances to \(r_d\)
+    (\(D_M/r_d\), \(D_H/r_d\), or the isotropic \(D_V/r_d\)) at several effective redshifts between \(z=0.15\) and
+    \(z=2.33\). When these ratios are combined with the Planck-inferred \(r_d=147.09\) Mpc, the implied absolute
+    distances \(D_M(z)\), \(D_H(z)\) match the distances predicted by the Planck-calibrated flat-&Lambda;CDM
+    expansion history to within the quoted 1&ndash;2% measurement errors, across the full redshift range surveyed.
+    This is exactly the "BAO distances and sound horizon are mutually consistent with CMB/BBN constraints" pass
+    criterion from the test suite.</p>
+    <p><strong>Step 3 — check consistency with CMB-derived sound horizon.</strong> Because this framework does not
+    invoke early-universe physics that changes \(r_d\) (no modified expansion rate before recombination, no extra
+    relativistic species beyond the standard \(N_{eff}=3.044\), no altered baryon density) for this test, Step 4 of
+    the procedure ("if early physics changes \(r_d\), propagate effects into CMB peaks and BBN") does not apply —
+    there is nothing to propagate. The comparison is therefore a direct inheritance of the standard &Lambda;CDM
+    CMB&ndash;BAO consistency result, which is a well-established, actively monitored result in the cosmology
+    literature (DESI 2024; eBOSS 2021).</p>
+    <p><strong>Step 4 — honesty on the residual tension.</strong> A small, well-documented tension exists between
+    early-time (CMB-calibrated) and late-time (local distance-ladder / some BAO combinations) determinations of
+    quantities entangled with \(H_0\) and \(r_d\) — this is the broader "Hubble tension" family of results. DESI's
+    2024 BAO analysis reports mild (\(\sim\)1&ndash;2\(\sigma\)) internal tensions in some individual tracer bins
+    and a preference for evolving dark energy (\(w_0w_a\)) at the \(\sim2\text{&ndash;}3\sigma\) level in some
+    combinations, which is a live, unresolved research question in standard cosmology &mdash; it is not something
+    this framework causes or can currently adjudicate, and it does not rise to the level of "the model fits BAO by
+    breaking CMB or early thermal history" (the stated failure criterion), because no version of this framework's
+    early physics is being altered to produce that fit.</p>
+
+    <h2>5. Granularity Interpretation</h2>
+    <p>What becomes distinguishable/recordable at this epoch, in the framework's interpretive language: the
+    sound horizon \(r_d\) is a single physical scale that gets <em>recorded twice</em>, in two different physical
+    media, at two very different epochs — once as an angular pattern in the CMB photon temperature/polarization
+    field at \(z\approx1089\), and once as a preferred clustering separation in the 3-D distribution of galaxies
+    from \(z\sim2.3\) down to \(z\sim0.1\). Under the master doctrine ("cosmic history is the history of increasing
+    recordable distinction"), the BAO signal is read as a late-time, degraded-but-still-legible fossil copy of an
+    early-time record — the same distinction (one comoving length) surviving through radically different physical
+    substrates (relativistic photon-baryon plasma &rarr; nonrelativistic collapsed large-scale structure). The test
+    checks the internal consistency of treating both as records of the <em>same</em> underlying distinction rather
+    than two independent, coincidentally similar numbers. Standard cosmology already treats it this way; this
+    framework inherits, and does not modify, that treatment for this test.</p>
+
+    <h2>6. Gate Routing</h2>
+    <p><strong>Acoustic fossil record gate.</strong> Ledger entry:</p>
+    <pre>Acoustic fossil record gate -> CLOSED (shared-with-LambdaCDM)
+  -> supporting calculation: Planck 2018 r_drag = 147.09 +/- 0.26 Mpc vs.
+     BOSS DR12 / eBOSS DR16 / DESI DR1 BAO distance ratios, consistent
+     within 1-2% across z = 0.15-2.33
+  -> open gap: none framework-specific; standard-cosmology H0/w0wa
+     tension noted but not resolved or introduced by this framework</pre>
+    <p>This closure does not prove any part of the full theory. It only establishes that the acoustic-record
+    consistency constraint does not currently block the framework, because the framework does not touch the
+    physics this constraint depends on.</p>
+
+    <h2>7. Failure Mode</h2>
+    <p>Not applicable in the "the test failed to close" sense — the test closed. Flagged honestly rather than a
+    failure: (a) this is a <strong>shared</strong> closure, not a framework-specific derivation — no number here
+    was produced natively by the framework's geometry or calibration pipeline; standard &Lambda;CDM background
+    cosmology was used unmodified. (b) The residual \(\sim\)1&ndash;2\(\sigma\) tensions reported by DESI (2024)
+    in some tracer combinations are real and unresolved in the field at large; they are noted as a secondary
+    caveat per the Allowed Gate Outcomes, not swept under the verdict.</p>
+
+    <h2>8. Next Action</h2>
+    <p><strong>Data lookup / monitoring, not derivation.</strong> This test does not currently require this
+    framework to perform new calculation, because it does not modify the relevant early-universe physics. The
+    open action item is to monitor the standard-cosmology literature (DESI DR2/DR3 releases, upcoming Euclid and
+    Rubin/LSST BAO measurements) for whether the mild DESI-2024 tensions harden into a genuine early-vs-late-time
+    sound-horizon discrepancy. If a future release of this framework proposes a mechanism that changes early-universe
+    expansion history (e.g., to address \(H_0\) tension), this test would need to be re-run as
+    <strong>FRAMEWORK-SPECIFIC</strong>, with the modified \(r_d\) propagated into both CMB and BAO predictions per
+    Step 4 of the procedure, and checked against BBN as well.</p>
+
+    <div class="callout">
+      <h4>Why this is SHARED-WITH-&Lambda;CDM, not FRAMEWORK-SPECIFIC</h4>
+      <p>Every number used in this test's calculation — \(r_{drag}\), \(\Omega_b h^2\), \(T_{CMB}\), the BAO distance
+      ratios — is a standard measured or standard-model-computed cosmological quantity, sourced from Planck,
+      BOSS/eBOSS, and DESI collaboration papers. This framework contributes an interpretive frame (BAO as a
+      recordable-distinction fossil) but no new mechanism, no new free parameter, and no number this framework's
+      own geometry or calibration produced natively. Per the site-wide honesty rule: a qualitative match to the
+      granularity doctrine motivates the route, it does not constitute proof, and it is not credited as a
+      framework-specific prediction.</p>
+    </div>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">Emergent Separability</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · <b>PROMOTIONS:0</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>
