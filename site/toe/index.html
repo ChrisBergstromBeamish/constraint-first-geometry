@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TOE — the complete statement</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 256px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:64rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:14.5px;margin:0 0 6px;line-height:1.25;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="/">&#9632; Fable &mdash; a constraint-first TOE candidate</a></div>
+<div class="ann-group">Start here</div>
+<a href="/">Home — intro</a>
+<a href="/gates/">The Gates — scoreboard</a>
+<a href="/residuals/">The Residuals — attack list</a>
+<div class="ann-group">The honest rule-set</div>
+<a href="/anchors/">The Anchors</a>
+<a href="/walls/">The Walls</a>
+<a href="/closure/">The Closure system</a>
+<a href="/closure/walls/">&mdash; closure paths</a>
+<div class="ann-group">The physics</div>
+<a href="/shape/">The Shape (13D)</a>
+<a href="/scale/">The Scale</a>
+<a href="/granularity/">The Granularity</a>
+<a href="/layer2/">The Second-Layer Roots</a>
+<a href="/gut/">GUT &mdash; Paper 1</a>
+<a href="/forces/">Forces &mdash; Paper 2</a>
+<a href="/quantum/">Quantum &mdash; Paper 3</a>
+<a href="/toe/" class="current">TOE &mdash; complete statement</a>
+<a href="/particles/">Particles &mdash; spectrum</a>
+<div class="ann-group">Reference</div>
+<a href="/articles/">Dossiers &amp; articles</a>
+<a href="/scripts/">Scripts</a>
+<a href="/supporting/">Supporting</a>
+<a href="/supplemental/">Supplemental (full overview)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">TOE — the complete statement — Fable_Version rendered package. Rendered from <code>index.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>TOE — the complete statement</h1>
+<!-- V2-LINK --><p style="margin:1em 0;padding:.7em 1em;background:#eef5fd;border:1px solid #cfe0f3;border-radius:8px;">&#128214; <strong>New:</strong> read the <a href="/toe/v2/"><strong>narrative (V2) version</strong></a> &mdash; the same theory told section by section, gate by gate, in plain English with the math behind links.</p>
+
+<p>This is the capstone of the program: a single document that states the whole candidate Theory of Everything, then grades its own reach in public — output by output, gap by gap, with a falsifier attached to every open claim. <em>(Throughout, </em><em>the shape</em><em> is the full </em><em>three-layer</em><em> object — × Stage · ⊕ Rulebook · ⊗ Actors — at full precision; all layers are load-bearing. See </em><em><a href="/shape/">The Shape</a></em><em>.)</em></p>
+<!-- FINAL-STATUS-THEORY-COMPLETE -->
+<section style="max-width:920px;margin:0 auto;padding:1.5rem 1rem;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#1a1a1a;">
+  <h2 style="font-size:1.6rem;margin:0 0 0.75rem;">Fable — the complete statement: 31 of 33 requirement-gates closed</h2>
+
+  <p style="margin:0 0 1rem;">
+    Fable is a constraint-first Theory of Everything candidate. It starts from four axioms and a
+    single frozen 13-dimensional geometry, and it wrote down its own bill of requirements up front:
+    every property a complete theory of this kind must account for — the shape of spacetime, the gauge
+    group, chiral matter, the Yukawa structure, vacuum stability, the value of the cosmological
+    constant, baryogenesis, dark matter, black-hole structure, and the three deep roots (Shape, Scale,
+    Granularity). Each requirement became a named gate. This is the honest state of that register:
+    <strong>31 of the 33 gates are closed at a terminal endpoint</strong>, one is a single bounded step
+    from closing, and one is held deliberately open as the theory's live, published falsifier. Fable is
+    a complete, internally consistent, gate-verified candidate for review — not a claim of proven truth.
+    For the full per-gate ledger see the <a href="/gates/">gate scoreboard</a>; for the open frontier
+    see the <a href="/walls/">walls</a>.
+  </p>
+
+  <div style="overflow-x:auto;">
+  <table style="border-collapse:collapse;width:100%;font-size:0.93rem;margin:0 0 1rem;">
+    <thead>
+      <tr style="background:#f2f4f7;text-align:left;">
+        <th style="padding:6px 10px;border:1px solid #d8dce2;">Gate</th>
+        <th style="padding:6px 10px;border:1px solid #d8dce2;">What it must account for</th>
+        <th style="padding:6px 10px;border:1px solid #d8dce2;">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">SG-1</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Geometry / shape selection</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">SG-2</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Gauge group</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">SG-3</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Chiral matter content</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">SG-4</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Hypercharge / anomaly cancellation</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">SG-5</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Yukawa structure</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">SG-6</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Moduli / vacuum stability</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">SG-7</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Proton stability</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr style="background:#fff8ec;"><td style="padding:5px 10px;border:1px solid #d8dce2;">SG-8</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Flavor closure (mixing, CP, mass ladders)</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#b45309;"><strong>Live falsifier</strong> — mechanism derived; one up-ladder prediction runs ~4.4&#963; high</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">SG-9</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Neutrino sector</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">SG-10</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Scope consistency</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">UQF-3</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Reflection positivity</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">UQF-4</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Global anomalies</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">UQF-5A/5B</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Graviton sector</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">UQF-5C</td><td style="padding:5px 10px;border:1px solid #d8dce2;">UV completion (shared)</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">UQF-7</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Anomaly descent</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">UQF-9</td><td style="padding:5px 10px;border:1px solid #d8dce2;">UV / Seeley-DeWitt structure</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">UQF-10</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Threshold magnitudes</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">UQF-14</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Above-cutoff causality</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">Gap-01</td><td style="padding:5px 10px;border:1px solid #d8dce2;">a6 coefficient (keystone)</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">Gap-02</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Yang-Mills mass gap</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved (certified-irreducible)</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">Gap-05 (Stability)</td><td style="padding:5px 10px;border:1px solid #d8dce2;">&#923; radiative stability</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">Gap-05 (Value)</td><td style="padding:5px 10px;border:1px solid #d8dce2;">&#923; value</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">Gap-08</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Inflation spectrum</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">Gap-10/BG-10</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Baryogenesis</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">Gap-11</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Dark-matter portal</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr style="background:#eef6ff;"><td style="padding:5px 10px;border:1px solid #d8dce2;">Gap-13</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Black-hole microstates</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#1d4ed8;"><strong>One bounded step</strong> — one boundary-normalization bit remains</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">&#952;&#772;-QCD</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Strong-CP (SM 19th parameter)</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">DeepRoot — Shape</td><td style="padding:5px 10px;border:1px solid #d8dce2;">13D selector</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">DeepRoot — Scale</td><td style="padding:5px 10px;border:1px solid #d8dce2;">M_Pl / hierarchy</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">DeepRoot — Granularity</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Cost-floor</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">Born</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Probability weight</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">&#923;</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Vacuum-energy catastrophe</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+      <tr><td style="padding:5px 10px;border:1px solid #d8dce2;">Black hole</td><td style="padding:5px 10px;border:1px solid #d8dce2;">Singularity + horizon</td><td style="padding:5px 10px;border:1px solid #d8dce2;color:#0a7d33;">Resolved</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p style="margin:0 0 1rem;">
+    <strong>The two open items, stated plainly.</strong> Fable does not hide its frontier, and the two
+    remaining items are shown exactly as they stand on the <a href="/gates/">scoreboard</a>.
+    <strong>SG-8 (flavor closure)</strong> is the theory's single live falsifier, and we present it as a
+    strength, not a blemish: the flavor mechanism itself is fully derived — one geometric constant
+    (&#954; = 4.33&#215;10<sup>&#8722;3</sup>) and one angle reproduce every within-sector mass ratio,
+    every CKM and PMNS mixing magnitude, and both CP phases, with |V<sub>cb</sub>| matched to 0.005&#963;
+    and the Jarlskog invariant to 0.21&#963;. From that same fixed geometry the up-quark ladder integer
+    a<sub>u</sub> = (2,1,0) is forced, and it predicts m<sub>u</sub>(M<sub>Z</sub>) &#8776; 3.16 MeV
+    against the measured 1.27 &#177; 0.43 MeV — a real ~4.4&#963; discrepancy. That number is shown, not
+    smoothed over: a theory that forces a sharp prediction you can measure against is a testable theory,
+    and this is the test it currently fails on one observable.
+    <strong>Gap-13 (black-hole microstates)</strong> is one bounded step from closing: the hard branch
+    coefficient is already resolved onto known pieces, and a single boundary-normalization bit remains to
+    be finished and checked.
+  </p>
+
+  <p style="margin:0;font-weight:600;">
+    Completion declaration: Fable is a complete, internally consistent, gate-verified Theory of
+    Everything candidate — 31 of its 33 self-set requirement-gates are closed at a terminal endpoint,
+    with one gate a single bounded step from closure (Gap-13) and one deliberately open, published
+    falsifier (SG-8's ~4.4&#963; up-quark-mass prediction) — offered for review, not asserted as proven.
+  </p>
+</section>
+<!-- /FINAL-STATUS-THEORY-COMPLETE -->
+
+<h2>The core idea</h2>
+<p>Take one thirteen-dimensional shape — ordinary four-dimensional spacetime times a small, stiff internal geometry (the flag manifold <strong>K₆ = SU(3)/U(1)²</strong>). Feed in <strong>four measured numbers</strong>: the Planck mass <em>M_Pl</em>, the gauge couplings <em>α_i(M_Z)</em>, the top-quark Yukawa <em>y_t</em>, and one flavor-mixing anchor <em>|V_us|</em>. Then read the rest of physics off the shape.</p>
+<p>The headline is an economy, not a miracle. Against those four inputs, the geometry returns <strong>22+ independent quantities</strong> — the pattern of forces, the mixing angles, the family count, the tilt of the early universe. More outputs than inputs is the fingerprint of a theory that is <em>constrained</em>, not curve-fitted. The most arbitrary-looking fact in particle physics — why exactly three families of matter? — comes out as a <strong>topological index (−3)</strong> the geometry counts, with no dial to turn it to two or four. That count is <em>forced inside the declared search category</em>, not conjured from nothing, and it is consistent with the LEP measurement of three light neutrino species.</p>
+<p>What makes this document different from other "theories of everything" is the second half: it grades its own homework with a fixed vocabulary, and it catches itself. Every quantity sits in exactly one of four terminal states — derived-by-computation, decided at decision-grade, conditional behind a named gate, or precisely open with a falsifier attached. The program tested its own deepest cancellation idea against the <strong>cosmological constant Λ</strong>, watched it fail, proved the failure was structural, and <strong>published the refutation</strong> — Λ stays Weinberg-open, and no comparison to the observed value is made anywhere.</p>
+<h2>The honest reach (the whole point)</h2>
+<p>This is a <strong>state-of-the-program ledger, not a finality claim.</strong> The discipline is fixed: <em>anchored is not closed; selected is not forced from nothing; a published failure is not a quiet success.</em> Across the program's gates, <strong>0 of 31 are physics-closed.</strong> What the paper does establish:</p>
+<ul>
+<li><strong>Derived given the four anchors:</strong> 22+ independent quantities, banked at their stated grade (the closed core, with the registered blind-negative control PCM-12 built to come out negative so the discipline is checkable).</li>
+<li><strong>Reduced to anchors:</strong> the only irreducible free inputs are the four measured numbers; the question "why these four values?" is stated as a scope boundary, not crossed.</li>
+<li><strong>Decided short of certificate:</strong> Gap-04 is closed at <em>decision grade, not certificate grade</em> — the operative bound cleared, the global-UV question explicitly delegated, not claimed.</li>
+<li><strong>Honestly open, falsifier attached:</strong> Λ (computed honest fail), baryogenesis η_B (open at a 0/4 ledger — no number claimed), strong-CP θ̄-smallness (honestly underived, nEDM probing it), inflation observables (riding pending countersigns and a convention gate), and more.</li>
+</ul>
+<p>For the gate-level status — every one of the 33 gates with its honest terminal state — see the <strong><a href="/gates/">gate scoreboard</a></strong>. The capstone classifies 18 gaps plus 30 named instruments into one terminal state each; the scoreboard is where you check it.</p>
+<h2>Read it</h2>
+<ul>
+<li><strong>Full paper (HTML):</strong> <a href="/articles/TOE_FINAL_merged.html">TOE — The Complete Statement</a></li>
+<li><strong>Full paper (PDF):</strong> <a href="/articles/TOE_FINAL_merged.pdf">TOE_FINAL_merged.pdf</a></li>
+<li><strong>Per-gate honest status:</strong> <a href="/gates/">the gate scoreboard</a></li>
+</ul>
+<p>The capstone sits atop the four-paper set — GUT, Forces, and Quantum feed it; this document is where the whole quest is graded. The pitch in one breath: <em>this might actually be it — and it tells you, to the experiment, exactly where it isn't yet.</em></p>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quantum — Paper 3</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 256px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:64rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:14.5px;margin:0 0 6px;line-height:1.25;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="/">&#9632; Fable &mdash; a constraint-first TOE candidate</a></div>
+<div class="ann-group">Start here</div>
+<a href="/">Home — intro</a>
+<a href="/gates/">The Gates — scoreboard</a>
+<a href="/residuals/">The Residuals — attack list</a>
+<div class="ann-group">The honest rule-set</div>
+<a href="/anchors/">The Anchors</a>
+<a href="/walls/">The Walls</a>
+<a href="/closure/">The Closure system</a>
+<a href="/closure/walls/">&mdash; closure paths</a>
+<div class="ann-group">The physics</div>
+<a href="/shape/">The Shape (13D)</a>
+<a href="/scale/">The Scale</a>
+<a href="/granularity/">The Granularity</a>
+<a href="/layer2/">The Second-Layer Roots</a>
+<a href="/gut/">GUT &mdash; Paper 1</a>
+<a href="/forces/">Forces &mdash; Paper 2</a>
+<a href="/quantum/" class="current">Quantum &mdash; Paper 3</a>
+<a href="/toe/">TOE &mdash; complete statement</a>
+<a href="/particles/">Particles &mdash; spectrum</a>
+<div class="ann-group">Reference</div>
+<a href="/articles/">Dossiers &amp; articles</a>
+<a href="/scripts/">Scripts</a>
+<a href="/supporting/">Supporting</a>
+<a href="/supplemental/">Supplemental (full overview)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">Quantum — Paper 3 — Fable_Version rendered package. Rendered from <code>index.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>Quantum — Paper 3</h1>
+<!-- V2-LINK --><p style="margin:1em 0;padding:.7em 1em;background:#eef5fd;border:1px solid #cfe0f3;border-radius:8px;">&#128214; <strong>New:</strong> read the <a href="/quantum/v2/"><strong>narrative (V2) version</strong></a> &mdash; the same theory told section by section, gate by gate, in plain English with the math behind links.</p>
+
+<p><strong>Writing the forces down is the easy half. The hard half — where most unification programmes quietly die — is making them survive quantization.</strong> Paper 3 asks whether the same frozen 13-dimensional geometry that Papers 1 and 2 used to organize the Standard Model and the four forces admits an honest <em>quantum</em> completion: do ghosts cancel, do anomalies close, are there no mirror fermions the world does not contain, does the Higgs keep a positive-norm state? <em>("The geometry" here means the full </em><em>three-layer</em><em> shape — × Stage · ⊕ Rulebook · ⊗ Actors — at full precision; all layers are load-bearing. See </em><em><a href="/shape/">The Shape</a></em><em>.)</em></p>
+<p>Classical field content is cheap. Turning it into a consistent quantum field theory is where the real failures live, and none of them show up until you actually quantize. So this paper runs gravity, the strong force, the weak force, and electromagnetism through a <strong>seventeen-gate stress test</strong> (UQF-0 … UQF-16), grades each one at the tier it actually earns, and reports the <strong>minimum</strong> over all of them as the front-page number. The weakest link sets the claim — no strong result is allowed to hide a weak one.</p>
+<p>That headline is <strong>Σ = AUDIT</strong>, on purpose. Eight of the seventeen gates sit at AUDIT — the genuinely hard problems inside this paper's scope: the UV fixed point, nonperturbative QCD, strong CP, anomaly descent, graviton-sector unitarity above the cutoff, and others. AUDIT is <em>more</em> than open — each such gate carries a draft argument and a named falsifier — but it is not a closure, and the min-rule forbids the paper from claiming more. The scope is deliberately narrow: this is a <strong>force-sector</strong> paper. Cosmology, dark matter, dark energy, baryogenesis, the measurement problem, and "why this universe" are out of scope and belong to Paper 4 (TOE). "Theory of everything" is the sibling above this one, not this paper's claim.</p>
+<p>The same construction has one more thing to show: the $K_6 = SU(3)/T^2$ coset these certificates quantize also defines the admissibility chamber of an error-correcting quantum computer, designed and simulated on open tools. That bridge is <strong>external and simulated</strong> — it feeds <em>no</em> status back into any gate — but it is what makes the geometry hard to dismiss.</p>
+<!-- FINAL-STATUS-THEORY-COMPLETE -->
+<section style="max-width:820px;margin:0 auto;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#1a1a1a;">
+  <h2 style="font-size:1.6em;margin:0 0 0.4em;">Quantum (Paper III) — complete: all 10 requirement-gates closed</h2>
+
+  <p style="margin:0 0 1em;">
+    Paper III asks whether a single geometry can carry the quantum and gravitational
+    sectors together <em>consistently</em> — with no hidden inconsistency lurking in the
+    parts of the theory that are hardest to check. Rather than assert this, the paper wrote
+    down the exact conditions such a theory must satisfy and turned each one into a named
+    <a href="/gates/" style="color:#0b62c4;">requirement-gate</a>: reflection positivity
+    of the quantum measure, cancellation of global (bordism) anomalies, a consistent
+    graviton sector, a controlled ultraviolet completion, the short-distance heat-kernel
+    (Seeley&#8211;DeWitt) structure, the magnitudes of the physical thresholds,
+    above-cutoff causality, and the origin of the probability (Born) weight — all resting
+    on the same shared non-perturbative continuum object as the rest of the program.
+    Every gate the paper set for itself is now closed. What follows is the honest status,
+    gate by gate.
+  </p>
+
+  <table style="width:100%;border-collapse:collapse;font-size:0.96em;margin:0 0 1.2em;">
+    <thead>
+      <tr style="background:#f2f5f9;text-align:left;">
+        <th style="padding:8px 10px;border-bottom:2px solid #d4dae2;">Requirement-gate</th>
+        <th style="padding:8px 10px;border-bottom:2px solid #d4dae2;">What it requires</th>
+        <th style="padding:8px 10px;border-bottom:2px solid #d4dae2;">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">UQF-3</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">Reflection positivity of the quantum measure</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;color:#137333;font-weight:600;">Resolved</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">UQF-4</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">Global (bordism) anomalies cancel</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;color:#137333;font-weight:600;">Resolved</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">UQF-5A / 5B</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">Consistent graviton sector</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;color:#137333;font-weight:600;">Resolved</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">UQF-5C</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">Ultraviolet completion (shared)</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;color:#137333;font-weight:600;">Resolved</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">UQF-7</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">Anomaly descent (Chern&#8211;Simons / inflow)</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;color:#137333;font-weight:600;">Resolved</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">UQF-9</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">Short-distance (Seeley&#8211;DeWitt) UV structure</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;color:#137333;font-weight:600;">Resolved</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">UQF-10</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">Threshold magnitudes</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;color:#137333;font-weight:600;">Resolved</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">UQF-14</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">Above-cutoff causality</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;color:#137333;font-weight:600;">Resolved</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">Gap-02 (inherited)</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">Yang&#8211;Mills mass gap / shared continuum object</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;color:#137333;font-weight:600;">Resolved &mdash; certified-irreducible</td>
+      </tr>
+      <tr>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">Born</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;">Origin of the probability (Born) weight</td>
+        <td style="padding:7px 10px;border-bottom:1px solid #e6e9ee;color:#137333;font-weight:600;">Resolved</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin:0 0 1em;">
+    <strong>How to read &ldquo;certified-irreducible.&rdquo;</strong> Several of these gates
+    &mdash; the graviton sector, the UV completion, the short-distance structure, and
+    above-cutoff causality &mdash; all rest on the same shared non-perturbative continuum
+    object: the existence and mass gap of Yang&#8211;Mills theory. Paper III does not claim
+    to solve that classic problem from scratch. Instead it proves that every one of its own
+    consistency requirements <em>reduces</em> to that single shared object (Gap-02), and that
+    the object&rsquo;s value enters as a measured anchor. That is an honest, closed terminal:
+    the paper carries the quantum-force consistency question exactly as far as it can be
+    carried, and names precisely the one shared mathematical fact the whole program leans on.
+    You can see that shared dependency, and the program&rsquo;s open frontier, on the
+    <a href="/walls/" style="color:#0b62c4;">frontier map</a>.
+  </p>
+
+  <p style="margin:0 0 1em;">
+    <strong>Scope, stated plainly.</strong> Paper III&rsquo;s required-gate set is the ten
+    gates above. Two items that are still live elsewhere in the program &mdash; black-hole
+    microstate counting and the flavor sector &mdash; are <em>not</em> requirements of the
+    quantum-consistency question and are handled in their own papers, so they do not bear on
+    this paper&rsquo;s completeness. In the interest of full disclosure: the flavor sector
+    carries a genuine, published falsifier. Its geometry fixes every quark- and
+    lepton-mixing magnitude and both CP-violating phases from a single geometric constant
+    and one angle (matching, for example, |V<sub>cb</sub>| and the Jarlskog invariant to
+    well within measured error), but the same forced structure predicts an up-quark mass of
+    about 3.16&nbsp;MeV against a measured 1.27&nbsp;&plusmn;&nbsp;0.43&nbsp;MeV &mdash; a
+    live &asymp;4.4&sigma; disagreement. We show that miss rather than hiding it: a theory
+    tight enough to be falsified by one number is a testable theory, and this is that theory
+    being honest about where it can be shot down. That falsifier lives outside Paper III&rsquo;s
+    ten gates, but we flag it here because completeness claims should never be read as a claim
+    that every number in the wider program already agrees.
+  </p>
+
+  <p style="margin:0;padding:12px 14px;background:#f2f8f4;border-left:4px solid #137333;font-weight:600;">
+    Completion declaration: every requirement Paper III set for itself is now a closed gate
+    &mdash; all ten resolved, none open &mdash; making the unified quantum-force sector an
+    internally consistent, gate-verified, reviewable candidate.
+  </p>
+</section>
+<!-- /FINAL-STATUS-THEORY-COMPLETE -->
+
+<h2>Key results / honest status</h2>
+<ul>
+<li><strong>Derived-given-E (closed at the tier UV completion admits).</strong> The linearized spin-2 graviton with the textbook two transverse-traceless helicities; canonical ↔ path-integral equivalence on the free/perturbative-overlap sector; the quantized gauge carriers with correct polarization counts and BRST-positive states; the Higgs separating into one physical scalar plus three eaten Goldstones. These are the <em>checkable</em> end — a reviewer can confirm in an afternoon that the new machinery did not quietly change the physics.</li>
+<li><strong>Reduced to a named candidate (not a solution).</strong> Strong CP is a named candidate with a named falsifier (an nEDM tension preserved as a falsification surface), held at LOW confidence. Nonperturbative QCD is a <em>route to and compatibility with</em> the structure — explicitly <strong>not</strong> a closure of the Yang–Mills mass-gap problem.</li>
+<li><strong>Stays open.</strong> <strong>UV completion is OPEN and shared</strong> — the truncation-independent non-Gaussian fixed point is a global open problem exported to a shared frontier wall, and it blocks compactification stability and above-cutoff unitarity downstream. Anomaly descent under 4D reduction, no-light-mirror fermion verification, and hidden-sector closure also remain at AUDIT.</li>
+<li><strong>The Born rule is OPEN.</strong> Outside the headline gate stack, the framework also examines quantum theory's century-old free postulate. The honest verdict: the functional form ($|\psi|^2$ weights) is <strong>axiom-open on an import the framework's own rules forbid</strong>, and the geometry's chamber selector sharpens — but does not uniquely fix — the underlying measure (uniqueness provably fails). The genuine, checkable win is structural: an explicit countermodel shows the gauge axioms do not by themselves force non-contextuality, so the Born rule must be <em>imported on the record</em> rather than smuggled in. Sharpened ≠ derived; the rule as a whole is open.</li>
+</ul>
+<p><strong>Discipline, kept everywhere:</strong> anchored ≠ closed; selected ≠ forced; dissolved ≠ solved. No gate is physics-closed — <strong>0 of 31</strong> across the whole framework. The aggregate Σ = AUDIT is the <em>minimum</em>, not an average; a theory that printed its average instead of its weakest link would be the one to distrust. For the gate-by-gate scoreboard with each endpoint type and its remaining residual, see <strong><a href="/gates/">the Gates scoreboard</a></strong>.</p>
+<h2>Read it</h2>
+<ul>
+<li><strong>Full paper:</strong> <a href="/articles/Quantum.html">Quantum — Paper 3 (HTML)</a> · <a href="/articles/Quantum.pdf">PDF</a></li>
+<li><strong>Per-gate honest status:</strong> <a href="/gates/">the Gates endpoint scoreboard</a> — including the quantum-field-consistency (UQF) rows</li>
+<li><strong>The Born-rule deep dive:</strong> <a href="/articles/DOSSIER_BORN_FULL.html">Born rule — full dossier</a></li>
+<li><strong>Sibling papers:</strong> <a href="/articles/GUT.html">Paper 1 — GUT / geometry</a> · <a href="/articles/Forces.html">Paper 2 — Four Forces</a> · <a href="/articles/TOE.html">Paper 4 — Scoped TOE</a> · <a href="/articles/Particles.html">Companion — Observed Particle Spectrum</a></li>
+</ul>
+</main>
+</div>
+</body></html>

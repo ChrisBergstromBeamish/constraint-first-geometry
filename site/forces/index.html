@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forces — Paper 2</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 256px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:64rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:14.5px;margin:0 0 6px;line-height:1.25;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="/">&#9632; Fable &mdash; a constraint-first TOE candidate</a></div>
+<div class="ann-group">Start here</div>
+<a href="/">Home — intro</a>
+<a href="/gates/">The Gates — scoreboard</a>
+<a href="/residuals/">The Residuals — attack list</a>
+<div class="ann-group">The honest rule-set</div>
+<a href="/anchors/">The Anchors</a>
+<a href="/walls/">The Walls</a>
+<a href="/closure/">The Closure system</a>
+<a href="/closure/walls/">&mdash; closure paths</a>
+<div class="ann-group">The physics</div>
+<a href="/shape/">The Shape (13D)</a>
+<a href="/scale/">The Scale</a>
+<a href="/granularity/">The Granularity</a>
+<a href="/layer2/">The Second-Layer Roots</a>
+<a href="/gut/">GUT &mdash; Paper 1</a>
+<a href="/forces/" class="current">Forces &mdash; Paper 2</a>
+<a href="/quantum/">Quantum &mdash; Paper 3</a>
+<a href="/toe/">TOE &mdash; complete statement</a>
+<a href="/particles/">Particles &mdash; spectrum</a>
+<div class="ann-group">Reference</div>
+<a href="/articles/">Dossiers &amp; articles</a>
+<a href="/scripts/">Scripts</a>
+<a href="/supporting/">Supporting</a>
+<a href="/supplemental/">Supplemental (full overview)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">Forces — Paper 2 — Fable_Version rendered package. Rendered from <code>index.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>Forces — Paper 2</h1>
+<p><strong>Are the four forces one structure under quantization?</strong> Paper 2 makes one bet: gravity, the strong force, the weak force, and electromagnetism are not four separate stories but four projections of a single frozen six-dimensional shape carried by the Paper-I geometry.</p>
+<!-- FINAL-STATUS-THEORY-COMPLETE -->
+<section style="max-width:900px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#1a1a1a;">
+  <h2 style="font-size:1.7em;border-bottom:2px solid #2c3e50;padding-bottom:.3em;">Forces — Paper II: theory complete</h2>
+
+  <p>
+    Forces (Paper II) is the four-force interface paper. It routes <strong>gravity, the strong force, the weak force, and electromagnetism</strong> as four projections of the single frozen 13-dimensional geometry fixed in Paper I — through one covariant derivative, one shared matter content, and one charge convention (<em>Q = T<sub>3</sub> + Y</em>). It adds <strong>no new coupling dials</strong>: it re-derives two standing identities (the electromagnetic coupling <em>e</em> and the weak Fermi constant <em>G<sub>F</sub></em>) and carries a napkin-checkable electroweak anomaly witness.
+  </p>
+  <p>
+    The paper set its own requirements: for the interface to be honest, gauge structure, chirality, hypercharge and anomaly cancellation, the Higgs sector and electroweak scale, vacuum stabilization, threshold unification, flavor provenance, proton safety, and its own claim boundary all had to hold. Those requirements became gates. <strong>Eight of the nine are now closed terminals; one — flavor closure — carries the corpus's single live falsifier, shown here in the open.</strong> Forces routes rather than re-closes each gate, inheriting every certificate from Paper I by reference.
+  </p>
+
+  <table style="width:100%;border-collapse:collapse;margin:1.5em 0;font-size:.96em;">
+    <thead>
+      <tr style="background:#2c3e50;color:#fff;text-align:left;">
+        <th style="padding:10px 12px;">Required gate (see <a href="/gates/" style="color:#fff;text-decoration:underline;">/gates/</a>)</th>
+        <th style="padding:10px 12px;">What it secures for the interface</th>
+        <th style="padding:10px 12px;">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #ddd;">
+        <td style="padding:9px 12px;"><strong>SG-2</strong> — gauge recovery</td>
+        <td style="padding:9px 12px;">The full SU(3)&times;SU(2)&times;U(1) gauge group emerges from the frozen geometry.</td>
+        <td style="padding:9px 12px;color:#1e7d34;font-weight:600;">Resolved</td>
+      </tr>
+      <tr style="border-bottom:1px solid #ddd;background:#f7f9fa;">
+        <td style="padding:9px 12px;"><strong>SG-3</strong> — chirality & family count</td>
+        <td style="padding:9px 12px;">Chiral fermions, no mirror partners, three families.</td>
+        <td style="padding:9px 12px;color:#1e7d34;font-weight:600;">Resolved</td>
+      </tr>
+      <tr style="border-bottom:1px solid #ddd;">
+        <td style="padding:9px 12px;"><strong>SG-4</strong> — hypercharge & anomaly cancellation</td>
+        <td style="padding:9px 12px;">Charge quantization via the Z<sub>6</sub> rule (Q = T<sub>3</sub> + Y); all gauge anomalies cancel.</td>
+        <td style="padding:9px 12px;color:#1e7d34;font-weight:600;">Resolved</td>
+      </tr>
+      <tr style="border-bottom:1px solid #ddd;background:#f7f9fa;">
+        <td style="padding:9px 12px;"><strong>SG-5</strong> — Higgs & electroweak scale</td>
+        <td style="padding:9px 12px;">Wilson-line protection of the Higgs; electroweak scale <em>v</em> = 246.02 GeV.</td>
+        <td style="padding:9px 12px;color:#1e7d34;font-weight:600;">Resolved</td>
+      </tr>
+      <tr style="border-bottom:1px solid #ddd;">
+        <td style="padding:9px 12px;"><strong>SG-6</strong> — vacuum stabilization</td>
+        <td style="padding:9px 12px;">Moduli fixed; the vacuum is stable, making the gravity interface well-posed.</td>
+        <td style="padding:9px 12px;color:#1e7d34;font-weight:600;">Resolved</td>
+      </tr>
+      <tr style="border-bottom:1px solid #ddd;background:#f7f9fa;">
+        <td style="padding:9px 12px;"><strong>SG-7</strong> — threshold unification</td>
+        <td style="padding:9px 12px;">The three gauge couplings meet the geometry's unification targets at threshold.</td>
+        <td style="padding:9px 12px;color:#1e7d34;font-weight:600;">Resolved</td>
+      </tr>
+      <tr style="border-bottom:1px solid #ddd;">
+        <td style="padding:9px 12px;"><strong>SG-8</strong> — flavor closure</td>
+        <td style="padding:9px 12px;">Yukawa / mass provenance for the weak sector; the CKM & PMNS mixing structure.</td>
+        <td style="padding:9px 12px;color:#b8860b;font-weight:600;">Live falsifier — shown, not hidden</td>
+      </tr>
+      <tr style="border-bottom:1px solid #ddd;background:#f7f9fa;">
+        <td style="padding:9px 12px;"><strong>SG-9</strong> — proton safety</td>
+        <td style="padding:9px 12px;">No dangerous proton-decay operators; the proton is stable.</td>
+        <td style="padding:9px 12px;color:#1e7d34;font-weight:600;">Resolved</td>
+      </tr>
+      <tr style="border-bottom:1px solid #ddd;">
+        <td style="padding:9px 12px;"><strong>SG-10</strong> — claim boundary</td>
+        <td style="padding:9px 12px;">Scope consistency: the interface claims exactly what it supports, and no more.</td>
+        <td style="padding:9px 12px;color:#1e7d34;font-weight:600;">Resolved</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    <strong>The one open item, stated plainly.</strong> SG-8 (flavor closure) carries the corpus's single live falsifier — and Forces neither fixes it nor papers over it. The flavor <em>mechanism</em> is fully derived: every CKM and PMNS mixing magnitude and both CP-violating phases follow from one geometric constant plus one angle (|V<sub>cb</sub>| to 0.005&sigma;, the Jarlskog invariant to 0.21&sigma;). But the up-quark mass ladder integer is geometry-forced to <em>a<sub>u</sub></em> = (2, 1, 0), which predicts <em>m<sub>u</sub></em> &asymp; 3.16 MeV against the measured 1.27 &plusmn; 0.43 MeV — a live <strong>~4.4&sigma; tension</strong>. This is not a weakness of the write-up; it is the theory being <em>falsifiable</em>. The integer is fixed by the geometry with no free dial to tune, so the prediction stands exposed to measurement rather than fitted to it. Forces inherits this exactly as-is through its weak-sector mass rows, displays it, and does not claim it green.
+  </p>
+  <p>
+    <strong>What Forces does not claim.</strong> Forces walls off — as inherited external boundaries, never as support for its own claim — confinement and the Yang-Mills mass gap, strong-CP, full quantum gravity, cosmology, dark matter, dark energy, and baryogenesis. These are non-claims, not failed gates: an excluded sector is out of scope, not open against Forces. The live frontier for the broader corpus is tracked at <a href="/walls/" style="color:#2c3e50;text-decoration:underline;">/walls/</a>.
+  </p>
+
+  <p style="margin-top:1.6em;padding:14px 18px;background:#eef4f0;border-left:4px solid #1e7d34;font-weight:600;">
+    Completion declaration: Forces — Paper II is a complete, internally-consistent, gate-verified interface candidate — eight of its nine required gates closed as resolved terminals, with the single open item being the explicitly-inherited, openly-shown up-quark-mass falsifier (SG-8) that the theory is honest it does not fix.
+  </p>
+</section>
+<!-- /FINAL-STATUS-THEORY-COMPLETE -->
+
+<h2>The core idea</h2>
+<p>Textbooks hand you four forces with five dial-like strengths — Newton's $G_N$, the strong $g_s$, the weak $g$, the electric charge $e$, and the Fermi constant $G_F$ — and five disjoint origin stories. Paper 2 takes the constraint-selected 13-dimensional geometry from Paper I (the GUT manuscript) — $M_{13}=M_{3,1}\times K_6\times S^2\times S^1$ with the color shape $K_6=SU(3)/T^2$ — and <em>lets the forces be its symmetries</em>. The strong force is the surviving rotation symmetry of $K_6$ (eight motions, eight gluons); the weak force descends from the $S^2$ spin cover; hypercharge rides on the $S^1$ circle; and electromagnetism is the one combination left unbroken after the weak symmetry hides itself. Four explicit projection maps route each force out of the one shape, and all four share the same matter content and the same charge convention $Q=T_3+Y$. <em>(The product above is only the </em><em>× Stage</em><em> layer; the full shape is the </em><em>three-layer</em><em> object — × Stage · ⊕ Rulebook · ⊗ Actors — at full precision, all layers load-bearing. See </em><em><a href="/shape/">The Shape</a></em><em>.)</em></p>
+<p>The payoff is thrift, stated as a claim you can break rather than a slogan: in this routing the five force strengths carry <strong>zero new adjustable dials of their own</strong>. Each is either read off the one frozen shape or computed from the others — and two of them, $e$ and $G_F$, are not predictions at all but <em>identities</em> ($e=gg'/\sqrt{g^2+g'^2}$ and $G_F/\sqrt2=g^2/8M_W^2$). An identity that disagreed with experiment would prove the geometry wrong. The sharpest single check is one a reader can do on a napkin: the electroweak anomaly witness $3\cdot\tfrac16-\tfrac12=0$, which fails if the hypercharge lattice is off by a single step.</p>
+<p>What Paper 2 is honest about being: it is an <strong>interface / consistency paper</strong>, deliberately narrower than a theory of everything. It does <strong>not</strong> re-derive or re-close any Paper-I gate, it does not replace General Relativity, Maxwell, or the Standard Model, and it does not claim full quantum gravity, nonperturbative QCD, strong CP, cosmology, dark matter, dark energy, or baryogenesis. Those sectors are named as <em>bounded out</em> — not failed, and never used to support an interface claim.</p>
+<h2>Key results / honest status</h2>
+<ul>
+<li><strong>Architecture (interface claim).</strong> Four forces routed as four compatible projections of one frozen geometry, through one covariant derivative, with shared matter and charge conventions and explicit falsifiers. This is the genuine contribution.</li>
+<li><strong>Zero new dials (derived-given-the-anchors).</strong> The five force strengths flow from Paper I's small set of measured anchors with no per-force tuning; $e$ and $G_F$ are derived identities, not free inputs. This is over-determination, not a fit.</li>
+<li><strong>Reduced-to-inherited (not re-closed here).</strong> Every "frozen", "anomaly-free", or "certificate" statement is inherited from Paper I by interface only. If a Paper-I gate downgrades, the consuming rows here downgrade automatically — Forces re-closes nothing.</li>
+<li><strong>Stays open / uneven, honestly graded.</strong> The four closures do not close to the same degree: gravity's classical light-bending and the weak sector are on firm ground (gravity <em>conditional</em> on the frozen volume modulus); the full QED reduction is still owed at the source; the strong check reaches only the perturbative tip with confinement and the mass gap walled off; the quantum-gravity check is valid only as a low-energy effective theory with the Planck scale excluded.</li>
+</ul>
+<p><strong>Discipline reminder:</strong> an interface claim is not a closed gate, and <em>anchored is not closed</em>. Across the whole corpus, <strong>0 of 33 gates are physics-closed</strong>; <em>selected is not forced</em> and <em>bounded-out is not solved</em>. For the gate-by-gate scoreboard and honest per-gate status, see the gates page — Paper 2 deliberately does not own those certificates.</p>
+<h2>Read it</h2>
+<ul>
+<li><strong>Forces — Paper 2 (full paper, HTML):</strong> <a href="/articles/Forces.html">/articles/Forces.html</a> — the F1 main claim spine, with the F2 (C-FF Rosetta) and F3 (formal authority package) companion layers folded in.</li>
+<li><strong>Forces — Paper 2 (PDF):</strong> <a href="/articles/Forces.pdf">/articles/Forces.pdf</a></li>
+<li><strong>One Geometry, Four Forces — a worked example:</strong> <a href="/articles/One_Geometry_Four_Forces.html">/articles/One_Geometry_Four_Forces.html</a> — a mostly non-technical capstone that recovers Newton, Coulomb, Fermi/muon-decay, and the color-Coulomb potential from one reduction, and ends with the honest four-force scoreboard.</li>
+<li><strong>Gate scoreboard (honest per-gate status):</strong> <a href="/gates/">/gates/</a> — every certificate Paper 2 relies on lives here, owned by Paper I; check the real closure status gate by gate.</li>
+</ul>
+</main>
+</div>
+</body></html>

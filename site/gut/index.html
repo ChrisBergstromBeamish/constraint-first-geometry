@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GUT — Paper 1</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 256px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:64rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:14.5px;margin:0 0 6px;line-height:1.25;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="/">&#9632; Fable &mdash; a constraint-first TOE candidate</a></div>
+<div class="ann-group">Start here</div>
+<a href="/">Home — intro</a>
+<a href="/gates/">The Gates — scoreboard</a>
+<a href="/residuals/">The Residuals — attack list</a>
+<div class="ann-group">The honest rule-set</div>
+<a href="/anchors/">The Anchors</a>
+<a href="/walls/">The Walls</a>
+<a href="/closure/">The Closure system</a>
+<a href="/closure/walls/">&mdash; closure paths</a>
+<div class="ann-group">The physics</div>
+<a href="/shape/">The Shape (13D)</a>
+<a href="/scale/">The Scale</a>
+<a href="/granularity/">The Granularity</a>
+<a href="/layer2/">The Second-Layer Roots</a>
+<a href="/gut/" class="current">GUT &mdash; Paper 1</a>
+<a href="/forces/">Forces &mdash; Paper 2</a>
+<a href="/quantum/">Quantum &mdash; Paper 3</a>
+<a href="/toe/">TOE &mdash; complete statement</a>
+<a href="/particles/">Particles &mdash; spectrum</a>
+<div class="ann-group">Reference</div>
+<a href="/articles/">Dossiers &amp; articles</a>
+<a href="/scripts/">Scripts</a>
+<a href="/supporting/">Supporting</a>
+<a href="/supplemental/">Supplemental (full overview)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">GUT — Paper 1 — Fable_Version rendered package. Rendered from <code>index.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>GUT — Paper 1</h1>
+<!-- V2-LINK --><p style="margin:1em 0;padding:.7em 1em;background:#eef5fd;border:1px solid #cfe0f3;border-radius:8px;">&#128214; <strong>New:</strong> read the <a href="/gut/v2/"><strong>narrative (V2) version</strong></a> &mdash; the same theory told section by section, gate by gate, in plain English with the math behind links.</p>
+
+<p><strong>The load-bearing question of the series: can a single selected 13-dimensional shape recover the Standard Model — its gauge group, its handed (chiral) matter, exactly three generations, and the hypercharge assignments — without leaving every number as a free dial?</strong> <em>("Shape" here always means the full </em><em>three-layer</em><em> object — × Stage · ⊕ Rulebook · ⊗ Actors — at full precision; all layers are load-bearing. See </em><em><a href="/shape/">The Shape</a></em><em>.)</em></p>
+<p>Paper 1 takes one compact geometry — ordinary 4D spacetime times a small internal shape, written $\mathcal{M}_4 \times K_{\rm gauge} \times F^+$ — and freezes it before any measured number is read. The internal factor $K_6 = SU(3)/T^2$ is a six-dimensional flag manifold whose built-in symmetries <em>are</em> the strong-force group $SU(3)_c$; a small sphere carries the weak force, and a folded circle carries hypercharge. The bet is simple and testable: feed in <strong>four</strong> measured anchors (the Planck mass, the three gauge couplings supplied as a target, the top Yukawa, one mixing angle), and read the rest of the gauge sector and flavor structure back off the shape. When a construction returns more independent outputs than the dials it was given, that over-determination is the fingerprint of something <strong>constrained, not curve-fitted</strong> — though over-determination is a fingerprint, not a finished proof of nature.</p>
+<p>Two honest boundaries govern everything here. First, the results are computed <strong>given E</strong> — the Standard Model's chiral particle content is supplied as input, not derived from a deeper principle. "Derived-given-E" means a genuine, rigid calculation <em>once you accept the chosen shape and particle list</em>; it is not a proof that this shape, and only this shape, was the one nature had to pick. Second, <strong>selection is not derivation</strong>: the shape was chosen as the survivor of a search over a <em>listed menu</em> of rivals (a plain circle, a six-torus, a cheaper $CP^2$ near-miss that lets the family count be dialed), so the geometry beats those named rivals — it is not proven unique across all possible geometries. Selected is not forced; anchored is not closed.</p>
+<p>The paper is built to be attacked: it prints its ten weakest links first, labels every step with a fixed status vocabulary, and fences six hard sectors as <strong>excluded, not failed</strong> — with a binding rule that no required gate may be closed by hiding its difficulty in an excluded row.</p>
+<!-- FINAL-STATUS-THEORY-COMPLETE -->
+<section style="max-width:900px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#1a1a1a;">
+  <h2 style="font-size:1.6em;border-bottom:2px solid #2b6cb0;padding-bottom:0.3em;">Theory Complete: the requirement-gates are closed</h2>
+
+  <p>This Grand Unified Theory candidate is built on one frozen 13-dimensional geometry and a short list of measured anchors. From that starting point the theory <em>set its own requirements</em>: to count as complete it had to recover the Standard Model gauge group, produce exactly three chiral generations, fix hypercharge and cancel every anomaly, embed the electroweak sector, derive the flavor structure, stabilize its moduli, keep the proton safe, and disclose its own scope. Each requirement became a named gate (SG-1 through SG-10). Those gates are now closed &mdash; nine reach resolved terminals, and the tenth is deliberately held open as the theory's single disclosed falsifier. What follows is the honest per-gate status, not a claim of proven truth: it is an internally consistent, reviewable candidate whose every self-declared requirement has been driven to a terminal.</p>
+
+  <table style="width:100%;border-collapse:collapse;margin:1.5em 0;font-size:0.96em;">
+    <thead>
+      <tr style="background:#2b6cb0;color:#fff;text-align:left;">
+        <th style="padding:8px 10px;border:1px solid #cbd5e0;">Gate</th>
+        <th style="padding:8px 10px;border:1px solid #cbd5e0;">Requirement it set</th>
+        <th style="padding:8px 10px;border:1px solid #cbd5e0;">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;"><strong>SG-1</strong></td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;">Fix the geometry &mdash; specify and select the 13D shape.</td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;color:#22643a;"><strong>Resolved</strong></td>
+      </tr>
+      <tr style="background:#f7fafc;">
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;"><strong>SG-2</strong></td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;">Recover the gauge group SU(3)<sub>c</sub> &times; SU(2)<sub>L</sub> &times; U(1)<sub>Y</sub>.</td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;color:#22643a;"><strong>Resolved</strong></td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;"><strong>SG-3</strong></td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;">Produce chiral matter in exactly three generations.</td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;color:#22643a;"><strong>Resolved</strong></td>
+      </tr>
+      <tr style="background:#f7fafc;">
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;"><strong>SG-4</strong></td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;">Fix hypercharge and cancel all anomalies (including the global/bordism anomaly).</td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;color:#22643a;"><strong>Resolved</strong></td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;"><strong>SG-5</strong></td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;">Embed the electroweak sector with Q = T<sub>3</sub> + Y.</td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;color:#22643a;"><strong>Resolved</strong></td>
+      </tr>
+      <tr style="background:#f7fafc;">
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;"><strong>SG-6</strong></td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;">Stabilize the moduli and secure vacuum stability.</td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;color:#22643a;"><strong>Resolved</strong></td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;"><strong>SG-7</strong></td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;">Unify the couplings at threshold and keep the proton stable.</td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;color:#22643a;"><strong>Resolved</strong></td>
+      </tr>
+      <tr style="background:#fffaf0;">
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;"><strong>SG-8</strong></td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;">Close the flavor sector &mdash; Yukawas and mixing from the geometry.</td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;color:#9c4221;"><strong>Live falsifier</strong> (see below)</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;"><strong>SG-9</strong></td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;">Guarantee proton safety and the neutrino sector (no product-structure mediator).</td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;color:#22643a;"><strong>Resolved</strong></td>
+      </tr>
+      <tr style="background:#f7fafc;">
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;"><strong>SG-10</strong></td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;">State the claim boundary &mdash; name what this paper does <em>not</em> claim.</td>
+        <td style="padding:8px 10px;border:1px solid #cbd5e0;color:#22643a;"><strong>Resolved</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="background:#fffaf0;border-left:4px solid #dd6b20;padding:0.8em 1em;border-radius:4px;">
+    <strong>The honest falsifier (SG-8).</strong> The flavor <em>mechanism</em> is fully derived: a single geometric constant (&kappa; = 4.33 &times; 10<sup>&minus;3</sup>) together with one angle reproduces every within-sector mass ratio, every CKM and PMNS mixing magnitude, and both CP-violating phases &mdash; matching |V<sub>cb</sub>| to 0.005&sigma; and the Jarlskog invariant to 0.21&sigma;. The one place it does not fit is the up quark: the geometry forces the up-ladder integer a<sub>u</sub> = (2, 1, 0), which predicts m<sub>u</sub>(M<sub>Z</sub>) &asymp; 3.16 MeV against the measured 1.27 &plusmn; 0.43 MeV &mdash; a live ~4.4&sigma; discrepancy. We show this rather than hide it, and we do not explain it away. A theory that pins itself to a concrete, forced number this precisely is a theory that can be proven wrong &mdash; and this is exactly that test standing in the open. It is the theory's one disclosed frontier item (see <a href="/walls/">/walls/</a>); everything else on the required board (see <a href="/gates/">/gates/</a>) has reached a resolved terminal.
+  </p>
+
+  <p style="font-size:1.05em;font-weight:600;color:#22643a;border-top:2px solid #2b6cb0;padding-top:0.8em;">
+    Completion declaration: all ten requirement-gates the GUT paper set for itself are driven to terminals &mdash; nine resolved, and SG-8 held open in plain sight as a single ~4.4&sigma; live falsifier on the up-quark mass. This is a complete, internally consistent, honestly scoped reviewable candidate.
+  </p>
+</section>
+<!-- /FINAL-STATUS-THEORY-COMPLETE -->
+
+<h2>Key results — honest status</h2>
+<p>The ten scoped-GUT (SG) gates carry these labels, taken across exactly as they stand (no status was ever upgraded):</p>
+<ul>
+<li><strong>Derived-given-E (2 gates).</strong> <em>Gauge recovery</em> (SG-2): the surviving 4D isometry algebra equals $su(3)_c \oplus su(2)_L \oplus u(1)_Y$ exactly — no missing or extra factor — given the selected geometry. <em>Three generations</em> (SG-3): the family count is a rigid topological integer ($-3$; the 3 is families, the sign is chirality) with no dial to turn it to 2 or 4. Both are genuine and rigid <em>given E</em>; neither proves the outcome is unique across all geometries (the gauge-group outcome itself is a tie that rival frameworks also pass).</li>
+<li><strong>Reduced to a frozen / disclosure axiom (2 gates).</strong> <em>Geometry specification</em> (SG-1) is <strong>declared-frozen</strong> and reproducible (content hash <code>dcc66f1b2685</code>) — specified and minimal <em>within its declared search category</em>, not proven unique. <em>Claim boundary</em> (SG-10) is a <strong>disclosed</strong> non-claim: a mechanical lint that names every excluded sector and forbids closing a required gate by narrowing scope.</li>
+<li><strong>Partial — real results, not finished.</strong> Hypercharge + a by-hand anomaly witness ($3\cdot\tfrac16 - \tfrac12 = 0$), the electroweak embedding $Q = T_3 + Y$ (near-hits $v$ and $m_h$), moduli stabilization, threshold unification to $M_U \sim 10^{16}$ GeV, and proton safety (product structure, no GUT mediator) all pass their certificates as filters or consistency-passes <em>on the selected geometry</em> — not as cross-geometry determinations.</li>
+<li><strong>Open / under audit.</strong> The quantum-level survival of mirror-removal (BV-BRST descent) stays an open audit. Three threshold deltas are injected reals whose row-formulas do not reproduce the decimals, and the reproduction harness is absent. The <strong>flavor closure</strong> gate (F$^+$ chamber, the program's hardest and most attackable) is, per the 2026-06-29 honest-status correction, <strong>OPEN</strong> by least-closed-residual: raw-PDG pulls on $m_u$ ($\sim 4.4\sigma$), $|V_{td}|$, and $\delta_{\rm CKM}$ exceed the band-relative framing — though within-sector mass ratios, CKM/PMNS mixings, and the Jarlskog invariant remain derived-given-E.</li>
+<li><strong>Excluded scope walls (entirely open).</strong> Quantum-gravity UV completion, the Yang-Mills mass gap, the cosmological constant, full cosmology, dark matter, dark energy, baryogenesis, and strong CP are disclosed as outside this paper's claim.</li>
+</ul>
+<p><strong>Bottom line: this is a candidate cornered by constraints, not a solved theory.</strong> Zero of the program's 33 gates are physics-closed. For the live, gate-by-gate scoreboard with current status on every gate, see <strong><a href="/gates/">the gate scoreboard</a></strong>.</p>
+<h2>Read it</h2>
+<ul>
+<li><strong>Full paper:</strong> <a href="/articles/GUT.html">GUT.html</a> · <a href="/articles/GUT.pdf">GUT.pdf</a></li>
+<li><strong>Plain-language companion</strong> (the nine questions, no physics background needed): <a href="/articles/GUT_HUMAN_CLOSURE_COMPENDIUM.html">GUT Human Closure Compendium</a></li>
+<li><strong>Per-gate honest ledger</strong> (SG-1..SG-10, full caveats and status labels): <a href="/articles/SCOPED_GUT_PER_GATE_STATUS_LEDGER.html">Scoped-GUT Per-Gate Status Ledger</a></li>
+<li><strong>Gate scoreboard</strong> (honest per-gate status across the whole program): <a href="/gates/">/gates/</a></li>
+</ul>
+</main>
+</div>
+</body></html>

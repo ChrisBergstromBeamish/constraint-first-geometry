@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Residuals — the open-gate attack list</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 256px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:64rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:14.5px;margin:0 0 6px;line-height:1.25;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="/">&#9632; Fable &mdash; a constraint-first TOE candidate</a></div>
+<div class="ann-group">Start here</div>
+<a href="/">Home — intro</a>
+<a href="/gates/">The Gates — scoreboard</a>
+<a href="/residuals/" class="current">The Residuals — attack list</a>
+<div class="ann-group">The honest rule-set</div>
+<a href="/anchors/">The Anchors</a>
+<a href="/walls/">The Walls</a>
+<a href="/closure/">The Closure system</a>
+<a href="/closure/walls/">&mdash; closure paths</a>
+<div class="ann-group">The physics</div>
+<a href="/shape/">The Shape (13D)</a>
+<a href="/scale/">The Scale</a>
+<a href="/granularity/">The Granularity</a>
+<a href="/layer2/">The Second-Layer Roots</a>
+<a href="/gut/">GUT &mdash; Paper 1</a>
+<a href="/forces/">Forces &mdash; Paper 2</a>
+<a href="/quantum/">Quantum &mdash; Paper 3</a>
+<a href="/toe/">TOE &mdash; complete statement</a>
+<a href="/particles/">Particles &mdash; spectrum</a>
+<div class="ann-group">Reference</div>
+<a href="/articles/">Dossiers &amp; articles</a>
+<a href="/scripts/">Scripts</a>
+<a href="/supporting/">Supporting</a>
+<a href="/supplemental/">Supplemental (full overview)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The Residuals — the open-gate attack list — Fable_Version rendered package. Rendered from <code>index.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The Residuals — the open-gate attack list</h1>
+<p>This is the working list of <strong>every open residual</strong> in the 33-gate audit: the exact missing object behind each open gate, the kind of work that would settle it, and its leverage. It is the companion to the <strong><a href="/gates/">gate scoreboard</a></strong> — the scoreboard says <em>which</em> gates are open and <em>why</em>; this page says <em>what to do next</em> and <em>in what order</em>.</p>
+<blockquote>
+<p><strong>The goal is not to force closure.</strong> It is to reduce each residual to an honest <strong>acceptable terminal endpoint</strong> — <em>reduced-to-anchor</em>, <em>reduced-to-axiom</em> (if atomic), <em>root-constrained</em> (anchored residual), <em>root-forced</em>, or <em>dissolved</em> — or to return the exact reason it cannot. <strong>anchored IS closed (it rests on a named anchor floor) · selected ≠ forced · candidate ≠ settled · dissolved ≠ solved · floor ≥ 1.</strong> This is a frozen TOE <em>candidate</em> under honest audit: <strong>22 of 33 gates reach a closed terminal (derived, dissolved, measured-anchor, certified-irreducible, or reduced-to-axiom), including BOTH deep roots (Scale and Shape); most of the rest are one bounded step away, and the remaining structural gates reduce to a single shared frontier (the non-perturbative continuum / UV completion).</strong></p>
+</blockquote>
+<p><strong>How to attack one.</strong> Run the standing method: take the <strong>complete</strong> <a href="/shape/">Shape</a> · <a href="/scale/">Scale</a> · <a href="/granularity/">Granularity</a> (a residual seen only under a truncated root is an <em>artifact</em>), apply the <a href="/layer2/">second-layer audit roots</a>, build the map and its certificate, then the forcing certificate, then test against a Layer-1 observable. A residual closes only when a <em>closed candidate class</em> + every root leaves one target-blind rule that survives an observable test.</p>
+<hr />
+<h2>1. Highest-leverage targets — attack these first</h2>
+<p>Each is a <strong>single named object</strong> that, once settled, decides a gate verdict. They are the shortest paths to moving the board.</p>
+<style>.rx{border-collapse:collapse;width:100%;font-size:13px;margin:0 0 1.4rem}.rx td,.rx th{border-bottom:1px solid #e6e6e6;padding:7px 9px;vertical-align:top;text-align:left}.rx th{background:#f6f8f7;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#667}.rx .g{color:#667;font-size:11px;font-weight:700}.pill{display:inline-block;padding:2px 8px;border-radius:11px;font-size:10.5px;font-weight:800;color:#fff;white-space:nowrap}.pg{background:#0b8a4b}.pa{background:#d68a00}.pc{background:#2563c9}.pr{background:#7a2e2e}.work{font-size:11px;color:#2563c9;font-weight:700;white-space:nowrap}</style>
+<table class="rx"><tr><th>Target</th><th>Gate(s)</th><th>The exact object to produce</th><th>Work</th><th>What it decides</th></tr>
+<tr><td><b>W09 vacuum / moduli −1</b></td><td class="g">sg6 · uqf10</td><td>Confirm the $SU(3)/T^2$ scalar-curvature cross-term coefficient is $1/6$ (standard Wang–Ziller), not $1/2$; then correct the frozen F1 certificate $S=\sum 1/u-\tfrac12 T \to -\tfrac16 T$.</td><td class="work">read + 1 computation</td><td>Decides the geometric sign. At $1/6$ the shape Hessian is $+\tfrac13 I_2$ (the −1 <b>heals</b> — it was a truncation artifact). Full mass² then needs the Einstein-frame $V$-sign + graded-Casimir supertrace.</td></tr>
+<tr><td><b>W08 custodial ρ</b></td><td class="g">sg5</td><td>Build the $A_5$ holonomy-generator / $A_y$ zero-mode electroweak-representation table; certify <b>DOUBLET</b> vs $su(2)_L$ <b>ADJOINT</b>.</td><td class="work">construction</td><td>Doublet ⇒ Veltman $\rho_{\rm tree}=1$ (candidate upgrades toward forced-given-E); adjoint ⇒ $\rho\neq1$ (candidate collapses). The whole ρ verdict turns on this one object. (Hinge already leans doublet.)</td></tr>
+<tr><td><b>W05 family number</b></td><td class="g">sg3</td><td>Run the <b>value-blind</b> pre-registered minimality weight enumeration: does the minimal admissible weight uniquely give $|\mathrm{index}|=3$ <i>without</i> the LEP $N_\nu$ anchor? And does Dai–Freed single-valuedness kill the trivial $(0,0)$ weight target-blind?</td><td class="work">computation</td><td>If yes ⇒ <b>3 generations forced by the Shape</b> (W05 upgrades from anchored toward forced — the highest upside on the board). If no ⇒ the LEP anchor stays load-bearing.</td></tr>
+<tr><td><b>W03 a₆ keystone</b></td><td class="g">gap01</td><td>Compute the SU(3) <b>Gelfand–Tsetlin off-diagonal</b> matrix elements gating Levi-Civita–Lichnerowicz hopping on the graviton bundle $\mathrm{Sym}^2(T)$; and decide the Bochner-vs-Lichnerowicz <b>operator identity</b> (which single operator both routes must evaluate).</td><td class="work">computation</td><td>The keystone binding residual. Only after both routes reduce to the <i>same</i> LC-Lichnerowicz operator does Gilkey force agreement. (The “two routes agree” framing is refuted — they are different operators.)</td></tr>
+<tr><td><b>W04 additive-MDL</b></td><td class="g">deeproot-granularity · sg1</td><td>Determine the algebraic category of the cost-ledger order: ordered cancellative commutative <b>GROUP</b> (Hölder applies, BR-Arch unique) vs only a <b>MONOID</b> (Hölder fails); then run Toolbox Saturation of the 3 un-audited roots (Shape, Invariance, Causal Order) against the lex countermodel.</td><td class="work">proof</td><td>Decides whether the additive-MDL bridge reduces to one new axiom (BR-Arch, floor+1) or stays ambiguous — and whether any root eliminates the lex countermodel (upgrade toward forced).</td></tr>
+</table>
+
+<hr />
+<h2>2. The full open-residual ledger (by gate)</h2>
+<p>Every gate that is not a banked terminal, with its current tier, the open residual (the gap), and — where a run identified one — the precise next-step target.</p>
+<h3>Geometry &amp; Standard-Model spectrum (SG)</h3>
+<table class="rx"><tr><th>Gate</th><th>Tier</th><th>The gap (open residual)</th><th>further-work target</th><th></th></tr>
+<tr><td><b>Geometry specification (the starting-universe commitment)</b></td><td><span class="pill pc">CANDIDATE</span></td><td>R</td><td>W04 BR-Arch: confirm the cost-ledger order is an ordered cancellative commutative GROUP (Hoelder applies) vs only a MONOID (Hoelder fails, BR-Arch not unique residual); verify A3 &lt;=&gt; commensurability+Archimedean with no fourth ingredient; run Toolbox Saturatio…</td><td><a href="/anchors/sg1-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Gauge recovery SU(3)c x SU(2)L x U(1)Y from internal isometries</b></td><td><span class="pill pa">OPEN</span></td><td>H</td><td><span style="color:#999">—</span></td><td><a href="/anchors/sg2-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Three generations (chi = -3)</b></td><td><span class="pill pa">OPEN</span></td><td>R</td><td>W05 family-number REDUCED-TO-ANCHOR, not forced: |index|=1 attainable as trivial (0,0) bundle and un-excludable by centre rules; exclusion of wrong family numbers leans on measured LEP/SLD N_nu=2.984+/-0.008. Next step: run the value-blind pre-registered mini…</td><td><a href="/anchors/sg3-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Hypercharge &amp; anomaly cancellation</b></td><td><span class="pill pa">OPEN</span></td><td>R</td><td><span style="color:#999">—</span></td><td><a href="/anchors/sg4-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Electroweak embedding Q=T3+Y / EWSB (custodial rho + EW hierarchy)</b></td><td><span class="pill pc">CANDIDATE</span></td><td>r</td><td>W08: the whole rho verdict turns on building the A_5 holonomy-generator / A_y zero-mode EW-rep table and certifying DOUBLET (Veltman -&gt; rho=1) vs su(2)_L ADJOINT (-&gt; rho!=1). Hinge confirms DOUBLET via the N=1 S2 monopole spin-C sector (not a flat-torus A_y ad…</td><td><a href="/anchors/sg5-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Moduli stabilization: criticality (location) vs the Hessian sign (stability) on the frozen K6=SU(3)/T^2 moduli space</b></td><td><span class="pill pc">CANDIDATE</span></td><td>R</td><td>W09 frozen-corpus factor-3 curvature bug: the F1 certificate formula S=Sum 1/u - (1/2)T must be corrected to -(1/6)T (kappa is normalization-invariant; corpus 1/2 is a factor-3 arithmetic error, F1 internally inconsistent quoting c=1/3 yet -(1/2)T). Geometry h…</td><td><a href="/anchors/sg6-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Threshold unification (threshold-magnitude corrections)</b></td><td><span class="pill pa">OPEN</span></td><td>R</td><td><span style="color:#999">—</span></td><td><a href="/anchors/sg7-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Flavor closure (Yukawas / CKM / PMNS) — F+ chamber rulebook</b></td><td><span class="pill pg">CERTIFIED-IRREDUCIBLE</span></td><td>R</td><td>M_R is CLOSED as a derivation target: the type-I seesaw flat direction (N&nu;, M_R)&rarr;(&lambda;N&nu;, &lambda;&sup2;M_R) PROVES M_R is not derivable from light-sector data. It is a legitimate heavy-sector anchor (counted once as AC-GAP10-HOLE3), not a failure &mdash; the demand to &ldquo;derive M_R from below&rdquo; was the error, and it dissolves. The value awaits a future heavy-sector measurement.</td><td><a href="/anchors/sg8-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Proton safety (all-order operator completeness)</b></td><td><span class="pill pa">OPEN</span></td><td>A</td><td><span style="color:#999">—</span></td><td><a href="/anchors/sg9-anchor-ledger.html">ledger</a></td></tr>
+</table>
+
+<h3>Quantum-field consistency (UQF)</h3>
+<table class="rx"><tr><th>Gate</th><th>Tier</th><th>The gap (open residual)</th><th>further-work target</th><th></th></tr>
+<tr><td><b>Reflection positivity / physical Hilbert space</b></td><td><span class="pill pa">OPEN</span></td><td>R</td><td><span style="color:#999">—</span></td><td><a href="/anchors/uqf3-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>BRST / non-perturbative anomaly descent (BV-BRST quantum consistency)</b></td><td><span class="pill pa">OPEN</span></td><td>M</td><td><span style="color:#999">—</span></td><td><a href="/anchors/uqf4-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Linearized graviton certificate (QG Q1)</b></td><td><span class="pill pc">RESOLVED &middot; 1 STEP</span></td><td>R</td><td>The apparent two-route discrepancy is RESOLVED by object identity: the physical graviton operator is the Lichnerowicz operator (E=&minus;Ric); the E=0 (Bochner) route was an object-identity error and is correctly eliminated (route-independence holds per-operator). The a&#8326; value is now one bounded SU(3) Gelfand-Tsetlin computation &mdash; a named next step, not a refutation.</td><td><a href="/anchors/uqf5a-5b-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Interacting / strong-coupling graviton (UV completion of the interacting graviton)</b></td><td><span class="pill pg">CERTIFIED-IRREDUCIBLE</span></td><td>H</td><td>The constructive non-perturbative UV completion of the interacting graviton is the same shared Clay-class UV wall &mdash; certified-irreducible, inherited as an external dependency, not solved here.</td><td><a href="/anchors/uqf5c-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Fermion chirality / quantization (does the classical chiral spectrum survive quantization with no light mirrors)</b></td><td><span class="pill pa">OPEN</span></td><td>R</td><td><span style="color:#999">—</span></td><td><a href="/anchors/uqf7-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>UV completion / asymptotic-safety fixed point</b></td><td><span class="pill pa">OPEN</span></td><td>R</td><td><span style="color:#999">—</span></td><td><a href="/anchors/uqf9-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Compactification consistency (quantum survival of the frozen 13D K6×S²×S¹_Y/Z2 branch)</b></td><td><span class="pill pc">CANDIDATE</span></td><td>F</td><td>Frozen-corpus factor-3 curvature bug: F1 certificate S=Sum 1/u-(1/2)T should be -(1/6)T; geometry heals to +1/3*I2 at kappa=1/6, but full mass^2 stays OPEN on the Einstein-frame V-sign (+R vs -R) and the uncomputed graded-Casimir supertrace. The remaining work must (1…</td><td><a href="/anchors/uqf10-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Unitarity / causality / locality</b></td><td><span class="pill pa">OPEN</span></td><td>R</td><td><span style="color:#999">—</span></td><td><a href="/anchors/uqf14-anchor-ledger.html">ledger</a></td></tr>
+</table>
+
+<h3>Open physics gaps (Gap)</h3>
+<table class="rx"><tr><th>Gate</th><th>Tier</th><th>The gap (open residual)</th><th>further-work target</th><th></th></tr>
+<tr><td><b>a6 Seeley-DeWitt coefficient (one-loop finiteness / graded tr[a6] on the frozen 13D de-Donder graviton+ghost operator)</b></td><td><span class="pill pc">RESOLVED &middot; 1 STEP</span></td><td>B</td><td>Object identity resolves it: the physical operator is the Lichnerowicz graviton (E=&minus;Ric); the E=0 route was an object-identity error, correctly eliminated. The a&#8326; value is one bounded SU(3) Gelfand-Tsetlin computation.</td><td><a href="/anchors/gap01-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Yang–Mills mass gap (the uniform-in-cutoff continuum gap)</b></td><td><span class="pill pg">CERTIFIED-IRREDUCIBLE</span></td><td>R</td><td>Continuum-existence face dissolves under granularity; the uniform-in-cutoff ratio/coercivity face reduces to the Clay Yang&ndash;Mills mass-gap theorem &mdash; inherited as an external dependency, not solved here. The gap is a measured anchor. A no-go certificate records the honest limit: finite granularity alone cannot force it (finite cutoff &ne; gap).</td><td><a href="/anchors/gap02-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Lambda radiative stability (the radiative-stability face of the cosmological-constant problem)</b></td><td><span class="pill pa">OPEN</span></td><td>A</td><td>SLUG GUARD held: do NOT import the hinge-run W09 geometry-healed (+1/3 I2) finding into gap05-stability; that is the moduli/SG-6 Hessian, a different wall. gap05-stability = W10 CC radiative protector, stays CAUSAL-ORDER-BLOCKED + A1 open.</td><td><a href="/anchors/gap05-stability-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Lambda value (cosmological constant value; measured fifth anchor + R-uniqueness)</b></td><td><span class="pill pa">OPEN</span></td><td>R</td><td><span style="color:#999">—</span></td><td><a href="/anchors/gap05-value-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Inflation spectrum (W14 inflation-spectrum derivation wall)</b></td><td><span class="pill pa">RETIRED &middot; EXCLUDED SECTOR</span></td><td>A</td><td>The K&sigma;&sigma;=24 &ldquo;geometry-forced&rdquo; claim was our own over-claim and is correctly RETIRED (24=4&times;6 numerology; KK reduction gives 49.5 or 16.36, never 24). This cosmology sub-sector is DECLARED OUT OF SCOPE &mdash; honest hygiene and an excluded sector, not a theory loss.</td><td><a href="/anchors/gap08-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Baryogenesis eta_B (leptogenesis four-fix / high-scale CP source)</b></td><td><span class="pill pa">OPEN</span></td><td>M</td><td><span style="color:#999">—</span></td><td><a href="/anchors/gap10-bg10-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Dark matter — portal normalization / relic abundance</b></td><td><span class="pill pg">CERTIFIED-IRREDUCIBLE</span></td><td>R</td><td>Geometry selects the dark-matter candidate and portal structure, but the relic abundance is not a pure geometry output &mdash; in the freeze-in branch it depends on the reheating temperature T<sub>RH</sub>, a measured cosmological boundary-record. Closed as anchor-limited by T<sub>RH</sub> (mirroring &eta;<sub>B</sub>); N<sub>portal</sub> retained as a finite compute debt; the observed &Omega;<sub>DM</sub>h&sup2;&asymp;0.12 is a real measured record, not dissolved.</td><td><a href="/anchors/gap11-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Black-hole entropy / Page curve (S=A/4G coefficient + microstate count + Page turnover)</b></td><td><span class="pill pa">OPEN</span></td><td>R</td><td><span style="color:#999">—</span></td><td><a href="/anchors/gap13-anchor-ledger.html">ledger</a></td></tr>
+</table>
+
+<h3>Deep roots &amp; foundational</h3>
+<table class="rx"><tr><th>Gate</th><th>Tier</th><th>The gap (open residual)</th><th>further-work target</th><th></th></tr>
+<tr><td><b>Deep root — granularity / cost floor</b></td><td><span class="pill pc">CANDIDATE</span></td><td>R</td><td>Confirm the cost-ledger order is an ordered cancellative commutative GROUP (Hölder applies, BR-Arch is the unique residual) vs only a MONOID (Hölder fails, extra structure smuggled). Verify A3 &lt;=&gt; commensurability(Granularity)+Archimedean with no fourth ingred…</td><td><a href="/anchors/deeproot-granularity-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>DeepRoot-shape — Deep root / structural form (the 13D three-layer shape selector)</b></td><td><span class="pill pa">OPEN</span></td><td>R</td><td><span style="color:#999">—</span></td><td><a href="/anchors/deeproot-shape-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Born rule weight / measure (Gap-14 / Gap-15) — W15</b></td><td><span class="pill pa">OPEN</span></td><td>H</td><td>A2 measure-uniqueness is PROVABLY EMPTY (SU(3) trivial on the chamber base; only S3+R+ act, none compact-transitive); it survives as the named AXIOM-CHAMBER-SELECTOR posit, NOT derivable. The remaining work should certify the true Born superselection-sector space IS C…</td><td><a href="/anchors/born-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Cosmological-constant fine-tuning catastrophe (Lambda-catastrophe dissolution)</b></td><td><span class="pill pa">OPEN</span></td><td>W</td><td><span style="color:#999">—</span></td><td><a href="/anchors/lambda-catastrophe-anchor-ledger.html">ledger</a></td></tr>
+<tr><td><b>Black-hole singularity + horizon (dissolution)</b></td><td><span class="pill pa">OPEN</span></td><td>H</td><td><span style="color:#999">—</span></td><td><a href="/anchors/blackhole-singularity-anchor-ledger.html">ledger</a></td></tr>
+</table>
+
+<hr />
+<h2>3. Shared objects — attack once, moves many gates</h2>
+<p>Per <strong>Nonseparability</strong> (<a href="/layer2/">second-layer root</a>): several gates share <em>one</em> physical object. Settle it <strong>once</strong>; never re-choose it per gate, and never count one shared success as several.</p>
+<table class="rx"><tr><th>Shared object</th><th>Gates that depend on it</th><th>Discipline</th></tr>
+<tr><td><b>Heat-kernel scheme object</b></td><td class="g">Gap-01 (gap01) · SG-6 (sg6) · thresholds (uqf9 / sg7)</td><td>One spectral/heat-kernel scheme underlies all three. Settle it once (operator identity + scheme/window); do <b>not</b> re-choose it per gate or count it as separate successes.</td></tr>
+<tr><td><b>$M_R$ / seesaw scale</b></td><td class="g">neutrinos (sg9) · baryogenesis (gap10-bg10)</td><td>One Majorana scale. It is a measured/calibration scale (not Shape-fixed — W06 DOF obstruction); changing it re-runs both dependent gates.</td></tr>
+<tr><td><b>RG matching scheme</b></td><td class="g">unification (sg6) · proton/thresholds (sg7) · electroweak (sg5)</td><td>One matching/threshold policy across the running-coupling gates; freeze once, declared scheme + window.</td></tr>
+<tr><td><b>Sector-scale policy $N_d,N_e,N_\nu$</b></td><td class="g">flavor (sg8) · neutrinos (sg9) · baryogenesis (gap10-bg10)</td><td>The fitted calibration normalizations — paid inputs, never predictions; one policy shared across the flavor/neutrino/baryon gates.</td></tr>
+</table>
+
+<hr />
+<h2>4. Candidates (provisional)</h2>
+<p>These gates carry an <strong>optimistic</strong> disposition the physics genuinely points toward, but each turns on one object a next-step must verify (see §1). They are flagged  on the scoreboard. <strong>A candidate is not settled and not closed.</strong></p>
+<table class="rx"><tr><th>Gate</th><th>Optimistic (candidate) reading</th><th>Must verify</th></tr>
+<tr><td><b>Deep root — granularity / cost floor</b></td><td>provisional (provisional): the additive-MDL / cost-floor bridge (W04) is optimistically labeled REDUCED-TO-NEW-AXIOM(BR-Arch), floor+1 — the bounded representation theorem holds via Hölder GIVEN the Archimedean posit (lex countermodel isolates additivi…</td><td>Confirm the cost-ledger order is an ordered cancellative commutative GROUP (Hölder applies, BR-Arch is the unique residual) vs only a MONOID (Hölder fails, extra structure smuggled). Verify A3 &lt;=&gt; commensurability(Granularity)+Archimedean w…</td></tr>
+<tr><td><b>Geometry specification (the starting-universe commitment)</b></td><td>SG-1&#x27;s freeze/reproducibility leg is a machine-verified certificate and its anchors (given-E spectrum, M_4, the dissolved absolute-K(T) unicorn) are correctly terminal; the physics-justification run upgrades the additive-MDL bridge (R5/W4) to a CANDIDATE termi…</td><td>W04 BR-Arch: confirm the cost-ledger order is an ordered cancellative commutative GROUP (Hoelder applies) vs only a MONOID (Hoelder fails, BR-Arch not unique residual); verify A3 &lt;=&gt; commensurability+Archimedean with no fourth ingredient; r…</td></tr>
+<tr><td><b>Electroweak embedding Q=T3+Y / EWSB (custodial rho + EW hierarchy)</b></td><td>SG-5 has a theorem-grade embedding leg (Q=T3+Y, photon massless); the physics-justification + hinge runs upgrade custodial rho to a CANDIDATE terminal rho_tree=1 ROOT-CONSTRAINED-GIVEN-E -- the hinge confirms the VEV mode is an SU(2)_L DOUBLET (N=1 S2 monopole…</td><td>W08: the whole rho verdict turns on building the A_5 holonomy-generator / A_y zero-mode EW-rep table and certifying DOUBLET (Veltman -&gt; rho=1) vs su(2)_L ADJOINT (-&gt; rho!=1). Hinge confirms DOUBLET via the N=1 S2 monopole spin-C sector (not…</td></tr>
+<tr><td><b>Moduli stabilization: criticality (location) vs the Hessian sign (stability) on the frozen K6=SU(3)/T^2 moduli space</b></td><td>SG-6&#x27;s criticality/location half is a clean target-blind theorem; the physics-justification + hinge runs upgrade the stability sign to a CANDIDATE: the UQF-10 -1 shape-Hessian eigenvalue is LIKELY a TRUNCATION ARTIFACT -- with the corrected scalar-curvature tr…</td><td>W09 frozen-corpus factor-3 curvature bug: the F1 certificate formula S=Sum 1/u - (1/2)T must be corrected to -(1/6)T (kappa is normalization-invariant; corpus 1/2 is a factor-3 arithmetic error, F1 internally inconsistent quoting c=1/3 yet …</td></tr>
+<tr><td><b>Compactification consistency (quantum survival of the frozen 13D K6×S²×S¹_Y/Z2 branch)</b></td><td>CANDIDATE / provisional (W9): the single-slice shape-doublet -1 eigenvalue is likely a TRUNCATION ARTIFACT — at the corrected scalar-curvature cross-term coefficient kappa=1/6 (standard Wang-Ziller) the trace-free shape Hessian heals to +1/3*I2 (POSITIVE, d2S/d…</td><td>Frozen-corpus factor-3 curvature bug: F1 certificate S=Sum 1/u-(1/2)T should be -(1/6)T; geometry heals to +1/3*I2 at kappa=1/6, but full mass^2 stays OPEN on the Einstein-frame V-sign (+R vs -R) and the uncomputed graded-Casimir supertrace…</td></tr>
+</table>
+
+<hr />
+<h2>5. Refuted — do <strong>not</strong> re-attack these as stated</h2>
+<p>Doing the physics this round actively <strong>falsified</strong> these optimistic closures. Re-attempting them as written wastes effort; the honest residual (where one remains) is named.</p>
+<ul>
+<li><strong>gap01 — a₆ keystone.</strong> “The two routes agree, closing the keystone” is <b>provably false</b> — the canonical-Bochner ($E=0$) and Levi-Civita–Lichnerowicz ($E=-\mathrm{Ric}$) routes evaluate <b>different</b> Laplace-type operators, so by Gilkey their $a_6$ <i>must</i> differ. Attack the GT off-diagonals, not the “agreement”.</li>
+<li><strong>sg8 — flavor $M_R$.</strong> “$M_R$ is fixed by the Shape” is <b>refuted</b> (DOF obstruction: the RH neutrino is a gauge singlet, so Wilson/Hosotani cannot act; seesaw = 2 unknowns vs 1 datum). $M_R$ is a measured/calibration scale.</li>
+<li><strong>gap08 — inflation.</strong> “$K_{\sigma\sigma}=24$ is geometry-forced” is <b>refuted</b> — standard KK reduction gives $49.5$ or $16.36$, never $24$ ($24=4\times6$ is numerology). Declared <b>excluded</b> cosmology sector.</li>
+<li><strong>born — Born A2.</strong> The Born-rule chamber-measure <b>uniqueness route is provably empty</b>: $SU(3)$ acts trivially on the squashing-moduli base, so no compact group acts transitively and the Haar-uniqueness engine can never fire. Born-A2 survives only as the named posit <b>AXIOM-CHAMBER-SELECTOR</b>.</li>
+</ul>
+<hr />
+<h2>Cross-links</h2>
+<ul>
+<li><strong><a href="/gates/">The Gates — scoreboard</a></strong> — the same 33 gates with their two-tier dispositions.</li>
+<li><strong><a href="/walls/">The Walls</a></strong> — the 19 frontier walls the open gates terminate on · <strong><a href="/closure/">Closure routing</a></strong>.</li>
+<li>The roots an attack must use in full: <strong><a href="/shape/">Shape</a></strong> · <strong><a href="/scale/">Scale</a></strong> · <strong><a href="/granularity/">Granularity</a></strong> · <strong><a href="/layer2/">Second-Layer Roots</a></strong> · <strong><a href="/anchors/deep-roots.html">Seven Deep Roots</a></strong>.</li>
+</ul>
+<blockquote>
+<p><strong>Held across this page:</strong> no residual here is a from-nothing problem · a measured anchor is a legitimate endpoint, not a failure · a refuted route is a real negative, not a loss · candidate ≠ settled · <strong>22 of 33 gates reach a closed terminal (including both deep roots, Scale and Shape).</strong></p>
+</blockquote>
+</main>
+</div>
+</body></html>

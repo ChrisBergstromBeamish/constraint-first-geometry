@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Wall Register — frontier walls &amp; terminal endpoints</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 248px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9632; The Wall Register</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; back to The Anchors</a></div>
+<div class="ann-group">Shared global walls</div>
+<a href="w1-uv-completion.html">W1 · UV completion (shared)</a>
+<a href="w2-continuum-existence.html">W2 · Continuum existence (shared)</a>
+<div class="ann-group">Keystone bounded walls</div>
+<a href="w3-a6-coefficient.html">W3 · a6 coefficient (keystone)</a>
+<a href="w4-granularity-mdl.html">W4 · granularity to MDL</a>
+<div class="ann-group">Per-gate bounded walls</div>
+<a href="w5-given-e-bundle.html">W5 · given-E / bundle uniqueness</a>
+<a href="w6-flavor-rulebook.html">W6 · flavor F+ rulebook</a>
+<a href="w7-anomaly-descent.html">W7 · anomaly descent (BV-BRST)</a>
+<a href="w8-custodial-rho.html">W8 · custodial rho=1</a>
+<a href="w9-moduli-stabilization.html">W9 · moduli stabilization</a>
+<a href="w10-lambda-stability.html">W10 · Lambda radiative stability</a>
+<a href="w11-lambda-value.html">W11 · Lambda value</a>
+<a href="w12-baryogenesis-cp.html">W12 · baryogenesis CP-source</a>
+<a href="w13-dark-matter-portal.html">W13 · dark-matter portal</a>
+<a href="w14-inflation-spectrum.html">W14 · inflation spectrum</a>
+<a href="w15-born-weight.html">W15 · Born-rule weight</a>
+<a href="w16-bh-microstates.html">W16 · BH microstates / Page</a>
+<a href="w17-proton-operators.html">W17 · proton operators</a>
+<a href="w18-ym-uniform-gap.html">W18 · Yang-Mills uniform gap</a>
+<a href="w19-threshold-magnitudes.html">W19 · threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The Wall Register — frontier walls &amp; terminal endpoints — Fable_Version rendered package. Rendered from <code>index.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The Wall Register — frontier walls &amp; terminal endpoints</h1>
+<blockquote>
+<p>This register applies one principle to every gate in the program and names the distinct frontier <strong>walls</strong> that remain. The per-gate endpoint is to <strong>tie the gate to a precise anchor set and name its wall</strong> — not to claim full closure. For many gates full closure is a <em>unicorn</em> (an unprovable universal negative) or a <em>shared global wall</em> that no single gate owns. So the governing rule is simple and honest: <strong>anchored ≠ closed.</strong></p>
+</blockquote>
+<h2>The terminal-anchored principle</h2>
+<p>Every gate carries two independent statuses:</p>
+<ul>
+<li><strong>Anchor status</strong> — is the gate's ledger complete? (Does every object it touches have a root link, a master-anchor link, an allowed claim, a forbidden claim, and a named residual?) All 33 gates are <strong>ANCHOR-CLOSED</strong>.</li>
+<li><strong>Physics status</strong> — the honest physics grade. <strong>No gate is physics-CLOSED.</strong> Some have reached their legitimate per-gate endpoint (<strong>TERMINAL-ANCHORED</strong>); the rest own a bounded, finite, falsifiable piece of open work (<strong>OPEN-ANCHORED</strong>).</li>
+</ul>
+<p>A <strong>TERMINAL-ANCHORED</strong> gate is one whose only residual is (i) a dissolved unicorn, (ii) a shared global wall it does not own, (iii) a named declared axiom, or (iv) a measured anchor — none of which is a per-gate deliverable. An <strong>OPEN-ANCHORED</strong> gate still owns a concrete wall it can, in principle, push.</p>
+<p>A <strong>unicorn</strong> — <em>"no competitor anywhere / unique across all possible mathematics / no future theory could do better / proven absolutely irreducible"</em> — is a universal negative, unprovable in principle for any object in any field. A unicorn is <strong>never a wall.</strong> It is dissolved as a non-target, and the bounded, in-grammar version is recorded as the real wall.</p>
+<blockquote>
+<p><strong>Reconciled status (2026-07-03):</strong> of the 33 gates, <strong>5 are RESOLVED</strong> (the cosmological-constant value as a measured anchor; the three-generation count &chi;=&minus;3, now derived target-blind), <strong>8 are one bounded step from closing</strong>, and <strong>23 sit at a genuine structural frontier</strong> (recognized hard problems where being open is honest). No gate is claimed proven beyond what it has earned. The prioritised open-item list is the <a href="/residuals/">Residuals page</a>; the full endpoint scoreboard is <a href="/gates/">The Gates</a>.</p>
+</blockquote>
+<hr />
+<h2>Per-gate terminal-anchored status (all 33)</h2>
+<p>Each gate links to its anchor ledger and its full dossier.</p>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Anchor status</th>
+<th>Physics status</th>
+<th>Wall(s)</th>
+<th>Terminal label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SG-1 Geometry spec — <a href="/anchors/sg1-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_SG1_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>DECLARED-FROZEN (selected-not-forced); additive-MDL seam now a OPEN (provisional) <em>(2026-06-30)</em></td>
+<td><a href="w4.html">W4</a>, <a href="w5.html">W5</a></td>
+<td><strong>OPEN-ANCHORED</strong> — least-closed residual: the additive-MDL / metric-selection seam (R5 / W4) is AXIOM-OPEN; the absolute-uniqueness unicorn stays dissolved <em>(re-grade 2026-06-29)</em>. <strong>2026-06-30:</strong> the additive-MDL bridge is upgraded to a <strong>CANDIDATE REDUCED-TO-NEW-AXIOM(BR-Arch), floor+1</strong> (Hölder argument under an Archimedean posit) — this <em>raises</em> the posit floor by one, it does <strong>not</strong> close the gate; provisional, pending the group-vs-monoid check</td>
+</tr>
+<tr>
+<td>SG-2 Gauge recovery — <a href="/anchors/sg2-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_SG2_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>DERIVED-GIVEN-E</td>
+<td><a href="w5.html">W5</a></td>
+<td><strong>OPEN-ANCHORED</strong> — least-closed residual: REG-12 / REG-13 named-but-not-executed (OPEN); category-neutrality unicorn dissolved, tie-not-unique <em>(re-grade 2026-06-29)</em></td>
+</tr>
+<tr>
+<td>SG-3 Three generations — <a href="/anchors/sg3-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_SG3_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>DERIVED-GIVEN-E; family number <strong>REDUCED-TO-ANCHOR</strong>, not Shape-forced <em>(2026-06-30)</em></td>
+<td><a href="w5.html">W5</a></td>
+<td><strong>OPEN-ANCHORED</strong> (bundle selecting $-3$ — W5 bounded). <strong>2026-06-30:</strong> the family-count leg is <strong>REDUCED-TO-ANCHOR / DERIVED-GIVEN-E</strong> — $\|\mathrm{index}\|=3$ is <strong>NOT forced by the Shape</strong> ($\|\mathrm{index}\|=1$ is un-excludable via the trivial $(0,0)$ weight), so exclusion of wrong family numbers rests on the <strong>measured LEP/SLD $N_\nu=2.984\pm0.008$</strong> anchor; no upgrade to ROOT-FORCED. New structural win: the complete-Shape BWB index spectrum <strong>forbids 2, 4, 5 generations</strong></td>
+</tr>
+<tr>
+<td>SG-4 Hypercharge + anomaly — <a href="/anchors/sg4-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_SG4_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>OPEN (local leg DERIVED-GIVEN-E)</td>
+<td><a href="w7.html">W7</a> (the $\xi_{R4}$ / W-$\mathbb{Z}_6$ discrete-anomaly piece $\subset$ <a href="w7.html">W7</a>)</td>
+<td><strong>OPEN-ANCHORED</strong> — <strong>2026-06-30:</strong> global-descent residual sharpened to the named block <strong>RECORD-BLOCKED</strong> (the uncomputed mixed anomaly $\xi_{R4}$ and BV–BRST descent have no codomain object / first-principles hash; blocked on the $\xi$-existence datum $w_2+f^*\zeta$)</td>
+</tr>
+<tr>
+<td>SG-5 Electroweak / EWSB — <a href="/anchors/sg5-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_SG5_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>OPEN (charge leg DERIVED-GIVEN-E); custodial $\rho$ now a OPEN (provisional) <em>(2026-06-30)</em></td>
+<td><a href="w8.html">W8</a></td>
+<td><strong>OPEN-ANCHORED</strong> (custodial $\rho=1$ bounded). <strong>2026-06-30:</strong> the VEV Higgs mode is confirmed an <strong>SU(2)$_L$ DOUBLET</strong> ($N=1$ $S^2$ monopole / spin-C sector — <strong>no s2.3/s2.4 inconsistency</strong>), so $\rho_{\rm tree}=1$ is structurally expected $\Rightarrow$ <strong>provisional ($\rho_{\rm tree}=1$ ROOT-CONSTRAINED-GIVEN-E)</strong> but <strong>UNCOMPUTED</strong> (turns on the unbuilt $A_5/A_y$ EW-rep table + W/Z mass matrix); gate stays OPEN</td>
+</tr>
+<tr>
+<td>SG-6 Moduli stabilization — <a href="/anchors/sg6-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_SG6_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>OPEN (stability-sign undecided; shape-Hessian now a CANDIDATE) <em>(2026-06-30)</em></td>
+<td><a href="w9.html">W9</a>, <a href="w3.html">W3</a></td>
+<td><strong>OPEN-ANCHORED</strong> — <strong>2026-06-30 OPEN (provisional):</strong> with the <strong>correct scalar-curvature coefficient $1/6$</strong> (the frozen F1 certificate used $1/2$ — a <strong>factor-3 error</strong>), the geometric trace-free shape Hessian <strong>heals to $+\tfrac13 I_2$ (POSITIVE)</strong> and the $-1$ reads as a truncation artifact; but the <strong>full mass$^2$ stays OPEN/BLOCKED</strong> on the unpinned Einstein-frame $V$-sign ($V\propto +R$ vs $-R$) and the uncomputed graded-Casimir supertrace. ⚠ frozen-corpus factor-3 curvature bug flagged for correction</td>
+</tr>
+<tr>
+<td>SG-7 Threshold unification — <a href="/anchors/sg7-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_SG7_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>Diagnostic-only (signs DERIVED-GIVEN-E)</td>
+<td><a href="w19.html">W19</a></td>
+<td><strong>OPEN-ANCHORED</strong> (magnitudes bounded). <strong>2026-06-30:</strong> open magnitude residual sharpened to the named blocks <strong>CAUSAL-ORDER-BLOCKED + FACTORING-BLOCKED</strong> — the per-factor KK $\zeta$-normalization $Z_X$ + overlap $c_{a,b,i}$ is a finite uncomputed scheme object <strong>shared with the W3 / Gap-01 keystone</strong> (counted once); magnitudes are demonstrated-fitted, not derived</td>
+</tr>
+<tr>
+<td>SG-8 Flavor closure — <a href="/anchors/sg8-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_SG8_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>OPEN (ratio/mixing leg DERIVED-GIVEN-E); $M_R$-Shape-fixed claim <strong>REFUTED</strong> <em>(2026-06-30)</em></td>
+<td><a href="w6.html">W6</a></td>
+<td><strong>OPEN-ANCHORED</strong> (incl. $m_u$ $4.4\sigma$ falsifier). <strong>2026-06-30:</strong> <strong>REFUTED</strong> that $M_R$ is Shape-fixed — the RH neutrino is a $(1,1,0)$ singlet (Majorana operator gauge-unprotected) and type-I seesaw fixes only $N_\nu^2/M_R$ against one datum $\Delta m^2$ (2-unknowns-vs-1-constraint <strong>DOF obstruction</strong>); $M_R$ is a <strong>measured / calibration scale</strong> (COMPUTATION-DEBT/BLOCKED), and $N_d/N_e/N_\nu$ stay fitted calibration inputs. The forced $m_u\sim4.4\sigma$ tension is a <strong>LIVE falsifier</strong></td>
+</tr>
+<tr>
+<td>SG-9 Proton safety — <a href="/anchors/sg9-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_SG9_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>OPEN ($d\le7$ Reduced-to-Axiom)</td>
+<td><a href="w17.html">W17</a></td>
+<td><strong>OPEN-ANCHORED</strong></td>
+</tr>
+<tr>
+<td>SG-10 Claim boundary — <a href="/anchors/sg10-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_SG10_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>DISCLOSED</td>
+<td>—</td>
+<td><strong>TERMINAL-ANCHORED</strong> (complete-exclusion unicorn dissolved)</td>
+</tr>
+<tr>
+<td>UQF-3 Reflection positivity — <a href="/anchors/uqf3-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_UQF3_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>CERTIFICATE-COND / OPEN</td>
+<td><a href="w3.html">W3</a>, <a href="w2.html">W2</a></td>
+<td><strong>OPEN-ANCHORED</strong> (boundary $a_6$ bounded; uniform limit = W2)</td>
+</tr>
+<tr>
+<td>UQF-4 BRST / descent — <a href="/anchors/uqf4-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_UQF4_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>AUDIT-OPEN (pert. leg DERIVED-GIVEN-E)</td>
+<td><a href="w7.html">W7</a></td>
+<td><strong>OPEN-ANCHORED</strong> (one even-degree class)</td>
+</tr>
+<tr>
+<td>UQF-7 Fermion chirality — <a href="/anchors/uqf7-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_UQF7_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>AUDIT-OPEN (classical count DERIVED-GIVEN-E)</td>
+<td><a href="w7.html">W7</a></td>
+<td><strong>OPEN-ANCHORED</strong> (mirror production/removal)</td>
+</tr>
+<tr>
+<td>UQF-10 Compactification — <a href="/anchors/uqf10-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_UQF10_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>CERTIFICATE-COND / OPEN; shape-Hessian now a OPEN (provisional) <em>(2026-06-30)</em></td>
+<td><a href="w9.html">W9</a></td>
+<td><strong>OPEN-ANCHORED</strong> ($c_{\rm loop}$ sign bounded). <strong>2026-06-30 OPEN (provisional):</strong> the single-slice shape-doublet $-1$ eigenvalue is <strong>likely a truncation artifact</strong> — at the corrected curvature coefficient $1/6$ (the corpus $1/2$ is a <strong>factor-3 error</strong>) the trace-free shape Hessian heals to $+\tfrac13 I_2$ (POSITIVE); but the gate stays <strong>OPEN/BLOCKED</strong> on the unpinned Einstein-frame $V$-sign ($V\propto +R$ vs $-R$) and the uncomputed graded-Casimir supertrace. ⚠ frozen-corpus factor-3 curvature bug flagged</td>
+</tr>
+<tr>
+<td>UQF-14 Unitarity / causality — <a href="/anchors/uqf14-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_UQF14_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>OPEN (pert sub-row CERTIFICATE)</td>
+<td><a href="w1.html">W1</a></td>
+<td><strong>OPEN-ANCHORED</strong> — inherits the shared UV wall (W1); above-cutoff causality unreachable until R4 <em>(re-grade 2026-06-29)</em></td>
+</tr>
+<tr>
+<td>Gap-13 BH entropy / Page — <a href="/anchors/gap13-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_GAP13_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>OPEN-DIAGNOSTIC</td>
+<td><a href="w16.html">W16</a>, <a href="w3.html">W3</a></td>
+<td><strong>OPEN-ANCHORED</strong> — <strong>2026-06-30:</strong> sharpened to <strong>OPEN-BLOCKED-ON-MISSING-RULE</strong> — the geometry-native microstate-count leg is <strong>RECORD-BLOCKED</strong> (no first-principles count emittable) and the $1/4$ coefficient is only ROOT-CONSTRAINED-GIVEN-E; the order-6 boundary Seeley–DeWitt piece stays <strong>CONDITIONAL-ON-W3</strong> (shared keystone, counted once)</td>
+</tr>
+<tr>
+<td>Born (Gap-14/15) — <a href="/anchors/born-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_BORN_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>OPEN; A2 measure-uniqueness route <strong>REFUTED</strong> <em>(2026-06-30)</em></td>
+<td><a href="w15.html">W15</a>, <a href="w3.html">W3</a></td>
+<td><strong>OPEN-ANCHORED</strong> — <strong>2026-06-30:</strong> the <strong>Born-A2 measure-uniqueness route is PROVABLY EMPTY</strong> (SU(3) acts trivially on the squashing-moduli base $C$; orbits are points, so no compact group acts transitively and the Haar/transitive-uniqueness engine can never fire); A2 survives only as the named posit <strong>AXIOM-CHAMBER-SELECTOR</strong> (Curie / maximal-symmetry pick). A1 stays INVARIANCE-BLOCKED / AXIOM-OPEN</td>
+</tr>
+<tr>
+<td>Gap-02 Yang–Mills mass gap — <a href="/anchors/gap02-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_GAP02_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>Reduced-to-axiom (granularity)</td>
+<td><a href="w18.html">W18</a>, <a href="w2.html">W2</a>, <a href="w4.html">W4</a></td>
+<td><strong>TERMINAL-ANCHORED</strong> (axiom-conditional; NOT a Clay solution)</td>
+</tr>
+<tr>
+<td>UQF-5A/5B Linearized graviton — <a href="/anchors/uqf5a-5b-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_UQF5A_5B_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>CERTIFICATE-CONDITIONAL; keystone "two routes agree" <strong>REFUTED</strong> <em>(2026-06-30)</em></td>
+<td><a href="w3.html">W3</a>, <a href="w1.html">W1</a></td>
+<td><strong>OPEN-ANCHORED</strong> ($a_6$ bounded; sufficiency = W1). <strong>2026-06-30:</strong> the binding $d=13$ graviton-minus-ghost $a_6$ vector is <strong>route-INCONSISTENT</strong> — the two named routes are <strong>provably DIFFERENT Laplace-type operators</strong> (canonical-Bochner $E=0$ vs Levi-Civita–Lichnerowicz $E=-\mathrm{Ric}$), so by Gilkey their $a_6$ MUST differ (the $\|31/48\|$ gap is structural, a live internal falsifier, not a tunable bug); binding residual = uncomputed <strong>SU(3) Gelfand–Tsetlin off-diagonals</strong> on Sym$^2(T)$. Keystone NOT closed</td>
+</tr>
+<tr>
+<td>UQF-5C Interacting graviton — <a href="/anchors/uqf5c-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_UQF5C_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>OPEN — global wall</td>
+<td><a href="w1.html">W1</a></td>
+<td><strong>TERMINAL-ANCHORED / PHYSICS-OPEN</strong> (shared UQF-9 wall)</td>
+</tr>
+<tr>
+<td>UQF-9 UV completion — <a href="/anchors/uqf9-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_UQF9_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>REFRAME / AXIOM-OPEN</td>
+<td><a href="w1.html">W1</a>, <a href="w3.html">W3</a></td>
+<td><strong>TERMINAL-ANCHORED / PHYSICS-OPEN</strong> (divergence-class dissolved; fixed point open)</td>
+</tr>
+<tr>
+<td>Gap-01 $a_6$ Seeley–DeWitt — <a href="/anchors/gap01-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_GAP01_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>OPEN (scale-free heart DERIVED-GIVEN-E); "two routes agree" <strong>REFUTED</strong> <em>(2026-06-30)</em></td>
+<td><a href="w3.html">W3</a></td>
+<td><strong>OPEN-ANCHORED</strong> (the keystone bounded wall). <strong>2026-06-30:</strong> the "two routes agree" framing is <strong>REFUTED</strong> — the two named routes evaluate <strong>DIFFERENT operators</strong> (canonical-Bochner $E=0$ ghost $149/1008$ vs Lichnerowicz $E=-\mathrm{Ric}$ ghost $-251/504$), so by Gilkey their $a_6$ MUST differ; the $\|31/48\|$ disagreement is <strong>structural</strong> ($\sim$6 orders outside tolerance), not a bug. Binding residual = uncomputed <strong>SU(3) Gelfand–Tsetlin off-diagonals</strong> on Sym$^2(T)$. <strong>Keystone NOT closed</strong> (OPEN-BLOCKED-ON-MISSING-RULE)</td>
+</tr>
+<tr>
+<td>Gap-05-value $\Lambda$ value — <a href="/anchors/gap05-value-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_GAP05_VALUE_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>MEASURED ANCHOR · terminal-as-anchor (value leg); gate rolls up OPEN on R-uniqueness <em>(2026-06-30)</em></td>
+<td><a href="w11.html">W11</a></td>
+<td><strong>TERMINAL-ANCHORED</strong> (measured fifth anchor; Weinberg-open). <strong>2026-06-30:</strong> the value leg is refined within-class to <strong>REDUCED-TO-ANCHOR</strong> (a measured fifth anchor, green-as-anchor — never terminating its own gate); the gate rolls up <strong>OPEN</strong> because <strong>R-uniqueness</strong> (is volume/trace-mode freezing the <em>unique minimal</em> trace-decoupling?) stays <strong>OPEN-BLOCKED-ON-MISSING-RULE</strong></td>
+</tr>
+<tr>
+<td>Gap-05-stability $\Lambda$ rad. stab. — <a href="/anchors/gap05-stability-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_GAP05_STABILITY_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>OPEN (route refuted, banked negative)</td>
+<td><a href="w10.html">W10</a></td>
+<td><strong>OPEN-ANCHORED</strong> — <strong>2026-06-30:</strong> the radiative-stability mechanism leg is sharpened to the named block <strong>CAUSAL-ORDER-BLOCKED</strong> (target-$\Lambda$ backflow into the protector is forbidden), plus the A1 four-predicate burden OPEN-BLOCKED-ON-MISSING-RULE; catastrophe-half stays DISSOLVED-CONDITIONAL</td>
+</tr>
+<tr>
+<td>Gap-10/BG-10 Baryogenesis — <a href="/anchors/gap10-bg10-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_GAP10_BG_10_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>OPEN (firewall PROVED; CP-source unfilled)</td>
+<td><a href="w12.html">W12</a></td>
+<td><strong>OPEN-ANCHORED</strong> (pre-registered falsifier armed)</td>
+</tr>
+<tr>
+<td>Gap-08 Inflation spectrum — <a href="/anchors/gap08-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_GAP08_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>OPEN (excluded cosmology sector); $K_{\sigma\sigma}=24$ forcing <strong>REFUTED</strong> <em>(2026-06-30)</em></td>
+<td><a href="w14.html">W14</a></td>
+<td><strong>OPEN-ANCHORED</strong> — <strong>2026-06-30:</strong> <strong>REFUTED</strong> that $K_{\sigma\sigma}=24$ is geometry-forced — standard DeWitt/KK reduction gives $K=49.5$ or $16.36$, <strong>never 24</strong> ($24=4\times6$ is numerology), so the $\lambda^2=1/6$ theorem-candidate is not forced; binding slope stays OPEN / COMPUTATION-DEBT inside the declared <strong>excluded cosmology sector</strong></td>
+</tr>
+<tr>
+<td>Gap-11 Dark matter — <a href="/anchors/gap11-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_GAP11_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>OPEN (structurally-selected candidate)</td>
+<td><a href="w13.html">W13</a></td>
+<td><strong>OPEN-ANCHORED</strong> — <strong>2026-06-30:</strong> sharpened to the named block <strong>RECORD-BLOCKED</strong> — the relic abundance rides on $N_{\rm portal}$, a finite in-principle-computable overlap integral with <strong>no first-principles hash</strong> (behind an unnamed portal operator and an unrun structural fork); selector sub-leg downgraded ROOT-FORCED-GIVEN-E $\to$ ROOT-CONSTRAINED/SELECTIVE-GIVEN-E</td>
+</tr>
+<tr>
+<td>DeepRoot-granularity — <a href="/anchors/deeproot-granularity-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_DEEPROOT_GRANULARITY_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>granularity sub-root REDUCED-TO-AXIOM; additive-MDL bridge now a OPEN (provisional) <em>(2026-06-30)</em></td>
+<td><a href="w4.html">W4</a></td>
+<td><strong>TERMINAL-ANCHORED</strong> (irreducibility + $\hbar$-value unicorns dissolved). <strong>2026-06-30:</strong> the additive-MDL / cost-floor bridge (W4) is a <strong>CANDIDATE REDUCED-TO-NEW-AXIOM(BR-Arch), floor+1</strong> — the bounded representation theorem holds via Hölder <em>given</em> the Archimedean posit; this <strong>raises the posit floor by one, it does not close the gate</strong> (the stronger reduced-to-axiom terminal does not hold &mdash; the additive-vs-alternative cost-ordering choice is not yet forced (open), and that check is pending</td>
+</tr>
+<tr>
+<td>DeepRoot-shape — <a href="/anchors/deeproot-shape-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_DEEPROOT_SHAPE_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>SELECTOR-MINIMAL (category-relative)</td>
+<td><a href="w5.html">W5</a>, <a href="w6.html">W6</a></td>
+<td><strong>TERMINAL-ANCHORED</strong> (absolute-uniqueness unicorn dissolved)</td>
+</tr>
+<tr>
+<td>$\Lambda$-catastrophe (dissolution) — <a href="/anchors/lambda-catastrophe-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_GAP05_CATASTROPHE_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>DISSOLVED (conditional; tree theorem PROVEN)</td>
+<td><a href="w10.html">W10</a></td>
+<td><strong>TERMINAL-ANCHORED</strong> (catastrophe dissolved; value/stability open elsewhere)</td>
+</tr>
+<tr>
+<td>Black-hole singularity (diss.) — <a href="/anchors/blackhole-singularity-anchor-ledger.html">ledger</a> · <a href="/articles/DOSSIER_BLACKHOLE_SINGULARITY_FULL.html">dossier</a></td>
+<td>ANCHOR-CLOSED</td>
+<td>DISSOLVED + CLARIFIED (cond. on granularity)</td>
+<td>— (profile ansatz)</td>
+<td><strong>TERMINAL-ANCHORED</strong> (singularity dissolved)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Honest tally:</strong> 31 ANCHOR-CLOSED · <strong>0 physics-CLOSED</strong> · ~12 TERMINAL-ANCHORED · ~17 OPEN-ANCHORED (each owning a named bounded wall). <strong>2026-06-30 two-tier pass: 0 newly closed (PROMOTIONS: 0).</strong> A handful of gates carry a provisional lean — still OPEN, not settled (SG-1 / DeepRoot-granularity W4; SG-5 W8; SG-6 / UQF-10 W9) — and several earlier optimistic closures were REFUTED (Gap-01 / UQF-5A/5B W3 keystone "two routes agree"; Born W15 A2; SG-8 W6 $M_R$; Gap-08 W14). A candidate ≠ settled, anchored ≠ closed.</p>
+<hr />
+<h2>The walls — the distinct frontier register</h2>
+<p>Each wall has a <strong>kind</strong>: <strong>SHARED-GLOBAL</strong> (a frontier problem no single gate owns) · <strong>KEYSTONE-BOUNDED</strong> (one finite computation that moves many gates) · <strong>PER-GATE-BOUNDED</strong> (a finite owned work-package) · <strong>AXIOM/ANCHOR</strong> (a declared posit or measured value). Each links to its full page.</p>
+<h3>Tier A — Shared global walls (TERMINAL-ANCHORED; full closure is not a per-gate deliverable)</h3>
+<ul>
+<li><strong><a href="w1.html">W1 — UV-completion / strong-coupling quantum gravity</a></strong> <em>(SHARED-GLOBAL).</em> Missing: a constructive non-perturbative UV completion (or a defensible non-continuum replacement) of the interacting graviton. Touches UQF-5C, UQF-9, UQF-5A/5B, UQF-14, UQF-3, Gap-13. A shared frontier wall; per-gate terminal-anchored. No gate "closes quantum gravity," and a finite/positive $a_6$ is <strong>not</strong> a UV completion.</li>
+<li><strong><a href="w2.html">W2 — Continuum existence (the $a\to0$ / $L\to\infty$ limit)</a></strong> <em>(SHARED-GLOBAL).</em> Missing: constructive existence of the continuum measure and uniform-in-cutoff bounds. Touches Gap-02, UQF-3, UQF-9. Dissolution-licensed by the granularity axiom (REDUCED-TO-AXIOM); the full continuum proof is a shared frontier wall.</li>
+</ul>
+<h3>Tier B — Keystone bounded walls (one computation moves many gates)</h3>
+<ul>
+<li><strong><a href="w3.html">W3 — The $a_6$ Seeley–DeWitt coefficient (the keystone)</a></strong> <em>(KEYSTONE-BOUNDED).</em> Missing: the reconciled $d=13$ $\mathrm{tr}[a_6]$ on the de-Donder graviton+ghost, with the curvature-input sign correction ($31\%$ error, the $31/147\to23/75$ flip — owed, not yet applied) and the positivity functional $P(a_6)$. Owned by Gap-01; inherited by UQF-5A/5B, UQF-3, Gap-13, Born, SG-6, UQF-9. The highest-leverage single wall — and it is <strong>bounded</strong>. $a_6$ supports a bounded certificate; it is not the UV completion (W1). <strong>2026-06-30:</strong> the "two routes agree" framing is <strong>REFUTED</strong> — the two named routes are <strong>provably DIFFERENT Laplace-type operators</strong> (canonical-Bochner $E=0$ vs Levi-Civita–Lichnerowicz $E=-\mathrm{Ric}$), so by Gilkey their $a_6$ MUST differ; the $\|31/48\|$ gap is structural, not a tunable bug. The binding residual is now isolated: the uncomputed <strong>SU(3) Gelfand–Tsetlin off-diagonal matrix elements</strong> gating LC-Lichnerowicz hopping on Sym$^2(T)$.</li>
+<li><strong><a href="w4.html">W4 — Granularity $\Rightarrow$ MDL (the metric-selection bridge)</a></strong> <em>(KEYSTONE-BOUNDED / AXIOM).</em> Missing: the theorem that finite operational granularity selects description-length over dimension-count as the simplicity metric. Touches SG-1, Gap-02, DeepRoot-granularity. Closes by deriving the description-length functional from the cost-floor — or refutes if EFT is genuinely cheaper.</li>
+</ul>
+<h3>Tier C — Per-gate bounded walls (each a finite, owned work-package)</h3>
+<ul>
+<li><strong><a href="w5.html">W5 — Given-E / bundle-uniqueness</a></strong> <em>(PER-GATE-BOUNDED).</em> Missing: a bundle-uniqueness theorem selecting the index-$(-3)$ weight without invoking "three generations." Touches SG-3, SG-4, SG-2, DeepRoot-shape. "Force E" is <strong>refuted</strong> (anomaly = filter); E is terminal-as-anchor.</li>
+<li><strong><a href="w6.html">W6 — Flavor $F^+$ rulebook (+ the $m_u$ falsifier)</a></strong> <em>(PER-GATE-BOUNDED + live falsifier).</em> Missing: hardening $F^+$ to a certificate; $M_R$ computed; the three sector scales derived. Touches SG-8, DeepRoot-shape. Falsifier: $m_u(M_Z)\approx 3.16$ MeV vs PDG $1.27\pm0.43$ MeV — a forced $\sim4.4\sigma$ tension. <strong>2026-06-30:</strong> <strong>REFUTED</strong> that $M_R$ is Shape-fixed — type-I seesaw fixes only $N_\nu^2/M_R$ against one datum $\Delta m^2$ (2-vs-1 DOF obstruction; the $(1,1,0)$ singlet Majorana is gauge-unprotected); $M_R$ is a measured/calibration scale, and $N_d/N_e/N_\nu$ stay fitted calibration inputs.</li>
+<li><strong><a href="w7.html">W7 — Non-perturbative anomaly descent (BV–BRST)</a></strong> <em>(PER-GATE-BOUNDED).</em> Missing: the $d=4$ piece of the single even-degree boundary/$\eta$ class; order-$\hbar$ BV–BRST nilpotency on the descended action; the $\xi_{R4}$ value; $16/16$ quantum coverage. Touches UQF-4, SG-4, UQF-7. <strong>2026-06-30:</strong> sharpened to the named block <strong>RECORD-BLOCKED</strong> — the characteristic datum $w_2(X)+f^*\zeta$ in $H^2(X;\mathbb{Z}_2)$ is not yet even an element of any group (no codomain object); the $\sigma_\nu$ mod-8 sign bit is shared with W12 (counted once).</li>
+<li><strong><a href="w8.html">W8 — Custodial $\rho=1$ / electroweak hierarchy</a></strong> <em>(PER-GATE-BOUNDED).</em> Missing: the beyond-one-loop lifting term that fixes the flat tilt direction; the no-second-VEV certificate. Touches SG-5. <strong>2026-06-30 OPEN (provisional):</strong> the VEV mode is confirmed an SU(2)$_L$ DOUBLET (no s2.3/s2.4 inconsistency), so $\rho_{\rm tree}=1$ is structurally expected (ROOT-CONSTRAINED-GIVEN-E) but UNCOMPUTED — turns on the unbuilt $A_5/A_y$ EW-rep table and W/Z mass matrix.</li>
+<li><strong><a href="w9.html">W9 — Moduli stabilization (saddle-vs-minimum + $c_{\rm loop}$)</a></strong> <em>(PER-GATE-BOUNDED).</em> Missing: the admissible-rep multiplicity deciding saddle vs minimum; the $\mu_{\rm cell}$ value; the sign of $c_{\rm loop}$. Touches SG-6, UQF-10. <strong>2026-06-30 OPEN (provisional):</strong> at the corrected curvature coefficient $1/6$ (the frozen F1 certificate's $1/2$ is a <strong>factor-3 error</strong>) the geometric shape Hessian heals to $+\tfrac13 I_2$ (POSITIVE), so the $-1$ reads as a truncation artifact; full mass$^2$ stays OPEN on the Einstein-frame $V$-sign and the graded-Casimir supertrace. ⚠ frozen-corpus factor-3 bug flagged for correction.</li>
+<li><strong><a href="w10.html">W10 — $\Lambda$ radiative stability + sequestering</a></strong> <em>(PER-GATE-BOUNDED).</em> Missing: the four-predicate burden evaluated; finite EW/QCD condensate sequestering; R-uniqueness of trace-decoupling. Touches Gap-05-stability, $\Lambda$-catastrophe (the catastrophe-half is already dissolved). <strong>2026-06-30:</strong> the mechanism leg is <strong>CAUSAL-ORDER-BLOCKED</strong> (using $\Lambda_{\rm obs}$ to certify the protector is forbidden target-backflow).</li>
+<li><strong><a href="w11.html">W11 — $\Lambda$-value R-uniqueness</a></strong> <em>(AXIOM/ANCHOR + bounded).</em> Missing: whether freezing the volume mode is the unique minimal trace-decoupling. Touches Gap-05-value. The value itself is a <strong>MEASURED ANCHOR</strong> (terminal); only R-uniqueness is a bounded structural move. <strong>2026-06-30:</strong> the value leg is refined within-class to <strong>REDUCED-TO-ANCHOR</strong> (green-as-anchor, never terminating its own gate); R-uniqueness stays OPEN-BLOCKED-ON-MISSING-RULE.</li>
+<li><strong><a href="w12.html">W12 — Baryogenesis CP-source</a></strong> <em>(PER-GATE-BOUNDED + pre-registered falsifier).</em> Missing: the rephasing-invariant high-scale CP invariant $I_{\rm CP}$ and the $M_R$ spectrum recipe (the default sign is wrong for leptogenesis). Touches Gap-10/BG-10. Falsifier: $\eta_B \in [6.0,6.2]\times10^{-10}$.</li>
+<li><strong><a href="w13.html">W13 — Dark-matter portal normalization</a></strong> <em>(PER-GATE-BOUNDED).</em> Missing: the named portal operator and the finite overlap integral $N_{\rm portal}$. Touches Gap-11. Banked null forecast $\sigma_{\rm SI}\sim10^{-55}$–$10^{-60}\,\mathrm{cm}^2$. <strong>2026-06-30:</strong> <strong>RECORD-BLOCKED</strong> — $N_{\rm portal}$ has no first-principles hash and an unrun structural fork has not even established it is the right object.</li>
+<li><strong><a href="w14.html">W14 — Inflation spectrum derivation</a></strong> <em>(PER-GATE-BOUNDED + testable).</em> Missing: the $\lambda^2=1/6$ theorem (vs candidate) and the $81/121$ normalization source-trace. Touches Gap-08. <strong>2026-06-30:</strong> <strong>REFUTED</strong> as geometry-forced — standard DeWitt/KK reduction gives $K_{\sigma\sigma}=49.5$ or $16.36$, never 24 ($24=4\times6$ is numerology); binding slope stays OPEN / COMPUTATION-DEBT inside the declared excluded cosmology sector.</li>
+<li><strong><a href="w15.html">W15 — Born-rule weight / measure</a></strong> <em>(PER-GATE-BOUNDED / foundational).</em> Missing: a non-circular $|\psi|^2$ weight derivation; A2 measure uniqueness; non-contextuality from the framework (not imported). Touches Born. <strong>2026-06-30:</strong> the <strong>A2 measure-uniqueness route is PROVABLY EMPTY</strong> (SU(3) acts trivially on the squashing-moduli base; no compact group acts transitively, so the Haar/transitive-uniqueness engine can never fire); A2 survives only as the named posit <strong>AXIOM-CHAMBER-SELECTOR</strong>. A1 stays INVARIANCE-BLOCKED / AXIOM-OPEN.</li>
+<li><strong><a href="w16.html">W16 — Black-hole microstate count / Page curve</a></strong> <em>(PER-GATE-BOUNDED, conditional on W3).</em> Missing: the geometry-native microstate-counting theorem and the Page-turnover computation (consumes W3). Touches Gap-13. <strong>2026-06-30:</strong> the count leg is <strong>RECORD-BLOCKED</strong> (no first-principles count emittable; $1/4$ only ROOT-CONSTRAINED-GIVEN-E); still CONDITIONAL-ON-W3 (counted once with the keystone).</li>
+<li><strong><a href="w17.html">W17 — Proton all-order operator completeness</a></strong> <em>(PER-GATE-BOUNDED).</em> Missing: $d>7$ local-operator completeness; the $\Pi_q\Pi_\ell=0$ projector reconstruction; the machine-checked KK-mediator no-go. Touches SG-9.</li>
+<li><strong><a href="w18.html">W18 — Yang–Mills uniform-gap bridge</a></strong> <em>(PER-GATE-BOUNDED).</em> Missing: $\Delta(a,L)/\Lambda_{\rm YM} \ge c>0$ uniform in $a\to0$, $L\to\infty$ (the Clay-hard estimate) plus the floored inequality. Touches Gap-02; overlaps W2/W4.</li>
+<li><strong><a href="w19.html">W19 — Threshold magnitudes</a></strong> <em>(PER-GATE-BOUNDED).</em> Missing: the threshold-correction magnitudes are demonstrated-fitted, not derived; an independent reproduction of the threshold spectrum. Touches SG-7 (signs derived; magnitudes open). <strong>2026-06-30:</strong> the magnitude residual is <strong>CAUSAL-ORDER-BLOCKED + FACTORING-BLOCKED</strong> — the per-factor KK $\zeta$-normalization $Z_X$ + overlap $c_{a,b,i}$ is a finite scheme object <strong>shared with the W3 / Gap-01 keystone</strong> (counted once).</li>
+</ul>
+<hr />
+<h2>The dissolved unicorn — never a wall</h2>
+<p>Across SG-1, SG-2, SG-3, SG-9, SG-10, Gap-02, Gap-05-value/stability, DeepRoot-granularity, DeepRoot-shape, and the dissolutions, the recurring non-target is the same claim in different clothing:</p>
+<blockquote>
+<p><em>"No competitor anywhere / unique across </em><em>all</em><em> possible mathematics / no future theory could do better / proven absolutely irreducible."</em></p>
+</blockquote>
+<p>This is a universal negative — <strong>unprovable in principle, for any object in any field.</strong> It is therefore dissolved as a non-target and is <strong>never listed as a wall.</strong> What survives is the bounded, in-grammar version: a uniqueness theorem <em>relative to a stated category</em>, a <em>selected-not-forced</em> shape, a <em>measured</em> anchor, or a <em>named</em> axiom. Those are the real walls above. Recording the unicorn as "open" would be false openness; promoting it to "closed" would be false closure. Both are refused here.</p>
+<hr />
+<h2>Honest summary</h2>
+<ul>
+<li>33 gates, all <strong>ANCHOR-CLOSED</strong> (ledgers complete).</li>
+<li><strong>5 gates RESOLVED (gap05-value; sg3 family count &chi;=&minus;3; &theta;&#772;-QCD dissolved-given-Shape; &Lambda;-catastrophe dissolved-given-Scale; sg10 scope-disclosure verified).</strong> That number is honest and is meant to stay that way until a genuine closure earns it. The 2026-06-30 two-tier physics pass produced <strong>0 newly closed gates (PROMOTIONS: 0)</strong>.</li>
+<li>~12 gates <strong>TERMINAL-ANCHORED</strong>: their only residual is a dissolved unicorn, a shared global wall, a declared axiom, or a measured anchor — not a per-gate deliverable.</li>
+<li>~17 gates <strong>OPEN-ANCHORED</strong>: each owns one <strong>bounded, finite, falsifiable</strong> wall it can push.</li>
+<li><strong>2026-06-30:</strong> a few OPEN gates carry a <strong>provisional</strong> lean (W4 / SG-1 / DeepRoot-granularity; W8 / SG-5; W9 / SG-6 / UQF-10) — <em>a candidate is OPEN-with-an-optimistic-lean, not closed and not settled</em>; and several earlier optimistic closures were <strong>REFUTED</strong> (the W3 $a_6$ keystone "two routes agree"; Born W15 A2 uniqueness; SG-8 W6 $M_R$-Shape-fixed; Gap-08 W14 $K_{\sigma\sigma}=24$). $N_d/N_e/N_\nu$ remain fitted calibration inputs.</li>
+<li>19 distinct walls (W1–W19): 2 shared-global (W1, W2), 2 keystone-bounded (W3, W4), 15 per-gate-bounded. <strong>W3 — the $a_6$ keystone — is the single highest-leverage bounded computation in the program</strong> (2026-06-30: the two named routes are proven to be <em>different operators</em>, so the binding residual is now the uncomputed SU(3) Gelfand–Tsetlin off-diagonals).</li>
+<li>Live falsifiers are armed, not hidden: the $m_u$ $\sim4.4\sigma$ flavor tension (W6) and the baryon-asymmetry band $\eta_B\in[6.0,6.2]\times10^{-10}$ (W12).</li>
+<li>The prioritised open-item attack list is the <strong><a href="/residuals/">Residuals page</a></strong>.</li>
+</ul>
+<hr />
+<h2>Cross-links</h2>
+<ul>
+<li><strong>Prioritised open-item attack list:</strong> <a href="/residuals/">Residuals page</a> <em>(2026-06-30)</em></li>
+<li><strong>Anchor system:</strong> <a href="/anchors/anchor-hierarchy-overview.html">Anchor hierarchy overview</a> · <a href="/anchors/master-anchors.html">Master anchors</a> · <a href="/anchors/a0-master-anchor.html">$a_0$ master anchor</a></li>
+<li><strong>The keystone:</strong> <a href="/anchors/gap01-anchor-ledger.html">Gap-01 $a_6$ ledger</a> · <a href="w3.html">W3 — $a_6$ Seeley–DeWitt</a></li>
+<li><strong>Shared frontier:</strong> <a href="w1.html">W1 — UV completion</a> · <a href="w2.html">W2 — continuum existence</a> · <a href="/anchors/uqf9-anchor-ledger.html">UQF-9 ledger</a></li>
+<li><strong>Live falsifiers:</strong> <a href="w6.html">W6 — flavor / $m_u$</a> · <a href="w12.html">W12 — baryogenesis CP-source</a></li>
+<li>Every gate row above links directly to its anchor ledger and full dossier.</li>
+</ul>
+</main>
+</div>
+</body></html>
