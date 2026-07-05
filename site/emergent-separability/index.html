@@ -292,6 +292,42 @@
     .layout{grid-template-columns:1fr;}
     .subnav{position:static;}
   }
+
+  /* --- load-bearing/speculative gate cards + Details modal --- */
+  .part-band{font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;font-size:.72rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:.09em;color:#fff;padding:.3em .8em;border-radius:4px;display:inline-block;margin:0 0 .2em;}
+  .band-load{background:var(--accent-2);} .band-spec{background:var(--accent);}
+  .gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1em;margin:1.4em 0;}
+  .gatecard{border:1px solid var(--line);border-left:4px solid var(--accent-2);background:#fff;border-radius:0 6px 6px 0;
+    padding:1em 1.15em;display:flex;flex-direction:column;}
+  .gatecard.s-open{border-left-color:#b0791f;} .gatecard.s-speculative{border-left-color:var(--accent);}
+  .gc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:.6em;margin-bottom:.35em;}
+  .gc-name{font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;font-weight:700;font-size:1.02rem;color:var(--ink);}
+  .gc-pill{font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;font-size:.64rem;font-weight:700;text-transform:uppercase;
+    letter-spacing:.04em;padding:.22em .6em;border-radius:20px;white-space:nowrap;flex:0 0 auto;}
+  .p-resolved{background:#e3f0e4;color:#256b2e;} .p-anchored{background:#e4edf1;color:#1f4e5f;}
+  .p-open{background:#f7ecd6;color:#8a5a12;} .p-speculative{background:#efe4dc;color:#6b3f2a;}
+  .gc-blurb{color:var(--ink-soft);font-size:.92rem;margin:.2em 0 .85em;flex:1 1 auto;line-height:1.5;}
+  .gc-act{display:flex;gap:.55em;flex-wrap:wrap;align-items:center;}
+  .gc-details{font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;
+    background:transparent;border:1px solid var(--accent-2);color:var(--accent-2);padding:.35em .8em;border-radius:4px;}
+  .gc-details:hover{background:var(--accent-2);color:#fff;}
+  .gc-details:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .gc-closure{font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;font-size:.76rem;font-weight:700;color:var(--accent);text-decoration:none;padding:.35em .1em;}
+  .gc-closure:hover{text-decoration:underline;}
+  dialog#gate-modal{max-width:600px;width:calc(100% - 2em);border:1px solid var(--line);border-radius:8px;padding:0;color:var(--ink);background:var(--paper);box-shadow:0 12px 44px rgba(0,0,0,.28);}
+  dialog#gate-modal::backdrop{background:rgba(20,18,15,.45);}
+  .gm-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1em;padding:1em 1.2em;border-bottom:1px solid var(--line);background:var(--paper-alt);}
+  .gm-head h3{margin:.12em 0 0;font-size:1.12rem;font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;}
+  .gm-sub{font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;}
+  .gm-close{border:none;background:transparent;font-size:1.5rem;line-height:1;cursor:pointer;color:var(--ink-soft);padding:0 .2em;}
+  .gm-close:hover{color:var(--accent);}
+  .gm-body{padding:1.1em 1.3em;font-size:.95rem;line-height:1.62;}
+  .gm-body p{margin:.55em 0;}
+  .gm-foot{padding:.2em 1.3em 1.3em;}
+  .gm-foot a{display:inline-block;font-weight:700;color:#fff;background:var(--accent-2);padding:.5em 1.05em;border-radius:5px;text-decoration:none;font-size:.85rem;font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;}
+  .gm-foot a:hover{background:var(--accent);}
+
 </style>
 </head>
 <body>
@@ -327,116 +363,44 @@
   <aside class="subnav" aria-label="Section navigation">
     <div class="subnav-box">
       <h2>On this section</h2>
-      <ul>
-        <li><a href="/emergent-separability/" aria-current="page">Overview</a></li>
-        <li><a href="/emergent-separability/one-but-separate.html">One but Separate</a></li>
-        <li><a href="/emergent-separability/separation-certificate.html">The Separation Certificate</a></li>
-        <li><a href="/emergent-separability/standard-model-interface.html">The Standard Model as Interface</a></li>
-        <li><a href="/emergent-separability/kinds-of-separation.html">Kinds of Separation</a></li>
-        <li><a href="/emergent-separability/new-physics.html">Where This Opens New Physics</a></li>
-      </ul>
-    </div>
+<ul><li><a href="/emergent-separability/">Overview</a></li><li><a href="#load-bearing">Load-bearing</a></li><li><a href="#speculative">Speculative</a></li><li><a href="/emergent-separability/one-but-separate.html">One but Separate</a></li><li><a href="/emergent-separability/separation-certificate.html">The Separation Certificate</a></li><li><a href="/emergent-separability/standard-model-interface.html">The Standard Model as Interface</a></li><li><a href="/emergent-separability/kinds-of-separation.html">Kinds of Separation</a></li><li><a href="/emergent-separability/new-physics.html">Where This Opens New Physics</a></li></ul>
+</div>
   </aside>
 
   <main id="main-content">
-
-    <h2 style="border-bottom:none; margin-bottom:0.2em;">One but Separate <span style="font-weight:400; font-size:0.7em; color:var(--ink-soft);">(formerly &ldquo;Emergent Separability&rdquo; / &ldquo;Differentiated Unity&rdquo;)</span></h2>
-    <p class="lede">This section is a clearly-labeled <strong>speculative extension</strong> of the constraint-first
-    program, kept separate from the tested physics described elsewhere on this site. It asks a single question:
-    when is a "part" — a particle, a sector, an observer, a region of space — actually separate from the rest of
-    reality, and when is that separateness an assumption nobody paid for?</p>
-
-    <p><strong>One but Separate</strong> proposes that reality is one at the root and
-    differentiated through record-certified distinctions. Separateness is real, but it is not primitive; it must
-    be <em>earned</em> — through finite records, valid windows, invariance, and causal interfaces.</p>
-
-    <div class="honesty-box">
-      <strong>Status, up front:</strong> this is <strong>ontology</strong>, not the tested method. It is
-      <strong>clearly subordinate in rigor</strong> to the constraint-based reconstruction work described under
-      <a href="/anchors/">Foundational Constraints</a> and <a href="/gates/">Gates</a>. Nothing
-      here is settled physics, nothing here is peer-reviewed, and several of the central claims are named
-      explicitly as conjectures, not results. Where a claim is still open, it is labeled open.
-    </div>
-
-    <h2 id="the-idea">The core idea</h2>
-    <p>Most physical theories start by assuming the world is already made of separate pieces — particles, fields,
-    observers, regions — and then ask how those pieces interact. The <strong>One but Separate</strong>
-    proposes reversing that assumption: treat the whole as primary, and ask which separations a constraint-first
-    universe is actually entitled to.</p>
-    <p>The working slogan is short:</p>
-    <blockquote>Separability is not fundamental; it is an allowed interface. Independence is not free.</blockquote>
-    <p>That is a stronger and more specific claim than "everything is connected" or "everything is entangled."
-    Ordinary quantum entanglement is compatible with an inhomogeneous, lumpy, ordinarily-separable universe. The
-    claim this section explores is sharper: that a proposed split — of a system into subsystems, of a geometry
-    into a product of factors, of a spectrum into independent sectors — has to clear a specific, nameable set of
-    conditions before it counts as physically real, rather than merely a description we found convenient.</p>
-
-    <h2 id="how-it-connects">How this connects to the tested program</h2>
-    <p>The constraint-based reconstruction work elsewhere on this site is built from a small set of
-    <a href="/anchors/">Foundational Constraints</a> — deep consistency requirements including a
-    principle sometimes called <em>Nonseparability</em>: that a system's independence from the rest of reality
-    cannot be assumed, only earned. This section takes that one constraint and asks how far it can be pushed as
-    a standalone idea, and where the honest limits of that push currently sit.</p>
-    <p>Two live findings from the underlying gate work motivate this section directly:</p>
-    <ul>
-      <li>Closing a structural gate about the <strong>shape</strong> of the extra dimensions (whether the internal
-      geometry is a clean product of three separate pieces) turned out to hinge exactly on this question — a
-      product geometry is a specific kind of claimed separation, and it is not free. See
-      <a href="/emergent-separability/standard-model-interface.html">The Standard Model as Interface</a>.</li>
-      <li>Closing a structural gate about the <strong>matter content</strong> of the Standard Model (why this
-      spectrum of particles and not another) ran into the same question from a different direction: which
-      additions to a spectrum are "spectators" that were never paid for, and which are load-bearing. See
-      <a href="/emergent-separability/kinds-of-separation.html">Kinds of Separation</a>.</li>
-    </ul>
-    <p>In both cases, the tested program's own machinery — not an outside philosophical move — is what surfaced
-    the question this section is built around. That is the honest origin story, and it is why this section exists
-    at all rather than being pure speculation grafted on afterward.</p>
-
-    <h2 id="what-this-is-not">What this section is not claiming</h2>
-    <div class="callout">
-      <h3 style="margin-top:0;">Guardrails</h3>
-      <ul style="margin:0.4em 0 0; padding-left:1.3em;">
-        <li>This is <strong>not</strong> a claim that physics has proven reality is "one" in some mystical or
-        unfalsifiable sense. It is a specific, checkable claim about which separations a constraint-first
-        universe can support without an unpaid assumption.</li>
-        <li>This is <strong>not</strong> a substitute for the tested shape-selection and gate-closure work. It is
-        downstream commentary on what that work has already surfaced.</li>
-        <li>This is <strong>not</strong> a finished theory. Several pieces — most importantly, whether the
-        Standard Model's product gauge structure reflects a genuinely deeper single object, or is simply the
-        paid, observed structure it appears to be — are named openly as unresolved.</li>
-      </ul>
-    </div>
-
-    <h2 id="pages">Pages in this section</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h4><a href="/emergent-separability/one-but-separate.html">One but Separate</a></h4>
-        <p>The whole is primary; the parts are conditional. Why "everything is entangled" is too weak, and what
-        the stronger claim actually says.</p>
-      </div>
-      <div class="card">
-        <h4><a href="/emergent-separability/separation-certificate.html">The Separation Certificate</a></h4>
-        <p>The public form of the admissibility test: the questions a proposed separation has to answer before
-        it counts as physically real.</p>
-      </div>
-      <div class="card">
-        <h4><a href="/emergent-separability/standard-model-interface.html">The Standard Model as Interface</a></h4>
-        <p>Why the Standard Model's product gauge structure is best read as a low-energy interface, not
-        necessarily the deep geometry — and what is and isn't proven about that.</p>
-      </div>
-      <div class="card">
-        <h4><a href="/emergent-separability/kinds-of-separation.html">Kinds of Separation</a></h4>
-        <p>What a separation looks like when it has been earned by observation, when it is forced by the
-        constraints alone, and when a proposed split simply fails to hold up.</p>
-      </div>
-      <div class="card">
-        <h4><a href="/emergent-separability/new-physics.html">Where This Opens New Physics</a></h4>
-        <p>Measurement, hidden sectors, and spacetime itself, reframed as questions about which separations are
-        permitted — flagged clearly as forward-looking conjecture.</p>
-      </div>
-    </div>
-
-  </main>
+<h2 id="overview" style="border-bottom:none;margin-bottom:0.2em;">One but Separate</h2>
+<h3>One but Separate: Emergent Separability</h3>
+<p class="lede">This section has two clearly separated parts, and it is worth saying which is which up front. The first is <strong>load-bearing</strong>: the Nonseparability constraint — that a system's independence from the rest of reality cannot be assumed, only earned — was not a philosophical flourish but the exact question that had to be answered to close real structural gate work, and it produced concrete, honestly-statused results. The second is explicitly <strong>speculative</strong>: a set of forward-looking reframings, offered only to show the reach of "independence is earned," and named openly as conjecture rather than as solved or advanced problems.</p>
+<div class="honesty-box"><strong>How to read this page:</strong> it is split into two parts. The <strong>load-bearing</strong> part is where this idea was actually necessary to close gates in the tested program &mdash; shown with each gate's honest status and a link to its full closure. The <strong>speculative</strong> part is included because it is interesting, not because it carries weight; nothing there is claimed as solved.</div>
+<span class="part-band band-load">Part 1 &middot; Load-bearing</span>
+<h2 id="load-bearing">How this was necessary to close real gates</h2>
+<div class="callout"><h4 style="margin-top:0">Why it is load-bearing: granularity grows away from &ldquo;now&rdquo;</h4><p>The load-bearing mechanism is stated plainly: separation is <strong>earned and emergent because granularity is time-dependent and grows as you move away from now</strong>. At <em>t = now</em>, granularity is at its minimum, so everything is maximally connected and non-separable — the "one." As you move into the past or future, granularity increases: finite records and distinctions become affordable, and systems become separable and distinguishable — the "but separate." This is the same time-dependent granularity used in the Early &amp; Distant Universe section.</p><p>This is exactly why independence cannot be assumed at now but is earned away from now, and it is what let the load-bearing gates close. A claimed separation — a product of geometric factors, an added matter sector, an isolated subsystem — is real only where a finite record can pay for it; where no finite record can, the separation stays open rather than being written in as true. That discipline is what forced the product-geometry result to be paid for by the observed gauge group rather than assumed, and what let the constraints alone eliminate unpaid spectator sectors.</p></div>
+<h3>Why Nonseparability Had To Be Answered</h3>
+<p>The rule sounds abstract, but it settled concrete structural questions that could not be left open. Its content is a single discipline: a claimed separation is real only where a finite record can pay for it. And the reason a record can be paid for at all comes from the same time-dependent granularity used in the Early &amp; Distant Universe section — <strong>granularity is at its minimum at <em>t = now</em> and grows as you depart from now, into the past or the future.</strong></p>
+<div class="callout">
+<p>At <em>t = now</em>, granularity is minimal, so everything is maximally connected and non-separable — the "one." Move away from now and granularity increases: finite records and distinctions become affordable, and systems become separable and distinguishable — the "but separate." Independence therefore cannot be assumed at now; it is <strong>earned</strong> away from now. That is exactly what let the load-bearing gates below close.</p>
+</div>
+<p>With that mechanism in hand, two named results follow, and one reusable tool falls out of them.</p>
+<h3>Result 1 — The Standard Model as Interface</h3>
+<p>The internal geometry is allowed to split into a three-factor product only because it is <em>paid for</em>: the observed gauge group SU(3)×SU(2)×U(1) already factors as a direct product, and in this framework gauge symmetry is geometric symmetry, so the observed factorization is the finite record that licenses the geometric one. The paid core — no unpaid spectator factor, no unrecorded mixing — is solid. It does not close everything: it ends at a named, still-open fork between this paid product structure and a deeper single unified geometry that would produce the same low-energy factorization. That fork stays open; it is not rounded up to solved.</p>
+<h3>Result 2 — Kinds of Separation</h3>
+<p>Here the constraints do more than license — they eliminate. Unpaid "spectator" or disconnected vectorlike sectors, added to the particle content without a record to pay for them, are ruled out by the constraints themselves. That elimination is resolved. A distinct question rides alongside it and is deliberately left open: exactly three generations remains observation-earned, matched to what is measured rather than forced by the geometry. Keeping those two apart — one closed, one open — is the whole point of the discipline.</p>
+<h3>The Separation Certificate</h3>
+<p>Because the same test recurred at each gate, it was fixed into a reusable tool: seven questions any proposed split must answer before it counts as real — Shape, Shape-precision, Scale, Granularity, Invariance, Causal order, and Nonseparability itself. Every proposed separation then lands in exactly one ledger box: paid, derived, open, or inadmissible. Open is the default. A separation is written in as true only when a finite record pays for it; where no record can, it stays open rather than being assumed.</p>
+<div class="gate-grid"><div class="gatecard s-open"><div class="gc-head"><span class="gc-name">The Standard Model as Interface (product-structure result)</span><span class="gc-pill p-open">Open</span></div><p class="gc-blurb">The three-factor product internal geometry is not free: its no-spectator/no-mixing structure is paid for by the already-observed fact that the SM gauge group factors as a direct product plus gauge-symmetry = geometric-symmetry, and the result ends at a named open fork between the paid product and a possible deeper unified geometry.</p><div class="gc-act"><button type="button" class="gc-details" data-gate="standard-model-as-interface" aria-haspopup="dialog">Details</button><a class="gc-closure" href="https://physics.magflowmeters.com/closure/separability.html">Full closure &amp; math &rarr;</a></div></div><div class="gatecard s-resolved"><div class="gc-head"><span class="gc-name">Kinds of Separation (unpaid spectator-sector elimination)</span><span class="gc-pill p-resolved">Resolved</span></div><p class="gc-blurb">Unpaid spectator sectors and disconnected vectorlike additions to the observed spectrum are ruled out by the Nonseparability constraint itself rather than by a modeling choice, while the distinct question of why exactly three generations remains observation-earned and is not claimed to follow from this.</p><div class="gc-act"><button type="button" class="gc-details" data-gate="kinds-of-separation-spectators" aria-haspopup="dialog">Details</button><a class="gc-closure" href="https://physics.magflowmeters.com/closure/separability.html">Full closure &amp; math &rarr;</a></div></div><div class="gatecard s-resolved"><div class="gc-head"><span class="gc-name">The Separation Certificate (seven-question tool)</span><span class="gc-pill p-resolved">Resolved</span></div><p class="gc-blurb">The reusable public admissibility test — seven fixed questions (Shape, Shape-precision, Scale, Granularity, Invariance, Causal order, Nonseparability) — that any proposed separation must answer before it counts as physically real rather than assumed for convenience.</p><div class="gc-act"><button type="button" class="gc-details" data-gate="separation-certificate" aria-haspopup="dialog">Details</button><a class="gc-closure" href="https://physics.magflowmeters.com/closure/separability.html">Full closure &amp; math &rarr;</a></div></div></div>
+<span class="part-band band-spec">Part 2 &middot; Speculative</span>
+<h2 id="speculative">Interesting reach &mdash; included because it is interesting</h2>
+<h3>The Reach of "Independence Is Earned"</h3>
+<p>What follows is a different kind of writing. The items below are included because they are interesting — they show how far the single idea "independence is earned, never assumed" might reach into long-standing puzzles. None of them is a result. None is claimed as solved or even as advanced. They are conjecture, offered openly as conjecture, and separated cleanly from the load-bearing work above.</p>
+<h3>Five Speculative Reframings</h3>
+<p><strong>Quantum measurement.</strong> One could ask which finite-record interfaces turn a globally nonseparable structure into a locally recorded fact — a way of restating the measurement question in the language of paid separations. This is a reframing, not a mechanism, and nothing here is constructed or checked.</p>
+<p><strong>Hidden sectors and dark matter.</strong> A hidden sector is not forbidden, but under this discipline it is not free either. It invites a question rather than answering one: is a missing effect evidence of a new sector, or a sign that our separability model is incomplete? Both remain open readings.</p>
+<p><strong>The Standard Model and grand unification.</strong> The observed product gauge group might be the low-energy shadow of a single deeper carrier — the same open fork named above, now looking forward. No unified candidate has been constructed or checked; this is a direction, not a claim.</p>
+<p><strong>Spacetime itself.</strong> The most far-reaching and most speculative item: geometry read as the rulebook of which separations are allowed at all. It is listed to show the scale of the idea, explicitly not as a worked-out proposal.</p>
+<p><strong>Black holes and the information paradox.</strong> One could ask whether the inside/outside and record/global-state splits are actually paid before treating the paradox as a fact of nature. That is a question to pose, not a resolution — and it is named as such.</p>
+<div class="gate-grid"><div class="gatecard s-speculative"><div class="gc-head"><span class="gc-name">Quantum measurement</span><span class="gc-pill p-speculative">Speculative</span></div><p class="gc-blurb">Reframes measurement as which finite-record interfaces are allowed to turn a global, nonseparable structure into a local recorded outcome — a proposed way of asking the question, not a proposed solution.</p><div class="gc-act"><button type="button" class="gc-details" data-gate="quantum-measurement" aria-haspopup="dialog">Details</button></div></div><div class="gatecard s-speculative"><div class="gc-head"><span class="gc-name">Hidden sectors and dark matter</span><span class="gc-pill p-speculative">Speculative</span></div><p class="gc-blurb">A hidden sector is not forbidden but is not free; the certificate adds the easily-skipped question of whether a missing effect is a genuine new sector or a sign the visible sector&#x27;s separability model is incomplete — answered neither way here.</p><div class="gc-act"><button type="button" class="gc-details" data-gate="hidden-sectors-dark-matter" aria-haspopup="dialog">Details</button></div></div><div class="gatecard s-speculative"><div class="gc-head"><span class="gc-name">The Standard Model and grand unification</span><span class="gc-pill p-speculative">Speculative</span></div><p class="gc-blurb">The conjectural half of the interface result: the observed product gauge group might be the low-energy shadow of a single deeper irreducible carrier, but no specific unified candidate has been constructed and checked, so it is named as an open direction.</p><div class="gc-act"><button type="button" class="gc-details" data-gate="grand-unification" aria-haspopup="dialog">Details</button><a class="gc-closure" href="https://physics.magflowmeters.com/emergent-separability/standard-model-interface.html">Full closure &amp; math &rarr;</a></div></div><div class="gatecard s-speculative"><div class="gc-head"><span class="gc-name">Spacetime itself</span><span class="gc-pill p-speculative">Speculative</span></div><p class="gc-blurb">The largest-reaching item: geometry read as the rulebook of allowed separations, with distance and locality as the pattern of separations a geometry permits — a research hypothesis with no current supporting derivation on the site.</p><div class="gc-act"><button type="button" class="gc-details" data-gate="spacetime-foundations" aria-haspopup="dialog">Details</button></div></div><div class="gatecard s-speculative"><div class="gc-head"><span class="gc-name">Black holes and information paradoxes</span><span class="gc-pill p-speculative">Speculative</span></div><p class="gc-blurb">Suggests checking whether the inside/outside-horizon and record/global-state splits underlying the paradox are actually paid, in the certificate sense, before treating the paradox as a fact about nature — a place to look, not a resolution.</p><div class="gc-act"><button type="button" class="gc-details" data-gate="black-holes-information" aria-haspopup="dialog">Details</button></div></div></div>
+<h2>Pages in this section</h2><div class="card-grid"><div class="card"><h4><a href="/emergent-separability/one-but-separate.html">One but Separate</a></h4><p>The core idea and the working slogan.</p></div><div class="card"><h4><a href="/emergent-separability/separation-certificate.html">The Separation Certificate</a></h4><p>The seven questions any real separation must answer.</p></div><div class="card"><h4><a href="/emergent-separability/standard-model-interface.html">The Standard Model as Interface</a></h4><p>The load-bearing gate result and its open fork.</p></div><div class="card"><h4><a href="/emergent-separability/kinds-of-separation.html">Kinds of Separation</a></h4><p>Earned by observation, earned by constraints, or failing the check.</p></div><div class="card"><h4><a href="/emergent-separability/new-physics.html">Where This Opens New Physics</a></h4><p>The speculative reach &mdash; interesting, not load-bearing.</p></div></div>
+</main>
 </div>
 
 <footer class="site-footer">
@@ -471,6 +435,60 @@
     All claims carry an honest status label; open questions are named as open, not implied closed.
   </div>
 </footer>
+
+
+<dialog id="gate-modal" aria-labelledby="gm-title">
+  <div class="gm-head">
+    <div><div class="gm-sub"><span class="gm-status"></span></div><h3 id="gm-title" class="gm-title"></h3></div>
+    <button type="button" class="gm-close" aria-label="Close">&times;</button>
+  </div>
+  <div class="gm-body"></div>
+  <div class="gm-foot"></div>
+</dialog>
+<div style="display:none" aria-hidden="true">
+<div class="gc-src" id="gc-src-standard-model-as-interface" data-title="The Standard Model as Interface (product-structure result)" data-status="Open" data-closure="https://physics.magflowmeters.com/closure/separability.html"><p>This item asks whether the Standard Model's gauge group — SU(3) &times; SU(2) &times; U(1), color, weak, and hypercharge multiplied together — has to show up in the candidate shape as three separate geometric pieces bolted together, or whether that "product" structure is just how a deeper, more unified geometry happens to look at everyday energies. A mathematical product of pieces comes with a built-in, canonical way of splitting back apart, so the question is whether that split is real or just convenient.</p>
+<p>Nonseparability is the relevant requirement here: no part of the geometry gets to be treated as independent from the rest for free — any such split has to be earned, not assumed. Worked through carefully, the three-factor product turns out to be allowed with no leftover unused pieces and no blending between the sectors, but only once the already-observed fact that the Standard Model's own gauge group factors that way is fed in as an input. So the product is paid for by observation, not conjured from the shape's rules alone. Time-dependent granularity is not what is doing the work in this particular result — the open question here is about depth of geometric unity, not about coarseness changing with distance from now.</p>
+<p>Honest status: this is a mix of resolved and open. The "no spectator factors, no mixing" part of the argument is a solid, proven result, given the observed Standard Model content and the Nonseparability rule. But the deeper idea that this product is merely the low-energy face of one single, irreducible unified geometry is an explicitly open, unproven conjecture — no specific candidate for that deeper geometry has been produced or checked. The defensible current position is that the product structure is real and paid-for now, while the "interface to something deeper" reading stays open, not rounded up to settled.</p></div>
+<div class="gc-src" id="gc-src-kinds-of-separation-spectators" data-title="Kinds of Separation (unpaid spectator-sector elimination)" data-status="Resolved" data-closure="https://physics.magflowmeters.com/closure/separability.html"><p>This item is about a specific kind of independence claim: could there be extra, disconnected pieces of matter — particles or sectors that couple to nothing else, sitting off to the side for no structural reason — hiding in the theory unnoticed? A "spectator sector" like that would be a free-rider: real in the model, but not required by, or connected to, anything actually observed. This check asks whether that kind of quiet addition is allowed.</p>
+<p>The Nonseparability requirement says a piece of a system only gets to count as independent if that independence is earned, never assumed for free. An unpaid spectator sector is exactly the thing this rules out: an extra label, modulus, or excitation with no anchor in what is observed and no forced coupling to the rest of the structure. Because the elimination follows straight from that requirement — with no additional unproven assumption added on top — it belongs to the strongest, rarest category of result: forced by the constraints themselves rather than earned only by matching an observation. (This is separate from, and does not by itself explain, the count of matter generations, which rests on its own calculation and is reported elsewhere as resting on observed particle content.)</p>
+<p>Honest status: this elimination is resolved — forced by the constraints alone, not merely consistent with them and not an open question. It should not be over-read, though: it says unpaid, disconnected spectator sectors are excluded; it does not by itself fix how many generations of matter exist or settle other, related open questions about the deeper structure of the Standard Model's gauge sector, which remain separately and honestly labeled open elsewhere on this site.</p></div>
+<div class="gc-src" id="gc-src-separation-certificate" data-title="The Separation Certificate (seven-question tool)" data-status="Resolved" data-closure="https://physics.magflowmeters.com/closure/separability.html"><p>The Separation Certificate is a fixed checklist of seven questions used to test any claim that one piece of physics is truly independent from another &mdash; two subsystems, two geometric factors, two decay channels, an observer and what it observes. Independence is never simply assumed here; a proposed split has to answer questions about which frozen object is being divided, whether it introduces a hidden new scale, whether a finite record actually proves the split exists, whether it survives changes of coordinates or convention, whether the split was fixed before the result it explains was already known, and whether its independence has actually been earned rather than presumed.</p>
+<p>This checklist is the public, general-audience form of the program's foundational rule that independence from the rest of reality cannot be assumed, only earned. The "finite record" question is where time enters: the further a claim reaches from directly measured, present-day anchors, the coarser and less certain the finite record backing it becomes, so separations invoked to explain distant or early conditions are held to the same seven questions but typically have a harder time answering the granularity one cleanly. A "not yet" on any single question leaves that separation open rather than settled, no matter how convenient it would be to treat it as free.</p>
+<p>Honest status: the certificate itself is a classification tool, not a discovery about nature, so it is best read as resolved as a method &mdash; it is fully specified and has been applied to real cases with named, unrounded outcomes (see the Standard Model interface and Kinds of Separation pages). Whether any given separation it is applied to passes remains a separate, case-by-case question, and several of those individual cases are still open. The tool does not prove or disprove anything by itself; it only tells you honestly which of the seven questions still need an answer.</p></div>
+<div class="gc-src" id="gc-src-quantum-measurement" data-title="Quantum measurement" data-status="Speculative" data-closure=""><p>Quantum measurement is the puzzle of why a system described by many possible outcomes at once (a superposition) ends up showing us just one definite result when we look. This item asks whether that transition — from "many possibilities" to "one observed outcome" — can be understood as something that emerges from a single fixed 13-dimensional geometric shape, rather than being added to the theory as a separate rule.</p>
+<p>The key idea in play is that a system's independence from everything else — the assumption that we can treat it as its own separate "thing" cut off from the rest of reality — is not something you get for free. It has to be earned by showing how the separation arises, rather than assumed at the outset. On top of that, the fineness of detail the geometry can resolve is treated as coarser for events far from the present and sharper close to it. Put together, these two features suggest that what looks like a measurement "collapse" might really be a statement about how much a distant, entangled system can be treated as separable from an observer at a given moment — but this is a line of reasoning, not a worked derivation.</p>
+<p>Honest status: this is speculative. There is no completed calculation here that reproduces the standard predictions of quantum measurement (such as Born-rule probabilities) from the geometry, and no observable match to point to yet. It remains an open, interesting direction rather than an established result, and it should be read that way.</p></div>
+<div class="gc-src" id="gc-src-hidden-sectors-dark-matter" data-title="Hidden sectors and dark matter" data-status="Speculative" data-closure=""><p>"Hidden sectors" is the idea that dark matter could be made of fields or particles that live alongside ordinary matter but barely talk to it — coupled only very weakly (say, through gravity, or through some rare interaction) to the protons, electrons, and photons that make up the visible world. It's a common way physicists frame dark matter model-building: not one new particle bolted onto the Standard Model, but a whole separate "sector" that mostly minds its own business.</p>
+<p>The frozen 13-dimensional shape this program starts from treats independence as something that has to be earned, not assumed: two parts of a system only count as separate sectors if the geometry genuinely decouples them, not because we drew a box around them for convenience. That same shape is read with a granularity that gets finer the further a question sits from the present moment and from what's already anchored to measurement — so a claim about how "hidden" a candidate sector really is, and how coarse or fine its structure could be, is exactly the kind of question that depends on where in the shape you are asking it, not something you get to stipulate up front.</p>
+<p>Right now this is a speculative research direction, not a finished result. No specific hidden-sector candidate has been derived from the shape and checked against dark-matter observations (galactic rotation curves, structure formation, direct-detection limits, etc.), and no number here should be read as an established prediction. It's an open avenue worth exploring, honestly labeled as unresolved.</p></div>
+<div class="gc-src" id="gc-src-grand-unification" data-title="The Standard Model and grand unification" data-status="Speculative" data-closure="https://physics.magflowmeters.com/emergent-separability/standard-model-interface.html"><p>The Standard Model's forces come in three separate pieces — strong, weak, and electromagnetic — each tied to its own symmetry group. Grand unification is the old dream of finding one larger structure that contains all three as parts of a single whole, rather than three independent add-ons. In this program's candidate shape, that three-piece structure shows up as a geometric product: three separate small internal shapes, one per force, multiplied together.</p>
+
+<p>Nonseparability treats that product with suspicion, because a mathematical product comes with a built-in, "for free" way of splitting itself back into pieces — exactly the kind of unearned independence the constraint says can't be assumed. Working through the admissibility logic shows that a product with no leftover extra pieces and no blending between the three sectors is what the constraints allow — but only once the already-observed fact that the real Standard Model group factors into three commuting pieces is fed in. So the three-way split is paid for by observation, not conjured from the constraints alone. Granularity — how finely the geometry can be resolved into separate pieces at all — is treated as sharper right now (t = now) and coarser toward the deep past, so this three-piece reading is itself a statement about present-day physics, not a timeless given.</p>
+
+<p>Honest status: whether this observed three-part product is the deepest layer of geometry, or just how a single, more unified geometry happens to look at low energy, is an open, unresolved question — a named conjecture, not a result. No specific unified candidate geometry has been produced or shown to reduce correctly to the observed product. This is speculative and interesting, not an established finding, and it is presented here with that status intact.</p></div>
+<div class="gc-src" id="gc-src-spacetime-foundations" data-title="Spacetime itself" data-status="Speculative" data-closure=""><p>"Spacetime itself" asks whether the stage on which physics happens — space, time, distance, duration — is a basic ingredient you must assume from the start, or something that comes out of a more primitive structure. In this reconstruction, spacetime is treated as a candidate output: it is built from one fixed higher-dimensional shape rather than posited up front as an empty container waiting to be filled.</p><p>The nonseparability constraint says a piece of the universe is never automatically allowed to be treated as its own isolated system — that independence has to be earned by showing the rest of reality genuinely drops out, not assumed for convenience. Applied to spacetime, this means nearby events (close to "now") are held to a finer, more detailed level of description, while regions farther away in time are allowed a coarser one — the level of detail is not uniform, it changes with distance from the present. This is a specific, checkable feature of the proposal, not a free choice made after the fact.</p><p>Honest status: this is a speculative, exploratory idea within the framework, not an established result. Turning "spacetime emerges from the shape" into a precise, checked derivation with a clear pass/fail against measurement has not been done. It is presented here as an open, interesting direction — worth tracking, not something to treat as confirmed physics.</p></div>
+<div class="gc-src" id="gc-src-black-holes-information" data-title="Black holes and information paradoxes" data-status="Speculative" data-closure=""><p>This item asks whether the long-standing puzzles about black holes — in particular the "information paradox" (does information that falls into a black hole survive, and if so how does it get back out as the black hole evaporates?) — can be addressed from a single frozen shape rather than treated as a separate add-on problem. In plain terms: a black hole is normally analyzed as an isolated system, and the paradox arises largely because that isolation is assumed from the start.</p>
+<p>The relevant Foundational Constraint here is NONSEPARABILITY: a black hole's independence from the rest of reality is not something you get to assume for free — it has to be earned by showing the coupling to everything else is actually negligible. Alongside this, the theory treats the fineness of description (granularity) as something that can change with distance from the present moment, becoming coarser further from "now." Together these two ideas suggest that some of the sharpness of the paradox — a strictly isolated system losing information in a strictly fine-grained way — may be an artifact of assuming both perfect separability and constant granularity, assumptions this framework does not grant automatically.</p>
+<p>Honest status: this is a speculative, exploratory line of thinking, not a solved result. No calculation here has been carried through to a checked, quantitative answer about black hole information, and no specific number or resolution is being claimed. It should be read as a plausible direction worth investigating, clearly separate from the parts of the framework that are tied to measured anchors.</p></div>
+</div>
+<script>
+(function(){
+  var m=document.getElementById('gate-modal'); if(!m) return;
+  var t=m.querySelector('.gm-title'), st=m.querySelector('.gm-status'), b=m.querySelector('.gm-body'), f=m.querySelector('.gm-foot');
+  function open(id){
+    var s=document.getElementById('gc-src-'+id); if(!s) return;
+    t.textContent=s.getAttribute('data-title')||''; st.textContent=s.getAttribute('data-status')||'';
+    b.innerHTML=s.innerHTML;
+    var u=s.getAttribute('data-closure');
+    f.innerHTML=u?'<a href="'+u+'">Full closure &amp; math &rarr;</a>':'';
+    if(typeof m.showModal==='function'){m.showModal();}else{m.setAttribute('open','');}
+  }
+  var btns=document.querySelectorAll('.gc-details');
+  for(var i=0;i<btns.length;i++){btns[i].addEventListener('click',function(){open(this.getAttribute('data-gate'));});}
+  m.querySelector('.gm-close').addEventListener('click',function(){m.close();});
+  m.addEventListener('click',function(e){if(e.target===m){m.close();}});
+})();
+</script>
 
 </body>
 </html>
