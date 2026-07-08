@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Scale — absolute-magnitude discipline</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 256px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:64rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:14.5px;margin:0 0 6px;line-height:1.25;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="/">&#9632; A Framework for a Theory of Everything</a></div>
+<div class="ann-group">Start here</div>
+<a href="/">Home — intro</a>
+<a href="/gates/">The Gates — scoreboard</a>
+<a href="/residuals/">The Residuals — attack list</a>
+<div class="ann-group">The honest rule-set</div>
+<a href="/anchors/">The Anchors</a>
+<a href="/walls/">The Walls</a>
+<a href="/closure/">The Closure system</a>
+<a href="/closure/walls/">&mdash; closure paths</a>
+<div class="ann-group">The physics</div>
+<a href="/shape/">The Shape (13D)</a>
+<a href="/scale/" class="current">The Scale</a>
+<a href="/granularity/">The Granularity</a>
+<a href="/paying/">What &ldquo;paying&rdquo; means</a>
+<a href="/layer2/">The Second-Layer Roots</a>
+<a href="/gut/">GUT &mdash; Paper 1</a>
+<a href="/forces/">Forces &mdash; Paper 2</a>
+<a href="/quantum/">Quantum &mdash; Paper 3</a>
+<a href="/toe/">TOE &mdash; complete statement</a>
+<a href="/particles/">Particles &mdash; spectrum</a>
+<div class="ann-group">Reference</div>
+<a href="/articles/">Dossiers &amp; articles</a>
+<a href="/scripts/">Scripts</a>
+<a href="/supporting/">Supporting</a>
+<a href="/supplemental/">Supplemental (full overview)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The Scale — absolute-magnitude discipline — rendered package. Rendered from <code>index.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The Scale — absolute-magnitude discipline</h1>
+<div style="border:1px solid #d8d3c7;border-left:5px solid #0b5;background:#f7fdf9;border-radius:0 6px 6px 0;padding:.8em 1.15em;margin:1rem 0 1.3rem;font-family:&#39;Helvetica Neue&#39;,Arial,sans-serif;font-size:.96rem;line-height:1.55;"><div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:#0b5;font-weight:700;margin-bottom:.3em;">In plain language</div><p style="margin:.2em 0 0;">The Shape hands you <em>patterns and ratios</em> &mdash; this mass over that one, this angle, this whole-number count &mdash; but never a size in real units. Nothing in a ratio tells you &ldquo;125 GeV&rdquo; rather than just &ldquo;so much, relative to something else.&rdquo; The <strong>Scale</strong> is the single measured <em>ruler</em> that turns those ratios into actual numbers. That <em>some</em> absolute ruler must exist is provable from first principles; its value &mdash; the Planck scale &mdash; is read from experiment, never derived. This page is the full discipline for never confusing &ldquo;a formula&rdquo; with &ldquo;a measured magnitude&rdquo;; the box is the gist.</p></div>
+<p><strong>Read this first — a formula is not a magnitude.</strong> The single most common way to over-read this theory is to see the geometry produce an expression and conclude that the <em>number</em> it evaluates to is derived. It usually is not. A dimensionful number is Scale-derived only when its <strong>units, normalization, scheme, energy window, cross-scale bridge, and absolute anchor</strong> are all fixed, paid, or explicitly dissolved. Scale is the discipline that audits that chain. Where the chain is incomplete, the most a formula can honestly claim is a <strong>dimensionless ratio</strong>, a <strong>scheme-dependent coefficient</strong>, a <strong>consistency check</strong>, or a <strong>measured anchor carried forward</strong> — never a bare predicted magnitude.</p>
+<h2>Thesis</h2>
+<blockquote>
+<p><strong>Scale is the discipline that tells us which numerical claims are meaningful: dimensionless first; every dimensionful value traced to an anchor, a scheme object, a generated scale, or an explicit dissolution.</strong></p>
+</blockquote>
+<p>Scale is one of the program's seven deep roots (it is <strong>R5</strong> — see <a href="/anchors/deep-roots.html">The Seven Deep Roots</a>). On this page "the Scale root" is used in its <strong>complete form</strong>: the absolute-scale anchor $M_{\rm Pl}$ at full precision, applied over the complete three-layer <a href="/shape/">Shape</a>, together with the full rulebook for ratios, dimensions, RG windows, scheme objects, normalization, stability, and observable-scale readout. A closure that sets a dimensionful magnitude from a truncated shape, a rounded anchor, or an unstated scheme is using an <em>incomplete root</em> and may fail — or appear to succeed — for that reason alone, with nothing right or wrong in the physics.</p>
+<h3>Honesty guard</h3>
+<blockquote>
+<p><strong>A dimensionful number is not automatically derived by Shape.</strong> Scale decides whether a number is an observable, an exact ratio, a fitted normalization, a scheme-dependent coefficient, a consistency check, or an ill-posed predicate.</p>
+</blockquote>
+<p>This guard is the spine of the whole page. It is a <em>completeness</em> upgrade of the root, <strong>not</strong> an anchor-elimination: the program still bottoms on its anchors. Shape bottoms on the frozen branch identity; Granularity bottoms on the uniform positive cost-floor posit; <strong>Scale bottoms on the absolute-scale anchor $M_{\rm Pl}$, whose value is measured, not derived.</strong> Floor $\geq 1$, forever. The discipline running through every line is the program's: <strong>anchored is not derived · selected is not forced · dissolved is not solved.</strong> This is a frozen Theory-of-Everything <em>candidate</em> under honest audit — <strong>0 of 33 gates are physics-closed</strong>, and <strong>no status changes</strong>.</p>
+<hr />
+<h2>What Scale is — two jobs, never collapsed</h2>
+<p>Scale has two distinct jobs, and conflating them is the commonest scale error in the entire program.</p>
+<ol>
+<li><strong>Meaning.</strong> <em>Is this a valid thing to ask for, at this dimension, scheme, and energy window?</em> Some magnitudes are well-posed observables; some are scheme-dependent coefficients with no invariant value; some are ill-posed predicates that have no canonical finite answer at all.</li>
+<li><strong>Source.</strong> <em>If it is valid, what supplies its magnitude?</em> A measured anchor, a generated scale, a paid scheme object, a cross-scale bridge — or nothing yet (open).</li>
+</ol>
+<p>A value can be <strong>meaningful but fitted</strong>. A value can be <strong>stable but not derived</strong>. A <strong>ratio can be derived while its absolute magnitude stays open</strong>. None of these collapse into "derived." The full definition the page operates under is:</p>
+<blockquote>
+<p><strong>Scale = absolute-magnitude discipline:</strong> one accepted / derived / paid absolute scale anchor · dimensionless-ratio discipline · unit / scheme / normalization policy · RG / window / threshold bridge · stability-vs-value split · explicit dissolution for invalid scale predicates.</p>
+</blockquote>
+<h3>The compressed root statement</h3>
+<p><strong>Scale is the absolute-magnitude discipline of the theory:</strong> one accepted scale anchor ($M_{\rm Pl}$), plus explicit rules for ratios, dimensions, RG windows, scheme objects, normalization, stability, and observable-scale readout. The existence of <em>at least one</em> absolute scale is argued; its numerical <em>value</em> ($M_{\rm Pl}$) is supplied by measurement. These two parts — <strong>existence</strong> and <strong>value</strong> — must never be merged: arguing that a scale is <em>needed</em> is not deriving the <em>number</em>.</p>
+<hr />
+<h2>Scale anchor convention — the actual object</h2>
+<p>The rest of this page argues <em>about</em> the scale anchor symbolically. Here is the anchor itself, stated as an object, with no part left implicit.</p>
+<blockquote>
+<p><strong>Declared anchor.</strong> $M_{\rm Pl}$ — the <strong>ordinary</strong> Planck mass, $M_{\rm Pl}=(\hbar c/G_N)^{1/2}$. This is <strong>not</strong> the reduced Planck mass $\bar M_{\rm Pl}=M_{\rm Pl}/\sqrt{8\pi}\approx 2.4357\times10^{18}$ GeV.</p>
+<p><strong>Value.</strong>
+$$M_{\rm Pl}=1.220900000000000\times10^{19}\ \text{GeV}.$$
+(Source precision is <strong>4 significant figures</strong>, $1.2209\times10^{19}$ GeV, PDG-derived; the trailing zeros record the declared anchor field, not measured digits — see Precision-cost discipline below.)</p>
+<p><strong>Units / convention.</strong> Natural units $\hbar=c=1$, GeV convention. The geometry that this anchor cashes (e.g. $M_{\rm Pl}^2=M_*^{n+2}V_K$) is convention-fixed: a reviewer preferring the reduced convention must re-read every $M_{\rm Pl}$ as $\bar M_{\rm Pl}\sqrt{8\pi}$ and rescale the left-hand side by $1/(8\pi)$ — the geometry on the right-hand side is unchanged.</p>
+<p><strong>Status — two halves, never merged.</strong>
+- <strong>Existence</strong> of at least one absolute dimensionful scale is <strong>theorem-grade</strong> (forced by unit-rescaling invariance; see the unit-gauge layer below).
+- The <strong>numerical value</strong> of the selected anchor is a <strong>measured input</strong> — status <code>MEASURED</code>, never <code>DERIVED</code>.</p>
+<p><strong>Forbidden compression.</strong> Do <strong>not</strong> merge "a scale must exist" (theorem) with "this exact value was derived" (it is measured). The first is proven; the second is read from experiment and charged as input.</p>
+</blockquote>
+<p>For the $\geq 16$-significant-figure value, the full convention statement (ordinary vs reduced), and the volume relation it pins, see <strong><a href="/articles/GUT.html">GUT Appendix A1 (full precision)</a></strong> (<strong><a href="/articles/GUT.pdf">PDF</a></strong>). The same value and convention appear on the <a href="/shape/">Shape page</a> row A.2 (manifest hash <code>df5976a365c3</code>).</p>
+<hr />
+<h2>The unit-gauge layer — why Scale is a theorem, not just a rulebook</h2>
+<p>Scale is not a house style for reporting numbers. It is forced by an invariance: physics is unchanged under a <strong>rescaling of units</strong> (changing the GeV, the second, the kilogram). Treat that rescaling as a gauge symmetry — a <strong>unit gauge</strong> — and the rules above stop being conventions and become theorems.</p>
+<blockquote>
+<p><strong>Unit-gauge invariance.</strong> Under a change of units, every dimensionful number is multiplied by the corresponding conversion factor. A <em>naked</em> dimensionful number therefore carries no invariant content: it is gauge-dependent. Only two kinds of statement are unit-gauge invariant: (i) a <strong>dimensionless ratio</strong> (all unit factors cancel), or (ii) a dimensionful value <strong>expressed relative to an accepted anchor</strong> (the anchor transforms the same way, so the ratio-to-anchor is invariant).</p>
+</blockquote>
+<p>This is the Buckingham-$\pi$ content stated as a closure rule. Buckingham-$\pi$ says any physical relation among $n$ quantities with $k$ independent dimensions reduces to a relation among $n-k$ dimensionless $\pi$-groups. The three consequences are exactly the page's discipline, now as a theorem rather than a preference:</p>
+<ol>
+<li><strong>A dimensionless invariant can be derived directly.</strong> It is a $\pi$-group; it lives in the unit-gauge-invariant sector; it needs no anchor and no bridge. (This is why the safe predictions cluster in the ratio column — SCL-A.)</li>
+<li><strong>A dimensionful magnitude requires an anchor <em>plus</em> a bridge <em>plus</em> a scheme/window.</strong> It is gauge-dependent until tied to the accepted anchor ($M_{\rm Pl}$ or a declared measured scale); the bridge carries it across scales (SCL-J); the scheme/window fixes the scheme-dependent part (SCL-E). All three, or it is not a magnitude claim.</li>
+<li><strong>No anchor → no magnitude claim, ever.</strong> Buckingham-$\pi$ forces $\geq 1$ dimensionful anchor before <em>any</em> dimensionful prediction can exist. This is the floor of the root (SCL-I): the anchor count is $\geq 1$, forever; it is named, not eliminated.</li>
+</ol>
+<p>So the existence half of the anchor convention is not asserted — it is <strong>forced</strong>: at least one absolute dimensionful anchor is required to make any dimensionful statement unit-gauge invariant. What is <em>measured</em>, not forced, is <strong>which</strong> value that anchor takes. Existence: theorem. Value: <code>MEASURED</code>. The unit gauge is the reason those two halves can never be merged.</p>
+<hr />
+<h2>How Scale meets every attack layer</h2>
+<p>Scale is not a single check applied at the end. It threads through every layer of an attack on a gate or wall. The table below states what Scale does at each layer and the precision it demands there.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Scale's role</th>
+<th>Required precision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Layer 1 — Observables / audit anchors</strong></td>
+<td>measured masses, couplings, thresholds, rates, densities, coefficients, route-agreement values</td>
+<td>state units, uncertainty, scheme, energy scale, and observable status</td>
+</tr>
+<tr>
+<td><strong>Layer 2 — Deep roots</strong></td>
+<td>Scale is primary for magnitude; Shape supplies the object; Granularity forbids hidden continuous precision</td>
+<td>identify which root does which job</td>
+</tr>
+<tr>
+<td><strong>Rule / map layer</strong></td>
+<td>the map from dimensionless structure to magnitude</td>
+<td>name the RG flow, compactification map, threshold rule, decoupling rule, FRG map, scale bridge, or dissolution</td>
+</tr>
+<tr>
+<td><strong>Forcing layer</strong></td>
+<td>root-forced vs root-supported scale claim</td>
+<td>prove the scale bridge is <em>forced</em>, not inserted after seeing the number</td>
+</tr>
+<tr>
+<td><strong>Verdict layer</strong></td>
+<td>derived / paid / measured / consistency-only / dissolved / open</td>
+<td>label every numerical claim</td>
+</tr>
+</tbody>
+</table>
+<p>The same number can be honest at one layer and dishonest at another. A coefficient can be a perfectly good Layer-1 consistency check and still be an illegal Layer-5 gate-closing prediction. Scale forces you to say <em>which</em>.</p>
+<hr />
+<h2>Scale claim categories — every number gets a tag</h2>
+<p>No number appears on a gate or wall without a tag. The six categories are exhaustive and mutually exclusive.</p>
+<pre><code>SCALE-FREE-DERIVED
+  A dimensionless invariant or exact ratio derived from object identity.
+  Safest category. No anchor needed; units never enter.
+
+SCALE-ANCHORED
+  A dimensionful value obtained after an accepted or measured scale
+  anchor is supplied. Honest if the anchor is named and the bridge is forced.
+
+SCALE-PAID
+  A value that uses a fitted normalization, a measured input, or a
+  declared scheme object. Legitimate, but it is an input, not a prediction.
+
+SCALE-CONSISTENCY-COEFFICIENT
+  A useful internal check, not an observable and not gate-closing.
+
+SCALE-DISSOLVED
+  The requested magnitude is not a valid scheme-independent object.
+  The honest answer is that the question was ill-posed, not that it was solved.
+
+SCALE-OPEN
+  The bridge, scheme, or anchor is missing. No claim yet.
+</code></pre>
+<p>A central methodological point: <strong><code>SCALE-DISSOLVED</code> is not a success.</strong> It records that a magnitude that <em>looked</em> like a prediction was never a well-defined observable. Dissolution removes a false debt; it does not pay a real one. This is the scale analogue of the program's standing rule that <em>dissolved is not solved</em>.</p>
+<h3>Scale-status transition table — the only legal status transitions</h3>
+<p>A number does not jump categories for free. Each status change has a <strong>required event</strong> that must actually be exhibited; without it, the label does not move. These are the only legal transitions:</p>
+<table>
+<thead>
+<tr>
+<th>From</th>
+<th>To</th>
+<th>Required event (without which the label does NOT move)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SCALE-OPEN</code></td>
+<td><code>SCALE-PAID</code></td>
+<td>the missing scale is <strong>supplied as a declared input</strong> (anchor/scheme/normalization named and charged)</td>
+</tr>
+<tr>
+<td><code>SCALE-PAID</code></td>
+<td><code>SCALE-FORCED</code></td>
+<td>a <strong>target-blind bridge derives it from the roots</strong> — passes the Scale Perturbation Test and field 4</td>
+</tr>
+<tr>
+<td><code>SCALE-CONSISTENCY-COEFFICIENT</code></td>
+<td><code>SCALE-DERIVED</code></td>
+<td>it is <strong>shown to be an actual observable</strong> (fills the local-to-integrated template) <strong>or a necessary audit invariant</strong> — not merely a coefficient</td>
+</tr>
+<tr>
+<td><code>SCALE-DISSOLVED</code></td>
+<td>closed</td>
+<td><strong>never automatic.</strong> Dissolution removes a bad question; closing requires a <em>real</em> observable that survives — dissolution alone does not close a gate</td>
+</tr>
+</tbody>
+</table>
+<p>The fourth row is the one most often abused: dissolving an ill-posed magnitude (e.g. the odd-$D$ $a_6$ number, or the $\Lambda$ catastrophe-half) clears a <em>false</em> debt and is honest — but it does <strong>not</strong> pay the real debt or close the gate. A dissolution is a terminal that says "this was never a valid thing to ask," not "this is now answered." Status change to <code>closed</code> always requires a real surviving observable, never a dissolution.</p>
+<hr />
+<h2>The Scale constraint table (SCL-A … SCL-J)</h2>
+<p>This is the technical backbone. Every scale claim on any gate must be checkable against these ten constraints. SCL-A through SCL-H are the gap-derived constraints; <strong>SCL-I (absolute scale anchor)</strong> and <strong>SCL-J (scale-bridge rule)</strong> are the root-completeness additions that make the triad complete for wall attack.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Constraint</th>
+<th>What it demands</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SCL-A</strong></td>
+<td>Scale-free before dimensionful</td>
+<td>Dimensionless ratios and invariants can be derived where dimensionful magnitudes remain scheme-dependent or measured. Derive the ratio first; reach for the magnitude only after the anchor and bridge are in hand.</td>
+</tr>
+<tr>
+<td><strong>SCL-B</strong></td>
+<td>Scheme / scale-object accounting</td>
+<td>Every dimensionful coefficient or RG quantity must terminate on a <em>generated scale</em>, a <em>measured anchor</em>, or a <em>paid scheme object</em>. No dimensionful number may float without a named terminus.</td>
+</tr>
+<tr>
+<td><strong>SCL-C</strong></td>
+<td>Predicate validity</td>
+<td>Some predicates are dimension- and scheme-sensitive and have <strong>no canonical finite value</strong>. The standing example: in odd $D=13$ the dimensionful $a_6$ heat-kernel magnitude has no canonical finite log / anomaly value. Such a magnitude is consistency-only or dissolved, never gate-closing.</td>
+</tr>
+<tr>
+<td><strong>SCL-D</strong></td>
+<td>Normalization caveat</td>
+<td>Metric-selected normalizations are exact <strong>only under the declared normalization</strong>; they are <em>not</em> normalization-robust. Report the exact status — never call a normalization-dependent number normalization-independent.</td>
+</tr>
+<tr>
+<td><strong>SCL-E</strong></td>
+<td>RG window explicit</td>
+<td>Any claim involving thresholds, moduli, inflation, baryogenesis, the Yang–Mills gap, or electroweak structure must state its <strong>energy window, scheme, cutoff, and running policy</strong>. A number without a window is not yet a number.</td>
+</tr>
+<tr>
+<td><strong>SCL-F</strong></td>
+<td>Fitted scales are paid</td>
+<td>Sector scales, $M_R$, the inflaton amplitude, the $\Lambda$ value, the relic mass, threshold-row factors, and flavor normalizations are <strong>paid</strong> unless they are generated target-blind. Fitting a scale is an input, never an output.</td>
+</tr>
+<tr>
+<td><strong>SCL-G</strong></td>
+<td>Stability-vs-value split</td>
+<td>Showing that a value is radiatively <em>stable</em> is a different result from <em>deriving</em> the value. A protection mechanism does not by itself supply the magnitude.</td>
+</tr>
+<tr>
+<td><strong>SCL-H</strong></td>
+<td>Cross-gate shared scheme objects</td>
+<td>If several gates use one scale or scheme object (e.g. a shared heat-kernel scheme), it must be <strong>settled once and propagated consistently</strong> — not re-chosen per gate to suit each gate's target.</td>
+</tr>
+<tr>
+<td><strong>SCL-I</strong></td>
+<td><strong>Absolute scale anchor</strong></td>
+<td>At least one absolute scale must be accepted, derived, or paid <strong>before any dimensionful prediction exists</strong>. Every dimensionful claim must trace to this anchor ($M_{\rm Pl}$) or to a declared measured scale. This is the floor of the root: it is not eliminated, it is named.</td>
+</tr>
+<tr>
+<td><strong>SCL-J</strong></td>
+<td><strong>Scale-bridge rule</strong></td>
+<td>Any claim that <strong>crosses scales</strong> must supply the bridge explicitly: RG flow, decoupling, threshold rule, compactification map, FRG map, or explicit dissolution. A magnitude carried from one scale to another without a named bridge is not a derivation.</td>
+</tr>
+</tbody>
+</table>
+<h3>Operational test for any number</h3>
+<p>For every numerical claim, four questions must have answers:</p>
+<pre><code>Is this dimensionless?
+If dimensionful, what scale/scheme object gives it units?
+Is that object generated, measured, paid, or dissolved?
+What energy window and RG/readout rule apply?
+</code></pre>
+<p>If those answers are absent, <strong>the number is not Scale-derived</strong> — whatever the formula says.</p>
+<hr />
+<h2>Dimensionless-first doctrine — why ratios close before magnitudes</h2>
+<p>The safest derived objects in the whole program are dimensionless: ratios, mixing angles, indices, exact rational invariants. They are safe because they never touch the scale anchor and never depend on a unit convention — by the invariance root (R1), only dimensionless quantities are frame- and unit-invariant, so a <em>naked</em> dimensionful number is not even a candidate physical observable until an anchor cashes it.</p>
+<p>This is why the genuine predictions of the candidate cluster in the dimensionless column: <strong>ratios and mixings</strong> (roughly eight per sector), not the overall scales. A fermion <strong>mass ratio</strong> can be a real output of the flavor map; the <strong>absolute sector mass</strong> requires a sector-scale policy and is paid. An exact <strong>rational heat-kernel check</strong> can be derived; the <strong>GeV-magnitude</strong> that superficially accompanies it can be ill-posed. A <strong>mixing angle</strong> can be a prediction; the <strong>energy at which it is read</strong> is set by a window.</p>
+<p>The doctrine in one line: <strong>derive the ratio, then — and only then, with a named anchor and a named bridge — reach for the magnitude.</strong> Most of the time the ratio closes and the magnitude stays <code>SCALE-PAID</code> or <code>SCALE-OPEN</code>. That is not a weakness to hide; it is the honest shape of the result. Over-determination — many derived ratios against a few paid scales — is the actual evidence, and it is destroyed, not strengthened, by dressing paid scales up as predictions.</p>
+<hr />
+<h2>Scale-bridge catalog — what may carry information across scales</h2>
+<p>SCL-J forbids any cross-scale claim without a named bridge. There are exactly six admissible bridge types. Anything calling itself a cross-scale derivation must be one of these (or be dissolved):</p>
+<ul>
+<li><strong>RG flow.</strong> A running quantity carried between scales by its renormalization-group equations, in a stated scheme and to a stated order. Requires SCL-E (window) and SCL-B (scheme terminus).</li>
+<li><strong>Decoupling.</strong> Heavy states integrated out at their mass threshold; their effect appears as matching coefficients below. Requires the spectrum to be read from the actual Shape, not assumed.</li>
+<li><strong>Threshold rule.</strong> A finite matching correction at a mass threshold, computed from the actual KK / operator spectrum (multiplicities, reps, parities, zero modes), with omitted-mode error bounds. Requires SCL-E and SCL-H.</li>
+<li><strong>Compactification map.</strong> The map from higher-dimensional geometry to 4D scales (volumes, radii, Wilson angles). This is Shape data; the map itself is part of the Shape burden unless separately paid.</li>
+<li><strong>FRG map.</strong> A functional-renormalization-group flow used where perturbative RG is insufficient, with a declared regulator and truncation.</li>
+<li><strong>Explicit dissolution.</strong> The honest terminus when no valid bridge exists: the cross-scale magnitude is declared not to be a scheme-independent object (<code>SCALE-DISSOLVED</code>).</li>
+</ul>
+<p><strong>Measurement</strong> is not a bridge across scales — it is how the <em>anchor itself</em> is supplied (SCL-I). It sets the one absolute scale; it does not carry a magnitude from one regime to another. Keeping measurement out of the bridge catalog prevents the trap of "measuring" an answer at one scale and calling its appearance at another scale a derivation.</p>
+<h3>Bridge certificates — every bridge fills the same template</h3>
+<p>A bridge type named is not a bridge used. Any actual cross-scale step must produce a filled <strong>bridge certificate</strong>. The template forces the omitted, the paid, and the target-blindness check into the open:</p>
+<pre><code>BRIDGE CERTIFICATE
+  Bridge type ......... RG flow / decoupling / threshold / compactification / FRG / dissolution
+  Domain scale ........ the scale the quantity is carried FROM (value + units)
+  Codomain scale ...... the scale it is carried TO (value + units)
+  Scheme .............. the scheme object (named; shared-or-not, see SCL-H)
+  Window .............. energy window + running policy (SCL-E)
+  Inputs .............. every quantity consumed (each tagged measured / paid / derived)
+  Paid quantities ..... which inputs are fitted/declared (SCL-F) — the honest cost
+  Generated quantities. what the bridge actually produces (and at what category)
+  Omitted-mode error .. modes/states dropped, with a BOUND on their contribution
+  Uncertainty prop. ... how input uncertainties propagate to the output
+  Target-blindness .... can this certificate be written WITHOUT the target value? (yes/no)
+  Failure mode ........ the single thing that, if false, voids the bridge
+</code></pre>
+<p>A certificate with a blank "Omitted-mode error", a "no" on target-blindness, or an unbounded failure mode is not a derivation — it is a <code>SCALE-OPEN</code> or <code>SCALE-PAID</code> claim wearing a bridge label.</p>
+<p><strong>Worked example — the threshold bridge (decoupling + threshold rule).</strong> A threshold-matching correction is a <em>valid</em> bridge only if its certificate is fully filled and <strong>all</strong> of the following hold:</p>
+<ul>
+<li>the <strong>heavy spectrum comes from Shape</strong> — the masses being integrated out are read from the actual frozen geometry (KK tower, operator spectrum), not assumed;</li>
+<li><strong>multiplicities, parities, and zero-modes are explicit</strong> — every state in the matching sum is enumerated from the rep content, not summarized;</li>
+<li>the <strong>matching scale is declared</strong> — the scale at which heavy states are integrated out, with the running policy on each side (SCL-E);</li>
+<li>the <strong>omitted-mode error is bounded</strong> — truncating the tower leaves a <em>quantified</em> residual, not an unstated one;</li>
+<li>the <strong>normalization is not chosen to hit the target</strong> — the row factor is written before the observed coupling is consulted (target-blindness = yes).</li>
+</ul>
+<p>If any one fails, the threshold step is <code>SCALE-PAID</code> at best and target-loaded at worst — exactly the W19 verdict. Filling this certificate honestly is what <strong>hardens W19 (thresholds), SG-7 (RG matching), SG-6, and Gap-01</strong> (the shared heat-kernel scheme object flows through all four — see the dependency graph below); leaving it blank is what lets a tuned row masquerade as a closure.</p>
+<hr />
+<h2>What Scale FORCES vs what it only SUPPORTS</h2>
+<p>A constraint that a rule is <em>consistent with</em> Scale only <strong>supports</strong> the rule. A rule is <strong>Scale-forced</strong> only when it passes the full four-field forcing certificate. The distinction is the difference between "this magnitude is allowed" and "this magnitude is compelled by the root."</p>
+<h3>The Scale-forcing certificate (four fields, all required)</h3>
+<p>A scale claim earns <code>SCALE-FORCED</code> only if <strong>all four</strong> hold:</p>
+<ol>
+<li><strong>Anchor-transfer chain.</strong> The magnitude or ratio comes from a root invariant, a measured scale, a theorem, an RG bridge, a compactification map, or a declared paid scale — an unbroken chain from the claim back to a named terminus. (Derivation is <em>anchor-transfer</em>, never anchor-elimination: the chain ends <em>on</em> an anchor, it does not make the anchor disappear.)</li>
+<li><strong>Scale counterfactual.</strong> Perturb the scale anchor, the RG window, the dimension, or the scheme, and show the rule changes in the <em>expected</em> way. If nothing in the rule responds to a scale perturbation, the rule is not Scale-forced.</li>
+<li><strong>Closed candidate class.</strong> Show that rival scale bridges, schemes, or normalizations are excluded, equivalent, paid, or dissolved — within a closed, exhausted class, not a hand-drawn shortlist.</li>
+<li><strong>Target-blindness.</strong> The scale bridge must be writable <strong>without</strong> the target value. If the bridge was chosen because it reproduces the observed number, the claim is <strong>target-loaded</strong> and fails the certificate outright.</li>
+</ol>
+<p>The honest reading across the candidate: <strong>no dimensionful magnitude currently earns <code>SCALE-FORCED</code> as a gate-closing observable.</strong> Several <strong>dimensionless ratios</strong> clear fields 1, 3, and 4 within a declared grammar and are <code>SCALE-FREE-DERIVED</code>. Several scales clear field 1 only by being <strong>paid</strong> (<code>SCALE-PAID</code>). The field that fails most often is <strong>field 4 (target-blindness)</strong> for scales, and <strong>field 1 (a valid terminus)</strong> for ill-posed magnitudes. Naming the failing field is the result.</p>
+<h3>The Scale Perturbation Test — how field 2 is actually run</h3>
+<p>Field 2 (the scale counterfactual) is not satisfied by a hand-wave that "the rule depends on scale." It is run as an explicit eight-axis perturbation. For any claimed Scale-forced value, perturb each axis independently and record the response:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Perturb…</th>
+<th>The rule passes if…</th>
+<th>It fails if…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>the <strong>absolute anchor</strong> ($M_{\rm Pl}$)</td>
+<td>the magnitude moves in proportion to the anchor (correct dimensions)</td>
+<td>the magnitude is unmoved (it had no anchor — it was a hidden constant)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>the <strong>scheme</strong></td>
+<td>a scheme-dependent coefficient changes; a true invariant does not</td>
+<td>a coefficient claimed invariant changes (it was scheme-dependent all along)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>the <strong>RG window</strong></td>
+<td>a running quantity changes per its RGE; an invariant does not</td>
+<td>a "derived" number changes but no window was ever declared</td>
+</tr>
+<tr>
+<td>4</td>
+<td>the <strong>normalization</strong></td>
+<td>a normalization-fixed value changes (and was labelled normalization-dependent)</td>
+<td>a number called normalization-robust changes (SCL-D violation)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>the <strong>threshold rule</strong></td>
+<td>a threshold-matched quantity changes by the bounded matching correction</td>
+<td>the result is unstable under a legitimate threshold-rule change (rows were tuned)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>the <strong>compactification radius</strong></td>
+<td>a geometry-tied scale tracks the radius (Shape data)</td>
+<td>the value is unmoved although it claimed a compactification origin</td>
+</tr>
+<tr>
+<td>7</td>
+<td>the <strong>cutoff / regulator</strong></td>
+<td>a regulated quantity changes only within its declared scheme dependence</td>
+<td>a "physical" number depends on the regulator (it was a regulator artifact)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>the <strong>dimension</strong></td>
+<td>a dimension-sensitive predicate behaves as the predicate-validity rule predicts</td>
+<td>a magnitude claimed canonical has no canonical value at this $D$ (SCL-C — e.g. odd $D=13$ $a_6$)</td>
+</tr>
+</tbody>
+</table>
+<p>Two failure verdicts, both fatal to a forcing claim:</p>
+<ul>
+<li><strong>No response → not scale-forced.</strong> If a rule does not respond to <em>any</em> of the eight perturbations in the expected way, it is not coupled to the scale structure it claims to derive from. It is at best <code>SCALE-SUPPORTED</code>, more likely a disguised constant.</li>
+<li><strong>Response to the <em>target</em> → target-loaded.</strong> If the rule changes when the <strong>target observed value</strong> is changed — i.e. the bridge, scheme, or normalization was written <em>knowing</em> the answer — the claim fails field 4 and is <code>SCALE-PAID</code> at best, target-loaded at worst. A forced rule responds to root and scheme perturbations and is <strong>blind to the target</strong>.</li>
+</ul>
+<p>This is exactly what converts a <code>SCALE-SUPPORTED</code> claim into a <code>SCALE-FORCED</code> one: pass all relevant axes of the perturbation test <em>and</em> remain target-blind. Across the candidate, the test currently terminates every dimensionful magnitude at <code>SCALE-SUPPORTED</code>, <code>SCALE-PAID</code>, or below — which is why <strong>0 of 33 gates are physics-closed</strong> and <strong>no status changes</strong>.</p>
+<hr />
+<h2>How Scale interacts with Shape and Granularity</h2>
+<p>The three roots divide one labor and must be used together; using one alone is the incomplete-root failure mode.</p>
+<ul>
+<li>
+<p><strong>Shape supplies the object; Scale supplies the magnitude.</strong> Shape (the frozen three-layer branch — see <a href="/shape/">The Shape</a>) produces the <em>formula</em>: a heat-kernel invariant, a flavor map, a moduli potential. Shape says <em>what the object is</em>. It does <strong>not</strong> say what number comes out in GeV. The moment a magnitude is claimed, the burden passes to Scale: which anchor, which scheme, which window, which bridge. Shape forcing a structure never amounts to Scale forcing a magnitude. The classic confusion — "the geometry produces this expression, therefore the theory predicts this value" — is exactly the boundary where the labor passes from Shape to Scale, and it is where the honesty guard bites.</p>
+</li>
+<li>
+<p><strong>Granularity forbids the hidden continuous precision a fake scale would need.</strong> Granularity (the uniform positive cost-floor — see <a href="/granularity/">The Granularity</a>) blocks the two ways a scale claim cheats: <strong>hidden infinite precision</strong> (a "derived" magnitude that secretly tunes a real parameter to arbitrary precision) and <strong>lookup-table scale fitting</strong> (a normalization or row factor adjusted continuously until it hits the target). Where Scale says <em>this magnitude is paid</em>, Granularity says <em>and that payment is a finite, charged label — not a free continuous dial</em>. SCL-F (fitted scales paid) and the Granularity rule against unpaid labels are the same wall seen from two sides.</p>
+</li>
+</ul>
+<p>In short: <strong>Shape — what is the object? Scale — what magnitude or ratio is meaningful, and what bridge makes it so? Granularity — what finite, charged structure stops hidden precision and arbitrary fitting?</strong> A magnitude claim is honest only when all three answer.</p>
+<h3>Precision-cost discipline — the Scale∩Granularity meeting point</h3>
+<p>Scale and Granularity meet exactly at the <strong>precision</strong> of a measured anchor. A measured scale anchor is not just a value; it is a value at a stated precision, and that precision is itself a charged, finite quantity. Every measured scale anchor must therefore carry <strong>six fields</strong>:</p>
+<pre><code>Value ............. the number (e.g. 1.2209 × 10^19 GeV)
+Uncertainty ....... the experimental error bar
+Sig-figs used ..... how many significant figures the calculation actually consumes
+Source ............ where the value comes from (e.g. PDG-derived)
+Scheme / window ... the scheme and energy scale at which it is defined
+Charged status .... that it is a paid measured input, not a derived output
+</code></pre>
+<p>Two failure modes live here, and both are Granularity violations seen through the Scale lens:</p>
+<ul>
+<li><strong>Using more precision than the anchor supplies is hidden free information.</strong> The declared anchor is $1.2209\times10^{19}$ GeV at <strong>4 significant figures</strong>. Writing $1.220900000000000\times10^{19}$ GeV and then <em>using</em> those trailing zeros as if they were measured digits smuggles in precision no measurement paid for. The trailing zeros are an anchor-field placeholder, not data; a calculation may consume only the 4 figures the source actually charges for.</li>
+<li><strong>Rounding a root anchor in a sensitive calculation is incomplete-root use.</strong> The mirror error: a closure that is sensitive to the anchor at high precision must use the anchor at <strong>full precision</strong> over the <strong>complete</strong> Shape. Rounding $M_{\rm Pl}$ (or truncating the geometry) in a sensitive step is using an incomplete root and may fail — or appear to succeed — for that reason alone.</li>
+</ul>
+<p>The principle is one line: <strong>a calculation may consume exactly the precision its anchors are charged for — no more (free information), no less (incomplete root).</strong> This is the same finite-cost ledger that <strong><a href="/granularity/">The Granularity</a></strong> enforces against unpaid continuous labels, read at the point where a measured scale enters.</p>
+<hr />
+<h2>How gaps and gates constrain Scale — worked examples</h2>
+<p>Each of the 33 gates and 19 walls teaches Scale something specific. The extraction template for each is fixed:</p>
+<pre><code>Numerical object:
+Dimensionless or dimensionful?
+Units / scheme / window:
+Scale anchor:
+Scale bridge:
+Meaningful predicate?
+Verdict: derived / paid / measured / consistency-only / dissolved / open
+</code></pre>
+<p>Below are the load-bearing worked examples, mined from the per-gap constraint extractions.</p>
+<h3>Example 1 — Gap-01 / a6 (the predicate-validity lesson, SCL-C)</h3>
+<blockquote>
+<p><strong>Numerical object.</strong> Scale-free heat-kernel ($a_6$ Seeley–DeWitt) invariants versus the dimensionful $\mathrm{tr}[a_6]$ GeV-style magnitude on the frozen 13D graviton+ghost object.</p>
+<p><strong>Dimensionless or dimensionful?</strong> Both appear — and they part ways. The scale-free rational invariants are well-defined; the dimensionful magnitude is the trap.</p>
+<p><strong>Units / scheme / window.</strong> A dimensionful $a_6$ requires a named heat-kernel scheme object, shared with the threshold and moduli gates (SCL-H). In <strong>odd $D=13$</strong> there is no canonical finite local log / anomaly predicate for it.</p>
+<p><strong>Scale anchor / bridge.</strong> None valid for the magnitude. The exact rational checks need no anchor.</p>
+<p><strong>Meaningful predicate?</strong> For the scale-free invariants, <strong>yes</strong>. For the dimensionful GeV-magnitude at odd $D=13$, <strong>no</strong> — it is not a canonical finite local observable.</p>
+<p><strong>Verdict.</strong> The scale-free sector is <strong><code>SCALE-FREE-DERIVED</code></strong> (exact rational checks, two-route reproducible). The dimensionful magnitude is <strong><code>SCALE-CONSISTENCY-COEFFICIENT</code></strong> or <strong><code>SCALE-DISSOLVED</code></strong> — a labeled scheme coefficient, <strong>not</strong> a gate-closing observable.</p>
+</blockquote>
+<p>This is the canonical SCL-C lesson: a real, derivable scale-free structure sits right next to an <strong>ill-posed</strong> dimensionful magnitude. Reporting the GeV number as a prediction would be a category error, not a small overclaim.</p>
+<h4>Local density vs integrated observable — the Gap-01 trap stated generally</h4>
+<p>The Gap-01 lesson generalizes into a rule that catches a whole class of overclaims. <strong>A local coefficient, density, row-factor, or consistency-coefficient is not automatically a physical observable.</strong> A local object is evaluated at a point or per unit volume; a physical observable is what survives integration, normalization, and readout against a record. The gap between them is not cosmetic — it is where units, volume factors, and scheme dependence enter.</p>
+<p>To promote a local object to a magnitude claim, <strong>all</strong> of the following must be supplied — and named:</p>
+<pre><code>Local-vs-integrated ... is this a local density/coefficient, or an integrated observable?
+Volume factor ......... what volume/measure integrates it (and from which Shape)?
+Normalization ......... the normalization convention (SCL-D) — is it forced or paid?
+Units ................. the units after integration (and the anchor that gives them)
+Scheme ................ the scheme object (SCL-B / SCL-H)
+Window ................ the energy window / readout scale (SCL-E)
+Physical record ....... the actual observable endpoint the number is tested against
+</code></pre>
+<p>The standing example is exactly Gap-01. The scale-free $a_6$ invariants are meaningful and derivable; but the <strong>dimensionful $a_6$ magnitude in odd $D=13$ is not a canonical gate-closing observable.</strong> It has no canonical finite local predicate (SCL-C), and it never completes the local-to-integrated template — there is no physical-record endpoint it is read against. So it is reported, honestly, as a <strong>labeled consistency coefficient</strong> (<code>SCALE-CONSISTENCY-COEFFICIENT</code>), never as a closed observable. Any local coefficient that cannot fill every line above is, at most, a consistency check.</p>
+<h3>Example 2 — W06 / SG8 flavor (the ratios-vs-absolute-masses lesson, SCL-A &amp; SCL-F)</h3>
+<blockquote>
+<p><strong>Numerical object.</strong> Fermion <strong>mass ratios</strong> versus <strong>absolute sector masses</strong> (and the mixing matrices CKM / PMNS).</p>
+<p><strong>Dimensionless or dimensionful?</strong> Ratios and mixings are dimensionless; absolute masses are dimensionful.</p>
+<p><strong>Units / scheme / window.</strong> Absolute masses need a sector-scale policy: $\kappa$, the sector normalizations $N_d, N_e, N_\nu$, the RG scheme, $M_R$, and a neutrino-scale policy (SCL-13).</p>
+<p><strong>Scale anchor / bridge.</strong> The flavor map can generate within-sector ratios. The absolute masses require the sector scales, which are <strong>fitted normalizations</strong>.</p>
+<p><strong>Meaningful predicate?</strong> Ratios and mixings — yes, testable as outputs. Absolute masses — only relative to a paid sector scale.</p>
+<p><strong>Verdict.</strong> Ratios / mixings can be <strong><code>SCALE-FREE-DERIVED</code></strong> and tested against frozen falsifiers (e.g. $m_u$). Sector scales and $M_R$ are <strong><code>SCALE-PAID</code></strong> (the fitted $N_d, N_e, N_\nu$ are the weakest link) — or <code>SCALE-OPEN</code> until generated target-blind.</p>
+</blockquote>
+<p>The lesson: <strong>within-sector ratios may be generated by the map; absolute masses are paid scales, not predictions.</strong> Counting a fitted sector scale as an output is the most common flavor-gate overclaim — see the red-team traps below.</p>
+<h3>Example 3 — M_R and sector scales (the paid-scale lesson, SCL-F)</h3>
+<blockquote>
+<p><strong>Numerical object.</strong> The right-handed neutrino scale $M_R$ and the sector mass scales.</p>
+<p><strong>Dimensionless or dimensionful?</strong> Dimensionful.</p>
+<p><strong>Scale anchor / bridge.</strong> $M_R$ sets the seesaw scale; it enters several gates (neutrino masses, leptogenesis window) and so is a <strong>cross-gate shared object</strong> (SCL-H) that must be settled once.</p>
+<p><strong>Verdict.</strong> <strong><code>SCALE-PAID</code></strong> unless generated target-blind. Because $M_R$ is shared, choosing it to fit one gate's target silently contaminates the others — exactly the failure SCL-H exists to catch.</p>
+</blockquote>
+<h3>Example 4 — Cosmological constant $\Lambda$ (the stability-vs-value lesson, SCL-G &amp; SCL-I)</h3>
+<blockquote>
+<p><strong>Numerical object.</strong> The vacuum-energy <strong>radiative stability</strong> versus the <strong>observed $\Lambda$ value</strong>.</p>
+<p><strong>Dimensionless or dimensionful?</strong> The value is a dimensionful (or Planck-normalized-ratio) anchor; "stability" is a property, not a number.</p>
+<p><strong>Scale anchor / bridge.</strong> Absolute vacuum energy and observed $\Lambda$ are <em>distinct</em> scale objects (SCL-19). Planck-unit smallness ($\sim 10^{-122}$) is <strong>not itself a derivation</strong> (SCL-22).</p>
+<p><strong>Meaningful predicate?</strong> "Is it stable?" — yes, a real question. "Is the value derived?" — only if a value-map to the measured vacuum curvature is supplied.</p>
+<p><strong>Verdict.</strong> A mechanism that protects smallness (an algebraic trace-decoupling) can <strong>dissolve the radiative-instability catastrophe</strong> — but the observed value remains <strong><code>MEASURED</code></strong> (<code>SCALE-OPEN</code> as a derivation) unless a target-blind value bridge exists. <strong>Stability and value are separate results.</strong> Using the observed $10^{-122}$ to back-solve structure is forbidden.</p>
+</blockquote>
+<p>This is the sharpest SCL-G example: explaining <em>why a value is stable</em> is not the same as <em>deriving the value</em>. The two must be reported on separate lines.</p>
+<h3>Example 5 — W19 thresholds / RG matching (the window-and-scheme lesson, SCL-E &amp; SCL-H)</h3>
+<blockquote>
+<p><strong>Numerical object.</strong> Threshold corrections / RG-matching row factors.</p>
+<p><strong>Dimensionless or dimensionful?</strong> Scale-dependent — <strong>thresholds are not scale-free</strong> (SCL-33).</p>
+<p><strong>Units / scheme / window.</strong> RG matching scales, scheme, cutoff, and normalization are central. The same heat-kernel / scheme object shared with Gap-01 / SG-6 may control the magnitude (SCL-H).</p>
+<p><strong>Scale bridge.</strong> Threshold rule and RG flow — but the rows must be read from the <strong>actual KK / operator spectrum</strong> with omitted-mode error bounds, not tuned.</p>
+<p><strong>Verdict.</strong> <strong><code>SCALE-OPEN</code></strong> until a target-blind spectrum-to-threshold computation with scheme reconciliation exists. <strong>Row-formula normalizations tuned to couplings are <code>SCALE-PAID</code> at best, target-loaded at worst.</strong></p>
+</blockquote>
+<h3>Example 6 — W18 Yang–Mills uniform gap (the don't-move-the-target lesson, SCL-E &amp; SCL-J)</h3>
+<blockquote>
+<p><strong>Numerical object.</strong> A uniform positive SU(3) mass gap in continuum units.</p>
+<p><strong>Units / scheme / window.</strong> The gap is a uniform positive mass scale <strong>in continuum units</strong>; its relation to the lattice spacing / cost floor must be explicit. $\Lambda_{\rm QCD}$ or a coupling scale <strong>cannot be used as a proof of existence</strong> (SCL-32).</p>
+<p><strong>Scale bridge.</strong> A uniform lower bound must survive the continuum and volume limits (a genuine cross-scale bridge) or be <strong>scoped as axiom-conditional</strong> (explicit dissolution).</p>
+<p><strong>Verdict.</strong> <strong><code>SCALE-OPEN</code></strong> / axiom-conditional. A finite-floor model can <em>support</em> but not <em>replace</em> the continuum measure; substituting $\Lambda_{\rm QCD}$ for the existence proof is a scale category error.</p>
+</blockquote>
+<p>A summary of the per-gate scale lessons across all 19 walls:</p>
+<table>
+<thead>
+<tr>
+<th>Gap / Wall</th>
+<th>Scale constraints</th>
+<th>Smallest scale residual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W01 UV completion</td>
+<td>UV claims dimensionless-first; Planck scale paid; continuum window stated</td>
+<td>finite-complex-to-graviton matching certificate</td>
+</tr>
+<tr>
+<td>W02 Continuum existence</td>
+<td>continuum validity scale-bounded; $a\!\to\!0$ divergences are wrong-predicate artifacts if a floor is declared</td>
+<td>finite-records-reproduce-continuum certificate</td>
+</tr>
+<tr>
+<td>W03 a6 coefficient</td>
+<td>SCL-C predicate validity; scale-free vs dimensionful; named scheme object</td>
+<td>GT/LC route reconciliation</td>
+</tr>
+<tr>
+<td>W04 Granularity / MDL</td>
+<td>real-valued anchors cost precision; dimension vs anchor burden compete</td>
+<td>support-to-force MDL proof</td>
+</tr>
+<tr>
+<td>W05 Given-E bundle</td>
+<td>$E$ must not smuggle scale values; bundle not justified by low-energy fits</td>
+<td>bundle-uniqueness or paid-E status</td>
+</tr>
+<tr>
+<td>W06 Flavor / SG8</td>
+<td>$\kappa$, $M_R$, neutrino scale paid; ratios may be outputs, absolute masses paid</td>
+<td>the actual Shape→SG8 map</td>
+</tr>
+<tr>
+<td>W07 Anomaly descent</td>
+<td>anomaly classes are scale-free; twist is not a mass-gap lever</td>
+<td>honest survivor obstruction</td>
+</tr>
+<tr>
+<td>W08 Custodial $\rho$</td>
+<td>$v_{\rm EW}$, couplings, $\rho_{\rm tree}$ are scale-normalized tests with declared scheme</td>
+<td>gauge-scalar zero-mode table</td>
+</tr>
+<tr>
+<td>W09 Moduli</td>
+<td>masses / potentials compared at correct EFT cutoff; stabilization = positive masses above scale</td>
+<td>moduli Hessian + omitted-mode bound</td>
+</tr>
+<tr>
+<td>W10 $\Lambda$ stability</td>
+<td>absolute vacuum energy vs observed $\Lambda$ distinct; survive loops + phase transitions</td>
+<td>root-forced trace-decoupling</td>
+</tr>
+<tr>
+<td>W11 $\Lambda$ value</td>
+<td>value is measured anchor unless generated; Planck-smallness is not derivation</td>
+<td>measured-anchor status, no value derivation</td>
+</tr>
+<tr>
+<td>W12 Baryogenesis</td>
+<td>$M_N$, $T_{\rm reheat}$, Hubble, washout, Yukawas generated or paid</td>
+<td>target-blind CP + washout with paid scales</td>
+</tr>
+<tr>
+<td>W13 Dark matter</td>
+<td>candidate mass, freeze-out scale, cross-section, thresholds computed or paid</td>
+<td>candidate + relic / direct-detection readout</td>
+</tr>
+<tr>
+<td>W14 Inflation</td>
+<td>$A_s$, $r$, $n_s$, energy scale, e-folds tied to scale policy; plateau not target-fitted</td>
+<td>geometry-forced potential + spectrum test</td>
+</tr>
+<tr>
+<td>W15 Born weights</td>
+<td>weights dimensionless but normalization must be invariant</td>
+<td>root-forced probability measure</td>
+</tr>
+<tr>
+<td>W16 BH microstates</td>
+<td>entropy uses area / Planck scale; temperature / Page-time scales coherent</td>
+<td>microstate / exterior-record map</td>
+</tr>
+<tr>
+<td>W17 Proton operators</td>
+<td>lifetime depends on suppression scale and operator dimension; both computed or bounded</td>
+<td>dangerous-operator enumeration + lifetime bound</td>
+</tr>
+<tr>
+<td>W18 YM gap</td>
+<td>uniform positive mass scale in continuum units; $\Lambda_{\rm QCD}$ not a proof</td>
+<td>uniform gap theorem or axiom-conditional dissolution</td>
+</tr>
+<tr>
+<td>W19 Thresholds</td>
+<td>RG scale / scheme / cutoff central; shared heat-kernel object</td>
+<td>target-blind spectrum-to-threshold + scheme reconciliation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Shared scale/scheme-object dependency graph (Nonseparability)</h2>
+<p>SCL-H is not a per-gate caution — it is a global constraint. Several scale/scheme objects are <strong>shared</strong> across gates. The table below is the real dependency graph for this program: which shared object feeds which gates.</p>
+<table>
+<thead>
+<tr>
+<th>Shared object</th>
+<th>Gates / walls that depend on it</th>
+<th>What it controls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Heat-kernel scheme object</strong></td>
+<td>Gap-01 ($a_6$), SG-6, W19 / thresholds</td>
+<td>the scheme that makes any dimensionful heat-kernel coefficient or threshold row well-defined</td>
+</tr>
+<tr>
+<td><strong>Sector-scale policy</strong> (the fitted $N_d, N_e, N_\nu$, with $\kappa$, $M_R$, neutrino-scale policy)</td>
+<td>W06 flavor, neutrino masses, W12 baryogenesis</td>
+<td>the absolute mass scales per sector — the program's weakest scale link</td>
+</tr>
+<tr>
+<td><strong>RG matching scheme</strong></td>
+<td>SG-7 thresholds, W08 electroweak, unification</td>
+<td>the scheme/scale at which couplings are matched and run</td>
+</tr>
+<tr>
+<td><strong>$M_R$ / seesaw scale</strong></td>
+<td>neutrino masses, W12 baryogenesis</td>
+<td>the right-handed neutrino scale that sets the seesaw and the leptogenesis window</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Nonseparability rule.</strong> If one shared object changes, <strong>every dependent gate must be re-run</strong> — a change to the heat-kernel scheme reopens Gap-01, SG-6, <em>and</em> W19 simultaneously; a change to the sector-scale policy reopens flavor, neutrinos, <em>and</em> baryogenesis. A shared object may <strong>not</strong> be re-selected per gate to suit each gate's target. Re-choosing the heat-kernel scheme for the threshold gate so its row hits a coupling, while leaving Gap-01 on a different choice, is a SCL-H violation and a disguised target-load. The fitted $N_d, N_e, N_\nu$ are settled once for <strong>all</strong> dependent gates or the over-determination evidence is destroyed.</p>
+</blockquote>
+<hr />
+<h2>Red-team traps</h2>
+<p>These are the scale overclaims the page exists to block. Each is a sentence that <strong>must not appear</strong> unless the stated condition is met.</p>
+<ul>
+<li>
+<p><strong>"The theory predicts this dimensionful value."</strong> Forbidden unless the page shows the absolute-scale anchor ($M_{\rm Pl}$), the units, the scheme, the energy window, <strong>and</strong> the bridge. A formula producing a number is not a prediction of that number.</p>
+</li>
+<li>
+<p><strong>"The value is stable, therefore derived."</strong> Forbidden — stability and derivation are separate (SCL-G). A protection mechanism dissolves an instability problem; it does not supply the magnitude. This is the $\Lambda$ trap.</p>
+</li>
+<li>
+<p><strong>"This exact ratio proves the absolute magnitude."</strong> Forbidden — <strong>ratios do not create units</strong> (SCL-A, SCL-I). A derived dimensionless ratio says nothing about the absolute scale until an anchor and a bridge are supplied.</p>
+</li>
+<li>
+<p><strong>"The normalization is harmless."</strong> Forbidden — a selected normalization is a <strong>paid scale choice</strong> unless forced (SCL-D, SCL-F). "Metric-selected" is exact only under the declared normalization; it is <em>not</em> normalization-robust.</p>
+</li>
+<li>
+<p><strong>"$\Lambda_{\rm QCD}$ (or any coupling scale) proves the gap exists."</strong> Forbidden — a coupling scale cannot stand in for an existence proof (SCL-32). Moving the target is not closing it.</p>
+</li>
+<li>
+<p><strong>"Planck-unit smallness is the derivation."</strong> Forbidden — $10^{-122}$ in Planck units is a restatement of the measured value, not a derivation of it (SCL-22), and the observed value must never be used to back-solve structure.</p>
+</li>
+<li>
+<p><strong>"The dimensionful $a_6$ number is a prediction."</strong> Forbidden — in odd $D=13$ that magnitude has no canonical finite predicate (SCL-C); it is consistency-only or dissolved.</p>
+</li>
+<li>
+<p><strong>"We re-chose the scheme object for this gate."</strong> Forbidden — shared scheme objects are settled once and propagated (SCL-H); re-choosing per gate to fit each target is target-loading wearing a scheme costume.</p>
+</li>
+</ul>
+<p>The unifying anti-pattern behind all of these is <strong>target-loading</strong>: choosing the bridge, scheme, normalization, or scale <em>because</em> it reproduces the observed number. Target-loading fails field 4 of the forcing certificate automatically, and it is the single most important thing the Scale root is built to catch.</p>
+<hr />
+<h2>Naturalness is not derivation</h2>
+<p>There is a specific, seductive way to mistake a <em>property</em> of a value for the <em>value itself</em>. A magnitude being <strong>small</strong>, <strong>radiatively stable</strong>, <strong>technically natural</strong>, <strong>symmetry-protected</strong>, or <strong>Planck-expressible</strong> does <strong>not</strong> derive it. Each of these is a statement about how a number behaves; none of them supplies the number.</p>
+<ul>
+<li>A value can be <strong>small</strong> — and still measured. Smallness is a comparison, not a source.</li>
+<li>A value can be <strong>radiatively stable</strong> — and still measured. Stability says corrections do not blow it up; it does not say what it is (SCL-G).</li>
+<li>A value can be <strong>technically natural / symmetry-protected</strong> — and still measured. A protecting symmetry makes a small value unsurprising; it does not compute it.</li>
+<li>A value can be <strong>Planck-expressible</strong> — e.g. $\Lambda\approx 10^{-122}\,M_{\rm Pl}^4$ — and still measured. Writing a measured number in Planck units is a restatement, not a derivation (SCL-22).</li>
+</ul>
+<blockquote>
+<p><strong>Naturalness can dissolve a tuning problem; it cannot supply a measured magnitude.</strong> Dissolving the question "why isn't this huge / why doesn't this destabilize?" is a real result — it removes a false debt. It is <strong>not</strong> the same as paying the real debt "what is the value?", which stays <code>MEASURED</code> / <code>SCALE-OPEN-as-derivation</code> until a target-blind value bridge exists.</p>
+</blockquote>
+<p>This generalizes the page's existing $\Lambda$ warnings (stability $\neq$ value, Planck-smallness $\neq$ derivation) into a single rule that applies wherever a naturalness argument is made: the <strong>cosmological constant $\Lambda$</strong>, the <strong>Higgs / electroweak hierarchy</strong>, the <strong>inflationary amplitude $A_s$</strong>, and <strong>mass gaps</strong>. In every case: the naturalness argument may dissolve the <em>tuning</em> sub-problem; the <em>value</em> sub-problem remains open or paid. Report them on separate lines — never collapse "it is natural" into "it is derived."</p>
+<hr />
+<h2>Status ledger</h2>
+<p>Honest classification of the scale claims, by category. <strong>0 of 33 gates are physics-closed; no status changes.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Category</th>
+<th>Status note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$M_{\rm Pl}$ (absolute scale anchor)</td>
+<td><code>SCALE-ANCHORED</code> (the anchor itself)</td>
+<td><strong>existence argued; value <code>MEASURED</code>.</strong> The floor of the root — named, not eliminated.</td>
+</tr>
+<tr>
+<td>Heat-kernel scale-free invariants (Gap-01)</td>
+<td><code>SCALE-FREE-DERIVED</code></td>
+<td>exact rational checks, two-route reproducible</td>
+</tr>
+<tr>
+<td>Dimensionful $a_6$ magnitude (odd $D=13$)</td>
+<td><code>SCALE-CONSISTENCY-COEFFICIENT</code> / <code>SCALE-DISSOLVED</code></td>
+<td>no canonical finite predicate; not gate-closing</td>
+</tr>
+<tr>
+<td>Fermion mass <strong>ratios</strong> &amp; mixings (CKM/PMNS)</td>
+<td><code>SCALE-FREE-DERIVED</code> (within grammar)</td>
+<td>tested against frozen falsifiers; genuine predictions</td>
+</tr>
+<tr>
+<td>Absolute sector masses / $N_d, N_e, N_\nu$</td>
+<td><code>SCALE-PAID</code></td>
+<td>fitted normalizations — the weakest link</td>
+</tr>
+<tr>
+<td>$M_R$ (seesaw scale)</td>
+<td><code>SCALE-PAID</code></td>
+<td>shared object (SCL-H); paid unless generated target-blind</td>
+</tr>
+<tr>
+<td>Observed $\Lambda$ value</td>
+<td><code>MEASURED</code> / <code>SCALE-OPEN</code> (as derivation)</td>
+<td>distinct from radiative stability</td>
+</tr>
+<tr>
+<td>$\Lambda$ radiative stability</td>
+<td>(property, not a number)</td>
+<td>dissolvable by trace-decoupling; <strong>not</strong> a value derivation</td>
+</tr>
+<tr>
+<td>Threshold / RG-matching rows</td>
+<td><code>SCALE-OPEN</code></td>
+<td>needs target-blind spectrum-to-threshold + scheme reconciliation</td>
+</tr>
+<tr>
+<td>Yang–Mills uniform gap</td>
+<td><code>SCALE-OPEN</code> / axiom-conditional</td>
+<td>uniform bound must survive continuum/volume limits</td>
+</tr>
+<tr>
+<td>Inflation $A_s, r, n_s$</td>
+<td><code>SCALE-OPEN</code></td>
+<td>needs geometry-forced potential tied to scale policy</td>
+</tr>
+<tr>
+<td>Baryogenesis $\eta_B$ scales</td>
+<td><code>SCALE-OPEN</code> / <code>SCALE-PAID</code></td>
+<td>$M_N$, $T_{\rm reheat}$, washout generated or paid, target-blind</td>
+</tr>
+<tr>
+<td>Born weights</td>
+<td>dimensionless</td>
+<td>normalization must be invariant; measure must be forced, not narrated</td>
+</tr>
+</tbody>
+</table>
+<h2>The Scale page final test</h2>
+<p>This page succeeds only if, for <strong>any</strong> number in the candidate, a reader can run the following eight-question gate to completion. A number is Scale-honest only when every line has an answer.</p>
+<blockquote>
+<p><strong>THE SCALE FINAL TEST — run on any number.</strong>
+1. <strong>Dimensionless or dimensionful?</strong> (If dimensionless, it can be unit-gauge-invariant directly — go to 6.)
+2. <strong>If dimensionful, what anchor gives it units?</strong> ($M_{\rm Pl}$, or a declared measured scale — or there is no magnitude claim.)
+3. <strong>Scheme / window / normalization?</strong> (Named, or the number is not yet defined — SCL-B, SCL-D, SCL-E.)
+4. <strong>What bridge carries it across scales?</strong> (RG / decoupling / threshold / compactification / FRG / dissolution — with a filled bridge certificate — SCL-J.)
+5. <strong>Is the bridge target-blind?</strong> (Writable without the observed value? If no → target-loaded, fails.)
+6. <strong>Category?</strong> (derived / measured / paid / consistency-only / dissolved / open — exactly one.)
+7. <strong>What changes if the anchor / scheme / window changes?</strong> (Run the eight-axis Scale Perturbation Test; no response → not forced.)
+8. <strong>What exact observable / audit record tests it?</strong> (The physical endpoint, or it is consistency-only at best.)</p>
+</blockquote>
+<p>If every line answers, the number is at full precision and correctly typed. If any line is blank, the number is <strong>not</strong> Scale-derived — whatever the formula says. Applied across the candidate, this gate currently terminates every dimensionful magnitude at <code>SCALE-PAID</code>, <code>SCALE-OPEN</code>, or <code>SCALE-CONSISTENCY-COEFFICIENT</code>: <strong>0 of 33 gates are physics-closed, no status changes.</strong> That is the honest state, stated at full precision.</p>
+<hr />
+<h2>Cross-links</h2>
+<ul>
+<li><strong>The three roots:</strong> <a href="/shape/">The Shape</a> (supplies the object) · <strong>The Scale</strong> (this page — supplies the magnitude) · <a href="/granularity/">The Granularity</a> (forbids hidden precision and arbitrary fitting).</li>
+<li><strong><a href="/anchors/deep-roots.html">The Seven Deep Roots</a></strong> — Scale is <strong>R5</strong>; this page is the public expansion of the R5 absolute-scale anchor.</li>
+<li><strong><a href="/gates/">The gate scoreboard</a></strong> — honest per-gate status across all 33 gates.</li>
+<li><strong>Full precision</strong> → <strong><a href="/articles/GUT.html">GUT Appendix A1 (HTML)</a></strong> · <strong><a href="/articles/GUT.pdf">PDF</a></strong> — the ≥16-sig-fig reconstruction of the complete three-layer Shape this root anchors against.</li>
+<li>Related: the <strong><a href="/anchors/">anchors overview</a></strong>, the <strong><a href="/walls/">walls register</a></strong>, and the <strong><a href="/closure/">closure routing</a></strong>.</li>
+</ul>
+<hr />
+<h2>Appendix — Full precision</h2>
+<p>This appendix carries the full-precision content the public page summarizes: the absolute-scale anchor at value precision, the dimensionful ledger (which magnitudes are measured-anchor vs paid vs dissolved vs open), and the shared scheme objects. It is the Scale companion to the <strong><a href="/articles/GUT.html">GUT Appendix A1 full-precision reconstruction</a></strong> (<strong><a href="/articles/GUT.pdf">PDF</a></strong>) — the ≥16-significant-figure reconstruction of the complete three-layer Shape this root anchors against.</p>
+<h3>A. The absolute-scale anchor (R5, full precision)</h3>
+<p><strong>Operational statement.</strong> <em>At least one absolute dimensionful scale is required; $M_{\rm Pl}$ is the accepted value anchor.</em> The scale relation — written <strong>only</strong> as a relation, not as proof that the number is derived:</p>
+<p>$$M_{\rm Pl}\;\sim\;\sqrt{\frac{\hbar c}{G}}.$$</p>
+<p>The root has <strong>two parts that must never be conflated</strong>:</p>
+<ul>
+<li><strong>Existence claim</strong> — at least one absolute dimensionful scale is <em>required</em> to fix the units of any dimensionful prediction. (Existence theorem claimed.)</li>
+<li><strong>Value claim</strong> — the specific number $M_{\rm Pl}$, which is supplied by <strong>measurement</strong>. (Status: <code>MEASURED</code>.)</li>
+</ul>
+<p>$M_{\rm Pl}$ is one of the small set of charged measured anchors the framework runs on:</p>
+<p>$$\{\,M_{\rm Pl},\ \alpha_i(M_Z),\ y_t,\ |V_{us}|\,\}.$$</p>
+<p><strong>What it supports.</strong> It is the dimensionful anchor that lets dimensionless ratios and readouts be cashed into physical numbers.</p>
+<p><strong>What it does not prove.</strong> A naked dimensionful number is not invariant by itself (R1) — only dimensionless ratios are frame/unit-invariant. So the <em>value</em> of $M_{\rm Pl}$ is charged as measured input; it is <strong>not</strong> claimed derived from the geometry. Planck-unit smallness of another quantity is not a derivation of that quantity.</p>
+<p><strong>Allowed claim:</strong> a scale relation is needed. <strong>Forbidden claim:</strong> a naked dimensionful number is invariant by itself.</p>
+<p><strong>Completeness in use.</strong> When the scale root cashes dimensionless ratios into physical numbers, it must use $M_{\rm Pl}$ at <strong>full precision</strong> and apply it over the <strong>complete three-layer Shape</strong> at full precision (<strong><a href="/articles/GUT.html">GUT Appendix A1</a></strong> — <strong><a href="/articles/GUT.pdf">PDF</a></strong> — $\geq 16$ significant figures across all three layers; frozen manifest meta-hash <code>a5b1e6f9d951</code>, active branch <code>dcc66f1b2685</code>). Setting a dimensionful scale from an incomplete shape or a rounded anchor is an <strong>incomplete-root use</strong> and may fail spuriously.</p>
+<p><strong>Specialist hardening question.</strong> Can the <em>existence</em> of exactly one independent absolute scale be <strong>proven</strong> (rather than asserted) from R1 + R4, and can it be shown that no second independent dimensionful anchor is smuggled in elsewhere in the generator?</p>
+<h3>B. The dimensionful ledger — measured-anchor vs paid vs dissolved vs open</h3>
+<table>
+<thead>
+<tr>
+<th>Magnitude</th>
+<th>Terminus (SCL-B / SCL-I)</th>
+<th>Bridge (SCL-J)</th>
+<th>Window/scheme (SCL-E)</th>
+<th>Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$M_{\rm Pl}$</td>
+<td><strong>measured anchor</strong> (the absolute scale)</td>
+<td>— (sets the anchor)</td>
+<td>—</td>
+<td><code>MEASURED</code> anchor</td>
+</tr>
+<tr>
+<td>$\alpha_i(M_Z)$</td>
+<td>measured anchor</td>
+<td>RG flow</td>
+<td>$M_Z$, declared scheme</td>
+<td><code>MEASURED</code> anchor</td>
+</tr>
+<tr>
+<td>Fermion mass ratios</td>
+<td>derived from flavor map</td>
+<td>— (dimensionless)</td>
+<td>scheme-stated for running</td>
+<td><code>SCALE-FREE-DERIVED</code></td>
+</tr>
+<tr>
+<td>Absolute sector masses</td>
+<td>paid sector scale ($N_d,N_e,N_\nu$)</td>
+<td>—</td>
+<td>sector-scale policy</td>
+<td><code>SCALE-PAID</code></td>
+</tr>
+<tr>
+<td>$M_R$</td>
+<td>paid (shared object)</td>
+<td>decoupling / seesaw</td>
+<td>seesaw window</td>
+<td><code>SCALE-PAID</code></td>
+</tr>
+<tr>
+<td>Dimensionful $a_6$ (odd $D=13$)</td>
+<td><strong>no canonical terminus</strong></td>
+<td>dissolution</td>
+<td>no finite local predicate</td>
+<td><code>SCALE-DISSOLVED</code> / consistency-only</td>
+</tr>
+<tr>
+<td>Observed $\Lambda$</td>
+<td>measured anchor</td>
+<td>—</td>
+<td>cosmological scale</td>
+<td><code>MEASURED</code> / <code>SCALE-OPEN</code> as derivation</td>
+</tr>
+<tr>
+<td>Threshold rows</td>
+<td>spectrum (open)</td>
+<td>threshold rule + RG</td>
+<td>matching scale, scheme</td>
+<td><code>SCALE-OPEN</code></td>
+</tr>
+<tr>
+<td>YM gap</td>
+<td>continuum units</td>
+<td>continuum/volume limit</td>
+<td>continuum window</td>
+<td><code>SCALE-OPEN</code> / axiom-conditional</td>
+</tr>
+<tr>
+<td>Inflation $A_s, r, n_s$</td>
+<td>open</td>
+<td>(geometry-forced potential)</td>
+<td>inflationary scale, e-folds</td>
+<td><code>SCALE-OPEN</code></td>
+</tr>
+<tr>
+<td>$\eta_B$ scales ($M_N, T_{\rm reheat}$)</td>
+<td>paid/open</td>
+<td>RG + Boltzmann/washout</td>
+<td>leptogenesis window</td>
+<td><code>SCALE-PAID</code> / <code>SCALE-OPEN</code></td>
+</tr>
+</tbody>
+</table>
+<h3>C. Shared scheme objects (SCL-H)</h3>
+<p>Some scale/scheme objects are used by <strong>more than one gate</strong> and must be settled once and propagated, never re-chosen per gate:</p>
+<ul>
+<li><strong>Heat-kernel scheme object</strong> — shared across Gap-01 ($a_6$), SG-6, the moduli gate, and the threshold/RG-matching gate (W19). Re-choosing it per gate to suit each target is a SCL-H violation and a disguised target-load.</li>
+<li><strong>Sector-scale policy</strong> ($\kappa$, $N_d, N_e, N_\nu$, $M_R$, neutrino-scale policy) — shared across the flavor (W06), neutrino-mass, and leptogenesis (W12) gates. The fitted normalizations are the program's weakest scale link and the most exposed to over-counting.</li>
+<li><strong>RG matching scales / scheme / cutoff</strong> — shared across thresholds (W19), unification, and electroweak ($\rho_{\rm tree}$, W08) claims.</li>
+</ul>
+<h3>D. Status-label legend</h3>
+<p>The categories used throughout (and how they map to the deep-root status labels):</p>
+<pre><code>SCALE-FREE-DERIVED            ↔ GENERATED / DERIVED-GIVEN-E (dimensionless)
+SCALE-ANCHORED               ↔ anchored on a MEASURED/derived/paid scale
+SCALE-PAID                   ↔ CHARGED / paid input (fitted or declared)
+SCALE-CONSISTENCY-COEFFICIENT↔ AUDIT ONLY (not gate-closing)
+SCALE-DISSOLVED              ↔ ill-posed predicate removed (not solved)
+SCALE-OPEN                   ↔ OPEN (bridge / scheme / anchor missing)
+</code></pre>
+<p><strong>Allowed deep-root status labels</strong> (the only labels used): DECLARED ROOT · GENERATED · DERIVED-GIVEN-E · MEASURED · CHARGED · AUDIT ONLY · OPEN · BLOCKED · ANTI-CLAIM.</p>
+<h3>E. Completion report</h3>
+<ul>
+<li><strong>P1 — Thesis + honesty guard present.</strong> Yes (top of page).</li>
+<li><strong>P2 — Full Scale definition present</strong> (anchor + ratios + scheme/window + bridge + stability/value split + dissolution). Yes.</li>
+<li><strong>P3 — All six claim categories defined.</strong> Yes (derived / anchored / paid / consistency-only / dissolved / open).</li>
+<li><strong>P4 — Complete constraint table SCL-A … SCL-J</strong> with SCL-I and SCL-J explicit. Yes.</li>
+<li><strong>P5 — Forcing certificate (four fields) stated; FORCES vs SUPPORTS separated.</strong> Yes.</li>
+<li><strong>P6 — Bridge catalog (RG / decoupling / threshold / compactification / FRG / dissolution).</strong> Yes; measurement explicitly excluded as a cross-scale bridge.</li>
+<li><strong>P7 — Interaction with Shape and Granularity stated.</strong> Yes.</li>
+<li><strong>P8 — Worked examples from gaps/gates</strong> (Gap-01/a6, W06 flavor, $M_R$, $\Lambda$, W19 thresholds, W18 YM) + 19-wall summary table. Yes.</li>
+<li><strong>P9 — Red-team traps enumerated.</strong> Yes.</li>
+<li><strong>P10 — Status ledger classifying every number.</strong> Yes.</li>
+<li><strong>P11 — Full-precision appendix</strong> (absolute anchor + dimensionful ledger + shared scheme objects). Yes.</li>
+<li><strong>P12 — Scale anchor convention box</strong> (the actual object: $M_{\rm Pl}=1.2209\times10^{19}$ GeV, ordinary not reduced, units, existence-theorem vs measured-value split, forbidden compression). Yes (near top).</li>
+<li><strong>P13 — Unit-gauge / Buckingham-$\pi$ layer</strong> (Scale framed as a theorem: dimensionless → derivable; dimensionful → anchor + bridge + scheme; no anchor → no magnitude). Yes.</li>
+<li><strong>P14 — Scale Perturbation Test</strong> (eight axes: anchor, scheme, window, normalization, threshold, compactification radius, cutoff/regulator, dimension; no-response → not forced; target-response → target-loaded). Yes (extends the forcing certificate).</li>
+<li><strong>P15 — Bridge certificates</strong> (per-bridge template + worked threshold-bridge conditions; hardens W19, SG-7, SG-6, Gap-01). Yes (extends the bridge catalog).</li>
+<li><strong>P16 — Local density vs integrated observable</strong> (Gap-01 $a_6$ worked: consistency coefficient, not a closing observable). Yes.</li>
+<li><strong>P17 — Shared scale/scheme-object dependency graph</strong> (heat-kernel scheme, sector-scale policy, RG matching, $M_R$; Nonseparability rule). Yes.</li>
+<li><strong>P18 — Precision-cost discipline</strong> (Scale∩Granularity: value/uncertainty/sig-figs/source/scheme/charged; over-precision = free info; rounding root = incomplete root). Yes.</li>
+<li><strong>P19 — Naturalness is not derivation</strong> (small/stable/natural/protected/Planck-expressible ≠ derived; dissolves tuning, not value; $\Lambda$, EW hierarchy, $A_s$, mass gaps). Yes.</li>
+<li><strong>P20 — Scale-status transition table</strong> (OPEN→PAID, PAID→FORCED, CONSISTENCY→DERIVED, DISSOLVED→closed never automatic). Yes.</li>
+<li><strong>P21 — Scale page final test</strong> (boxed eight-question gate replacing the old Final standard). Yes.</li>
+<li><strong>U1 — Anchored ≠ derived; floor ≥ 1 preserved</strong> (root still bottoms on $M_{\rm Pl}$; this is a completeness upgrade, not anchor-elimination). Yes.</li>
+<li><strong>U2 — No floating magnitudes:</strong> every dimensionful claim typed as measured-anchor / paid / dissolved / open. Yes.</li>
+<li><strong>U3 — No FORCED magnitude overclaimed:</strong> 0 of 33 gates physics-closed; no status changes. Yes.</li>
+<li><strong>U4 — Existence vs value of the scale anchor kept distinct.</strong> Yes.</li>
+<li><strong>U5 — Stability ≠ value; ratios ≠ units; dissolved ≠ solved.</strong> Yes.</li>
+<li><strong>Open items.</strong> Absolute-scale existence proof from R1+R4 (<code>OPEN</code>); target-blind value bridges for $\Lambda$, thresholds, inflation, baryogenesis (<code>OPEN</code>); generated (not paid) sector scales / $M_R$ (<code>OPEN</code>); uniform YM gap surviving continuum/volume limits (<code>OPEN</code> / axiom-conditional).</li>
+</ul>
+</main>
+</div>
+</body></html>

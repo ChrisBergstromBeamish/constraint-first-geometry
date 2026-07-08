@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Granularity — finite-cost discipline</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 256px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:64rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:14.5px;margin:0 0 6px;line-height:1.25;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="/">&#9632; A Framework for a Theory of Everything</a></div>
+<div class="ann-group">Start here</div>
+<a href="/">Home — intro</a>
+<a href="/gates/">The Gates — scoreboard</a>
+<a href="/residuals/">The Residuals — attack list</a>
+<div class="ann-group">The honest rule-set</div>
+<a href="/anchors/">The Anchors</a>
+<a href="/walls/">The Walls</a>
+<a href="/closure/">The Closure system</a>
+<a href="/closure/walls/">&mdash; closure paths</a>
+<div class="ann-group">The physics</div>
+<a href="/shape/">The Shape (13D)</a>
+<a href="/scale/">The Scale</a>
+<a href="/granularity/" class="current">The Granularity</a>
+<a href="/paying/">What &ldquo;paying&rdquo; means</a>
+<a href="/layer2/">The Second-Layer Roots</a>
+<a href="/gut/">GUT &mdash; Paper 1</a>
+<a href="/forces/">Forces &mdash; Paper 2</a>
+<a href="/quantum/">Quantum &mdash; Paper 3</a>
+<a href="/toe/">TOE &mdash; complete statement</a>
+<a href="/particles/">Particles &mdash; spectrum</a>
+<div class="ann-group">Reference</div>
+<a href="/articles/">Dossiers &amp; articles</a>
+<a href="/scripts/">Scripts</a>
+<a href="/supporting/">Supporting</a>
+<a href="/supplemental/">Supplemental (full overview)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The Granularity — finite-cost discipline — rendered package. Rendered from <code>index.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The Granularity — finite-cost discipline</h1>
+<div style="border:1px solid #d8d3c7;border-left:5px solid #0b5;background:#f7fdf9;border-radius:0 6px 6px 0;padding:.8em 1.15em;margin:1rem 0 1.3rem;font-family:&#39;Helvetica Neue&#39;,Arial,sans-serif;font-size:.96rem;line-height:1.55;"><div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:#0b5;font-weight:700;margin-bottom:.3em;">In plain language</div><p style="margin:.2em 0 0;">The <strong>Granularity</strong> is the rule that every real distinction <em>costs something</em> &mdash; you cannot tell two things apart, or keep a record of anything, for free. The theory posits a smallest possible cost (an amount of <em>action</em>, not a smallest length &mdash; it does <strong>not</strong> claim space is pixelated), with Planck&rsquo;s constant &#8463; as that cost&rsquo;s measured size. This &ldquo;nothing is free&rdquo; accounting is what stops the theory from quietly assuming infinite precision or unpaid separations &mdash; the idea worked out in plain terms on <a href="/paying/">what it means to pay for something</a>. The page below is the precise version; this box is the idea.</p></div>
+<p><strong>Thesis.</strong> Granularity is the <em>finite-cost discipline</em> of this theory: no unpaid labels, no hidden infinite precision, no silent object swaps, and no closure without a finite admissible rule class or an exact check. It is one of the three deep roots — alongside <strong><a href="/shape/">the Shape</a></strong> (the frozen object that is being tested) and <strong><a href="/scale/">the Scale</a></strong> (the absolute magnitude that gives dimensionful numbers meaning). Granularity is the root that decides whether any claim — a survivor, a coefficient, a probability, a lifetime bound — was <em>paid for and checked</em> or merely <em>narrated</em>. The single sentence that the rest of this page unpacks: a result counts only when its finite object class, its uniform cost accounting, its exact object identity, and its target-blindness are all on the table at once.</p>
+
+<p style="font-size:.92em;color:#555"><em>What does &ldquo;paying&rdquo; for a distinction or a separation mean, exactly? It has a precise definition &mdash; see <a href="/paying/">What it means to pay for something</a>.</em></p><p><strong>Honesty guard.</strong> Granularity is not "discreteness as a vibe," and it is not the soft claim that a theory uses finitely many symbols. It is the requirement that every primitive label, assignment, candidate class, tolerance, route, and observable map be <strong>finitely specified, paid, and testable under exact identity constraints</strong> — <em>and</em> that the floor on distinguishable cost be <strong>uniform and positive</strong>, not merely finite. Finiteness without uniformity is provably insufficient (the basin-shallowing countermodel below shows finite resources can still admit arbitrarily fine grain). This page is a <strong>completeness upgrade</strong> of the root — it is <em>not</em> anchor-elimination. The Granularity root still bottoms out on its anchor: a single named, value-free posit, the <strong>Uniform Operational Cell Law</strong> ($\Delta_0 > 0$), with $\hbar$ as its <em>measured residue</em>. <strong>anchored ≠ derived · selected ≠ forced · dissolved ≠ solved · floor ≥ 1, forever.</strong> This is a frozen Theory-of-Everything <em>candidate</em> under honest audit: <strong>0 of 33 gates are physics-closed</strong>, and the running status change count is <strong>no status changes</strong>.</p>
+<blockquote>
+<h3>Granularity floor — convention box (read this first)</h3>
+<p>Before anything else, fix <em>what object</em> the Granularity root is about, because the single most common misreading collapses it into "spacetime pixels."</p>
+<ul>
+<li><strong>The object.</strong> Granularity's floor is $\Delta_0$ = the <strong>minimum distinguishable operational / action cost</strong>. That is the whole object — a floor on cost.</li>
+<li><strong>What it is NOT.</strong> It is <strong>not</strong> a smallest length, <strong>not</strong> a spatial lattice spacing, <strong>not</strong> a preferred-frame cell, and <strong>not</strong> a proof that spacetime is discrete. A floor on a Lorentz-scalar <em>cost</em> picks no frame; a floor on a <em>length</em> would (length contracts), so the length reading is explicitly disclaimed.</li>
+<li><strong>Where it lives.</strong> On the full <strong>three-layer <a href="/shape/">Shape</a></strong> (× Stage · ⊕ Rulebook · ⊗ Actors), across <strong>all 13 dimensions including time</strong>, and over <strong>all admissible records, rules, actors, operators, and maps</strong> — never a spatial-only or single-layer subset.</li>
+<li><strong>Status — two separable claims.</strong> <em>Existence</em> of a uniform floor is a <strong>declared root / axiom-open</strong> posit (the Uniform Operational Cell Law). The <em>value / size</em> residue ($\hbar$) is <strong>measured / anchored, NOT derived</strong>. The page never lets the second masquerade as the first.</li>
+</ul>
+<p>Read the <strong><a href="/articles/GUT.html">full precision</a></strong> (<strong><a href="/articles/GUT.pdf">PDF</a></strong>) account of this object in the Appendix.</p>
+</blockquote>
+<hr />
+<h2>1. The three layers Granularity controls</h2>
+<p>Granularity is not a single test; it is a discipline that applies at every layer of the analysis stack. The three roots split the work cleanly, and Granularity is the root that polices the <em>cost</em> and the <em>bookkeeping</em> of all of it.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>What Granularity does here</th>
+<th>The required precision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Observables / audit anchors</strong></td>
+<td>exact checks, two-route agreement, frozen falsifiers, measured records</td>
+<td>state the finite observable/audit record and its tolerance <em>before</em> reading outputs</td>
+</tr>
+<tr>
+<td><strong>Deep roots</strong></td>
+<td>Granularity is primary for cost; <strong>Shape</strong> supplies the object class it counts over; <strong>Scale</strong> supplies the magnitude its floor lives on</td>
+<td>identify which root controls which cost — no cross-charging</td>
+</tr>
+<tr>
+<td><strong>Rule / map layer</strong></td>
+<td>finite rule basis and a closed candidate class</td>
+<td>no hidden lookup table, no infinite precision, no hand-drawn singleton list</td>
+</tr>
+<tr>
+<td><strong>Forcing layer</strong></td>
+<td>distinguish root-forced from merely compatible</td>
+<td>prove the closed class + uniqueness + a target-blind finite description</td>
+</tr>
+<tr>
+<td><strong>Verdict layer</strong></td>
+<td>pass / fail / open / blocked / dissolved</td>
+<td>no partial enumeration is ever promoted to closure</td>
+</tr>
+</tbody>
+</table>
+<p>The discipline is comprehensive in a second sense too. Per the <a href="/anchors/deep-roots.html">deep-roots ledger</a>, Granularity is a property of the <strong>entire <a href="/shape/">Shape</a></strong> — the cost-floor governs distinguishable steps across <strong>all 13 dimensions, including time, and all three Shape layers</strong> (× Stage · ⊕ Rulebook · ⊗ Actors), at <strong><a href="/articles/GUT.html">full precision</a></strong> (<strong><a href="/articles/GUT.pdf">PDF</a></strong>), never a spatial-only or ×-layer-only subset. It remains a floor on a <strong>Lorentz-scalar action</strong> (<em>cost, not length</em>), but applied over the whole object. A gate closure that charges the floor on only part of the Shape is using an <strong>incomplete root</strong> and may fail for that reason alone, with nothing wrong in the physics.</p>
+<hr />
+<h2>2. Finite-record discipline vs ontological granularity</h2>
+<p>The most important distinction on this page is between two strengths of the same idea, because conflating them is the single most tempting overclaim.</p>
+<blockquote>
+<p><strong>Finite-record discipline.</strong> What any honest observer or computation can operationally verify: every contact between theory and world factors through a finite, reproducible, physically instantiated record — a measurement to finite precision, a detector logging a finite count, a computation halting with finite output. This is the <strong>Record Interface</strong> root, and the program can use it <em>immediately</em>. It is the currency in which any theory — this one or a rival — earns physical status.</p>
+<p><strong>Ontological granularity.</strong> The <em>stronger</em> claim that reality itself bottoms out in a uniform positive operational/action step. This is the <strong>Granularity / cost-floor</strong> root, and it is <strong>not</strong> a free consequence of the finiteness of records. Inferring a discrete <em>world</em> from finite <em>records</em> is a separate, undischarged step.</p>
+</blockquote>
+<p>The constraint that pins this is <strong>GRN-H</strong> (finite records vs ontology): finite observable records <em>support</em> granularity discipline; ontological discreteness remains a stronger root posit unless independently proven. The corresponding forbidden claim is blunt: <strong>"finite experimental records alone prove ontological discreteness"</strong> is an overclaim. The allowed claim is the modest one: <strong>no unpaid labels</strong>.</p>
+<p>So the program runs the finite-record discipline at full strength today and carries ontological granularity as a <em>named, status-labelled posit</em>. The full-precision account of exactly how that posit is reduced — to one value-free axiom with $\hbar$ as its residue — is in the <strong><a href="#appendix--full-precision">Appendix — Full precision</a></strong> below.</p>
+<hr />
+<h2>3. The full definition</h2>
+<p>Granularity, stated completely, is the conjunction:</p>
+<blockquote>
+<p><strong>Granularity</strong> = uniform positive cost floor
+&nbsp;&nbsp;+ finite admissible alphabets / candidate classes
+&nbsp;&nbsp;+ no unpaid labels or hidden lookup tables
+&nbsp;&nbsp;+ exact object identity
+&nbsp;&nbsp;+ exact law / theorem checks
+&nbsp;&nbsp;+ independent-route reproducibility
+&nbsp;&nbsp;+ frozen falsifiers and tolerances
+&nbsp;&nbsp;+ scoped infinite towers.</p>
+</blockquote>
+<p>Each clause is a constraint with an ID, and the next section is the constraint table that is the technical backbone of the whole page. Two clauses are the <strong>completeness additions</strong> that make this the upgraded root: the <strong>uniform positive cost floor</strong> (GRN-I) and <strong>no hidden infinite precision</strong> (GRN-J). They are what separate "finite bookkeeping" from real Granularity.</p>
+<hr />
+<h2>4. The complete constraint table</h2>
+<p>Every ID. This is the authoritative constraint set, including the GRN-I and GRN-J addendum additions.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Constraint</th>
+<th>What it means / what the page enforces</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GRN-A</strong></td>
+<td><strong>No unpaid labels</strong></td>
+<td>Every primitive, table, convention, factorization, assignment, and observable map used by a wall must be finite and <strong>charged</strong>. There is no free constant, no free projector, no free convention.</td>
+</tr>
+<tr>
+<td><strong>GRN-B</strong></td>
+<td><strong>Closed candidate class</strong></td>
+<td>A survivor is forced only inside a <strong>closed / exhausted</strong> admissible class — not a hand-drawn list. "Only one option survived" means nothing unless the list is proven closed under the relevant symmetries and admissibility rules.</td>
+</tr>
+<tr>
+<td><strong>GRN-C</strong></td>
+<td><strong>Exact object identity</strong></td>
+<td>Do <strong>not</strong> silently swap operators, spectra, ghosts, boundary objects, dimensions, schemes, or predicates. A numeric match on the <em>wrong</em> object closes nothing.</td>
+</tr>
+<tr>
+<td><strong>GRN-D</strong></td>
+<td><strong>Two-route reproducibility</strong></td>
+<td>Decision-grade numeric values require <strong>structurally independent</strong> routes, or a named reason why only one route can exist. One route is a draft, not a result.</td>
+</tr>
+<tr>
+<td><strong>GRN-E</strong></td>
+<td><strong>Exact identities as gates</strong></td>
+<td>Bianchi identities, anomaly sums, index theorems, congruence checks, cohomology / bordism operations, unitarity, and conservation laws are <strong>hard correctness gates</strong> — pass/fail, not adjustable.</td>
+</tr>
+<tr>
+<td><strong>GRN-F</strong></td>
+<td><strong>Frozen falsifiers</strong></td>
+<td>Falsifiers, tolerances, and target / holdout status must be fixed <strong>before</strong> reading outputs. A tolerance widened after seeing the number is a fabrication.</td>
+</tr>
+<tr>
+<td><strong>GRN-G</strong></td>
+<td><strong>Infinite towers scoped</strong></td>
+<td>A finite coefficient or mode subset <strong>cannot</strong> close an infinite tower unless a granularity / floor theorem scopes the tower. One counterterm does not retire an infinite counterterm series.</td>
+</tr>
+<tr>
+<td><strong>GRN-H</strong></td>
+<td><strong>Finite records vs ontology</strong></td>
+<td>Finite observable records support granularity discipline; <strong>ontological discreteness is the stronger claim</strong> and must be labelled as a posit.</td>
+</tr>
+<tr>
+<td><strong>GRN-I</strong></td>
+<td><strong>Uniform positive cost floor</strong> <em>(addendum)</em></td>
+<td>The root posit is <strong>not</strong> "finite resources." It is a <strong>uniform positive minimum</strong> operational / action step. Finiteness without uniformity is provably insufficient (basin-shallowing countermodel).</td>
+</tr>
+<tr>
+<td><strong>GRN-J</strong></td>
+<td><strong>No hidden infinite precision</strong> <em>(addendum)</em></td>
+<td>A rule may not hide arbitrary real precision, continuous labels, infinitely adjustable tolerances, or lookup-table compression behind a finite-looking formula.</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>operational test</strong> that compresses the table into four questions you can ask of any candidate rule:</p>
+<pre><code>What is the finite alphabet / finite object class / finite rule basis?
+What is the cost of each label or primitive?
+What exact identity or independent route verifies it?
+Could the same result be obtained only by smuggling hidden continuous precision?
+</code></pre>
+<p>If hidden precision or unpaid enumeration remains after those four questions, the rule is <strong>not</strong> Granularity-forced.</p>
+<h3>The finite-object manifest — the standard template for every claim</h3>
+<p>Every Granularity claim is required to publish a <strong>finite-object manifest</strong> before it can be graded. The manifest is the machine-readable form of "what finite object are you actually charging, and under what rules?" Any claim that cannot fill every field is <code>GRANULARITY-BLOCKED</code> by construction.</p>
+<pre><code>object_id:              a stable identifier for this finite object
+object_type:            candidate class | operator basis | path class |
+                        observable map | rule grammar | falsifier set
+allowed_symbols:        the finite alphabet the object is built from
+allowed_labels:         the labels that may be assigned (and from what set)
+allowed_operations:     the admissible operations / transforms on the object
+equivalence_relations:  what counts as &quot;the same&quot; (relabeling / gauge / basis / convention)
+excluded_labels:        labels explicitly forbidden (and why)
+paid_primitives:        every constant / table / map admitted as a charged input
+target_dependent_fields:any field that was or could have been set after seeing the target
+closure_proof:          the proof (or pointer) that the class is closed / exhausted
+</code></pre>
+<p>The manifest makes three sins detectable at a glance: an <strong>unpaid label</strong> appears as a symbol used but absent from <code>paid_primitives</code>; a <strong>silent object swap</strong> appears as a mismatch between two claims' <code>object_id</code>/<code>object_type</code>; and <strong>target-loading</strong> appears as any non-empty <code>target_dependent_fields</code> that is not itself paid as an input.</p>
+<h3>The precision-cost rule — where Granularity meets Scale</h3>
+<p><code>GRN-A</code> says <em>charge every label</em>; the precision-cost rule says <strong>how much</strong> a label costs, because a real number is not free and is not a single bit. This is the seam where Granularity and <strong><a href="/scale/">Scale</a></strong> meet (the floor lives on Scale's absolute-magnitude anchor; real-valued anchors cost precision, SCL-09).</p>
+<table>
+<thead>
+<tr>
+<th>Label kind</th>
+<th>How it is charged</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Integer / finite label</strong></td>
+<td>by <strong>finite-alphabet membership</strong> — log of the alphabet size, no more</td>
+</tr>
+<tr>
+<td><strong>Rational label</strong></td>
+<td>by <strong>numerator + denominator + a declared precision</strong></td>
+</tr>
+<tr>
+<td><strong>Real-valued anchor</strong></td>
+<td>by <strong>source + uncertainty + significant digits + role</strong> — never more digits than the source supplies</td>
+</tr>
+<tr>
+<td><strong>Fitted continuous parameter</strong></td>
+<td>a <strong>paid input</strong>, full stop — <em>unless</em> it was generated <strong>target-blind</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Frozen before outputs.</strong> All tolerances must be fixed <strong>before</strong> any output is seen (GRN-F).</p>
+<p><strong>Forbidden moves.</strong> (i) Using <strong>more precision than the anchor supplies</strong>. (ii) <strong>Hiding arbitrary real precision inside a compact formula</strong> (a finite-looking expression with a continuous knob has infinite hidden precision — GRN-J). (iii) <strong>Tuning a continuous value until an observable matches</strong> — that is target-selection, not derivation.</p>
+<hr />
+<h2>5. What Granularity FORCES vs what it only SUPPORTS</h2>
+<p>This is the heart of an honest root page. Granularity <em>constrains</em> almost everything; it <em>forces</em> very little. Every Granularity claim must be tagged with one of six categories, and the difference between the top two is the difference between a result and a hope.</p>
+<pre><code>GRANULARITY-FORCED:
+  finite class closed, alternatives exhausted, unique survivor,
+  target-blind, exact identity / test passes.
+
+GRANULARITY-SUPPORTED:
+  finite / cost discipline makes the rule natural, but alternatives remain.
+
+GRANULARITY-CONSTRAINED:
+  Granularity eliminates some alternatives but not all.
+
+GRANULARITY-PAID:
+  a finite primitive / table / assignment is admitted as an input and charged.
+
+GRANULARITY-BLOCKED:
+  candidate class, cost floor, object identity, or route agreement is missing.
+
+GRANULARITY-FAILED:
+  hidden precision, object swap, target-loaded enumeration,
+  or exact-identity violation detected.
+</code></pre>
+<h3>The support-to-force ladder (make every status change explicit)</h3>
+<p>The six tags above are <em>verdicts</em>; the ladder below is the <em>status change path</em> a claim climbs to earn them, mirroring the Scale and Layer-2 ladders. Each rung is a strictly stronger statement, and a claim may be stamped only at the rung it has actually reached. <strong>No rung may be skipped, and the running status change count across this candidate's gates is <code>no status changes</code>.</strong></p>
+<pre><code>L0  Narrative                — a finite-sounding story; no object, no ledger.
+L1  Finite-compatible        — the claim is consistent with a finite object class.
+L2  Finite-supported         — a finite/cost discipline makes the claim natural; alternatives remain.
+L3  Finite-constrained       — Granularity eliminates some alternatives but not all.
+L4  Finite-selective         — the survivor is selected inside the class, but closure or blindness is unproven.
+L5  Finite-forced-family     — a closed class forces a *family*; the unique member is not yet pinned.
+L6  Granularity-forced       — closed class + uniform cost + exact identity + target-blindness
+                               + observable test, ALL passing. (= GRANULARITY-FORCED)
+</code></pre>
+<p>L6 requires the same five conditions as the forcing certificate below, all at once. Nothing on the board currently stands above L2–L3 for any whole gate — consistent with <strong>0 of 33 gates physics-closed</strong>.</p>
+<h3>The forcing certificate (the four-field grade)</h3>
+<p>A Granularity claim earns the top tag, <code>GRANULARITY-FORCED</code>, <strong>only if all four fields are satisfied</strong> — the same four-field discipline used across the program for any <code>FORCED</code> verdict (anchor-transfer · root-counterfactual · closed candidate class · target-blindness), specialized to cost:</p>
+<ol>
+<li><strong>Finite object class</strong> — define the finite alphabet, finite candidate class, finite rule basis, or finite state space. <em>(Closed candidate class.)</em></li>
+<li><strong>Uniform cost accounting</strong> — every primitive / label / assignment is charged under a uniform positive cost floor. <em>(Anchor-transfer: the cost traces to the named floor, not to a hidden knob.)</em></li>
+<li><strong>Exact identity / reproducibility</strong> — object identity is exact, and either exact-theorem checks <strong>or</strong> structurally independent routes verify the result. <em>(Root-counterfactual: change the object and the result must change.)</em></li>
+<li><strong>Target-blindness</strong> — the finite rule class and the survivor cannot have been drawn around the target.</li>
+</ol>
+<p><strong>Downgrade rules.</strong> If the candidate class is not closed, downgrade out of <code>FORCED</code>. If the class was chosen <em>after</em> seeing the target, mark target-selection risk and downgrade. The honest reality across this candidate's gates: most Granularity contributions land at <code>SUPPORTED</code>, <code>CONSTRAINED</code>, or <code>PAID</code>. There are no <code>GRANULARITY-FORCED</code> whole-gate closures on the board — consistent with <strong>0 of 33 gates physics-closed</strong> and <strong>no status changes</strong>.</p>
+<h3>The closed candidate-class certificate (the stricter GRN-B proof recipe)</h3>
+<p>"Only one option survived my list" is the single most common false closure, and the four-field certificate above leans on <code>GRN-B</code> to block it. This is the proof recipe that field demands. A candidate class is <strong>closed</strong> only when <strong>all six</strong> steps are on the table — the fix for <em>"I listed three options and one survived."</em></p>
+<ol>
+<li><strong>Generation rule</strong> — state <strong>how all candidates are generated</strong> (the construction or grammar), not a hand-drawn list.</li>
+<li><strong>Closure</strong> — show the generated set is <strong>closed</strong> under the relevant transforms: symmetry, gauge, basis change, quotient, admissibility, and branch-preserving maps.</li>
+<li><strong>Equivalence quotient</strong> — state which candidates are <strong>the same</strong> up to relabeling / gauge / basis / convention, and quotient by that relation.</li>
+<li><strong>Exhaustion</strong> — <strong>all</strong> generated candidates are listed, <strong>or</strong> symbolically classified (a finite parametrization of an infinite family counts).</li>
+<li><strong>Survivor ledger</strong> — record <strong>which survive and which are eliminated, by which constraint</strong> — one row per candidate, one named eliminator per casualty.</li>
+<li><strong>Red-team hole</strong> — state <strong>what class could have been missed</strong> by the generation rule itself (the meta-risk that the grammar is too narrow).</li>
+</ol>
+<p>A survivor count is meaningful <strong>only after</strong> the quotient (step 3) and <strong>only inside</strong> an exhausted, closed class (steps 1–2, 4). Steps 5–6 are what convert "one survived" from a coincidence into a constraint — and step 6 is why even a complete-looking ledger is never stronger than <code>Finite-selective</code> (L4) until the generation rule itself is shown wide enough.</p>
+<hr />
+<h2>6. How Granularity interacts with Shape and Scale</h2>
+<p>The three roots are distinct and must not be cross-charged. The clean division of labor:</p>
+<ul>
+<li><strong>Shape supplies the object class.</strong> Granularity counts and charges, but it counts <em>over</em> the object that Shape specifies — the metric carrier, the quotient/global data, the rulebook, the actor/operator layer, the connection, the readout map, and the <strong>frozen branch identity</strong> (Shape's own addendum constraint, SHP-I). When <strong>GRN-C</strong> (exact object identity) forbids a silent operator swap, it is policing whether the computation used the <em>Shape-specified</em> operator. Object identity is a Shape question; <em>enforcing</em> that it stays exact is a Granularity question.</li>
+<li><strong>Scale supplies the magnitude the floor lives on.</strong> Granularity's cost floor is a floor on a <strong>Lorentz-scalar action</strong>, not on a length — and that is precisely a Scale fact (the floor lives on the absolute-scale anchor, Scale's addendum constraint SCL-I). $\hbar$, the measured <em>size</em> of the floor, is a measured-anchor under Scale, not something Granularity derives. When <strong>GRN-A</strong> charges a real-valued anchor "for its precision," that precision cost is the place Granularity and Scale meet (see SCL-09: real-valued anchors cost precision).</li>
+</ul>
+<p>The compressed triad, the three questions you ask of every wall in order:</p>
+<pre><code>Shape:        What is the exact frozen object, and what map does it permit or force?
+Scale:        What magnitude or ratio is meaningful, and what bridge makes it meaningful?
+Granularity:  What finite rule / candidate / record structure prevents hidden labels,
+              infinite precision, and arbitrary fitting?
+</code></pre>
+<p>A wall may not say "Shape forces X" without naming the part of Shape that does the forcing; it may not say "the number is Scale-derived" without naming the scale/scheme object; and it may not say "Granularity forces X" without passing the four-field certificate. The three guards are independent, and a claim must clear all three.</p>
+<hr />
+<h2>7. How gaps and gates constrain Granularity — worked examples</h2>
+<p>The 19 walls / gaps are where Granularity stops being abstract. For each one, the discipline extracts: the finite object/class, the unpaid labels at risk, the exact-identity check, the independent route or theorem check, the falsifier/tolerance status, the infinite-tower or continuum risk, and the Granularity constraint that results. Below are the most instructive worked examples mined from the per-gap dossiers. (The full constraint matrix spans W01–W19; these are the cases that teach a distinct Granularity lesson.)</p>
+<h3>Worked example A — Gap-01 / W03 (the a6 one-loop diagnostic): exact object identity, GRN-C</h3>
+<p><strong>The wall.</strong> Can the frozen 13D graviton+ghost $a_6$ Seeley–DeWitt object be computed with the <em>correct</em> operator, object class, and scale predicate?</p>
+<p><strong>The Granularity lesson — the canonical GRN-C case.</strong> Object identity is <strong>discrete and exact</strong>: the <strong>Bochner ghost value cannot be silently substituted for the physical Lichnerowicz ghost.</strong> These are different operators with different connections on a non-symmetric $K_6$; the canonical Peter–Weyl / Levi-Civita proxies are <em>not</em> interchangeable with the physical Lichnerowicz operator by default. A route-agreement test (GRN-D) only counts if <strong>both routes compute the same operator, connection, bundle, grading, and predicate</strong> — a numeric match on the Bochner object does <em>not</em> close a wall about the Lichnerowicz object. This is the single sharpest illustration on the site of why GRN-C exists: a wrong-object match is the most seductive false closure, because the number can look right.</p>
+<p><strong>The Granularity constraints extracted:</strong> GRN-06 (Bianchi and sphere-rational checks are exact correctness gates, GRN-E); GRN-07 (two structurally independent routes are mandatory for a decision-grade value, GRN-D); GRN-08 (object identity is discrete — no Bochner-for-Lichnerowicz swap, GRN-C). <strong>Binding residual:</strong> the GT/LC off-diagonal physical graviton+ghost route reconciliation. <strong>Status:</strong> the wall is <em>not</em> closed merely because the constraints are stated — they are necessary conditions, not a forcing certificate.</p>
+<h4>The route-independence taxonomy (grading GRN-D)</h4>
+<p>GRN-D ("two-route reproducibility") is not a binary; two computations can "agree" at five different strengths, and only the top two are decision-grade. The Gap-01 case above is the live reason this taxonomy is enforceable.</p>
+<table>
+<thead>
+<tr>
+<th>Grade</th>
+<th>What it means</th>
+<th>Counts as independent?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Same-route-twice</strong></td>
+<td>same engine, formula, and assumptions, re-run</td>
+<td><strong>No</strong> — a re-run is not a second route</td>
+</tr>
+<tr>
+<td><strong>Weak</strong></td>
+<td>same formula, <strong>different implementation</strong></td>
+<td>barely — catches transcription bugs only</td>
+</tr>
+<tr>
+<td><strong>Medium</strong></td>
+<td>different implementation <strong>and</strong> different basis, <strong>same theorem</strong></td>
+<td>partial — shares the theorem's failure mode</td>
+</tr>
+<tr>
+<td><strong>Strong</strong></td>
+<td>structurally different routes — e.g. <strong>local-analytic vs spectral / global / experimental / theorem</strong></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><strong>Decision-grade</strong></td>
+<td>structurally independent routes with <strong>independent failure modes</strong></td>
+<td>yes — the only grade that closes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The Gap-01 worked instance — why agreement requires the same operator.</strong> A <strong>Bochner ghost route ($E = 0$) is NOT confirmation of the physical Lichnerowicz ghost route ($E = -\mathrm{Ric}$).</strong> These two routes evaluate <strong>different Laplace-type operators</strong> on the non-symmetric coset $K_6 = SU(3)/T^2$. By Gilkey's heat-kernel theorem, the Seeley–DeWitt coefficient $a_6$ depends on the endomorphism $E$, so the two operators <strong>must</strong> produce different $a_6$ — they cannot agree, and an apparent agreement would be an object swap, not a confirmation. <strong>Route agreement is meaningful only when both routes evaluate the same operator.</strong> This is what makes object-identity (next) enforceable rather than decorative.</p>
+<h4>The object-identity fingerprint (a route agreement counts only when fingerprints match)</h4>
+<p>Every computation on this candidate carries an <strong>object-identity fingerprint</strong>. Two routes "agree" only when their fingerprints are <strong>identical</strong>; a numeric match across non-matching fingerprints is an object swap (GRN-C), not a confirmation (GRN-D).</p>
+<pre><code>branch                          : which frozen 13D branch object
+geometry                        : the exact metric carrier (e.g. SU(3)/T² coset)
+dimension                       : the dimension of the object being charged
+operator                        : the exact Laplace-type / differential operator
+connection                      : Levi-Civita / canonical / other
+bundle                          : the bundle / representation the operator acts on
+ghost-sign convention           : Bochner (E=0) vs physical Lichnerowicz (E=−Ric)
+boundary / orbifold / fixed-point object : the exact boundary or fixed-point datum
+scheme-window                   : the renormalization scheme and its validity window
+predicate                       : the exact yes/no question being asked
+observable endpoint             : the integrated / measured quantity actually compared
+</code></pre>
+<p><strong>What the fingerprint catches</strong> (each is a real false-closure pattern this page refuses):</p>
+<ul>
+<li><strong>Bochner ghost $\ne$ physical Lichnerowicz ghost</strong> — different <code>operator</code> + <code>ghost-sign convention</code>; the $a_6$ values must differ (above).</li>
+<li><strong>Boundary coefficient $\ne$ Donnelly fixed-point trace</strong> — different <code>boundary / orbifold / fixed-point object</code>.</li>
+<li><strong>Bulk sign $\ne$ positivity functional</strong> — different <code>predicate</code>.</li>
+<li><strong>Local density $\ne$ integrated observable</strong> — different <code>observable endpoint</code>.</li>
+</ul>
+<h3>Worked example B — W04 (Granularity ⇒ MDL / full-generator cost): the no-unpaid-labels root, GRN-A</h3>
+<p><strong>The wall.</strong> Does Granularity <em>force</em> full-generator cost accounting, or only <em>support</em> it?</p>
+<p><strong>The Granularity lesson.</strong> A theory's cost metric must charge the <strong>full generator</strong>, not just a dimension count. Every primitive constant, lookup table, observable map, factorization assumption, and free assignment must be finite and charged (GRN-A). The competing cost dimensions — <em>dimension burden</em> vs <em>anchor burden</em> — must be costed separately or explicitly bundled (this is also why Shape's cost includes the observable-generator map, SHP-09, and why real-valued anchors cost precision, SCL-09).</p>
+<p><strong>The honest status — a <code>SUPPORTED</code>, not <code>FORCED</code>, case.</strong> The smallest residual is explicit: the program <strong>needs a support-to-force proof that Granularity <em>necessitates</em> full-generator MDL over dimension-first counting</strong>, or the MDL/full-generator metric remains an <strong>open bridge</strong> (GRN-10). This is the textbook example of a rule that Granularity makes <em>natural</em> but does not yet <em>force</em> — the cost-floor presupposes a description-length metric that is itself a <code>OPEN</code> Layer-1 bridge. The page must not promote "natural" to "forced."</p>
+<h4>The no-free-factorization rule (inherited from Nonseparability)</h4>
+<p>The W04 residual above has a deeper cause, and it is the same one that makes flavor (W06) hard: <strong>a cost ledger is not additive by default.</strong> Granularity inherits this from the Nonseparability deep root — see <strong><a href="/layer2/">The Second-Layer Roots</a></strong>. Splitting a ledger into independent sectors, labels, costs, observables, or candidate-classes is itself a <strong>paid claim</strong> that requires <strong>proof, payment, or an error bound</strong>. Absent that:</p>
+<ul>
+<li><strong>Factorization = an unpaid label.</strong> Writing $C = C_1 + C_2 + \dots$ silently asserts the sectors do not interact — that assertion is a label and must be charged (GRN-A).</li>
+<li><strong>Additive MDL is root-supported, NOT root-forced.</strong> Full-generator MDL <em>assumes</em> a decomposition of description length; until the decomposition is justified, the metric stays at <code>SUPPORTED</code> (this is exactly the W04 open bridge).</li>
+<li><strong>Sector-by-sector fitting is a target-selection risk.</strong> Tuning each sector to its own observable is the additive disguise of fitting the whole; it must be flagged, not credited.</li>
+</ul>
+<p>This rule <strong>strengthens W04</strong> (additive-MDL bridge) and <strong>W06</strong> (flavor sector factorization) — in both, the additive split is the unproven move.</p>
+<h3>Worked example C — W06 (flavor / SG8 map): closed classes and frozen falsifiers, GRN-B + GRN-F</h3>
+<p><strong>The wall.</strong> Does Shape force the flavor chamber, path residues, ladders, projectors, and the CKM/PMNS/CP readout — or are those <em>selected because they fit</em>?</p>
+<p><strong>The Granularity lesson.</strong> Flavor labels, ladder exponents, sector projectors, and chamber choices <strong>cannot be free labels.</strong> Fermion ladders/exponents must be <strong>discrete residues or winding/action classes</strong>, not fitted patterns (GRN-13). And the falsifiers — $m_u$ and the other sector outputs — require <strong>frozen tolerances before seeing outputs</strong> (GRN-14, an instance of GRN-F). The SG8 map must <em>derive</em> its finite assignments from Shape/path/cycle/residue structure, or <em>pay</em> them as inputs (GRN-A again).</p>
+<p><strong>Why this is <code>BLOCKED</code> until the map exists.</strong> The smallest residual is that the program needs <strong>the actual Shape→SG8 map</strong>: the admissible paths, phases, residues, assignments, and overlaps. Until that finite map is on the table, there is no closed candidate class to exhaust (GRN-B), so the flavor result cannot be <code>FORCED</code> — at best it is <code>SUPPORTED</code>/<code>CONSTRAINED</code>, and any "it fits" is target-selection risk.</p>
+<h3>Worked example D — W18 (Yang–Mills uniform gap): infinite-tower scoping and the uniform floor, GRN-G + GRN-I</h3>
+<p><strong>The wall.</strong> Can the finite/Shape route produce a <em>uniform</em> $SU(3)$ Yang–Mills gap without changing the Clay target (pure 4D $SU(3)$ YM)?</p>
+<p><strong>The Granularity lesson — where GRN-I and GRN-G bite hardest.</strong> Finite lattice / transfer-matrix positivity can <strong>support</strong> but cannot <strong>replace</strong> the Osterwalder–Schrader continuum measure (GRN-37). And the decisive constraint: the <strong>uniform lower bound must survive the continuum and volume limits</strong>, or be honestly scoped as axiom-conditional (GRN-38). "Discrete ⇒ positive gap" is the <em>easy</em> direction; the open wall is a <strong>uniform-in-$a$</strong> lower bound that survives the continuum limit. This is exactly the <strong>GRN-I</strong> distinction in action — a <em>finite</em> gap at each lattice spacing is not a <em>uniform</em> gap, just as finite resources do not imply a uniform $\Delta_0$. A finite coefficient or a single-spacing positivity does not close the infinite tower of continuum-limit refinements (GRN-G) unless a floor theorem scopes it.</p>
+<p><strong>Status.</strong> The program needs a genuine uniform-gap theorem <strong>or</strong> an honest axiom-conditional finite-floor dissolution — and <em>dissolved is not solved</em>. This is the Gap-02 cross-link.</p>
+<h4>The continuum / tower scoping certificate (finite coefficients do NOT close infinite towers)</h4>
+<p>A finite computation can <em>contribute</em> to an infinite tower or a continuum limit; it cannot <em>close</em> one without a scoping certificate. Every claim that touches a limit must fill all eight fields, or it is <code>BLOCKED</code> on the tower:</p>
+<pre><code>finite object          : the finite coefficient / mode subset / single-spacing result in hand
+infinite tower or limit: the series / continuum / volume / cutoff structure it sits inside
+truncation rule        : exactly which modes / orders are kept vs dropped
+omitted-mode bound     : a bound on everything dropped (not &quot;assumed small&quot;)
+uniformity requirement : the quantity that must hold uniformly (e.g. the gap, uniform in a)
+limit order            : the order of limits — volume→∞, spacing-or-floor→continuum, cutoff→∞
+surviving lower bound  : the bound / error estimate that survives the limit
+status                 : scoped | open | axiom-conditional | failed
+</code></pre>
+<p>The decisive field is <strong>uniformity</strong>: a <em>finite</em> value at each step is not a <em>uniform</em> value across the limit (the GRN-I distinction). This certificate is crucial for <strong>W01</strong> (counterterm towers), <strong>W18</strong> (the uniform-in-$a$ YM gap), <strong>heat-kernel towers</strong>, <strong>continuum-existence</strong> claims, and any <strong>omitted-mode sum</strong>. For W18 specifically, the <code>uniformity requirement</code> is the uniform-in-$a$ lower bound, the <code>limit order</code> puts continuum after volume, and the <code>status</code> is <strong>open</strong> — which is exactly why the wall is not closed.</p>
+<h3>Worked example E — W17 (proton-decay operators): one overlooked label refutes the claim, GRN-A + GRN-B</h3>
+<p><strong>The wall.</strong> Does the geometry forbid or suppress the dangerous baryon-violating operators at the observed lifetime scale?</p>
+<p><strong>The Granularity lesson.</strong> A <strong>finite operator basis by dimension and charge</strong> is required (GRN-35), and the closed-class discipline is unforgiving here: <strong>one overlooked operator refutes the safety claim</strong> (GRN-36). This is GRN-B at its sharpest — a "safety" survivor is only meaningful if the candidate class of dangerous operators is <em>provably exhausted</em>. A hand-drawn list that misses one operator is not a closed class; it is a false negative waiting to happen.</p>
+<h3>Worked example F — W15 (Born weights) and W16 (black-hole microstates): counting is not deriving</h3>
+<p><strong>W15 — Born weights.</strong> Finite records/branches <em>can be counted</em>, but <strong>count measure alone cannot smuggle Born weights</strong> (GRN-31). You must <strong>derive or pay the squared-amplitude measure — do not narrate it</strong> (GRN-32). The residual is a <em>root-forced</em> probability measure, not mere record-compatibility. This is the Granularity refusal of a narrative: "there are finitely many branches, so the probabilities are obvious" is exactly the move GRN-J and GRN-A forbid.</p>
+<p><strong>W16 — black-hole microstates / Page curve.</strong> The microstate count must be <strong>finite and match the area law</strong> (GRN-33), and the Page curve requires a <strong>discrete information ledger, not narrative conservation</strong> (GRN-34). Again the discipline converts a story ("information is conserved") into a finite, checkable ledger — or it stays <code>BLOCKED</code>.</p>
+<h3>The cross-gate pattern</h3>
+<p>Across all 19 walls, the same Granularity moves recur: (i) <strong>demand a finite object class</strong> before any "only one survives" claim (GRN-B, seen in W05 bundle-uniqueness, W14 inflation potentials, W17 proton operators); (ii) <strong>forbid the silent object swap</strong> (GRN-C, seen in W03 ghosts, W08 custodial-$\rho$ generators); (iii) <strong>require two routes or a named reason for one</strong> (GRN-D, W03); (iv) <strong>freeze falsifiers first</strong> (GRN-F, W06 $m_u$, W12 washout parameters, W14 spectrum tolerances); (v) <strong>scope infinite towers</strong> (GRN-G, W01 counterterm towers, W18 continuum limit); and (vi) <strong>charge every label</strong> (GRN-A, universal). None of these, by itself, closes a wall — they are the <em>necessary conditions</em> that an honest closure must satisfy.</p>
+<hr />
+<h2>8. Red-team traps</h2>
+<p>These are the false-closure patterns the page exists to block. Each is a sentence that <em>sounds</em> like a result and is not.</p>
+<blockquote>
+<p><strong>"Only one option survived my list."</strong>
+Rejected — unless the list is proven <strong>closed</strong> under the relevant symmetries and admissibility rules. A hand-drawn list of survivors forces nothing (GRN-B). <em>Countered by:</em> the closed-candidate-class field of the forcing certificate. (Seen in W05, W17.)</p>
+<p><strong>"The formula is finite, so the information cost is finite."</strong>
+Rejected — if the formula hides arbitrary real precision, infinitely adjustable tolerances, or a lookup table (GRN-J). A finite-looking expression with a real-valued knob inside has <em>infinite</em> hidden precision. <em>Countered by:</em> the fourth operational-test question ("could this be obtained only by smuggling hidden continuous precision?").</p>
+<p><strong>"The routes agree."</strong>
+Rejected — unless <strong>both routes compute the same object</strong>: the same operator, connection, bundle, grading, scheme, and predicate (GRN-C + GRN-D). <em>Countered by:</em> the Gap-01 Bochner/Lichnerowicz case — a numeric match on the wrong ghost is not agreement.</p>
+<p><strong>"This finite coefficient closes the infinite tower."</strong>
+Rejected — unless a <strong>granularity / floor theorem scopes the tower</strong> (GRN-G). One coefficient does not retire an infinite series; one lattice spacing does not prove a continuum-limit gap. <em>Countered by:</em> W01 (counterterm towers) and W18 (uniform-in-$a$ gap).</p>
+<p><strong>"It's finite, therefore it's granular."</strong>
+Rejected — this is the deepest trap, and the reason GRN-I exists. <strong>Finite resources do not imply a uniform floor.</strong> The basin-shallowing countermodel (Appendix) exhibits finitely-resourced records with <em>arbitrarily fine</em> grain. Finiteness without uniformity is insufficient. <em>Countered by:</em> the uniform-positive-cost-floor certificate field.</p>
+<p><strong>"Finite records prove a discrete world."</strong>
+Rejected — finite records are the empirical interface (Record Interface root); ontological discreteness is the stronger Granularity posit and must be <strong>labelled</strong>, not inferred for free (GRN-H).</p>
+</blockquote>
+<hr />
+<h2>9. Status ledger</h2>
+<p>The honest standing of the Granularity root, by claim type. Status words are drawn only from the allowed set.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Endpoint type</th>
+<th>Status</th>
+<th>Reduces to (anchor / axiom)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Granularity sub-root (cost floor) roll-up</strong></td>
+<td>deep root</td>
+<td><strong>REDUCED-TO-AXIOM</strong></td>
+<td>one named, value-free posit (the Uniform Operational Cell Law, $\Delta_0 > 0$) + one measured anchor ($\hbar$)</td>
+</tr>
+<tr>
+<td><strong>Floor exists <em>given</em> a compact distinguishable-record space</strong></td>
+<td>theorem</td>
+<td><strong>DERIVED</strong></td>
+<td>extreme-value theorem + pointwise positivity (unconditional <em>given its hypotheses</em>)</td>
+</tr>
+<tr>
+<td><strong>Compactness of the record space</strong></td>
+<td>theorem</td>
+<td><strong>DERIVED-GIVEN</strong> (conditional)</td>
+<td>finite-test-cover hypothesis + a completeness (Cauchy-closure) hypothesis carried on the ledger</td>
+</tr>
+<tr>
+<td><strong>The Uniform Operational Cell Law itself ($\Delta_0 > 0$)</strong></td>
+<td>posit</td>
+<td><strong>DECLARED ROOT / AXIOM-OPEN</strong></td>
+<td>posited, <em>not</em> derived from a strictly weaker premise</td>
+</tr>
+<tr>
+<td><strong>The grain equals $\hbar$ (the floor's <em>size</em>)</strong></td>
+<td>measured input</td>
+<td><strong>MEASURED-ANCHOR</strong></td>
+<td>$\hbar$ — value, not structure; never derived here</td>
+</tr>
+<tr>
+<td><strong>No-unpaid-labels discipline (GRN-A)</strong></td>
+<td>discipline</td>
+<td><strong>ENFORCED</strong></td>
+<td>the finite-record / charged-ledger anchor</td>
+</tr>
+<tr>
+<td><strong>Closed-candidate-class requirement (GRN-B)</strong></td>
+<td>discipline</td>
+<td><strong>ENFORCED</strong></td>
+<td>the forcing-certificate closed-class field</td>
+</tr>
+<tr>
+<td><strong>Exact object identity (GRN-C)</strong></td>
+<td>discipline</td>
+<td><strong>ENFORCED</strong></td>
+<td>Shape object-identity anchor (no silent swaps)</td>
+</tr>
+<tr>
+<td><strong>Two-route reproducibility (GRN-D)</strong></td>
+<td>discipline</td>
+<td><strong>ENFORCED</strong></td>
+<td>exact-check / independent-route anchor</td>
+</tr>
+<tr>
+<td><strong>MDL / full-generator cost metric (W04)</strong></td>
+<td>bridge</td>
+<td><strong>OPEN</strong></td>
+<td>needs a support-to-force proof; Layer-1 description-length bridge</td>
+</tr>
+<tr>
+<td><strong>Ontological discreteness (GRN-H stronger claim)</strong></td>
+<td>posit</td>
+<td><strong>AXIOM-OPEN / declared</strong></td>
+<td>the uniform-floor posit, carried openly — not proven from finite records</td>
+</tr>
+<tr>
+<td><strong>Pre-quantum reconstruction (derive the floor from below)</strong></td>
+<td>proof target</td>
+<td><strong>OPEN</strong></td>
+<td>the keystone hole; would upgrade the root toward DERIVED</td>
+</tr>
+<tr>
+<td><strong>Combined Deep-Roots gate roll-up</strong></td>
+<td>gate</td>
+<td><strong>OPEN</strong></td>
+<td>because the sibling <strong><a href="/shape/">Shape</a></strong> sub-root rests on a permanent wall (absolute minimality)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Discipline, restated.</strong> anchored ≠ closed · selected ≠ forced · frozen-and-reproducible ≠ proven-unique · finite ≠ uniform · a numeric match on the wrong object closes nothing. The Granularity root is <strong>REDUCED-TO-AXIOM</strong> — that is a real and largely-proved reduction <em>around</em> the posit, not a derivation <em>of</em> the posit, and not whole-gate closure. <strong>0 of 33 gates are physics-closed.</strong></p>
+<hr />
+<h2>10. Read it</h2>
+<ul>
+<li><strong>The other two roots:</strong> <strong><a href="/shape/">The Shape</a></strong> — the frozen 13D three-layer object Granularity counts over · <strong><a href="/scale/">The Scale</a></strong> — the absolute magnitude its cost-floor lives on.</li>
+<li><strong><a href="/anchors/deep-roots.html">The Seven Deep Roots</a></strong> — where Granularity (R4) sits relative to Invariance, the Record Interface, Causal Order, Scale, Shape, and Nonseparability.</li>
+<li><strong>The gate scoreboard</strong> → <strong><a href="/gates/">/gates/</a></strong> — honest per-gate status across all 33 gates.</li>
+<li><strong>Full-precision cost-floor ledger</strong> → the Appendix below, and the gate-by-object <strong>DeepRoot-granularity anchor ledger</strong>.</li>
+</ul>
+<p>Related: the <strong><a href="/anchors/">anchors</a></strong> overview, the <strong><a href="/walls/">walls register</a></strong>, and the <strong><a href="/closure/">closure routing</a></strong>.</p>
+<hr />
+<h2>Appendix — Full precision</h2>
+<p><em>This appendix carries the full-precision content: the cost-floor $\Delta_0 > 0$, $\hbar$ as its measured residue, the finite-class / no-unpaid-labels accounting, the proved reduction chain, the two banked countermodels, and the open reconstruction family. It is the gate-level instantiation of the granularity anchor ledger. The honest status word for the granularity sub-root is </em><em>REDUCED-TO-AXIOM</em><em>; the combined Deep-Roots gate is </em><em>OPEN</em><em>.</em></p>
+<h3>A.1 The one-line, in full</h3>
+<p>Reality having a smallest operational step is no longer a vague confession. The granularity root has been compressed to <strong>one</strong> named, value-free posit — a positive operational cell, $\Delta_0 > 0$ — with $\hbar$ pinned as the <strong>size</strong> of that step (a <em>residue</em>, never an added knob). That reduction is real and largely <em>proved around</em> the posit; it is <strong>not</strong> a derivation of the floor. The combined Deep-Roots gate stays <strong>OPEN</strong> because its sibling <strong><a href="/shape/">Shape</a></strong> root rests on a permanent wall (absolute geometric minimality — an uncomputable shortest-description question, a different root). The granularity sub-root has <strong>no anomaly ledger and no spectrum to admit</strong>; its exact objects are a <em>reduction chain</em> — a metric, theorems, countermodels, and a single named posit.</p>
+<h3>A.2 Frozen inputs (what the gate stands on, not what it produces)</h3>
+<ul>
+<li><strong>Frozen branch hashes</strong> <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>. The 13D branch is read-only and unmutated. These hashes are <strong>audit anchors</strong> — they certify <em>which object</em> was tested and that it cannot be quietly retuned. <strong>They do not validate the physics.</strong></li>
+<li><strong>The measured action anchor $\hbar$</strong> is <strong>given / charged</strong>: it enters as the <em>value</em> of the floor, not as something this gate derives. The gate does <strong>not</strong> derive $\hbar$, $k_B$, the Bekenstein constant, or $\Delta_0$ — these are residues by construction. Every "the floor exists" statement below is about <em>structure</em>, never about <em>magnitude</em>.</li>
+</ul>
+<h3>A.3 The pre-Hilbert object — operational distinguishability</h3>
+<p>The gate is built entirely on operational primitives — records, admissible tests, outcome frequencies — with <strong>no</strong> Hilbert space, Born rule, or trace distance in any root statement. The root metric is the operational total-variation distance</p>
+<p>$$ d_{\rm op}(r,s) \;=\; \sup_{T,e}\,\big| P(e \mid r, T) - P(e \mid s, T) \big| . $$</p>
+<p>This is well-posed pre-quantumly (a classical witness on a measurable space reduces it to total variation; indicator tests give $d_{\rm op}=1$ for distinct points). <strong>Status: GIVEN / pre-Hilbert primitive.</strong> It matches Hardy / Chiribella–D'Ariano–Perinotti operational distinguishability and is not derived here; Hilbert orthogonality is a <em>downstream representation</em> of $d_{\rm op}$, not its definition. This breaks the <strong>surface</strong> distinguishability circle ($d_{\rm op}$ needs no QM); it does <strong>not</strong> break the deeper certification circle.</p>
+<h3>A.4 The reduction chain, link by link</h3>
+<p>Each link is marked <strong>DERIVED</strong>, <strong>conditional</strong>, or <strong>posited</strong>.</p>
+<p><strong>(1) Cost, not length — DERIVED.</strong> What is quantized is <em>action / cost</em> (a Lorentz scalar), not <em>space</em> (a length). Gliding through a continuum of non-orthogonal (overlapping) states is free; only transitions to orthogonal (distinguishable) states cost, and an infinite chain of such steps, each costing $\ge$ a fixed floor, cannot complete under finite resource — so any completable process has finitely many costly steps. A length floor would pick a preferred frame (length contracts) and break Lorentz invariance; a floor on a scalar picks no frame. <strong>This is the firewall against "spacetime is discrete."</strong></p>
+<p><strong>(2) The floor from compactness — T5, DERIVED.</strong> Let $D$ be the space of distinguishable records and $c : D \to \mathbb{R}_{\ge 0}$ a cost.</p>
+<p>$$ \textbf{T5.}\quad D \text{ compact},\; c \text{ continuous},\; \big(c(x)=0 \Rightarrow x \notin D\big) \;\Longrightarrow\; \varepsilon = \min_D c > 0. $$</p>
+<p><em>Proof.</em> A continuous function on a compact set attains its minimum; the minimizer $x^\ast \in D$, so $c(x^\ast) > 0$ by pointwise positivity; hence $\varepsilon = c(x^\ast) > 0$. $\blacksquare$ T5 is unconditional <em>given its hypotheses</em> — which transfers the whole question onto: <strong>is $D$ compact?</strong></p>
+<p><strong>(3) Compactness reduced to FTC — Theorem B, DERIVED-GIVEN (conditional).</strong> With the <strong>Finite-Test-Cover (FTC)</strong> hypothesis <em>and</em> the hypothesis that $R_{\rm phys}$ is closed under $d_{\rm op}$-Cauchy limits (<strong>completeness</strong>), $R_{\rm phys}$ is compact. <em>Sketch.</em> Fix $\eta>0$; FTC gives a finite test family, and the operational coordinate map $\Phi_\eta(r) = (P(e_j \mid r, T_j))_{j=1}^{M} \in [0,1]^M$ lands in a totally bounded cube; covering it by sup-norm cells of radius $\eta$ yields a finite $3\eta$-net, so $R_{\rm phys}$ is totally bounded; with completeness, compact. $\blacksquare$ <strong>The completeness hypothesis is a genuine extra assumption carried on the residue ledger — total boundedness alone does NOT give compactness without it.</strong></p>
+<p><strong>(4) The named target — FTC.</strong> For every bounded causal $R$ (budget $B$, duration $\tau$) and tolerance $\eta>0$ there is a <em>finite</em> family $\mathcal{T}_\eta = \{(T_j,e_j)\}_{j=1}^{M(B,\eta,\tau)}$ with</p>
+<p>$$ d_{\rm op}(r,s) \;\le\; \max_{1\le j\le M}\big|P(e_j \mid r, T_j) - P(e_j \mid s, T_j)\big| \;+\; \eta . $$</p>
+<p>In words: every operational distinction makeable with bounded causal resources is $\eta$-approximable by finitely many bounded-resource tests — the pre-quantum analogue of nuclearity, stated with no Hilbert space.</p>
+<p><strong>(5) The sufficiency lemma — basin-packing, DERIVED-GIVEN (conditional on $\Delta$).</strong> Assume finite total variation $\mathrm{Var}_{\rm op}(R)\le B$ and that each stable record requires a robustness basin of depth $\ge \Delta$. Pairwise-resolvable records have disjoint depth-$\ge\Delta$ basins, so</p>
+<p>$$ N\cdot\Delta \le B \;\Rightarrow\; N \le \lfloor B/\Delta \rfloor < \infty, $$</p>
+<p>hence FTC follows with $M \lesssim (B/\Delta)^2$. <strong>No QM, Bekenstein, or thermal import enters.</strong> This is conditional on the cell law $\Delta>0$ — exactly the irreducible posit — so it grounds the <em>count</em>, never the <em>grain</em>.</p>
+<h3>A.5 The two banked losses — why the posit is honest, not lazy</h3>
+<p>Finite resources do <strong>not</strong> force a uniform floor. Two countermodels prove it, and they are <em>why</em> there is a posit to name at all.</p>
+<p><strong>Loss 1 — FTC is not free (the delta-test countermodel). DERIVED.</strong> Take $R = [0,1]$ with delta-tests $f_x(r) = \mathbb{1}[r=x]$. For distinct $r \ne s$, $d_{\rm op}(r,s) = 1$, while any finite family $\{f_{x_1},\dots,f_{x_M}\}$ returns $0$ on a pair $r,s \notin \{x_j\}$, so $\max_j |f_{x_j}(r) - f_{x_j}(s)| = 0$ and FTC fails for every $\eta < 1$. $\blacksquare$ <strong>Finite resources $\nRightarrow$ FTC.</strong></p>
+<p><strong>Loss 2 — uniformity is not free (the basin-shallowing countermodel). DERIVED.</strong> This is the countermodel the public root summary cites as the reason GRN-I (uniform positive cost floor) is a <em>separate</em> constraint from mere finiteness. Take basins of depth $d_n = B\,2^{-n-1}$. Then $\sum_n d_n = B/2 < B$ — finite resource is fully respected — yet $\inf_n d_n = 0$: <strong>infinitely many robust records with arbitrarily fine grain.</strong> So finite causal support + finite duration + finite action/energy-time do <strong>not</strong> imply a uniform $\Delta_0$; they imply at most per-system total boundedness. $\blacksquare$ <strong>Finiteness $\nRightarrow$ uniformity.</strong></p>
+<p><strong>Diagnostic — the reduction is specific, not trivial.</strong> The gap between $\{\eta\text{-dependent floor}\}$ and $\{\text{uniform } \Delta_0\}$ is a <em>theorem</em> (a counterexample to the uniform claim under the stated premises). Were uniformity free, there would be no posit to name; the countermodels show there is. This is the full-precision justification for why the public page insists <strong>"finite is not granular"</strong> is a red-team trap.</p>
+<h3>A.6 The obstruction split</h3>
+<p>$$ G_{\rm gran,local}(\text{compact}) : \;\varepsilon > 0 \;\;\text{(DERIVED via T5)}, \qquad G_{\rm gran}(\text{from below}) : \;\Delta_0 > 0 \;\;\text{(AXIOM-OPEN)}. $$</p>
+<p>We do <strong>not</strong> assert $G_{\rm gran}$ is closed: the uniform floor is <strong>named, not derived</strong>.</p>
+<h3>A.7 The "smallest step" phrase, split into honest objects</h3>
+<p>The single phrase "reality has a smallest step" hides five claims with five different statuses:</p>
+<ol>
+<li><strong>The floor <em>exists</em> given compactness</strong> ($\varepsilon = \min_D c > 0$). <strong>DERIVED</strong> (T5).</li>
+<li><strong>Compactness itself.</strong> <strong>DERIVED-GIVEN FTC + completeness</strong> (Theorem B) — conditional, not unconditional.</li>
+<li><strong>The completeness ($d_{\rm op}$-Cauchy closure) hypothesis.</strong> <strong>AXIOM-OPEN / declared</strong> — on the residue ledger, never silently folded in.</li>
+<li><strong>The grain is <em>uniform</em> ($\Delta_0$ system-independent).</strong> <strong>AXIOM-OPEN / declared</strong> — the Uniform Operational Cell Law; the basin-shallowing countermodel proves it is not forced by finiteness.</li>
+<li><strong>The grain equals $\hbar$.</strong> <strong>MEASURED-ANCHOR / residue</strong> — value, not structure; outside any reconstruction.</li>
+</ol>
+<p>Conflating these five is exactly the overclaim this root refuses.</p>
+<h3>A.8 The Pontryagin relocation</h3>
+<p>A Pontryagin-style existence/discreteness equivalence (existence + discreteness $\Leftrightarrow$ phase compactness) <strong>relocates</strong> the uniformity posit onto phase compactness; it does <strong>not eliminate</strong> it. Deriving uniformity from unitarity is <strong>circular</strong> — it would put granularity <em>downstream</em> of QM. So the granularity posit count is <strong>one, not zero</strong>. "Zero posits" is forbidden.</p>
+<h3>A.9 The no-unpaid-labels accounting</h3>
+<p>The finite-class / no-unpaid-labels discipline (GRN-A, GRN-J) is what keeps the whole ledger honest: every constant sits on the <strong>residue ledger</strong> $\{\hbar,\ k_B,\ \text{Bekenstein constant},\ \Delta_0,\ \text{completeness}\}$. The reframe from $\{$cost floor $\varepsilon\}$ to $\{$resolution floor $\Delta$ + compactness$\}$ does <strong>not</strong> remove a constant — it trades one residue ($\varepsilon$) for another, better-motivated one ($\Delta_0$). If $\Delta_0$ cannot be derived from a deeper substrate law, the honest close is <em>documentary</em>: state that one residue replaced another, keeping the ledger complete. <strong>No label is free, and no relabel eliminates a posit.</strong></p>
+<h3>A.10 The open reconstruction family</h3>
+<p>None of these is closed by the reduction above; each is a concrete, finite, target-blind work-package.</p>
+<ul>
+<li><strong>Hole 1 — derive FTC from strictly weaker primitives (the keystone). OPEN.</strong> From a distinguishability test-space + additive-cost axiom set (no Hilbert orthogonality, no trace distance, no Bekenstein, no nuclearity), derive the Hilbert structure so that Margolus–Levitin ($\tau \ge \pi\hbar/2E$), Landauer ($k_BT\ln 2$), and the Bekenstein bound all fall out as <strong>theorems</strong>.</li>
+<li><strong>Hole 2 — prove FTC (or the compactness step) from bounded-causal-resource axioms alone. OPEN.</strong> Defeat the live circularity that the finite budget $B$ must not secretly <em>be</em> the per-milestone floor; keep $B = $ action / energy·time (a finite-information-capacity relabel is illegitimate, giving $N \le 2^B$ trivially).</li>
+<li><strong>Hole 3 — the co-fundamentality certificate. OPEN.</strong> The <em>surface</em> distinguishability circle is broken; the deeper certification circle — that the floor sits <em>at-or-below</em> QM in the implication order — is the recognized-open object, the same reconstruction as Hole 1.</li>
+<li><strong>Hole 4 — derive $\Delta_0$ from a deeper resource law. OPEN.</strong> $\Delta_0$ is a <em>new</em> residue introduced alongside $\hbar, k_B$. If it cannot be derived, the close is documentary, not a derivation.</li>
+<li><strong>Hole 5 — $\Lambda$-magnitude (cross-gate, RELOCATES). OPEN / computation debt.</strong> A $\Lambda$-gate test surfaced <em>by</em> granularity, not the granularity root itself.</li>
+<li><strong>Hole 6 — uniform $SU(3)$ YM gap surviving the continuum limit (cross-gate, Gap-02). OPEN.</strong> "Discrete ⇒ positive gap" is the easy leg; the open wall is the uniform-in-$a$ lower bound (this is the full-precision form of Worked Example D / W18).</li>
+</ul>
+<p>Closing Holes 1/3 (the same reconstruction object) is the single largest possible move on this root — it would upgrade granularity from <strong>REDUCED-TO-AXIOM</strong> toward <strong>DERIVED</strong>. Even then, the combined Deep-Roots gate stays <strong>OPEN</strong> until the Shape root is addressed.</p>
+<h3>A.11 Anti-claims (what this root refuses to say)</h3>
+<ul>
+<li>It does <strong>not</strong> derive the granularity floor from a strictly weaker principle; the floor is <strong>named</strong> (the posit), not derived. Ruled out from the stated premises by the delta-test and basin-shallowing countermodels.</li>
+<li><strong>"Zero posits" is forbidden.</strong> The granularity posit count is <strong>ONE</strong> (the Uniform Operational Cell Law). The Pontryagin iff <em>relocates</em>, it does not eliminate.</li>
+<li>It does <strong>not</strong> derive the <em>value</em> of $\hbar$, $k_B$, the Bekenstein constant, or $\Delta_0$ — residues by construction.</li>
+<li><strong>No spacetime discreteness.</strong> A smallest <em>length</em> is explicitly not claimed; only a floor on the Lorentz-scalar cost.</li>
+<li><strong>No strict irreducibility.</strong> "No deeper principle anywhere is more fundamental than this floor" is an unprovable universal negative; the honest ceiling is <em>co-fundamentality</em>.</li>
+<li><strong>Conditional ≠ unconditional.</strong> Theorem B gives compactness only <em>with</em> completeness; total boundedness alone does not.</li>
+<li>The frozen-branch hashes are audit anchors; they do <strong>not</strong> validate the physics.</li>
+<li><strong>The granularity reduction is not whole-gate closure.</strong> REDUCED-TO-AXIOM on the sub-root does not close the combined Deep-Roots gate, which stays <strong>OPEN</strong> because of the Shape root.</li>
+</ul>
+<h3>A.12 The Granularity page final test — the boxed gate every claim must clear</h3>
+<p>This is the page's single operational gate, the upgrade of the old reader's-checklist. For <strong>any</strong> claimed result on this candidate — a survivor, a coefficient, a probability, a lifetime bound — run all ten questions. A result that cannot answer all ten in the affirmative (or honestly mark the negative) is <strong>not</strong> Granularity-forced. The right-hand column shows how the Granularity root itself answers each, as the worked instance.</p>
+<pre><code> 1. Finite object class?                  → yes — the distinguishable-record space D / R_phys
+                                            (publish a finite-object manifest)
+ 2. Uniform floor / cost rule?            → Δ₀ &gt; 0, the Uniform Operational Cell Law
+                                            (uniform, not merely finite — GRN-I)
+ 3. Labels / primitives all paid?         → ħ, k_B, Bekenstein const, Δ₀, completeness
+                                            (charged by the precision-cost rule; GRN-A/GRN-J)
+ 4. Candidate class closed?               → via the six-step closed-class certificate
+                                            (generation→closure→quotient→exhaustion→ledger→hole)
+ 5. Object identity exact?                → yes — fingerprints match
+                                            (GRN-C; no Bochner-for-Lichnerowicz swap)
+ 6. Routes structurally independent?      → graded on the route-independence taxonomy
+                                            (Strong / Decision-grade only; GRN-D)
+ 7. Falsifiers / tolerances frozen?       → yes — fixed before outputs
+                                            (GRN-F; the two banked countermodels)
+ 8. Any hidden continuous precision?      → no — no real knob behind a compact formula
+                                            (GRN-J; the precision-cost rule)
+ 9. Survives equivalence quotienting?     → yes — counted only after relabel/gauge/basis quotient
+                                            (the survivor count is post-quotient)
+10. Forced / supported / paid / open /    → SUPPORTED / REDUCED-TO-AXIOM (sub-root);
+    failed?                                 NOT forced; combined Deep-Roots gate OPEN; 0/31 closed
+</code></pre>
+<p>Continuum and infinite-tower claims additionally fill the <strong>continuum / tower scoping certificate</strong>; ledger splits additionally clear the <strong>no-free-factorization rule</strong>.</p>
+<p><strong>Final discipline.</strong> This is a completeness upgrade of the Granularity root, not anchor-elimination. The floor stays at ≥ 1: the root bottoms on the uniform positive cost-floor posit, with $\hbar$ as its measured residue. selected ≠ forced · dissolved ≠ solved · anchored ≠ derived · finite ≠ uniform · a numeric match on the wrong object closes nothing. The granularity sub-root is <strong>REDUCED-TO-AXIOM</strong>; the combined Deep-Roots gate is <strong>OPEN</strong>. <strong>no status changes. 0 of 33 gates physics-closed.</strong></p>
+</main>
+</div>
+</body></html>

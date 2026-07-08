@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The observables &mdash; A Framework for a Theory of Everything</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 256px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:64rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:14.5px;margin:0 0 6px;line-height:1.25;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+<style>
+/* ---- Canonical top-nav bridge (site-wide sections) ---- */
+.site-topbar{background:#1b1f23;color:#eee;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.78rem;}
+.site-topbar-inner{max-width:76rem;margin:0 auto;padding:.4em 1.2em;display:flex;flex-wrap:wrap;gap:.5em 1.2em;align-items:center;justify-content:space-between;}
+.site-topbar .stamp{color:#e7c9a9;letter-spacing:.01em;}
+.site-topbar .stamp b{color:#fff;font-weight:700;}
+.site-topbar .topbar-site{color:#c9c2b3;}
+header.site-header-bridge{background:#fbfaf7;border-bottom:1px solid #d8d3c7;font-family:"Helvetica Neue",Arial,sans-serif;}
+.bridge-brand-row{max-width:76rem;margin:0 auto;padding:.85em 1.2em .5em;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:.4em;}
+.bridge-brand-row a.bridge-title{color:#1b1f23;text-decoration:none;font-weight:700;font-size:1.15rem;}
+.bridge-brand-row .bridge-tag{font-family:Georgia,serif;font-style:italic;color:#4a5056;font-size:.85rem;}
+nav.site-main-nav{max-width:76rem;margin:0 auto;padding:0 1.2em;}
+nav.site-main-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.15em;border-top:1px solid #d8d3c7;}
+nav.site-main-nav li{margin:0;}
+nav.site-main-nav a{display:block;padding:.65em .8em;color:#1b1f23;text-decoration:none;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.85rem;font-weight:600;border-bottom:3px solid transparent;white-space:nowrap;}
+nav.site-main-nav a:hover{border-bottom-color:#6b3f2a;color:#6b3f2a;}
+nav.site-main-nav a[aria-current="page"]{border-bottom-color:#0b5;color:#0b5;}
+.start-callout{max-width:64rem;margin:1.2rem auto 0;padding:0 1.6rem;}
+.start-callout .box{border:1px solid #d8d3c7;border-left:4px solid #0b5;background:#f7fdf9;border-radius:0 6px 6px 0;padding:.9em 1.2em;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.88rem;color:#222;}
+.start-callout .box strong.cta{font-size:1.02em;}
+.start-callout .box a{color:#0b5;font-weight:700;text-decoration:none;}
+.start-callout .box a:hover{text-decoration:underline;}
+.start-callout .sections{margin:.5em 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.3em 1.1em;}
+.start-callout .sections li{margin:0;}
+@media(max-width:860px){.bridge-brand-row{padding:.7em 1em .4em;} nav.site-main-nav a{padding:.55em .6em;font-size:.8rem;}}
+.feature-card-wrap{max-width:64rem;margin:1rem auto 0;padding:0 1.6rem;}
+.feature-card{display:block;border:1px solid #d8d3c7;border-left:4px solid #6b3f2a;background:#fbf3ea;border-radius:0 6px 6px 0;padding:1em 1.2em;text-decoration:none;font-family:"Helvetica Neue",Arial,sans-serif;transition:background .15s;}
+.feature-card:hover{background:#f6ead9;text-decoration:none;}
+.feature-card .fc-kicker{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:#6b3f2a;font-weight:700;margin-bottom:.2em;}
+.feature-card .fc-title{display:block;font-size:1.08rem;font-weight:700;color:#1b1f23;margin-bottom:.3em;}
+.feature-card .fc-desc{display:block;font-size:.9rem;color:#333;line-height:1.5;}
+</style>
+<style>
+.hero{margin:1.4rem 0 1.9rem;}
+.masthead-kicker{font-family:"Helvetica Neue",Arial,sans-serif;font-size:.95rem;font-style:italic;color:#6b3f2a;letter-spacing:.01em;margin:0 0 .35rem;}
+.hero h1{margin-top:.2rem;}
+.lede{font-size:1.06rem;line-height:1.62;color:#222;}
+main.anchor-content > section{margin:1.7rem 0;}
+.prev-version{font-family:"Helvetica Neue",Arial,sans-serif;font-size:.8rem;color:#888;border-top:1px solid #e2ded4;margin-top:2.4rem;padding-top:.8rem;}
+.prev-version a{color:#0b5;}
+</style>
+<style>
+.obs-note{border:1px solid #d8d3c7;border-left:5px solid #0b5;background:#f7fdf9;border-radius:0 6px 6px 0;padding:.7em 1.1em;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.92rem;}
+.obs-domindex{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.4em .8em;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.86rem;}
+.obs-domindex a{display:flex;align-items:baseline;gap:.5em;padding:.3em .5em;border:1px solid #e2ded4;border-radius:5px;color:#161616;}
+.obs-domindex a:hover{background:#eef7f1;text-decoration:none;}
+.obs-domindex .od-n{font-weight:700;color:#0b5;min-width:2.1em;text-align:right;}
+details.obs-dom{border:1px solid #d8d3c7;border-radius:6px;margin:.6rem 0;background:#fff;}
+details.obs-dom>summary{cursor:pointer;padding:.7em 1em;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1.05rem;list-style:none;}
+details.obs-dom>summary::-webkit-details-marker{display:none;}
+details.obs-dom>summary::before{content:"\25B8 ";color:#0b5;}
+details.obs-dom[open]>summary::before{content:"\25BE ";}
+details.obs-dom[open]>summary{border-bottom:1px solid #eee;}
+.obs-count{color:#777;font-weight:400;font-size:.85rem;}
+.obs-blurb{padding:0 1em;color:#444;font-size:.92rem;}
+.obs-dom h4{padding:0 1em;margin:.9rem 0 .2rem;color:#6b3f2a;}
+.obs-subn{color:#999;font-weight:400;font-size:.82rem;}
+table.obs-table{margin:.3rem 1em .8rem;width:calc(100% - 2em);font-size:.82rem;}
+table.obs-table td.obs-id{font-family:Consolas,monospace;font-size:.78rem;color:#0b5;white-space:nowrap;width:6.5em;}
+.obs-src{font-family:"Helvetica Neue",Arial,sans-serif;font-size:.8rem;color:#777;border-top:1px solid #e2ded4;padding-top:.7rem;}
+</style>
+</head><body>
+
+<div class="site-topbar">
+  <div class="site-topbar-inner">
+    <span class="stamp">&#9873; <b>Not peer-reviewed</b> &middot; nothing physics-closed</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+<header class="site-header-bridge">
+  <div class="bridge-brand-row">
+    <a class="bridge-title" href="/">A Framework for a Theory of Everything</a>
+    <span class="bridge-tag">Is the universe elegant &mdash; or just weird?</span>
+  </div>
+  <nav class="site-main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/">Early &amp; Distant Universe</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="/">&#9632; A Framework for a Theory of Everything</a></div>
+<div class="ann-group">Start here</div>
+<a href="/" class="current">Home — intro</a>
+<a href="/gates/">The Gates — scoreboard</a>
+<a href="/residuals/">The Residuals — attack list</a>
+<div class="ann-group">The honest rule-set</div>
+<a href="/anchors/">The Anchors</a>
+<a href="/observables/" class="current">The Observables</a>
+<a href="/walls/">The Walls</a>
+<a href="/closure/">The Closure system</a>
+<a href="/closure/walls/">&mdash; closure paths</a>
+<div class="ann-group">The physics</div>
+<a href="/shape/">The Shape (13D)</a>
+<a href="/scale/">The Scale</a>
+<a href="/granularity/">The Granularity</a>
+<a href="/paying/">What &ldquo;paying&rdquo; means</a>
+<a href="/layer2/">The Second-Layer Roots</a>
+<a href="/gut/">GUT &mdash; Paper 1</a>
+<a href="/forces/">Forces &mdash; Paper 2</a>
+<a href="/quantum/">Quantum &mdash; Paper 3</a>
+<a href="/toe/">TOE &mdash; complete statement</a>
+<a href="/particles/">Particles &mdash; spectrum</a>
+<div class="ann-group">Reference</div>
+<a href="/articles/">Dossiers &amp; articles</a>
+<a href="/scripts/">Scripts</a>
+<a href="/supporting/">Supporting</a>
+<a href="/supplemental/">Supplemental (full overview)</a>
+</nav>
+<main class="anchor-content">
+<section class="hero">
+  <p class="masthead-kicker">Is the universe elegant &mdash; or just weird?</p>
+  <h1>The observables &mdash; every measured phenomenon the framework is anchored to</h1>
+  <p class="lede">Every result on this site rests on <strong>two layers</strong> of building blocks: the three deep-root axioms &mdash; <a href="/shape/">Shape</a>, <a href="/scale/">Scale</a>, <a href="/granularity/">Granularity</a> &mdash; and the measured <strong>observable phenomena</strong> of physics. This page is the second layer in full: the catalogue of <strong>362 physical observables across 11 domains</strong> that a complete theory has to engage &mdash; the handful it consumes as measured anchors, and the far larger set it must predict or be tested against.</p>
+</section>
+<section>
+<div class="obs-note"><p><strong>Read this first &mdash; inputs vs. the whole catalogue.</strong> The framework <em>consumes</em> only a small handful of these as measured <strong>inputs</strong>: the 4&ndash;5 calibration anchors (<strong>M<sub>Pl</sub></strong>, the three gauge couplings <strong>&alpha;<sub>i</sub></strong>, the top Yukawa <strong>y<sub>t</sub></strong>, the Cabibbo entry <strong>|V<sub>us</sub>|</strong>, and the integer <strong>N<sub>&nu;</sub>=3</strong>), and about <strong>12&ndash;14 measured/charged inputs in total</strong>. Those are the anchors, laid out row by row on the <a href="/anchors/">Anchors register</a> and summarised on <a href="/building-blocks/">the building blocks</a>.</p><p style="margin-bottom:0">Everything <em>else</em> in the catalogue below is an <strong>output</strong> or a <strong>test</strong> &mdash; a phenomenon the frozen shape has to reproduce, or be falsified against. Outputs vastly outnumber inputs, and that gap is exactly where the content lives: a theory that spends few anchors and lands many observables is being <em>constrained</em>, not fitted. <strong>Honesty note:</strong> appearing in this list means the framework is anchored to, or tested against, the observable &mdash; it does <em>not</em> by itself mean the number is derived. Which observables are derived, which are measured, and which stay open is graded observable-by-observable on <a href="/gates/">The Gates</a>.</p></div>
+</section>
+<section><h2>The eleven domains</h2><div class="obs-domindex">
+<a href="#constants-scale-anchors"><span class="od-n">29</span> Constants &amp; Scale Anchors</a>
+<a href="#standard-model-identity"><span class="od-n">30</span> Standard Model Identity</a>
+<a href="#electroweak-higgs"><span class="od-n">34</span> Electroweak &amp; Higgs</a>
+<a href="#fermion-masses-yukawas"><span class="od-n">33</span> Fermion Masses &amp; Yukawas</a>
+<a href="#mixing-cp-precision"><span class="od-n">40</span> Mixing, CP &amp; Precision</a>
+<a href="#flavor-rare-processes"><span class="od-n">31</span> Flavor &amp; Rare Processes</a>
+<a href="#qcd-hadron-spectrum"><span class="od-n">30</span> QCD &amp; Hadron Spectrum</a>
+<a href="#gravity-black-holes-gw"><span class="od-n">30</span> Gravity, Black Holes &amp; GW</a>
+<a href="#cosmology"><span class="od-n">44</span> Cosmology</a>
+<a href="#dark-matter-baryogenesis-inflation"><span class="od-n">36</span> Dark Matter, Baryogenesis &amp; Inflation</a>
+<a href="#quantum-measurement"><span class="od-n">25</span> Quantum &amp; Measurement</a>
+</div></section>
+<section id="constants-scale-anchors">
+<details class="obs-dom"><summary><strong>Constants &amp; Scale Anchors</strong> <span class="obs-count">29 observables</span></summary>
+<p class="obs-blurb">The fundamental constants and scale-setting quantities every physical theory is measured against.</p>
+<h4>fundamental constants <span class="obs-subn">(29)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0001</td><td>speed of light in vacuum</td></tr>
+<tr><td class="obs-id">OBS-0002</td><td>Planck constant</td></tr>
+<tr><td class="obs-id">OBS-0003</td><td>reduced Planck constant</td></tr>
+<tr><td class="obs-id">OBS-0004</td><td>elementary charge</td></tr>
+<tr><td class="obs-id">OBS-0005</td><td>Boltzmann constant</td></tr>
+<tr><td class="obs-id">OBS-0006</td><td>Avogadro constant</td></tr>
+<tr><td class="obs-id">OBS-0007</td><td>Newtonian gravitational constant</td></tr>
+<tr><td class="obs-id">OBS-0008</td><td>fine-structure constant</td></tr>
+<tr><td class="obs-id">OBS-0009</td><td>electron mass</td></tr>
+<tr><td class="obs-id">OBS-0010</td><td>muon mass</td></tr>
+<tr><td class="obs-id">OBS-0011</td><td>tau mass</td></tr>
+<tr><td class="obs-id">OBS-0012</td><td>proton mass</td></tr>
+<tr><td class="obs-id">OBS-0013</td><td>neutron mass</td></tr>
+<tr><td class="obs-id">OBS-0014</td><td>atomic mass constant</td></tr>
+<tr><td class="obs-id">OBS-0015</td><td>Fermi coupling constant</td></tr>
+<tr><td class="obs-id">OBS-0016</td><td>strong coupling at Z pole</td></tr>
+<tr><td class="obs-id">OBS-0017</td><td>weak mixing angle effective</td></tr>
+<tr><td class="obs-id">OBS-0018</td><td>Higgs vacuum expectation value</td></tr>
+<tr><td class="obs-id">OBS-0019</td><td>reduced Planck mass</td></tr>
+<tr><td class="obs-id">OBS-0020</td><td>Planck mass</td></tr>
+<tr><td class="obs-id">OBS-0021</td><td>Planck length</td></tr>
+<tr><td class="obs-id">OBS-0022</td><td>Planck time</td></tr>
+<tr><td class="obs-id">OBS-0023</td><td>Planck temperature</td></tr>
+<tr><td class="obs-id">OBS-0024</td><td>Hubble constant observational value</td></tr>
+<tr><td class="obs-id">OBS-0025</td><td>CMB temperature today</td></tr>
+<tr><td class="obs-id">OBS-0026</td><td>cosmological constant density parameter</td></tr>
+<tr><td class="obs-id">OBS-0027</td><td>baryon density parameter</td></tr>
+<tr><td class="obs-id">OBS-0028</td><td>cold dark matter density parameter</td></tr>
+<tr><td class="obs-id">OBS-0029</td><td>critical density today</td></tr>
+</tbody></table>
+</details></section>
+<section id="standard-model-identity">
+<details class="obs-dom"><summary><strong>Standard Model Identity</strong> <span class="obs-count">30 observables</span></summary>
+<p class="obs-blurb">The gauge group, the charge assignments, and the representation content that fix what the Standard Model is.</p>
+<h4>algebra <span class="obs-subn">(1)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0030</td><td>gauge algebra identity</td></tr>
+</tbody></table>
+<h4>group/global <span class="obs-subn">(1)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0031</td><td>gauge group/global quotient</td></tr>
+</tbody></table>
+<h4>representation <span class="obs-subn">(8)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0032</td><td>color representation: quark triplets</td></tr>
+<tr><td class="obs-id">OBS-0033</td><td>color representation: leptons singlets</td></tr>
+<tr><td class="obs-id">OBS-0034</td><td>weak representation: left quark doublets</td></tr>
+<tr><td class="obs-id">OBS-0035</td><td>weak representation: left lepton doublets</td></tr>
+<tr><td class="obs-id">OBS-0036</td><td>weak representation: right charged leptons singlets</td></tr>
+<tr><td class="obs-id">OBS-0037</td><td>weak representation: right quarks singlets</td></tr>
+<tr><td class="obs-id">OBS-0038</td><td>Higgs representation</td></tr>
+<tr><td class="obs-id">OBS-0039</td><td>fermion chirality pattern</td></tr>
+</tbody></table>
+<h4>count <span class="obs-subn">(1)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0040</td><td>three-generation multiplicity</td></tr>
+</tbody></table>
+<h4>charge relation <span class="obs-subn">(1)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0041</td><td>electric charge quantization</td></tr>
+</tbody></table>
+<h4>charge <span class="obs-subn">(6)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0042</td><td>hypercharge assignment: Q_L</td></tr>
+<tr><td class="obs-id">OBS-0043</td><td>hypercharge assignment: u_R</td></tr>
+<tr><td class="obs-id">OBS-0044</td><td>hypercharge assignment: d_R</td></tr>
+<tr><td class="obs-id">OBS-0045</td><td>hypercharge assignment: L_L</td></tr>
+<tr><td class="obs-id">OBS-0046</td><td>hypercharge assignment: e_R</td></tr>
+<tr><td class="obs-id">OBS-0047</td><td>neutrino electroweak charge</td></tr>
+</tbody></table>
+<h4>search bound <span class="obs-subn">(1)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0048</td><td>photon mass bound</td></tr>
+</tbody></table>
+<h4>search/theory status <span class="obs-subn">(1)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0049</td><td>gluon mass/effective confinement mass status</td></tr>
+</tbody></table>
+<h4>audit observable <span class="obs-subn">(6)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0050</td><td>anomaly cancellation: SU(3)^3</td></tr>
+<tr><td class="obs-id">OBS-0051</td><td>anomaly cancellation: SU(2)^2 U(1)</td></tr>
+<tr><td class="obs-id">OBS-0052</td><td>anomaly cancellation: SU(3)^2 U(1)</td></tr>
+<tr><td class="obs-id">OBS-0053</td><td>anomaly cancellation: U(1)^3</td></tr>
+<tr><td class="obs-id">OBS-0054</td><td>mixed gravitational-U(1) anomaly cancellation</td></tr>
+<tr><td class="obs-id">OBS-0055</td><td>Witten SU(2) global anomaly absence</td></tr>
+</tbody></table>
+<h4>theorem/selection <span class="obs-subn">(2)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0056</td><td>baryon number accidental symmetry at renormalizable SM level</td></tr>
+<tr><td class="obs-id">OBS-0057</td><td>lepton number accidental symmetry at renormalizable SM level</td></tr>
+</tbody></table>
+<h4>operator <span class="obs-subn">(1)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0058</td><td>neutrino mass operator dimension-five possibility</td></tr>
+</tbody></table>
+<h4>phenomenological observable <span class="obs-subn">(1)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0059</td><td>QCD color confinement low-energy record</td></tr>
+</tbody></table>
+</details></section>
+<section id="electroweak-higgs">
+<details class="obs-dom"><summary><strong>Electroweak &amp; Higgs</strong> <span class="obs-count">34 observables</span></summary>
+<p class="obs-blurb">The electroweak scale, the W/Z/Higgs sector, and the couplings that govern symmetry breaking.</p>
+<h4>EW/Higgs <span class="obs-subn">(34)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0133</td><td>W boson mass</td></tr>
+<tr><td class="obs-id">OBS-0134</td><td>Z boson mass</td></tr>
+<tr><td class="obs-id">OBS-0135</td><td>Higgs boson mass</td></tr>
+<tr><td class="obs-id">OBS-0136</td><td>W boson width</td></tr>
+<tr><td class="obs-id">OBS-0137</td><td>Z boson width</td></tr>
+<tr><td class="obs-id">OBS-0138</td><td>Higgs total width</td></tr>
+<tr><td class="obs-id">OBS-0139</td><td>rho parameter tree-level</td></tr>
+<tr><td class="obs-id">OBS-0140</td><td>rho parameter measured/effective</td></tr>
+<tr><td class="obs-id">OBS-0141</td><td>Fermi constant from muon decay</td></tr>
+<tr><td class="obs-id">OBS-0142</td><td>electroweak vev</td></tr>
+<tr><td class="obs-id">OBS-0143</td><td>weak mixing angle on-shell</td></tr>
+<tr><td class="obs-id">OBS-0144</td><td>weak mixing angle effective leptonic</td></tr>
+<tr><td class="obs-id">OBS-0145</td><td>oblique S parameter</td></tr>
+<tr><td class="obs-id">OBS-0146</td><td>oblique T parameter</td></tr>
+<tr><td class="obs-id">OBS-0147</td><td>oblique U parameter</td></tr>
+<tr><td class="obs-id">OBS-0148</td><td>Z partial width to charged leptons</td></tr>
+<tr><td class="obs-id">OBS-0149</td><td>Z invisible width</td></tr>
+<tr><td class="obs-id">OBS-0150</td><td>effective number of light neutrinos from Z width</td></tr>
+<tr><td class="obs-id">OBS-0151</td><td>W leptonic branching fraction</td></tr>
+<tr><td class="obs-id">OBS-0152</td><td>Z hadronic cross-section at pole</td></tr>
+<tr><td class="obs-id">OBS-0153</td><td>forward-backward asymmetry b</td></tr>
+<tr><td class="obs-id">OBS-0154</td><td>left-right asymmetry</td></tr>
+<tr><td class="obs-id">OBS-0155</td><td>Higgs BR gamma gamma</td></tr>
+<tr><td class="obs-id">OBS-0156</td><td>Higgs BR ZZ</td></tr>
+<tr><td class="obs-id">OBS-0157</td><td>Higgs BR WW</td></tr>
+<tr><td class="obs-id">OBS-0158</td><td>Higgs BR bb</td></tr>
+<tr><td class="obs-id">OBS-0159</td><td>Higgs BR tau tau</td></tr>
+<tr><td class="obs-id">OBS-0160</td><td>Higgs BR mu mu</td></tr>
+<tr><td class="obs-id">OBS-0161</td><td>gluon fusion Higgs production cross section</td></tr>
+<tr><td class="obs-id">OBS-0162</td><td>vector boson fusion Higgs production cross section</td></tr>
+<tr><td class="obs-id">OBS-0163</td><td>associated WH Higgs production cross section</td></tr>
+<tr><td class="obs-id">OBS-0164</td><td>associated ZH Higgs production cross section</td></tr>
+<tr><td class="obs-id">OBS-0165</td><td>ttH production cross section</td></tr>
+<tr><td class="obs-id">OBS-0166</td><td>Higgs signal strength inclusive</td></tr>
+</tbody></table>
+</details></section>
+<section id="fermion-masses-yukawas">
+<details class="obs-dom"><summary><strong>Fermion Masses &amp; Yukawas</strong> <span class="obs-count">33 observables</span></summary>
+<p class="obs-blurb">The quark and lepton masses and the Yukawa ratios the flavor structure has to reproduce.</p>
+<h4>masses/ratios/yukawas <span class="obs-subn">(33)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0060</td><td>electron mass</td></tr>
+<tr><td class="obs-id">OBS-0061</td><td>muon mass</td></tr>
+<tr><td class="obs-id">OBS-0062</td><td>tau mass</td></tr>
+<tr><td class="obs-id">OBS-0063</td><td>up quark mass</td></tr>
+<tr><td class="obs-id">OBS-0064</td><td>down quark mass</td></tr>
+<tr><td class="obs-id">OBS-0065</td><td>strange quark mass</td></tr>
+<tr><td class="obs-id">OBS-0066</td><td>charm quark mass</td></tr>
+<tr><td class="obs-id">OBS-0067</td><td>bottom quark mass</td></tr>
+<tr><td class="obs-id">OBS-0068</td><td>top quark mass</td></tr>
+<tr><td class="obs-id">OBS-0069</td><td>electron Yukawa coupling</td></tr>
+<tr><td class="obs-id">OBS-0070</td><td>muon Yukawa coupling</td></tr>
+<tr><td class="obs-id">OBS-0071</td><td>tau Yukawa coupling</td></tr>
+<tr><td class="obs-id">OBS-0072</td><td>up Yukawa coupling</td></tr>
+<tr><td class="obs-id">OBS-0073</td><td>down Yukawa coupling</td></tr>
+<tr><td class="obs-id">OBS-0074</td><td>strange Yukawa coupling</td></tr>
+<tr><td class="obs-id">OBS-0075</td><td>charm Yukawa coupling</td></tr>
+<tr><td class="obs-id">OBS-0076</td><td>bottom Yukawa coupling</td></tr>
+<tr><td class="obs-id">OBS-0077</td><td>top Yukawa coupling</td></tr>
+<tr><td class="obs-id">OBS-0078</td><td>m_mu/m_e mass ratio</td></tr>
+<tr><td class="obs-id">OBS-0079</td><td>m_tau/m_mu mass ratio</td></tr>
+<tr><td class="obs-id">OBS-0080</td><td>m_tau/m_e mass ratio</td></tr>
+<tr><td class="obs-id">OBS-0081</td><td>m_c/m_u ratio</td></tr>
+<tr><td class="obs-id">OBS-0082</td><td>m_t/m_c ratio</td></tr>
+<tr><td class="obs-id">OBS-0083</td><td>m_b/m_s ratio</td></tr>
+<tr><td class="obs-id">OBS-0084</td><td>m_s/m_d ratio</td></tr>
+<tr><td class="obs-id">OBS-0085</td><td>m_d/m_u ratio</td></tr>
+<tr><td class="obs-id">OBS-0086</td><td>charged lepton Koide-style diagnostic</td></tr>
+<tr><td class="obs-id">OBS-0087</td><td>quark hierarchy exponent pattern</td></tr>
+<tr><td class="obs-id">OBS-0088</td><td>lepton hierarchy exponent pattern</td></tr>
+<tr><td class="obs-id">OBS-0089</td><td>charged-lepton running masses at reference scale</td></tr>
+<tr><td class="obs-id">OBS-0090</td><td>quark running masses at reference scale</td></tr>
+<tr><td class="obs-id">OBS-0091</td><td>absolute neutrino mass scale bound</td></tr>
+<tr><td class="obs-id">OBS-0092</td><td>Dirac/Majorana mass status</td></tr>
+</tbody></table>
+</details></section>
+<section id="mixing-cp-precision">
+<details class="obs-dom"><summary><strong>Mixing, CP &amp; Precision</strong> <span class="obs-count">40 observables</span></summary>
+<p class="obs-blurb">The CKM/PMNS mixing angles, the CP-violating phases, and the precision-electroweak observables.</p>
+<h4>CKM matrix entries <span class="obs-subn">(9)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0093</td><td>CKM matrix element V_ud</td></tr>
+<tr><td class="obs-id">OBS-0094</td><td>CKM matrix element V_us</td></tr>
+<tr><td class="obs-id">OBS-0095</td><td>CKM matrix element V_ub</td></tr>
+<tr><td class="obs-id">OBS-0096</td><td>CKM matrix element V_cd</td></tr>
+<tr><td class="obs-id">OBS-0097</td><td>CKM matrix element V_cs</td></tr>
+<tr><td class="obs-id">OBS-0098</td><td>CKM matrix element V_cb</td></tr>
+<tr><td class="obs-id">OBS-0099</td><td>CKM matrix element V_td</td></tr>
+<tr><td class="obs-id">OBS-0100</td><td>CKM matrix element V_ts</td></tr>
+<tr><td class="obs-id">OBS-0101</td><td>CKM matrix element V_tb</td></tr>
+</tbody></table>
+<h4>mixing/CP/precision <span class="obs-subn">(31)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0102</td><td>CKM theta12</td></tr>
+<tr><td class="obs-id">OBS-0103</td><td>CKM theta13</td></tr>
+<tr><td class="obs-id">OBS-0104</td><td>CKM theta23</td></tr>
+<tr><td class="obs-id">OBS-0105</td><td>CKM CP phase</td></tr>
+<tr><td class="obs-id">OBS-0106</td><td>CKM Jarlskog invariant</td></tr>
+<tr><td class="obs-id">OBS-0107</td><td>Wolfenstein lambda</td></tr>
+<tr><td class="obs-id">OBS-0108</td><td>Wolfenstein A</td></tr>
+<tr><td class="obs-id">OBS-0109</td><td>Wolfenstein rhobar</td></tr>
+<tr><td class="obs-id">OBS-0110</td><td>Wolfenstein etabar</td></tr>
+<tr><td class="obs-id">OBS-0111</td><td>unitarity triangle angle alpha</td></tr>
+<tr><td class="obs-id">OBS-0112</td><td>unitarity triangle angle beta</td></tr>
+<tr><td class="obs-id">OBS-0113</td><td>unitarity triangle angle gamma</td></tr>
+<tr><td class="obs-id">OBS-0114</td><td>PMNS theta12</td></tr>
+<tr><td class="obs-id">OBS-0115</td><td>PMNS theta13</td></tr>
+<tr><td class="obs-id">OBS-0116</td><td>PMNS theta23</td></tr>
+<tr><td class="obs-id">OBS-0117</td><td>PMNS CP phase</td></tr>
+<tr><td class="obs-id">OBS-0118</td><td>PMNS Jarlskog invariant</td></tr>
+<tr><td class="obs-id">OBS-0119</td><td>neutrino mass ordering</td></tr>
+<tr><td class="obs-id">OBS-0120</td><td>solar neutrino mass splitting</td></tr>
+<tr><td class="obs-id">OBS-0121</td><td>atmospheric neutrino mass splitting</td></tr>
+<tr><td class="obs-id">OBS-0122</td><td>neutrinoless double beta effective mass</td></tr>
+<tr><td class="obs-id">OBS-0123</td><td>tritium beta effective neutrino mass</td></tr>
+<tr><td class="obs-id">OBS-0124</td><td>sum of neutrino masses</td></tr>
+<tr><td class="obs-id">OBS-0125</td><td>Majorana phase alpha21</td></tr>
+<tr><td class="obs-id">OBS-0126</td><td>Majorana phase alpha31</td></tr>
+<tr><td class="obs-id">OBS-0127</td><td>strong CP theta bound</td></tr>
+<tr><td class="obs-id">OBS-0128</td><td>neutron electric dipole moment</td></tr>
+<tr><td class="obs-id">OBS-0129</td><td>electron electric dipole moment</td></tr>
+<tr><td class="obs-id">OBS-0130</td><td>muon anomalous magnetic moment</td></tr>
+<tr><td class="obs-id">OBS-0131</td><td>electron anomalous magnetic moment</td></tr>
+<tr><td class="obs-id">OBS-0132</td><td>tau anomalous magnetic moment</td></tr>
+</tbody></table>
+</details></section>
+<section id="flavor-rare-processes">
+<details class="obs-dom"><summary><strong>Flavor &amp; Rare Processes</strong> <span class="obs-count">31 observables</span></summary>
+<p class="obs-blurb">Rare decays and flavor-changing bounds that a complete flavor sector must respect.</p>
+<h4>rare processes/bounds <span class="obs-subn">(31)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0197</td><td>K0-K0bar mass difference</td></tr>
+<tr><td class="obs-id">OBS-0198</td><td>epsilon_K CP violation</td></tr>
+<tr><td class="obs-id">OBS-0199</td><td>BR(K+ -&gt; pi+ nu nubar)</td></tr>
+<tr><td class="obs-id">OBS-0200</td><td>BR(KL -&gt; pi0 nu nubar)</td></tr>
+<tr><td class="obs-id">OBS-0201</td><td>D0-D0bar mixing x</td></tr>
+<tr><td class="obs-id">OBS-0202</td><td>D0-D0bar mixing y</td></tr>
+<tr><td class="obs-id">OBS-0203</td><td>B0-B0bar mass difference</td></tr>
+<tr><td class="obs-id">OBS-0204</td><td>Bs-Bsbar mass difference</td></tr>
+<tr><td class="obs-id">OBS-0205</td><td>sin(2 beta) from B decays</td></tr>
+<tr><td class="obs-id">OBS-0206</td><td>BR(B -&gt; Xs gamma)</td></tr>
+<tr><td class="obs-id">OBS-0207</td><td>BR(Bs -&gt; mu+mu-)</td></tr>
+<tr><td class="obs-id">OBS-0208</td><td>BR(B -&gt; K* mu mu angular P5&#x27;)</td></tr>
+<tr><td class="obs-id">OBS-0209</td><td>lepton universality ratio RK</td></tr>
+<tr><td class="obs-id">OBS-0210</td><td>lepton universality ratio RK*</td></tr>
+<tr><td class="obs-id">OBS-0211</td><td>tau lifetime</td></tr>
+<tr><td class="obs-id">OBS-0212</td><td>muon lifetime</td></tr>
+<tr><td class="obs-id">OBS-0213</td><td>mu -&gt; e gamma branching bound</td></tr>
+<tr><td class="obs-id">OBS-0214</td><td>mu -&gt; e conversion bound</td></tr>
+<tr><td class="obs-id">OBS-0215</td><td>mu -&gt; 3e branching bound</td></tr>
+<tr><td class="obs-id">OBS-0216</td><td>tau -&gt; mu gamma branching bound</td></tr>
+<tr><td class="obs-id">OBS-0217</td><td>tau -&gt; e gamma branching bound</td></tr>
+<tr><td class="obs-id">OBS-0218</td><td>tau -&gt; 3mu branching bound</td></tr>
+<tr><td class="obs-id">OBS-0219</td><td>neutron-antineutron oscillation bound</td></tr>
+<tr><td class="obs-id">OBS-0220</td><td>proton -&gt; e+ pi0 bound</td></tr>
+<tr><td class="obs-id">OBS-0221</td><td>proton -&gt; K+ nubar bound</td></tr>
+<tr><td class="obs-id">OBS-0222</td><td>dinucleon decay bound</td></tr>
+<tr><td class="obs-id">OBS-0223</td><td>electric dipole moment of neutron bound</td></tr>
+<tr><td class="obs-id">OBS-0224</td><td>electric dipole moment of electron bound</td></tr>
+<tr><td class="obs-id">OBS-0225</td><td>electric dipole moment of proton/deuteron bound</td></tr>
+<tr><td class="obs-id">OBS-0226</td><td>flavor-changing neutral-current top decay bound</td></tr>
+<tr><td class="obs-id">OBS-0227</td><td>Higgs lepton flavor violation bound</td></tr>
+</tbody></table>
+</details></section>
+<section id="qcd-hadron-spectrum">
+<details class="obs-dom"><summary><strong>QCD &amp; Hadron Spectrum</strong> <span class="obs-count">30 observables</span></summary>
+<p class="obs-blurb">The strong-coupling scale, the hadron spectrum, and the QCD observables.</p>
+<h4>QCD/hadrons <span class="obs-subn">(30)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0167</td><td>QCD scale parameter MSbar nf=5</td></tr>
+<tr><td class="obs-id">OBS-0168</td><td>pion charged mass</td></tr>
+<tr><td class="obs-id">OBS-0169</td><td>pion neutral mass</td></tr>
+<tr><td class="obs-id">OBS-0170</td><td>kaon charged mass</td></tr>
+<tr><td class="obs-id">OBS-0171</td><td>kaon neutral mass</td></tr>
+<tr><td class="obs-id">OBS-0172</td><td>eta mass</td></tr>
+<tr><td class="obs-id">OBS-0173</td><td>eta prime mass</td></tr>
+<tr><td class="obs-id">OBS-0174</td><td>rho meson mass</td></tr>
+<tr><td class="obs-id">OBS-0175</td><td>omega meson mass</td></tr>
+<tr><td class="obs-id">OBS-0176</td><td>phi meson mass</td></tr>
+<tr><td class="obs-id">OBS-0177</td><td>D0 meson mass</td></tr>
+<tr><td class="obs-id">OBS-0178</td><td>D+ meson mass</td></tr>
+<tr><td class="obs-id">OBS-0179</td><td>Ds meson mass</td></tr>
+<tr><td class="obs-id">OBS-0180</td><td>B0 meson mass</td></tr>
+<tr><td class="obs-id">OBS-0181</td><td>B+ meson mass</td></tr>
+<tr><td class="obs-id">OBS-0182</td><td>Bs meson mass</td></tr>
+<tr><td class="obs-id">OBS-0183</td><td>Lambda baryon mass</td></tr>
+<tr><td class="obs-id">OBS-0184</td><td>Sigma baryon masses</td></tr>
+<tr><td class="obs-id">OBS-0185</td><td>Xi baryon masses</td></tr>
+<tr><td class="obs-id">OBS-0186</td><td>Omega baryon mass</td></tr>
+<tr><td class="obs-id">OBS-0187</td><td>proton charge radius</td></tr>
+<tr><td class="obs-id">OBS-0188</td><td>neutron lifetime</td></tr>
+<tr><td class="obs-id">OBS-0189</td><td>proton lifetime lower bound</td></tr>
+<tr><td class="obs-id">OBS-0190</td><td>pion decay constant</td></tr>
+<tr><td class="obs-id">OBS-0191</td><td>kaon decay constant</td></tr>
+<tr><td class="obs-id">OBS-0192</td><td>B meson decay constant</td></tr>
+<tr><td class="obs-id">OBS-0193</td><td>chiral condensate</td></tr>
+<tr><td class="obs-id">OBS-0194</td><td>topological susceptibility QCD</td></tr>
+<tr><td class="obs-id">OBS-0195</td><td>hadronic vacuum polarization contribution to a_mu</td></tr>
+<tr><td class="obs-id">OBS-0196</td><td>lattice QCD hadron spectrum residuals</td></tr>
+</tbody></table>
+</details></section>
+<section id="gravity-black-holes-gw">
+<details class="obs-dom"><summary><strong>Gravity, Black Holes &amp; GW</strong> <span class="obs-count">30 observables</span></summary>
+<p class="obs-blurb">General-relativity tests, black-hole thermodynamics, and gravitational-wave observables.</p>
+<h4>GR/GW/BH <span class="obs-subn">(30)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0308</td><td>Newtonian inverse-square law parameter</td></tr>
+<tr><td class="obs-id">OBS-0309</td><td>post-Newtonian gamma</td></tr>
+<tr><td class="obs-id">OBS-0310</td><td>post-Newtonian beta</td></tr>
+<tr><td class="obs-id">OBS-0311</td><td>perihelion precession residual</td></tr>
+<tr><td class="obs-id">OBS-0312</td><td>light bending deflection</td></tr>
+<tr><td class="obs-id">OBS-0313</td><td>Shapiro delay parameter</td></tr>
+<tr><td class="obs-id">OBS-0314</td><td>equivalence principle Eotvos parameter</td></tr>
+<tr><td class="obs-id">OBS-0315</td><td>gravitational redshift parameter</td></tr>
+<tr><td class="obs-id">OBS-0316</td><td>gravitational wave speed minus c</td></tr>
+<tr><td class="obs-id">OBS-0317</td><td>graviton mass bound</td></tr>
+<tr><td class="obs-id">OBS-0318</td><td>binary pulsar orbital decay</td></tr>
+<tr><td class="obs-id">OBS-0319</td><td>black-hole ringdown QNM frequencies</td></tr>
+<tr><td class="obs-id">OBS-0320</td><td>black-hole ringdown damping times</td></tr>
+<tr><td class="obs-id">OBS-0321</td><td>GW chirp mass</td></tr>
+<tr><td class="obs-id">OBS-0322</td><td>GW luminosity distance</td></tr>
+<tr><td class="obs-id">OBS-0323</td><td>GW component masses</td></tr>
+<tr><td class="obs-id">OBS-0324</td><td>GW spins</td></tr>
+<tr><td class="obs-id">OBS-0325</td><td>GW tidal deformability neutron star</td></tr>
+<tr><td class="obs-id">OBS-0326</td><td>Hawking temperature</td></tr>
+<tr><td class="obs-id">OBS-0327</td><td>black-hole entropy</td></tr>
+<tr><td class="obs-id">OBS-0328</td><td>Bekenstein-Hawking area law coefficient</td></tr>
+<tr><td class="obs-id">OBS-0329</td><td>Page time</td></tr>
+<tr><td class="obs-id">OBS-0330</td><td>Page curve entropy profile</td></tr>
+<tr><td class="obs-id">OBS-0331</td><td>black-hole information recovery record</td></tr>
+<tr><td class="obs-id">OBS-0332</td><td>cosmic censorship observational diagnostics</td></tr>
+<tr><td class="obs-id">OBS-0333</td><td>no-hair theorem deviations</td></tr>
+<tr><td class="obs-id">OBS-0334</td><td>gravitational-wave stochastic background</td></tr>
+<tr><td class="obs-id">OBS-0335</td><td>primordial black-hole abundance bound</td></tr>
+<tr><td class="obs-id">OBS-0336</td><td>lensing time delay</td></tr>
+<tr><td class="obs-id">OBS-0337</td><td>strong lensing Einstein radius</td></tr>
+</tbody></table>
+</details></section>
+<section id="cosmology">
+<details class="obs-dom"><summary><strong>Cosmology</strong> <span class="obs-count">44 observables</span></summary>
+<p class="obs-blurb">The CMB, large-scale structure, and Big-Bang-nucleosynthesis record of the universe's history.</p>
+<h4>CMB/LSS/BBN <span class="obs-subn">(44)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0228</td><td>Hubble constant Planck base LCDM</td></tr>
+<tr><td class="obs-id">OBS-0229</td><td>baryon physical density</td></tr>
+<tr><td class="obs-id">OBS-0230</td><td>cold dark matter physical density</td></tr>
+<tr><td class="obs-id">OBS-0231</td><td>matter density parameter</td></tr>
+<tr><td class="obs-id">OBS-0232</td><td>dark energy density parameter</td></tr>
+<tr><td class="obs-id">OBS-0233</td><td>curvature density parameter</td></tr>
+<tr><td class="obs-id">OBS-0234</td><td>scalar spectral index</td></tr>
+<tr><td class="obs-id">OBS-0235</td><td>scalar amplitude</td></tr>
+<tr><td class="obs-id">OBS-0236</td><td>log scalar amplitude</td></tr>
+<tr><td class="obs-id">OBS-0237</td><td>optical depth to reionization</td></tr>
+<tr><td class="obs-id">OBS-0238</td><td>sigma8</td></tr>
+<tr><td class="obs-id">OBS-0239</td><td>S8 tension parameter</td></tr>
+<tr><td class="obs-id">OBS-0240</td><td>age of Universe</td></tr>
+<tr><td class="obs-id">OBS-0241</td><td>sound horizon at drag epoch</td></tr>
+<tr><td class="obs-id">OBS-0242</td><td>redshift of recombination</td></tr>
+<tr><td class="obs-id">OBS-0243</td><td>redshift of matter-radiation equality</td></tr>
+<tr><td class="obs-id">OBS-0244</td><td>baryon-to-photon ratio</td></tr>
+<tr><td class="obs-id">OBS-0245</td><td>helium-4 primordial fraction</td></tr>
+<tr><td class="obs-id">OBS-0246</td><td>deuterium abundance</td></tr>
+<tr><td class="obs-id">OBS-0247</td><td>effective neutrino number</td></tr>
+<tr><td class="obs-id">OBS-0248</td><td>sum neutrino masses cosmological bound</td></tr>
+<tr><td class="obs-id">OBS-0249</td><td>CMB TT spectrum multipoles</td></tr>
+<tr><td class="obs-id">OBS-0250</td><td>CMB TE spectrum multipoles</td></tr>
+<tr><td class="obs-id">OBS-0251</td><td>CMB EE spectrum multipoles</td></tr>
+<tr><td class="obs-id">OBS-0252</td><td>CMB lensing amplitude</td></tr>
+<tr><td class="obs-id">OBS-0253</td><td>BAO distance ratio</td></tr>
+<tr><td class="obs-id">OBS-0254</td><td>angular diameter distance to last scattering</td></tr>
+<tr><td class="obs-id">OBS-0255</td><td>luminosity distance-redshift relation</td></tr>
+<tr><td class="obs-id">OBS-0256</td><td>matter power spectrum</td></tr>
+<tr><td class="obs-id">OBS-0257</td><td>growth rate times sigma8</td></tr>
+<tr><td class="obs-id">OBS-0258</td><td>weak lensing shear correlation</td></tr>
+<tr><td class="obs-id">OBS-0259</td><td>cluster abundance normalization</td></tr>
+<tr><td class="obs-id">OBS-0260</td><td>CMB temperature monopole</td></tr>
+<tr><td class="obs-id">OBS-0261</td><td>CMB dipole amplitude</td></tr>
+<tr><td class="obs-id">OBS-0262</td><td>CMB non-Gaussianity local</td></tr>
+<tr><td class="obs-id">OBS-0263</td><td>CMB tensor-to-scalar ratio bound</td></tr>
+<tr><td class="obs-id">OBS-0264</td><td>running of scalar index</td></tr>
+<tr><td class="obs-id">OBS-0265</td><td>dark energy equation of state</td></tr>
+<tr><td class="obs-id">OBS-0266</td><td>dark energy time variation</td></tr>
+<tr><td class="obs-id">OBS-0267</td><td>Hubble tension diagnostic</td></tr>
+<tr><td class="obs-id">OBS-0268</td><td>lithium abundance</td></tr>
+<tr><td class="obs-id">OBS-0269</td><td>primordial helium/deuterium consistency</td></tr>
+<tr><td class="obs-id">OBS-0270</td><td>cosmic birefringence angle</td></tr>
+<tr><td class="obs-id">OBS-0271</td><td>cosmic opacity/duality test</td></tr>
+</tbody></table>
+</details></section>
+<section id="dark-matter-baryogenesis-inflation">
+<details class="obs-dom"><summary><strong>Dark Matter, Baryogenesis &amp; Inflation</strong> <span class="obs-count">36 observables</span></summary>
+<p class="obs-blurb">The dark-matter, matter/antimatter, and inflationary observables of the early universe.</p>
+<h4>Cosmology/Dark Matter <span class="obs-subn">(1)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0272</td><td>dark matter relic density</td></tr>
+</tbody></table>
+<h4>Dark Matter <span class="obs-subn">(10)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0273</td><td>dark matter candidate mass</td></tr>
+<tr><td class="obs-id">OBS-0274</td><td>dark matter annihilation cross-section</td></tr>
+<tr><td class="obs-id">OBS-0275</td><td>dark matter direct detection spin-independent cross-section</td></tr>
+<tr><td class="obs-id">OBS-0276</td><td>dark matter direct detection spin-dependent cross-section</td></tr>
+<tr><td class="obs-id">OBS-0277</td><td>dark matter self-interaction cross-section per mass</td></tr>
+<tr><td class="obs-id">OBS-0278</td><td>dark matter lifetime lower bound</td></tr>
+<tr><td class="obs-id">OBS-0279</td><td>freeze-out temperature</td></tr>
+<tr><td class="obs-id">OBS-0280</td><td>freeze-in yield</td></tr>
+<tr><td class="obs-id">OBS-0281</td><td>warm dark matter free-streaming scale</td></tr>
+<tr><td class="obs-id">OBS-0282</td><td>structure formation cutoff mass</td></tr>
+</tbody></table>
+<h4>Baryogenesis <span class="obs-subn">(9)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0283</td><td>baryon asymmetry</td></tr>
+<tr><td class="obs-id">OBS-0284</td><td>baryon-to-entropy ratio</td></tr>
+<tr><td class="obs-id">OBS-0285</td><td>CP asymmetry parameter</td></tr>
+<tr><td class="obs-id">OBS-0286</td><td>washout rate</td></tr>
+<tr><td class="obs-id">OBS-0287</td><td>sphaleron rate</td></tr>
+<tr><td class="obs-id">OBS-0288</td><td>sphaleron conversion factor</td></tr>
+<tr><td class="obs-id">OBS-0292</td><td>Hubble rate at leptogenesis scale</td></tr>
+<tr><td class="obs-id">OBS-0293</td><td>out-of-equilibrium condition</td></tr>
+<tr><td class="obs-id">OBS-0294</td><td>Boltzmann/density-matrix washout matrix</td></tr>
+</tbody></table>
+<h4>Baryogenesis/Neutrino <span class="obs-subn">(3)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0289</td><td>heavy neutrino mass N1</td></tr>
+<tr><td class="obs-id">OBS-0290</td><td>heavy neutrino mass N2</td></tr>
+<tr><td class="obs-id">OBS-0291</td><td>heavy neutrino mass N3</td></tr>
+</tbody></table>
+<h4>Inflation <span class="obs-subn">(10)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0295</td><td>scalar spectral amplitude</td></tr>
+<tr><td class="obs-id">OBS-0296</td><td>tensor-to-scalar ratio</td></tr>
+<tr><td class="obs-id">OBS-0297</td><td>scalar spectral tilt</td></tr>
+<tr><td class="obs-id">OBS-0298</td><td>running of spectral tilt</td></tr>
+<tr><td class="obs-id">OBS-0299</td><td>number of e-folds</td></tr>
+<tr><td class="obs-id">OBS-0300</td><td>inflation energy scale</td></tr>
+<tr><td class="obs-id">OBS-0301</td><td>inflaton mass/curvature scale</td></tr>
+<tr><td class="obs-id">OBS-0302</td><td>reheating temperature</td></tr>
+<tr><td class="obs-id">OBS-0303</td><td>non-Gaussianity equilateral</td></tr>
+<tr><td class="obs-id">OBS-0304</td><td>isocurvature fraction</td></tr>
+</tbody></table>
+<h4>Inflation/GW <span class="obs-subn">(1)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0305</td><td>primordial gravitational-wave background</td></tr>
+</tbody></table>
+<h4>CMB spectral distortions <span class="obs-subn">(2)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0306</td><td>spectral distortion mu</td></tr>
+<tr><td class="obs-id">OBS-0307</td><td>spectral distortion y</td></tr>
+</tbody></table>
+</details></section>
+<section id="quantum-measurement">
+<details class="obs-dom"><summary><strong>Quantum &amp; Measurement</strong> <span class="obs-count">25 observables</span></summary>
+<p class="obs-blurb">The quantum-foundations and measurement-record observables the framework's quantum layer must satisfy.</p>
+<h4>quantum/records <span class="obs-subn">(25)</span></h4>
+<table class="obs-table"><thead><tr><th>ID</th><th>Observable</th></tr></thead><tbody>
+<tr><td class="obs-id">OBS-0338</td><td>Born probability for two-outcome measurement</td></tr>
+<tr><td class="obs-id">OBS-0339</td><td>interference visibility double-slit</td></tr>
+<tr><td class="obs-id">OBS-0340</td><td>which-path distinguishability</td></tr>
+<tr><td class="obs-id">OBS-0341</td><td>Bell CHSH parameter</td></tr>
+<tr><td class="obs-id">OBS-0342</td><td>Tsirelson bound</td></tr>
+<tr><td class="obs-id">OBS-0343</td><td>decoherence time</td></tr>
+<tr><td class="obs-id">OBS-0344</td><td>Rabi frequency</td></tr>
+<tr><td class="obs-id">OBS-0345</td><td>transition amplitude</td></tr>
+<tr><td class="obs-id">OBS-0346</td><td>phase periodicity</td></tr>
+<tr><td class="obs-id">OBS-0347</td><td>Aharonov-Bohm phase</td></tr>
+<tr><td class="obs-id">OBS-0348</td><td>quantum state tomography fidelity</td></tr>
+<tr><td class="obs-id">OBS-0349</td><td>density matrix positivity</td></tr>
+<tr><td class="obs-id">OBS-0350</td><td>trace preservation</td></tr>
+<tr><td class="obs-id">OBS-0351</td><td>unitarity residual</td></tr>
+<tr><td class="obs-id">OBS-0352</td><td>commutator canonical relation</td></tr>
+<tr><td class="obs-id">OBS-0353</td><td>energy-time quantum speed limit</td></tr>
+<tr><td class="obs-id">OBS-0354</td><td>Landauer bound</td></tr>
+<tr><td class="obs-id">OBS-0355</td><td>Margolus-Levitin bound</td></tr>
+<tr><td class="obs-id">OBS-0356</td><td>measurement outcome frequency record</td></tr>
+<tr><td class="obs-id">OBS-0357</td><td>no-signalling marginal check</td></tr>
+<tr><td class="obs-id">OBS-0358</td><td>entanglement entropy</td></tr>
+<tr><td class="obs-id">OBS-0359</td><td>mutual information</td></tr>
+<tr><td class="obs-id">OBS-0360</td><td>purity</td></tr>
+<tr><td class="obs-id">OBS-0361</td><td>fidelity susceptibility</td></tr>
+<tr><td class="obs-id">OBS-0362</td><td>Loschmidt echo</td></tr>
+</tbody></table>
+</details></section>
+<section><h2>Where this fits</h2><ul><li><a href="/building-blocks/">The building blocks</a> &mdash; the two-layer picture: these observables plus the three deep-root axioms.</li><li><a href="/anchors/">The Anchors</a> &mdash; the honest row-by-row ledger of the few observables consumed as measured inputs.</li><li><a href="/gates/">The Gates</a> &mdash; the scoreboard grading which observables are derived, which are measured, and which stay open.</li><li><a href="/tests/">The Tests</a> &mdash; independent checks where measured observables are reproduced or a prediction is put at risk.</li></ul><p class="obs-src">Registry IDs are the framework’s internal observable identifiers (OBS-####). This catalogue is the Layer-2 endpoint set a complete theory must terminate in; it is a living list and is reconciled against the gate ledger.</p></section>
+</main>
+</div>
+</body></html>

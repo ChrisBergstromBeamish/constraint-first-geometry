@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Shape — the frozen object identity</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 256px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:64rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:14.5px;margin:0 0 6px;line-height:1.25;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="/">&#9632; A Framework for a Theory of Everything</a></div>
+<div class="ann-group">Start here</div>
+<a href="/">Home — intro</a>
+<a href="/gates/">The Gates — scoreboard</a>
+<a href="/residuals/">The Residuals — attack list</a>
+<div class="ann-group">The honest rule-set</div>
+<a href="/anchors/">The Anchors</a>
+<a href="/walls/">The Walls</a>
+<a href="/closure/">The Closure system</a>
+<a href="/closure/walls/">&mdash; closure paths</a>
+<div class="ann-group">The physics</div>
+<a href="/shape/" class="current">The Shape (13D)</a>
+<a href="/scale/">The Scale</a>
+<a href="/granularity/">The Granularity</a>
+<a href="/paying/">What &ldquo;paying&rdquo; means</a>
+<a href="/layer2/">The Second-Layer Roots</a>
+<a href="/gut/">GUT &mdash; Paper 1</a>
+<a href="/forces/">Forces &mdash; Paper 2</a>
+<a href="/quantum/">Quantum &mdash; Paper 3</a>
+<a href="/toe/">TOE &mdash; complete statement</a>
+<a href="/particles/">Particles &mdash; spectrum</a>
+<div class="ann-group">Reference</div>
+<a href="/articles/">Dossiers &amp; articles</a>
+<a href="/scripts/">Scripts</a>
+<a href="/supporting/">Supporting</a>
+<a href="/supplemental/">Supplemental (full overview)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The Shape — the frozen object identity — rendered package. Rendered from <code>index.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The Shape — the frozen object identity</h1>
+<div style="border:1px solid #d8d3c7;border-left:5px solid #0b5;background:#f7fdf9;border-radius:0 6px 6px 0;padding:.8em 1.15em;margin:1rem 0 1.3rem;font-family:&#39;Helvetica Neue&#39;,Arial,sans-serif;font-size:.96rem;line-height:1.55;"><div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:#0b5;font-weight:700;margin-bottom:.3em;">In plain language</div><p style="margin:.2em 0 0;">The <strong>Shape</strong> is the one fixed object this whole theory computes from &mdash; the exact stage the universe&rsquo;s physics plays out on, frozen once and never tuned afterwards. It has three layers: a <strong>Stage</strong> (the geometry &mdash; our ordinary 4-D world times a small curled-up space that carries the forces), a <strong>Rulebook</strong> (which configurations are allowed), and a set of <strong>Actors</strong> (the matter, force, and Higgs fields). It was not guessed: it was <em>selected by a short list of constraints</em>, the way eliminating suspects leaves one. Everything the theory predicts, it reads off this object &mdash; which is why getting it exactly right, at full precision, matters more than anything else here. The rest of this page is the precise, technical version; read just this box, or dive as deep as you like.</p></div>
+<p><strong>Thesis.</strong> <em>Shape</em> is the frozen structural object of the theory: the exact geometry <strong>plus</strong> the rulebook, bundles, operators, connections, quotient/global data, and readout maps required to make a prediction at all. It is not the slogan "the universe is a manifold," and it is not a flat product of carriers. It is a specific, hash-pinned, three-layer object — a <strong>Stage</strong>, a <strong>Rulebook</strong>, and a set of <strong>Actors</strong> — at full precision, on a named branch. Everything this theory claims to compute, it computes <em>from this object</em>. So getting the object exactly right — every layer, every operator, every quotient, at sixteen significant figures and the right object class — is the first and most load-bearing discipline of the whole program.</p>
+<p><strong>Honesty guard (read before anything else).</strong> Shape is load-bearing, but Shape is <strong>not a magic answer-generator</strong>. A downstream result is <em>Shape-forced</em> only when the relevant object, rule, operator, connection, and readout map are part of the frozen branch — or are derived from it <strong>target-blind</strong> — and survive saturation of the other roots and the toolbox to reach a Layer-1 observable. Absent that, the result is at most <em>Shape-supported</em>. This page is a <strong>completeness upgrade of the root</strong>, not an anchor-elimination: the Shape root still bottoms on its anchor — the <strong>frozen branch identity</strong> (and, underneath it, the measured matter content $E$). <strong>Anchored is not derived. Selected is not forced. Frozen-and-reproducible is not proven-unique. Dissolved is not solved.</strong> This is a Theory-of-Everything <em>candidate</em> under honest audit: <strong>0 of 33 gates are physics-closed</strong>, and no status here is a status change.</p>
+<blockquote>
+<p>The single most common way to mis-state this theory is to write the Shape as just its geometry. Feed a gate, an attack, or a reviewer only the geometry — or a truncated, low-precision Shape — and <strong>it can fail for that reason alone</strong>, with nothing wrong in the physics. Every reference to "the Shape" on this site means the full object: <strong>all three layers, at full precision, on the named branch.</strong></p>
+</blockquote>
+<hr />
+<section>
+<div style="border:1px solid #d8d3c7;border-left:5px solid #6b3f2a;background:#fbf3ea;border-radius:0 6px 6px 0;padding:1em 1.25em;margin:1.5rem 0;font-family:&#39;Helvetica Neue&#39;,Arial,sans-serif;"><h2 style="border:0;margin:.1rem 0 .5rem;">How the Shape is derived from constraints &mdash; one calculation, worked in full</h2><p style="font-size:.96rem;">The Shape was not assumed. It was <strong>selected by running a short list of physical constraints over candidate geometries and keeping the only clean survivor</strong>. The single clearest example is the internal &ldquo;color&rdquo; space. A cheaper-looking rival, <strong>&#8450;P&#178; = SU(3)/U(2)</strong>, looks simpler on paper &mdash; but built all the way through it <em>fails</em> to reproduce the Standard Model&rsquo;s chiral matter, while <strong>K&#8326; = SU(3)/T&#178;</strong> survives every constraint. That one elimination is the heart of how the Shape is fixed &mdash; a real disproof of an alternative, not a preference.</p><p style="font-size:.96rem;"><strong>See it worked start to finish.</strong> The full elimination &mdash; &#8450;P&#178; ruled out and K&#8326; kept, in complete detail &mdash; is written out in <a href="/articles/MINIMAL_SHAPE_AI.html">the minimal-shape suite (the &#8450;P&#178; elimination, worked in full)</a>. For a gentler, step-by-step view of the four constraints narrowing the field, see <a href="/process/constraints-to-shape.html">constraints &rarr; a derived shape</a>.</p><p style="font-size:.96rem;margin-bottom:0;"><strong>Every constraint, and any derivation on request.</strong> The Shape&rsquo;s own constraint list is in &sect;3 below (SHP-A&hellip;SHP-I), and the complete foundational-constraint register is on <a href="/anchors/">the Anchors page</a>. For the full derivation of the entire construction &mdash; every constraint and every step &mdash; see the long GUT derivation at <a href="/articles/GUT.html">articles/GUT.html</a>. It is a large document (about 1.9&nbsp;MB): the most practical way to use it is to <strong>upload it to an AI assistant and ask for the specific derivation you want</strong>.</p></div>
+</section>
+<h2>1. What exact object is the Shape?</h2>
+<p>The active branch $\mathfrak{B}_{\text{active}}$ is filed in three mathematically distinct layers (GUT §2B, <strong><a href="/articles/GUT.html">Appendix A1 (full precision)</a></strong> · <strong><a href="/articles/GUT.pdf">PDF</a></strong>). The reader-names <em>Stage / Rulebook / Actors</em> are glosses for the category operations $\times\,/\,\oplus\,/\,\otimes$:</p>
+<p>$$
+\mathfrak{B}_{\text{active}}
+=\underbrace{\bigl[\,M_4 \times K_6 \times S^2 \times S^1_Y/\mathbb{Z}_2\,\bigr]}_{\times\;\text{Stage — metric carrier}}
+\;\oplus\;
+\underbrace{\bigl[\,F^+_{\text{finite}} \oplus \mathcal{C}_{\text{admiss}}\,\bigr]}_{\oplus\;\text{Rulebook — admissibility}}
+\;\otimes\;
+\underbrace{\bigl[\,\mathcal{E}_{\text{matter}} \oplus \mathcal{E}_{\text{gauge}} \oplus \mathcal{E}_{\text{Higgs}} \oplus \mathcal{E}_{\text{proton}}\,\bigr]}_{\otimes\;\text{Actors — bundle/operator content}}
+$$</p>
+<p>with $K_6 = SU(3)/T^2$ and $S^1_Y/\mathbb{Z}_2$ the active orbifold/boundary domain. <strong>Physics appears only when all three layers agree.</strong> Three-layer necessity is a certificate, not a convenience: GUT Appendix B2 shows that every proper subset $L \subsetneq \{\times,\oplus,\otimes\}$ has an empty scoped-GUT survivor set ($\mathcal{N}_L = \varnothing$) inside the declared search category. You cannot drop the Rulebook or the Actors and still reproduce the Standard Model.</p>
+<h3>1.1 Layer × — the Stage (metric carrier)</h3>
+<p>This is the dimensional geometric carrier — <em>where</em> fields may live and which symmetry sources exist:</p>
+<p>$$
+M_4 \times K_6 \times S^2 \times S^1_Y/\mathbb{Z}_2,\qquad K_6 = SU(3)/T^2,\qquad D = 4+6+2+1 = 13.
+$$</p>
+<ul>
+<li>$M_4$ — the 4D Lorentzian arena (declared observational primitive).</li>
+<li>$K_6 = SU(3)/T^2$ — the color carrier (6D), supplying $SU(3)_c$ as an isometry; spin-$\mathbb{C}$ family index $-3$.</li>
+<li>$S^2$ — the weak carrier (2D), supplying $SU(2)_L$.</li>
+<li>$S^1_Y/\mathbb{Z}_2$ — the hypercharge carrier (1D parent circle, orbifolded), supplying $U(1)_Y$ and chirality.</li>
+</ul>
+<p><strong>The dimension count $D=13$ counts the $\times$ layer only.</strong> It is <em>not</em> the whole Shape. This is the layer most readers mistake for "the Shape," and the mistake is the single most expensive error in reading the theory.</p>
+<h3>1.2 Layer ⊕ — the Rulebook (admissibility)</h3>
+<p>This layer is zero-dimensional but load-bearing — <em>which</em> finite branch and configurations are admissible. It carries the $F^+$ flavor chamber (chamber modulus $\tau=\omega$, generation basis $\mathcal{G}_{\text{gen}}$, sector projectors $\Pi_{u,d,e,\nu}$, sector operators $O_{u,d,e,\nu}$, phase and normalization rules), and the $\mathcal{C}_{\text{admiss}}$ admissibility firewall (selector, constraints C1–C14, freeze barrier, anomaly conditions, no-mirror parity, Wilson-line winding rule, FCNC/mediator no-go). This layer is <strong>invisible in the geometry but decides nearly every flavor and consistency result</strong> — it is where a wall asks whether the fixed Shape actually <em>permits or forces</em> a given map, and where "anti-fitting" lives.</p>
+<h3>1.3 Layer ⊗ — the Actors (bundle/operator content)</h3>
+<p>This layer is also zero-dimensional but physically decisive — <em>what</em> lives over the Stage. It carries the matter, gauge, Higgs, and proton-safety content ($\mathcal{E}_{\text{matter}}, \mathcal{E}_{\text{gauge}}, \mathcal{E}_{\text{Higgs}}, \mathcal{E}_{\text{proton}}$ — a seven-factor spinor/gauge/flavor tensor), together with bundles, Hilbert spaces, spin/twist data, connections, operator domains, and the readout maps to observables. This is where many walls become precise: <strong>the same metric geometry can host different physical questions depending on the operator and connection chosen.</strong> Whether you write the canonical Casimir operator, the physical Lichnerowicz operator, the Bochner ghost, or the gauge-fixed graviton+ghost system is an Actor-layer decision — and they are <em>not interchangeable</em>.</p>
+<p>The ten named load-bearing terms are $M_4,\ K_6,\ S^2,\ S^1_Y/\mathbb{Z}_2,\ F^+_{\text{finite}},\ \mathcal{C}_{\text{admiss}},\ \mathcal{E}_{\text{matter}},\ \mathcal{E}_{\text{gauge}},\ \mathcal{E}_{\text{Higgs}},\ \mathcal{E}_{\text{proton}}$ — each individually load-bearing for at least one required gate (GUT Appendix C, term-by-term). Removing any one fails a gate; that is what "object-complete" means.</p>
+<hr />
+<h2>2. Which layer is being used? — the precision contract</h2>
+<p>Every claim that invokes "the Shape" must say <strong>which layer of Shape does the work</strong>, <strong>what map carries Shape to the test object</strong>, and <strong>whether that map is forced or only supported</strong>. The contract below is the page's working discipline; it mirrors the site's general Layer-1 / Layer-2 / rule / forcing / status structure.</p>
+<table>
+<thead>
+<tr>
+<th>Layer in play</th>
+<th>The question it answers</th>
+<th>Required precision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Layer 1 — observables / audit anchors</strong></td>
+<td>What does this Shape claim eventually touch?</td>
+<td>name the observable, invariant, route-agreement test, index, anomaly sum, heat-kernel coefficient, or falsifier</td>
+</tr>
+<tr>
+<td><strong>Layer 2 — deep roots</strong></td>
+<td>Which root does the work?</td>
+<td><strong>Shape</strong> primarily — but <strong>Scale</strong> when magnitudes appear, <strong>Granularity</strong> when finite choices/labels appear</td>
+</tr>
+<tr>
+<td><strong>Rule / map layer</strong></td>
+<td>What map takes Shape to the test object?</td>
+<td>write the rule (the index theorem, the projector, the overlap integral), not the story</td>
+</tr>
+<tr>
+<td><strong>Forcing layer</strong></td>
+<td>Is the rule Shape-<em>forced</em> or only Shape-<em>supported</em>?</td>
+<td>apply the four-field certificate (§5): anchor-transfer · root counterfactual · closed candidate class · target-blindness</td>
+</tr>
+<tr>
+<td><strong>Status layer</strong></td>
+<td>Closed, open, paid, dissolved, or blocked?</td>
+<td>label each claim honestly; never round up</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>3. The Shape constraints — the technical backbone (SHP-A … SHP-I)</h2>
+<p>These nine constraints are the root-level discipline that any wall using Shape must satisfy. SHP-A through SHP-H are the object-completeness and forcing constraints; <strong>SHP-I is the frozen-branch-identity addition</strong> that makes the root complete — it is the anchor the whole root bottoms on.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Constraint</th>
+<th>What it requires</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SHP-A</strong></td>
+<td>Shape is object-complete</td>
+<td>The metric carrier alone is incomplete. When a wall uses them, the Shape must include the rulebook/admissibility layer and the actor/operator layer, not just $M_4\times K_6\times S^2\times S^1_Y/\mathbb{Z}_2$.</td>
+</tr>
+<tr>
+<td><strong>SHP-B</strong></td>
+<td>Connection / operator specificity</td>
+<td>A wall using spectra, heat kernels, EWSB, or flavor must specify the <em>physical</em> connection/operator. Canonical Casimir, Levi-Civita, Lichnerowicz, Bochner, gauge-fixed, and physical operators are <strong>not interchangeable by default</strong>.</td>
+</tr>
+<tr>
+<td><strong>SHP-C</strong></td>
+<td>Object-class specificity</td>
+<td>Boundaries, orbifolds, fixed points, quotient actions, defects, horizons, and record interfaces must be classified as the <strong>correct mathematical object</strong> before any computation (e.g. an orbifold fixed point is a Donnelly equivariant fixed-point object, not a boundary BVP).</td>
+</tr>
+<tr>
+<td><strong>SHP-D</strong></td>
+<td>Map inclusion</td>
+<td>The geometry-to-observable <strong>generator map</strong> is part of the Shape burden unless separately paid. You cannot quietly attach a map after seeing the answer and call the result Shape-derived.</td>
+</tr>
+<tr>
+<td><strong>SHP-E</strong></td>
+<td>Global data explicit</td>
+<td>Centers, quotients, holonomies, cycles, bundles, twists, projectors, and parity/fold data are <strong>Shape data when used</strong> (e.g. the $\mathbb{Z}_6$ center, the $\mathbb{Z}_2$ fold parity table).</td>
+</tr>
+<tr>
+<td><strong>SHP-F</strong></td>
+<td>No hidden E</td>
+<td>Matter content $E$ is <strong>not derived</strong> unless a bundle/actor uniqueness theorem forces it; otherwise it is <strong>paid</strong> actor-layer input.</td>
+</tr>
+<tr>
+<td><strong>SHP-G</strong></td>
+<td>Dynamics / readout layer</td>
+<td>A <strong>static geometry does not by itself</strong> produce masses, thresholds, probabilities, asymmetries, or spectra. A readout/dynamics map is required and is part of the burden.</td>
+</tr>
+<tr>
+<td><strong>SHP-H</strong></td>
+<td>Category-relative forcing</td>
+<td>Shape can force <strong>within a declared grammar</strong>; absolute, architecture-neutral uniqueness requires a separate exhaustion theorem and is not assumed.</td>
+</tr>
+<tr>
+<td><strong>SHP-I</strong></td>
+<td><strong>Frozen branch identity</strong></td>
+<td>A Shape claim must bind to a <strong>specific branch / manifest / hash</strong>. If geometry, rulebook, operator, $E$, connection, or readout changes, it is a <strong>new branch</strong>, not the same prediction. The frozen identity (active branch <code>dcc66f1b2685</code>, manifest meta-hash <code>a5b1e6f9d951</code>) <strong>is the anchor of the Shape root.</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Operational test.</strong> A wall may not say "Shape forces $X$" unless it names which part of Shape does the forcing — one of:</p>
+<pre><code>metric carrier / quotient / center / holonomy / cycle / projector /
+rulebook / actor bundle / operator / connection / readout / frozen branch identity
+</code></pre>
+<p>If none of these changes when the rule changes, the rule is <strong>not Shape-forced</strong>.</p>
+<hr />
+<h2>4. What Shape forces vs. what Shape only supports</h2>
+<p>Shape <em>forces</em> a result when the rule's content is transferred from a structural invariant or a closed admissible object — the answer is read off the geometry, not off the target. Shape <em>supports</em> a result when it makes a mechanism natural without pinning the decisive details. The difference is the whole game, so each example below is labeled with its forcing-certificate status (see §5).</p>
+<h3>4.1 Shape-forced — read off a structural invariant</h3>
+<table>
+<thead>
+<tr>
+<th>Map</th>
+<th>Shape object supplying it</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Family count = 3</strong></td>
+<td>fixed bundle + index theorem: $\chi(K_6,E) = -3$ (Borel–Weil–Bott / spin-$\mathbb{C}$, weight $(1,0)$); APS one-sided index $(n_L,n_R)=(+3,0)$</td>
+<td><strong>SHAPE-FORCED — given $E$.</strong> A <em>topological integer</em>, not a tunable dial. Forced once $E$ is fixed; does <strong>not</strong> derive $E$ itself (SHP-F).</td>
+</tr>
+<tr>
+<td><strong>Charge quantization</strong></td>
+<td>center/quotient structure: $\mathbb{Z}_6 = \ker\!\big(Z(G_0)\to\mathrm{Aut}(E)\big)$; $Q=T_3+Y$; the frozen parity table <code>ac4d2df3e708</code> realizing $[SU(3)\times SU(2)\times U(1)_Y]/\mathbb{Z}_6$</td>
+<td><strong>SHAPE-FORCED — given $E$.</strong> The allowed charge lattice is restricted by the center; alternatives (e.g. $Y(Q_L)=\tfrac15$) are killed by global consistency.</td>
+</tr>
+<tr>
+<td><strong>Weak carrier $S^2$</strong></td>
+<td>general fact F1: no torus / abelian carrier of any dimension carries non-abelian $SU(2)$</td>
+<td><strong>SHAPE-FORCED (whole-shelf).</strong> Closes the entire shelf of abelian alternatives.</td>
+</tr>
+<tr>
+<td><strong>Hyper carrier $S^1_Y/\mathbb{Z}_2$</strong></td>
+<td>general fact F2: a bare odd-dimensional closed factor leaves mirror fermions excluded by the measured LEP $Z$-width; the $\mathbb{Z}_2$ fold supplies chirality</td>
+<td><strong>SHAPE-FORCED (whole-shelf).</strong></td>
+</tr>
+<tr>
+<td><strong>Color carrier $K_6 = SU(3)/T^2$</strong></td>
+<td>abelian-isotropy uniqueness: $T^2$ is the unique purely-abelian $SU(3)$ isotropy ($C_{SU(3)}(T^2)=T^2$); rivals like $CP^2 = SU(3)/U(2)$ have gauge-active isotropy and break at the gauge gate when built end-to-end</td>
+<td><strong>SHAPE-FORCED over the enumerated $SU(3)$-carrier shelf.</strong> Whole-shelf completeness over <em>all</em> admissible carriers remains open (SHP-H).</td>
+</tr>
+<tr>
+<td><strong>Orbifold reflection trace</strong></td>
+<td>$S^1_Y/\mathbb{Z}_2$ is a Donnelly equivariant fixed-point object</td>
+<td><strong>SHAPE-FORCED as an object-class constraint (SHP-C).</strong> Forces the fixed-point trace, <em>not</em> a boundary coefficient.</td>
+</tr>
+</tbody>
+</table>
+<p>The unifying principle is <strong>anchor transfer</strong>: the content of the rule comes from the Shape object (the index, the center, the isotropy theorem), <strong>not from the desired observable</strong>. That is why these survive target-blindness.</p>
+<h3>4.2 Shape-supported — natural, not yet forced</h3>
+<p>Shape often makes a mechanism natural but does not pin the decisive numbers. These must be labeled <strong>SHAPE-SUPPORTED</strong>, never SHAPE-FORCED, until a certificate is supplied:</p>
+<ul>
+<li>Shape <strong>supports</strong> path-interference flavor residues, but does <strong>not</strong> automatically force the exact SG8 ladder exponents — those must be exhibited as discrete winding/action classes or marked open (W06).</li>
+<li>Shape <strong>supports</strong> anomaly-compatible bundles, but anomaly-freedom alone is a <em>filter</em>, not a bundle determiner; it does <strong>not</strong> force one unique $E$ (W05, W07).</li>
+<li>Shape <strong>supports</strong> a compactification-threshold story, but the numerical threshold vector still needs a Scale/readout map and a named heat-kernel scheme object (W19).</li>
+<li>Shape <strong>supports</strong> a custodial electroweak embedding, but $\rho_{\text{tree}}=1$ requires the actual Wilson-line/Hosotani scalar readout and overlap integrals (W08).</li>
+</ul>
+<hr />
+<h2>5. How to certify Shape-forcing — the four-field certificate</h2>
+<p>A Shape claim earns the label <strong>SHAPE-FORCED</strong> only if it satisfies <strong>all four</strong> fields. This is the discipline that keeps "the geometry gives everything" from sneaking back in.</p>
+<ol>
+<li><strong>Anchor-transfer chain</strong> — identify the exact Shape object supplying the rule: metric, quotient, center, holonomy, cycle, bundle, projector, operator, connection, or readout map.</li>
+<li><strong>Root counterfactual</strong> — show that perturbing the Shape object <strong>changes or removes</strong> the rule. If nothing in the Shape moves when the rule changes, the rule was never Shape-forced.</li>
+<li><strong>Closed candidate class</strong> — show the admissible alternatives are <strong>exhausted</strong> under the relevant symmetry/admissibility grammar (a closed class, not a hand-drawn list).</li>
+<li><strong>Target-blindness</strong> — show the rule can be <strong>written without using the target observable</strong>. A rule that quotes the answer it is supposed to predict is target-selected, not forced.</li>
+</ol>
+<p><strong>Grading.</strong></p>
+<pre><code>4/4                         : SHAPE-FORCED
+1–3/4                       : SHAPE-SUPPORTED / SHAPE-CONSTRAINED / SHAPE-SELECTIVE
+0/4                         : NARRATIVE-ONLY
+fails target-blindness (4)  : TARGET-SELECTION-RISK   (downgrade regardless of the other three)
+</code></pre>
+<p>Worked grade — <strong>family count</strong>: anchor-transfer = the BWB index on the fixed bundle (✓); counterfactual = a different bundle/weight changes the index (✓); closed class = the index is the topological integer over the fixed object, no free modulus (✓); target-blindness = $\chi(K_6,E)=-3$ is written from the geometry, not from "we observe three families" (✓). <strong>4/4 = SHAPE-FORCED, given $E$.</strong> Worked downgrade — <strong>SG8 flavor ladder</strong>: anchor-transfer candidate exists (path/cycle residues), but the closed candidate class and target-blindness are not yet established (the exponents risk being label assignments fitted after seeing data). <strong>≤2/4 = SHAPE-SUPPORTED</strong>, open until the residue/projector/ladder map is forced.</p>
+<hr />
+<h2>6. How Shape interacts with Scale and Granularity</h2>
+<p>Shape is one of three deep roots, and most real walls use all three. The division of labor is sharp, and <strong>Shape cannot quietly do the other two roots' jobs</strong>.</p>
+<ul>
+<li><strong>Shape → Scale.</strong> A static frozen geometry produces <em>structure</em> (indices, ratios, mixings) but not <em>magnitudes</em>. The moment a wall claims a dimensionful number — a mass, a threshold, $\Lambda$, $M_R$, an inflaton amplitude — it has crossed into <strong>Scale</strong> (<code>/scale/</code>), which demands an accepted absolute scale anchor (SCL-I), a scale-bridge rule (SCL-J), and a named scheme object. SHP-G is precisely the handoff: "Shape supports the threshold story; the numerical threshold vector is a Scale obligation." Dimensionless ratios may be Shape/flavor outputs while the absolute sector scales ($N_d, N_e, N_\nu$) are paid Scale anchors.</li>
+<li><strong>Shape → Granularity.</strong> When a wall says "the candidate class is exhausted" or "this label is free," it is leaning on <strong>Granularity</strong> (<code>/granularity/</code>), which demands a closed finite candidate class (GRN-B), no unpaid labels (GRN-A), exact object identity (GRN-C), and — at root — the uniform positive cost-floor posit (GRN-I) that makes "simpler" well-defined across unlike architectures. SHP-H's "category-relative forcing" is meaningful only because Granularity supplies the finite grammar inside which forcing is even askable.</li>
+<li><strong>The triad in one line.</strong> <em>Shape:</em> what is the exact frozen object, and what map does it permit or force? <em>Scale:</em> what magnitude/ratio is meaningful, and what bridge makes it meaningful? <em>Granularity:</em> what finite rule/candidate/record structure prevents hidden labels, infinite precision, and arbitrary fitting? A wall is closed only when <strong>all three</strong> are saturated and a Layer-1 observable test is reached.</li>
+</ul>
+<p>A standing red flag: <strong>"Scale + Granularity ⇒ Shape" is rejected.</strong> The selector argument lands $\mathfrak{B}_{\text{active}}$ inside a <em>declared</em> category given $E$; it is category-relative, not an architecture-neutral derivation of the Shape from the other two roots.</p>
+<hr />
+<h2>7. How gaps and gates constrain the Shape — worked examples</h2>
+<p>Each gap (wall) the program hit teaches the Shape root something concrete: where the math broke, the hidden assumption, the extracted constraint, and whether the resulting rule is forced or only supported. Below are the canonical worked examples, drawn from the per-gap extraction; the full set of nineteen feeds the SHP-A…I table above.</p>
+<h3>7.1 Gap-01 / a6 (W03) — the connection/operator and object-class lesson</h3>
+<p><strong>Where the math broke.</strong> Computing the frozen 13D graviton+ghost $a_6$ Seeley–DeWitt diagnostic, the <em>canonical</em> Peter–Weyl / Casimir route and the <em>physical</em> Levi-Civita / Lichnerowicz route disagree on the non-symmetric $K_6$.</p>
+<p><strong>Hidden assumption.</strong> That the canonical and physical connections/operators were interchangeable — and that the $S^1_Y/\mathbb{Z}_2$ fixed points could be treated as a boundary value problem.</p>
+<p><strong>Shape constraints extracted.</strong> SHP-B (the Shape must specify the <em>physical</em> connection/operator; canonical proxies are not interchangeable on a non-symmetric coset) and SHP-C (the $S^1_Y/\mathbb{Z}_2$ fixed points are a <strong>Donnelly equivariant fixed-point object</strong>, not a boundary BVP). The object must be operator-complete: metric, orbifold object class, bundle, connection, $E$, $\Omega$, ghosts — and the Bochner ghost cannot be silently swapped for the physical Lichnerowicz ghost (GRN-C).</p>
+<p><strong>Forced or supported?</strong> <strong>Root-forced as a constraint</strong> — Shape <em>must</em> carry the physical connection and the correct object class; this is non-negotiable. The actual $a_6$ <em>value</em> remains <strong>open</strong> until the off-diagonal physical graviton+ghost route (GT/LC) is reconciled. Note also the Scale predicate (SCL-C): in odd $D=13$, a dimensionful $a_6$ is <strong>not</strong> a canonical finite local observable — only consistency coefficients may be reported.</p>
+<p><strong>Observable / audit anchor.</strong> Bianchi and sphere-rational exact identities as correctness gates; two structurally independent routes mandatory for any value. <strong>Residual:</strong> GT/LC off-diagonal physical graviton+ghost route reconciliation.</p>
+<h3>7.2 Gap-05 / given-E (W05) — the no-hidden-E lesson</h3>
+<p><strong>Where the math broke.</strong> The question of whether the matter content $E$ (or the relevant bundle) is uniquely forced by Shape or selected/paid.</p>
+<p><strong>Hidden assumption.</strong> That anomaly-freedom <em>determines</em> the bundle.</p>
+<p><strong>Shape constraint extracted.</strong> SHP-F: $E$/bundle belongs to the <strong>actor layer</strong> unless a uniqueness theorem forces it from metric + rulebook; <strong>anomaly-freedom is a filter, not a determiner</strong> (SHP-E/SHP-F). To force $E$, one must enumerate the finite lattice of admissible weights/bundles (GRN-B) and prove uniqueness in a closed class — a hand-picked $E$ is <em>selected, not forced</em>.</p>
+<p><strong>Forced or supported?</strong> <strong>Not forced.</strong> $E$ is the <strong>measured anchor at the bottom of the Shape stack</strong> — terminal by anchoring. "$E$ is forced" is <em>refuted</em>. Everything downstream ("three families," "$\mathbb{Z}_6$") is forced <em>given $E$</em>, never a derivation <em>of</em> $E$. <strong>Residual:</strong> a bundle-uniqueness/exhaustion theorem, or explicit paid-$E$ status (the honest expected outcome: declare $E$ the irreducible measured anchor).</p>
+<h3>7.3 Gap-06 / SG8 flavor (W06) — the map-inclusion lesson</h3>
+<p><strong>Where the math broke.</strong> The flavor map risks becoming a <em>label assignment</em> after seeing the data.</p>
+<p><strong>Hidden assumption.</strong> That particles follow assigned sector paths rather than <em>all admissible Shape paths</em>.</p>
+<p><strong>Shape constraint extracted.</strong> SHP-D + SHP-13/14: the flavor map must be <strong>Shape-pinned</strong> — paths, floors, cycles, residues, and projectors read <em>from</em> the Shape, with sector projectors and overlap conventions part of the map, not optional notation added later.</p>
+<p><strong>Forced or supported?</strong> Currently a <strong>promising SHAPE-SUPPORTED mechanism</strong>, not forced — unless and until the exact residue/projector/ladder map is exhibited as discrete winding/action classes (GRN-13), with falsifiers (e.g. $m_u$) and tolerances frozen <em>before</em> reading outputs (GRN-14). <strong>Residual:</strong> the actual Shape→SG8 map — admissible paths, phases, residues, assignments, overlaps.</p>
+<h3>7.4 The pattern across the nineteen gaps</h3>
+<p>Read together, the gaps split the Shape constraints cleanly: object-completeness (W01–W03, W16–W17 — record complexes, operator-completeness, horizon/fixed-surface and operator-basis identification); global/actor data (W05, W07, W12, W13, W17 — bundle, twist, bordism, CP/Pin-bit, portal, baryon-violating operator enumeration); readout/dynamics (W08, W10, W14, W15, W19 — Hosotani readout, gravity trace channel, inflaton potential, Born measure, threshold spectrum); and frozen-branch identity (every wall, via SHP-I — each claim binds to <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>). In <strong>no</strong> case did a gap let the metric product alone carry a result to a Layer-1 observable; in every case the Rulebook, the Actors, or both were load-bearing — which is exactly why a gate fed the geometry alone fails spuriously.</p>
+<hr />
+<h2>8. Selected, not forced — the honest selection story</h2>
+<p>The Shape is <strong>chosen and frozen</strong>, not deduced from nothing — but the selection is sharper than "simplest," and it is tiered. Within the grammar where forces are geometry (gauge symmetry as the isometry of a compact internal space):</p>
+<ul>
+<li><strong>Two carriers are whole-shelf forced.</strong> $S^2$ (F1) and $S^1_Y/\mathbb{Z}_2$ (F2) are forced by shelf-closing theorems — entire classes of alternatives die.</li>
+<li><strong>Color is shelf-forced.</strong> $K_6=SU(3)/T^2$ is the unique <em>clean</em> $SU(3)$ carrier over the enumerated shelf by abelian-isotropy; the cheaper-looking rival $CP^2=SU(3)/U(2)$ was built end-to-end and <strong>breaks</strong> at the gauge gate, so it is not actually cheaper once forced to reproduce the target. That is the cleanest real elimination in the program.</li>
+<li><strong>Selector-minimality is a banked certificate, not absolute uniqueness.</strong> Inside the declared, frozen search grammar, under a description-length metric, $\mathfrak{B}_{\text{active}}$ is the <strong>selector-minimal complete survivor</strong> — the argmin over the admissible class, given $E$ (DeepRoot-shape ledger). This is <strong>DERIVED-GIVEN-E / CERTIFICATE-CONDITIONAL</strong>, conditional on the declared grammar + a metric bridge axiom + given $E$. It is <strong>never</strong> an architecture-neutral uniqueness result.</li>
+</ul>
+<p><strong>The minimality challenge, honestly.</strong> "No simpler shape anywhere reproduces the Standard Model" is a universal negative over all conceivable architectures — uncomputable, a unicorn every theory faces — so the program does not chase it. It declares a finite grammar and answers <em>category-relative</em> minimality inside it. <strong>Absolute</strong> minimality across all mathematics stays a permanent wall, refused as an axiom. <strong>Dissolved is not solved.</strong></p>
+<p><strong>Over-determination — the real evidence.</strong> The honest charged cost is $n\approx 13\text{–}14$ measured/fitted reals (not the "4-in" headline), against a much larger ledger of structure the Shape reproduces — roughly <strong>fourfold over-determination</strong> ($\sim$22 outputs from $\sim$5–6 effective inputs $\approx 3.7$–$4.4\times$). The genuine predictions are the <strong>within-sector ratios and the mixings</strong> — not the overall scales, which the fitted flavor normalizations $N_d, N_e, N_\nu$ inject as anchors. This is not a derivation from nothing; it is over-determination, and that is the case worth making.</p>
+<hr />
+<h2>9. Red-team traps</h2>
+<p>The page must never let any of the following stand:</p>
+<ul>
+<li><strong>"The geometry gives everything."</strong> → Replace with: <em>the frozen Shape can force downstream structures only when the relevant object, rule, operator, connection, and readout map are part of, or target-blindly derived from, the branch.</em> The metric-only Shape is the headline trap (SHP-A).</li>
+<li><strong>"E is derived."</strong> → Forbidden unless a bundle/actor uniqueness theorem is actually supplied. $E$ is a measured anchor (SHP-F); three generations and $\mathbb{Z}_6$ are forced <em>given $E$</em>, not a derivation of $E$.</li>
+<li><strong>Operator/connection swap.</strong> → "This spectral value agrees" is forbidden unless object identity is <strong>exact</strong>: same operator, same connection, same bundle, same grading, same scheme (SHP-B, GRN-C). The a6 lesson (§7.1) is the standing reminder.</li>
+<li><strong>Target-selected readout map.</strong> → A map attached after seeing the data, or one that quotes the target observable, fails target-blindness and is downgraded to TARGET-SELECTION-RISK regardless of how natural it looks (SHP-D, certificate field 4).</li>
+<li><strong>Category-relative closure sold as whole-gate closure.</strong> → $O_{\text{SHAPE,local}}(E_{\text{frozen}})=0$ (the banked argmin) does <strong>not</strong> imply $O_{\text{SHAPE}}=0$. Realization-minimality and absolute irreducibility stay open (SHP-H).</li>
+<li><strong>Hash = validation.</strong> → The frozen-branch hashes are <strong>audit anchors</strong> that certify <em>which object</em> was tested; they do <strong>not</strong> validate the physics, and reproducibility is not uniqueness (SHP-I).</li>
+</ul>
+<hr />
+<h2>10. Status ledger</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Endpoint type</th>
+<th>Status</th>
+<th>Reduces to (anchor/axiom)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Three layers load-bearing (×/⊕/⊗)</td>
+<td>structural necessity</td>
+<td><strong>certified (category-relative)</strong></td>
+<td>three-layer necessity B2; $\mathcal{N}_L=\varnothing$</td>
+</tr>
+<tr>
+<td>Family count $\chi(K_6,E)=-3$</td>
+<td>topological integer</td>
+<td><strong>derived — given E</strong></td>
+<td>bundle + index theorem; bottoms on $E$</td>
+</tr>
+<tr>
+<td>Charge quantization $\mathbb{Z}_6$, $Q=T_3+Y$</td>
+<td>center/quotient read-off</td>
+<td><strong>derived — given E</strong></td>
+<td>center-kernel; frozen parity table <code>ac4d2df3e708</code></td>
+</tr>
+<tr>
+<td>Weak / hyper carriers $S^2$, $S^1_Y/\mathbb{Z}_2$</td>
+<td>shelf-closing theorems</td>
+<td><strong>derived (whole-shelf)</strong></td>
+<td>facts F1 / F2</td>
+</tr>
+<tr>
+<td>Color carrier $K_6=SU(3)/T^2$</td>
+<td>shelf elimination</td>
+<td><strong>derived over enumerated shelf</strong></td>
+<td>abelian-isotropy uniqueness; whole-shelf completeness open</td>
+</tr>
+<tr>
+<td>Selector-minimality</td>
+<td>banked certificate</td>
+<td><strong>reduced to axiom (category-relative, given E)</strong></td>
+<td>declared grammar + metric bridge axiom + given $E$</td>
+</tr>
+<tr>
+<td>$a_6$ connection/object-class</td>
+<td>root constraint</td>
+<td><strong>root-forced; value open</strong></td>
+<td>SHP-B/SHP-C; GT/LC reconciliation residual</td>
+</tr>
+<tr>
+<td>Flavor SG8 map</td>
+<td>mechanism</td>
+<td><strong>Shape-supported; open</strong></td>
+<td>exact residue/projector/ladder map needed</td>
+</tr>
+<tr>
+<td>Bundle / $E$ uniqueness</td>
+<td>anchor</td>
+<td><strong>open / paid</strong></td>
+<td>bundle-uniqueness theorem or paid-$E$ declaration</td>
+</tr>
+<tr>
+<td>Sector normalizations $N_d, N_e, N_\nu$</td>
+<td>scale anchors</td>
+<td><strong>measured-anchor (paid)</strong></td>
+<td>declared $E$-anchor injection; Scale root</td>
+</tr>
+<tr>
+<td>Frozen branch identity (SHP-I)</td>
+<td>audit anchor</td>
+<td><strong>anchor — terminal</strong></td>
+<td><code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> (read-only)</td>
+</tr>
+<tr>
+<td>Absolute irreducibility</td>
+<td>universal negative</td>
+<td><strong>refused-as-axiom (permanent wall)</strong></td>
+<td>uncomputable Kolmogorov question</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Discipline restated:</strong> anchored is not closed · selected is not forced · frozen-and-reproducible is not proven-unique · the full Shape is all three layers at full precision. A candidate under honest audit — <strong>0 of 33 gates are physics-closed</strong>. no status changes.</p>
+<hr />
+<h2>11. Read it / cross-links</h2>
+<ul>
+<li>The other two deep roots: <strong><a href="/scale/">The Scale</a></strong> (absolute-magnitude discipline; the anchor, the scale-bridge, scheme objects) · <strong><a href="/granularity/">The Granularity</a></strong> (finite-cost discipline; the uniform positive cost floor, closed candidate classes, no unpaid labels).</li>
+<li><strong><a href="/anchors/deep-roots">The deep-roots anchor method</a></strong> and the <strong><a href="/anchors/deeproot-shape-anchor-ledger.html">DeepRoot-shape anchor ledger</a></strong> — the gate-by-object ledger across all three layers.</li>
+<li><strong><a href="/anchors/shape-minimality-challenge.html">The Shape Minimality Challenge</a></strong> — the scorecard, the competitor ledger, the three claim levels, the named closure theorems (name a cheaper architecture and the Shape folds).</li>
+<li>The four-layer simplicity bridge (the <em>selection ruler</em>, distinct from the Shape's own ×/⊕/⊗ layers): <strong><a href="/anchors/layer-1-metric.html">Layer 1 — the metric</a></strong> · <strong><a href="/anchors/layer-2-no-unpaid-labels.html">Layer 2 — no unpaid labels</a></strong> · <strong><a href="/anchors/layer-3-search-grammars.html">Layer 3 — search grammars</a></strong> · <strong><a href="/anchors/layer-4-carrier-forcing.html">Layer 4 — carrier-forcing &amp; the given-E wall</a></strong>.</li>
+<li><strong><a href="/gates/">The gate scoreboard</a></strong> — honest per-gate status across all 33 gates · the <strong><a href="/walls/">walls register</a></strong> · the <strong><a href="/closure/">closure routing</a></strong>.</li>
+<li><strong>Full-precision Shape + freeze</strong> → <strong><a href="/articles/GUT.html">GUT Appendices A0–A2 (HTML)</a></strong> · <strong><a href="/articles/GUT.pdf">PDF</a></strong>.</li>
+</ul>
+<p><strong>Final standard.</strong> This page succeeds if you can now answer: <em>What exact object is the Shape? Which layer is being used? What does Shape force, support, pay, or leave open? What changes if the Shape is perturbed? What map carries Shape to the observable? Where does the page stop honestly?</em> If any answer is missing, the page is not full-precision yet.</p>
+<hr />
+<h2>Appendix — Full precision</h2>
+<p>The Shape is <strong>frozen and reproducible at full precision.</strong> The canonical full-precision source for all three layers is <strong><a href="/articles/GUT.html">GUT Appendix A1 (full precision)</a></strong> · <strong><a href="/articles/GUT.pdf">PDF</a></strong> — every "the Shape" reference on this page means <strong>all three layers ($\times$ Stage · $\oplus$ Rulebook · $\otimes$ Actors), at full precision, on the named branch</strong>, reachable in one click there. GUT <strong>Appendix A1</strong> reconstructs the active branch at <strong>≥16-significant-figure precision across all three frozen layers</strong> ($\times$ directly via A1.2–A1.12; $\oplus$ indexed via A1.13/A1.13a; $\otimes$ domain/codomain-routed via A1.14 / <a href="/articles/GUT.html">Appendix A2</a>), under frozen manifest <strong>A0</strong> (R1: 33 items, meta-hash <code>a5b1e6f9d951</code>) and active branch hash <code>dcc66f1b2685</code>. The hashes are <strong>audit anchors</strong> — they certify <em>which exact object</em> was tested and that it cannot be quietly retuned; they do <strong>not</strong> validate the physics. Use the full-precision object — not the compact mnemonic — for any computation or audit.</p>
+<h3>A.0 The frozen branch identity (SHP-I anchor)</h3>
+<pre><code>Active branch (geometry) hash : dcc66f1b2685
+Manifest meta-hash            : a5b1e6f9d951   (sha256-12 over R1.9 (label : full-hash) lines, 33 items)
+Reproducer                    : clone @ scripts_hashes.json commit → restore environment.lock
+                                → python reproduce_all.py → certificate CSVs regenerate bit-for-bit
+Fail-closed rule (R0.6)       : any hash mismatch or column-sum miss invalidates the dependent certificate
+</code></pre>
+<p>If geometry, rulebook, operator, $E$, connection, or readout changes, the hash changes and it is a <strong>new branch</strong> — not the same prediction.</p>
+<h3>A.1 The full layered active object (all three layers)</h3>
+<p>$$
+\mathfrak{B}_{\text{active}}
+=\underbrace{\bigl[\mathcal{M}_4 \times K_6 \times S^2 \times S_Y^{\,1}\bigr]}_{\times\;\text{base / metric}}
+\;\oplus\;
+\underbrace{\bigl[\mathcal{F}^{+}_{\text{finite}} \oplus \mathcal{C}_{\text{admiss}}\bigr]}_{\oplus\;\text{finite chamber / admissibility}}
+\;\otimes\;
+\underbrace{\bigl[\mathcal{E}_{\text{matter}} \oplus \mathcal{E}_{\text{gauge}} \oplus \mathcal{E}_{\text{Higgs}} \oplus \mathcal{E}_{\text{proton}}\bigr]}_{\otimes\;\text{field / bundle / Hilbert / operator}}
+$$</p>
+<p>with $K_6=SU(3)/T^2$, $S_Y^{\,1}/\mathbb{Z}_2$ the active boundary domain, and</p>
+<p>$$
+\mathcal{F}^{+}_{\text{finite}}=\{\tau=\omega,\ \mathcal{G}_{\text{gen}},\ \Pi_u,\Pi_d,\Pi_e,\Pi_\nu,\ O_u,O_d,O_e,O_\nu,\ \phi_i,\ N_i,\ \mathcal{N}_i,\ \mathrm{RG}\},
+$$
+$$
+\mathcal{E}_{\text{matter}}=S_{3,1}\otimes S^{\text{spin}^c}_{K_6}\otimes S^{\text{spin}^c}_{S^2}\otimes L_Y \otimes V_{SU(3)}\otimes V_{SU(2)}\otimes V_{F^+}.
+$$</p>
+<p>The chirality projector entering the Atiyah–Singer–Patodi boundary index is $P_\chi=\tfrac12(1+\gamma_5\Gamma_8)$, with $\Gamma_8$ the chirality operator on the internal 8D spinor bundle $S(K_6)\otimes S(S^2)\otimes S(S_Y^{\,1})$.</p>
+<p><strong>Notational rule (binding).</strong> Only the $\times$-layer contributes to the metric dimension count: $D = 4+6+2+1 = 13$. The $\oplus$ and $\otimes$ layers are non-metric but are part of the frozen branch and cannot be silently dropped. <strong>No hidden geometry. No hidden finite data. No hidden tensor layer.</strong></p>
+<h3>A.2 The four declared anchors (R1.8) — the only SM values read before comparison</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Input</th>
+<th>Value</th>
+<th>Role</th>
+<th>Hash</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>$M_{\rm Pl}$</td>
+<td>$1.220900000000000\times10^{19}$ GeV (4-sig-fig source; ordinary, not reduced)</td>
+<td>Scale anchor: pins compactification volume via $M_{\rm Pl}^2=M_*^{n+2}V_K$</td>
+<td><code>df5976a365c3</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>$\alpha_1^{-1},\alpha_2^{-1},\alpha_3^{-1}$ at $M_Z$</td>
+<td>PDG central values</td>
+<td>Comparison target for the threshold gate</td>
+<td><code>6a3b6ef06697</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>$y_t(M_Z)$</td>
+<td>$0.9665$</td>
+<td>Flavor calibration: fixes up-sector normalization $N_u$</td>
+<td><code>548d7099ef18</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>$\lvert V_{us}\rvert$</td>
+<td>$0.22436$</td>
+<td>Flavor calibration: fixes chamber angle $\theta_F$</td>
+<td><code>a1bc510bc7cd</code></td>
+</tr>
+</tbody>
+</table>
+<p>These four are the <strong>only</strong> SM values read before comparison. The data-use firewall (§4.9) keeps $M_Z$ ($91.18760000000000$ GeV, PDG band $\pm0.0021$) and the PDG right-hand-side values as measurement targets, not inputs. Structural facts (which groups, how many families) are constraints, never numerical inputs.</p>
+<h3>A.3 × Stage geometry — exact + ≥16-sig-fig reconstruction</h3>
+<p><em>Canonical full precision for this layer:</em> <strong><a href="/articles/GUT.html">GUT Appendix A1.2–A1.12 (full precision)</a></strong> · <strong><a href="/articles/GUT.pdf">PDF</a></strong> (radii A1.2, volumes A1.3, $K_6$ root/curvature/representation data A1.4–A1.5, $S^2$ A1.6, $S_Y^1/\mathbb{Z}_2$ A1.7, gauge/Planck normalization A1.9).</p>
+<p><strong>Mathematical constants (exact / 16 s.f.):</strong> $\pi=3.141592653589793$; $\sqrt{3}=1.732050807568877$; $(2\pi)^3=248.0502134423985$; $(2\pi)^6=61528.90838881947$; $\pi\sqrt3=5.441398092702653$; $V_{K_6,0}=(2\pi)^3/\sqrt3=143.2118575035129$.</p>
+<p><strong>Radii (chamber-center, $\vec u=(1,1,1)$):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Equation</th>
+<th>Value (16 s.f.)</th>
+<th>Units</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$M_U$</td>
+<td>$\alpha_i^{-1}(M_U)=\alpha_j^{-1}(M_U)$ (declared closure target)</td>
+<td>$1.0\times10^{16}$ GeV (closure residual $9.6\times10^{-11}\ll\sim10^{-3}$ PDG band)</td>
+<td>GeV</td>
+</tr>
+<tr>
+<td>$R_0$</td>
+<td>$(2\pi M_U)^{-1}$</td>
+<td>$1.591549430918954\times10^{-17}$</td>
+<td>GeV$^{-1}$</td>
+</tr>
+<tr>
+<td>$R_6$</td>
+<td>$R_0\cdot u_{\text{chamber}}$, $u_{\text{chamber}}=1$</td>
+<td>$1.591549430918954\times10^{-17}$</td>
+<td>GeV$^{-1}$</td>
+</tr>
+<tr>
+<td>$R_2$</td>
+<td>$R_0\cdot s_2$, $s_2=1$ (leading)</td>
+<td>$1.591549430918954\times10^{-17}$</td>
+<td>GeV$^{-1}$</td>
+</tr>
+<tr>
+<td>$R_Y$</td>
+<td>$R_0\cdot\tfrac12 e^{-\delta_1/2b_1^{\rm KK}}$ (post-$\mathbb{Z}_2$)</td>
+<td>$7.957747154594768\times10^{-18}$</td>
+<td>GeV$^{-1}$</td>
+</tr>
+<tr>
+<td>$R_{T^2_{\rm Cartan}}$</td>
+<td>$R_0\sqrt{2}\,3^{-1/4}$ at $\tau=\omega$</td>
+<td>$1.710231163476377\times10^{-17}$</td>
+<td>GeV$^{-1}$</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Volumes (chamber-center):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Value (16 s.f.)</th>
+<th>Units</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\mathrm{Vol}(K_6)=V_{K_6,0}R_0^6$</td>
+<td>$2.327554010848277\times10^{-99}$</td>
+<td>GeV$^{-6}$</td>
+</tr>
+<tr>
+<td>$\mathrm{Vol}(S^2)=4\pi R_0^2$</td>
+<td>$3.183098861837907\times10^{-33}$</td>
+<td>GeV$^{-2}$</td>
+</tr>
+<tr>
+<td>$\mathrm{Vol}(S_Y^{\,1})=2\pi R_Y$ (parent)</td>
+<td>$1.000000000000000\times10^{-16}$ (exact $=1/M_U$)</td>
+<td>GeV$^{-1}$</td>
+</tr>
+<tr>
+<td>$\mathrm{Vol}(S_Y^{\,1}/\mathbb{Z}_2)=\pi R_Y$ (active)</td>
+<td>$5.000000000000000\times10^{-17}$ (exact $=1/(2M_U)$)</td>
+<td>GeV$^{-1}$</td>
+</tr>
+<tr>
+<td>$\mathrm{Vol}(X_{\rm active})$</td>
+<td>$3.704417261398702\times10^{-148}$</td>
+<td>GeV$^{-9}$</td>
+</tr>
+</tbody>
+</table>
+<p><strong>$K_6=SU(3)/T^2$ root data ($A_2=\mathfrak{su}(3)$, Cartan basis, $h_1{+}h_2{+}h_3{=}0$):</strong> simple roots $\alpha_1=(1,-1,0)$, $\alpha_2=(0,1,-1)$, $\alpha_1+\alpha_2=(1,0,-1)$; positive roots $\{\alpha_1,\alpha_2,\alpha_1+\alpha_2\}$; Weyl vector $\rho=(1,0,-1)$, $\|\rho\|^2=2$ (Killing normalization); tangent decomposition $T(K_6)=\mathfrak{m}_1\oplus\mathfrak{m}_2\oplus\mathfrak{m}_3$, $\dim_\mathbb{R}\mathfrak{m}_i=2$. Squashing chamber $\vec u\in[1/2,3/2]^3$ Weyl-rigid, chamber-center witness $u_1=u_2=u_3=1.000000000000000$.</p>
+<h3>A.4 ⊕ Rulebook — exact finite data (full precision)</h3>
+<p><em>Canonical full precision for this layer:</em> <strong><a href="/articles/GUT.html">GUT Appendix A1.13 + A1.13a (full precision)</a></strong> · <strong><a href="/articles/GUT.pdf">PDF</a></strong> (the $F^+$ chamber object table A1.13.2, the finite $\oplus$-layer index A1.13a.1, the constraint ledger in <a href="/articles/GUT.html">Appendix B1</a>). The $\oplus$ layer is zero-dimensional but load-bearing; the same ≥16-sig-fig audit precision A.3 applies to radii and volumes is applied here to the finite, non-metric chamber-and-admissibility data. <strong>Every numeric value below is read directly from GUT Appendix A1.13.2 / A1.13a.1.</strong></p>
+<p><strong>$F^+$ finite chamber</strong> — $\mathcal{F}^{+}_{\text{finite}}=\{\tau=\omega,\ \mathcal{G}_{\text{gen}},\ \Pi_u,\Pi_d,\Pi_e,\Pi_\nu,\ O_u,O_d,O_e,O_\nu,\ \phi_i,\ N_i,\ \mathcal{N}_i,\ \mathrm{RG}\}$, frozen as part of active branch <code>dcc66f1b2685</code>.</p>
+<p><strong>Chamber modulus $\tau$ (exact, 16 s.f.).</strong> $\tau=\omega=e^{2\pi i/3}\in\mathbb{H}/SL(2,\mathbb{Z})$ pinned at the order-three modular fixed point (hash <code>03b30a9c931a</code>):
+$$
+\tau=-\tfrac12+\tfrac{\sqrt3}{2}\,i=-0.5000000000000000+0.8660254037844386\,i.
+$$</p>
+<p><strong>Generation basis.</strong> $\mathcal{G}_{\text{gen}}=\mathrm{span}_{\mathbb{C}}\{g_1,g_2,g_3\}$, $\dim_{\mathbb{C}}=3$ (matched to the index $-3$); part of hash <code>3b8d68559f5e</code>.</p>
+<p><strong>Sector projectors $\Pi_i$ and their algebra.</strong> Four orthogonal rank-3 projectors $\Pi_u,\Pi_d,\Pi_e,\Pi_\nu:\mathcal{G}_{\text{gen}}\to\mathcal{G}_{\text{gen}}$ (hash <code>3b8d68559f5e</code>) with the exact algebra
+$$
+\Pi_i\,\Pi_j=\delta_{ij}\,\Pi_i,\qquad i,j\in\{u,d,e,\nu\}.
+$$
+This orthogonality is what makes every sector-respecting operator block-diagonal ($\Pi_i M\Pi_j=0$ for $i\ne j$) — the identity the proton-safety theorem rests on (GUT A2.6).</p>
+<p><strong>Sector operators $O_i$ (diagonal at $\tau=\omega$, with $\kappa=e^{-\pi\sqrt3}=0.004333420509983131$).</strong> Each $O_i$ is diagonal in the canonical chamber basis on $\Pi_i\mathcal{G}_{\text{gen}}$ with entries $(O_i)^{aa}=N_i\,\kappa^{a_i^{(a)}}$ over the integer/rational <strong>action ladders</strong> $a_u=(2,1,0)$ (hash <code>e2ef21cecade</code>), $a_d=(4/3,2/3,0)$ (hash <code>989edc50b559</code>), $a_e=(2,4/3,0)$, $a_\nu=(1,1/2,0)$:</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Diagonal value (16 s.f.)</th>
+<th>Hash</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$O_u$</td>
+<td>$\mathrm{diag}(1.877853331634246\times10^{-5},\,4.333420509983131\times10^{-3},\,1.000000000000000)$</td>
+<td><code>07be17dd8a1c</code></td>
+</tr>
+<tr>
+<td>$O_d$</td>
+<td>$\mathrm{diag}(1.695582872666127\times10^{-5},\,6.379184034340682\times10^{-4},\,2.400000000000000\times10^{-2})$</td>
+<td><code>50ef768bb146</code></td>
+</tr>
+<tr>
+<td>$O_e$</td>
+<td>$\mathrm{diag}(1.915410398266931\times10^{-7},\,7.206227208831040\times10^{-6},\,1.020000000000000\times10^{-2})$</td>
+<td><code>08ff25117d00</code></td>
+</tr>
+<tr>
+<td>$O_\nu$</td>
+<td>$\mathrm{diag}(4.333420509983131\times10^{-3},\,6.582872101129666\times10^{-2},\,1.000000000000000)$ (magnitudes; Berry phase applied at diagonalization)</td>
+<td><code>495ddbdcedb9</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Phases $\phi_i$ (exact, from holonomy — not tuned).</strong> CKM phase from the order-three holonomy $\delta_{\rm CKM}=-2\pi/3=-2.094395102393195\,\text{rad}=-120.0^\circ$ (part of <code>03b30a9c931a</code>); leptonic second-cycle Berry phase on $A_2$, $\phi_{\rm lept}=+2\pi/3=+2.094395102393195\,\text{rad}=+120.0^\circ$ (part of <code>495ddbdcedb9</code>); chamber angle $\theta_F$ (DFT-on-$\mathbb{Z}_3$ rotation) fixed by the $|V_{us}|$ anchor (hash <code>1ff57f48d45a</code>).</p>
+<p><strong>Normalizations $N_i$ — FITTED CALIBRATION INPUTS, NOT PREDICTIONS.</strong> The sector-level species normalizations are (hash <code>20dc4e0b8220</code>):
+$$
+N_u=1.000000000000000,\qquad N_d=2.400000000000000\times10^{-2},\qquad N_e=1.020000000000000\times10^{-2}.
+$$
+$N_u$ sets the up-sector heavy anchor via $y_t$; $N_d$ is <strong>fitted</strong> so $m_b$ matches its $M_Z$ target; $N_e$ is <strong>fitted</strong> so $m_\tau$ matches its target. The neutrino normalization $N_\nu$ is <strong>not given an explicit fitted value in GUT A1.13</strong> — the neutrino absolute scale enters through the Type-I seesaw $M_\nu^{\rm eff}=-M_D M_R^{-1}M_D^{T}$ (GUT K.4) with the seesaw scale $M_R$ declared <strong>uncomputed</strong>; $N_d,N_e,N_\nu$ are each fitted to $m_b,m_\tau,\Delta m^2$ respectively. There is <strong>no</strong> closed-form $N_d=f(N_u)$ in the manuscript. <em>Family-level normalizations $N_{i,a}$ are explicitly forbidden</em> (same hash) — that prohibition is what makes the per-family hierarchy a $\kappa$-ladder prediction rather than a fit. <strong>These normalizations are paid Scale/calibration anchors, never predictions.</strong></p>
+<p><strong>Yukawa-map rule $\mathcal{N}_i$ (exact).</strong> $(Y_i)^{ab}=N_i\,\langle g_a\,|\,O_i\,|\,g_b\rangle$ for $i\in\{u,d,e,\nu\}$; sector-level $N_i$ only (hash <code>1f20935643cf</code>). Physical-basis Yukawa via DFT-on-$\mathbb{Z}_3$ rotation then chamber angle $\theta_F$.</p>
+<p><strong>RG / comparison-scale rule (exact).</strong> Two-loop SM running, $\overline{\rm MS}$, comparison scale $M_Z=91.1876$ GeV (hashes <code>f531205a9159</code>, <code>a6852c7a6b00</code>, <code>61b0d93507e7</code>).</p>
+<p><strong>$\mathcal{C}_{\text{admiss}}$ admissibility firewall — constraints C1–C14 (enumerated).</strong> The admissibility set is $\mathcal{C}_{\text{admiss}}=\{$selector v3, C1–C14, freeze barrier, anomaly conditions, no-mirror parity, Wilson-line winding rule, FCNC/mediator no-go$\}$ (GUT A1.1, A1.13a.1). The constraint ledger (GUT Appendix B1, B.8.1):</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Constraint</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>C1</strong></td>
+<td>Search-category boundary</td>
+<td>admissible compactifications (declared category)</td>
+</tr>
+<tr>
+<td><strong>C2</strong></td>
+<td>Standard Model gauge recovery</td>
+<td>isometry → $G_{\rm SM}$</td>
+</tr>
+<tr>
+<td><strong>C3</strong></td>
+<td>Hypercharge / electric-charge audit</td>
+<td>$Q=T_3+Y$ ledger</td>
+</tr>
+<tr>
+<td><strong>C4</strong></td>
+<td>Three chiral generations from spin-$\mathbb{C}$ index</td>
+<td>family count $=|\mathrm{Index}|$</td>
+</tr>
+<tr>
+<td><strong>C5</strong></td>
+<td>Anomaly cancellation (gauge / mixed / gravitational)</td>
+<td>trace identities</td>
+</tr>
+<tr>
+<td><strong>C6</strong></td>
+<td>No-mirror projection on $S_Y^1/\mathbb{Z}_2$</td>
+<td>chirality / no mirrors</td>
+</tr>
+<tr>
+<td><strong>C7</strong></td>
+<td>Stabilization of downstream moduli</td>
+<td>rigidity witnesses</td>
+</tr>
+<tr>
+<td><strong>C8</strong></td>
+<td>Finite threshold closure under a declared regulator</td>
+<td>threshold unification</td>
+</tr>
+<tr>
+<td><strong>C9</strong></td>
+<td>Higgs protection by Wilson-line / Hosotani mechanism</td>
+<td>$n_H=1$ winding</td>
+</tr>
+<tr>
+<td><strong>C10</strong> (+ <strong>C10b</strong>)</td>
+<td>Family count and matter-bundle ledger</td>
+<td>spin-$\mathbb{C}$ index refinement</td>
+</tr>
+<tr>
+<td><strong>C11</strong></td>
+<td>Higgs protection (compact rename of C9 in some drafts)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>C12</strong> (+ <strong>C12b</strong>)</td>
+<td>Flavor closure (quark + charged-lepton + neutrino)</td>
+<td>$F^+$ chamber</td>
+</tr>
+<tr>
+<td><strong>C13</strong> (+ <strong>C13b/C13c</strong>)</td>
+<td>Proton safety + boundary discipline</td>
+<td>operator-class boundary</td>
+</tr>
+<tr>
+<td><strong>C14</strong></td>
+<td>Freeze-before-compare runtime barrier</td>
+<td>anti-fitting firewall</td>
+</tr>
+</tbody>
+</table>
+<p>Additional $\mathcal{C}_{\text{admiss}}$ rules carry their own hashes: no-mirror parity table <code>ac4d2df3e708</code> (GUT A1.8), Wilson-line winding rule $n_H\in\mathbb{Z}_{>0}$, active $n_H=1$ (hashes <code>f65094fd8fd1</code>, <code>640e1d7f7773</code>), FCNC/mediator no-go theorem <code>fff4b433b7b3</code> with operator-class hash <code>551488d06011</code>.</p>
+<h3>A.5 ⊗ Actors — exact bundle/operator data (full precision)</h3>
+<p><em>Canonical full precision for this layer:</em> <strong><a href="/articles/GUT.html">GUT Appendix A1.14 + A2 (full precision)</a></strong> · <strong><a href="/articles/GUT.pdf">PDF</a></strong> (the $\otimes$-layer index A1.14, the spinor-bundle structure A2.2, the matter bundle A2.3, gauge A2.4, Higgs/Wilson-line A2.5, $F^+$ operator structure A2.6, Yukawa maps A2.7, proton-safety projectors A2.8). The $\otimes$ layer is zero-dimensional but physically decisive — <em>what</em> lives over the Stage, and <strong>which operator</strong> reads it off. <strong>Every value below is read directly from GUT A1.14 / A2.</strong></p>
+<p><strong>$E_{\text{matter}}$ — full seven-factor spinor/gauge/flavor tensor (GUT A2.3).</strong>
+$$
+\mathcal{E}_{\text{matter}}=S_{3,1}\otimes S^{\text{spin}^c}_{K_6}\otimes S^{\text{spin}^c}_{S^2}\otimes L_Y\otimes V_{SU(3)}\otimes V_{SU(2)}\otimes V_{F^+},
+$$</p>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Definition</th>
+<th>Carries</th>
+<th>Hash</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$S_{3,1}$</td>
+<td>4D Dirac spinor bundle over $M_4$</td>
+<td>Lorentz spinor index</td>
+<td>primitive</td>
+</tr>
+<tr>
+<td>$S^{\text{spin}^c}_{K_6}$</td>
+<td>spin-$\mathbb{C}$ spinor bundle on $K_6=SU(3)/T^2$</td>
+<td>family-index $-3$ via BWB</td>
+<td><code>0fd19c9ae0c1</code></td>
+</tr>
+<tr>
+<td>$S^{\text{spin}^c}_{S^2}$</td>
+<td>spin-$\mathbb{C}$ spinor bundle on $S^2$</td>
+<td>weak doublet/singlet routing</td>
+<td><code>1cb807d03288</code></td>
+</tr>
+<tr>
+<td>$L_Y$</td>
+<td>hypercharge line bundle on $S_Y^1/\mathbb{Z}_2$</td>
+<td>$\mathbb{Z}_2$ parity, $\mathbb{Z}_6$ phase, $Y\in\tfrac16\mathbb{Z}$</td>
+<td><code>44516f6400ae</code></td>
+</tr>
+<tr>
+<td>$V_{SU(3)}$</td>
+<td>$SU(3)_c$ rep module ($\mathbf{3}$ quarks, $\mathbf{1}$ leptons)</td>
+<td>color routing</td>
+<td>part of <code>0fd19c9ae0c1</code></td>
+</tr>
+<tr>
+<td>$V_{SU(2)}$</td>
+<td>$SU(2)_L$ rep module ($\mathbf{2}$ doublets, $\mathbf{1}$ singlets)</td>
+<td>weak routing</td>
+<td><code>1cb807d03288</code></td>
+</tr>
+<tr>
+<td>$V_{F^+}$</td>
+<td>$F^+$ generation module $\mathcal{G}_{\text{gen}}$, $\dim=3$</td>
+<td>family index</td>
+<td><code>3b8d68559f5e</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>BWB weight and resulting index (GUT A2.2, A1.5, E.1).</strong> The spin-$\mathbb{C}$ line bundle $L_{c_1}$ on $K_6$ carries the first Chern class set by the family-count requirement; the Borel–Weil–Bott line-bundle representation label is <strong>weight $(1,0)$</strong> (the $\mathbf{3}$ of $SU(3)$, $C_2(1,0)=4/3$). The resulting spin-$\mathbb{C}$ Dirac index on the chiral mode space is
+$$
+\chi(K_6,E)=\mathrm{Index}\bigl(D^{\text{spin}^c}_{K_6}\bigr)=-3,
+$$
+combined with the $S_Y^1/\mathbb{Z}_2$ Atiyah–Singer–Patodi one-sided index $(n_L,n_R)=(+3,0)$ (fold parity <code>ac4d2df3e708</code>) → three left-handed families, no mirror partner. This is <strong>SHAPE-FORCED given $E$</strong> — a topological integer, not a derivation <em>of</em> $E$.</p>
+<p><strong>$E_{\text{gauge}}$, $E_{\text{Higgs}}$, $E_{\text{proton}}$ content (GUT A2.4–A2.5, A2.8).</strong>
+- $\mathcal{E}_{\text{gauge}}=T^*(M_4)\otimes\mathrm{ad}(P_{K_{\rm gauge}})$ with structure group $G=\bigl(SU(3)_c\times SU(2)_L\times U(1)_Y\bigr)/\mathbb{Z}_6$; routing $SU(3)_c\!\leftarrow\!K_6$, $SU(2)_L\!\leftarrow\!S^2$, $U(1)_Y\!\leftarrow\!S_Y^1/\mathbb{Z}_2$.
+- $\mathcal{E}_{\text{Higgs}}=L_\gamma\otimes V_{SU(2),\mathbf{2}}\otimes L_{Y=+1/2}$ — the $(\mathbf{1},\mathbf{2},+\tfrac12)$ Wilson-line zero mode, winding $n_H=1$ (hashes <code>2a0462b8aab9</code>, <code>640e1d7f7773</code>).
+- $\mathcal{E}_{\text{proton}}=\Pi_q E_{\text{matter}}\otimes\Pi_\ell E_{\text{matter}}$, sector-orthogonal four-fermion domain; macro-projectors $\Pi_q,\Pi_\ell$ derived from <code>3b8d68559f5e</code>; safety identity $\Pi_q M\Pi_\ell=0$ (operator-class <code>551488d06011</code>).</p>
+<p><strong>Connections and operator domains — the load-bearing Actor-layer decision.</strong> The chirality projector entering the index is $P_\chi=\tfrac12(1+\gamma_5\Gamma_8)$, $\Gamma_8=\Gamma_{K_6}\Gamma_{S^2}\Gamma_{S_Y^1}$. <strong>Which operator</strong> is computed is an Actor-layer choice and is <em>not interchangeable</em>: the family count is the twisted <strong>spin-$\mathbb{C}$ Dirac/index operator</strong> $D^{\text{spin}^c}_{K_6}$ (GUT A2.2) — a pure-spin Dirac operator does <em>not</em> return $-3$ (GUT line 7031). For spectral diagnostics the <em>physical</em> Lichnerowicz operator is <strong>not</strong> interchangeable with the canonical Casimir/Peter–Weyl proxy or the Bochner ghost on the non-symmetric coset $K_6$ — the $a_6$ / Gap-01 lesson (§7.1, SHP-B/SHP-C). Naming the operator, connection, bundle, grading, and scheme is part of the Shape burden (GRN-C).</p>
+<p><strong>Yukawa map (GUT A2.7).</strong> $(Y_i)^{ab}=N_i\,\langle g_a|O_i|g_b\rangle$ for $i\in\{u,d,e,\nu\}$, with the <strong>fitted</strong> $N_i$ of A.4 (calibration inputs, not predictions) and the diagonal chamber operators $O_i$; tensor map (matter doublet)$\otimes$Higgs$\otimes$(matter singlet)$\to\mathbb{C}$ (hash <code>1f20935643cf</code>).</p>
+<p><strong>Wilson-line determinant → $(v,m_h)$ (GUT A2.5, H.4, A1.10).</strong> The finite Hosotani/Wilson-line determinant on the active branch is the Berezin–Kontsevich coefficient (hash <code>84e94518d3f5</code>)
+$$
+\eta_{BK}=0.009721281516312024,\qquad 1/\eta_{BK}=32\pi\,e^{+\sqrt3/(24\pi)}=102.8670961047707,
+$$
+with $K_{tb}^{\rm crit}=e^{-\pi\sqrt3/16}=0.7117081304239685$ (hash <code>c15d00c6f664</code>). The <em>same</em> determinant produces two SM outputs (one structural source) — the post-RG frozen outputs (declared bands, not exact values):
+$$
+v_{\rm pred}=246.02\pm3.5\ \text{GeV},\qquad m_h=123.82\pm1.8\ \text{GeV}.
+$$
+$v$ via $v_{\rm pred}\approx 2\pi R_\gamma\,\theta_H^\star/\theta_0$; $m_h^2=\bigl(d^2V_{\rm Hos}/d\theta_H^2\bigr)\big|_{\theta_H^\star}/(2\pi R_\gamma)^2$. The Wilson-line phase minimum $\theta_H^\star$ is <strong>read from the chamber minimum, not derived from first principles</strong> (GUT H.9.7) — Gate 8 establishes structural mass-protection, not a first-principles derivation of the hierarchy, which stays OPEN.</p>
+<h3>A.6 Cross-layer integer quick-reference (read-offs)</h3>
+<p>A compact at-a-glance index over the three layers; full precision in A.3 ($\times$), A.4 ($\oplus$), A.5 ($\otimes$).</p>
+<table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Exact value</th>
+<th>Layer / source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Metric dimension</td>
+<td>$D=4+6+2+1=13$</td>
+<td>$\times$</td>
+</tr>
+<tr>
+<td>Spin-$\mathbb{C}$ family index</td>
+<td>$\chi(K_6,E)=-3$ (BWB weight $(1,0)$)</td>
+<td>$\otimes$ — given $E$</td>
+</tr>
+<tr>
+<td>APS one-sided index</td>
+<td>$(n_L,n_R)=(+3,0)$</td>
+<td>$\otimes$ — fold parity <code>ac4d2df3e708</code></td>
+</tr>
+<tr>
+<td>Center-kernel</td>
+<td>$\mathbb{Z}_6=\ker(Z(G_0)\to\mathrm{Aut}(E))$; $Q=T_3+Y$</td>
+<td>$\oplus/\times$ global</td>
+</tr>
+<tr>
+<td>Hypercharge sums</td>
+<td>$\sum Y^3=0$, $\sum Y^2=10/3$</td>
+<td>$\otimes$ anomaly closure</td>
+</tr>
+<tr>
+<td>Chamber modulus</td>
+<td>$\tau=\omega=e^{2\pi i/3}$ (order-3 modular fixed point)</td>
+<td>$\oplus$, hash <code>03b30a9c931a</code></td>
+</tr>
+<tr>
+<td>Generations basis</td>
+<td>$|\mathcal{G}_{\text{gen}}|=3$</td>
+<td>$\oplus$, matched to index $-3$</td>
+</tr>
+<tr>
+<td>Sector projectors</td>
+<td>$\Pi_i\Pi_j=\delta_{ij}\Pi_i$</td>
+<td>$\oplus$, hash <code>3b8d68559f5e</code></td>
+</tr>
+<tr>
+<td>Yukawa map</td>
+<td>$(Y_i)^{ab}=N_i\langle g_a|O_i|g_b\rangle$</td>
+<td>$\oplus$, hash <code>1f20935643cf</code></td>
+</tr>
+</tbody>
+</table>
+<h3>A.7 Post-freeze outputs (computed with no further numerical input)</h3>
+<p>From the four anchors of A.2 the frozen geometry returns, post-freeze: <strong>nineteen-plus independent flavor observables</strong> (six quark masses, the between-sector ratio $|y_t/y_b|$, CKM magnitudes with $\delta_{\rm CKM}$ and the Jarlskog invariant, three charged-lepton masses, neutrino mass-squared splittings, three PMNS angles, leptonic CP phase); the <strong>electroweak scale</strong> $v=246.02$ GeV and <strong>Higgs mass</strong> $m_h=123.82$ GeV from the Wilson-line determinant (Gate 8: one structural source, two outputs); and the <strong>unification scale</strong> $M_U\sim10^{16}$ GeV scored against anchor 2. Honest status (Gate 8 / flavor): <strong>OPEN by least-closed residual</strong> — flavor J.6 rows $m_u$, $|V_{td}|$, $\delta_{\rm CKM}$ carry raw-PDG pulls $\approx 4.4\sigma$, $\approx 13.7\sigma$, $\approx 3.7\sigma$; within-sector ratios/mixings and $J_{\rm CKM}$ remain DERIVED-GIVEN-E. The absolute sector scales ($m_b,m_\tau,\Delta m^2$) are calibration inputs via the fitted normalizations $N_d,N_e,N_\nu$, not predictions. The honest whole-construction compression is <strong>$\approx 3.7$–$4.4\times$</strong> ($\sim$22 outputs from $\sim$5–6 effective inputs) — strong, positive, but modest; not a zero-input derivation, and never claimed as one.</p>
+<h3>A.8 Reproducibility / audit hooks</h3>
+<p>A hostile reviewer holding $A0+A1+L$ can reconstruct the product geometry, all quotient/boundary domains, all chirality projectors and parity assignments, all gauge-routing rules, all $K_6$ root/curvature/representation data, all $S^2$ spin-$\mathbb{C}$ sectors, all $S_Y^1$/$\mathbb{Z}_2$/$\mathbb{Z}_6$ conventions, all Wilson-line/Higgs constants, all threshold constants and the heat-kernel ledger, the $F^+$ chamber as finite operator data, and every derived constant to ≥16 s.f. — then reproduce every downstream certificate number via R0 (<code>reproduce_all.py</code>), with the manifest meta-hash <code>a5b1e6f9d951</code> reproduced bit-for-bit. <strong>R1 freezes. A1 reconstructs. R0 reproduces.</strong> Any mismatch is a fail-closed event (R0.6). The reopen-trigger list (A1.16) is the falsifier: any listed change invalidates the affected downstream certificates until A0, A1, and R0 are regenerated and hashes updated — which, by SHP-I, makes it a new branch.</p>
+</main>
+</div>
+</body></html>

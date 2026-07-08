@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The building blocks &mdash; A Framework for a Theory of Everything</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 256px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:64rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:14.5px;margin:0 0 6px;line-height:1.25;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+<style>
+/* ---- Canonical top-nav bridge (site-wide sections) ---- */
+.site-topbar{background:#1b1f23;color:#eee;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.78rem;}
+.site-topbar-inner{max-width:76rem;margin:0 auto;padding:.4em 1.2em;display:flex;flex-wrap:wrap;gap:.5em 1.2em;align-items:center;justify-content:space-between;}
+.site-topbar .stamp{color:#e7c9a9;letter-spacing:.01em;}
+.site-topbar .stamp b{color:#fff;font-weight:700;}
+.site-topbar .topbar-site{color:#c9c2b3;}
+header.site-header-bridge{background:#fbfaf7;border-bottom:1px solid #d8d3c7;font-family:"Helvetica Neue",Arial,sans-serif;}
+.bridge-brand-row{max-width:76rem;margin:0 auto;padding:.85em 1.2em .5em;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:.4em;}
+.bridge-brand-row a.bridge-title{color:#1b1f23;text-decoration:none;font-weight:700;font-size:1.15rem;}
+.bridge-brand-row .bridge-tag{font-family:Georgia,serif;font-style:italic;color:#4a5056;font-size:.85rem;}
+nav.site-main-nav{max-width:76rem;margin:0 auto;padding:0 1.2em;}
+nav.site-main-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.15em;border-top:1px solid #d8d3c7;}
+nav.site-main-nav li{margin:0;}
+nav.site-main-nav a{display:block;padding:.65em .8em;color:#1b1f23;text-decoration:none;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.85rem;font-weight:600;border-bottom:3px solid transparent;white-space:nowrap;}
+nav.site-main-nav a:hover{border-bottom-color:#6b3f2a;color:#6b3f2a;}
+nav.site-main-nav a[aria-current="page"]{border-bottom-color:#0b5;color:#0b5;}
+.start-callout{max-width:64rem;margin:1.2rem auto 0;padding:0 1.6rem;}
+.start-callout .box{border:1px solid #d8d3c7;border-left:4px solid #0b5;background:#f7fdf9;border-radius:0 6px 6px 0;padding:.9em 1.2em;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.88rem;color:#222;}
+.start-callout .box strong.cta{font-size:1.02em;}
+.start-callout .box a{color:#0b5;font-weight:700;text-decoration:none;}
+.start-callout .box a:hover{text-decoration:underline;}
+.start-callout .sections{margin:.5em 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.3em 1.1em;}
+.start-callout .sections li{margin:0;}
+@media(max-width:860px){.bridge-brand-row{padding:.7em 1em .4em;} nav.site-main-nav a{padding:.55em .6em;font-size:.8rem;}}
+.feature-card-wrap{max-width:64rem;margin:1rem auto 0;padding:0 1.6rem;}
+.feature-card{display:block;border:1px solid #d8d3c7;border-left:4px solid #6b3f2a;background:#fbf3ea;border-radius:0 6px 6px 0;padding:1em 1.2em;text-decoration:none;font-family:"Helvetica Neue",Arial,sans-serif;transition:background .15s;}
+.feature-card:hover{background:#f6ead9;text-decoration:none;}
+.feature-card .fc-kicker{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:#6b3f2a;font-weight:700;margin-bottom:.2em;}
+.feature-card .fc-title{display:block;font-size:1.08rem;font-weight:700;color:#1b1f23;margin-bottom:.3em;}
+.feature-card .fc-desc{display:block;font-size:.9rem;color:#333;line-height:1.5;}
+</style>
+<style>
+.hero{margin:1.4rem 0 1.9rem;}
+.masthead-kicker{font-family:"Helvetica Neue",Arial,sans-serif;font-size:.95rem;font-style:italic;color:#6b3f2a;letter-spacing:.01em;margin:0 0 .35rem;}
+.hero h1{margin-top:.2rem;}
+.lede{font-size:1.06rem;line-height:1.62;color:#222;}
+main.anchor-content > section{margin:1.7rem 0;}
+.prev-version{font-family:"Helvetica Neue",Arial,sans-serif;font-size:.8rem;color:#888;border-top:1px solid #e2ded4;margin-top:2.4rem;padding-top:.8rem;}
+.prev-version a{color:#0b5;}
+</style>
+</head><body>
+
+<div class="site-topbar">
+  <div class="site-topbar-inner">
+    <span class="stamp">&#9873; <b>Not peer-reviewed</b> &middot; nothing physics-closed</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+<header class="site-header-bridge">
+  <div class="bridge-brand-row">
+    <a class="bridge-title" href="/">A Framework for a Theory of Everything</a>
+    <span class="bridge-tag">Is the universe elegant &mdash; or just weird?</span>
+  </div>
+  <nav class="site-main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/">Early &amp; Distant Universe</a></li>
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="/">&#9632; A Framework for a Theory of Everything</a></div>
+<div class="ann-group">Start here</div>
+<a href="/" class="current">Home — intro</a>
+<a href="/gates/">The Gates — scoreboard</a>
+<a href="/residuals/">The Residuals — attack list</a>
+<div class="ann-group">The honest rule-set</div>
+<a href="/anchors/">The Anchors</a>
+<a href="/walls/">The Walls</a>
+<a href="/closure/">The Closure system</a>
+<a href="/closure/walls/">&mdash; closure paths</a>
+<div class="ann-group">The physics</div>
+<a href="/shape/">The Shape (13D)</a>
+<a href="/scale/">The Scale</a>
+<a href="/granularity/">The Granularity</a>
+<a href="/paying/">What &ldquo;paying&rdquo; means</a>
+<a href="/layer2/">The Second-Layer Roots</a>
+<a href="/gut/">GUT &mdash; Paper 1</a>
+<a href="/forces/">Forces &mdash; Paper 2</a>
+<a href="/quantum/">Quantum &mdash; Paper 3</a>
+<a href="/toe/">TOE &mdash; complete statement</a>
+<a href="/particles/">Particles &mdash; spectrum</a>
+<div class="ann-group">Reference</div>
+<a href="/articles/">Dossiers &amp; articles</a>
+<a href="/scripts/">Scripts</a>
+<a href="/supporting/">Supporting</a>
+<a href="/supplemental/">Supplemental (full overview)</a>
+</nav>
+<main class="anchor-content">
+<section class="hero">
+  <p class="masthead-kicker">Is the universe elegant &mdash; or just weird?</p>
+  <h1>The building blocks</h1>
+  <p class="lede">Every result on this site is anchored on two groups of building blocks: <strong>three fundamental axioms</strong> &mdash; the deep roots the whole framework bottoms out in &mdash; and a named set of <strong>measured observables</strong>. Nothing here is derived from nothing. The three axioms are not deduced; they are honestly <em>arrived at</em> &mdash; one selected by constraints, one anchored to measurement, one posited as a primitive &mdash; and their credibility is that they turn out to be load-bearing, at full precision, across many gates at once.</p>
+</section>
+
+<section>
+  <h2>Axiom 1 &mdash; The Shape (selected by constraints)</h2>
+  <p>The Shape is the exact frozen object the theory computes from: a specific, hash-pinned object in three levels &mdash; a <strong>Stage</strong> (the metric carrier), a <strong>Rulebook</strong> (which configurations are admissible), and a set of <strong>Actors</strong> (the matter, gauge, and Higgs content plus the maps that read off observables). Only the Stage sets the dimension count, D = 4 + 6 + 2 + 1 = 13 (a 4D arena times a 6D color space K&#8326; = SU(3)/T&#178;, a 2D weak sphere, and a folded 1D hypercharge circle); the other two levels carry no dimensions but are just as load-bearing &mdash; read the Shape as &ldquo;just the geometry&rdquo; and it fails for that reason alone.</p>
+  <p>The Shape was <strong>selected by constraints, not deduced</strong>: two of its carriers are forced by theorems that close off entire classes of alternatives, and the color space is the unique clean survivor once a cheaper-looking rival is actually built end-to-end and breaks. Inside the declared search space it is the most economical complete candidate &mdash; the most economical, <em>not</em> the provably unique one. &ldquo;No simpler shape exists anywhere&rdquo; is a claim no theory can settle, and this one does not pretend to. See <a href="https://physics.magflowmeters.com/shape/">The Shape</a>, the full <a href="https://physics.magflowmeters.com/anchors/">Foundational Constraints register</a>, a <a href="https://physics.magflowmeters.com/process/constraints-to-shape.html">worked example</a>, and the complete but long construction on the <a href="https://physics.magflowmeters.com/gut/v2/">GUT</a> page.</p>
+</section>
+
+<section>
+  <h2>Axiom 2 &mdash; The Scale (anchored to measurement)</h2>
+  <p>The Shape gives structure &mdash; ratios, indices, mixings &mdash; but never a magnitude in GeV. The Scale axiom supplies the one absolute ruler that turns structure into numbers. That an absolute scale <em>must exist</em> is a theorem: change the units and any bare dimensionful number changes with them, so only ratios, or values measured against a fixed anchor, carry real content. But the <em>value</em> of that anchor is read from experiment, never derived. The master ruler is the Planck scale, M<sub>Pl</sub> = 1.2209 &#215; 10<sup>19</sup> GeV, with the electroweak scale as the second ruler the scheme conversions run on &mdash; a <strong>two-ruler floor</strong>. Existence is proven; the numbers are measured; the two are never merged. See <a href="https://physics.magflowmeters.com/scale/">The Scale</a>.</p>
+</section>
+
+<section>
+  <h2>Axiom 3 &mdash; The Granularity (posited as a primitive)</h2>
+  <p>Granularity is the discipline that reality bottoms out in a smallest distinguishable step of <em>cost</em> &mdash; an action, not a length; it names no smallest length and does not claim space is pixelated. It lives on the full Shape, across all 13 dimensions including time, and rests on a single named, value-free <strong>posit</strong>: a uniform positive cost-floor, with &#295; (Planck's constant) as its measured size. Why a posit and not a proof? Because it is credentialed by <strong>negative controls</strong>: two worked counter-models show that merely having finite resources does <em>not</em> force a uniform floor &mdash; you can have finitely many stable records with arbitrarily fine grain. Finiteness alone is provably not enough, which is exactly why the uniform floor has to be named as its own axiom rather than assumed for free. See <a href="https://physics.magflowmeters.com/granularity/">The Granularity</a>.</p>
+</section>
+
+<section>
+  <h2>The measured observables</h2>
+  <p>Paired with the three axioms is the second group of building blocks: the measured values the framework is anchored on. No framework derives its measured inputs from nothing &mdash; the honest questions are only how many, which ones, and whether they are all named. Both counts are published.</p>
+  <ul>
+    <li><strong>The calibration set (4&ndash;5)</strong> &mdash; the values read before any comparison, used only to set the dials: <strong>M<sub>Pl</sub></strong> (the Planck scale ruler), <strong>&#945;<sub>i</sub></strong> (the three gauge couplings at M<sub>Z</sub>), <strong>y<sub>t</sub></strong> (the top Yukawa), <strong>|V<sub>us</sub>|</strong> (the Cabibbo entry), and <strong>N<sub>&#957;</sub> = 3</strong> (the LEP light-neutrino count &mdash; an integer, not a magnitude).</li>
+    <li><strong>The full consumed set (~12&ndash;14)</strong> &mdash; every measured or charged input the machinery actually spends: the calibration set plus the electroweak scale, the fitted flavor normalizations N<sub>d</sub>, N<sub>e</sub>, N<sub>&#957;</sub>, the seesaw scale M<sub>R</sub>, the cosmological constant &#923;, &#295; (folded into the Planck ruler through G), and the observed matter content E as a charged, non-numeric input. Each is measured or paid &mdash; none is claimed as a result.</li>
+  </ul>
+  <p>The full honest ledger of the consumed inputs, row by row, is on the <a href="https://physics.magflowmeters.com/anchors/">Anchors register</a>. The complete second layer &mdash; all <strong>362 observable phenomena across 11 domains</strong> the framework is anchored to and tested against &mdash; is catalogued on <a href="/observables/">The observables</a>.</p>
+</section>
+
+<section>
+  <h2>The full-precision rule</h2>
+  <p>Every mention of an axiom means the <em>complete</em> axiom at full precision, not a shorthand. &ldquo;The Shape&rdquo; means all three levels at sixteen significant figures on the named, frozen branch; &ldquo;the Scale&rdquo; means the anchor at full precision applied over that complete Shape. A calculation may consume exactly the precision its anchors are charged for &mdash; no more, and no less. Use a rounded anchor or a stripped-down geometry and the result can fail, or appear to succeed, for that reason alone &mdash; with nothing right or wrong in the physics itself.</p>
+</section>
+
+<section>
+  <h2>Why load-bearing lends credence</h2>
+  <p>The case for these axioms is not that they were conjured from nothing &mdash; it is that, once fixed, the <em>same</em> three axioms and the <em>same</em> handful of measured anchors carry a much larger body of results at full precision. Roughly twenty-two independent outputs come back from about five or six effective inputs &mdash; a fourfold over-determination. That is the honest evidence: not derivation, but <strong>over-determination</strong>. The genuine predictions are the within-sector ratios and the mixing angles, not the overall scales, which the fitted normalizations inject as anchors &mdash; over-determination is destroyed, not strengthened, by dressing paid scales up as predictions.</p>
+  <p>This remains a complete, gate-verified, reviewable <em>candidate</em> &mdash; not proven truth. The board stands at <strong>30 gates resolved, 1 certified standing falsifier shown openly</strong> (the up-quark, forced near 3.16 MeV against a measured 1.27 &#177; 0.43 MeV, about 4.4&#963;), <strong>and 2 at the structural frontiers</strong> (the black-hole horizon leg, a dependency on an external quantum-gravity result; and the deeper global-anomaly bordism class, uncomputed with a blocked existence precondition &mdash; both honestly open). See how each of the 33 gates is graded on <a href="https://physics.magflowmeters.com/gates/">The Gates</a>.</p>
+</section>
+</main>
+</div>
+</body></html>
