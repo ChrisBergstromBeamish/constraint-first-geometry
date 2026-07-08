@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The inflation-spectrum derivation wall</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 248px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9632; The Wall Register</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; back to The Anchors</a></div>
+<div class="ann-group">Shared global walls</div>
+<a href="w1-uv-completion.html">W1 · UV completion (shared)</a>
+<a href="w2-continuum-existence.html">W2 · Continuum existence (shared)</a>
+<div class="ann-group">Keystone bounded walls</div>
+<a href="w3-a6-coefficient.html">W3 · a6 coefficient (keystone)</a>
+<a href="w4-granularity-mdl.html">W4 · granularity to MDL</a>
+<div class="ann-group">Per-gate bounded walls</div>
+<a href="w5-given-e-bundle.html">W5 · given-E / bundle uniqueness</a>
+<a href="w6-flavor-rulebook.html">W6 · flavor F+ rulebook</a>
+<a href="w7-anomaly-descent.html">W7 · anomaly descent (BV-BRST)</a>
+<a href="w8-custodial-rho.html">W8 · custodial rho=1</a>
+<a href="w9-moduli-stabilization.html">W9 · moduli stabilization</a>
+<a href="w10-lambda-stability.html">W10 · Lambda radiative stability</a>
+<a href="w11-lambda-value.html">W11 · Lambda value</a>
+<a href="w12-baryogenesis-cp.html">W12 · baryogenesis CP-source</a>
+<a href="w13-dark-matter-portal.html">W13 · dark-matter portal</a>
+<a href="w14-inflation-spectrum.html" class="current">W14 · inflation spectrum</a>
+<a href="w15-born-weight.html">W15 · Born-rule weight</a>
+<a href="w16-bh-microstates.html">W16 · BH microstates / Page</a>
+<a href="w17-proton-operators.html">W17 · proton operators</a>
+<a href="w18-ym-uniform-gap.html">W18 · Yang-Mills uniform gap</a>
+<a href="w19-threshold-magnitudes.html">W19 · threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The inflation-spectrum derivation wall — rendered package. Rendered from <code>w14-inflation-spectrum.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The inflation-spectrum derivation wall</h1>
+<p><strong>Kind: PER-GATE-BOUNDED (a finite, owned work-package) + testable.</strong> <em>One honest sentence:</em> the same frozen $13\mathrm{D}$ shape, given its frozen dimension split $n=(6,2,1)$, kills one of its two candidate inflatons by computation and fixes the surviving plateau's tilt <em>direction</em> with no dial — but whether the slope value $\lambda^2=1/6$ is <em>forced</em> (rather than a recorded convention) rides on one un-traced frozen kinetic source plus an un-traced normalization factor $81/121$, so the gate owns a bounded forcing-and-source debt, not a derived spectrum, and lives inside a sector the programme has declared an excluded sector.</p>
+<p>This page presents the wall under the terminal-anchored principle: <strong>anchored ≠ closed.</strong> The gate that owns it is anchor-closed; it is not physics-closed. The wall is a bounded, in-grammar work-package with named residuals and a clean refute-only falsifier — and even a perfect spectrum match would stay a <em>diagnostic consistency</em>, never a derivation, because cosmology is an excluded sector.</p>
+<hr />
+<h2>What is missing</h2>
+<p>The frozen split offers two candidate inflaton directions $\{\rho,\sigma\}$ — the geometry's own moduli, read off the split, not posited. Two genuine, target-blind narrowing wins are banked: the $\rho$ direction is computed <strong>DEAD</strong> (it carries an effective mass at the Kaluza–Klein scale, far above the slow-roll scale, so it physically cannot inflate), and the surviving breathing modulus $\sigma$ supports an exponential plateau whose tilt <em>direction</em> — a red tilt, $n_s<1$ — is geometry-fixed given the split. The local narrowing is</p>
+<p>$$O_{\rm Gap08,local}(\text{split}) = \big(\rho\ \text{DEAD},\ \lambda^2 = \tfrac16\big),$$</p>
+<p>closed only as <em>narrowing given the split</em> (qualitative kill + theorem-candidate slope). What is <strong>missing</strong> is everything past those two moves. The precise missing objects are:</p>
+<ul>
+<li><strong>The $\lambda^2=1/6$ forcing theorem (vs candidate).</strong> For the $\sigma$ exponential plateau the slope is</li>
+</ul>
+<p>$$\lambda^2 = \frac{4}{K_{\sigma\sigma}},\qquad \text{(claimed)}\ K_{\sigma\sigma}=24 \ \Longrightarrow\ \lambda^2 = \frac{4}{24} = \frac16 .$$</p>
+<p>The claim is checked at three layers and <strong>fails closed at the third</strong>. The arithmetic layer ($\lambda^2=1/6 \Leftrightarrow K_{\sigma\sigma}=24$) is exact bookkeeping — <em>algebra, not physics</em>. The plateau-phenomenology layer is a sanity check: a plateau gives $n_s\approx 1-2/N_*$, so at $N_*\approx 55$, $n_s\approx 1-2/55\approx 0.9636$ — the same Planck-dead-center region — <em>not a derivation</em>. The geometry layer is the blocker: that $K_{\sigma\sigma}=24$ is <em>forced by</em> the split rather than <em>chosen</em> requires tracing the frozen $\sigma$-kinetic reduction source (the D.1 region of the frozen branch), which is un-traced. Until it is traced, $\lambda^2=1/6$ stays a <strong>THEOREM-CANDIDATE</strong>, not a banked derivation. A distinct-quantity caution must also be discharged, not assumed away: $K_{\sigma\sigma}=24$ (slope) and the normalization $K=99/11=9$ are different objects, and the bridge $24/9=8/3$ is a named, un-banked factor.</p>
+<ul>
+<li><strong>The $81/121$ normalization source-trace.</strong> The frozen K13-2 datum is $81/22$, source-confirmed in the frozen branch, with re-verified exact arithmetic</li>
+</ul>
+<p>$$\frac{81}{22}=\Big(\frac{11}{2}\Big)\cdot\Big(\frac{9}{11}\Big)^2 = \frac{9^2}{2\cdot 11}.$$</p>
+<p>The $\sigma$ magnitude does <strong>not reduce — it RELOCATES</strong> onto two freedoms, not one. The $(11/2)$ is the raw denominator ratio $(D-2)/(D_4-2)=11/2$ (the parity bit <strong>III-a</strong>, a declared choice retaining the $13\mathrm{D}$ denominator $11$ over the textbook $4\mathrm{D}$ value $2$); the extra factor $(9/11)^2=81/121$ (the residual <strong>III-b</strong>) is named by <strong>neither</strong> convention axis, and no source for it in context is on record. III-b is the named posit <code>AXIOM-K13-2-RESIDUAL-NORMALIZATION-FACTOR</code>, carried <strong>AXIOM-OPEN / REDUCE_FURTHER</strong> with an open source-trace. It demotes to a derived consequence of the SHAPE-SPLIT <em>only if</em> an external, target-blind trace of the frozen branch shows it follows from $n=(6,2,1)$.</p>
+<ul>
+<li><strong>The magnitude / amplitude residuals (downstream, not closed here).</strong> The absolute amplitude $A_s$ is <strong>BLOCKED</strong> on two named inputs: the operative convention branch fixed by the frozen $\sigma$-map data (<strong>B3</strong>, pending), and the loop coefficient $c_{\rm loop}$ (the $\sigma^{-6}$ term, an FRG-2 computation inherited from Gap-04, exported not re-derived). A tilt plus a ratio is not a spectrum: the standing non-claim is that no absolute amplitude is claimed for this gate. The e-fold window $N_*$ is <strong>OPEN / NOT STATED</strong>, set downstream by the Gap-09 reheating history.</li>
+</ul>
+<p><strong>The closed gravitational sub-win (for contrast).</strong> The coupling that anchors $A_s$ <em>is</em> closed-by-computation — pure geometry, no dial, with a $\pm$factor-2 fold band:</p>
+<p>$$\kappa_{13}^2 = \frac{1}{\pi^4\, M_U^9\, M_{\rm Pl}^2}\qquad\text{(closed form, frozen radii).}$$</p>
+<p>This is a genuine DERIVED-CLOSED sub-win, but it does <strong>not</strong> give the absolute $A_s$ alone — that still rides B3 and $c_{\rm loop}$. A scoping fact carried verbatim: with $c_{\rm bdry}$ negative across its band, the plateau well is <strong>unconditional in $c_{\rm loop}$</strong>, so $c_{\rm loop}$ cannot threaten the well and <strong>does not enter $n_s$, $r$, or the falsifier</strong> — its role is confined to $A_s$.</p>
+<p><strong>The structural diagnostic (why the result is specific, not trivial).</strong> For an exponential plateau the tilt is dominated by the $-2/N_*$ term and only weakly sensitive to $\lambda^2$, which is exactly why $n_s$ is recorded as <strong>near-universal across branches</strong> ($n_s\in[0.9643,0.9679]$, Planck-dead-center) while the tensor ratio $r$ spans $[3.5,36]\times10^{-3}$ — a factor of $\sim10$ — across the four named convention branches (T6 / T_u / D6 / D_u). That $n_s$ stays pinned while $r$ fans out by an order of magnitude is what makes the structure a real geometric datum rather than a convention-driven artifact: the <em>direction</em> is forced; the <em>magnitude</em> relocates.</p>
+<hr />
+<h2>Which gates hit this wall</h2>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Role at this wall</th>
+<th>Anchor ledger</th>
+<th>Dossier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gap-08 — Inflation spectrum</strong></td>
+<td><strong>owns</strong> the wall: the two candidate fields, the $\rho$-kill, the $\sigma$ plateau, the $\lambda^2=1/6$ theorem-candidate (A1-GEOM), the $81/121$ source-trace (III-b), the parity bit (III-a), the $\kappa_{13}$ sub-win, the BLOCKED $A_s$, the four-branch $r$-menu, the union falsifier, and the excluded-sector scope wall all live here</td>
+<td><a href="/anchors/gap08-anchor-ledger.html">/anchors/gap08-anchor-ledger.html</a></td>
+<td><a href="/articles/DOSSIER_GAP08_FULL.html">DOSSIER_GAP08_FULL.html</a></td>
+</tr>
+</tbody>
+</table>
+<p>Gap-08 <strong>owns</strong> the wall and is the only gate that does. It <strong>inherits</strong> inputs it does not derive and cannot close from inside: the frozen dimension split $n=(6,2,1)$ and the breathing-mode potential form (given-$E$, upstream); the loop coefficient $c_{\rm loop}$ (the shared Gap-04 $\leftrightarrow$ Gap-08 $\leftrightarrow$ Gap-09 residue); the e-fold window $N_*$ (set by Gap-09 reheating, $T_{\rm RH}\in[2.4\times10^{12},\,4\times10^{15}]\,\mathrm{GeV}$); and, binding everything, the <strong>excluded cosmology sector</strong> scope wall (Axiom I / SG-10 §9.3.2), which is the gate's <em>dominant terminal</em>.</p>
+<hr />
+<h2>What would close it — or why it is terminal</h2>
+<p>This is a <strong>bounded, owned work-package</strong>, not a unicorn. Each residual is a concrete, finite, target-blind computation, and <strong>a refuting result is a valid close</strong>. The hard discipline throughout: every numeric target must pass the no-target-loading firewall (writable <em>without</em> the comparators); the Planck measurements ($n_s\approx0.965$; $r<0.036$; $A_s\approx2.1\times10^{-9}$; $N_{\rm eff}=3.044$) are held strictly as comparison targets, never inputs.</p>
+<ul>
+<li><strong>A1-GEOM — the $\lambda^2=1/6$ forcing (highest-leverage theory move).</strong> Trace the frozen $\sigma$-kinetic reduction in the frozen branch, target-blind: confirm or refute that $K_{\sigma\sigma}=24$ follows from $n=(6,2,1)$ under the frozen kinetic metric, and state the $K_{\sigma\sigma}$-vs-$K$ relation (the $8/3$ bridge). <strong>Success:</strong> $\lambda^2=1/6$ becomes a banked theorem — or <em>Reduced to Axiom</em> (<code>AXIOM-BREATHING-KINETIC-NORMALIZATION</code>, value-free) if the source merely records the convention. <strong>Refuting close (valid):</strong> the source does not single out $K_{\sigma\sigma}=24$ $\Rightarrow$ the slope is a declared convention range.</li>
+<li><strong>III-b — the $81/121$ source-trace.</strong> An external, mechanical trace of the frozen branch to source-trace the $(9/11)^2$ factor. <strong>Success:</strong> it demotes to a SHAPE-SPLIT consequence $\Rightarrow$ the falsifier band becomes non-provisional and co-closes A1-GEOM. <strong>Refuting close:</strong> it is a free convention $\Rightarrow$ a named value-free posit, band stays a disclosed range.</li>
+<li><strong>B3 — the $\sigma$-map source-trace.</strong> Identify the exact frozen $\sigma$-map datum and key under a freeze hash, confirm K₆-only vs uniform breathing, fix the operative branch (T6 vs T_u). <strong>Fail-close (valid):</strong> the frozen datum is not produced $\Rightarrow$ B3 stays PENDING.</li>
+<li><strong>$c_{\rm loop}$ + $A_s$.</strong> Run the pre-registered FRG-2 computation at the frozen radii inside the window $0<c_{\rm loop}<A^2/(4c_{\rm bdry})$ (exported to the moduli/loop specialist, not re-derived here); then evaluate $A_s$ and consistency-check Planck within the $\pm$factor-2 fold tolerance. <strong>Refuting close:</strong> outside the window, or a mismatch beyond the band $\Rightarrow$ a recorded tension.</li>
+<li><strong>$N_*$.</strong> Publish the e-fold window the bands assume and show consistency with the Gap-09 reheating band; publish $n_s(N_*,\lambda^2)$ and the four-branch $r$-integration. <strong>Refuting close:</strong> no $N_*$ window consistent with Gap-09 $\Rightarrow$ a recorded cross-gate tension.</li>
+</ul>
+<p><strong>Why the gate is terminal even on full success.</strong> The scope wall is <strong>AXIOM-OPEN (atomic by kind)</strong> and is <em>not a closeable hole</em>: cosmology is an excluded sector, so even a perfect $n_s/r$ match is a <em>diagnostic consistency</em>, never a derivation, and may never support an in-scope claim. The legitimate per-gate endpoint is to close Families A–C toward a reproducible candidate spectrum and <strong>disclose</strong> the scope wall — never to "close" it. The absolute version — <em>"$\lambda^2=1/6$ is forced under ANY convention / no other geometry could reproduce this"</em> — is an unprovable universal negative, the dissolved unicorn, never the wall. The bounded, in-grammar claim is: <em>forced given the frozen split and the named conventions, with a convention-independent falsifier.</em></p>
+<hr />
+<h2>Falsifier</h2>
+<p>The wall carries a genuine <strong>pre-registered, convention-independent</strong> falsifier and an external adjudicator. The four named convention branches fan $r$ across $[3.5,36]\times10^{-3}$, so the union test is:</p>
+<p>$$r\notin[3.5,\,36]\times10^{-3}\ \Longrightarrow\ \text{the candidate dies.}$$</p>
+<p>The decisive measurement is <strong>LiteBIRD</strong> ($\sim2030$). The asymmetry is exact and pre-registered, freeze-before-compare: a value of $r$ <em>outside</em> the band is an honest refute (a valid close of the bet); a value <em>inside</em> it does not validate an in-scope claim — instead the measured value reads off <em>which</em> named convention nature uses ("the convention becomes an observable"). The operative band (T6 frozen) is the tighter $r\in[3.5,10]\times10^{-3}$, LiteBIRD-testable. The union band is <strong>PROVISIONAL-on-III-b</strong>: source-tracing $81/121$ (III-b) is what de-provisionalizes it. Even a confirming reading discharges the falsifier, <strong>not</strong> the scope wall.</p>
+<hr />
+<h2>Anti-claims (what must never be said about this wall)</h2>
+<ul>
+<li><strong>Not "Gap-08 derives the inflation spectrum $E$."</strong> The fields, the split, and the potential's form enter as input (given-$E$); the gate does not derive $E$, and even a perfect $n_s/r$ match is a diagnostic consistency, never a derivation — cosmology is an excluded sector.</li>
+<li><strong>Not "$\lambda^2=1/6$ is a derived / banked output."</strong> It is a <strong>THEOREM-CANDIDATE</strong>, fail-closed at A1-GEOM. The arithmetic identity $4/24=1/6$ is <strong>not</strong> physics; the physics is whether $K_{\sigma\sigma}=24$ is <em>forced</em>.</li>
+<li><strong>Not "$n_s$ and $r$ are predictions."</strong> They are PROJECTED at CANDIDATE grade; the Planck $n_s$ agreement is a consistency-check against a comparator held target-only.</li>
+<li><strong>Not "the $\rho$-death is certificate-grade."</strong> It is the qualitative KK-stiff verdict; the NT-1 $\chi$-leg run gate-halted on a scale artifact (VOID both directions = inconclusive, <em>not</em> evidence either way).</li>
+<li><strong>Not "$A_s$ is computed / derived."</strong> It is BLOCKED on $c_{\rm loop}$ + the B3 $\sigma$-map source-trace; no absolute amplitude is claimed. And $\kappa_{13}$ alone does <strong>not</strong> give the absolute $A_s$.</li>
+<li><strong>Not "the $\sigma$ magnitude reduces to one convention."</strong> It <strong>relocates</strong> onto $\ge2$ un-traced freedoms (III-a, III-b); the union band is <strong>PROVISIONAL-on-III-b</strong>, not "convention-independent regardless of ANY bookkeeping choice."</li>
+<li><strong>Not "the small-integer coincidences are evidence the gate banks."</strong> $K=99/11=9$, the $8/3$ bridge, and expressibility hit-counts are open consistency questions / unverified illustrative figures — <em>support, not proof</em>; the hit-counts carry no logical-spine weight.</li>
+<li><strong>Not "the frozen-branch hashes validate the physics."</strong> <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> are audit anchors certifying <em>which object</em> was tested; they do not validate the physics.</li>
+<li><strong>Not "a LiteBIRD match validates an in-scope claim."</strong> A confirming $r$ discharges the falsifier only; it never crosses the scope wall.</li>
+<li><strong>Not "local narrowing is whole-gate closure."</strong> $O_{\rm Gap08,local}(\text{split})=(\rho\ \text{DEAD},\lambda^2=1/6)$ does <strong>not</strong> close the magnitude conventions, $N_*$, $A_s$, the measurement, or the scope wall.</li>
+</ul>
+<hr />
+<h2>Terminal disposition</h2>
+<p><strong>OPEN-ANCHORED — a bounded, owned work-package with a convention-independent, refute-valid falsifier, inside an excluded sector.</strong> Gap-08 is ANCHOR-CLOSED / WALL-RECORDED, physics-status <strong>OPEN (cascade) · CANDIDATE (testable)</strong> by the least-closed-residual rule: the $\rho$-kill is DERIVED-GIVEN-E (qualitative); $\lambda^2=1/6$ is CERTIFICATE-CONDITIONAL / THEOREM-CANDIDATE (fail-closed at A1-GEOM); $\kappa_{13}^2$ is DERIVED-CLOSED; the breathing axis is REDUCED-TO-AXIOM; III-a is AXIOM-OPEN (owner-decision) and III-b is AXIOM-OPEN / REDUCE_FURTHER; $c_{\rm loop}$, $N_*$ are OPEN and $A_s$ is BLOCKED; $n_s$, $r$ are PROJECTED; the excluded-sector scope wall is AXIOM-OPEN (atomic by kind, the dominant terminal). <strong>No gate here is physics-CLOSED.</strong> The one-line verdict: <em>the geometry kills one candidate inflaton by computation and fixes the surviving tilt direction with no dial, but whether $\lambda^2=1/6$ is forced rides on one un-read kinetic source and an un-traced $81/121$ factor — and even a LiteBIRD confirmation would be a diagnostic consistency inside an excluded sector, never a derivation.</em></p>
+<hr />
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The systematic wall analysis was run on this wall and independently cross-checked. The review <strong>confirmed the verdict</strong> and found <strong>no overstatement, no target-dependence, and no misclassification</strong>. No gate here is physics-closed (anchored ≠ closed).</p>
+<pre><code>Verdict: NOT_EXHAUSTED_BLOCKED
+Deep root the residual sits on: Shape (the frozen split&#x27;s sigma-kinetic metric must FORCE K_sigmasigma=24 and source the 81/121 factor; the residual ultimately sits on whether the geometry forces the normalization or merely permits it) — bounded above by the Record-Interface/scope-wall fact that cosmology is an excluded sector.
+
+The single precise hole (smallest missing rule):
+  The extraction rule R2 fixing K_sigmasigma=24 from the split n=(6,2,1): the frozen sigma-kinetic dimensional-reduction datum (D.1 region, ~corpus L10268) that would show whether K_sigmasigma=24 is FORCED by the geometry (vs a recorded convention) has not been located/read at the kinetic-metric level, so the split-&gt;lambda^2=1/6 forcing segment cannot be fixed. Its companion hole: the (9/11)^2=81/121 normalization factor (III-b) has no source anywhere in the corpus (independently confirmed) and the 24/9=8/3 slope-vs-normalization bridge is unbanked.
+
+Named blockers:
+  - A1-GEOM: sigma-kinetic reduction source (D.1/~L10268) un-read =&gt; K_sigmasigma=24 forcing fails closed; lambda^2=1/6 stays THEOREM-CANDIDATE
+  - III-b: (9/11)^2=81/121 residual normalization factor un-source-traced (REDUCE_FURTHER); LiteBIRD band PROVISIONAL-on-III-b
+  - III-a: (D-2)=11 parity bit OWNER-RULED/authorial; source-undecidable (&#x27;source does not prove it was intended&#x27;), not AI-closeable without fabrication
+  - 8/3 bridge: K_sigmasigma=24 (slope) vs K=99/11=9 (norm) reconciliation OPEN (TOE-GAP-08-Q01)
+  - B3: frozen sigma-map yaml not located/read =&gt; T6-vs-T_u operative branch unfixed
+  - c_loop: sigma^-6 FRG-2 coefficient exported to open moduli/loop cascade =&gt; A_s BLOCKED
+  (+ 2 more — see the downloadable all-walls run report)
+
+Honest endpoint: The frozen 13D split does real target-blind narrowing — it computes one candidate inflaton (rho) DEAD by KK-stiffness and fixes the surviving plateau&#x27;s tilt DIRECTION (red, n_s&lt;1) with no dial — but the map terminates BLOCKED because whether the slope value lambda^2=1/6 is forced rides on an un-read frozen sigma-kinetic reduction source plus an un-traceable 81/121 normalization factor, and even a perfect LiteBIRD match would stay a diagnostic consistency inside a declared excluded sector, never a derivation.
+Terminal status: OPEN-ANCHORED / TESTABLE-CANDIDATE — NOT_EXHAUSTED_BLOCKED on the K_sigmasigma=24 forcing source (A1-GEOM, frozen sigma-kinetic reduction at ~L10268 un-read) and the (9/11)^2=81/121 normalization source-trace (III-b, no corpus source on record), inside a declared EXCLUDED cosmology sector; convention-independent refute-valid LiteBIRD (~2030) falsifier pre-registered; no status changes; no gate physics-CLOSED.
+</code></pre>
+<hr />
+<h2>Cross-links</h2>
+<ul>
+<li>The /walls/ index and the per-gate terminal-status table: <a href="/walls/index.html">/walls/index.html</a></li>
+<li>Owning gate ledger and full dossier: <a href="/anchors/gap08-anchor-ledger.html">Gap-08 ledger</a> · <a href="/articles/DOSSIER_GAP08_FULL.html">DOSSIER_GAP08_FULL.html</a></li>
+<li>The excluded-sector scope wall that binds this gate: <a href="/anchors/sg10-anchor-ledger.html">SG-10 ledger</a></li>
+<li>Sibling cosmology wall — do <strong>not</strong> pin the seesaw scale $M_R$ from $\eta_B$ there (target-loading): <a href="/walls/w12-baryogenesis-cp.html">W12 — baryogenesis CP-source</a></li>
+<li>Sibling cosmology wall (the dark-matter candidate read off the same frozen $E$, sharing the $T_{\rm RH}$ reheating band): <a href="/walls/w13-dark-matter-portal.html">W13 — dark-matter portal normalization</a></li>
+<li>The shared loop-coefficient $c_{\rm loop}$ residue this gate exports rather than re-derives: <a href="/walls/w9-moduli-stabilization.html">W9 — moduli stabilization</a></li>
+<li>Anchoring method and the given-E wall: <a href="/anchors/index.html">the anchoring method</a> · <a href="/anchors/layer-2-no-unpaid-labels.html">Layer 2 — no unpaid exact labels</a> (why a relocated convention is not a reduced one) · <a href="/anchors/layer-4-carrier-forcing.html">Layer 4 — carrier-forcing &amp; the given-E wall</a></li>
+</ul>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The threshold-magnitudes wall</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 248px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9632; The Wall Register</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; back to The Anchors</a></div>
+<div class="ann-group">Shared global walls</div>
+<a href="w1-uv-completion.html">W1 · UV completion (shared)</a>
+<a href="w2-continuum-existence.html">W2 · Continuum existence (shared)</a>
+<div class="ann-group">Keystone bounded walls</div>
+<a href="w3-a6-coefficient.html">W3 · a6 coefficient (keystone)</a>
+<a href="w4-granularity-mdl.html">W4 · granularity to MDL</a>
+<div class="ann-group">Per-gate bounded walls</div>
+<a href="w5-given-e-bundle.html">W5 · given-E / bundle uniqueness</a>
+<a href="w6-flavor-rulebook.html">W6 · flavor F+ rulebook</a>
+<a href="w7-anomaly-descent.html">W7 · anomaly descent (BV-BRST)</a>
+<a href="w8-custodial-rho.html">W8 · custodial rho=1</a>
+<a href="w9-moduli-stabilization.html">W9 · moduli stabilization</a>
+<a href="w10-lambda-stability.html">W10 · Lambda radiative stability</a>
+<a href="w11-lambda-value.html">W11 · Lambda value</a>
+<a href="w12-baryogenesis-cp.html">W12 · baryogenesis CP-source</a>
+<a href="w13-dark-matter-portal.html">W13 · dark-matter portal</a>
+<a href="w14-inflation-spectrum.html">W14 · inflation spectrum</a>
+<a href="w15-born-weight.html">W15 · Born-rule weight</a>
+<a href="w16-bh-microstates.html">W16 · BH microstates / Page</a>
+<a href="w17-proton-operators.html">W17 · proton operators</a>
+<a href="w18-ym-uniform-gap.html">W18 · Yang-Mills uniform gap</a>
+<a href="w19-threshold-magnitudes.html" class="current">W19 · threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The threshold-magnitudes wall — rendered package. Rendered from <code>w19-threshold-magnitudes.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The threshold-magnitudes wall</h1>
+<p><strong>Kind: PER-GATE-BOUNDED (a finite, owned computation-debt).</strong> <em>One honest sentence:</em> on the frozen $13\mathrm{D}$ branch the <em>signs</em> of the gauge-coupling threshold corrections are recovered from the geometry given the observed Standard-Model content and the measured couplings — gauge+ghost negative, matter and the hypercharge $\sum Y^2$ term positive — but the <em>magnitudes</em> of the threshold rows are demonstrated to be fitted/injected rather than derived (the published per-row formulas miss the printed rows by $\sim 2\times$ to $\sim 18\times$, and a target-blind recompute disagrees with the printed triple on all three components), so the gate is anchored and diagnostic, never closed, and never claims the couplings are <em>predicted</em> to unify.</p>
+<p>This page presents the wall under the terminal-anchored principle: <strong>anchored $\neq$ closed.</strong> The gate that owns it, SG-7, is ANCHOR-CLOSED / WALL-RECORDED and carries one genuine bankable win — the threshold <em>signs</em> — but it is physics-status <strong>OPEN / Diagnostic-only</strong> and is never called CLOSED. The wall is a bounded, in-grammar computation-debt with named residuals; its <em>absolute</em> form — "this spectrum is the unique unifier across all mathematics" — is an unprovable universal negative, the dissolved unicorn, and is never the wall.</p>
+<hr />
+<h2>What is missing</h2>
+<p>One leg is genuinely strong and worth stating exactly before naming what is missing. Given the selected geometry and the observed spectrum $E$, the finite threshold vector is defined by the surviving heat-kernel remainder at the compactification scale,</p>
+<p>$$\delta_i=\frac{1}{2\pi}\,\Delta_i^{\rm finite},$$</p>
+<p>and its <strong>sign structure</strong> is recovered from the content and the measured couplings:</p>
+<p>$$\operatorname{sign}\big(\delta_i^{\rm gauge+ghost}\big)=-,\qquad \operatorname{sign}\big(\delta_i^{\rm matter},\,\delta_1^{\rm hyper}\big)=+ .$$</p>
+<p>This is not a sign convention. The hypercharge term is driven by a <em>non-zero</em> quadratic invariant,</p>
+<p>$$\sum_f (\text{mult})\,Y_f^2=\frac{10}{3}\neq 0\quad(\text{per generation}),$$</p>
+<p>which is exactly what forces $\delta_1>0$, while gauge+ghost contributions carry the asymptotic-freedom (negative) sign. The signs terminate on the observed content $E$ and the measured $\alpha_i(M_Z)$ — generic heat-kernel physics that survives even if the specific compactification were wrong. The signs are <strong>DERIVED-GIVEN-E</strong>.</p>
+<p>What is <strong>missing</strong> is the <em>magnitude</em> of every threshold row. The chain <em>invariant $\to$ row $\to$ column-sum</em> is broken at the middle link. The column sums are trivially right — summing the eight printed rows reproduces the printed triple to four decimals — but this is a tautology about <em>injected</em> rows, not a regeneration:</p>
+<p>$$\delta_1\to+4.8424,\qquad \delta_2\to-3.1112,\qquad \delta_3\to-1.7313\quad(\pm1.6\times10^{-3}).$$</p>
+<p>The precise missing objects are:</p>
+<ul>
+<li><strong>The per-factor normalization that converts the bare Seeley–DeWitt $a_2$ into the running-coupling correction (the gate-defining residual, R2).</strong> Applying the published G.3.2a coefficient formulas <em>literally</em>, with the geometric integrals $\int_{K_6}R\sqrt g=12\pi^3$ and $\int_{S^2}R\sqrt g=8\pi$, the rows miss the printed values badly:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Row</th>
+<th style="text-align: right;">Printed</th>
+<th style="text-align: right;">Literal-formula</th>
+<th style="text-align: right;">printed / formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 — $SU(3)$ gauge+ghost ($\to\delta_3$)</td>
+<td style="text-align: right;">$-2.4900$</td>
+<td style="text-align: right;">$-4.9348$</td>
+<td style="text-align: right;">$0.505$ ($\sim 2\times$)</td>
+</tr>
+<tr>
+<td>2 — quark matter on $K_6$ ($\to\delta_3$)</td>
+<td style="text-align: right;">$+0.7900$</td>
+<td style="text-align: right;">$+2.4674$</td>
+<td style="text-align: right;">$0.320$ ($\sim 3\times$)</td>
+</tr>
+<tr>
+<td>3 — $SU(2)$ gauge+ghost ($\to\delta_2$)</td>
+<td style="text-align: right;">$-4.0200$</td>
+<td style="text-align: right;">$-0.2222$</td>
+<td style="text-align: right;">$18.090$ ($\sim 18\times$)</td>
+</tr>
+<tr>
+<td>4 — doublet matter on $S^2$ ($\to\delta_2$)</td>
+<td style="text-align: right;">$+0.9200$</td>
+<td style="text-align: right;">$+0.1667$</td>
+<td style="text-align: right;">$5.520$ ($\sim 5.5\times$)</td>
+</tr>
+</tbody>
+</table>
+<p>The missing object is the per-factor KK zeta-normalization $Z_{\mathcal X}$ plus the overlap $c_{a,b,i}$ — a $\zeta$-regularized Kaluza–Klein heat-kernel finite part. This is <strong>OPEN / computation-debt</strong>. By the negative theorem SG7-R2 the trace must be <strong>non-separable</strong>: no scalar or separable normalization repair can work.</p>
+<ul>
+<li><strong>An independent, byte-traced reproduction of the threshold spectrum (R1).</strong> The captured <code>reproduce_all.py</code> log verifies only the trivial column re-sum, not the deep row-regeneration; the input <code>spectrum_K6.csv</code> was internal-consistency-checked but not byte-traced to source. The missing object is the <em>deep</em> check re-run on byte-anchored frozen spectra so each row is provably regenerated from frozen primitives (meta-hash recomputing to <code>a5b1e6f9d951</code>). This is <strong>AUDIT / BLOCKED</strong>.</li>
+</ul>
+<p><strong>The target-blind demonstration (why the miss is real, not cosmetic).</strong> A mechanical compiler that raises <code>TargetLoadingError</code> on any column whose name hints at the answer — certified anti-target-loading, passing $3/3$ tests — was run on a real $150$-mode frozen table and compared <em>post-hoc</em>:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: right;">$\delta_1$ ($U(1)_Y$)</th>
+<th style="text-align: right;">$\delta_2$ ($SU(2)_L$)</th>
+<th style="text-align: right;">$\delta_3$ ($SU(3)_c$)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target-blind run</td>
+<td style="text-align: right;">$-63.897$</td>
+<td style="text-align: right;">$+70.627$</td>
+<td style="text-align: right;">$+227172.5$</td>
+</tr>
+<tr>
+<td>Printed (fitted) ledger</td>
+<td style="text-align: right;">$+4.8424$</td>
+<td style="text-align: right;">$-3.1112$</td>
+<td style="text-align: right;">$-1.7313$</td>
+</tr>
+</tbody>
+</table>
+<p>No match on any component. <strong>Two honest caveats travel with this finding:</strong> the <code>log_mu</code> finite-part is a self-admitted placeholder (not the true $\zeta$-regularized KK finite part), so the wild magnitudes — especially $\delta_3$ — are partly placeholder artifacts; and <code>spectrum_K6.csv</code> was not byte-traced to source. The structural <em>direction</em> of the miss is real; the precise $\delta_3$ magnitude is partly an artifact, and that caveat is carried wherever the finding appears. The structural reading of $\delta_3$: $K_6$ gauge-ghost and $K_6$ matter ride the <em>identical</em> KK tower, differing only by the fixed charge $\times$ coefficient ratio $(3\cdot-1)$ vs $(1.5\cdot+1)=-2{:}1$, which can never cancel — so a naive canonical insertion cannot produce the <em>small</em> printed $\delta_3$.</p>
+<hr />
+<h2>Which gates hit this wall</h2>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Role at this wall</th>
+<th>Anchor ledger</th>
+<th>Dossier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SG-7 — Threshold unification</strong></td>
+<td><strong>owns</strong> the wall: the finite-remainder relation $\delta_i=\tfrac{1}{2\pi}\Delta_i^{\rm finite}$, the DERIVED-GIVEN-E threshold signs, the trivial column-sum tautology, the deep-check $\sim 2\times$–$18\times$ miss, the target-blind triple $(-63.897,+70.627,+227172.5)$, the injected-reals $\delta$-triple, and all the magnitude residuals (R1–R5) live here</td>
+<td><a href="/anchors/sg7-anchor-ledger.html">SG-7 ledger</a></td>
+<td><a href="/articles/DOSSIER_SG7_FULL.html">DOSSIER_SG7_FULL.html</a></td>
+</tr>
+</tbody>
+</table>
+<p>SG-7 <strong>owns</strong> the wall and is the only gate that does. It <strong>inherits</strong> inputs it does not derive and cannot close from inside: the observed spectrum $E_{\rm SM}$ and the SM beta coefficients $b=(\tfrac{41}{10},-\tfrac{19}{6},-7)$ (given-$E$, from SG-2/SG-3 — deriving $b_i$ would mean deriving $E$); the measured comparison data $M_Z$ and $\alpha_i^{-1}(M_Z)$ (a MEASURED-ANCHOR, terminal); the two-loop $\overline{\rm MS}$ RG transport; and the chamber-center read $\vec u=(1,1,1)$ whose minimum-status is itself OPEN upstream at SG-6 (it may be a saddle).</p>
+<p>The single missing scheme object — the per-factor KK zeta-normalization — is <strong>shared</strong>: it is the same scheme decision that gates SG-6's $c_{\rm loop}$ and Gap-01's $a_6$. The route-inconsistency that blocks it (the $SU(3)$ Gelfand–Tsetlin off-diagonal matrix elements gating the 5-class Lichnerowicz hopping on $K_6$, plus a ghost-sector discrepancy) is the <strong>keystone wall W3</strong>. So while SG-7 owns the <em>threshold-magnitude</em> deliverable, it inherits the underlying scheme reconciliation from the keystone.</p>
+<hr />
+<h2>What would close it — or why it is terminal</h2>
+<p>This is a <strong>bounded, owned computation-debt</strong>, not a unicorn. Each residual is a concrete, finite, target-blind work-package, and <strong>a refuting result is a valid close.</strong> The standing kill-test: a normalization reverse-engineered to hit the known $\delta$-triple is true-by-construction and merely <em>relocates</em> the fit from three numbers to one normalization — it does not close the wall.</p>
+<ul>
+<li><strong>R2 / threshold magnitudes (the dominant residual — do via the keystone).</strong> Replace the <code>log_mu</code> placeholder with the real $\zeta$-regularized KK heat-kernel finite part; freeze it before comparison; compute the zeta-sum per factor target-blind and check whether rows 1–4 move from the literal-formula values $\{-4.9348,+2.4674,-0.2222,+0.1667\}$ to the printed $\{-2.4900,+0.7900,-4.0200,+0.9200\}$ <em>from structure</em>. <strong>Success:</strong> rows land within a pre-declared tolerance with no per-row fudge $\to$ magnitudes DERIVED-GIVEN-E (R3/R4 dissolve). <strong>Refuting close (valid):</strong> definite rows that miss $\to$ the printed ledger is wrong and the gate is <em>definitively</em> Diagnostic-only. Because the trace must be non-separable (SG7-R2), this cannot resolve at fixed scheme until the shared route-inconsistency (W3) is reconciled once, target-blind — the fix then propagates to SG-6 and Gap-01 as well.</li>
+<li><strong>R1 / deep check.</strong> Co-package the byte-anchored frozen spectra with the compiler; re-run the <em>deep</em> check (not the re-sum) so each row is provably regenerated from frozen primitives; confirm the meta-hash recomputes to <code>a5b1e6f9d951</code>. Upgrades the harness from AUDIT to machine-verified at sum level; does not by itself close R2.</li>
+<li><strong>R5 / the $M_U$ seam.</strong> Trace the $m_c/M_U$ ratio in the harness. If the $\mathcal O(1)$ factor in $m_c=M_U$ is a fixed geometric number (e.g. $1/2\pi$ from $R_0=(2\pi M_U)^{-1}$) $\to$ AXIOM-CLOSED; if free, it is a hidden knob and the gate downgrades. $M_U=1.0\times10^{16}\,\mathrm{GeV}$ is the scale at which the lines <em>cross</em>, a declared closure-target convention — it is <strong>not</strong> predicted.</li>
+</ul>
+<p><strong>Why the gate stays terminal even on full success.</strong> Two claims are dissolved unicorns — never open weaknesses. First, <em>spectrum uniqueness</em>: "no other spectrum unifies" is a universal negative over an open-ended domain, unprovable in principle for any framework, and rivals tie here — the threshold pass is a consistency <em>filter</em> on the already-selected survivor, not a selector. Second, even a fully derived magnitude is derived <em>given</em> $E$: selection $\neq$ derivation, given-$E$ $\neq$ derivation-of-$E$. The bounded result — signs DERIVED-GIVEN-E, magnitudes either DERIVED-GIVEN-E or definitively Diagnostic-only — <em>is</em> the ceiling, and stating it precisely is the closure, not a hedge.</p>
+<hr />
+<h2>Falsifier</h2>
+<p>The wall carries a genuine, certificate-level, target-blind falsifier distinct from any fitted number: the target-blind compiler refuses to be fed the answer ($3/3$ anti-target-loading tests pass), so its output is an honest reconstruction attempt. As armed today it <strong>already fires</strong> — the blind triple $(-63.897,+70.627,+227172.5)$ disagrees with the printed $(+4.8424,-3.1112,-1.7313)$ on sign and magnitude on all three components, <em>demonstrating that the printed triple is injected/fitted</em>. Once the <code>log_mu</code> placeholder is replaced by the true $\zeta$-regularized finite part and frozen before comparison, the same run becomes the live falsifier of the magnitude claim: definite rows that miss the printed values refute the printed ledger and pin the gate to Diagnostic-only. The refuting object for the <em>signs</em> leg would be a recomputed sign structure on the frozen content that disagrees with gauge+ghost $-$ / matter+hyper $+$.</p>
+<p>There is no "couplings unify" falsifier — by design. Fable does <strong>not</strong> predict the couplings to unify at $M_U$; $M_U$ is where the lines cross, and the unification residual $9.6\times10^{-11}$ is a self-consistency check on the <em>printed</em> numbers, not a measure of derivation.</p>
+<hr />
+<h2>Anti-claims (what must never be said about this wall)</h2>
+<ul>
+<li><strong>Not "SG-7 is closed" / "a validated unification."</strong> The gate is OPEN / Diagnostic-only; it does not move on the strength of the sign-recovery or the re-sum.</li>
+<li><strong>Not "the threshold magnitudes are derived."</strong> The target-blind run <em>demonstrates</em> the printed $\delta$-triple is injected/fitted — wrong sign on all three, $\sim 10^5$ miss on $\delta_3$. The magnitudes are SCHEME-anchored, terminating on no measured invariant today.</li>
+<li><strong>Not "no row is a free parameter."</strong> That strong claim was withdrawn; the No-Hidden-Knob discipline proves <em>enumeration</em>, not <em>forcedness</em>.</li>
+<li><strong>Not "the couplings are predicted to unify at $M_U\sim10^{16}\,\mathrm{GeV}$."</strong> $M_U$ is a declared closure-target convention; the honest verb is "couplings CROSS at $M_U$."</li>
+<li><strong>Not "the trivial re-sum is a closure."</strong> $\sum_{\rm rows}=\delta$ is a tautology about injected rows — exactly, and only, what the captured log verifies.</li>
+<li><strong>Not "the blind FINDING falsifies the geometry."</strong> The finite-part is a placeholder; it demonstrates that the <em>obvious reconstruction fails</em>, not that the geometry is wrong — the $\delta_3$ blow-up is partly a placeholder artifact.</li>
+<li><strong>Not "SG-7 derives $E$" or "the $b_i$/$M_Z$ are SG-7 outputs."</strong> They are given-$E$ / measured inputs.</li>
+<li><strong>Not "the frozen-branch hashes validate the physics."</strong> <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> are audit anchors certifying <em>which object</em> was tested; they do not validate the physics.</li>
+<li><strong>Not "consistency is uniqueness."</strong> Passing the threshold consistency pass does not single out this spectrum as THE unifier — that universal negative is the dissolved unicorn, and rivals tie.</li>
+</ul>
+<hr />
+<h2>Terminal disposition</h2>
+<p><strong>OPEN-ANCHORED — a bounded, owned computation-debt with an armed, target-blind, refute-valid falsifier.</strong> SG-7 is ANCHOR-CLOSED / WALL-RECORDED, physics-status <strong>OPEN / Diagnostic-only</strong> by the least-closed-residual rule: the threshold <em>signs</em> are DERIVED-GIVEN-E (the genuine win), the column-sum identity is a definition, while the row magnitudes are OPEN / computation-debt (R2), the $\delta$-triple is injected reals dependent on R2 (R3), forcedness is DISCLOSED-CORRECTED (R4), the $M_U$ seam is AXIOM-OPEN (R5), and the deep-check re-run is AUDIT / BLOCKED (R1). The single highest-leverage move is R2 — reconcile the shared $SU(3)$ Gelfand–Tsetlin off-diagonal + ghost routes once (the keystone W3), target-blind, and the fix propagates to SG-6's $c_{\rm loop}$ and Gap-01's $a_6$. <strong>No gate here is physics-CLOSED.</strong> One-line verdict: <em>the threshold signs are recovered from the geometry given $E$ and the measured couplings, but the magnitudes are demonstrated to be fitted — bounded computation-debt that turns over only when the shared scheme normalization is computed target-blind, with absolute spectrum-uniqueness dissolved as a unicorn.</em></p>
+<hr />
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The systematic wall analysis was run on this wall and independently cross-checked. The review <strong>confirmed the verdict</strong> and found <strong>no overstatement, no target-dependence, and no misclassification</strong>. No gate here is physics-closed (anchored ≠ closed).</p>
+<pre><code>Verdict: NOT_EXHAUSTED_BLOCKED
+Deep root the residual sits on: Scale (with Nonseparability) — the residual ultimately sits on the missing per-factor KK zeta-normalization / scheme scale-object: a non-separable Scale anchor that converts the Shape-fixed bare a_2 into a running-coupling magnitude. It terminates on no measured invariant today (it is a scheme decision, not a world-fact), so it cannot be anchored by fiat and stays BLOCKED behind the keystone route-reconciliation.
+
+The single precise hole (smallest missing rule):
+  The per-factor KK zeta-normalization Z_X plus the inter-factor overlap coefficients c_{a,b,i} — the single zeta-regularized Kaluza–Klein heat-kernel finite part that converts the bare Seeley–DeWitt a_2 invariant into the running-coupling threshold-row magnitude. It is missing as a frozen, target-blind object because computing it requires resolving the shared route-inconsistency at the keystone W3/Gap-01: the SU(3) Gelfand–Tsetlin off-diagonal matrix elements gating the 5-class Lichnerowicz hopping on K6 (plus a ghost-sector discrepancy) currently give two routes that disagree grossly (Gap-01 R7 = FAIL_VALUE_MISMATCH). Until that one scheme object is reconciled once, target-blind, the magnitude link of the map cannot be filled at fixed scheme.
+
+Named blockers:
+  - R2: the per-factor KK zeta-normalization Z_X + overlap c_{a,b,i} is undefined as a frozen target-blind object; literal G.3.2a formulas miss printed rows by ~2x to ~18x (independently reverified: 0.505, 0.320, 18.090)
+  - Keystone W3 / Gap-01 R7 = FAIL_VALUE_MISMATCH: the two routes for the K6 graded heat-kernel value disagree grossly — the SU(3) Gelfand–Tsetlin off-diagonal + ghost-sector reconciliation is the upstream block on R2
+  - R1: deep byte-traced spectrum check NOT run — captured reproduce_all.py log verifies only the trivial column re-sum (a tautology), and spectrum_K6.csv was internal-consistency-checked but not byte-traced to source (AUDIT/BLOCKED)
+  - Target-blind compiler currently uses a self-admitted log_mu placeholder, not the true zeta-regularized finite part — so the blind triple (esp. δ3 ~1e5 miss) is partly a placeholder artifact and is not yet a live magnitude falsifier
+  - R5: the m_c=M_U seam carries an undeclared O(1) factor (AXIOM-OPEN) where a hidden normalization could hide
+  - R7: the chamber-center read u=(1,1,1) inherited from SG-6 has open minimum-status (may be a saddle)
+
+Honest endpoint: The threshold-correction SIGNS are genuinely recovered from the geometry given the observed spectrum and the measured couplings (gauge+ghost negative, matter and the non-zero ΣY²=10/3 hypercharge term positive — DERIVED-GIVEN-E), but the row MAGNITUDES are demonstrated fitted: literal formulas miss the printed rows by ~2x–18x and a target-blind recompute disagrees on all three components, so the wall is a bounded computation-debt whose deriving move is BLOCKED on a single shared scheme object — the per-factor KK zeta-normalization — that cannot be computed until the keystone-W3 SU(3) Gelfand–Tsetlin/ghost route-inconsistency is reconciled target-blind.
+Terminal status: OPEN-ANCHORED / FITTED-MAGNITUDE (PER-GATE-BOUNDED computation-debt, keystone-W3 BLOCKED). SG-7 owns the wall: ANCHOR-CLOSED / WALL-RECORDED, physics-status OPEN / Diagnostic-only. Banked win: threshold SIGNS DERIVED-GIVEN-E. Magnitudes SCHEME-anchored, demonstrated-fitted, terminating on no measured invariant; the deriving move is BLOCKED on the shared keystone-W3/Gap-01 route-inconsistency (SU(3) Gelfand-Tsetlin off-diagonal + ghost). Armed, target-blind, refute-valid falsifier present (pending replacement of the log_mu placeholder finite-part). No gate here is physics-CLOSED. no status changes.
+</code></pre>
+<hr />
+<h2>Cross-links</h2>
+<ul>
+<li>The /walls/ index and the per-gate terminal-status table: <a href="/walls/index.html">/walls/index.html</a></li>
+<li>Owning gate ledger and full dossier: <a href="/anchors/sg7-anchor-ledger.html">SG-7 ledger</a> · <a href="/articles/DOSSIER_SG7_FULL.html">DOSSIER_SG7_FULL.html</a></li>
+<li>The keystone wall that supplies the shared, blocking scheme object (the $SU(3)$ Gelfand–Tsetlin off-diagonal + ghost route reconciliation): <a href="w3.html">W3 — the $a_6$ Seeley–DeWitt coefficient</a> · <a href="/anchors/gap01-anchor-ledger.html">Gap-01 ledger</a></li>
+<li>The sibling walls that share the same scheme normalization decision: <a href="w9.html">W9 — moduli stabilization ($c_{\rm loop}$)</a> · <a href="/anchors/sg6-anchor-ledger.html">SG-6 ledger</a></li>
+<li>The granularity bridge that forbids unpaid exact labels (why injected rows are unpaid labels): <a href="w4.html">W4 — granularity $\Rightarrow$ MDL</a></li>
+<li>The upstream content gates SG-7 evaluates but does not derive: <a href="/anchors/sg2-anchor-ledger.html">SG-2 ledger</a> · <a href="/anchors/sg3-anchor-ledger.html">SG-3 ledger</a></li>
+<li>Anchoring method and the given-E wall: <a href="/anchors/index.html">the anchoring method</a> · <a href="/anchors/layer-2-no-unpaid-labels.html">Layer 2 — no unpaid exact labels</a> · <a href="/anchors/layer-4-carrier-forcing.html">Layer 4 — carrier-forcing &amp; the given-E wall</a></li>
+</ul>
+</main>
+</div>
+</body></html>

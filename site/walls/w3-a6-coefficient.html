@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The a₆ Seeley-DeWitt coefficient — the keystone wall</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 248px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9632; The Wall Register</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; back to The Anchors</a></div>
+<div class="ann-group">Shared global walls</div>
+<a href="w1-uv-completion.html">W1 · UV completion (shared)</a>
+<a href="w2-continuum-existence.html">W2 · Continuum existence (shared)</a>
+<div class="ann-group">Keystone bounded walls</div>
+<a href="w3-a6-coefficient.html" class="current">W3 · a6 coefficient (keystone)</a>
+<a href="w4-granularity-mdl.html">W4 · granularity to MDL</a>
+<div class="ann-group">Per-gate bounded walls</div>
+<a href="w5-given-e-bundle.html">W5 · given-E / bundle uniqueness</a>
+<a href="w6-flavor-rulebook.html">W6 · flavor F+ rulebook</a>
+<a href="w7-anomaly-descent.html">W7 · anomaly descent (BV-BRST)</a>
+<a href="w8-custodial-rho.html">W8 · custodial rho=1</a>
+<a href="w9-moduli-stabilization.html">W9 · moduli stabilization</a>
+<a href="w10-lambda-stability.html">W10 · Lambda radiative stability</a>
+<a href="w11-lambda-value.html">W11 · Lambda value</a>
+<a href="w12-baryogenesis-cp.html">W12 · baryogenesis CP-source</a>
+<a href="w13-dark-matter-portal.html">W13 · dark-matter portal</a>
+<a href="w14-inflation-spectrum.html">W14 · inflation spectrum</a>
+<a href="w15-born-weight.html">W15 · Born-rule weight</a>
+<a href="w16-bh-microstates.html">W16 · BH microstates / Page</a>
+<a href="w17-proton-operators.html">W17 · proton operators</a>
+<a href="w18-ym-uniform-gap.html">W18 · Yang-Mills uniform gap</a>
+<a href="w19-threshold-magnitudes.html">W19 · threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The a₆ Seeley-DeWitt coefficient — the keystone wall — rendered package. Rendered from <code>w3-a6-coefficient.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The a₆ Seeley-DeWitt coefficient — the keystone wall</h1>
+<p><strong>Kind: KEYSTONE-BOUNDED.</strong> One finite, target-blind computation — the reconciled graded $\mathrm{tr}[a_6]$ on the frozen $13$-dimensional de-Donder graviton-plus-ghost operator, together with a positivity functional on it — that, if delivered, moves seven gates at once. It is the single highest-leverage bounded wall in the register, and it is <strong>not</strong> a UV completion.</p>
+<blockquote>
+<p><strong>The terminal-anchored principle.</strong> Anchored $\neq$ closed. The owning gate (Gap-01) is <strong>ANCHOR-CLOSED</strong> — every object it touches has a status, an allowed claim, and a forbidden claim — yet it is <strong>OPEN-ANCHORED</strong>: a real, finite, falsifiable computation remains, and no gate here is called physics-CLOSED.</p>
+</blockquote>
+<hr />
+<h2>1. What the wall is, in one honest sentence</h2>
+<p>The dimensionless heart of the sixth heat-kernel coefficient is genuinely derived and dual-validated on the frozen operator, but the <em>graded</em> value on the non-symmetric coset $K_6=SU(3)/T^2$ is not reconciled — two independent routes currently disagree grossly — and the positivity functional that would turn $a_6$ into a one-loop certificate has no valid realization yet.</p>
+<hr />
+<h2>2. What is missing — the precise objects</h2>
+<p>For a Laplace-type operator $D$ on a $d$-manifold the heat trace organizes as</p>
+<p>$$
+\mathrm{Tr}\,e^{-tD}\;\sim\;(4\pi t)^{-d/2}\sum_{k\ge 0}t^{k}\!\int\!\sqrt{g}\;\mathrm{tr}_V\!\big[a_{2k}(x)\big],\qquad t\to 0^+,
+$$</p>
+<p>and $a_6$ is the $k=3$, mass-dimension-$6$, cubic-curvature term. The physical object is the de-Donder (harmonic-gauge, Lichnerowicz) graviton with the Faddeev–Popov vector ghost subtracted,</p>
+<p>$$
+a_6^{\rm phys}\;=\;a_6[\text{grav}]\;-\;2\,a_6[\text{ghost}]\;+\;0,
+\qquad
+\dim_{\rm fibre}\mathrm{Sym}^2(T)=91,\quad \dim_{\rm fibre}T=13\ (\text{in }13\text{D}),
+$$</p>
+<p>the $-2$ sign and multiplicity forced by BRST nilpotency. <strong>What is genuinely in hand (the scale-free win):</strong> the dimensionless content is forced by Gilkey invariance theory and dual-validated target-blind on four exact-rational sphere cross-checks,</p>
+<p>$$
+a_6(S^2)=\tfrac{4}{315},\quad a_6(S^4)=\tfrac{74}{63},\quad a_6(S^6)=\tfrac{1139}{63},\quad a_6^{\rm conf}(S^6)=\tfrac{5}{63},
+$$</p>
+<p>agreeing between a Gilkey-contraction route and an independent spectral-peel route to relative error $0$ to $\sim 4\times 10^{-14}$. The normalization-robust ratios such as $a_4/a_2^2=66/125$ are exact because scalars are Levi-Civita–immune. <strong>What is missing has three distinct parts:</strong></p>
+<p><strong>(M1) The reconciled graded value.</strong> $K_6=SU(3)/T^2$ is naturally reductive but <strong>non-symmetric</strong>, so the Levi-Civita connection differs from the canonical (Peter–Weyl/Casimir) one. The canonical spectral method is exact at $a_0,a_2$ but misses higher coefficients; the gap is located exactly,</p>
+<p>$$
+\text{vector } a_4 \text{ on } K_6:\quad \tfrac{23}{10}\ \to\ \tfrac{281}{120},\qquad \tfrac{281}{120}-\tfrac{23}{10}=\tfrac{1}{24}\ \text{(exact)},
+$$</p>
+<p>with the graviton $\mathrm{Sym}^2(T)$ analogue an exact gap of $2/21$. The two graded routes therefore disagree, in the physical (Lichnerowicz $E=-\mathrm{Ric}$) ghost sector by</p>
+<p>$$
+\Big|{-\tfrac{251}{504}}-\tfrac{149}{1008}\Big|=\tfrac{31}{48}\approx 0.646,
+$$</p>
+<p>roughly six orders of magnitude outside the pre-registered $10^{-6}$ tolerance. The earned partial is the Bochner ($E=0$) ghost $a_6/a_0=149/1008=-\tfrac{16}{315}+\tfrac{143}{720}$ — which is <strong>not</strong> the physical Faddeev–Popov ghost and does <strong>not</strong> reconcile the routes. The precise missing object is the <strong>$SU(3)$ Gelfand–Tsetlin off-diagonal matrix elements</strong> that gate the Levi-Civita Lichnerowicz hopping on Peter–Weyl harmonic sections.</p>
+<p><strong>(M2) The corrected curvature input (DISCLOSED-CORRECTED — value proved, engine fix owed).</strong> The frozen engine's $K_6$ Riemann builder wrote a first-Bianchi-violating sign, $|\mathrm{Riem}|^2/\mathrm{Scal}^2=31/147$ (Bianchi residual $1/7$). The Bianchi-exact value is</p>
+<p>$$
+|\mathrm{Riem}|^2/\mathrm{Scal}^2=\tfrac{23}{75},\qquad \text{Bianchi residual}=3.05\times 10^{-16},
+$$</p>
+<p>a $\sim 31\%$ correction caught by a <em>theorem</em>, not a target, and reproduced four target-blind ways. The corrected value $23/75$ is <strong>DERIVED / proved</strong> (target-blind, Bianchi-exact); applying the sign-flip in the read-only engine is <strong>owed, not done</strong>, so this leg is <strong>DISCLOSED-CORRECTED / computation-debt</strong>, <em>not</em> CLOSED. Correcting an input is necessary, never gate-closing.</p>
+<p><strong>(M3) The positivity functional.</strong> The criterion $P(\mathrm{tr}[a_6])\ge 0$ (equivalently $\Pi(a_6)$) that would let $a_6$ certify one-loop consistency has <strong>no valid realization</strong> on this off-shell, odd-$D$ branch (four sign-free reasons: off-shell gauge dependence; an odd-$D$ predicate; an object/predicate mismatch; no admissible input). <strong>No positivity sign is asserted.</strong></p>
+<p><strong>Why no single dimensionful number is missing.</strong> At odd $D=13$ there is no canonical finite dimensionful $a_6$: it sits at the half-integer $\zeta$-pole $s=7/2$, with no log term and no conformal-anomaly slot. The magnitude is <strong>DISSOLVED-as-ill-posed</strong> — admissible only as a labeled consistency coefficient, never as "the $a_6$ value."</p>
+<hr />
+<h2>3. Which gates hit this wall</h2>
+<p>Gap-01 <strong>owns</strong> it; the others <strong>inherit</strong> it through the shared heat-kernel scheme object and the same $SU(3)$ Gelfand–Tsetlin / Levi-Civita-hopping sector.</p>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Relation</th>
+<th>How it touches $a_6$</th>
+<th>Ledger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gap-01</strong></td>
+<td><strong>owner</strong></td>
+<td>the scale-free leg is DERIVED-GIVEN-E; the graded value is route-INCONSISTENT (its binding open residual)</td>
+<td><a href="/anchors/gap01-anchor-ledger.html">/anchors/gap01-anchor-ledger.html</a></td>
+</tr>
+<tr>
+<td>UQF-5A/5B</td>
+<td>inherits</td>
+<td>the linearized-graviton quantum certificate (5B) rests on the computed $a_6$ and its positivity, both open</td>
+<td><a href="/anchors/uqf5a-5b-anchor-ledger.html">/anchors/uqf5a-5b-anchor-ledger.html</a></td>
+</tr>
+<tr>
+<td>UQF-3</td>
+<td>inherits</td>
+<td>the order-6 boundary/defect coefficient $a_6^\partial$ feeds the (UNMADE) positivity functional on the active branch</td>
+<td><a href="/anchors/uqf3-anchor-ledger.html">/anchors/uqf3-anchor-ledger.html</a></td>
+</tr>
+<tr>
+<td>Gap-13</td>
+<td>inherits</td>
+<td>the geometry-native microstate theorem $\log N(A)=A/4G+\dots$ is explicitly <strong>gated on Gap-01</strong>; the defect Seeley–DeWitt coefficient is its primary blocked object</td>
+<td><a href="/anchors/gap13-anchor-ledger.html">/anchors/gap13-anchor-ledger.html</a></td>
+</tr>
+<tr>
+<td>Born</td>
+<td>inherits</td>
+<td>the KK-tower decoherence channel needs the signed-total $\mathrm{tr}[a_6]$ at $d=13$; the channel honest-halts until it lands</td>
+<td><a href="/anchors/born-anchor-ledger.html">/anchors/born-anchor-ledger.html</a></td>
+</tr>
+<tr>
+<td>SG-6</td>
+<td>inherits</td>
+<td>the breathing-singlet loop coefficient $c_{\rm loop}=\mathrm{tr}[a_6]$ is route-inconsistent (Route A anchor-falsified at $-43/504$ vs canonical $-16/315$)</td>
+<td><a href="/anchors/sg6-anchor-ledger.html">/anchors/sg6-anchor-ledger.html</a></td>
+</tr>
+<tr>
+<td>UQF-9</td>
+<td>inherits</td>
+<td>the finite $d=13$ de-Donder $a_6$ trace (MO-9) is a named computation-debt residual; $a_6$ is necessary, not sufficient, for UV completion</td>
+<td><a href="/anchors/uqf9-anchor-ledger.html">/anchors/uqf9-anchor-ledger.html</a></td>
+</tr>
+</tbody>
+</table>
+<p>The single move — <strong>reconcile the routes once, by deriving the Gelfand–Tsetlin off-diagonal elements target-blind</strong> — propagates to Gap-01, SG-6 and the SG-7 threshold vector through the shared scheme object, and unblocks the consumers above.</p>
+<hr />
+<h2>4. What would close it — the bounded, target-blind program</h2>
+<p>This is a finite computer-algebra and representation-theory work-package, every step writable <em>without knowing the target value</em>:</p>
+<ol>
+<li><strong>Derive the $SU(3)$ Gelfand–Tsetlin off-diagonal matrix elements</strong> on Peter–Weyl harmonic sections, target-blind, and assemble the Levi-Civita Lichnerowicz graviton graded value over the standard $\sim 46$-term reduced cubic-curvature basis at $d=13$ (Gilkey 1995 Th. 3.3.1; Avramidi 2000 Ch. 4).</li>
+<li><strong>Build a genuinely structurally-independent second numeric route</strong> — <em>not</em> a second spectral peel — and re-run two-route agreement against the pre-registered $10^{-6}$ tolerance.</li>
+<li><strong>Apply the curvature sign flip</strong> $31/147\to 23/75$ in the engine (the corrected value is proved; the engine fix is owed — DISCLOSED-CORRECTED, not gate-closing) and re-run downstream.</li>
+<li><strong>Construct the positivity functional $P(a_6)$</strong>, or certify its non-realizability on this branch.</li>
+</ol>
+<p><strong>Success criterion:</strong> the two routes agree to $10^{-6}$ with <strong>no reference value fed in</strong>, exactly as the four sphere rationals already do.</p>
+<p><strong>What a refuting result looks like (also terminal):</strong> if the routes cannot be reconciled without back-solving, the magnitude leg reduces to the named value-free <code>AXIOM-HEATKERNEL-SCHEME-OBJECT</code>; and if a constructed $P$ returns a definite negative on the computed $a_6$, that is a decision-grade refutation, not a tuning opportunity.</p>
+<hr />
+<h2>5. Falsifier</h2>
+<p>A constructed positivity functional evaluated on the reconciled $\mathrm{tr}[a_6]$ is the live falsifier-in-principle: $P(\mathrm{tr}[a_6])<0$ would refute the one-loop-consistency companion at decision grade. Its semantics are deliberately one-sided — a violation refutes; a pass is only consistency (necessary, not sufficient). Until $P$ is constructed and $a_6$ is reconciled, the falsifier is armed but not yet runnable, and <strong>no sign of $P$ is asserted</strong>.</p>
+<hr />
+<h2>6. Anti-claims (what must never be said about this wall)</h2>
+<ul>
+<li><strong>$a_6$ is not the UV completion.</strong> A finite or positive $a_6$ certifies one coefficient in an unbounded $a_8,a_{10},\dots$ tower — necessary, not sufficient. "$a_6$ computed" must never be relabeled "quantum gravity closed" (that is the shared wall <a href="./w1-uv-completion.html">W1</a>).</li>
+<li><strong>The scale-free win is a forced skeleton, not a selector.</strong> The vanishing scale-free obstruction does <strong>not</strong> select a spectrum and does <strong>not</strong> imply the full obstruction vanishes.</li>
+<li><strong>There is no finite dimensionful $\mathrm{tr}[a_6]$ value.</strong> It is ill-posed at odd $D=13$; any $\mathrm{GeV}^6$ figure (e.g. the retracted $-2.818\times 10^{94}\,\mathrm{GeV}^6$, $31/147$-contaminated) is a labeled consistency coefficient, never gap-closing.</li>
+<li><strong>The two value routes DISAGREE</strong> ($31/48$); the graded total is <strong>not</strong> emitted. The Bochner ghost $149/1008$ is <strong>not</strong> the physical ghost and does <strong>not</strong> reconcile the routes.</li>
+<li><strong>The color factor $124/315$ is metric-selected</strong> (holds at $\mathrm{Scal}_{K_6}=7.5$); it is <strong>not</strong> normalization-robust. The clean target-blind invariant is $23/75$.</li>
+<li><strong>The curvature correction is owed, not closing.</strong> Correcting an input is necessary, not sufficient.</li>
+<li><strong>No positivity sign is asserted</strong> — $P$ has no valid realization on this off-shell, odd-$D$ branch.</li>
+<li>The frozen-branch hashes (<code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>) are audit anchors; they certify <em>which object</em> was tested, <strong>not</strong> the physics.</li>
+</ul>
+<hr />
+<h2>7. Terminal disposition</h2>
+<p><strong>OPEN-ANCHORED — the keystone bounded wall.</strong> Owned by Gap-01 (ANCHOR-CLOSED / physics-OPEN); inherited by UQF-5A/5B, UQF-3, Gap-13, Born, SG-6 and UQF-9. The scale-free leg is DERIVED-GIVEN-E and dual-validated; the curvature-input leg (M2) is DISCLOSED-CORRECTED (value $23/75$ proved; engine fix owed, not gate-closing); the graded value (M1) and the positivity functional (M3) are the bounded, target-blind, falsifiable work that remains. This wall is the highest-leverage single computation in the register — and even fully delivered, it is a one-loop diagnostic <em>given</em> $E$, never a UV completion.</p>
+<hr />
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The systematic wall analysis was run on this wall and independently cross-checked. The review <strong>confirmed the verdict</strong> and found <strong>no overstatement, no target-dependence, and no misclassification</strong>. No gate here is physics-closed (anchored ≠ closed).</p>
+<pre><code>Verdict: NOT_EXHAUSTED_BLOCKED
+Deep root the residual sits on: Shape (the non-symmetric reductive coset K6=SU(3)/T2 forces Levi-Civita != canonical connection but does not itself supply the SU(3) Gelfand-Tsetlin off-diagonal elements needed to evaluate the LC Lichnerowicz hopping); the binding hole ultimately sits on Shape, with Invariance as the target-blind correctness criterion and Scale carrying the separately-dissolved magnitude.
+
+The single precise hole (smallest missing rule):
+  The SU(3) Gelfand-Tsetlin off-diagonal matrix elements on Peter-Weyl harmonic sections that gate the Levi-Civita Lichnerowicz graviton (Sym^2(T)) hopping over the ~46-term reduced cubic-curvature basis at d=13 — derived target-blind — PLUS a genuinely structurally-independent second numeric route (not a second spectral peel) to run two-route agreement against the pre-registered 1e-6 tolerance. Without these elements the LC connection (which differs from the canonical one on the non-symmetric coset by the located exact gaps 1/24 vector, 2/21 graviton) cannot be evaluated, so the graded value is unassemblable.
+
+Named blockers:
+  - GT off-diagonal matrix elements undelivered: the segment R2 candidate grammar is named but its elements are neither enumerated nor derived (NOT_EXHAUSTED_BLOCKED), so the LC graviton graded value (R3) is unassemblable
+  - No genuinely independent second route exists: the apparent &#x27;agreement&#x27; is the same route twice (spectral peel paired with the reduction&#x27;s own anchor); the only real comparison currently yields disagreement of 31/48 ~ 0.646, ~6 orders outside the 1e-6 tolerance — this is route-INCONSISTENT (FAIL_VALUE_MISMATCH), a stronger blocker than &#x27;uncomputed&#x27;
+  - Positivity functional P(a6)/Pi(a6) has no valid realization on the off-shell, odd-D=13 branch (four sign-free reasons: off-shell gauge dependence; an odd-D predicate; an object/predicate mismatch; no admissible input) — no positivity sign asserted
+  - Curvature-input correction 31/147 -&gt; 23/75 is DISCLOSED-CORRECTED (value proved Bianchi-exact, 4 target-blind ways) but the sign-flip in the read-only engine is owed, not applied — correcting an input is necessary, never gate-closing
+  - The Bochner (E=0) ghost partial 149/1008 is NOT the physical Faddeev-Popov (Lichnerowicz E=-Ric) ghost and does not reconcile the routes
+
+Honest endpoint: W03 is an honest OPEN-ANCHORED keystone whose dimensionless scale-free heart is genuinely derived and dual-validated target-blind, but whose graded value terminates cleanly on one finite, target-blind missing object — the SU(3) Gelfand-Tsetlin off-diagonal matrix elements gating the Levi-Civita Lichnerowicz graviton hopping plus a genuinely independent second route — with the two current routes inconsistent (31/48), the magnitude dissolved at odd D=13, and no positivity sign assertable.
+Terminal status: OPEN-ANCHORED / KEYSTONE-BOUNDED — NOT_EXHAUSTED_BLOCKED on the SU(3) Gelfand-Tsetlin / Levi-Civita-hopping graded value (binding R4/R5/R6/R7 family route-INCONSISTENT, FAIL_VALUE_MISMATCH at 31/48); scale-free leg DERIVED-GIVEN-E and dual-validated target-blind; curvature input DISCLOSED-CORRECTED (23/75 proved Bianchi-exact, engine sign-flip owed); dimensionful magnitude DISSOLVED-as-ill-posed at odd D=13; positivity functional OPEN/UNMADE (no sign asserted). Owner Gap-01 ANCHOR-CLOSED but physics-OPEN; no gate physics-CLOSED. Even fully delivered, a6 is a one-loop diagnostic given E, necessary-not-sufficient, never a UV completion (W1 stays open).
+</code></pre>
+<hr />
+<h2>8. Cross-links</h2>
+<ul>
+<li>The <a href="./index.html">walls index</a> — the full terminal-anchored register and honest tally.</li>
+<li><strong>Tier A (shared global):</strong> <a href="./w1-uv-completion.html">W1 — UV-completion / strong-coupling quantum gravity</a> (the wall $a_6$ is necessary-but-not-sufficient for) · <a href="./w2-continuum-existence.html">W2 — continuum existence</a>.</li>
+<li><strong>Tier B (keystone):</strong> <a href="./w4-granularity-mdl.html">W4 — granularity ⇒ MDL</a>.</li>
+<li><strong>Tier C (consumers):</strong> <a href="./w16-bh-microstate.html">W16 — black-hole microstate count / Page curve</a> (consumes this wall) · <a href="./w15-born-weight.html">W15 — Born-rule weight / measure</a> · <a href="./w9-moduli-stabilization.html">W9 — moduli stabilization</a>.</li>
+<li><strong>Anchor ledgers:</strong> <a href="/anchors/gap01-anchor-ledger.html">Gap-01 (owner)</a> · <a href="/anchors/uqf5a-5b-anchor-ledger.html">UQF-5A/5B</a> · <a href="/anchors/uqf3-anchor-ledger.html">UQF-3</a> · <a href="/anchors/gap13-anchor-ledger.html">Gap-13</a> · <a href="/anchors/born-anchor-ledger.html">Born</a> · <a href="/anchors/sg6-anchor-ledger.html">SG-6</a> · <a href="/anchors/uqf9-anchor-ledger.html">UQF-9</a>.</li>
+<li><strong>Dossier:</strong> the full <a href="/articles/DOSSIER_GAP01_FULL.html">Gap-01 dossier</a>.</li>
+</ul>
+</main>
+</div>
+</body></html>

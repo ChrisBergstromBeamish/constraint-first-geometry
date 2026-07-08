@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Λ radiative-stability + sequestering wall</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 248px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9632; The Wall Register</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; back to The Anchors</a></div>
+<div class="ann-group">Shared global walls</div>
+<a href="w1-uv-completion.html">W1 · UV completion (shared)</a>
+<a href="w2-continuum-existence.html">W2 · Continuum existence (shared)</a>
+<div class="ann-group">Keystone bounded walls</div>
+<a href="w3-a6-coefficient.html">W3 · a6 coefficient (keystone)</a>
+<a href="w4-granularity-mdl.html">W4 · granularity to MDL</a>
+<div class="ann-group">Per-gate bounded walls</div>
+<a href="w5-given-e-bundle.html">W5 · given-E / bundle uniqueness</a>
+<a href="w6-flavor-rulebook.html">W6 · flavor F+ rulebook</a>
+<a href="w7-anomaly-descent.html">W7 · anomaly descent (BV-BRST)</a>
+<a href="w8-custodial-rho.html">W8 · custodial rho=1</a>
+<a href="w9-moduli-stabilization.html">W9 · moduli stabilization</a>
+<a href="w10-lambda-stability.html" class="current">W10 · Lambda radiative stability</a>
+<a href="w11-lambda-value.html">W11 · Lambda value</a>
+<a href="w12-baryogenesis-cp.html">W12 · baryogenesis CP-source</a>
+<a href="w13-dark-matter-portal.html">W13 · dark-matter portal</a>
+<a href="w14-inflation-spectrum.html">W14 · inflation spectrum</a>
+<a href="w15-born-weight.html">W15 · Born-rule weight</a>
+<a href="w16-bh-microstates.html">W16 · BH microstates / Page</a>
+<a href="w17-proton-operators.html">W17 · proton operators</a>
+<a href="w18-ym-uniform-gap.html">W18 · Yang-Mills uniform gap</a>
+<a href="w19-threshold-magnitudes.html">W19 · threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The Λ radiative-stability + sequestering wall — rendered package. Rendered from <code>w10-lambda-stability.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The Λ radiative-stability + sequestering wall</h1>
+<p><strong>Kind: PER-GATE-BOUNDED.</strong> One finite work-package with a banked-negative head start: evaluate the four-predicate radiative-stability burden as a <em>sound and complete</em> criterion, supply the finite electroweak/QCD condensate-shift sequestering computation, and settle whether freezing the volume/trace mode is the <em>unique minimal</em> trace-decoupling modification. It is <strong>not</strong> a claim that $\Lambda$ is radiatively stable or technically natural — no mechanism, here or anywhere, holds the vacuum energy $\sim122$ orders below the natural scale — and it is <strong>not</strong> the cosmological-constant value (a measured anchor) nor the UV completion.</p>
+<blockquote>
+<p><strong>The terminal-anchored principle.</strong> Anchored $\neq$ closed. Both owning gates are <strong>ANCHOR-CLOSED</strong> — every object they touch carries a status, an allowed claim, and a forbidden claim — yet the radiative-stability mechanism stays <strong>OPEN-ANCHORED</strong> (Weinberg-open) while the catastrophe-half is dissolved-conditional. No gate here is called physics-CLOSED.</p>
+</blockquote>
+<hr />
+<h2>1. What the wall is, in one honest sentence</h2>
+<p>The framework owns a real, computed <em>negative</em> — its own sign-graded "chamber" cancellation lever was run target-blind to a clean FAIL and proved structurally impossible (the vacuum-energy operator is the identity, blind to the grading any cancellation needs) — and a proven tree-level trace-drop that dissolves the <em>catastrophe</em>; but the radiative <em>stability of the value</em> under the $\sim122$ orders of correction stacked at every tower scale is genuinely missing, because the only thing that would pin a per-tower vacuum-energy protector is the observed small $\Lambda$ itself, and reverse-engineering to that number is target-loading.</p>
+<hr />
+<h2>2. What is missing — the precise objects</h2>
+<p>The wall is not "find a cancellation" handed back blank; three banked results sharpen exactly what is owed. Throughout, the measured value $\Lambda=(2.3\,\text{meV})^4\approx1\times10^{-122}\,M_{\rm Pl}^4$ is a <strong>MEASURED-ANCHOR</strong>, never derived, predicted, or compared here.</p>
+<p><strong>(M0) The banked head start — why the framework's own lever is shut.</strong> The chamber-cancellation idea splits the inventory into sign-graded chambers whose signed supertrace would vanish if they paired up. Computed over the 17-row physical inventory at successive coefficient orders $k$:
+$$
+\frac{{\rm Str}_{\rm graded}}{{\rm Str}_{\rm ungraded}}\Big|_{k=0}=0.58,\qquad
+\frac{{\rm Str}_{\rm graded}}{{\rm Str}_{\rm ungraded}}\Big|_{k=1\ldots8}=1.000 ,
+$$
+i.e. no structural cancellation at any order ($1.000$ = the grading doing literally nothing). The structural reason is decisive: the vacuum-energy operator is the <strong>identity</strong>,
+$$
+O_{\rm vac}=\mathbb{1}\quad\Rightarrow\quad G\,O_{\rm vac}\,G^{-1}=O_{\rm vac}\;\;\forall G\quad\Rightarrow\quad {\rm Str}_{\rm graded}={\rm Str}_{\rm ungraded},
+$$
+so the identity commutes with every chamber-label grading — there is nothing for the grading to act on. The structure-side residual witness ${\rm Str}\,\rho=(-88.93\pm\text{band})/R_Y^4+c_{\rm loop}$ is the magnitude of the <em>failed</em> cancellation's leftover and is <strong>never</strong> compared to $\Lambda_{\rm obs}$. This is a banked <strong>THEOREM_REFUTED</strong>, not a closure — it shuts the door, it does not protect $\Lambda$.</p>
+<p><strong>(M1) The four-predicate burden, evaluated as sound and complete.</strong> Every proposed protector is graded against the conjunction $R1\wedge R2\wedge R3\wedge R4$ (R2 = no per-scale re-tuning across $M_{\rm Pl}\to m_t\to v_{\rm EW}\to\Lambda_{\rm QCD}$; R4 = non-perturbatively supplied). Three relocation candidates fail the burden: an exact chamber-pairing symmetry $G^+$ (doubly-walled by Weinberg and the M0 no-go), a non-perturbative wall $\Delta V_{\rm NP}$ (fails R2 — <em>a wall pins a modulus, not the $122$-OOM zero-point; modulus stabilization $\neq$ vacuum-energy cancellation</em>), and chamber-projected boundary degrees of freedom on $S^1_Y$ (parasitic on the refuted $G^+$). The burden discriminates correctly on controls (an empty candidate fails; a hypothetically-satisfied candidate flips toward reopening), so the verdicts are a genuine <strong>decision-grade</strong> elimination — but <strong>soundness and completeness of $R1$–$R4$ are unproven</strong> (residual A1). The missing object is a proof that the conjunction <em>exactly operationalizes</em> $122$-OOM radiative stability, or a referee-checkable counterexample (a construction passing all four yet provably radiatively unstable refutes soundness; a known-stable mechanism failing one predicate refutes completeness).</p>
+<p><strong>(M2) The finite electroweak/QCD condensate sequestering (R5).</strong> The proven tree-level trace-drop annihilates only the <em>pure-trace</em> part. For a Lorentz-invariant vacuum stress $T^{\rm vac}_{\mu\nu}=-Vg_{\mu\nu}$,
+$$
+T^{\rm vac}_{\mu\nu}-\tfrac14 g_{\mu\nu}T^{\rm vac}=-Vg_{\mu\nu}+Vg_{\mu\nu}=0\quad\text{identically},
+$$
+magnitude-blind and pointwise. But the finite, history-dependent condensate shifts at the QCD ($\Delta\rho_{\rm QCD}\sim\Lambda_{\rm QCD}^4\sim10^{44}\,\Lambda_{\rm obs}$) and electroweak ($\sim v^4\sim10^{55}\,\Lambda_{\rm obs}$) transitions are the <em>non-trace</em> remainder the identity does <strong>not</strong> kill. The missing object is an explicit finite computation showing these shifts are sequestered with the released latent heat gravitating correctly ($w=1/3$ radiation is non-pure-trace, so it <em>should</em> gravitate), bounding the wrongly-gravitating residual $\le\Lambda_{\rm obs}$ across the real thermal history. Conflating M2 with the tree-level trace-drop is exactly the L1$\leftrightarrow$value scope error.</p>
+<p><strong>(M3) R-uniqueness of the trace-decoupling.</strong> The separating premise — that gravity decouples the trace mode (unimodular-type freezing of the volume mode) — is <strong>AXIOM-OPEN / declared</strong>, natural-but-unforced. The missing object is a theorem that volume-mode freezing is the <em>unique minimal</em> trace-decoupling modification preserving local Einstein dynamics (under a pre-declared, architecture-neutral minimality metric), or a refutation: a second inequivalent minimal modification that also decouples the trace, showing the premise is one of many. This is the <em>same</em> R-uniqueness object shared with the value face. It would upgrade the catastrophe-half from "dissolved (conditional)" toward "dissolved (forced premise, still unmeasured)" — and even then the value stays a measured anchor.</p>
+<p><strong>A proven negative that must travel with the positives.</strong> At the quantum level the premise alone is insufficient: under it, Bianchi + conservation fix $\Lambda_{\rm grav}=\Lambda_0$ (a boundary datum), and an additive matter-loop shift $\mathcal{L}_m\to\mathcal{L}_m+\delta V$ passes straight through,
+$$
+\Lambda_0\;\longrightarrow\;\Lambda_0+\delta V\qquad(\text{the map is the identity}),
+$$
+so $\Lambda_{\rm grav}$ <strong>is</strong> radiatively shifted at one loop already (Padilla–Saltas, arXiv:1409.3573). The slogan "an integration constant has no beta function" is <strong>true but irrelevant</strong> — there is no running coupling, yet the boundary <em>value</em> is shifted additively. All-orders sequestering exists only for a strictly stronger Kaloper–Padilla construction (arXiv:1606.04958) given an unproven smoothness assumption $S$, and even there the surviving residual is, in the authors' words, "radiatively stable, albeit with a value that is incalculable and should be set by measurement" — a verified 1:1 relocation, not a derivation.</p>
+<hr />
+<h2>3. Which gates hit this wall</h2>
+<p><strong>Gap-05-stability owns</strong> the radiative-stability mechanism (the four-predicate burden and the M0 banked negatives); <strong>Gap-05-catastrophe (Λ-catastrophe) inherits</strong> it through the shared trace-decoupling premise, the same finite-condensate residual (R5), and the same R-uniqueness object. The catastrophe-half is already dissolved-conditional, which is why this wall's missing objects are stability + sequestering + uniqueness, not the catastrophe.</p>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Relation</th>
+<th>How it touches the wall</th>
+<th>Ledger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gap-05-stability</strong></td>
+<td><strong>owner</strong></td>
+<td>the radiative-stability mechanism is OPEN (Weinberg-open); its genuine deliverables are two computed negatives (the M0 supertrace FAIL + the identity-operator no-go) and the decision-grade four-predicate burden; A1, R5, R-uniqueness are the binding residuals</td>
+<td><a href="/anchors/gap05-stability-anchor-ledger.html">/anchors/gap05-stability-anchor-ledger.html</a></td>
+</tr>
+<tr>
+<td>Λ-catastrophe (Gap-05-catastrophe)</td>
+<td>inherits</td>
+<td>the tree-level trace-drop dissolves the catastrophe-half (PROVEN, conditional on the declared premise); the value/stability half is OPEN and shares R5 (Hole 2) and R-uniqueness (Hole 1)</td>
+<td><a href="/anchors/lambda-catastrophe-anchor-ledger.html">/anchors/lambda-catastrophe-anchor-ledger.html</a></td>
+</tr>
+</tbody>
+</table>
+<p>Both gates also carry a named cascade: the R4 ("non-perturbatively supplied") predicate and the finite-condensate evaluation may not be evaluable inside the corpus without the non-perturbative-QCD continuum engine that gates Gap-02 / UQF-11 — so grading any relocation can secretly tie back to that family (residual A2/Hole 6, exported cleanly).</p>
+<hr />
+<h2>4. What would close it — the bounded, target-blind program</h2>
+<p>A dependency order — <strong>prove the burden's authority $\to$ compute the finite sequestering $\to$ settle R-uniqueness</strong> — each step a finite, falsifiable work-package, every one carrying the no-target-loading kill-test (any regulator or measure reverse-engineered to make $\Lambda$ appear is true-by-construction and <em>relocates</em> rather than closes).</p>
+<ol>
+<li><strong>Burden soundness/completeness (A1 — the keystone for the lane's authority).</strong> Either prove $R1\wedge R2\wedge R3\wedge R4$ exactly operationalizes $122$-OOM radiative stability, or supply a counterexample. <strong>Success:</strong> a referee-checkable proof upgrades the lane from decision-grade to rigorous closure-by-elimination. <strong>A refuting counterexample is an equally valid close.</strong> Until A1 closes, <code>BURDEN_FAIL</code> must <strong>not</strong> be read as a rigorous elimination, and the relocation space must <strong>not</strong> be called exhausted.</li>
+<li><strong>Finite condensate sequestering (R5/M2).</strong> An explicit finite computation that the EW/QCD shifts are sequestered by the volume-constraint mechanism with latent heat gravitating correctly. <strong>Success:</strong> the wrongly-gravitating residual is bounded $\le\Lambda_{\rm obs}$ across the real thermal history. <strong>A demonstrated uncancelled finite leak is a valid FINDING</strong> — it bounds the sequestering route precisely. Do <strong>not</strong> appeal to the tree-level trace-drop alone; it kills the pure-trace part, not the finite remainder.</li>
+<li><strong>R-uniqueness (M3 — the single biggest available move).</strong> Classify local, generally-covariant modifications preserving local Einstein dynamics and show trace-decoupling is the unique minimal survivor under a pre-declared, architecture-neutral minimality metric (machinery: Lovelock-type uniqueness; Henneaux–Teitelboim / Ellis unimodular formulations). <strong>Success:</strong> the premise sharpens to a named conditional theorem (still unmeasured). <strong>A second inequivalent minimal decoupling modification is a valid refuting close</strong> — the premise is "one of many."</li>
+<li><strong>Supporting residuals.</strong> State <em>how</em> R4 is evaluated and either evaluate $\Delta V_{\rm NP}$ from the Gap-02 / UQF-11 continuum measure or prove R4 is not evaluable inside the corpus (A2 — a clean export, not a perturbative proxy relabelled); confirm the reopen control evaluates a real constructed candidate through $R1$–$R4$ rather than asserting a satisfied predicate, so the burden's discriminating power is established on both sides (A4); supply an order-by-order BPHZ replacement for the "in-the-action" all-orders argument and a proof of assumption $S$ (residual S — a refuting finite uncancelled graviton-loop term narrows the claim, a valid close).</li>
+</ol>
+<p><strong>Success criterion:</strong> the burden is proven sound-and-complete (or refuted) $\wedge$ the finite condensate residual is bounded (or a leak found) $\wedge$ R-uniqueness is settled (or refuted) $\Rightarrow$ the radiative-stability mechanism reaches its honest endpoint — and even a fully favorable result is "the premise is forced but still unmeasured," <strong>never</strong> a derivation of the value, <strong>never</strong> a claim that $\Lambda$ is made technically natural.</p>
+<hr />
+<h2>5. Falsifier</h2>
+<p>The wall carries a live, decision-grade falsifier on the soundness leg (A1): <strong>a referee-checkable counterexample to the four-predicate burden</strong> — a construction passing all of $R1$–$R4$ yet provably radiatively <em>unstable</em> (refutes soundness), or a documented stable mechanism that fails one predicate (refutes completeness). Either fires the burden's claim to discriminate. On the sequestering leg, a demonstrated finite uncancelled condensate leak $>\Lambda_{\rm obs}$ across the thermal history refutes the sequestering-clean claim. The semantics are one-sided: a wrong result refutes; a favorable result is only consistency, and even then only "the premise is forced," never value-protection. The burden is itself checked for capability-to-fail on controls (an empty candidate fails, a hypothetically-satisfied one flips toward reopening), so the verdicts are not a rigged "everything fails."</p>
+<hr />
+<h2>6. Anti-claims (what must never be said about this wall)</h2>
+<ul>
+<li><strong>$\Lambda$ is not made radiatively stable or technically natural.</strong> No mechanism, here or anywhere, holds the vacuum energy $\sim122$ orders below the natural scale — frozen docs say REFUTED.</li>
+<li><strong>No $\Lambda$ value is derived, predicted, or compared.</strong> The $122$-OOM figure is the <em>size of the burden</em>, not a result; the $-88.93/R_Y^4$ supertrace witness is the residual of the <em>failed</em> cancellation, never a $\Lambda$ prediction. Carrying $\Lambda$ as a measured anchor is not deriving it.</li>
+<li><strong><code>BURDEN_FAIL</code> is not a rigorous closure-by-elimination</strong> — it is a decision-grade elimination audited for consistent application only (A1 open); it does <strong>not</strong> prove the relocation space exhausted.</li>
+<li><strong>The chamber route cannot be repaired by re-grading toward a small $\Lambda$</strong> — that is reverse-engineering ($\kappa^3/\pi$); an independent re-run must <em>reproduce the obstruction</em>, never tune the grading toward zero.</li>
+<li><strong>Report the negative half.</strong> $\Lambda_0\to\Lambda_0+\delta V$ is the identity map; the premise <em>alone</em> is insufficient at the quantum level. Reporting only the favorable tree-level trace-drop is the exact honesty failure that misleads. The "integration constant has no beta function" slogan is <strong>true but irrelevant</strong> — do not re-lean on it.</li>
+<li><strong>Category distinctions are load-bearing:</strong> tree-level trace-drop $\neq$ quantum-level protection; modulus stabilization $\neq$ vacuum-energy cancellation; a wall $\neq$ a cancellation symmetry. A closed moduli gate cannot be borrowed to close $\Lambda$.</li>
+<li><strong>The all-orders construction does not derive the premise</strong> — it is strictly stronger (Kaloper–Padilla, conditional on assumption $S$) and relocates it to a heavier conditional posit; its residual is "incalculable, set by measurement."</li>
+<li><strong>Dissolved $\neq$ solved.</strong> The catastrophe-half is dissolved-<em>conditional</em>; this wall does not solve the radiative stability of the value.</li>
+<li><strong>The two "L1/L2/L3" triples are distinct</strong> — the relocation candidates ($G^+$ / $\Delta V_{\rm NP}$ / boundary d.o.f., all <code>BURDEN_FAIL</code>) versus the Theorem-1 proof layers (tree-positive / quantum-negative / conditional-all-orders) — and must never be conflated.</li>
+<li><strong>The "no protector anywhere" version is dissolved, not a wall.</strong> "No future theory could ever supply a vacuum-energy protector" is an unprovable universal negative — a non-target. The bounded, in-grammar version (this branch's burden + sequestering + R-uniqueness) is the real wall; the named-and-graded-shut door (a future construction passing all four predicates) is the open cosmological-constant problem itself, external-Clay-class — producing one without a genuine new ingredient would be fabricated physics.</li>
+<li><strong>A finite/positive $a_6$-type coefficient is not the UV completion.</strong> This wall does not complete quantum gravity (that is the shared <a href="./w1-uv-completion.html">W1</a> / <a href="/anchors/uqf9-anchor-ledger.html">UQF-9</a> wall).</li>
+<li>The frozen-branch hashes (<code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>) are audit anchors; they certify <em>which object</em> was tested, <strong>not</strong> the physics, and $\Lambda$ has no per-value first-principles hash.</li>
+</ul>
+<hr />
+<h2>7. Terminal disposition</h2>
+<p><strong>OPEN-ANCHORED — a per-gate bounded wall (catastrophe-half already dissolved).</strong> Owned by Gap-05-stability (ANCHOR-CLOSED / OPEN — Weinberg-open, with a banked negative theorem); inherited by Λ-catastrophe (ANCHOR-CLOSED / DISSOLVED conditional — value &amp; stability OPEN). The genuine deliverables are real: two computed negatives (the chamber supertrace FAIL and the identity-operator no-go), a decision-grade burden lane with verified teeth, and a proven tree-level trace-drop that dissolves the catastrophe. The bounded, target-blind, falsifiable work that remains is the burden's soundness/completeness (M1/A1), the finite EW/QCD condensate sequestering (M2/R5), and the R-uniqueness of the trace-decoupling (M3) — with R4 evaluability and the BPHZ/assumption-$S$ residuals exported as named cascades. Every outcome is a valid close; <strong>none may be assumed</strong>, and even the fully favorable result is "the premise is forced but still unmeasured," never a derivation of the value, never technical naturalness, never the UV completion.</p>
+<hr />
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The systematic wall analysis was run on this wall and independently cross-checked. The review <strong>confirmed the verdict</strong> and found <strong>no overstatement, no target-dependence, and no misclassification</strong>. No gate here is physics-closed (anchored ≠ closed).</p>
+<pre><code>Verdict: NOT_EXHAUSTED_BLOCKED
+Deep root the residual sits on: Scale (the no-per-scale-re-tuning burden across every tower threshold is the irreducible difficulty; secondarily Invariance, which both forces the identity-operator no-go that shuts the framework&#x27;s own lever and underwrites the pure-trace tree-drop, and Nonseparability, which is exactly why the tree-level drop does not extend to quantum-level protection)
+
+The single precise hole (smallest missing rule):
+  A proof (or referee-checkable counterexample) that the four-predicate conjunction R1∧R2∧R3∧R4 is SOUND AND COMPLETE — i.e. that it exactly operationalizes 122-OOM radiative stability. Until this single object exists, every BURDEN_FAIL is decision-grade only, the relocation space is NOT proven exhausted, and the rule-exhaustion lane cannot be certified. This is the keystone hole (A1/M1); the sequestering hole (R5/M2) and the R-uniqueness hole (M3) are downstream of it for the lane&#x27;s authority.
+
+Named blockers:
+  - A1 (keystone): soundness AND completeness of the four-predicate burden R1∧R2∧R3∧R4 is UNPROVEN — BURDEN_FAIL x3 is audited for consistent application only, not a rigorous closure-by-elimination
+  - R5 / M2: explicit finite computation that the EW/QCD condensate shifts (non-trace remainder the identity does NOT kill) are sequestered with latent heat gravitating correctly (w=1/3) and the wrongly-gravitating residual bounded &lt;= Lambda_obs — MISSING
+  - M3 / R-uniqueness: theorem that volume-mode (trace-mode) freezing is the UNIQUE MINIMAL trace-decoupling modification preserving local Einstein dynamics, under a pre-declared architecture-neutral minimality metric — MISSING; the separating premise stays AXIOM-OPEN/declared
+  - Assumption S: the smoothness/non-degeneracy assumption underwriting the strictly-heavier Kaloper-Padilla all-orders sequestering is UNPROVEN (no order-by-order BPHZ replacement for the &#x27;in-the-action&#x27; argument)
+  - A2 (cascade): R4 (&#x27;non-perturbatively supplied&#x27;) may not be evaluable inside the corpus without the Gap-02 / UQF-11 non-perturbative-QCD continuum engine — cleanly exported, not proxied
+  - A4: whether the burden&#x27;s reopen-branch teeth-test runs a real constructed candidate through R1-R4 or merely toggles a satisfied flag is not determinable from the text
+
+Honest endpoint: The trace-free projector provably dissolves the 122-order catastrophe (pure-trace, tree-level) and the framework&#x27;s own cancellation lever is honestly computed-refuted, but the radiative stability of the VALUE has no forced map: it terminates on three named finite holes — an unproven burden (A1), an uncomputed finite EW/QCD condensate sequestering (R5/M2), and an unproven R-uniqueness of the trace-decoupling premise (M3) — with the strongest favorable endpoint being &#x27;premise forced but still unmeasured,&#x27; never value-protection.
+Terminal status: OPEN-ANCHORED — per-gate bounded wall. Catastrophe-half DISSOLVED-CONDITIONAL (tree-level trace-drop L1 PROVEN, conditional on the declared trace-decoupling premise); radiative-stability/value-half OPEN (Weinberg-open) with two banked computed negatives (chamber-supertrace FAIL + identity-operator no-go = THEOREM_REFUTED; Theorem-1 L2 PROVEN-NEGATIVE, Λ0→Λ0+δV is the identity map). Rule-exhaustion BLOCKED on the burden soundness/completeness keystone (A1); relocation space NOT proven exhausted (BURDEN_FAIL ×3 is decision-grade only). Λ=(2.3 meV)^4 is a MEASURED-ANCHOR, never derived/predicted/compared. No gate physics-CLOSED. Owner Gap-05-stability = ANCHOR-CLOSED / OPEN; inheritor Λ-catastrophe = ANCHOR-CLOSED / DISSOLVED-conditional.
+</code></pre>
+<hr />
+<h2>8. Cross-links</h2>
+<ul>
+<li>The <a href="./index.html">walls index</a> — the full terminal-anchored register and honest tally.</li>
+<li><strong>Tier A (shared global):</strong> <a href="./w1-uv-completion.html">W1 — UV-completion / strong-coupling quantum gravity</a> (the wall this does <strong>not</strong> close) · <a href="./w2-continuum-existence.html">W2 — continuum existence</a> (the R4 / non-perturbative-QCD cascade).</li>
+<li><strong>Tier B (keystone):</strong> <a href="./w3-a6-coefficient.html">W3 — the a₆ Seeley-DeWitt coefficient</a> ($c_{\rm loop}$ inside the supertrace witness) · <a href="./w4-granularity-mdl.html">W4 — granularity ⇒ MDL</a>.</li>
+<li><strong>Tier C (siblings):</strong> <a href="./w9-moduli-stabilization.html">W9 — moduli stabilization</a> (the companion saddle-vs-minimum residual) · <a href="./w11-lambda-value.html">W11 — Λ-value R-uniqueness</a> (shares the <em>same</em> R-uniqueness object; the value itself is a MEASURED ANCHOR) · <a href="./w12-baryogenesis.html">W12 — baryogenesis CP-source</a>.</li>
+<li><strong>Anchor ledgers:</strong> <a href="/anchors/gap05-stability-anchor-ledger.html">Gap-05-stability (owner)</a> · <a href="/anchors/lambda-catastrophe-anchor-ledger.html">Λ-catastrophe</a> · <a href="/anchors/gap05-value-anchor-ledger.html">Gap-05-value</a> (the measured fifth anchor) · <a href="/anchors/gap02-anchor-ledger.html">Gap-02</a> (the shared non-perturbative-QCD cascade behind R4).</li>
+<li><strong>Dossiers:</strong> the full <a href="/articles/DOSSIER_GAP05_STABILITY_FULL.html">Gap-05-stability dossier</a> · <a href="/articles/DOSSIER_GAP05_CATASTROPHE_FULL.html">Gap-05-catastrophe dossier</a>.</li>
+</ul>
+</main>
+</div>
+</body></html>

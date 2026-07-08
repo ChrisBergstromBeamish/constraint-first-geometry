@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The custodial ρ=1 / electroweak-hierarchy wall</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 248px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9632; The Wall Register</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; back to The Anchors</a></div>
+<div class="ann-group">Shared global walls</div>
+<a href="w1-uv-completion.html">W1 · UV completion (shared)</a>
+<a href="w2-continuum-existence.html">W2 · Continuum existence (shared)</a>
+<div class="ann-group">Keystone bounded walls</div>
+<a href="w3-a6-coefficient.html">W3 · a6 coefficient (keystone)</a>
+<a href="w4-granularity-mdl.html">W4 · granularity to MDL</a>
+<div class="ann-group">Per-gate bounded walls</div>
+<a href="w5-given-e-bundle.html">W5 · given-E / bundle uniqueness</a>
+<a href="w6-flavor-rulebook.html">W6 · flavor F+ rulebook</a>
+<a href="w7-anomaly-descent.html">W7 · anomaly descent (BV-BRST)</a>
+<a href="w8-custodial-rho.html" class="current">W8 · custodial rho=1</a>
+<a href="w9-moduli-stabilization.html">W9 · moduli stabilization</a>
+<a href="w10-lambda-stability.html">W10 · Lambda radiative stability</a>
+<a href="w11-lambda-value.html">W11 · Lambda value</a>
+<a href="w12-baryogenesis-cp.html">W12 · baryogenesis CP-source</a>
+<a href="w13-dark-matter-portal.html">W13 · dark-matter portal</a>
+<a href="w14-inflation-spectrum.html">W14 · inflation spectrum</a>
+<a href="w15-born-weight.html">W15 · Born-rule weight</a>
+<a href="w16-bh-microstates.html">W16 · BH microstates / Page</a>
+<a href="w17-proton-operators.html">W17 · proton operators</a>
+<a href="w18-ym-uniform-gap.html">W18 · Yang-Mills uniform gap</a>
+<a href="w19-threshold-magnitudes.html">W19 · threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The custodial ρ=1 / electroweak-hierarchy wall — rendered package. Rendered from <code>w8-custodial-rho.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The custodial ρ=1 / electroweak-hierarchy wall</h1>
+<p><strong>Kind: PER-GATE-BOUNDED.</strong> A single gate (SG-5) owns two finite, falsifiable pieces of work: the beyond-one-loop term that would lift the exactly-flat tilt direction of the Hosotani potential and let the custodial ratio $\rho$ be read off dynamically, and the certificate that no second electroweak-breaking vacuum value exists. Neither is a frontier of physics-at-large; both are bounded, owned, target-blind computations.</p>
+<blockquote>
+<p><strong>The terminal-anchored principle.</strong> Anchored $\neq$ closed. SG-5 is <strong>ANCHOR-CLOSED</strong> — every object it touches has a status, an allowed claim, and a forbidden claim — yet it is <strong>OPEN-ANCHORED</strong>, governed by its least-closed residual (the electroweak hierarchy). No gate here is called physics-CLOSED.</p>
+</blockquote>
+<hr />
+<h2>1. What the wall is, in one honest sentence</h2>
+<p>The electroweak embedding leg is genuinely strong — electric charge comes out exactly as $Q=T_3+Y$ on every multiplet, the group breaks to a single massless photon, and the custodial ratio $\rho$ is <em>computed</em> target-blind rather than assumed — but the one-loop Hosotani potential is exactly flat in the direction that fixes $\rho$, the lifting term that would select that direction is uncomputed, the no-second-vacuum-value certificate is unbuilt, and the lightness of the electroweak scale is a transparent measured anchor with a banked near-no-go, not a derived number.</p>
+<hr />
+<h2>2. What is missing — the precise objects</h2>
+<p>The frozen Higgs is a non-custodial Wilson-line (Hosotani) mode $A_y=(\theta_H/2\pi R_\gamma)\,T_H$ with $T_H=\sum_b h_b T_b\in su(2)_L$; the custodial $SO(4)\simeq SU(2)_L\times SU(2)_R$ coset is <strong>recorded eliminated</strong> in the frozen object. Gauge-boson masses descend from the commutator operator $\propto\mathrm{Tr}\,|[A_\mu,A_y]|^2$, giving the exact closed-form overlaps</p>
+<p>$$
+O_a=\tfrac12\big(|h|^2-h_a^2\big),\qquad |h|^2=h_1^2+h_2^2+h_3^2,
+$$</p>
+<p>so that the custodial ratio is a real, $U(1)_3$-invariant observable</p>
+<p>$$
+\rho_{\rm tree}=\frac{O_1+O_2}{2\,O_3}=\frac12+\frac{h_3^2}{h_1^2+h_2^2}\in[\tfrac12,\infty),
+\qquad
+\rho_{\rm tree}=1\iff 2h_3^2=h_1^2+h_2^2 .
+$$</p>
+<p>The charge law forces the unbroken photon to lie along $T_3$, hence $T_H\parallel T_3$, hence $(O_1,O_2,O_3)=(\tfrac12,\tfrac12,0)$, hence $O_3=0$ and $\rho_{\rm tree}\neq 1$ — a computed <strong>FINDING</strong>, falsifiable against $\rho_0=1.00038\pm0.00020$, with no parameter tuned to the data. What is missing has three distinct parts.</p>
+<p><strong>(M1) The beyond-one-loop lifting term.</strong> The one-loop Hosotani potential $V_{\rm Hos}(\theta_H)$ is <em>exactly flat</em> in the tilt direction (the doublet holonomy eigenvalues $\pm\theta_H/2$ are direction-independent to $3.9\times10^{-16}$, machine-verified), so the potential alone selects no direction. The custodial $SU(2)$ is an accidental symmetry broken by $U(1)_Y$ gauging and by Yukawa splitting $y_t\neq y_b$ — exactly the terms that first enter at two loops. The missing object is the <strong>two-loop $y_t\neq y_b$, $g'\neq0$ corrected $V_{\rm Hos}$</strong>, whose minimum would dynamically select the direction; it is uncomputed. The trap is target-loading: one may <strong>not</strong> assume the two-loop minimum sits on the $\rho=1$ cone — the direction must be read blind.</p>
+<p><strong>(M2) The no-second-VEV certificate.</strong> The single-doublet picture rests on there being no second $Q=0$ vacuum value (a triplet or extra doublet) on the geometry. The Kostant $m_0(p,q)$ zero-mode table is present and verified, but the layer above it — the $A_y/A_5$ zero-mode electroweak-rep table that would certify a <em>unique</em> breaking source — is not built. So "no second VEV source" is <strong>OPEN / BLOCKED</strong>, not proven.</p>
+<p><strong>(M3) The electroweak hierarchy — RELOCATION, not a missing number.</strong> The lightness $v_{\rm EW}/M_{\rm Pl}\sim10^{-16}$ is undelivered. The minimum angle $\theta_H^*\approx2.46\times10^{-14}$ (so that $v_{\rm EW}=\theta_H^*/(2\pi R_\gamma)$ with $1/(2\pi R_\gamma)\approx10^{16}\,\mathrm{GeV}$) is <em>read from</em> the one-loop minimum, not derived; equivalently the dimensionless exponent $I_{\rm EW}=\ln(M_{\rm Pl}/v)\approx36.83$ is not produced blind. The one-loop quadratic-destabilization protection is real but irrelevant to smallness: the protection ratio $\sqrt{\eta_{\rm BK}}/(2\pi)\sim10^{-2}$ is twelve orders of magnitude too large to be $v/M_{\rm Pl}\sim10^{-16}$. The SCALE firewall is a four-part conjunction whose decisive gates FAIL — the only specified anchor $\partial_\sigma V=0$ <em>is</em> where $v$ is set, and $\mu_{\rm cell}\to v$ is closed-form invertible — so $v_{\rm EW}$ stands as a transparent <strong>measured second dimensionful anchor</strong> alongside $M_{\rm Pl}$, with a banked near-no-go (a dimensional Buckingham-$\pi$ argument plus a "periodic minimum supplies no transmutation exponent" argument).</p>
+<hr />
+<h2>3. Which gates hit this wall</h2>
+<p>SG-5 <strong>owns</strong> this wall outright; no other gate inherits it.</p>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Relation</th>
+<th>How it touches the wall</th>
+<th>Ledger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SG-5</strong></td>
+<td><strong>owner</strong></td>
+<td>the embedding leg is DERIVED-GIVEN-E; $\rho_{\rm tree}\neq1$ is the binding computed FINDING; the lifting term (R3 two-loop), the no-second-VEV certificate (R8), and the hierarchy (R1/R2) are its open residuals</td>
+<td><a href="/anchors/sg5-anchor-ledger.html">/anchors/sg5-anchor-ledger.html</a></td>
+</tr>
+</tbody>
+</table>
+<p>The dimensionful anchor $v_{\rm EW}$ is shared by the flavor sector as an input, but the custodial/hierarchy <em>obstruction</em> is SG-5's alone.</p>
+<hr />
+<h2>4. What would close it — the bounded, target-blind program</h2>
+<p>Each piece is a finite, owned work-package writable without knowing the target value.</p>
+<ol>
+<li><strong>Compute the two-loop lift (M1).</strong> Evaluate the $y_t\neq y_b$, $g'\neq0$ two-loop $V_{\rm Hos}$ on the curved internal manifold from the frozen KK spectrum and the frozen Yukawa anchor $y_t$, find the selected direction, and <strong>read $\rho$ off blind</strong>. Inputs: the one-loop $V_{\rm Hos}$, the frozen multiplicities $N_b,N_f$, two-loop gauge-Higgs-unification effective-potential methods.</li>
+<li><strong>Build the no-second-VEV certificate (M2).</strong> Construct the $A_y/A_5$ zero-mode electroweak-rep table on top of the verified Kostant $m_0(p,q)$ table and certify that the breaking source is unique.</li>
+<li><strong>Address the hierarchy honestly (M3).</strong> Bank the dimensional and periodic-minimum near-no-go arguments and, as the only real-physics lever, search for a $v$-independent ultraviolet readout of $\mu_{\rm cell}$ that crosses every firewall gate blind.</li>
+</ol>
+<p><strong>Success criterion (M1).</strong> The two-loop minimum direction is determined with <strong>no reference $\rho$ fed in</strong>; whichever cone it lands on is the result.</p>
+<p><strong>What a refuting result looks like (also terminal).</strong> If the blind two-loop minimum sits on the cone $2h_3^2=h_1^2+h_2^2$, then $\rho=1$ becomes <strong>DERIVED-GIVEN-E</strong> and the FINDING is overturned in the strongest possible way. If it does not, the FINDING hardens from a structural tension into a <em>dynamically-selected</em> falsifiable prediction. Both are valid closes of the lifting-term piece — neither promotes the gate.</p>
+<hr />
+<h2>5. Falsifier</h2>
+<p>The custodial ratio is the live, pre-registered falsifier. The standing computed disposition is $\rho_{\rm tree}\neq 1$, set against the measured $\rho_0=1.00038\pm0.00020$, which enters the computation as input to nothing — a pure post-hoc check. The two-loop lift (M1) is the runnable form: read blind, it either lands on the $\rho=1$ cone (overturning the FINDING to a derivation) or off it (hardening the FINDING to a dynamical prediction directly testable against $\rho_0$). The falsifier is armed; until the two-loop term is computed, the disposition stays a structural FINDING, and no preferred outcome is asserted.</p>
+<hr />
+<h2>6. Anti-claims (what must never be said about this wall)</h2>
+<ul>
+<li><strong>The geometry does not predict $\rho=1$.</strong> The binding disposition is the opposite — $\rho_{\rm tree}\neq 1$, a live tension. Nothing was tuned to $\rho_0$.</li>
+<li><strong>$\rho$ is not a free / undetermined modulus.</strong> The one-loop flatness of $V_{\rm Hos}$ does not free $h_3$; the charge law pins $T_H\parallel T_3$.</li>
+<li><strong>The custodial $SO(4)$ / $SO(5)/SO(4)$ coset may not be re-imported to rescue $\rho=1$</strong> — it is recorded eliminated; re-importing it is target-loading.</li>
+<li><strong>The two-loop minimum may not be assumed to sit on the $\rho=1$ cone</strong> — it must be read blind.</li>
+<li><strong>The electroweak hierarchy is not solved and $v$ does not "emerge."</strong> $v_{\rm EW}$ is a transparent measured-but-irreducible second anchor; $\theta_H^*$ is read from the minimum, not derived. One-loop quadratic-divergence protection is <strong>not</strong> smallness.</li>
+<li><strong>All-orders Higgs protection is not proven</strong> (one-loop only); the no-second-VEV certificate is <strong>not</strong> built; the KK Schur correction $\delta\rho_{\rm KK}$ is <strong>not</strong> computed.</li>
+<li><strong>"$\rho=1$ is the absolutely forced value under any completion of the geometry" is a unicorn</strong> — a universal forcedness claim, unprovable in principle, and never a wall. The bounded, real hole is the two-loop lift.</li>
+<li>The frozen-branch hashes (<code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>) and the endpoint validator are audit anchors; they certify <em>which object</em> was tested, <strong>not</strong> the physics.</li>
+</ul>
+<hr />
+<h2>7. Terminal disposition</h2>
+<p><strong>OPEN-ANCHORED — custodial $\rho=1$ bounded (PER-GATE-BOUNDED).</strong> Owned solely by SG-5 (ANCHOR-CLOSED / physics-OPEN). The embedding leg is DERIVED-GIVEN-E and $\rho$ is computed where the field assumes it; the binding residuals are the two-loop lifting term (M1, the FINDING's overturn-or-harden lever), the no-second-VEV certificate (M2, blocked on the $A_5$ table), and the electroweak hierarchy (M3), which <strong>RELOCATES</strong> to a transparent measured second anchor rather than presenting a missing number. Closing M1/M2 does not promote the gate: SG-5 stays OPEN, governed by its least-closed residual; the wins are a computed falsifier, an honest hierarchy, and reproducibility.</p>
+<hr />
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The systematic wall analysis was run on this wall and independently cross-checked. The review <strong>confirmed the verdict</strong> and found <strong>no overstatement, no target-dependence, and no misclassification</strong>. No gate here is physics-closed (anchored ≠ closed).</p>
+<pre><code>Verdict: EXHAUSTED_PARTIAL
+Deep root the residual sits on: Shape — the geometry permits the tilt direction but the one-loop potential does not force it; the decisive missing object is a higher-order Shape/Scale computation (two-loop V_Hos on the frozen manifold) plus the unbuilt Shape object (A_5 EW-rep table). The separate hierarchy residual sits on Scale (RELOCATED). Invariance is the root that already closes the one-loop disposition (charge law pins T_H∥T3).
+
+The single precise hole (smallest missing rule):
+  The two-loop, custodial-breaking (y_t≠y_b, g&#x27;≠0) Hosotani effective potential V_Hos(theta_H) on the frozen curved internal manifold, whose minimum would dynamically select the tilt direction h3 — read BLIND (no reference rho fed in). The one-loop V_Hos is exactly flat in this direction (eigenvalues ±theta_H/2 direction-independent to 3.9e-16), so it forces no direction; the segment that would convert the FINDING rho_tree≠1 into a derived/dynamically-selected value is uncomputed. This is the single Shape/Scale higher-order rule the wall terminates on.
+
+Named blockers:
+  - M1: two-loop y_t≠y_b, g&#x27;≠0 corrected V_Hos uncomputed — one-loop potential is exactly flat in the tilt direction, so no dynamical direction-selection rule exists yet (must be read blind; may NOT assume minimum sits on the 2h3²=h1²+h2² cone)
+  - M2: the A_y/A_5 zero-mode electroweak-rep table (one layer above the verified Kostant m_0(p,q) table) is MISSING / not source-hashed ⇒ no-second-VEV certificate cannot be built; uniqueness of the breaking source is BLOCKED not proven
+  - R4 KK Schur: gamma-cycle overlap integral I_0n absent ⇒ delta-rho_KK uncomputable and unbounded (target ≤1e-4)
+  - R-abs: S2-vs-S1_Y co-normalization owed for absolute M_W,M_Z (cancels in rho, banked)
+  - M3 hierarchy: SCALE firewall is a 4-part conjunction whose decisive gates FAIL (∂_sigma V=0 IS where v is set; mu_cell→v closed-form invertible) ⇒ v_EW RELOCATES to a measured second dimensionful anchor with a banked near-no-go, not a missing number
+
+Honest endpoint: The one-loop Layer-2→Layer-1 map runs end-to-end and is Invariance-forced to a definite target-blind disposition — the charge law pins T_H∥T3 ⇒ O3=0 ⇒ rho_tree≠1, a live computed falsifier against rho_0=1.00038±0.00020 — but the single decisive rule that would turn that disposition into a derived value, the blind two-loop custodial-breaking Hosotani potential (with the unbuilt A_5 no-second-VEV table), is uncomputed, so the wall terminates EXHAUSTED_PARTIAL on a bounded Shape/Scale computation, not on physics closure.
+Terminal status: OPEN-ANCHORED / EW-BOUNDED (PER-GATE-BOUNDED, owned solely by SG-5; ANCHOR-CLOSED, physics-OPEN). Embedding leg DERIVED-GIVEN-E; rho COMPUTED -&gt; live FINDING rho_tree != 1 (pre-registered falsifier vs rho_0 = 1.00038 +/- 0.00020, nothing tuned); decisive residual = uncomputed two-loop custodial-breaking Hosotani lifting term (M1); no-second-VEV certificate BLOCKED on the unbuilt A_5 EW-rep table (M2); electroweak hierarchy RELOCATES to a transparent measured second dimensionful anchor (M3). SG-5 remains OPEN; closing M1-M2/R4/R-abs does not promote the gate.
+</code></pre>
+<hr />
+<h2>8. Cross-links</h2>
+<ul>
+<li>The <a href="./index.html">walls index</a> — the full terminal-anchored register and honest tally.</li>
+<li><strong>Tier A (shared global):</strong> <a href="./w1-uv-completion.html">W1 — UV-completion / strong-coupling quantum gravity</a> · <a href="./w2-continuum-existence.html">W2 — continuum existence</a>.</li>
+<li><strong>Tier B (keystone):</strong> <a href="./w3-a6-coefficient.html">W3 — the a₆ Seeley-DeWitt coefficient</a> · <a href="./w4-granularity-mdl.html">W4 — granularity ⇒ MDL</a>.</li>
+<li><strong>Sibling Tier C walls:</strong> <a href="./w5-bundle-uniqueness.html">W5 — given-E / bundle-uniqueness</a> · <a href="./w6-flavor-rulebook.html">W6 — flavor F⁺ rulebook + the m_u falsifier</a> · <a href="./w9-moduli-stabilization.html">W9 — moduli stabilization</a>.</li>
+<li><strong>Anchor ledger:</strong> <a href="/anchors/sg5-anchor-ledger.html">SG-5 (owner)</a>.</li>
+<li><strong>Dossier:</strong> the full <a href="/articles/DOSSIER_SG5_FULL.html">SG-5 dossier</a>.</li>
+</ul>
+</main>
+</div>
+</body></html>

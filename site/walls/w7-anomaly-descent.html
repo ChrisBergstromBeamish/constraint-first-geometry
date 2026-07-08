@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The non-perturbative anomaly-descent (BV-BRST) wall</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 248px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9632; The Wall Register</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; back to The Anchors</a></div>
+<div class="ann-group">Shared global walls</div>
+<a href="w1-uv-completion.html">W1 · UV completion (shared)</a>
+<a href="w2-continuum-existence.html">W2 · Continuum existence (shared)</a>
+<div class="ann-group">Keystone bounded walls</div>
+<a href="w3-a6-coefficient.html">W3 · a6 coefficient (keystone)</a>
+<a href="w4-granularity-mdl.html">W4 · granularity to MDL</a>
+<div class="ann-group">Per-gate bounded walls</div>
+<a href="w5-given-e-bundle.html">W5 · given-E / bundle uniqueness</a>
+<a href="w6-flavor-rulebook.html">W6 · flavor F+ rulebook</a>
+<a href="w7-anomaly-descent.html" class="current">W7 · anomaly descent (BV-BRST)</a>
+<a href="w8-custodial-rho.html">W8 · custodial rho=1</a>
+<a href="w9-moduli-stabilization.html">W9 · moduli stabilization</a>
+<a href="w10-lambda-stability.html">W10 · Lambda radiative stability</a>
+<a href="w11-lambda-value.html">W11 · Lambda value</a>
+<a href="w12-baryogenesis-cp.html">W12 · baryogenesis CP-source</a>
+<a href="w13-dark-matter-portal.html">W13 · dark-matter portal</a>
+<a href="w14-inflation-spectrum.html">W14 · inflation spectrum</a>
+<a href="w15-born-weight.html">W15 · Born-rule weight</a>
+<a href="w16-bh-microstates.html">W16 · BH microstates / Page</a>
+<a href="w17-proton-operators.html">W17 · proton operators</a>
+<a href="w18-ym-uniform-gap.html">W18 · Yang-Mills uniform gap</a>
+<a href="w19-threshold-magnitudes.html">W19 · threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The non-perturbative anomaly-descent (BV-BRST) wall — rendered package. Rendered from <code>w7-anomaly-descent.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The non-perturbative anomaly-descent (BV-BRST) wall</h1>
+<p><strong>Kind: PER-GATE-BOUNDED.</strong> One finite — and partly no-known-route — chain of computations: prove that the single even-degree boundary/$\eta$ class generated by the frozen geometry actually <em>exists</em> on the branch, evaluate its $d=4$ piece, discharge the order-$\hbar$ BV-BRST nilpotency it controls, and certify that the classical chiral spectrum survives quantization. It is <strong>not</strong> a claim that anomaly cancellation selects the Standard Model, and it is <strong>not</strong> the UV completion.</p>
+<blockquote>
+<p><strong>The terminal-anchored principle.</strong> Anchored $\neq$ closed. The owning gate (UQF-4) is <strong>ANCHOR-CLOSED</strong> — every object it touches has a status, an allowed claim, and a forbidden claim — yet it is <strong>OPEN-ANCHORED</strong>: a real, finite, falsifiable residual remains, and no gate here is called physics-CLOSED.</p>
+</blockquote>
+<hr />
+<h2>1. What the wall is, in one honest sentence</h2>
+<p>The perturbative anomaly ledger cancels exactly on the frozen spectrum and classical BRST nilpotency $s^2=0$ holds by the Jacobi identity, but the single <em>non-perturbative</em> even-degree class that the $K_6=SU(3)/T^2$ coset twist and the $S^1_Y/\mathbb{Z}_2$ boundary inflow generate is not even shown to exist on the branch, let alone evaluated — and that one class simultaneously controls the order-$\hbar$ quantum-master-equation obstruction and the question of whether the chiral spectrum survives quantization.</p>
+<hr />
+<h2>2. What is missing — the precise objects</h2>
+<p>The quantum-consistency object is one equation, the Batalin–Vilkovisky <strong>quantum master equation</strong></p>
+<p>$$
+\tfrac12 (S,S)\;=\;i\hbar\,\Delta S,
+$$</p>
+<p>with $(\cdot,\cdot)$ the BV antibracket and $\Delta$ the BV Laplacian. Its $\hbar^0$ shadow is classical nilpotency $s^2=0$; its higher orders are the anomalies. <strong>What is genuinely in hand (the banked legs):</strong> every Standard-Model perturbative coefficient vanishes on the frozen one-generation chiral content by exact rational arithmetic,</p>
+<p>$$
+O_{\rm pert}(E_{\rm frozen})=\big(A_{Y^3},\,A_{{\rm grav}\,Y},\,A_{SU2},\,A_{SU3{\rm sq}},\,A_{SU3{\rm cube}},\,A_{\rm Witten}\big)(E_{\rm frozen})=0,
+$$</p>
+<p>independently reproduced and <strong>specific</strong> to $E$ — a non-trivial quadratic invariant does not vanish,</p>
+<p>$$
+\sum \text{mult}\cdot Y^2=\frac{10}{3}\neq 0,
+$$</p>
+<p>so the six anomaly zeros are a real arithmetic fact, not an artifact. Classical nilpotency $s^2=0$ holds order-by-order by the Jacobi identity of $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak{u}(1)$. After these cancel, the remaining global/boundary/inflow obstructions are homogeneous components of <strong>one</strong> Anderson-dual bordism class (Freed–Hopkins; Grady, arXiv:2310.15866) — a genuine structural compression, not a closure. <strong>What is missing has four distinct parts.</strong></p>
+<p><strong>(M1) Existence of the tangential structure $\xi$ on the branch (the spine).</strong> $\xi$ is <em>specified</em> type-level as a $\mathrm{Spin}^c$-$(SU(3)\times SU(2)\times U(1))/\mathbb{Z}_6$ structure decorated by five geometry-forced twists. Whether it <em>exists</em> requires the target-blind evaluation of the integrality obstruction</p>
+<p>$$
+w_2(X)+f^*\zeta=0 \quad\text{in}\quad H^2(X;\mathbb{Z}_2),
+$$</p>
+<p>on the actual bundle data — the parities of $SU(2)_L$ and $U(1)_Y$ flux on $S^2$ and the Wilson-line/flux content over the two 2-cycles of $K_6$, plus the relative/$\mathrm{Pin}^c$ boundary object at the $S^1_Y/\mathbb{Z}_2$ walls. <strong>OPEN-1 / BLOCKED</strong> on this missing characteristic datum. No $\xi$ $\Rightarrow$ no $MT\xi$ spectrum $\Rightarrow$ no bordism group $\Rightarrow$ the class is not even an element of any group. (This same boundary residual is the one UQF-3 also inherits.)</p>
+<p><strong>(M2) The $d=4$ piece of the bulk coset class.</strong> The bulk Wess–Zumino class lives in $H^*_{SU(3)}(SU(3)/T^2)=\mathbb{Z}[u_1,u_2]$, even-degree, polynomial in two degree-2 generators. Its $d\le 3$ part is <strong>provably zero</strong> (FOS Cor 7.5, since $H^1(K_6)=0$); its $d=4$ part is <strong>a priori nonzero</strong> — FOS Cor 7.6 fails on <em>both</em> hypotheses, $H^2(SU(3)/T^2)=\mathbb{Z}^2\neq 0$ <em>and</em> $SU(3)$ carries a cubic Casimir. The missing object is the value of this $d=4$ piece. <strong>DEFINED; value OPEN.</strong></p>
+<p><strong>(M3) The boundary-lifted class and the order-$\hbar$ nilpotency it controls.</strong> The $d=4$ bulk class is pushed across the boundary by Hořava–Witten inflow into a $d+1=5$ global/$\eta$ class,</p>
+<p>$$
+[\omega]_{\rm lifted}=L_\partial([\omega]_{\rm bulk})\in A=(I\Omega^\xi)^5(\mathrm{pt}),
+$$</p>
+<p>with $5=4+1$ exactly the degree of the $\mathbb{Z}_3$-twisted Milnor primitive $Q_1=\beta P^1$ — dimension arithmetic forced by the geometry, not chosen. This is the binding object. The order-$\hbar$ BV-BRST nilpotency — that the BV Laplacian of the descended measure (KK tower $+$ orbifold projection $+$ coset-ghost sector) produces no $\hbar^1$ obstruction — is the <em>same</em> class, not a separable side-check. <strong>AUDIT / UNCOMPUTED-CONTESTED.</strong> The candidate "$[\omega]_{\rm lifted}=0$" is <strong>WITHDRAWN</strong> (it rested on a degree relocation, a single citation lineage misread as two routes, and a probable object-substitution) and is <strong>not revived</strong>. The SG-4 face of the same residual is the named mixed-anomaly value $\xi_{R4}$ (operative description $d_5=Q_1=\beta P^1$, the untwisted $\mathbb{Z}_3$ survives, the $\tau_{K_6}=(2,2)$ twist-correction the sole lever); <strong>no value and no hash yet</strong>.</p>
+<p><strong>(M4) Quantum survival of chirality (the UQF-7 face) and applicability.</strong> The classical chiral index is twice-confirmed — APS one-sided index $(n_L,n_R)=(+3,0)$ and the Bott–Weil–Borel scan $\chi(K_6,E)=-3$, $|\mathrm{index}|=3$ — and is genuinely specific ($n_L-n_R=3\neq 0$ with $n_R=0$). What is missing is the <strong>quantum</strong> certificate: whether the descended 4D theory can be quantized without spawning light opposite-handed partners. This splits into a <strong>production</strong> obstruction (does $[\omega]$ — the same M3 object — vanish across the lift?) and a <strong>removal</strong> obstruction (if a vectorlike mirror is produced, does strong-coupling symmetric mass generation, pinned to a discrete $\mathrm{mod}\text{-}2/\mathrm{mod}\text{-}8$ spin$^c$/Pin sign bit, decouple it?). Finally, the <strong>applicability premise</strong> — that the invertible Anderson-dual classification applies to the <em>interacting</em> gauged-WZ sector — is itself <strong>OPEN / unchecked</strong>.</p>
+<p><strong>Why this is one class wearing several hats.</strong> $[\omega]_{\rm lifted}$ is simultaneously the SG-4 coset-twist mixed-anomaly class $\xi_{R4}$, the order-$\hbar$ BV-Laplacian obstruction, the coset facet of the Dai–Freed/$\eta$ leg, and the UQF-7 mirror-production obstruction. Naming the single class is a real reduction; it is <strong>not</strong> evaluating it.</p>
+<hr />
+<h2>3. Which gates hit this wall</h2>
+<p>UQF-4 <strong>owns</strong> it; SG-4 and UQF-7 <strong>inherit</strong> it through the same boundary-lifted coset-twist class. It is counted <strong>once</strong> across the three gates.</p>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Relation</th>
+<th>How it touches the descent class</th>
+<th>Ledger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>UQF-4</strong></td>
+<td><strong>owner</strong></td>
+<td>the perturbative + classical legs are banked; the single even-degree class (existence, $d=4$ value, order-$\hbar$ nilpotency, applicability) is its binding open residual</td>
+<td><a href="/anchors/uqf4-anchor-ledger.html">/anchors/uqf4-anchor-ledger.html</a></td>
+</tr>
+<tr>
+<td>SG-4</td>
+<td>inherits</td>
+<td>the mixed 't Hooft anomaly $\xi_{R4}$ is the same coset-twist object — a named computation debt with no value or hash; the BV-BRST descent is disclosed NO-KNOWN-ROUTE</td>
+<td><a href="/anchors/sg4-anchor-ledger.html">/anchors/sg4-anchor-ledger.html</a></td>
+</tr>
+<tr>
+<td>UQF-7</td>
+<td>inherits</td>
+<td>the mirror-production obstruction ($[\omega]\in H^*_{SU(3)}(SU(3)/T^2)$ across the lift) is the same class; mirror removal rides the same $\mathrm{mod}\text{-}2/\mathrm{mod}\text{-}8$ sign-bit family</td>
+<td><a href="/anchors/uqf7-anchor-ledger.html">/anchors/uqf7-anchor-ledger.html</a></td>
+</tr>
+</tbody>
+</table>
+<p>The single move — <strong>prove $\xi$ exists ($w_2+f^*\zeta=0$), then evaluate $[\omega]_{\rm lifted}$ target-blind in manifest bordism/$\eta$ form</strong> — discharges the binding residual of all three gates at once (and the same boundary residual also moves UQF-3).</p>
+<hr />
+<h2>4. What would close it — the bounded, target-blind program</h2>
+<p>A strict dependency order — <strong>existence $\to$ identity/degree repair $\to$ value $\to$ two independent routes</strong> — so no value is computed before the object exists and its identity is pinned:</p>
+<ol>
+<li><strong>OPEN-1 — does $\xi$ exist?</strong> Compute $w_2(X)+f^*\zeta$ target-blind on the actual bundle data and build the relative/$\mathrm{Pin}^c$ boundary object at the $S^1_Y/\mathbb{Z}_2$ walls (obstruction theory for lifting $\tau_X:X\to BO$ through $\xi$; $\mathrm{Spin}^c$/$\mathrm{Spin}$-$G$ characteristic classes). <strong>Success:</strong> $=0$ $\Rightarrow$ $\xi$ exists $\Rightarrow$ the class is defined.</li>
+<li><strong>Identity / degree repairs.</strong> Fix the degree placement ($(I\Omega^\xi)^5$ vs $(I\Omega^\xi)^6$; $\Omega_4$ vs $\Omega_5$) so the $d\to d+1$ inflow shift is not double-counted; pin the canonical refined-PSU(3)/one-form-center target (not bare $B(G_{\rm SM}/\mathbb{Z}_6)$); secure two genuinely independent routes (one citation read several times is one lineage).</li>
+<li><strong>Evaluate $[\omega]_{\rm lifted}\in(I\Omega^\xi)^5(\mathrm{pt})$</strong> in manifest bordism/$\eta$ form (scheme-independence automatic) via the AHSS/James spectral sequence for $MT\xi$ plus Anderson duality, with the $\mathbb{Z}_3$ untwisted-survival and the $\tau_{K_6}=(2,2)$ twist-correction the operative lever and the $d_5=Q_1=\beta P^1$ differential at $p=3$. The order-$\hbar$ nilpotency closes <em>with</em> this evaluation, being the same class.</li>
+<li><strong>Check applicability</strong> (reflection-positivity $+$ invertibility $+$ the fixed $\xi$-structure for the descended branch) and <strong>run the UQF-7 mirror program</strong> — production ($[\omega]$ across the lift) plus selective symmetric mass generation for removal, against the failure-complete predicate $P_{\text{IR-chiral}}$.</li>
+</ol>
+<p><strong>Success criterion:</strong> $\xi$ exists $\wedge$ the class vanishes $\wedge$ order-$\hbar$ nilpotency verified $\wedge$ applicability confirmed $\wedge$ scheme-independent, with two independent routes and a manifest-bordism firewall $\Rightarrow$ UQF-4 (and the SG-4/UQF-7 faces) reach <strong>DERIVED-GIVEN-E</strong> — closed <em>given</em> $E$, never a derivation of $E$.</p>
+<p><strong>What a refuting result looks like (also terminal):</strong> $w_2+f^*\zeta\neq 0$ with no compensating twist $\Rightarrow$ $\xi$ does not exist $\Rightarrow$ the gate is <strong>REFUTED</strong> (the invariant is nonexistent, not zero); a nonzero $[\omega]_{\rm lifted}$ $\Rightarrow$ <strong>REFUTED</strong> on the active branch; a nonzero $[\omega]$ on the UQF-7 face $\Rightarrow$ a forced light mirror (a FINDING). A regulator doing the cancellation work is a hidden knob and <strong>REFUTES</strong> the row.</p>
+<hr />
+<h2>5. Falsifier</h2>
+<p>Two pre-registered, decision-grade falsifiers are armed. <strong>(i)</strong> The $\xi$-existence test: if $w_2(X)+f^*\zeta\neq 0$ in $H^2(X;\mathbb{Z}_2)$ with no compensating twist, the gate is refuted in the strongest way — the would-be invariant does not exist. <strong>(ii)</strong> The mirror test: a nonzero production class $[\omega]$ across the boundary lift is a forced light opposite-handed partner, a real refutation of quantum chirality on this branch. The semantics are one-sided — a violation refutes; a pass is only consistency. Until $\xi$ is shown to exist and $[\omega]_{\rm lifted}$ is evaluated, the falsifiers are armed but not yet runnable, and <strong>no value (and in particular no zero) is asserted</strong>.</p>
+<hr />
+<h2>6. Anti-claims (what must never be said about this wall)</h2>
+<ul>
+<li><strong>Anomaly cancellation is a filter, not a selector.</strong> $E\mapsto O_{\rm pert}(E)$ is a fixed multilinear functional whose kernel is infinite-dimensional — any vector-like pair $R\oplus\bar R$ leaves every entry fixed — so anomaly-freedom admits infinitely many spectra and cannot single out the Standard Model. Formally $E_{\rm frozen}\in\ker O_{\rm pert}$, <strong>never</strong> $\ker O_{\rm pert}=\{E_{\rm SM}\}$.</li>
+<li><strong>Naming the single class is not evaluating it.</strong> The Anderson-dual structural compression is real; it is <strong>not</strong> a closure.</li>
+<li><strong>The descent class is NOT assumed to vanish.</strong> "$[\omega]_{\rm lifted}=0$" is the withdrawn, not-revived candidate; assuming it is target-loading and is refused everywhere. The gate has <strong>no number to hit</strong> — the only "value" is zero, and zero is exactly what is refused.</li>
+<li><strong>$\xi$ is specified, not proven to exist.</strong> OPEN-1 is BLOCKED; $d=4$ vanishing is <strong>not</strong> claimed (FOS Cor 7.5 proves only $d\le 3$; Cor 7.6 fails here).</li>
+<li><strong>Quantum nilpotency is NOT verified</strong> — only the classical $s^2=0$ is. The order-$\hbar$ piece is a facet of the same open class.</li>
+<li><strong>The twice-confirmed classical chiral index does not settle the quantum spectrum.</strong> APS $(+3,0)$ and BWB $|\mathrm{index}|=3$ are firewalled, zero-mode scope, and are <strong>reproduction of one invariant, not two independent anchors</strong>.</li>
+<li><strong>Topology cannot decide the mirror question.</strong> A light vectorlike mirror has $n_L-n_R=0$ and is null in every gauge/gravitational/global/spin$^c$/cobordism invariant; the deciding datum is dynamical (symmetric mass generation), not topological.</li>
+<li><strong>A chosen regulator that makes the descent cancel REFUTES the row</strong> — it is a hidden knob, not a closure.</li>
+<li>The frozen-branch hashes (<code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>) are audit anchors; they certify <em>which object</em> was tested, <strong>not</strong> the physics.</li>
+<li><strong>Local closure is not whole-gate closure.</strong> $O_{\rm pert}(E_{\rm frozen})=0$ does not imply $O_{\rm UQF4}(E_{\rm frozen})=0$. And even a fully clean UQF-4 is an anomaly-consistency leg only — no Osterwalder–Schrader/Wightman existence, no spectral gap — so it <strong>cannot</strong> touch the Yang–Mills mass gap.</li>
+</ul>
+<hr />
+<h2>7. Terminal disposition</h2>
+<p><strong>OPEN-ANCHORED — a per-gate bounded wall (partly no-known-route).</strong> Owned by UQF-4 (ANCHOR-CLOSED / AUDIT-OPEN); inherited and counted once by SG-4 (OPEN-ANCHORED) and UQF-7 (OPEN-ANCHORED). The perturbative cocycle is DERIVED-GIVEN-E and independently reproduced, classical $s^2=0$ is DERIVED, and the structural compression to one Anderson-dual class is real — but $\xi$-existence (M1), the $d=4$ value (M2), the boundary-lifted class with its order-$\hbar$ nilpotency (M3), and quantum chirality survival plus applicability (M4) are the bounded, target-blind, falsifiable work that remains. Every outcome — vanishing, nonzero, or nonexistent-$\xi$ — is a valid close; <strong>none may be assumed</strong>, and even fully delivered this is a consistency leg <em>given</em> $E$, never the UV completion and never a selector for the Standard Model.</p>
+<hr />
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The systematic wall analysis was run on this wall and independently cross-checked. The review <strong>confirmed the verdict</strong> and found <strong>no overstatement, no target-dependence, and no misclassification</strong>. No gate here is physics-closed (anchored ≠ closed).</p>
+<pre><code>Verdict: NOT_EXHAUSTED_BLOCKED
+Deep root the residual sits on: Shape (the K6=SU(3)/T2 coset + S1_Y/Z2 boundary generate the class), gated through Causal Order (the d-&gt;d+1 inflow that defines the lift degree) and Nonseparability (why local closure does not compose to global); the residual ultimately sits on Shape — whether the frozen geometry admits the tangential structure xi at all (w_2+f*zeta).
+
+The single precise hole (smallest missing rule):
+  The target-blind evaluation of the integrality/existence obstruction w_2(X) + f*zeta = 0 in H^2(X; Z_2) on the branch&#x27;s ACTUAL bundle data — specifically the parities of SU(2)_L flux on S^2, U(1)_Y flux on S^2, and the Wilson-line/flux content over the two 2-cycles of K_6, plus the relative/Pin^c boundary object at the S1_Y/Z2 walls. Until this single characteristic-class datum is supplied, the tangential structure xi is not shown to exist on the branch, so there is no MTxi spectrum, no bordism group, and the descent class [omega]_lifted is not even an element of any group — the value question (M2/M3), the order-hbar nilpotency (M3), xi_R4 (SG-4), and 16/16 coverage (UQF-7) are all downstream of and gated by this one missing datum.
+
+Named blockers:
+  - M1 / OPEN-1: xi-existence BLOCKED_MISSING_CHARACTERISTIC_DATA — w_2(X)+f*zeta uncomputed on actual SU(2)_L/U(1)_Y flux parities over S^2, Wilson-line/flux over the two K_6 2-cycles, and the Pin^c boundary object at the S1_Y/Z2 walls (obstruction-tower step O3 load-bearing-OPEN; O5/B2 shared blocker with UQF-3)
+  - M2: the d=4 piece of the bulk coset-WZ class [omega]_bulk in H*_SU(3)(SU(3)/T2)=Z[u1,u2] is DEFINED but value-OPEN — provably zero for d&lt;=3 (FOS Cor 7.5, H^1(K_6)=0) but a priori nonzero at d=4 (FOS Cor 7.6 fails on both hypotheses: H^2=Z^2 != 0 and SU(3) has a cubic Casimir)
+  - M3: the boundary-lifted class [omega]_lifted in (IOmega^xi)^5(pt) is AUDIT / UNCOMPUTED-CONTESTED; the order-hbar BV-Laplacian nilpotency obstruction is the SAME class, not a separable side-check; the candidate &#x27;[omega]_lifted = 0&#x27; is WITHDRAWN (degree relocation + single citation lineage misread as two routes + probable object-substitution) and is not revived
+  - M3-degree/identity: degree placement (IOmega^xi)^5 vs ^6 / Omega_4 vs Omega_5 not pinned, canonical refined-PSU(3)/one-form-center target not secured, two genuinely independent routes not in hand (one citation = one lineage)
+  - M4: quantum chirality survival OPEN — production obstruction (same [omega]) + removal obstruction (SMG, mod-2/mod-8 spin^c/Pin sign bit, topology-blind by construction) against the failure-complete predicate P_IR-chiral; plus the applicability premise (invertible Anderson-dual classification on the interacting gauged-WZ sector) UNCHECKED
+  - Scheme-independence firewall: every row must be delivered in manifest bordism/eta form or a regulator silently does the cancellation work — a hidden knob that REFUTES the row
+
+Honest endpoint: The wall is honestly reduced — not closed — to a single Anderson-dual even-degree class wearing four hats (d=4 coset value, order-hbar BV nilpotency, xi_R4, mirror production), and it terminates BLOCKED upstream of any value on one missing characteristic-class datum, w_2(X)+f*zeta in H^2(X;Z_2), which decides whether the tangential structure xi even exists on the branch; until that is supplied the class is not an element of any group and the falsifiers, though armed, are not runnable.
+Terminal status: OPEN-ANCHORED / GLOBAL-DESCENT RESIDUAL (UQF-4 owner: ANCHOR-CLOSED, AUDIT-OPEN; SG-4 and UQF-7 inherit, counted once; 0 gates physics-CLOSED). Banked given-E: perturbative anomaly cocycle DERIVED-GIVEN-E, classical s^2=0 DERIVED, structural compression to one Anderson-dual even-degree class DERIVED(structural). Binding residual BLOCKED on the xi-existence characteristic datum w_2(X)+f*zeta in H^2(X;Z_2); downstream d=4 value, order-hbar BV nilpotency, xi_R4, and 16/16 coverage OPEN. No value, and in particular no zero, is asserted. Even fully delivered this is an anomaly-consistency leg given E only and cannot touch the Yang-Mills mass gap (Gap-02 stays Precisely-OPEN).
+</code></pre>
+<hr />
+<h2>8. Cross-links</h2>
+<ul>
+<li>The <a href="./index.html">walls index</a> — the full terminal-anchored register and honest tally.</li>
+<li><strong>Tier A (shared global):</strong> <a href="./w1-uv-completion.html">W1 — UV-completion / strong-coupling quantum gravity</a> (the wall this descent leg does <strong>not</strong> touch) · <a href="./w2-continuum-existence.html">W2 — continuum existence</a>.</li>
+<li><strong>Tier B (keystone):</strong> <a href="./w3-a6-coefficient.html">W3 — the a₆ Seeley-DeWitt coefficient</a> · <a href="./w4-granularity-mdl.html">W4 — granularity ⇒ MDL</a>.</li>
+<li><strong>Tier C (siblings):</strong> <a href="./w5-bundle-uniqueness.html">W5 — given-E / bundle-uniqueness</a> (the companion SG-4 residual) · <a href="./w6-flavor-rulebook.html">W6 — flavor F⁺ rulebook</a> · <a href="./w12-baryogenesis.html">W12 — baryogenesis CP-source</a> (shares the $\mathrm{mod}\text{-}8$ sign-bit family).</li>
+<li><strong>Anchor ledgers:</strong> <a href="/anchors/uqf4-anchor-ledger.html">UQF-4 (owner)</a> · <a href="/anchors/sg4-anchor-ledger.html">SG-4</a> · <a href="/anchors/uqf7-anchor-ledger.html">UQF-7</a> · <a href="/anchors/uqf3-anchor-ledger.html">UQF-3</a> (shares the same boundary residual).</li>
+<li><strong>Dossiers:</strong> the full <a href="/articles/DOSSIER_UQF4_FULL.html">UQF-4 dossier</a> · <a href="/articles/DOSSIER_SG4_FULL.html">SG-4 dossier</a> · <a href="/articles/DOSSIER_UQF7_FULL.html">UQF-7 dossier</a>.</li>
+</ul>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The dark-matter portal-normalization wall</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 248px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9632; The Wall Register</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; back to The Anchors</a></div>
+<div class="ann-group">Shared global walls</div>
+<a href="w1-uv-completion.html">W1 · UV completion (shared)</a>
+<a href="w2-continuum-existence.html">W2 · Continuum existence (shared)</a>
+<div class="ann-group">Keystone bounded walls</div>
+<a href="w3-a6-coefficient.html">W3 · a6 coefficient (keystone)</a>
+<a href="w4-granularity-mdl.html">W4 · granularity to MDL</a>
+<div class="ann-group">Per-gate bounded walls</div>
+<a href="w5-given-e-bundle.html">W5 · given-E / bundle uniqueness</a>
+<a href="w6-flavor-rulebook.html">W6 · flavor F+ rulebook</a>
+<a href="w7-anomaly-descent.html">W7 · anomaly descent (BV-BRST)</a>
+<a href="w8-custodial-rho.html">W8 · custodial rho=1</a>
+<a href="w9-moduli-stabilization.html">W9 · moduli stabilization</a>
+<a href="w10-lambda-stability.html">W10 · Lambda radiative stability</a>
+<a href="w11-lambda-value.html">W11 · Lambda value</a>
+<a href="w12-baryogenesis-cp.html">W12 · baryogenesis CP-source</a>
+<a href="w13-dark-matter-portal.html" class="current">W13 · dark-matter portal</a>
+<a href="w14-inflation-spectrum.html">W14 · inflation spectrum</a>
+<a href="w15-born-weight.html">W15 · Born-rule weight</a>
+<a href="w16-bh-microstates.html">W16 · BH microstates / Page</a>
+<a href="w17-proton-operators.html">W17 · proton operators</a>
+<a href="w18-ym-uniform-gap.html">W18 · Yang-Mills uniform gap</a>
+<a href="w19-threshold-magnitudes.html">W19 · threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The dark-matter portal-normalization wall — rendered package. Rendered from <code>w13-dark-matter-portal.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The dark-matter portal-normalization wall</h1>
+<p><strong>Kind: PER-GATE-BOUNDED (a finite, owned work-package).</strong> <em>One honest sentence:</em> the same frozen $13\mathrm{D}$ shape that recovers the Standard Model also localizes and <em>stabilizes</em> a dark-matter candidate that nobody fitted to the data — structurally selected $17$ of $18$ times — but the one number the relic abundance rides on, the <strong>portal normalization</strong> $N_{\rm portal}$ (a finite, in-principle-computable wavefunction-overlap integral), is not yet evaluated, so the gate owns a bounded magnitude debt, not a closure.</p>
+<p>This page presents the wall under the terminal-anchored principle: <strong>anchored ≠ closed.</strong> The gate that owns it is anchor-closed; it is not physics-closed. The wall is a bounded, in-grammar work-package with named residuals and a clean refute-only falsifier — and the candidate's <em>identity and stability</em> do not, by themselves, fix any abundance.</p>
+<hr />
+<h2>What is missing</h2>
+<p>The frozen geometry contains an $S^1_Y/\mathbb{Z}_2$ factor (the hypercharge circle modded by a $\mathbb{Z}_2$ orbifold), whose boundary fixed point localizes a zero-mode — the <strong>C-iii</strong> state — with three structural quantum numbers:</p>
+<p>$$\text{C-iii}:\quad \mathbb{Z}_2\text{-odd},\qquad Y=0,\qquad (\text{color- and electrically-neutral}).$$</p>
+<p>That state is a genuine given-$E$ win: $\mathbb{Z}_2$-odd parity (the orbifold action itself, fixed for independent reasons — <em>not</em> an imposed dark parity) forbids decay to any final state built entirely from $\mathbb{Z}_2$-even Standard-Model fields, and $Y=0$ keeps any portal coupling renormalizable. The identity + stability leg is discharged given $E$:</p>
+<p>$$\big[\mathbb{Z}_2\text{-odd}\big]\wedge\big[Y=0\big]\ \Rightarrow\ \text{(stable, dark, renormalizable-portal-admitting candidate)},\qquad O_{\rm Gap11,local}(E_{\rm frozen})=0.$$</p>
+<p>What is <strong>missing</strong> is everything that needs a <em>magnitude</em>. The candidate carries <strong>no abundance number</strong>. The full gate obstruction adds a magnitude-debt family the local leg does not close:</p>
+<p>$$O_{\rm Gap11}(E)=\big(O_{\rm operator},\,O_{N_{\rm portal}},\,O_{\rm relic}(T_{\rm RH}),\,O_{\rm adjudication}\big),\qquad O_{\rm Gap11}(E_{\rm frozen})\ne 0\ \text{(asserted).}$$</p>
+<p>The precise missing objects are:</p>
+<ul>
+<li><strong>The portal operator</strong> — the lowest-dimension, $\mathbb{Z}_2$-odd-preserving coupling that connects C-iii to the thermal bath. It is currently <strong>UNNAMED</strong>; you cannot normalize an operator you have not named.</li>
+<li><strong>The portal normalization</strong> $N_{\rm portal}$ — a finite, fully-specifiable but <strong>UNRUN</strong> wavefunction-overlap integral on the boundary geometry, reduced $13\mathrm{D}\to 4\mathrm{D}$:</li>
+</ul>
+<p>$$N_{\rm portal}\ \propto\ \int_{S^1_Y/\mathbb{Z}_2}\psi_{\rm C\text{-}iii}(y)\,\psi_{\rm bath}(y)\,(\text{geometry factors})\,dy .$$</p>
+<p>It is an explicit numerical computation, <em>not</em> an argument that can be carried to a value by reasoning alone. There is <strong>no first-principles hash for $N_{\rm portal}$</strong> — no frozen object exists for it.</p>
+<ul>
+<li><strong>The relic abundance</strong> $\Omega_{\rm DM}h^2$ — the standard freeze-in Boltzmann quadrature, <strong>OPEN / downstream-gated</strong> on $N_{\rm portal}$ and a frozen reheating temperature:</li>
+</ul>
+<p>$$\Omega_{\rm DM}h^2\ \propto\ \int\big(\text{production rate}(N_{\rm portal},T)\big)\,dT\quad\text{over the }T_{\rm RH}\text{ band}.$$</p>
+<p>The mechanism is <strong>freeze-in</strong>, not freeze-out: the candidate is never in thermal equilibrium; it is slowly populated by the feeble portal. No value is asserted anywhere.</p>
+<p><strong>The structural compression (the key insight).</strong> The <em>same</em> coefficient $N_{\rm portal}$ sets <strong>both</strong> the production rate (the relic abundance) <strong>and</strong> the elastic scattering rate (the direct-detection cross-section). So the gate is structurally <em>one missing derivation with two downstream consumers and one experimental adjudicator.</em></p>
+<p><strong>The structural fork comes first.</strong> Whether $N_{\rm portal}$ is even the right object is itself open. On one branch the abundance is <em>geometric</em> and $N_{\rm portal}$ is a <strong>non-object</strong>; on another it is only a <strong>correction</strong>; on a tower-co-carry branch the answer routes into the recorded KK-overclosure machinery. The fork must be resolved <strong>before</strong> $N_{\rm portal}$ is treated as the single block. The single sharpest missing artifact is therefore: resolve the inventory fork without reference to the measured value, then — only on the surviving branch — evaluate $N_{\rm portal}$, never tuning it to the data.</p>
+<hr />
+<h2>Which gates hit this wall</h2>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Role at this wall</th>
+<th>Anchor ledger</th>
+<th>Dossier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gap-11 — Dark matter</strong></td>
+<td><strong>owns</strong> the wall: the C-iii state, the $17/18$ selection, both stability legs, the unnamed portal operator, $N_{\rm portal}$, the structural fork, the gated relic integral, and the $\sigma_{\rm SI}$ forecast all live here</td>
+<td><a href="/anchors/gap11-anchor-ledger.html">/anchors/gap11-anchor-ledger.html</a></td>
+<td><a href="/articles/DOSSIER_GAP11_FULL.html">DOSSIER_GAP11_FULL.html</a></td>
+</tr>
+</tbody>
+</table>
+<p>Gap-11 <strong>owns</strong> the wall and is the only gate that does. It <strong>inherits</strong> two upstream inputs it does not derive and cannot close from inside: the spectrum $E_{\rm frozen}$ (the candidate is read off <em>this</em> $E$; Gap-11 does not derive $E$), and the reheating temperature band $T_{\rm RH}\in[2.4\times10^{12},\,4\times10^{15}]\ \mathrm{GeV}$ (a $\sim3$-OOM band), inherited from Gap-09 and re-gated transitively on Gap-08 and Gap-04. The relic integral consumes $T_{\rm RH}$; it does not set it.</p>
+<hr />
+<h2>What would close it — or why it is terminal</h2>
+<p>This is a <strong>bounded, owned work-package</strong>, not a unicorn. Each residual is a concrete, finite computation performed without reference to the measured value. The hard discipline throughout: <strong>never tune to the measured floor</strong> $\Omega_{\rm DM}h^2\approx 0.12$ (Planck) — that is the single comparison target, used <strong>once, post-freeze</strong>, and backing any coefficient out of $0.12$ is the prohibited anti-fitting move.</p>
+<ul>
+<li><strong>The structural fork (resolve first).</strong> Evaluate the two inventory possibilities (the trichotomy and the single-component fork) on the frozen operator ledger, without reference to the measured value. <strong>Refuting / dissolving outcome:</strong> branch (i) → the abundance is geometric and $N_{\rm portal}$ dissolves as a non-object; another branch → $N_{\rm portal}$ demotes to a correction; tower-co-carry → the answer routes into the recorded KK-overclosure + Gap-09. Any of these shrinks the gate honestly <em>without</em> evaluating $N_{\rm portal}$.</li>
+<li><strong>Name the portal operator</strong> (cheapest genuine step, on the surviving branch). Apply the operator inventory to name the lowest-dimension, $\mathbb{Z}_2$-odd-preserving operator and exhibit an explicit ordering. <strong>Success:</strong> DERIVED-GIVEN-E if unique; else a named, value-free axiom <code>AXIOM-PORTAL-OPERATOR</code>. <strong>Refuting:</strong> no admissible parity-preserving operator exists → forces the geometric branch.</li>
+<li><strong>Evaluate $N_{\rm portal}$ (the block).</strong> Compute the overlap integral via the dimensional-reduction conventions, without reference to the measured value, tracking the normalization-convention hazard. <strong>Success:</strong> the integral evaluates with no fudge <em>and</em> the downstream relic integral lands near $0.12$ post-freeze; else a named <code>AXIOM-PORTAL-NORMALIZATION</code> if it is verified to <em>yield</em> a value; else the realistic terminus, <strong>OPEN</strong> as an explicit numerical computation — not an axiom one can reason to.</li>
+</ul>
+<p><strong>Success criterion (the honest endpoint):</strong> Gap-11 moves from <em>candidate-recorded, gate-open</em> toward a <em>frozen prediction</em> — and even then, only <em>given</em> $E$ and a frozen $T_{\rm RH}$, and only by comparing to $0.12$ once, never by tuning to it. The legitimate interim terminal is to <strong>name</strong> the standing posits as declared axioms and stop. The absolute version ("the candidate is the unique dark matter across all mathematics") is the dissolved unicorn, never the wall.</p>
+<p>One claim that might look like a shortcut is <strong>not</strong> available: that the same selection criterion picking the dark <em>state</em> ($17/18$) also governs the <em>operator</em> inventory. Two independently verified theorems show this is <strong>REFUTED AS STATED</strong> (a count-vs-mass-dimension type mismatch); the state-side selection stands, while the operator-side governance terminates in a named posit <code>AXIOM-OPERATOR-ORDERING</code>. "REFUTED AS STATED" means the strong state→operator transfer is not licensed — it does <strong>not</strong> mean the candidate was disproven. The gate is therefore honestly larger, not more closed.</p>
+<hr />
+<h2>Falsifier</h2>
+<p>The wall carries a <strong>refute-only</strong> experimental adjudicator. Because $N_{\rm portal}$ sets both the relic rate and the elastic-scattering rate, a recorded spin-independent direct-detection forecast already exists:</p>
+<p>$$\sigma_{\rm SI}\sim 10^{-55}\text{–}10^{-60}\,\mathrm{cm}^2,$$</p>
+<p>which sits roughly $6$–$11$ orders of magnitude <strong>below</strong> the neutrino floor $\sigma\sim 10^{-49}\,\mathrm{cm}^2$ (the irreducible coherent-neutrino-scattering background). The asymmetry is exact and pre-registered: <strong>any</strong> direct-detection signal <em>above</em> this band kills the minimal candidate, but <strong>no null result can confirm</strong> it — the forecast lies below the floor where no terrestrial experiment can probe. That asymmetry is an observation limit on all of physics for a portal this feeble, not a defect of this theory. The $\sigma_{\rm SI}$ <em>point value</em> within the band is itself gated on $N_{\rm portal}$; only the band and the refute-only test are recorded now.</p>
+<p>A separate, recorded coupling $\lambda_p(0.12)\sim 10^{-11}$ exists as a <em>role-ambiguous</em> feeble coupling. It is <strong>not</strong> asserted to be $N_{\rm portal}$ — assuming that identity would back the normalization out of $0.12$, the prohibited anti-fitting move — and is exported to the owner as an open question, not a result.</p>
+<hr />
+<h2>Anti-claims (what must never be said about this wall)</h2>
+<ul>
+<li><strong>Not "Gap-11 derives the dark-matter abundance."</strong> No $\Omega_{\rm DM}h^2$ value is asserted anywhere; the relic integral is gated, not run, and $N_{\rm portal}$ has no assertable value. The candidate carries <em>no</em> abundance number.</li>
+<li><strong>Not "$N_{\rm portal}$ has a value" / "computed from $0.12$."</strong> It is a fully-specifiable but UNRUN overlap integral; reasoning cannot carry it to a number, and backing it out of $0.12$ is forbidden anti-fitting.</li>
+<li><strong>Not "$\lambda_p(0.12)\sim 10^{-11}$ is $N_{\rm portal}$."</strong> That identity is unasserted (the $\kappa^3/\pi$ anti-pattern); it is an exported question.</li>
+<li><strong>Not "the KK-overclosure PASS fixes the abundance."</strong> The bound $\Omega_{\rm KK}\le 1$ is <strong>one-sided</strong> — a necessary viability bound, never a sufficient abundance determination; it must never be upgraded from PASS to abundance-determined.</li>
+<li><strong>Not "the $17/18$ selection is a certificate / a prediction."</strong> It is a decision-grade audit at selector-CANDIDATE grade, frozen before any abundance comparison; never re-scored from memory.</li>
+<li><strong>Not "one geometric rule selects both the particle and its portal operator."</strong> REFUTED AS STATED by two verified theorems; only the state-side selection is established.</li>
+<li><strong>Not "a null direct-detection result confirms the candidate."</strong> The forecast is refute-only; it sits $\sim6$–$11$ OOM below the neutrino floor, so no null can confirm it.</li>
+<li><strong>Not "Gap-11 derives $E$" or "Gap-11 fixes $T_{\rm RH}$."</strong> The candidate is read off <em>this</em> $E$; the reheating band is inherited from Gap-09.</li>
+<li><strong>Not "the frozen hashes validate the physics."</strong> <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> are audit anchors certifying <em>which object</em> was tested — and there is <strong>no hash for $N_{\rm portal}$</strong>.</li>
+<li><strong>Not "local established structure is whole-gate closure."</strong> $O_{\rm Gap11,local}(E_{\rm frozen})=0$ does <strong>not</strong> imply $O_{\rm Gap11}(E_{\rm frozen})=0$.</li>
+</ul>
+<hr />
+<h2>Terminal disposition</h2>
+<p><strong>OPEN-ANCHORED — a bounded, owned work-package with a refute-only falsifier.</strong> Gap-11 is ANCHOR-CLOSED / WALL-RECORDED, physics-status <strong>OPEN</strong> by the least-closed-residual rule: identity + stability are DERIVED-GIVEN-E (selector-CANDIDATE); the KK-overclosure bound is DERIVED-GIVEN-E (one-sided); the portal operator is AXIOM-OPEN / UNNAMED; $N_{\rm portal}$ is OPEN / UNRUN; the relic abundance is OPEN / downstream-gated; $\Omega_{\rm DM}h^2\approx0.12$ is a MEASURED-ANCHOR (compared-to-only). <strong>No gate here is physics-CLOSED.</strong> The one-line verdict: <em>the geometry supplies and stabilizes a dark-matter candidate nobody fitted, but the single coefficient its abundance rides on — $N_{\rm portal}$ — is a finite, unrun overlap integral behind an unnamed operator and a structural fork, with a refute-only signature far below the neutrino floor.</em></p>
+<hr />
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The systematic wall analysis was run on this wall and independently cross-checked. The review <strong>confirmed the verdict</strong> and found <strong>no overstatement, no target-dependence, and no misclassification</strong>. No gate here is physics-closed (anchored ≠ closed).</p>
+<pre><code>Verdict: NOT_EXHAUSTED_BLOCKED
+Deep root the residual sits on: Shape (the frozen S^1_Y/Z_2 geometry must FORCE the operator inventory and the overlap-integral object, not merely permit them), backed by Granularity (the no-unpaid-label charge on the operator and N_portal). The residual ultimately sits on Shape failing to force a unique operator/object — Granularity then forbids inventing the missing label.
+
+The single precise hole (smallest missing rule):
+  The target-blind inventory-fork adjudication rule (R8) that decides whether N_portal is even the right object BEFORE any operator is named or any integral is run: a Shape/Granularity-internal rule that evaluates the trichotomy (geometric-abundance branch i -&gt; N_portal is a non-object; correction branch iii -&gt; N_portal demotes to a correction; unique-operator freeze-in branch ii -&gt; N_portal is the single block) and the single-component fork on the frozen ⊗-ledger, discharging AXIOM-OPERATOR-ORDERING from inside (it is currently REFUTED AS STATED by two verified theorems — a count-vs-mass-dimension type mismatch — so the state-side 17/18 razor does NOT transfer to operator selection). Until this rule exists, R1 (operator) has no forced survivor, R2 (N_portal) fails the object-identity check (EXISTENCE-&gt;IDENTITY-&gt;VALUE), and the observable test cannot be run.
+
+Named blockers:
+  - R8 structural fork UNRUN: which inventory branch holds is undecided, so N_portal&#x27;s object-identity (is it the right object at all?) is unestablished
+  - R1 portal operator UNNAMED: the lowest-dimension Z_2-odd-preserving ⊗-ledger operator is not named; the only operator-touching selection rule is REFUTED AS STATED (AXIOM-OPERATOR-ORDERING undischarged)
+  - R2 N_portal UNRUN: a finite, fully-specifiable wavefunction-overlap integral that no reasoning can carry to a value; no first-principles hash exists for it
+  - R6 T_RH PAID-INPUT: ~3-OOM band (2.4e12-4e15 GeV) inherited-CONDITIONAL from Gap-09 -&gt; Gaps 08/04, not closeable inside Gap-11
+  - R3 relic integral downstream-gated on R2+R6; R5 sigma_SI point value gated on R2
+  - R4 lambda_p(0.12)~1e-11 is role-ambiguous: asserting lambda_p = N_portal would back the normalization out of 0.12 (prohibited anti-fitting), correctly quarantined as exported question Q01
+
+Honest endpoint: The frozen 13D Shape supplies and stabilizes a dark-matter candidate nobody fitted (C-iii, selected 17/18, Z2-odd + Y=0 = absolutely stable, renormalizable-portal-admitting given E), but the single coefficient its abundance rides on — N_portal — is a finite, unrun overlap integral sitting behind an unnamed operator and an unresolved structural fork that has not even established N_portal is the right object, so the map terminates BLOCKED before any observable test, with a refute-only signature far below the neutrino floor.
+Terminal status: OPEN-ANCHORED / PORTAL-BOUNDED. Gap-11 is ANCHOR-CLOSED / WALL-RECORDED, physics-status OPEN by the least-closed-residual rule. Banked given-E: C-iii identity + dual stability legs (DERIVED-GIVEN-E, selector-CANDIDATE) and the one-sided KK-overclosure bound (DERIVED-GIVEN-E, one-sided). Open: structural fork (R8, UNRUN), portal operator (R1, UNNAMED / AXIOM-OPEN, AXIOM-OPERATOR-ORDERING undischarged), N_portal (R2, UNRUN overlap integral), relic abundance (R3, downstream-gated), sigma_SI point value (R5, gated on R2). T_RH is INHERITED-CONDITIONAL (paid input, exported to Gap-09). 0.12 is a MEASURED-ANCHOR, compared-to-only. No gate here is physics-CLOSED. Falsifier is refute-only (sigma_SI ~6-11 OOM below the neutrino floor; no null can confirm).
+</code></pre>
+<hr />
+<h2>Cross-links</h2>
+<ul>
+<li>The /walls/ index and the per-gate terminal-status table: <a href="/walls/index.html">/walls/index.html</a></li>
+<li>Owning gate ledger and full dossier: <a href="/anchors/gap11-anchor-ledger.html">Gap-11 ledger</a> · <a href="/articles/DOSSIER_GAP11_FULL.html">DOSSIER_GAP11_FULL.html</a></li>
+<li>Sibling cosmology wall — do <strong>not</strong> pin the seesaw scale $M_R$ from $\eta_B$ there (the anti-fitting hazard): <a href="/walls/w12-baryogenesis-cp.html">W12 — baryogenesis CP-source</a></li>
+<li>The shared continuum/KK seam this wall can route into on the tower-co-carry branch: <a href="/walls/w2-continuum-existence.html">W2 — continuum existence</a></li>
+<li>Anchoring method and the given-E wall: <a href="/anchors/index.html">the anchoring method</a> · <a href="/anchors/layer-2-no-unpaid-labels.html">Layer 2 — no unpaid exact labels</a> · <a href="/anchors/layer-4-carrier-forcing.html">Layer 4 — carrier-forcing &amp; the given-E wall</a></li>
+</ul>
+</main>
+</div>
+</body></html>

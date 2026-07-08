@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Λ-value wall (measured anchor + R-uniqueness)</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 248px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9632; The Wall Register</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; back to The Anchors</a></div>
+<div class="ann-group">Shared global walls</div>
+<a href="w1-uv-completion.html">W1 · UV completion (shared)</a>
+<a href="w2-continuum-existence.html">W2 · Continuum existence (shared)</a>
+<div class="ann-group">Keystone bounded walls</div>
+<a href="w3-a6-coefficient.html">W3 · a6 coefficient (keystone)</a>
+<a href="w4-granularity-mdl.html">W4 · granularity to MDL</a>
+<div class="ann-group">Per-gate bounded walls</div>
+<a href="w5-given-e-bundle.html">W5 · given-E / bundle uniqueness</a>
+<a href="w6-flavor-rulebook.html">W6 · flavor F+ rulebook</a>
+<a href="w7-anomaly-descent.html">W7 · anomaly descent (BV-BRST)</a>
+<a href="w8-custodial-rho.html">W8 · custodial rho=1</a>
+<a href="w9-moduli-stabilization.html">W9 · moduli stabilization</a>
+<a href="w10-lambda-stability.html">W10 · Lambda radiative stability</a>
+<a href="w11-lambda-value.html" class="current">W11 · Lambda value</a>
+<a href="w12-baryogenesis-cp.html">W12 · baryogenesis CP-source</a>
+<a href="w13-dark-matter-portal.html">W13 · dark-matter portal</a>
+<a href="w14-inflation-spectrum.html">W14 · inflation spectrum</a>
+<a href="w15-born-weight.html">W15 · Born-rule weight</a>
+<a href="w16-bh-microstates.html">W16 · BH microstates / Page</a>
+<a href="w17-proton-operators.html">W17 · proton operators</a>
+<a href="w18-ym-uniform-gap.html">W18 · Yang-Mills uniform gap</a>
+<a href="w19-threshold-magnitudes.html">W19 · threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The Λ-value wall (measured anchor + R-uniqueness) — rendered package. Rendered from <code>w11-lambda-value.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The Λ-value wall (measured anchor + R-uniqueness)</h1>
+<p><strong>Kind: AXIOM/ANCHOR + PER-GATE-BOUNDED.</strong> <em>One honest sentence:</em> the value of the cosmological constant $\Lambda$ is the program's fifth and final measured anchor — a single directly-measured input the frozen geometry produces no internal competitor for, terminal <em>as an anchor</em> and never derived — while the only genuinely open, bounded, in-grammar move in its neighborhood is the structural question of whether freezing the internal volume mode is the <em>unique minimal</em> trace-decoupling modification of gravity.</p>
+<p>This page presents the wall under the terminal-anchored principle: <strong>anchored $\neq$ closed.</strong> The gate that owns it, Gap-05-value, is <strong>ANCHOR-CLOSED</strong> — every object it touches has a status, an allowed claim, and a forbidden claim — yet it rolls up <strong>OPEN</strong>, governed by its least-closed residual. The value-leg is the floor every honest theory must pay, not a closure; the R-uniqueness sub-target is bounded and falsifiable; the absolute "$\Lambda$ is derived / provably irreducible" statement is a dissolved unicorn, never the wall.</p>
+<hr />
+<h2>1. What the wall is, in one honest sentence</h2>
+<p>The frozen $13$D geometry produces <strong>no</strong> $\Lambda$ to fit, so the comparison set against the observed $(2.3\ \text{meV})^4$ is empty by construction; the value enters the ledger as a measured fifth anchor (row 5, alongside $M_{\rm Pl}$, $\alpha_i$, $y_t$, $|V_{us}|$), the most promising in-framework route to a reduction was computed-refuted, and every known "explanation" of the value relocates the number $1{:}1$ rather than reducing it — leaving the value terminal-as-anchor and exactly one bounded structural residual: is volume-mode freezing the unique minimal trace-decoupling change?</p>
+<hr />
+<h2>2. What is missing — the precise objects</h2>
+<p>There are two distinct things here, and they must not be merged. The <strong>value</strong> is not a missing object — it is a present, measured anchor. What is missing is a <strong>structural uniqueness theorem</strong> that lives on the neighbor mechanisms, not on the value.</p>
+<p><strong>(V) The value is a measured anchor, not a hole.</strong> The framework declares exactly $N=5$ "just-is" inputs; $\Lambda$ is row 5:</p>
+<p>$$\Lambda = (2.3\ \text{meV})^4 \approx 1\times10^{-122}\,M_{\rm Pl}^4 .$$</p>
+<p>Two structural facts force the honest grade. First, the other four rows are consumed <em>against</em> internal structure, but $\Lambda$ has nothing internal to be consumed against — the no-target-loading guarantee is the gate's one closed <em>local</em> leg,</p>
+<p>$$\mathcal C_{\rm Gap05}(E_{\rm frozen}) = \varnothing \qquad\text{(status: DERIVED-GIVEN-E),}$$</p>
+<p>i.e. the set of structure-side quantities comparable to the observed value is empty, so there is structurally nothing to tune. Second, $\Lambda$ enters only as the dimensionless ratio $\Lambda/M_{\rm Pl}^4$, anchored <em>against</em> the one dimensionful row $M_{\rm Pl}$, never terminal as its own output. The value-leg may therefore anchor but may <strong>not</strong> close.</p>
+<p><strong>(R) The one missing structural object — R-uniqueness.</strong> It is <strong>not established</strong> whether <strong>volume-mode freezing</strong> (the unimodular trace-decoupling premise) is the <strong>unique minimal trace-decoupling modification</strong> of gravity. Until then the separating premise stays <strong>NON-ATOMIC</strong>. Precisely: over a <em>declared</em> candidate space of minimal gravity-coupling modifications — unimodular / trace-free / sequestering / Gauss–Bonnet-augmented — is volume-mode freezing the unique minimal change that leaves local general relativity intact? The decisive relocation fact is that even the heaviest available construction (the Kaloper–Padilla augmented sequestering action) leaves a residual $\Delta\Lambda$ that is, in its authors' own words, <em>"radiatively stable, albeit with a value that is incalculable and should be set by measurement (just like the electron mass)"</em> — a verified $1{:}1$ relocation. So R-uniqueness, even if proven, would upgrade the <em>premise</em> from "conjecture" to "forced-but-unmeasured"; it would <strong>not</strong> make the value derived.</p>
+<p><strong>Scope, stated sharply.</strong> R-uniqueness supports the <em>companion</em> mechanism/dissolution rows (Gap-05-stability, the $\Lambda$-catastrophe dissolution), <strong>not</strong> the value itself. The value stays a measured anchor regardless of how R-uniqueness resolves.</p>
+<hr />
+<h2>3. Which gates hit this wall</h2>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Relation</th>
+<th>How it touches the wall</th>
+<th>Ledger · Dossier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gap-05-value</strong></td>
+<td><strong>owns</strong></td>
+<td>the value $\Lambda=(2.3\ \text{meV})^4$ is its row-5 measured anchor (terminal-as-anchor); $\mathcal C_{\rm Gap05}=\varnothing$ is its closed local leg; the R-uniqueness sub-target is its named open residual</td>
+<td><a href="/anchors/gap05-value-anchor-ledger.html">/anchors/gap05-value-anchor-ledger.html</a> · <a href="/articles/DOSSIER_GAP05_VALUE_FULL.html">DOSSIER_GAP05_VALUE_FULL.html</a></td>
+</tr>
+</tbody>
+</table>
+<p>The R-uniqueness move is <strong>exported</strong> to the neighbors but not owned by them: it is the atomicity lever that the radiative-stability mechanism (Gap-05-stability, wall <strong>W10</strong>) and the catastrophe dissolution ($\Lambda$-catastrophe, also recorded at <strong>W10</strong>) both wait on. Gap-05-value owns the value and the R-uniqueness <em>statement</em>; W10 owns the four-predicate radiative-stability burden and the finite condensate-shift sequestering that <em>consume</em> the R-uniqueness result.</p>
+<hr />
+<h2>4. What would close it — or why it is terminal</h2>
+<p><strong>The value is terminal — do not chase a value-derivation.</strong> The value-leg has no derivation to show, and that is the point. Its airtightness rests on three checkable structural facts, all <strong>DERIVED-GIVEN-E</strong>, none of which derives the value:</p>
+<ol>
+<li><strong>No-target-loading guarantee</strong> — $\mathcal C_{\rm Gap05}(E_{\rm frozen})=\varnothing$: the frozen geometry produces no $\Lambda$, so "we promise we didn't tune" becomes "there is structurally nothing to tune."</li>
+<li><strong>The granularity negative control, tripped by $\sim 113$ orders of magnitude</strong> — the program's deepest reduction lever (granularity) dissolves <em>continuum/divergent</em> walls; run as a deliberate control on the <em>value</em>, a finite supertrace at the natural granular scale $M_{\rm cutoff}=1/R_0$ gives $\rho_{\rm vac}^{\rm gran}\sim M_{\rm cutoff}^4=(1/R_0)^4$, landing $\sim 113$ OOM from $(2.3\ \text{meV})^4$ and predicting no value. $\Lambda$ is a <em>finite</em> wall; finite walls survive granularity. This is the method correctly reporting "does not apply" — a specificity diagnostic, not a failure to dissolve.</li>
+<li><strong>The chamber-cancellation no-go ($\Lambda$-R1)</strong> — the only positive in-framework idea, a sign-graded "chamber" sum over $K_6=SU(3)/T^2$, is computed-refuted target-blind: a sign-grading cancels a sum only if it acts on labels distinguishing terms, but the vacuum-energy operator is the <strong>identity / unit operator</strong>, grading-even and label-blind. The supertrace witness is honest-FAIL — ratio $0.58$ at $k=0$, $1.000$ at $k=1\text{–}8$. Status <code>THEOREM_REFUTED</code>, established at full strength.</li>
+</ol>
+<p>The honest endpoint for the value is therefore <strong>MEASURED ANCHOR · terminal-as-anchor</strong>, never DISSOLVED or DERIVED.</p>
+<p><strong>R-uniqueness is bounded — here is the concrete target-blind program.</strong> Over a <em>declared</em> candidate space of minimal gravity-coupling modifications (unimodular / trace-free / sequestering / Gauss–Bonnet-augmented / …), <strong>prove or refute</strong> that volume-mode freezing is the unique minimal trace-decoupling change leaving local GR intact.</p>
+<ul>
+<li><strong>Inputs:</strong> the trace-free Einstein equation; unimodular gravity; the Kaloper–Padilla augmented action (arXiv:1606.04958). The candidate-space enumeration must be architecture-neutral.</li>
+<li><strong>Success criterion (write the minimality metric <em>before</em> checking which wins):</strong> if proven $\to$ a named conditional theorem (the premise becomes atomic-given-the-candidate-space). The trap is a circular definition of "minimal" that picks out volume-mode freezing by construction — the candidate space and the metric must be fixed first.</li>
+<li><strong>What a refuting result looks like (also a valid close):</strong> volume-mode freezing is <em>one of many</em> routes, and the separating premise stays explicitly NON-ATOMIC. A refutation is as useful as a proof.</li>
+</ul>
+<p>Either outcome upgrades the <em>premise's atomicity</em>, which is what the catastrophe dissolution and the all-orders sequestering both wait on. <strong>Neither outcome moves the value-leg's grade</strong> — the value stays a measured anchor.</p>
+<hr />
+<h2>5. Falsifier</h2>
+<p>The value-leg carries <strong>no live falsifier of its own</strong>: a measured anchor is not the kind of object that can be refuted by computation, only superseded by a better measurement or by a future derivation that the program does not claim to have. The standing honest form is <em>earned-irreducible under all known reductions</em>, never provably so — <strong>Weinberg-open</strong>, measured against the best published no-go, Weinberg (1989), <em>Rev. Mod. Phys.</em> <strong>61</strong>, 1, which forecloses the easy routes to a naturally small $\Lambda$.</p>
+<p>The <strong>R-uniqueness</strong> sub-target is, by contrast, pre-registered as a <em>two-sided</em> bounded test: a target-blind enumeration over the declared candidate space either elevates volume-mode freezing to a unique-minimal conditional theorem or demotes it to one-of-many. The minimality metric must be written before the check; a refutation is a fully valid result. There is no preferred outcome and nothing is tuned to the data.</p>
+<hr />
+<h2>6. Anti-claims (what must never be said about this wall)</h2>
+<ul>
+<li><strong>$\Lambda$ is not derived, predicted, or explained.</strong> There is no model value and no internal comparator: $\mathcal C_{\rm Gap05}(E_{\rm frozen})=\varnothing$.</li>
+<li><strong>The measured value does not <em>close</em> Gap-05.</strong> An anchor terminates <em>itself</em>, not its gate; the roll-up is <strong>OPEN</strong>. Using a claimed-output as a measured anchor to close its own gate is the cardinal sin — refused here.</li>
+<li><strong>Granularity does not dissolve the value</strong> the way it dissolves continuum walls — the $\sim 113$-OOM control proves the opposite — and that datum may <strong>not</strong> be promoted into "no reduction is possible" (a universal negative).</li>
+<li><strong>$\Lambda$ is not <em>provably</em> irreducible.</strong> "No competitor anywhere / unique across all mathematics / no future theory could do better" is the dissolved unicorn — a universal negative, unprovable in principle, never a wall. The honest form is earned-irreducible-under-all-known-reductions (Weinberg-open).</li>
+<li><strong>The chamber-cancellation route does not derive $\Lambda$</strong> — it is computed-refuted ($\Lambda$-R1, unit-operator obstruction).</li>
+<li><strong>R-uniqueness, if proven, does not make the value derived.</strong> At most it upgrades the separating premise's atomicity; the value stays $1{:}1$-relocated and anchored.</li>
+<li><strong>Relocation is not reduction.</strong> Unimodular gravity, vacuum sequestering, quintessence, and the anthropic/Weinberg bound each relocate the number $1{:}1$ (or restate it as environmental selection); none reduces it.</li>
+<li><strong>The "an integration constant has no beta function" slogan is true-but-irrelevant</strong> — there is no running coupling, but the boundary <em>value</em> that replaces it shifts additively ($\Lambda_0\to\Lambda_0+\delta V$); it must not be re-leaned on.</li>
+<li><strong>The value is not a pristine T1 invariant</strong> — it is filed T3 (ΛCDM-laden) pending its co-consumption ledger ($H_0$, $\rho_{\rm crit}$, the ΛCDM extraction assumptions).</li>
+<li><strong>The frozen-branch hashes</strong> (<code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>) are audit anchors certifying <em>which object</em> was tested; they do <strong>not</strong> validate the physics.</li>
+</ul>
+<hr />
+<h2>7. Terminal disposition</h2>
+<p><strong>TERMINAL-ANCHORED — measured fifth anchor; Weinberg-open (AXIOM/ANCHOR + bounded R-uniqueness).</strong> Owned by Gap-05-value (ANCHOR-CLOSED / physics-OPEN at the gate roll-up by the least-closed-residual rule). The value-leg is a <strong>MEASURED ANCHOR · terminal-as-anchor</strong> — the program's ledger floor — made airtight by the no-target-loading guarantee $\mathcal C_{\rm Gap05}=\varnothing$, the tripped $\sim 113$-OOM granularity control, and the refuted chamber no-go ($\Lambda$-R1, witness $0.58$ at $k=0$). The single bounded open move is <strong>R-uniqueness</strong>: whether volume-mode freezing is the unique minimal trace-decoupling modification, resolvable two-sidedly over a declared candidate space, with the result consumed by the neighbors (W10), never by the value. <strong>Gap-05-value is not physics-CLOSED.</strong> The one-line verdict: <em>the value is the honest fifth anchor — measured, untuned, $1{:}1$-irreducible under every known route, Weinberg-open — and the only thing to compute is whether the separating premise is uniquely minimal.</em></p>
+<hr />
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The systematic wall analysis was run on this wall and independently cross-checked. The review <strong>confirmed the verdict</strong> and found <strong>no overstatement, no target-dependence, and no misclassification</strong>. No gate here is physics-closed (anchored ≠ closed).</p>
+<pre><code>Verdict: NOT_EXHAUSTED_BLOCKED
+Deep root the residual sits on: Shape (the admissibility grammar of generally-covariant gravity-coupling modifications) — the residual hole is that this Shape grammar is undeclared/unenumerated; it sits jointly on Invariance (diffeomorphism covariance fixing what &#x27;trace-decoupling&#x27; means) and is gated by Scale (the volume/trace mode). The value-leg, by contrast, bottoms cleanly on the Scale/Record-Interface measured-anchor floor (≥1 forever).
+
+The single precise hole (smallest missing rule):
+  R1 of the R-uniqueness map: a pre-declared, architecture-neutral candidate-space GRAMMAR of minimal generally-covariant trace-decoupling modifications of gravity PLUS the minimality metric on it, both written before checking which candidate wins. Without this enumeration-grammar + metric, &quot;is volume-mode freezing the unique minimal trace-decoupling change?&quot; cannot be enumerated (open-ended space marked &#x27;…&#x27;), so the segment is NOT_EXHAUSTED_BLOCKED at the grammar-declaration rule — not at any downstream selection/projection/readout rule.
+
+Named blockers:
+  - No declared, finite-or-generatively-complete candidate space of minimal trace-decoupling gravity modifications (dossier lists &#x27;unimodular / trace-free / sequestering / Gauss-Bonnet-augmented / …&#x27; with an explicit open ellipsis = not enumerated; Rule-Exhaustion Phase 3 ⇒ BLOCKED).
+  - No architecture-neutral minimality metric written before the check; any metric written now risks circularly selecting volume-mode freezing (κ³/π / Directive-VI trap) ⇒ would be TARGET_SELECTION_RISK on the R-leg if fudged.
+  - Secondary uniqueness/minimality theorem T-A is explicitly marked NOT-established / OPEN (01_DOSSIER §4.5).
+  - R4-evaluability cascade: deciding admissibility of some modifications (non-perturbative ΔV_NP) may not be evaluable inside the corpus without the Gap-02 / UQF-11 continuum engine (exported, A2).
+  - Value-leg has NO map by construction: C_Gap05(E_frozen)=∅, so there is no Layer-2→Layer-1 chain to the value and none may be invented.
+
+Honest endpoint: The Λ value is the honest fifth measured anchor — terminal-as-anchor, untuned (the frozen geometry produces no internal competitor, C_Gap05=∅), 1:1-irreducible under every known route and Weinberg-open, never derived — while the single in-grammar residual, whether volume-mode freezing is the unique minimal trace-decoupling modification, terminates BLOCKED on a missing pre-declared candidate-space grammar plus minimality metric, and even a full resolution would only upgrade the neighbours&#x27; separating premise, never the value&#x27;s grade.
+Terminal status: TERMINAL-ANCHORED for the value (MEASURED-ANCHOR · fifth/row-5 anchor · Weinberg-open · C_Gap05(E_frozen)=∅ · 1:1-irreducible under every known route · never derived) + OPEN-BOUNDED / NOT_EXHAUSTED_BLOCKED for R-uniqueness (blocked at the undeclared architecture-neutral candidate-space grammar + minimality metric). Owning gate Gap-05-value rolls up OPEN by the least-closed-residual rule. NOT physics-CLOSED.
+</code></pre>
+<hr />
+<h2>8. Cross-links</h2>
+<ul>
+<li>The /walls/ index and the per-gate terminal-status table: <a href="/walls/index.html">/walls/index.html</a></li>
+<li><strong>Sibling $\Lambda$ walls:</strong> <a href="/walls/w10-lambda-stability.html">W10 — $\Lambda$ radiative stability + sequestering</a> (consumes the R-uniqueness result; the catastrophe-half is already dissolved).</li>
+<li><strong>Do not pin $M_R$ from $\eta_B$, and do not chase a value-derivation:</strong> <a href="/walls/w12-baryogenesis.html">W12 — baryogenesis CP-source</a>.</li>
+<li><strong>Tier A (shared global):</strong> <a href="/walls/w1-uv-completion.html">W1 — UV-completion / strong-coupling quantum gravity</a> · <a href="/walls/w2-continuum-existence.html">W2 — continuum existence</a>.</li>
+<li><strong>Tier B (keystone):</strong> <a href="/walls/w3-a6-coefficient.html">W3 — the a₆ Seeley-DeWitt coefficient</a> · <a href="/walls/w4-granularity-mdl.html">W4 — granularity ⇒ MDL</a>.</li>
+<li><strong>Owning gate ledger and dossier:</strong> <a href="/anchors/gap05-value-anchor-ledger.html">Gap-05-value anchor ledger</a> · <a href="/articles/DOSSIER_GAP05_VALUE_FULL.html">DOSSIER_GAP05_VALUE_FULL.html</a>.</li>
+<li><strong>Anchoring method:</strong> <a href="/anchors/index.html">the anchoring method</a> · <a href="/anchors/layer-1-metric.html">Layer 1 — the metric anchor $M_{\rm Pl}$</a> (the dimensionful row $\Lambda$ is anchored against).</li>
+</ul>
+</main>
+</div>
+</body></html>

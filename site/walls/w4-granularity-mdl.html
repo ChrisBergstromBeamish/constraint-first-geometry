@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The granularity ⇒ MDL metric-selection wall</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 248px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9632; The Wall Register</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; back to The Anchors</a></div>
+<div class="ann-group">Shared global walls</div>
+<a href="w1-uv-completion.html">W1 · UV completion (shared)</a>
+<a href="w2-continuum-existence.html">W2 · Continuum existence (shared)</a>
+<div class="ann-group">Keystone bounded walls</div>
+<a href="w3-a6-coefficient.html">W3 · a6 coefficient (keystone)</a>
+<a href="w4-granularity-mdl.html" class="current">W4 · granularity to MDL</a>
+<div class="ann-group">Per-gate bounded walls</div>
+<a href="w5-given-e-bundle.html">W5 · given-E / bundle uniqueness</a>
+<a href="w6-flavor-rulebook.html">W6 · flavor F+ rulebook</a>
+<a href="w7-anomaly-descent.html">W7 · anomaly descent (BV-BRST)</a>
+<a href="w8-custodial-rho.html">W8 · custodial rho=1</a>
+<a href="w9-moduli-stabilization.html">W9 · moduli stabilization</a>
+<a href="w10-lambda-stability.html">W10 · Lambda radiative stability</a>
+<a href="w11-lambda-value.html">W11 · Lambda value</a>
+<a href="w12-baryogenesis-cp.html">W12 · baryogenesis CP-source</a>
+<a href="w13-dark-matter-portal.html">W13 · dark-matter portal</a>
+<a href="w14-inflation-spectrum.html">W14 · inflation spectrum</a>
+<a href="w15-born-weight.html">W15 · Born-rule weight</a>
+<a href="w16-bh-microstates.html">W16 · BH microstates / Page</a>
+<a href="w17-proton-operators.html">W17 · proton operators</a>
+<a href="w18-ym-uniform-gap.html">W18 · Yang-Mills uniform gap</a>
+<a href="w19-threshold-magnitudes.html">W19 · threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The granularity ⇒ MDL metric-selection wall — rendered package. Rendered from <code>w4-granularity-mdl.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The granularity ⇒ MDL metric-selection wall</h1>
+<p><strong>Kind: KEYSTONE-BOUNDED (bounded theorem-target / named axiom).</strong> <em>One honest sentence:</em> the open object is the theorem that finite operational granularity <strong>selects description-length (MDL) over dimension-count</strong> as the simplicity metric — the single seam on which the "thirteen dimensions are minimal" claim turns from <em>selected-within-a-category</em> into <em>forced</em>, and which is presently named as one axiom rather than derived.</p>
+<p>This page presents the wall under the terminal-anchored principle: <strong>anchored ≠ closed.</strong> Every gate that touches it is anchor-closed; none is physics-closed. The wall is a bounded, in-grammar theorem-target with a clean refuting outcome — not the uncomputable absolute-minimality unicorn it is sometimes mistaken for.</p>
+<hr />
+<h2>What is missing</h2>
+<p>In a finite-record universe, admissible descriptions are finite bit-strings, so "simplest" is sharpened to "shortest such string" (the minimum-description-length, or MDL, reading). Granularity supplies two pieces of this picture and is <strong>silent on the third</strong>:</p>
+<ul>
+<li>it fixes the <strong>domain</strong> — finite bit-strings — and</li>
+<li>it fixes the <strong>per-anchor cost</strong> $b = \log_2(1/\Delta_0)$ bits charged for each independently measured real,</li>
+</ul>
+<p>but it does <strong>not</strong> fix the <strong>aggregation rule</strong> that turns those per-object costs into a single comparison number. Two well-defined rules live on the <em>same</em> space:</p>
+<ul>
+<li><strong>MDL (additive):</strong> total cost $I(B) = S + n\,b$, summing structure cost $S$ and the charged reals $n\,b$. Under this rule the committed $13$D object wins the considered survey.</li>
+<li><strong>Dimension-first (lexicographic):</strong> put effectively infinite weight on the metric-dimension count $k_{\rm dim}$ first, breaking ties only afterward. Under this rule a clean $4$D chiral-gauge effective theory wins ($4 < 13$) <em>irrespective of how many reals it injects</em>.</li>
+</ul>
+<p>The precise missing object is therefore the metric-selection theorem, named in the SG-1 ledger as <strong>AXIOM-COMMON-CURRENCY</strong> (the SG-1 R5 seam):</p>
+<p>$$\textbf{(W4 target)}\qquad \text{granularity (finite records, floor }\Delta_0>0)\;\Longrightarrow\;\text{additive description-length is the forced aggregation rule.}$$</p>
+<p>Until that implication is proved (or refuted), the choice between the two rules is an <em>open axiom</em>, and the headline minimality comparison</p>
+<p>$$I(B_{13}) \approx 13\text{–}14\,b \quad\text{vs}\quad I(B_{\rm EFT}) \approx 25\,b$$</p>
+<p>is decisive only <strong>given</strong> the additive rule. The full SG-1 classification theorem it feeds is</p>
+<p>$$\boxed{\ \forall\, D = 4..12,\ \forall j:\quad (n_{D,j} - 4)\, b \;+\; (S_{D,j} - S_{13}) \;>\; 0\ }$$</p>
+<p>with $S_{13}$ the branch's fully-charged structure+generator cost — an inequality whose <em>aggregation</em> (additive sum, not a lexicographic order) is exactly what W4 is asked to license.</p>
+<hr />
+<h2>Which gates hit this wall</h2>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Role at this wall</th>
+<th>Anchor ledger</th>
+<th>Dossier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SG-1 — Geometry specification</strong></td>
+<td><strong>owns</strong> the decisive seam (R5 / AXIOM-COMMON-CURRENCY); the "$13$D is minimal" claim turns here</td>
+<td><a href="/anchors/sg1-anchor-ledger.html">sg1-anchor-ledger.html</a></td>
+<td><a href="/articles/DOSSIER_SG1_FULL.html">DOSSIER_SG1_FULL.html</a></td>
+</tr>
+<tr>
+<td><strong>DeepRoot-granularity</strong></td>
+<td><strong>owns</strong> the upstream posit (the Uniform Operational Cell Law, $\Delta_0 > 0$) that supplies the domain and the bit-cost $b = \log_2(1/\Delta_0)$</td>
+<td><a href="/anchors/deeproot-granularity-anchor-ledger.html">deeproot-granularity-anchor-ledger.html</a></td>
+<td><a href="/articles/DOSSIER_DEEPROOT_GRANULARITY_FULL.html">DOSSIER_DEEPROOT_GRANULARITY_FULL.html</a></td>
+</tr>
+<tr>
+<td><strong>Gap-02 — Yang–Mills mass gap</strong></td>
+<td><strong>inherits</strong> it as the cost-floor axiom (Hole R6) on which the dissolution-of-the-continuum side rests</td>
+<td><a href="/anchors/gap02-anchor-ledger.html">gap02-anchor-ledger.html</a></td>
+<td><a href="/articles/DOSSIER_GAP02_FULL.html">DOSSIER_GAP02_FULL.html</a></td>
+</tr>
+</tbody>
+</table>
+<p>SG-1 owns the metric-selection half (which aggregation rule); DeepRoot-granularity owns the floor half (that there is a finite cell $\Delta_0 > 0$ at all, with $\hbar$ its measured residue). Gap-02 only consumes the floor as a declared axiom and does not need the metric-selection theorem to state its own (separate) continuum wall.</p>
+<hr />
+<h2>What would close it — or why it is terminal</h2>
+<p>This is a <strong>bounded theorem-target</strong>, not a unicorn. The closure is the SG-1 R5 seam, established target-blind, in three parts:</p>
+<ul>
+<li><strong>(A) granularity $\Rightarrow$ MDL</strong> — derive that the additive description-length functional is the <em>forced</em> aggregation rule from the cost-floor, so that a finite-record cost cannot legitimately carry infinite lexicographic weight on $k_{\rm dim}$;</li>
+<li><strong>(B) anchors dominate dimension</strong> — show the charged-reals term controls the comparison under the resulting metric $\mathcal{I}$;</li>
+<li><strong>(C) symmetric economy ledgers</strong> — score both realizations with the geometry→observables generator map fully charged on both sides (never charging the effective theory for $E$-automatic facts).</li>
+</ul>
+<p><strong>Success criterion (DERIVED-CLOSED for this seam):</strong> SHAPE-minimality upgrades from "selected" to "realization-minimal under the granularity-induced metric, <em>given</em> $E$" — never to "the geometry is derived," and never for the spectrum $E$, which stays charged on both sides and cancels.</p>
+<p><strong>What a refuting result looks like (equally valid — <code>REFUTED-ECONOMY</code>):</strong> a fairly-charged $4$D chiral-gauge effective theory is exhibited that injects <strong>no more reals than</strong> the $13$D branch ($n_{\rm EFT} \le 13$). Then the simpler realization is correct and the minimality claim is withdrawn. This is a genuine, pre-registered outcome, not a defeat to be argued away.</p>
+<p><strong>Interim honest terminal (AXIOM-CLOSED):</strong> if neither (A) nor the refutation lands, the legitimate endpoint is to <strong>name</strong> AXIOM-COMMON-CURRENCY as one standing, value-free posit and stop — exactly what the DeepRoot-granularity ledger already does for the floor itself, where the posit is REDUCED-TO-AXIOM with both banked losses (the delta-test countermodel and the basin-shallowing countermodel $d_n = B\,2^{-n-1}$, $\sum_n d_n = B/2 < \infty$, $\inf_n d_n = 0$) proving that a <em>uniform</em> floor is not a free consequence of mere finiteness.</p>
+<p>The relevant guard is <strong>G1</strong>: the metric must be writable <em>without knowing</em> that $13$D should win (the κ³/π-style kill-test against target-loading). A metric reverse-engineered to make $13$D shortest would be naked target-loading and is forbidden.</p>
+<hr />
+<h2>Falsifier</h2>
+<p>The pre-registered falsifier is the <strong><code>REFUTED-ECONOMY</code></strong> outcome above: a target-blind, fairly-charged accounting in which a clean $4$D chiral-gauge effective theory carries $n_{\rm EFT} \le 13$ charged reals (i.e. no more than the $13$D branch's honest $n_{13} \approx 13\text{–}14$). Such a result kills the additive-MDL minimality claim directly — the simpler realization wins on the very metric the wall is meant to license.</p>
+<hr />
+<h2>Anti-claims (what must never be said about this wall)</h2>
+<ul>
+<li><strong>Not "MDL is proven over dimension-first."</strong> Reject AXIOM-COMMON-CURRENCY and the metric fork reopens and SHAPE-minimality folds — for everyone. The selection is presently an axiom, not a theorem.</li>
+<li><strong>Not "$D = 13$ is forced."</strong> $13$ is selector-minimal <em>inside the declared category</em> and <em>given</em> $E$; the absolute version equals the Kolmogorov complexity $K(T)$ and is uncomputable for any object in any field.</li>
+<li><strong>Not "four inputs explain everything."</strong> The honest charged cost is $n_{13} \approx 13\text{–}14$ measured reals, not $4$; the "$4$ inputs → $22$ outputs" headline is retired.</li>
+<li><strong>Not "the floor is derived."</strong> The Uniform Operational Cell Law is one <strong>named</strong> posit; the granularity floor is REDUCED-TO-AXIOM, and $\hbar$, $k_B$, the Bekenstein constant, and $\Delta_0$ are residues, never derived values. "Zero posits" is forbidden; the count is <strong>one</strong>, and it does not drop.</li>
+<li><strong>Not "reducing to an axiom lowers the axiom count."</strong> Naming the metric-selection axiom (or the floor) is honest disclosure, not an advance on the count.</li>
+<li><strong>Not "no competitor anywhere is shorter."</strong> That is the absolute-minimality unicorn ($K(T)$), unprovable in principle — it is dissolved as a non-target, never listed as the wall. The bounded, in-grammar version (forced <em>within</em> the declared grammar, given $E$) is the real wall.</li>
+<li><strong>Not a spacetime-discreteness claim.</strong> Granularity is a floor on a Lorentz-scalar cost (action/information), not a smallest length.</li>
+</ul>
+<hr />
+<h2>Terminal disposition</h2>
+<p><strong>TERMINAL-ANCHORED at the root level; OPEN-ANCHORED at the bounded seam.</strong> DeepRoot-granularity is <strong>TERMINAL-ANCHORED</strong> (the floor is REDUCED-TO-AXIOM as one named posit; the irreducibility and $\hbar$-value unicorns are dissolved). Gap-02 <strong>inherits</strong> the floor as a standing axiom and is <strong>TERMINAL-ANCHORED</strong> on that one row (its own continuum wall is separate, W2/W18). SG-1 is <strong>DECLARED-FROZEN / OPEN-ANCHORED</strong> on the metric-selection seam (R5): a bounded theorem-target with a live refuting outcome. <strong>No gate here is physics-CLOSED.</strong> The one-line verdict: <em>the metric-selection bridge is a bounded, ownable theorem-target sitting on a named, value-free floor axiom — closeable in principle, refutable in principle, and honestly named in the interim.</em></p>
+<hr />
+<h2>Specialist attack update — 2026-06-29</h2>
+<p>An external specialist pass sharpened this wall into five sub-results, adding <strong>Nonseparability</strong> as a second supporting root alongside Granularity:</p>
+<table>
+<thead>
+<tr>
+<th>Sub-wall</th>
+<th>Status</th>
+<th>Root / reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W4-A — dimension-first-<em>only</em> as a <strong>complete</strong> theory-cost metric</td>
+<td><strong>DISSOLVED</strong></td>
+<td>it prices only $\dim(M)$ and is blind both to primitive exact labels and to primitive independence assumptions — it can assign equal cost to a 3-constant EFT and a 300-constant hidden lookup table. It survives only as a <em>partial</em> diagnostic, never the whole economy metric.</td>
+</tr>
+<tr>
+<td>W4-B — no unpaid exact labels</td>
+<td><strong>REDUCED-TO-ROOT</strong></td>
+<td>Granularity / Cost-Floor + Record Interface.</td>
+</tr>
+<tr>
+<td>W4-D — no unpaid independence / factorization</td>
+<td><strong>REDUCED-TO-ROOT</strong></td>
+<td>Nonseparability + Causal-Order guard: exact independence $\rho_{AB}=\rho_A\otimes\rho_B$ is a <em>special</em> factorization claim, not the default; it must be generated, measured, bounded ($I(A{:}B\mid C)\le\epsilon$), or charged. Reviewer-safe form only — <strong>no</strong> usable superluminal influence, since $\sum_a p(a)\,\rho_{B\mid a}=\rho_B$ still holds.</td>
+</tr>
+<tr>
+<td>W4-C — additive-MDL <strong>uniqueness</strong></td>
+<td><strong>OPEN</strong></td>
+<td>the bounded representation theorem (any admissible record-faithful, recoding-invariant, no-unpaid-label, no-unpaid-factorization, precision-monotone, symmetric-charging cost metric $\equiv$ full-generator MDL up to bounded coding constants) is the remaining target.</td>
+</tr>
+<tr>
+<td>W4-E — 13D beats 4D under fair full-generator accounting</td>
+<td><strong>OPEN / REFUTABLE</strong></td>
+<td>needs the symmetric ledger with the geometry→observables generator charged on <em>both</em> sides; a fairly-charged 4D EFT could still win ($n_{\rm EFT}\le 13$).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Net:</strong> dimension-first-only is <em>dissolved</em> as a complete economy metric; <strong>no-unpaid-labels + no-unpaid-factorization</strong> are <em>reduced to roots</em>; <strong>additive-MDL uniqueness</strong> and the <strong>13D-vs-4D fair ledger</strong> stay <em>open</em>. The executable layer (C-series symmetric ledgers + the target-blind generator compiler) is built, but <strong>machine-verification is hard-blocked on B13</strong> — the SG-8 flavor observable-map source tree is not yet mounted/hashed, so the symmetric ledger cannot be run end-to-end. <strong>Specialist status:</strong> <code>PARTIAL-DISSOLUTION + REDUCED-TO-ROOT / AXIOM-OPEN BRIDGE</code> (concept) · <code>PARTIAL-CLOSED / ROOT-CONDITIONAL / HARD-BLOCKED-ON-B13</code> (executable). <strong>No status change:</strong> this is an honesty gain, not a closure — additive MDL is not proven and $D=13$ is not forced.</p>
+<hr />
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The systematic wall analysis was run on this wall and independently cross-checked. The review <strong>confirmed the verdict</strong> and found <strong>no overstatement, no target-dependence, and no misclassification</strong>. No gate here is physics-closed (anchored ≠ closed).</p>
+<pre><code>Verdict: AMBIGUOUS_SURVIVORS
+Deep root the residual sits on: Granularity (Cost-Floor). The residual sits on granularity&#x27;s PROVEN silence about the aggregation rule: DeepRoot-granularity is itself only REDUCED-TO-AXIOM (the Uniform Operational Cell Law Delta_0&gt;0 is one named posit, with the delta-test and basin-shallowing countermodels proving even a uniform floor is not free from finiteness), and that floor fixes domain+cost but not weighting. Nonseparability is the secondary supporting root (it reduces the factorization sub-segment to a root but does not touch the aggregation seam).
+
+The single precise hole (smallest missing rule):
+  A representation theorem deriving the ADDITIVITY of the cost-aggregation functional from granularity ALONE — i.e. a Layer-2 rule that supplies a finite weight ratio between a dimension-bit and an anchor-bit, thereby excluding the dimension-first lexicographic order (an unbounded/infinite weight on k_dim) as a complete cost metric. Granularity demonstrably fixes only the domain (finite bit-strings) and the per-record cost b=log2(1/Delta_0); it provides NO weight asymmetry, so additive MDL and dimension-first lex are both well-defined on the identical space and granularity does not discriminate. The corpus &#x27;granularity ⇒ MDL&#x27; theorem (layer-1-metric.md / SHAPE_METRIC_RESULT.md) ASSUMES additivity as record-cost axiom #3 — that is the conclusion smuggled into a premise (Directive V RELABEL-FAIL / the audit probe target-restating axiom), so it proves uniqueness only AMONG record-cost metrics and cannot forbid the aesthetic dimension-first preorder.
+
+Named blockers:
+  - Additive-MDL uniqueness (W4-C) OPEN: additivity is posited (record-cost axiom 3), not derived from granularity; the leading &#x27;representation theorem&#x27; is conditional on the very additivity it should establish.
+  - No Layer-2 rule supplies a dimension-bit vs anchor-bit weight asymmetry — a lexicographic leading key equals an unbounded weight ratio that granularity&#x27;s single common resolution Delta_0 cannot bound.
+  - 13D-beats-4D fair ledger (W4-E) OPEN/REFUTABLE: needs the geometry→observables generator charged symmetrically on both sides; a fairly-charged 4D EFT with n_EFT ≤ 13 would win (pre-registered REFUTED-ECONOMY).
+  - Executable symmetric ledger HARD-BLOCKED-ON-B13: the SG-8 flavor observable-map source tree is not mounted/hashed (SG-8 ledger confirms scales N_d,N_e,N_nu fitted and M_R uncomputed), so the C-series ledger cannot run end-to-end.
+  - n_13 ≈ 13–14 charged reals (NOT 4) — the &#x27;4 inputs → 22 outputs&#x27; headline is retired; the honest economy is the ~9–10-real flavor+unification saving only.
+
+Honest endpoint: Granularity provably supplies the finite-bit-string domain and the per-anchor cost b but is silent on the cost-AGGREGATION rule, so additive MDL and dimension-first lexicographic both survive Layer-2 elimination as inequivalent complete metrics; the wall terminates honestly on one named, value-free posit (AXIOM-COMMON-CURRENCY) — closeable or refutable in principle, with the executable symmetric ledger separately hard-blocked on the unmounted B13 observable-map.
+Terminal status: PARTIAL-DISSOLUTION (dimension-first-only as a COMPLETE metric, W4-A) + REDUCED-TO-ROOT (no-unpaid-labels W4-B via Granularity+Record-Interface; no-unpaid-factorization W4-D via Nonseparability+Causal-Order) / AXIOM-OPEN BRIDGE (additive-MDL uniqueness W4-C OPEN; metric-selection = one named value-free posit AXIOM-COMMON-CURRENCY, not a theorem; 13D-vs-4D fair ledger W4-E OPEN/REFUTABLE) · executable layer PARTIAL-CLOSED / ROOT-CONDITIONAL / HARD-BLOCKED-ON-B13. No gate physics-CLOSED; no status changes.
+</code></pre>
+<hr />
+<h2>Cross-links</h2>
+<ul>
+<li>The /walls/ index and the per-gate terminal-status table: <a href="/walls/index.html">/walls/index.html</a></li>
+<li>Sibling keystone wall — the $a_6$ Seeley–DeWitt coefficient: <a href="/walls/w3-a6-coefficient.html">/walls/w3-a6-coefficient.html</a></li>
+<li>Sibling given-E / bundle-uniqueness wall (the SHAPE root's other seam): <a href="/walls/w5-given-e-bundle-uniqueness.html">/walls/w5-given-e-bundle-uniqueness.html</a></li>
+<li>Yang–Mills uniform-gap bridge (the continuum half Gap-02 dissolves <em>by</em> this floor): <a href="/walls/w18-ym-uniform-gap.html">/walls/w18-ym-uniform-gap.html</a></li>
+<li>Continuum-existence wall the floor is dissolution-licensed against: <a href="/walls/w2-continuum-existence.html">/walls/w2-continuum-existence.html</a></li>
+<li>Owning gate ledgers: <a href="/anchors/sg1-anchor-ledger.html">SG-1</a> · <a href="/anchors/deeproot-granularity-anchor-ledger.html">DeepRoot-granularity</a> · <a href="/anchors/gap02-anchor-ledger.html">Gap-02</a></li>
+<li>Anchoring method and the recordability root behind MDL: <a href="/anchors/index.html">the anchoring method</a> · <a href="/anchors/layer-1-metric.html">Layer 1 — the metric / recordability root</a></li>
+</ul>
+</main>
+</div>
+</body></html>

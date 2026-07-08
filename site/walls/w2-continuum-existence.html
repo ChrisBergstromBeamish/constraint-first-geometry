@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The continuum-existence wall (a\to0 / L\to\infty)</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 248px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9632; The Wall Register</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; back to The Anchors</a></div>
+<div class="ann-group">Shared global walls</div>
+<a href="w1-uv-completion.html">W1 · UV completion (shared)</a>
+<a href="w2-continuum-existence.html" class="current">W2 · Continuum existence (shared)</a>
+<div class="ann-group">Keystone bounded walls</div>
+<a href="w3-a6-coefficient.html">W3 · a6 coefficient (keystone)</a>
+<a href="w4-granularity-mdl.html">W4 · granularity to MDL</a>
+<div class="ann-group">Per-gate bounded walls</div>
+<a href="w5-given-e-bundle.html">W5 · given-E / bundle uniqueness</a>
+<a href="w6-flavor-rulebook.html">W6 · flavor F+ rulebook</a>
+<a href="w7-anomaly-descent.html">W7 · anomaly descent (BV-BRST)</a>
+<a href="w8-custodial-rho.html">W8 · custodial rho=1</a>
+<a href="w9-moduli-stabilization.html">W9 · moduli stabilization</a>
+<a href="w10-lambda-stability.html">W10 · Lambda radiative stability</a>
+<a href="w11-lambda-value.html">W11 · Lambda value</a>
+<a href="w12-baryogenesis-cp.html">W12 · baryogenesis CP-source</a>
+<a href="w13-dark-matter-portal.html">W13 · dark-matter portal</a>
+<a href="w14-inflation-spectrum.html">W14 · inflation spectrum</a>
+<a href="w15-born-weight.html">W15 · Born-rule weight</a>
+<a href="w16-bh-microstates.html">W16 · BH microstates / Page</a>
+<a href="w17-proton-operators.html">W17 · proton operators</a>
+<a href="w18-ym-uniform-gap.html">W18 · Yang-Mills uniform gap</a>
+<a href="w19-threshold-magnitudes.html">W19 · threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The continuum-existence wall (a\to0 / L\to\infty) — rendered package. Rendered from <code>w2-continuum-existence.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The continuum-existence wall ($a\to0$ / $L\to\infty$)</h1>
+<blockquote>
+<p><strong>Kind: SHARED-GLOBAL</strong> (full closure is not a per-gate deliverable) · <strong>Disposition: TERMINAL-ANCHORED / PHYSICS-OPEN</strong> — dissolution-licensed onto the granularity axiom for the gates that can decline the limit; the unrestricted continuum-existence proof is a shared frontier wall no single gate owns.</p>
+</blockquote>
+<p><strong>One honest sentence.</strong> Three gates touch the same object — the existence of a genuine continuum quantum theory as the lattice spacing $a\to 0$ and the volume $L\to\infty$ — and at finite cutoff each has a <em>derived</em> result, but the uniform-in-cutoff limit is the constructive-quantum-field-theory frontier; under the program's granularity axiom the gates that may decline the limit are <strong>terminal-anchored</strong> (dissolved, not solved), while the unrestricted limit stays <strong>open</strong>.</p>
+<hr />
+<h2>1. What is missing</h2>
+<p>The precise missing object is the <strong>constructive existence of the continuum measure together with uniform-in-cutoff bounds</strong>. Concretely, for 4D pure $SU(3)$ Yang–Mills on a Wilson lattice $\Lambda\subset(a\mathbb{Z})^4$ with action
+$$S_W=\beta\sum_p\Big(1-\tfrac13\,\mathrm{Re}\,\mathrm{tr}\,U_p\Big),\qquad \beta=6/g_0^2,\qquad d\mu_{a,L}\propto e^{-S_W}\prod_\ell dU_\ell,$$
+what is missing is a construction of
+$$\mu=\lim_{a\to0,\,L\to\infty}\mu_{a,L}$$
+for which the Osterwalder–Schrader axioms (OS-0…OS-3) — in particular reflection positivity — <strong>survive the limit</strong>, together with nontriviality. At finite cutoff the relevant facts are theorems: Wilson lattice gauge theory satisfies reflection positivity with a positive, self-adjoint transfer matrix
+$$T=e^{-aH_a},\qquad H_a\ge 0$$
+(Osterwalder–Seiler; Lüscher). <strong>The entire wall is the uniformity of these facts as $a\to 0$.</strong> As the Gap-02 ledger states it bluntly: <em>"At finite $a$ both the gap and RP are trivial — the entire wall IS the $a\to 0$ limit."</em></p>
+<p>The quantifier order is the whole difficulty. The associated uniform bound (the mass-gap face, owned by W18) reads
+$$\frac{\Delta(a,L)}{\Lambda_{\rm YM}}\;\ge\;c\;>\;0\quad\text{uniformly as }a\to0,\;L\to\infty,\;\beta\to\infty,$$
+with a <em>single</em> $c$ for the <em>same</em> measure for which existence, RP, and nontriviality also hold in the limit — $\exists(\delta,K,\kappa,a_0,L_0,n_0)\,\forall(a,L,\beta,n)$, one constant uniform over all regulators and all scales. No such uniform construction or bound is known here or anywhere.</p>
+<p><strong>The topology clause (precision fix, 2026-06-29).</strong> "OS survives the limit" must not be read as the <em>insufficient</em> statement that the finitely-smeared moments converge weakly. Weak convergence of $\mu_{a,L}$ does <strong>not</strong> by itself transmit reflection positivity: OS-2 is preserved in the limit only if the reflection map $\theta$ acts continuously on it and the limit is a genuine countably-additive measure. The required convergence mode is therefore <strong>equicontinuous / tight convergence on a fixed nuclear test space, with a uniform-in-$a$ moment (Sobolev/Hölder) bound</strong> sufficient for both $\theta$-continuity and countable additivity (fixed-$a$ cylinder-set closure does <em>not</em> compose to a continuum measure — the nonseparability root). The missing object is this equicontinuous, non-Gaussian limit with the constants pulled outside the cutoff quantifier — not mere moment convergence.</p>
+<p><strong>What this wall is NOT.</strong> A finite-cutoff RP theorem is not a continuum-existence proof; a fixed-$a$ certificate does not compose to a uniform limit (the program's nonseparability root: local/fixed-$a$ closure $\ne$ uniform continuum). And a finite $a_6$ Seeley–DeWitt coefficient is not a continuum construction — it lives term-by-term at any spacing and identically in the continuum, so it is the wrong shape of object to settle existence.</p>
+<hr />
+<h2>2. Which gates hit this wall</h2>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>How it touches the wall</th>
+<th>Owns vs inherits</th>
+<th>Status on this wall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gap-02 — Yang–Mills mass gap</strong></td>
+<td>the continuum measure / OS reconstruction / RP survival as $a\to0$ is residual <strong>R3</strong>, an independent co-gate of the mass gap</td>
+<td><strong>owner of the constructive-existence residual</strong> (the gap face is the sibling wall W18)</td>
+<td>OPEN — no 4D $SU(3)$ continuum measure has ever been constructed</td>
+</tr>
+<tr>
+<td><strong>UQF-3 — Reflection positivity</strong></td>
+<td>the uniform continuum limit of interacting 4D positivity is residual <strong>R3</strong>, <em>identical</em> to the 4D Yang–Mills Clay existence/positivity object</td>
+<td>inherits (geometry supplies the target, not a constructive lever)</td>
+<td>REDUCED-TO-AXIOM onto granularity axiom <strong>P1</strong> / OPEN</td>
+</tr>
+<tr>
+<td><strong>UQF-9 — UV completion</strong></td>
+<td>the continuum Seeley–DeWitt tower: the cost-floor axiom dissolves the <em>divergent</em> $a\to0$ counterterm tower $a_8,a_{10},\dots$, but the finite $a_6$ datum is <strong>UNTOUCHED</strong></td>
+<td>inherits (and is the gate that supplies the dissolution license)</td>
+<td>DISSOLVED (one divergence class, value-free axiom) / gate OPEN</td>
+</tr>
+</tbody>
+</table>
+<p>Anchor ledgers: <a href="/anchors/gap02-anchor-ledger.html">Gap-02</a> · <a href="/anchors/uqf3-anchor-ledger.html">UQF-3</a> · <a href="/anchors/uqf9-anchor-ledger.html">UQF-9</a>.
+Dossiers: <a href="/articles/DOSSIER_GAP02_FULL.html">Gap-02 dossier</a> · <a href="/articles/DOSSIER_UQF3_FULL.html">UQF-3 dossier</a> · <a href="/articles/DOSSIER_UQF9_FULL.html">UQF-9 dossier</a>.</p>
+<p><strong>Ownership note.</strong> No single gate owns the <em>unrestricted</em> continuum-existence proof — it is a shared frontier object identical to the constructive 4D Yang–Mills existence problem. Gap-02 owns the constructive-existence residual (R3) at gate scope; UQF-3 inherits the same object as its own R3; UQF-9 owns only the narrow, value-free dissolution of the <em>divergent</em> counterterm class and explicitly leaves the finite datum and the existence question untouched.</p>
+<hr />
+<h2>3. What would close it — or why it is terminal</h2>
+<p>This wall has two faces, and they must not be merged.</p>
+<p><strong>The dissolution face (terminal for the gates that license it).</strong> Under the granularity / cost-floor axiom, a physical theory never has to take the operationally meaningless $a\to0$ limit. UQF-9's discriminator is sharp: <em>is the wall a continuum-limit / $a\to0$ / UV-divergence idealization?</em> If <strong>yes</strong>, declining the continuum can dissolve it; if <strong>no</strong> (a finite-but-uncomputed quantity, a dynamical value, a discrete fact), the axiom is the wrong shape of object and the wall is untouched. Under this discriminator the unbounded $a_8,a_{10},\dots$ Seeley–DeWitt counterterm tower <strong>DISSOLVES</strong>, Lorentz-invariantly, paid for by <strong>one</strong> named, value-free axiom (the floored quantity — cost / action / information — is a Lorentz scalar, so no preferred frame is selected). For UQF-3 the uniform continuum positivity is correspondingly <strong>REDUCED-TO-AXIOM</strong> onto P1. <strong>This is terminal-anchored, not solved:</strong> declining the continuum limit <em>changes the question rather than answering it.</em></p>
+<p><strong>The constructive face (genuinely open; not a per-gate deliverable).</strong> The unrestricted statement — <em>the continuum 4D $SU(3)$ measure exists, reflection positivity survives $a\to0$, the theory is nontrivial</em> — is the constructive-QFT frontier. The concrete, target-blind missing object is:</p>
+<ol>
+<li>Construct $\mu=\lim\mu_{a,L}$ with OS-0/1/2/3 verified <strong>in the limit</strong>, RP surviving $a\to0$, and nontriviality established; then run OS$\to$Wightman.</li>
+<li>Establish the uniform-in-cutoff bounds that make step 1 well-defined across all regulators (the W18 uniform-gap inequality is the mass-gap face of the same uniformity).</li>
+</ol>
+<p><strong>Success criterion:</strong> a constructed continuum measure with the OS axioms verified in the limit. <strong>What a refuting result looks like:</strong> a <em>triviality</em> (Gaussian) proof — i.e. the limit exists but is free — refutes the interacting theory and is a legitimate negative close; an RP-only argument is excluded in advance, because RP-only would falsely gap compact $U(1)$, which is provably gapless. Because this constructive object is identical to a shared frontier problem, it is <strong>not</strong> a deliverable any single gate can be charged with closing.</p>
+<hr />
+<h2>4. Falsifier</h2>
+<p>There is no positive prediction whose falsification kills a <em>claim</em> on this wall, because the gates make <strong>no</strong> claim of continuum existence — they record it as open or dissolution-licensed. The relevant decidable negatives are:</p>
+<ul>
+<li><strong>Triviality close.</strong> A proof that the constructed (or any candidate) continuum limit is Gaussian/free refutes the interacting theory — a valid negative close of the constructive face.</li>
+<li><strong>RP-only no-go (already derived).</strong> Any continuum-positivity argument that uses reflection positivity <em>alone</em> is refuted in advance: it would falsely gap compact $U(1)$. This bounds which routes can possibly work.</li>
+<li><strong>Uniformity falsifier (the sibling W18 face).</strong> A direct uniform $\rho_\star\ge 1$ through the marginal band kills the sufficient route to the uniform-gap bound — a legitimate negative on the mass-gap face that shares this wall's uniformity.</li>
+</ul>
+<hr />
+<h2>5. Anti-claims</h2>
+<ul>
+<li><strong>The continuum limit is NOT solved.</strong> It is REDUCED-TO-AXIOM onto the granularity axiom for the gates that may decline it. <strong>Dissolved $\ne$ solved</strong> — declining the limit changes the Clay-class question, it does not answer it.</li>
+<li><strong>Finite-cutoff RP is NOT continuum RP.</strong> $T=e^{-aH_a},\,H_a\ge0$ is a theorem at fixed $a$; it must never be silently upgraded to "reflection positivity is derived for the full theory."</li>
+<li><strong>A finite $a_6$ is NOT a continuum construction.</strong> The finite Seeley–DeWitt datum is graded UNTOUCHED by the cost-floor dissolution — it exists at any spacing and identically in the continuum; it settles neither existence nor positivity.</li>
+<li><strong>The cost-floor dissolution does NOT exhibit a UV completion or a continuum measure.</strong> It dissolves exactly <strong>one</strong> divergence class ($a_8,a_{10},\dots$) and leaves the existence question open.</li>
+<li><strong>Fixed-$a$ / local closure does NOT compose to the uniform continuum.</strong> Nonseparability: local admissibility does not automatically compose to global admissibility.</li>
+<li><strong>RP alone cannot do it</strong> — an RP-only construction would falsely gap compact $U(1)$.</li>
+<li><strong>No gate "constructs the continuum theory."</strong> The unrestricted existence proof is a shared frontier object, not a per-gate deliverable; frozen-branch hashes are audit anchors and do not validate the physics.</li>
+</ul>
+<hr />
+<h2>6. Terminal disposition</h2>
+<p><strong>TERMINAL-ANCHORED / PHYSICS-OPEN — shared continuum-existence wall.</strong> For UQF-3 and UQF-9 the limit is dissolution-licensed onto the granularity / cost-floor axiom (REDUCED-TO-AXIOM; value-free divergence-class dissolution) — terminal at gate scope, <em>not solved</em>. For Gap-02 the constructive measure / RP-survival residual (R3) is genuinely OPEN and is owned at gate scope but is identical to the shared constructive-QFT frontier; the unrestricted continuum-existence proof is owned by no single gate. <strong>Anchored ≠ closed; no gate here is physics-CLOSED.</strong></p>
+<hr />
+<h2>6b. Specialist attack update — 2026-06-29 (hardened, not upgraded)</h2>
+<p>A two-front analysis was run on both faces in parallel. <strong>Result: the wall is confirmed correctly placed — there is no stronger honest endpoint — and it is hardened by two precision sharpenings and one overstatement fence.</strong> A full write-up is downloadable: <a href="/walls/W02_CONTINUUM_EXISTENCE_CLOSURE_ATTACK.md">W02_CONTINUUM_EXISTENCE_CLOSURE_ATTACK.md</a>.</p>
+<p><strong>Dissolution face — scoped to scalar-not-length.</strong> The program's <em>asserted</em> empirical ledger — dimensionless ratios/mixings (DERIVED-GIVEN-E), measured scale anchors, and discrete/rep-theory facts — is <strong>finite-resolution-native</strong>: each is value-stable at any fixed resolution, so the <em>demand</em> that reality be fundamentally continuum <strong>dissolves</strong> onto AXIOM-COSTFLOOR. The decisive scoping: the licensing floor is on a <strong>Lorentz scalar (action/cost/information), not a length</strong> — so this is <strong>not</strong> a spacetime-discreteness claim and the lattice $a$ is <strong>not</strong> physical; and the dissolution inherits the <em>uniformity</em> posit (basin-shallowing countermodel ⇒ uniformity is not free), carried as a named residue.</p>
+<p><strong>⚠️ The overstatement fence — three statements that are NOT finite-floor-native.</strong> (1) <strong>The mass-gap-<em>as-physics</em> statement</strong> ("YM has a positive gap") lives in the limit — <em>"at finite $a$ both the gap and RP are trivial; the entire wall IS the $a\to0$ limit."</em> The granularity dissolution does <strong>not</strong> and <strong>cannot</strong> rescue it; the program is safe only because it does not assert the gap as established. <em>Any drift into "the floor gives us the mass gap" is falsified.</em> (2) <strong>Interacting existence / nontriviality</strong> is a continuum statement (exported to Gap-02 R3). (3) <strong>Exact Lorentz invariance</strong> is restored only as $a\to0$ — the escape is precisely the scalar-not-length floor.</p>
+<p><strong>Constructive face — one object, correctly wall-recorded.</strong> The missing object is a <em>single</em> uniform-in-cutoff construction ($\exists$ outside $\forall$, in the equicontinuous topology above, non-Gaussian) — and <strong>W02 (constructive) ≡ Gap-02 R3 ≡ W18 (uniform gap) are one object</strong>, sharing the kernel of uniform connected-correlator decay through the $d=4$ marginal band. It is <strong>not a unicorn</strong> (a single existential, decidable both ways — the Jaffe–Witten Clay object), and <strong>no hidden reduction exists</strong> (finite-$a$ RP, finite $a_6$, geometry descent LEVER:0, and the cost-floor are all correctly graded non-levers; the RP-only route is confirmed dead). Why $d=4$ is the open case: in the marginal band the controlling inequality has <strong>$\delta=0$ — no spare coercive margin</strong> — which is exactly where Bałaban and Magnen–Rivasseau–Sénöor-style methods stall (and they stall on the <em>identical</em> object, confirming it is one wall, not three).</p>
+<p><strong>Net status (refined, not promoted):</strong> <code>Dissolution face: DISSOLVED-CONDITIONAL on AXIOM-COSTFLOOR [scalar-not-length; uniformity inherited]</code> · <code>Constructive face: WALL-RECORDED / PHYSICS-OPEN — Clay-class, one object with Gap-02 R3 + W18</code>. Dissolved ≠ solved · anchored ≠ derived · floor = 1, not 0 · no status changes.</p>
+<hr />
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The systematic wall analysis was run on this wall and independently cross-checked. The review <strong>confirmed the verdict</strong> and found <strong>no overstatement, no target-dependence, and no misclassification</strong>. No gate here is physics-closed (anchored ≠ closed).</p>
+<pre><code>Verdict: WALL_RECORDED
+Deep root the residual sits on: Granularity / Cost-Floor — split two ways: the constructive residual ultimately sits on Nonseparability (fixed-a/local closure does not compose to the uniform continuum measure), while the dissolution residual sits on Granularity (the cost-floor axiom and its inherited, un-free uniformity posit).
+
+The single precise hole (smallest missing rule):
+  A single uniform-in-cutoff contraction rule with a strictly positive spare margin (delta&gt;0) carrying connected-correlator decay through the d=4 marginal band g(2^n a)=O(1) — i.e. a contribution bound (not merely a large-field weight bound mu_n &lt;= e^{-c/g^2}) that holds at g=O(1), in an equicontinuous/tight topology on a fixed nuclear space (uniform-in-a Sobolev/Holder moment bound sufficient for theta-continuity and countable additivity), yielding a non-Gaussian limit measure. Equivalently: the existential constants must be pulled OUTSIDE the (a,L,beta) quantifier (exists(mu,delta,K,kappa) forall(a,L,beta)); every banked fixed-cutoff fact has the wrong, inner-existential shape and cannot compose. delta=0 is the exact d=4 stall.
+
+Named blockers:
+  - Constructive existence of mu=lim mu_{a,L} for 4D SU(3) YM with OS-0..3 verified IN THE LIMIT (RP surviving a-&gt;0) — no such measure has ever been constructed, here or anywhere (Gap-02 R3)
+  - Uniform-in-cutoff gap inequality Delta(a,L)/Lambda_YM &gt;= c&gt;0 with a single c outside the quantifier (W18 / Gap-02 R1) — the marginal-band delta=0 stall, where Balaban and Magnen-Rivasseau-Senor methods both fail on the identical object
+  - Nontriviality / non-Gaussianity fused into the same object (an RP limit that is Gaussian is a refutation, not a closure)
+  - Convergence TOPOLOGY: weak convergence of smeared moments does NOT transmit OS-2; need equicontinuous/tight convergence with uniform-in-a moment bound (the part usually elided)
+  - BRST/Gribov nonperturbative positivity surviving a-&gt;0 (Gap-02 R2, genuinely additional co-gate)
+  - Uniformity of the cost-floor across arenas (dissolution face) — AXIOM-OPEN, NOT free; basin-shallowing countermodel d_n=B*2^{-n-1} (sum=B/2&lt;inf, inf=0) refutes the uniform claim
+  (+ 1 more — see the downloadable all-walls run report)
+
+Honest endpoint: W02 is genuinely two-faced: the demand that reality be fundamentally continuum DISSOLVES (conditionally, scalar-not-length, uniformity inherited) onto the cost-floor root for the program&#x27;s finite-resolution-native ledger, while the actual object — a single uniform-in-cutoff, equicontinuous, non-Gaussian construction of the 4D SU(3) measure with RP surviving a-&gt;0 — is a correctly WALL-RECORDED Clay-class existential (identical to Gap-02 R3 and W18) that terminates on the absence of a delta&gt;0 contraction through the d=4 marginal band, and no honest status change of either face is available.
+Terminal status: TERMINAL-ANCHORED / PHYSICS-OPEN. Dissolution face: DISSOLVED-CONDITIONAL on AXIOM-COSTFLOOR [scalar-not-length; uniformity posit inherited, AXIOM-OPEN] — for the finite-resolution-native ratio/mixing/discrete/scale ledger ONLY (dissolves a demand, silent on the object). Constructive face: WALL-RECORDED / PHYSICS-OPEN — one uniform-in-cutoff (exists outside forall, equicontinuous/tight, non-Gaussian) construction of mu = lim mu_{a,L} with RP/OS-2 surviving a-&gt;0; identical to Gap-02 R3 and the mass-gap face W18; Clay-class; not a unicorn; no hidden reduction; RP-only route dead; finite-a RP / finite a_6 / geometry-descent (LEVER:0) NOT continuum constructions. Dissolved != solved · anchored != derived · floor = 1, not 0 · no status changes. No gate physics-CLOSED.
+</code></pre>
+<hr />
+<h2>7. Cross-links</h2>
+<ul>
+<li><strong>Walls index:</strong> <a href="/walls/index.html">/walls/</a></li>
+<li><strong>Sibling walls:</strong> <a href="/walls/w1-uv-completion.html">W1 — UV-completion / strong-coupling quantum gravity</a> (the related shared-global frontier) · <a href="/walls/w3-a6-coefficient.html">W3 — the $a_6$ Seeley–DeWitt coefficient</a> (the finite datum that is <em>not</em> a continuum construction) · <a href="/walls/w4-granularity-mdl.html">W4 — granularity ⇒ MDL</a> (the bridge to the cost-floor axiom that licenses the dissolution)</li>
+<li><strong>The W18 mass-gap face of this same uniformity</strong> (the uniform-gap inequality $\Delta(a,L)/\Lambda_{\rm YM}\ge c>0$) is owned by Gap-02 and recorded in the <a href="/walls/index.html">walls index</a> and the <a href="/anchors/gap02-anchor-ledger.html">Gap-02 anchor ledger</a>.</li>
+<li><strong>Anchor ledgers:</strong> <a href="/anchors/gap02-anchor-ledger.html">Gap-02</a> · <a href="/anchors/uqf3-anchor-ledger.html">UQF-3</a> · <a href="/anchors/uqf9-anchor-ledger.html">UQF-9</a></li>
+<li><strong>Dossiers:</strong> <a href="/articles/DOSSIER_GAP02_FULL.html">Gap-02</a> · <a href="/articles/DOSSIER_UQF3_FULL.html">UQF-3</a> · <a href="/articles/DOSSIER_UQF9_FULL.html">UQF-9</a></li>
+</ul>
+</main>
+</div>
+</body></html>

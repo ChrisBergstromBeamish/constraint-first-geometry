@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The UV-completion / strong-coupling quantum-gravity wall</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 248px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9632; The Wall Register</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; back to The Anchors</a></div>
+<div class="ann-group">Shared global walls</div>
+<a href="w1-uv-completion.html" class="current">W1 · UV completion (shared)</a>
+<a href="w2-continuum-existence.html">W2 · Continuum existence (shared)</a>
+<div class="ann-group">Keystone bounded walls</div>
+<a href="w3-a6-coefficient.html">W3 · a6 coefficient (keystone)</a>
+<a href="w4-granularity-mdl.html">W4 · granularity to MDL</a>
+<div class="ann-group">Per-gate bounded walls</div>
+<a href="w5-given-e-bundle.html">W5 · given-E / bundle uniqueness</a>
+<a href="w6-flavor-rulebook.html">W6 · flavor F+ rulebook</a>
+<a href="w7-anomaly-descent.html">W7 · anomaly descent (BV-BRST)</a>
+<a href="w8-custodial-rho.html">W8 · custodial rho=1</a>
+<a href="w9-moduli-stabilization.html">W9 · moduli stabilization</a>
+<a href="w10-lambda-stability.html">W10 · Lambda radiative stability</a>
+<a href="w11-lambda-value.html">W11 · Lambda value</a>
+<a href="w12-baryogenesis-cp.html">W12 · baryogenesis CP-source</a>
+<a href="w13-dark-matter-portal.html">W13 · dark-matter portal</a>
+<a href="w14-inflation-spectrum.html">W14 · inflation spectrum</a>
+<a href="w15-born-weight.html">W15 · Born-rule weight</a>
+<a href="w16-bh-microstates.html">W16 · BH microstates / Page</a>
+<a href="w17-proton-operators.html">W17 · proton operators</a>
+<a href="w18-ym-uniform-gap.html">W18 · Yang-Mills uniform gap</a>
+<a href="w19-threshold-magnitudes.html">W19 · threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The UV-completion / strong-coupling quantum-gravity wall — rendered package. Rendered from <code>w1-uv-completion.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The UV-completion / strong-coupling quantum-gravity wall</h1>
+<p><strong>Kind: SHARED-GLOBAL</strong> — a frontier problem no single gate owns.</p>
+<p><strong>One line:</strong> the program supplies the graviton operator cleanly, but a constructive, non-perturbative UV completion (or a defensible non-continuum replacement) of the <em>interacting</em> graviton above the cutoff is not exhibited — by this program or by any other — so every gate that touches the strong-coupling regime is <strong>terminal-anchored / physics-open</strong> here, sharing one wall rather than each owning a private hole.</p>
+<blockquote>
+<p><strong>The terminal-anchored principle, applied to W1: anchored ≠ closed.</strong> The per-gate endpoint is to name this wall precisely and pin each gate to its anchor set — not to claim closure. Full closure of quantum gravity is a shared frontier object; it is not a per-gate deliverable, and no gate on this page is labelled CLOSED.</p>
+</blockquote>
+<hr />
+<h2>What is missing</h2>
+<p>The precise missing object is a <strong>constructive, target-blind, non-perturbative UV completion of the interacting graviton</strong> on the frozen background — or a defensible non-continuum replacement for it. On the background $\mathcal{M}_4\times K_6\times S^2\times S^1_Y/\mathbb{Z}_2$ with $K_6=SU(3)/T^2$, de-Donder (harmonic) gauge-fixing of the metric fluctuation $h_{MN}$ supplies the Lichnerowicz-type operator
+$$L_{\rm grav}=-(\nabla^2+E),$$
+whose 4D massless spin-2 mode <em>is</em> the graviton, with the Kaluza–Klein tower above it. The operator is in hand; what is missing is everything that decides the theory <em>above the cutoff</em>, where the perturbative series in $G_N E^2$ ceases to converge:
+$$O_{\rm 5C}(\mathfrak{B}_{\rm active})\;=\;\text{a constructive, non-perturbative UV completion / strong-coupling closure of the interacting graviton}\;\;\textbf{— no route exhibited.}$$</p>
+<p>Concretely, the missing object splits into two genuinely different predicates that must never be merged:
+$$\text{Predicate A: }\exists\;\text{a truncation-independent non-Gaussian fixed point (or defensible non-continuum replacement)}\quad(\textbf{OPEN / global wall}),$$
+$$\text{Predicate B: reality requires no }a\to 0\text{ continuum limit}\quad(\textbf{DISSOLVED, one value-free axiom — does not exhibit A}).$$</p>
+<p>Adopting the cost floor as a root principle (<code>AXIOM-COSTFLOOR</code>) <strong>dissolves</strong> one class of high-energy idealizations — the $a\to 0$ Seeley–DeWitt counterterm tower $a_8, a_{10},\dots$ — Lorentz-invariantly, because the floored quantity (cost / action / information) is a scalar. But <strong>DISSOLVED $\ne$ SOLVED</strong>: dissolving the continuum class makes a fixed point <em>unnecessary to take an $a\to 0$ limit</em>; it does not <em>supply</em> one. Of the eleven standing walls the cost floor is checked against, exactly <strong>1 dissolves and 10 are untouched</strong> — and the finite $a_6$ datum is among the untouched, because it exists term-by-term at any spacing and identically in the continuum (there is no $a\to 0$ infinity inside it).</p>
+<p>A frequently-mistaken near-object is the sixth Seeley–DeWitt heat-kernel coefficient $a_6$. It is the missing object <strong>for</strong> UV consistency, <strong>never</strong> <em>is</em> the completion: even a flawless, finite, positive $a_6$ certifies <em>one</em> coefficient in the unbounded operator ladder
+$$a_6 < a_8 < a_{10} < \cdots$$
+(the scope firewall), and one coefficient cannot settle strong-coupling behaviour. $a_6$ is necessary, not sufficient.</p>
+<hr />
+<h2>Which gates hit this wall</h2>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Relation to W1</th>
+<th>Anchor ledger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>UQF-5C</strong> Interacting / strong-coupling graviton</td>
+<td><strong>co-owner</strong> — the 5C wall <em>is</em> this object; geometry supplies the operator but no constructive lever</td>
+<td><a href="/anchors/uqf5c-anchor-ledger.html">uqf5c-anchor-ledger</a></td>
+</tr>
+<tr>
+<td><strong>UQF-9</strong> UV completion / fixed point</td>
+<td><strong>co-owner</strong> — the fixed-point question (Predicate A) lives here; the divergence-class half (Predicate B) is dissolved</td>
+<td><a href="/anchors/uqf9-anchor-ledger.html">uqf9-anchor-ledger</a></td>
+</tr>
+<tr>
+<td><strong>UQF-5A/5B</strong> Linearized graviton</td>
+<td><strong>inherits</strong> — the linearized certificate is conditional on UQF-9; <em>sufficiency</em> of a finite $a_6$ routes here</td>
+<td><a href="/anchors/uqf5a-5b-anchor-ledger.html">uqf5a-5b-anchor-ledger</a></td>
+</tr>
+<tr>
+<td><strong>UQF-14</strong> Unitarity / causality</td>
+<td><strong>inherits</strong> — above-cutoff graviton-sector unitarity (R1) is exported to UQF-9 and carries the gate badge</td>
+<td><a href="/anchors/uqf14-anchor-ledger.html">uqf14-anchor-ledger</a></td>
+</tr>
+<tr>
+<td><strong>UQF-3</strong> Reflection positivity</td>
+<td><strong>inherits</strong> — the uniform $a\to 0$ continuum limit is the shared continuum wall (see also W2)</td>
+<td><a href="/anchors/uqf3-anchor-ledger.html">uqf3-anchor-ledger</a></td>
+</tr>
+<tr>
+<td><strong>Gap-13</strong> BH entropy / Page curve</td>
+<td><strong>inherits</strong> — the horizon-capable gravity completion (KT-1) the static and Page legs ride on is open</td>
+<td><a href="/anchors/gap13-anchor-ledger.html">gap13-anchor-ledger</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ownership note.</strong> UQF-5C and UQF-9 are the <strong>co-owners</strong>: UQF-5C names the interacting-graviton object, UQF-9 names the asymptotic-safety fixed point, and they are the <em>same</em> shared object counted once across UQF-9 / UQF-14 / UQF-5C. The other four gates <strong>inherit</strong> the wall: they reach their own legitimate anchor sets below the cutoff and then export the strong-coupling residual to the co-owners rather than re-attempting it. Each gate's full dossier is linked from its anchor ledger above (e.g. the <a href="/articles/DOSSIER_UQF9_FULL.html">UQF-9 dossier</a>, <a href="/articles/DOSSIER_UQF5C_FULL.html">UQF-5C dossier</a>).</p>
+<hr />
+<h2>What would close it — or why it is terminal</h2>
+<p>W1 is a <strong>shared global wall</strong>, so its closure is <em>not</em> a per-gate deliverable. There is one shared construction to attempt — built once, not gate-by-gate:</p>
+<ul>
+<li><strong>The fixed-point construction (Predicate A).</strong> Using exact-renormalization-group / Wetterich-flow machinery on $L_{\rm grav}$ and the frozen chamber data, either <strong>exhibit</strong> a <em>truncation-independent</em> non-Gaussian fixed point (with a non-tachyonic Kaluza–Klein spectrum running UV $\to M_*\approx 6.01\times 10^{16}$ GeV) <strong>or prove its non-existence</strong> within asymptotic safety. Both outcomes close it. A fixed point <em>within a declared truncation</em> is <strong>evidence, not a certificate</strong> — and current functional-RG evidence trends <em>against</em> the naive truncation route, which sharpens the wall rather than refuting it. The requirement is two structurally-different routes, not two runs of one engine.</li>
+</ul>
+<p>A <strong>refuting result is a valid close</strong>: uncontrolled high-energy amplitudes, a negative-norm physical state above the cutoff, a regulator-dependent conclusion, or a proof that no such fixed point exists on this geometry would each terminate the question.</p>
+<p><strong>Why it is terminal-anchored short of that.</strong> The honest grade is <em>layered</em>: the operator is supplied (<code>DERIVED-GIVEN-E</code>, as structure); the linearized legs are <code>CERTIFICATE-CONDITIONAL</code> on UQF-9, one floor below; the strong-coupling completion is <code>OPEN</code> everywhere. A UV-complete, strong-coupling quantum theory of gravity is open for strings, asymptotic safety, loop approaches, and this program alike. The nearest tractable handle is <strong>P0</strong> — does the gravitational sector have its <em>own</em> minimal length, or does it inherit the colour scale $R_0$? The established result T-DEEP found $R_0$ to be a pure colour/gauge object with $R_0/\ell_{\rm Planck}\sim 194$, so every finite-grain attempt at 5C relocates onto UQF-9; there is no finite-grain shortcut, and the wall is genuine.</p>
+<hr />
+<h2>Falsifier</h2>
+<p>W1 itself is a frontier wall, not a single quantitative claim, so it carries no single pre-registered numeric falsifier of its own. The decision-grade tests live one floor below and <strong>could refute the conditional legs that ride on W1</strong>:</p>
+<ul>
+<li><strong>Positivity functional on the computed $a_6$.</strong> Once the $d=13$ graviton-minus-ghost trace $\mathrm{tr}[a_6]$ is computed target-blind and a positivity functional $P$ is selected, the test $P(\mathrm{tr}[a_6])\ge 0$ is decision-grade: a result $P(\mathrm{tr}[a_6])<0$ <strong>refutes the linearized graviton certificate</strong> (5A/5B) at decision grade. (At present $P$ is unselected and the trace is uncomputed — the test is a falsifier <em>in principle</em>, not yet runnable; no sign may be asserted.)</li>
+<li><strong>Above-cutoff causality.</strong> The measured graviton zero-mode speed bound $\lvert c_m-c\rvert/c < 10^{-15}$ (GW170817 / GRB170817A, two detector triggers $\sim 1.7$ s apart) constrains the <em>zero-mode</em> only; it cannot be promoted across the cutoff. A demonstrated above-cutoff causality violation in the strong-coupling sector would falsify the inherited UQF-14 leg.</li>
+</ul>
+<hr />
+<h2>Anti-claims (what must never be said about this wall)</h2>
+<ul>
+<li><strong>A finite or positive $a_6$ is NOT the UV completion.</strong> It passes <em>one</em> heat-kernel consistency coefficient among an unbounded tower; relabelling "$a_6$ computed" as "5C closed" relocates the wall and is refused.</li>
+<li><strong>No gate "closes quantum gravity."</strong> W1 is OPEN, shared by every approach. No gate on this page is labelled CLOSED.</li>
+<li><strong>No non-Gaussian / asymptotically-safe fixed point has been exhibited.</strong> Candidate fixed points exist only within declared truncations; a truncation fixed point $\not\Rightarrow$ closure.</li>
+<li><strong>The cost-floor reframe does not SOLVE UV completion.</strong> It dissolves one continuum-limit class, Lorentz-invariantly; it exhibits no fixed point, computes no $a_6$, and leaves the finite $a_6$ and the fixed-point wall untouched. <code>AXIOM-COSTFLOOR</code> is declared and value-free, <strong>not atomic</strong>.</li>
+<li><strong>No $a_6$ value, sign, or partial may be asserted.</strong> The dimensionful bulk magnitude is ill-posed at odd $D=13$ (the $-2.818\times 10^{94}\,\mathrm{GeV}^6$ number was <strong>retracted</strong>); the dimensionless coefficient $C\approx-6.39$ is unreproduced and must not be fabricated.</li>
+<li><strong>"No future theory could UV-complete gravity better than ours" is a unicorn, not a wall.</strong> A universal negative over all possible mathematics is unprovable for everyone; it is dissolved as a non-target. The bounded, in-grammar object — <em>the missing constructive completion / fixed point</em> — is the real wall.</li>
+<li><strong>The frozen-branch hashes</strong> <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> are audit anchors that certify <em>which</em> object was tested; they do <strong>not</strong> validate the physics, and the frozen geometry is selected, not proven uniquely forced.</li>
+</ul>
+<hr />
+<h2>Terminal disposition</h2>
+<p><strong>TERMINAL-ANCHORED / PHYSICS-OPEN — the shared UQF-9 frontier wall.</strong> The interacting-graviton UV completion is named precisely, the operator is supplied given-$E$, one continuum-divergence class is dissolved by a single value-free axiom, and the strong-coupling completion is the maximum-leverage shared open problem — owned jointly by UQF-5C and UQF-9, inherited by UQF-5A/5B, UQF-14, UQF-3, and Gap-13. Anchored, not closed.</p>
+<hr />
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The systematic wall analysis was run on this wall and independently cross-checked. The review <strong>confirmed the verdict</strong> and found <strong>no overstatement, no target-dependence, and no misclassification</strong>. No gate here is physics-closed (anchored ≠ closed).</p>
+<pre><code>Verdict: WALL_RECORDED
+Deep root the residual sits on: Scale (the ultraviolet-scale / strong-coupling regime above the cutoff) — with Nonseparability as the structural guard that forbids a single coefficient (a_6) or a single dissolved class (Predicate B) from composing into the whole-tower completion. Granularity/Cost-Floor reframes but does not construct the UV theory; Shape supplies the operator given-E but does not certify its UV behaviour.
+
+The single precise hole (smallest missing rule):
+  R4 — the constructive, target-blind, non-perturbative UV-completion rule for the INTERACTING graviton on the frozen B_active: a map segment that takes L_grav^{d=13} = -(nabla^2 + E) into a truncation-INDEPENDENT non-Gaussian fixed point (Predicate A) with a non-tachyonic KK spectrum running UV -&gt; M_*, OR a defensible non-continuum replacement with the correct low-energy limit. No such rule is exhibited by this program or any other; AXIOM-COSTFLOOR dissolves only Predicate B (the a-&gt;0 counterterm-tower class), which makes a fixed point unnecessary but does NOT supply one.
+
+Named blockers:
+  - R1 (fixed point): no truncation-INDEPENDENT non-Gaussian fixed point exists; functional-RG / Wetterich evidence trends AGAINST the naive truncation route (a sharpening, not a fill); a fixed point within a declared truncation is evidence, not a certificate; requires two structurally-different routes, not two runs of one engine.
+  - R2 (a_6 trace, MO-9): the finite d=13 graviton minus-ghost Seeley-DeWitt tr[a_6(L_grav^{d=13})] is UNCOMPUTED and route-INCONSISTENT (ghost 149/1008 done, graviton Sym^2(T) Levi-Civita a_6 on K6 absent; graded defect c_3^gamma absent; 2-route disagreement |31/48|, ~31.2% Riemann-norm engine error). Necessary-not-sufficient.
+  - R5/R4-positivity: positivity functional P is UNSELECTED (three competing readings) and P(tr[a_6]) is unrun -&gt; falsifier-in-principle, not runnable; no sign may be asserted.
+  - R6 (sufficiency): no theorem that a finite+positive a_6 CONSTITUTES UV completion; deepest residual, external field-judgement.
+  - H6 / Z2 orbifold-defect: the order-6 mixed Neumann+Dirichlet a_6^partial coefficient is BLOCKED (published boundary tower stops at a_5; Donnelly equivariant 1/2 c_3^gamma identity unadjudicated) -&gt; no TOTAL (bulk+defect) a_6 emittable.
+  - Above-cutoff unitarity/causality (UQF-14 inherited) is BLOCKED above the cutoff downstream of R1 — no independent close.
+  (+ 1 more — see the downloadable all-walls run report)
+
+Honest endpoint: W01 reduces cleanly to a precisely-named single hole — the missing constructive, target-blind, non-perturbative UV-completion rule R4 that would carry L_grav^{d=13} into a truncation-independent fixed point or a defensible non-continuum replacement — with the operator supplied given-E (R1), exactly one continuum-divergence class dissolved by one value-free axiom (R2/Predicate B), and the strong-coupling completion (Predicate A) honestly OPEN and shared by every approach; the correct disposition is WALL-RECORDED, not closed.
+Terminal status: WALL-RECORDED / TERMINAL-ANCHORED / PHYSICS-OPEN — SHARED-GLOBAL frontier wall (co-owned UQF-5C + UQF-9; inherited by UQF-5A/5B, UQF-14, UQF-3, Gap-13). Operator supplied DERIVED-GIVEN-E as structure; one continuum-divergence class (Predicate B) DISSOLVED by one value-free non-atomic axiom (AXIOM-COSTFLOOR); the constructive non-perturbative strong-coupling completion (Predicate A / rule R4) is OPEN everywhere. Anchored, not closed. No gate on this wall is CLOSED.
+</code></pre>
+<hr />
+<h2>Cross-links</h2>
+<ul>
+<li>The <a href="/walls/index.html">/walls/ index</a> — the full wall register and the terminal-anchored principle.</li>
+<li><strong>Sibling walls:</strong> <a href="/walls/w2-continuum-existence.html">W2 — Continuum existence (the $a\to 0$ / $L\to\infty$ limit)</a> (the uniform-limit half this wall shares with Gap-02 and UQF-3); <a href="/walls/w3-a6-coefficient.html">W3 — the $a_6$ Seeley–DeWitt keystone</a> (the bounded coefficient that is necessary-not-sufficient <em>for</em> W1).</li>
+<li><strong>Anchor ledgers:</strong> <a href="/anchors/uqf9-anchor-ledger.html">UQF-9</a> · <a href="/anchors/uqf5c-anchor-ledger.html">UQF-5C</a> · <a href="/anchors/uqf5a-5b-anchor-ledger.html">UQF-5A/5B</a> · <a href="/anchors/uqf14-anchor-ledger.html">UQF-14</a> · <a href="/anchors/uqf3-anchor-ledger.html">UQF-3</a> · <a href="/anchors/gap13-anchor-ledger.html">Gap-13</a>.</li>
+<li>The <a href="/anchors/index.html">anchoring method</a> · the <a href="/anchors/a0-master-anchor.html">master anchor</a>.</li>
+</ul>
+</main>
+</div>
+</body></html>

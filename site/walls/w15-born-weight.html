@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Born-rule weight / measure wall</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 248px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9632; The Wall Register</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; back to The Anchors</a></div>
+<div class="ann-group">Shared global walls</div>
+<a href="w1-uv-completion.html">W1 · UV completion (shared)</a>
+<a href="w2-continuum-existence.html">W2 · Continuum existence (shared)</a>
+<div class="ann-group">Keystone bounded walls</div>
+<a href="w3-a6-coefficient.html">W3 · a6 coefficient (keystone)</a>
+<a href="w4-granularity-mdl.html">W4 · granularity to MDL</a>
+<div class="ann-group">Per-gate bounded walls</div>
+<a href="w5-given-e-bundle.html">W5 · given-E / bundle uniqueness</a>
+<a href="w6-flavor-rulebook.html">W6 · flavor F+ rulebook</a>
+<a href="w7-anomaly-descent.html">W7 · anomaly descent (BV-BRST)</a>
+<a href="w8-custodial-rho.html">W8 · custodial rho=1</a>
+<a href="w9-moduli-stabilization.html">W9 · moduli stabilization</a>
+<a href="w10-lambda-stability.html">W10 · Lambda radiative stability</a>
+<a href="w11-lambda-value.html">W11 · Lambda value</a>
+<a href="w12-baryogenesis-cp.html">W12 · baryogenesis CP-source</a>
+<a href="w13-dark-matter-portal.html">W13 · dark-matter portal</a>
+<a href="w14-inflation-spectrum.html">W14 · inflation spectrum</a>
+<a href="w15-born-weight.html" class="current">W15 · Born-rule weight</a>
+<a href="w16-bh-microstates.html">W16 · BH microstates / Page</a>
+<a href="w17-proton-operators.html">W17 · proton operators</a>
+<a href="w18-ym-uniform-gap.html">W18 · Yang-Mills uniform gap</a>
+<a href="w19-threshold-magnitudes.html">W19 · threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The Born-rule weight / measure wall — rendered package. Rendered from <code>w15-born-weight.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The Born-rule weight / measure wall</h1>
+<p><strong>Kind: PER-GATE-BOUNDED (a finite, owned work-package) / foundational.</strong> <em>One honest sentence:</em> the same frozen $13\mathrm{D}$ shape proves a real <em>negative</em> — an explicit countermodel showing the framework's own gauge (BRST) axioms do <strong>not</strong> force non-contextuality, so the quadratic $|\psi|^2$ form is imported on the record, not smuggled — and it <em>sharpens</em> the selector measure from an undeclared object on an infinite-dimensional space down to a finite choice on a compact Weyl chamber, but a non-circular derivation of the weight and a uniqueness proof for the measure are both genuinely missing, so the Born gate owns a bounded foundational debt sitting inside the field's century-old open problem.</p>
+<p>This page presents the wall under the terminal-anchored principle: <strong>anchored ≠ closed.</strong> The gate that owns it is anchor-closed; it is not physics-closed. The gate's real, checkable wins are a proven separation (a no-go countermodel) and a measure-existence localization — neither of which derives the rule. The bounded version of the wall is owned and falsifiable-by-success-criterion; the absolute version ("no framework anywhere could derive Born without importing a rule-strength assumption") is the dissolved unicorn, never the wall.</p>
+<hr />
+<h2>What is missing</h2>
+<p>The Born gate stands on a measured floor it does <strong>not</strong> derive: a Hilbert space plus the <em>observed</em> probability law $p(E)=\mathrm{Tr}(\rho E)$ (<code>ANCHOR-BORN-QUANTUM-KINEMATICS</code>, MEASURED-ANCHOR). Every "sharpens" below is a statement <em>given</em> that floor. Two distinct measure-theoretic objects are tracked apart and never conflated: the intra-sector Born weights $p_k=|\langle\phi_k|\psi\rangle|^2$ (Gap-14, Leg A1) and the inter-sector selector measure $\mu$ on the theory state space (Gap-15, Leg A2). The precise missing objects are:</p>
+<ul>
+<li>
+<p><strong>A non-circular derivation of the $|\psi|^2$ weight (Leg A1).</strong> Fix the gauge-invariant observable von Neumann algebra $\mathcal A$ on the BRST physical space $\mathcal H_{\rm phys}=\ker Q_{\rm BRST}/\operatorname{im}Q_{\rm BRST}$. BRST cohomology + gauge invariance impose exactly two constraints on a frame function $p:\mathcal P(\mathcal A)\to[0,1]$: $(G1)$ admissibility (only $Q_{\rm BRST}$-closed, gauge-invariant effects are observable, which merely <em>restricts the domain</em>) and $(G2)$ gauge-orbit equivariance $p(E)=p(g\cdot E)$. <em>Given</em> non-contextuality, the quadratic form follows by a genuine theorem (Gleason 1957 for $\dim\geq 3$; Busch 2003 for effects/POVMs, dimension-free; Mackey–Gleason / Bunce–Wright 1992 for a general $\mathcal A$ with no type-$\mathrm I_2$ summand). The missing object is the <em>gluing</em>: the framework's own structure forcing non-contextuality. The gate proves this is <strong>not</strong> supplied — see the separation below.</p>
+</li>
+<li>
+<p><strong>The A1 separation (the real, checkable win — terminal as a no-go).</strong> There exists a valuation $p$ on $\mathcal P(\mathcal A)$ satisfying $(G1)$ and $(G2)$ <em>exactly</em>, yet <strong>contextual</strong>, needing only $\dim\mathcal H_{\rm phys}\geq 3$, no type-$\mathrm I_2$ subtlety, no Kochen–Specker coloring. Work in a $3$-dimensional gauge-invariant block $B(\mathbb C^3)\subset\mathcal A$ with gauge acting trivially (so $(G2)$ holds vacuously). Take two maximal resolutions of $I$ sharing $P_1=|1\rangle\langle 1|$:</p>
+</li>
+</ul>
+<p>$$\mathcal C_A:\; I = P_1 + |2\rangle\langle 2| + |3\rangle\langle 3|,\qquad \mathcal C_B:\; I = P_1 + |u\rangle\langle u| + |v\rangle\langle v|,$$</p>
+<p>with $\{|u\rangle,|v\rangle\}$ any other orthonormal basis of $\operatorname{span}\{|2\rangle,|3\rangle\}$, and assign context-label-first weights $p(P_1\mid\mathcal C_A)=a\neq a'=p(P_1\mid\mathcal C_B)$. Then $(G1)$ and $(G2)$ both hold while non-contextuality fails by construction. The diagnostic that this is specific, not vacuous: $\mathcal C_A,\mathcal C_B$ are related by a $(2,3)$-plane rotation that is <strong>not</strong> a gauge transformation, so $(G2)$ cannot identify them and $a\neq a'$ survives. <strong>Any derivation reaching $\mathrm{Tr}(\rho E)$ from $(G1)+(G2)$ must silently impose $a=a'$ — and that imposition <em>is</em> non-contextuality, <em>is</em> Gleason's hypothesis, <em>is</em> the Born rule minus the exponent.</strong> BRST supplies the constraints; it does not supply the gluing. The gluing is the named, value-free posit <code>BORN-A1</code>, carried <strong>AXIOM-OPEN / import-forbidden</strong> — <em>not</em> "REDUCED-TO-AXIOM," <em>not</em> closed.</p>
+<ul>
+<li>
+<p><strong>The operator-algebra type (the A1 sub-debt).</strong> The theorem choice is premise-dependent: a type-$\mathrm I_2$ central summand blocks Mackey–Gleason. Whether $\mathcal A$ carries no such summand is its <strong>own</strong> object, <strong>import-forbidden</strong> and uncomputed — the center $Z(\mathcal A)$ is uncomputed and the mixed anomaly $\xi_{R4}$ is unknown (<strong>I2-DANGER-OPEN</strong>), the two exact places a degree-$2$ central fiber could hide. This is independent of non-contextuality: the countermodel lives in an honest type-$\mathrm I_3$ block where the type is settled and non-contextuality still fails.</p>
+</li>
+<li>
+<p><strong>A2 measure uniqueness (the inter-sector leg).</strong> On infinite-dimensional projective Hilbert space $P(\mathcal H)$ there is <strong>no</strong> $U(\mathcal H)$-invariant probability measure (the unit sphere is non-compact; F. Riesz). The genuine localization win: on the frozen $\mathrm K_6 = \mathrm{SU}(3)/\mathrm T^2$ Weyl chamber a normalized invariant measure <strong>does</strong> exist —</p>
+</li>
+</ul>
+<p>$$C=\big[\tfrac12,\tfrac32\big]^3,\qquad W=S_3\ (|W|=6),\qquad \text{witness}\ (1,1,1).$$</p>
+<p>But uniqueness <strong>provably fails</strong>. The chamber's residual symmetry is the <em>finite</em> group $W=S_3$: a finite group cannot act transitively on a positive-dimensional continuum, so the homogeneous-space uniqueness engine does not fire. The invariant measures are exactly $\mu=\tfrac16\sum_{\sigma\in S_3}\sigma_*(f\cdot\mathrm{Leb})$ with $f\geq 0,\ \int f=1$ — an <strong>infinite-dimensional convex set</strong>. The fixed locus $\mathrm{Fix}(S_3)=\{u_1=u_2=u_3\}$ is a <em>line</em>, so even "$\delta$ at $(1,1,1)$" is a <em>choice</em>: by Weyl rigidity $(1,1,1)$ is forced to be a <em>critical point</em> of any $S_3$-invariant density — distinguished, <strong>but not unique</strong>. The residual point-mass at $(1,1,1)$ is disclosed-not-derived, and dissolves exactly when uniqueness is earned. Separately, additivity is structurally silent across sectors: for $S=\bigcup_a S_a$ every convex combination $\sum_a c_a\mu_a$ is invariant, so Gleason / Bunce–Wright pins <strong>no</strong> inter-sector weights $\{c_a\}$ without a clean $\mathrm K_6$ invariant.</p>
+<ul>
+<li><strong>Non-contextuality from the framework, not imported.</strong> The single deepest missing object: the framework's own admissibility-chamber operator algebra forcing a non-contextual assignment (hence $\mathrm{Tr}(\rho E)$) with the algebra <em>type derived</em> from the geometry — without the forbidden import. This is the form-leg's highest-leverage hole.</li>
+</ul>
+<p><strong>Why two axioms, not one.</strong> "The Born rule" hides two objects with two statuses that <strong>cannot</strong> be collapsed: Leg A1 is silent on the <em>cross-context gluing</em> (AXIOM-OPEN / import-forbidden); Leg A2 is silent <em>across sectors</em> (OPEN). They share a family ("a symmetry constraint fixes structure within an equivalence class but leaves a free parameter across classes") but live on different objects.</p>
+<p><strong>The honest-halt (for contrast — what is deliberately not fabricated).</strong> Decoherence and the system–bath split can at best select a <em>pointer basis</em> (the which-outcomes question); they do not deliver the <em>weights</em>. The one in-geometry channel — the heavy Kaluza–Klein tower as a monitoring environment (CH-2) — <strong>raises <code>NotImplementedError</code></strong> rather than fabricate a rate, because it cascades onto Gap-01's signed-total heat-kernel coefficient $\mathrm{tr}[a_6]$ at $d=13$, which is not deliverable (the shared $a_6$ wall). No value, sign, or rate of CH-2 is asserted anywhere; the pointer-basis structural-consistency check carries a self-demoting falsifier that is <em>neither fired nor cleared</em>.</p>
+<hr />
+<h2>Which gates hit this wall</h2>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Role at this wall</th>
+<th>Anchor ledger</th>
+<th>Dossier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Born (Gap-14 / Gap-15)</strong></td>
+<td><strong>owns</strong> the wall: the measured floor, the $(G1)/(G2)$ forcing, the A1 separation countermodel, <code>BORN-A1</code> (import-forbidden form), the I2-DANGER / $\xi_{R4}$ algebra-type sub-debt, <code>BORN-A2</code> (the $S_3$-chamber selector), the existence-yes / uniqueness-no split, the disclosed point-mass, the inter-sector silence, the CH-2 honest-halt, and the which-outcomes / seam residuals all live here</td>
+<td><a href="/anchors/born-anchor-ledger.html">/anchors/born-anchor-ledger.html</a></td>
+<td><a href="/articles/DOSSIER_BORN_FULL.html">DOSSIER_BORN_FULL.html</a></td>
+</tr>
+</tbody>
+</table>
+<p>Born <strong>owns</strong> the wall and is the only gate that does. It <strong>inherits</strong> inputs it does not derive and cannot close from inside: the measured quantum-kinematics floor (<code>ANCHOR-BORN-QUANTUM-KINEMATICS</code>, terminal-as-anchor); the frozen $\mathrm K_6=\mathrm{SU}(3)/\mathrm T^2$ Weyl-chamber shape that localizes A2; and the signed-total $a_6$ object (Gap-01, upstream-charged) that the CH-2 decoherence channel needs and that the gate does <strong>not</strong> own — the <a href="/walls/w3-a6-coefficient.html">keystone $a_6$ wall</a>. The shared mixed anomaly $\xi_{R4}$ is an R4 thread running through Born, the Yang–Mills mass-gap gate, and the hypercharge/anomaly gate: computing it advances three gates at once.</p>
+<hr />
+<h2>What would close it — or why it is terminal</h2>
+<p>This is a <strong>bounded, owned work-package</strong>, not a unicorn. Each residual is a concrete, finite, target-blind move, and <strong>a refuting result is a valid close</strong>. The hard discipline throughout: a measure <em>reverse-engineered</em> so the selector reproduces the Born weights is <strong>true by construction</strong> and <strong>relocates</strong> the mystery rather than closing it. A posit counts only if it would be written <em>without knowing the Born rule is the target</em> — the disposition would have to be identical if the empirical exponent were $1.7$ or $3$.</p>
+<ul>
+<li><strong>Derive non-contextuality (highest leverage on the form leg).</strong> Show the $\mathrm K_6$ admissibility-chamber operator algebra forces a non-contextual assignment, recovering $\mathrm{Tr}(\rho E)$, with the algebra <strong>type derived</strong> from the geometry — without the forbidden import and passing the kill-test. <strong>Success:</strong> the form leg is earned (still <em>given</em> the measured floor). <strong>Refuting close (valid):</strong> prove no framework-internal structure forces the cross-context gluing $a=a'$ — this certifies <code>BORN-A1</code> a genuine imported posit, the honest floor. Closing this dissolves the algebra-type sub-debt in one move.</li>
+<li><strong>Pin the algebra type / $\xi_{R4}$.</strong> Compute $Z(\mathcal A)$ for $B(\mathrm{SU}(3)\to \mathrm{PSU}(3))$ (finite linear algebra: $d_3\!\cdot\!u_2$) and run the spin-$c$ Atiyah–Hirzebruch spectral sequence ($d_5=\beta_{P^1}$) to pin $\xi_{R4}$, removing the I2-DANGER ambiguity. <strong>Success criterion:</strong> $\xi_{R4}$ is <em>computed</em>, not assumed trivial.</li>
+<li><strong>A2 measure uniqueness (highest leverage on the measure leg).</strong> Either (i) exhibit a <em>larger</em> compact symmetry group genuinely forced by the frozen geometry, acting transitively/ergodically on $C$ (its unique invariant measure then closes A2), with <strong>success criterion: uniqueness proven before and independently of any Born value</strong>; or (ii) prove no framework-forced symmetry acts ergodically — a valid terminal close certifying <code>BORN-A2</code> irreducible. The disclosed point-mass at $(1,1,1)$ closes exactly when this measure is earned. <strong>The refuting outcome is as publishable as the constructive one.</strong></li>
+<li><strong>Inter-sector invariant.</strong> Exhibit a clean $\mathrm K_6$ root-system / flag-manifold curvature invariant fixing the convex weights $\{c_a\}$ target-blind, or prove none exists.</li>
+<li><strong>The $a_6$ cascade (necessary-not-sufficient, upstream).</strong> Reconcile the two $\mathrm K_6$ Riemann routes that disagree on the curvature ratio ($|{\rm Riem}|^2/|{\rm Ric}|^2=62/49\approx 1.2653$ naturally-reductive vs $\approx 1.84$ FD-canonical) by a third independent computation pinning one value; this is the <a href="/walls/w3-a6-coefficient.html">keystone $a_6$ wall</a>, shared, not owned here. Do <strong>not</strong> read the bulk value as the channel input.</li>
+<li><strong>System–bath / pointer + the seam.</strong> Run the partition, exhibit the pointer basis, run the structural-consistency check; state precisely whether the Gap-14 weights coincide with the Gap-15 selector $\mu$, or disclaim. Ship fail-closed; do <strong>not</strong> decide the falsifier's outcome.</li>
+</ul>
+<p><strong>Why the gate is terminal even on full success.</strong> Three statements are universal negatives over all of mathematics / physics — the dissolved unicorns, never the wall: <em>no interpretation in any framework could ever derive Born without importing a rule-strength assumption</em> (the community fact that every known route relocates <em>is</em> the ceiling); <em>the chamber measure is the absolutely unique measure over every conceivable measure on the state space</em> (uniqueness-against-all-alternatives is unprovable in principle); and <em>the full interpretive measurement problem is solved</em> (an open-ended foundational question for the whole field, explicitly scope-excluded). The legitimate per-gate endpoint is to earn the bounded, in-grammar versions — non-contextuality from the framework, uniqueness within the framework's own declared structure — never to claim the absolutes.</p>
+<hr />
+<h2>Falsifier</h2>
+<p>The Born gate carries no numeric pre-registered observable falsifier (it is foundational, not a spectrum prediction). What it carries instead are two <strong>success-criterion refute-valid closes</strong> and one <strong>self-demoting structural falsifier</strong>:</p>
+<ul>
+<li>The A2-uniqueness work-package is <strong>refute-symmetric</strong>: proving that no framework-forced symmetry acts ergodically on $C$ is as valid (and as publishable) a close as exhibiting the forcing group — it certifies <code>BORN-A2</code> irreducible rather than derived.</li>
+<li>The A1 derivation is likewise refute-symmetric: proving no framework-internal structure forces the cross-context gluing certifies <code>BORN-A1</code> a genuine imported posit.</li>
+<li>The <strong>pointer-basis structural-consistency check</strong> is a self-demoting falsifier: a <em>structurally inconsistent</em> pointer basis would turn the form leg into a decision-grade open blocker. The basis is not yet exhibited; the falsifier is <strong>neither fired nor cleared</strong>.</li>
+</ul>
+<hr />
+<h2>Anti-claims (what must never be said about this wall)</h2>
+<ul>
+<li><strong>Not "the Born gate derives / closes the rule."</strong> The measured floor $p(E)=\mathrm{Tr}(\rho E)$ is <em>anchored</em>, not derived — <strong>ANCHORED ≠ DERIVED</strong>. The chain geometry $\to$ non-contextuality $\to \mathrm{Tr}(\rho E)$ is broken at the first link.</li>
+<li><strong>Not "BRST forces non-contextuality."</strong> The countermodel proves the opposite: gauge-invariant, orbit-equivariant, <em>contextual</em> valuations exist. $(G1)+(G2)$ supply the constraints, not the cross-context gluing $a=a'$.</li>
+<li><strong>Not "Leg A1 is REDUCED-TO-AXIOM / closed."</strong> It is <strong>AXIOM-OPEN / import-forbidden</strong>; the functional form stays OPEN. "Proved one of them down to a single value-free axiom" is an over-claim this page does not make — <strong>AXIOM-CLOSED ≠ atomic</strong>.</li>
+<li><strong>Not "the chamber selector is THE unique measure."</strong> Maximal symmetry does not single out one measure; the $S_3$-fixed locus is a <em>line</em>, and selecting a point is an extra input. Existence $\neq$ uniqueness; distinguished $\neq$ unique.</li>
+<li><strong>Not "$(1,1,1)$ is the unique measure."</strong> It is a <em>distinguished critical point</em> of any $S_3$-invariant density (Weyl rigidity), disclosed-not-derived.</li>
+<li><strong>Not "additivity fixes the inter-sector weights."</strong> Gleason / Bunce–Wright is structurally silent across sectors.</li>
+<li><strong>Not "the algebra type is settled for free."</strong> No type-$\mathrm I_2$ summand is <strong>import-forbidden</strong>: $Z(\mathcal A)$ is uncomputed and $\xi_{R4}$ is unknown (I2-DANGER-OPEN); $\xi_{R4}$ must be <em>computed</em>, not assumed trivial.</li>
+<li><strong>Not "CH-2 has a computed rate."</strong> The channel honest-halts (<code>NotImplementedError</code>); the bulk $a_6$ value is <strong>not</strong> the channel input.</li>
+<li><strong>Not "the cost-floor / granularity lever derives Born."</strong> It is recorded <strong>wrong-shape</strong> for this gate — an honest negative, not a hidden key.</li>
+<li><strong>Not "the measurement problem is solved."</strong> Explicitly out of scope, untouched even by a clean A2 measure.</li>
+<li><strong>Not "the frozen-branch hashes validate the physics."</strong> <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> are audit anchors certifying <em>which object</em> was tested; a simulated chamber-selector log is illustrative only and is <strong>not</strong> an independent reproduction.</li>
+</ul>
+<hr />
+<h2>Terminal disposition</h2>
+<p><strong>OPEN-ANCHORED — a bounded, owned, foundational work-package whose genuine wins are a no-go separation and a measure-existence localization, neither of which derives the rule, inside the field's century-old open problem.</strong> Born (Gap-14 / Gap-15) is ANCHOR-CLOSED / WALL-RECORDED, physics-status <strong>OPEN</strong> by the least-closed-residual rule: the $(G1)/(G2)$ forcing is DERIVED-GIVEN-E; the A1 separation countermodel is DERIVED (terminal as a no-go); the conditional theorem (non-contextuality $\Rightarrow \mathrm{Tr}(\rho E)$) is DERIVED-GIVEN-E; Leg A1 (the functional form) is <strong>AXIOM-OPEN / import-forbidden</strong>; the algebra type is OPEN / import-dependent (I2-DANGER-OPEN); Leg A2 (the selector measure) is <strong>OPEN</strong> (uniqueness provably fails); chamber existence is DERIVED-GIVEN-E while chamber uniqueness is OPEN; the point-mass and inter-sector weights are OPEN; CH-2 honest-halts; the measured floor is a MEASURED-ANCHOR (the legitimate $\geq 1$ floor, not a closure). <strong>No gate here is physics-CLOSED.</strong> The one-line verdict: <em>the framework's own gauge axioms are proven not to force the Born weight, so the quadratic form is imported on the record, and the selector measure is sharpened from an undeclared infinite-dimensional object down to a finite $S_3$-chamber choice — but a non-circular weight derivation and a measure-uniqueness proof are both genuinely missing, and the absolute "no framework anywhere could do better" is the dissolved unicorn, never the wall.</em></p>
+<hr />
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The systematic wall analysis was run on this wall and independently cross-checked. The review <strong>confirmed the verdict</strong> and found <strong>no overstatement, no target-dependence, and no misclassification</strong>. No gate here is physics-closed (anchored ≠ closed).</p>
+<pre><code>Verdict: WALL_RECORDED
+Deep root the residual sits on: Invariance (with Nonseparability as co-root). The residual ultimately sits on Invariance: gauge/physical-equivalence invariance forces only orbit-equivariance G2 and is structurally silent on the cross-context gluing (A1) and across sectors (A2); Nonseparability is why the intra- and inter-sector silences are two distinct objects that cannot be collapsed into one axiom.
+
+The single precise hole (smallest missing rule):
+  A framework-internal rule that forces the cross-context gluing a=a&#x27; (i.e. non-contextuality of the frame function p on P(A)) from the frozen K6 admissibility-chamber operator algebra ALONE — with the von Neumann algebra TYPE (no type-I2 central summand; Z(A) and the mixed anomaly xi_R4 uncomputed, I2-DANGER-OPEN) DERIVED from the geometry rather than imported. Given that single rule, Gleason/Busch/Bunce–Wright deliver Tr(rho E); without it the geometry-&gt;non-contextuality-&gt;Tr(rho E) chain is broken at the first link. (The A2 sibling-rule: a framework-FORCED compact symmetry acting transitively/ergodically on C, which finite W=S3 provably cannot supply.)
+
+Named blockers:
+  - A1 form leg: no framework-internal structure shown to force the cross-context gluing a=a&#x27; — BRST (G1)+(G2) provably do NOT (verified separation countermodel in a type-I3 B(C^3) block, gauge trivial, G1+G2 hold while non-contextuality fails); BORN-A1 carried AXIOM-OPEN / import-forbidden, NOT closed
+  - Algebra-type sub-debt: no-type-I2-summand on A is import-forbidden and uncomputed; center Z(A) uncomputed and mixed anomaly xi_R4 unknown (I2-DANGER-OPEN) — the two exact places a degree-2 central fiber could hide and block Mackey–Gleason
+  - A2 measure leg: uniqueness PROVABLY fails — residual symmetry is the finite group W=S3 (|W|=6), which cannot act transitively on the 3-dim continuum C, so the homogeneous-space uniqueness engine never fires; invariant measures form an infinite-dimensional convex set mu=(1/6)sum_sigma sigma_*(f.Leb)
+  - Disclosed point-mass: delta at (1,1,1) is a distinguished critical point on the 1-dim Fix(S3) diagonal (Weyl rigidity), disclosed-not-derived; selecting it is an extra input
+  - Inter-sector weights {c_a}: additivity / Gleason / Bunce–Wright is structurally silent across sectors; no clean K6 invariant pins them
+  - CH-2 decoherence channel honest-halts (raises NotImplementedError) because it cascades onto the upstream signed-total a6 wall (W3); no rate/sign asserted
+  (+ 1 more — see the downloadable all-walls run report)
+
+Honest endpoint: The frozen 13D framework&#x27;s own gauge (BRST) axioms are proven NOT to force non-contextuality (a verified, target-blind no-go separation), so the quadratic |psi|^2 form is imported on the record — and the selector measure is genuinely sharpened from an undeclared infinite-dimensional object down to a finite S3-Weyl-chamber choice — but a non-circular weight derivation and a measure-uniqueness proof are both still missing (uniqueness provably fails for finite S3), leaving the wall OPEN-ANCHORED with two real wins that derive nothing.
+Terminal status: OPEN-ANCHORED / WALL-RECORDED — Born (Gap-14/Gap-15) is ANCHOR-CLOSED but physics-status OPEN by least-closed-residual. Genuine wins: A1 separation countermodel (DERIVED, terminal as a no-go) and the K6=SU(3)/T2 Weyl-chamber A2 existence-localization (DERIVED-GIVEN-E); (G1)/(G2) forcing and the non-contextuality=&gt;Tr(rho E) conditional theorem are DERIVED-GIVEN-E. Leg A1 functional form is AXIOM-OPEN / import-forbidden (NOT REDUCED-TO-AXIOM, NOT closed); vN algebra type / xi_R4 is OPEN / import-dependent (I2-DANGER-OPEN); Leg A2 selector measure is OPEN (uniqueness provably fails, point-mass disclosed, inter-sector weights silent); chamber uniqueness OPEN; CH-2 honest-halts; measured floor ANCHOR-BORN-QUANTUM-KINEMATICS is a MEASURED-ANCHOR (legitimate &gt;=1 floor). No gate physics-CLOSED. no status changes.
+</code></pre>
+<hr />
+<h2>Cross-links</h2>
+<ul>
+<li>The /walls/ index and the per-gate terminal-status table: <a href="/walls/index.html">/walls/index.html</a></li>
+<li>Owning gate ledger and full dossier: <a href="/anchors/born-anchor-ledger.html">Born ledger</a> · <a href="/articles/DOSSIER_BORN_FULL.html">DOSSIER_BORN_FULL.html</a></li>
+<li>The keystone wall the CH-2 decoherence channel cascades onto (necessary-not-sufficient; do <strong>not</strong> read its bulk value as the channel input): <a href="/walls/w3-a6-coefficient.html">W3 — the $a_6$ Seeley-DeWitt coefficient</a></li>
+<li>Sibling wall sharing the $\xi_{R4}$ R4 thread (the hypercharge/anomaly descent class): <a href="/walls/w7-anomaly-descent.html">W7 — non-perturbative anomaly descent</a></li>
+<li>The shared continuum-existence frontier that bounds the uniform-limit context: <a href="/walls/w2-continuum-existence.html">W2 — continuum existence</a></li>
+<li>Anchoring method and why a filter is not a selector: <a href="/anchors/index.html">the anchoring method</a> · <a href="/anchors/layer-2-no-unpaid-labels.html">Layer 2 — no unpaid exact labels</a> (why additivity is a filter, not a selector) · <a href="/anchors/layer-4-carrier-forcing.html">Layer 4 — carrier-forcing &amp; the given-E wall</a> (why the geometry is load-bearing but not certifying)</li>
+</ul>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The black-hole microstate / Page-curve wall</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 248px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9632; The Wall Register</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; back to The Anchors</a></div>
+<div class="ann-group">Shared global walls</div>
+<a href="w1-uv-completion.html">W1 · UV completion (shared)</a>
+<a href="w2-continuum-existence.html">W2 · Continuum existence (shared)</a>
+<div class="ann-group">Keystone bounded walls</div>
+<a href="w3-a6-coefficient.html">W3 · a6 coefficient (keystone)</a>
+<a href="w4-granularity-mdl.html">W4 · granularity to MDL</a>
+<div class="ann-group">Per-gate bounded walls</div>
+<a href="w5-given-e-bundle.html">W5 · given-E / bundle uniqueness</a>
+<a href="w6-flavor-rulebook.html">W6 · flavor F+ rulebook</a>
+<a href="w7-anomaly-descent.html">W7 · anomaly descent (BV-BRST)</a>
+<a href="w8-custodial-rho.html">W8 · custodial rho=1</a>
+<a href="w9-moduli-stabilization.html">W9 · moduli stabilization</a>
+<a href="w10-lambda-stability.html">W10 · Lambda radiative stability</a>
+<a href="w11-lambda-value.html">W11 · Lambda value</a>
+<a href="w12-baryogenesis-cp.html">W12 · baryogenesis CP-source</a>
+<a href="w13-dark-matter-portal.html">W13 · dark-matter portal</a>
+<a href="w14-inflation-spectrum.html">W14 · inflation spectrum</a>
+<a href="w15-born-weight.html">W15 · Born-rule weight</a>
+<a href="w16-bh-microstates.html" class="current">W16 · BH microstates / Page</a>
+<a href="w17-proton-operators.html">W17 · proton operators</a>
+<a href="w18-ym-uniform-gap.html">W18 · Yang-Mills uniform gap</a>
+<a href="w19-threshold-magnitudes.html">W19 · threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The black-hole microstate / Page-curve wall — rendered package. Rendered from <code>w16-bh-microstates.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The black-hole microstate / Page-curve wall</h1>
+<p><strong>Kind: PER-GATE-BOUNDED (conditional on the keystone <a href="./w3-a6-coefficient.html">W3</a>).</strong> A finite, owned work-package: a geometry-native microstate-counting theorem $\log N(A)=A/4G+\text{subleading}$ for the frozen $4$D horizon, plus a target-blind Page-turnover computation — both gated behind one named, shared heat-kernel computation. It is <strong>not</strong> a closed gate, and it is <strong>not</strong> a UV completion.</p>
+<blockquote>
+<p><strong>The terminal-anchored principle.</strong> Anchored $\neq$ closed. The owning gate (Gap-13) is <strong>ANCHOR-CLOSED</strong> — every horizon object it touches has a status, an allowed claim, and a forbidden claim — yet it is <strong>OPEN-ANCHORED</strong>: a real, finite, falsifiable computation remains, and no gate here is called physics-CLOSED.</p>
+</blockquote>
+<hr />
+<h2>1. What the wall is, in one honest sentence</h2>
+<p>The frozen geometry reproduces the Bekenstein–Hawking <em>value</em> $S=A/4G$ to $2.8\times10^{-5}$ relative error as a labeled inheritance diagnostic, and carries a genuinely non-tautological conditional route to the coefficient $1/4$ and an explicit island construction — but it does <strong>not</strong> count a single microstate, does <strong>not</strong> derive $1/4$ as an output, and does <strong>not</strong> produce a quantitative Page curve, because all three ride on one unbuilt horizon-capable saddle and one uncomputed defect heat-kernel coefficient.</p>
+<hr />
+<h2>2. What is missing — the precise objects</h2>
+<p>A candidate quantum theory of gravity owes two things at a horizon: the <em>static</em> coefficient (the microstate count behind $S=A/4G$) and the <em>dynamical</em> turnover (the Page curve). Here the value-match is banked, but the derivations are not.</p>
+<p><strong>(M0) What is genuinely in hand — the diagnostic and the conditional, so the wall is not mistaken for empty.</strong> On the $4$D zero-mode sector of the frozen branch the Bekenstein–Hawking value is recovered as an inherited consistency check,</p>
+<p>$$
+\left|\,S_{\rm inherited}-\frac{A}{4G}\,\right|\Big/\frac{A}{4G}\;=\;2.8\times10^{-5}\qquad(\text{DIAGNOSTIC; inherited, not derived ab initio}),
+$$</p>
+<p>and a rigorous conditional implication carries the coefficient under four value-free hypotheses with <strong>no $1/4$ baked into any of them</strong>,</p>
+<p>$$
+(H1\wedge H2\wedge H3\wedge H4)\ \Rightarrow\ S=\frac{A_H}{4G}.
+$$</p>
+<p>The algebraic core is exact and independently re-verified, in two conventions. With $\ln Z=-I$, $E=\partial_\beta I$, $S=(\beta\partial_\beta-1)I$ and the on-shell Euclidean Schwarzschild action $I(\beta)=\beta^2/16\pi G$, at $\beta_H=8\pi GM$ one gets $S=4\pi GM^2$, and with $A_H=16\pi G^2M^2$ this is $A_H/4G$. In the conical-defect convention the replica geometry $M_n$ carries the distributional tip curvature $\int_{M_n}\!\sqrt{g}\,R=n\int_{M_1}\!\sqrt{g}\,R+4\pi(1-n)A_H+O((1-n)^2)$, giving $I_n=nI_1-(1-n)A_H/4G$ and $S=(n\partial_n-1)I_n|_{n=1}=A_H/4G$, with the decomposition</p>
+<p>$$
+\frac14=\underbrace{\frac{4\pi}{16\pi G}\cdot G}_{(\text{conical-tip solid angle})\,\times\,(\text{EH normalization})^{-1}\,\times\,(G\ \text{measured anchor})} .
+$$</p>
+<p><strong>No matter loop, no UV cutoff $\epsilon$, no entanglement-cutoff matching enters</strong> — the $16\pi G$ is fixed by Newton, the $4\pi$ by $2$D cone topology. <strong>What is missing has three distinct parts.</strong></p>
+<p><strong>(M1) The geometry-native microstate-counting theorem (the static leg).</strong> The owed object is</p>
+<p>$$
+\log N(A)=\frac{A}{4G}+(\text{known subleading}),\qquad\text{no fitted prefactor, freeze-before-compare clean,}
+$$</p>
+<p>a <em>count</em> over the frozen near-horizon degrees of freedom. The $2.8\times10^{-5}$ value-match is <strong>explicitly not</strong> this theorem — it counts no microstates. The count is <strong>gated on <a href="./w3-a6-coefficient.html">W3</a> / Gap-01</strong>: without a UV-controlled near-horizon Hilbert space there is nothing well-defined to count, and the entanglement route to the count is dead (see M-DEAD below).</p>
+<p><strong>(M2) The horizon-capable Euclidean saddle (the prerequisite both legs ride on).</strong> The <strong>HORIZON-ADMISSIBILITY</strong> theorem: that the frozen $13$D zero-mode gravity sector extends from the perturbative graviton carrier to an admissible, dominant Euclidean black-hole replica saddle family $M_n$ under the frozen $C_{\rm admiss}/F^+$ grammar. This is the discharge of $H1$–$H4$ above, and it is <strong>OPEN / a global open problem</strong> — the single load-bearing object. It is the same shared frontier as the UV-completion wall <a href="./w1-uv-completion.html">W1</a>. Within it, $H3$ and $H4$ collapse onto a <strong>single named computation</strong>: the order-$6$ mixed Neumann/Dirichlet $S^1_Y/\mathbb{Z}_2$-orbifold-boundary $+$ conical-defect Seeley–DeWitt coefficient, whose order-$A$ contribution must be shown to <strong>vanish</strong> for the frozen $K_6=SU(3)/T^2$, $\chi=-3$ internal weights. That defect/boundary coefficient is <strong>absent from the literature</strong> (the boundary heat-kernel tower stops at $a_5$) and is exactly the keystone wall <a href="./w3-a6-coefficient.html">W3</a> — counted once across Gap-01, the graviton certificate, UQF-3, UQF-9 and SG-6.</p>
+<p><strong>(M3) The Page-curve turnover and its one missing number.</strong> A spherical s-wave reduction to a $2$D dilaton-gravity throat (dilaton $\phi(r)=A(r)/4G$, matter $=c$ free $2$D fields coupled to a bath) extremizes the generalized entropy $S_{\rm gen}=\phi(\partial I)/4G+S_{\rm bulk}(R\cup I)$, and the quantum-extremal surface solves explicitly,</p>
+<p>$$
+x_\star=-\frac{r_h}{2}+\frac{\sqrt{3Gc+9\pi\alpha\,r_h^2}}{6\sqrt{\pi\alpha}}\;;\qquad\text{semiclassical }(Gc\ll\alpha r_h^2):\ x_\star\sim\frac{Gc}{12\pi\alpha\,r_h},
+$$</p>
+<p>placing the island the textbook distance $\sim Gc/r_h$ <strong>outside</strong> the horizon, derived from frozen-geometry inputs (the area-term coefficient $\alpha$ kept symbolic and sourced from the conditional, never an assumed $A/4G$). The qualitative turnover survives scheme-independently, but the <strong>Page time</strong> $t_{\rm Page}\sim 6\,S_{\rm BH}/(c\kappa)$ is <strong>OPEN</strong>: the $2$D central charge $c$ has <strong>no target-blind frozen value</strong> — it is gauge-convention-dependent ($c\in\{26.5,50.5\}$), greybody/angular-momentum-dressed, and Hawking-temperature(mass)-dependent ($c\sim2$ at solar mass to $\sim50$ at Planckian), spanning factors $\sim2$–$25$. So the magnitude is unfixed; only the turnover's <em>shape</em> is established, and it is <strong>not</strong> phrased as a theorem of unitarity.</p>
+<p><strong>(M-DEAD) Why one route is excluded by theorem, not by choice.</strong> The entanglement route to $1/4$ is a <strong>tautology</strong>: the same heat-kernel counterterm renormalizes both $1/G$ and the entanglement-area term, so</p>
+<p>$$
+\frac{(\text{entanglement-area term})}{(\text{induced }1/G)}=\frac14\quad\text{for any minimal content — even a free scalar with no microstates.}
+$$</p>
+<p>This is the true-by-construction signature; it carries <strong>zero independent evidential weight</strong>, and the strong scheme-independent form is refuted on two grounds (gauge-EE ambiguity is itself an area-coefficient ambiguity; the spin-$2$ mechanism is only proposed). The conditional route in (M0) is admissible precisely because it bypasses this counterterm — its coefficient <em>could have come out wrong</em> (no saddle, a shifted $G_{\rm eff}$, or a non-vanishing order-$A$ Wald term would all break it) and so it is non-tautological but unproven.</p>
+<hr />
+<h2>3. Which gates hit this wall</h2>
+<p>Gap-13 <strong>owns</strong> it; it draws its prerequisite from the keystone <a href="./w3-a6-coefficient.html">W3</a> (Gap-01 owner) and its system–bath split from Gap-14.</p>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Relation</th>
+<th>How it touches the wall</th>
+<th>Ledger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gap-13</strong></td>
+<td><strong>owner</strong></td>
+<td>the value-match is DIAGNOSTIC; $1/4$ is DERIVED-GIVEN-E <em>conditional</em> on the unbuilt saddle; the count and the Page <em>time</em> are its binding open residuals</td>
+<td><a href="/anchors/gap13-anchor-ledger.html">/anchors/gap13-anchor-ledger.html</a></td>
+</tr>
+<tr>
+<td>Gap-01 / W3</td>
+<td>upstream</td>
+<td>supplies the UV-controlled near-horizon Hilbert space and the defect/boundary order-$6$ Seeley–DeWitt coefficient on which both M1 and M2 are gated</td>
+<td><a href="/anchors/gap01-anchor-ledger.html">/anchors/gap01-anchor-ledger.html</a></td>
+</tr>
+<tr>
+<td>UQF-3</td>
+<td>sibling-wall</td>
+<td>shares the Clay-class Euclidean-existence / reflection-positivity leg the admissible saddle (M2/$H1$$H2$) cascades onto</td>
+<td><a href="/anchors/uqf3-anchor-ledger.html">/anchors/uqf3-anchor-ledger.html</a></td>
+</tr>
+</tbody>
+</table>
+<p>The single move — deliver the defect/boundary coefficient (<a href="./w3-a6-coefficient.html">W3</a>) and the admissible horizon saddle (<a href="./w1-uv-completion.html">W1</a>) — discharges the static leg here <em>and</em> feeds the graviton certificate, UQF-3, UQF-9 and SG-6: leverage, counted once.</p>
+<hr />
+<h2>4. What would close it — the bounded, target-blind program</h2>
+<p>Each residual is a concrete, finite, target-blind work-package; a refuting outcome is an equally valid, publishable result.</p>
+<ol>
+<li><strong>HORIZON-ADMISSIBILITY (M2).</strong> Prove the frozen $4$D zero-mode sector extends to an admissible, dominant Euclidean replica saddle family $M_n$ under the frozen $C_{\rm admiss}/F^+$ grammar (discharge $H1$–$H4$), using Euclidean saddle-point methods and Fursaev–Solodukhin conical calculus. <strong>Never route a coefficient through the dead entanglement / Susskind–Uglum $1/G$ counterterm.</strong></li>
+<li><strong>The defect/boundary coefficient (M2, the primary blocked computation).</strong> Compute the order-$6$ mixed N/D $S^1_Y/\mathbb{Z}_2$-orbifold-boundary $+$ conical-defect Seeley–DeWitt coefficient with Gilkey/Vassilevich boundary heat-kernel machinery and show its order-$A$ contribution <strong>vanishes</strong> for the frozen internal weights. Coordinate with Gap-01 / <a href="./w3-a6-coefficient.html">W3</a>.</li>
+<li><strong>The microstate count (M1).</strong> Once the near-horizon Hilbert space exists, construct and count the ensemble and prove $\log N(A)=A/4G+\text{subleading}$ with <strong>no fitted prefactor</strong>. <em>Trap:</em> the operator dimensions are graviton (fibre $\mathrm{Sym}^2(T)$) $91$, ghost (fibre $T$) $13$, and grav $-2\times$ghost $=65$ — <strong>never</strong> route the count through the grading constants $\mathrm{tr}\,\gamma_{\rm grav}=67$, $\mathrm{tr}\,\gamma_{\rm ghost}=11$ (real derived objects, but <em>not</em> dimensions and not a microstate count).</li>
+<li><strong>The Page turnover (M3).</strong> With Gap-14's system–bath split and the area term sourced from the conditional, compute $S_{\rm rad}(t)$ via the geometry-native QES and resolve the central charge $c$ <strong>target-blind</strong>; keep $\alpha$ symbolic.</li>
+</ol>
+<p><strong>Success criterion:</strong> $H1$–$H4$ all discharged $\Rightarrow$ the conical proof delivers a non-tautological $1/4$; an independent count lands on $A/4G$ with no fitted prefactor; and $S_{\rm rad}(t)$ turns over at a Page time consistent with that count.</p>
+<p><strong>What a refuting result looks like (also terminal):</strong> if no admissible saddle exists, the gate stays OPEN for a deeper reason — a publishable structural finding; a target-blind count landing on a different coefficient, or a non-vanishing order-$A$ defect term ($S=A/4G+$ Wald correction), or the absence of a turnover, are each decision-grade negatives, not tuning opportunities.</p>
+<hr />
+<h2>5. Falsifier</h2>
+<p>The wall carries <strong>no falsifier of its own yet, by design</strong> — a five-clause anti-overclaim wall (PC-1…PC-5) forbids registering a Page-curve claim until a real mechanism exists, so the program cannot be caught faking one. Two sharp tests arm the moment <a href="./w3-a6-coefficient.html">W3</a> / Gap-01 delivers the near-horizon Hilbert space and Gap-14 delivers a consistent split: (a) a geometry-native state count must give $\log N(A)=A/4G+$ known subleading with <strong>no fitted prefactor</strong> — a different coefficient refutes; (b) the radiation entropy $S_{\rm rad}(t)$ must turn over at the Page time — no turnover, or a Page time inconsistent with the count, refutes. A non-vanishing order-$A$ defect coefficient is the live falsifier-in-principle of the conditional $1/4$.</p>
+<hr />
+<h2>6. Anti-claims (what must never be said about this wall)</h2>
+<ul>
+<li><strong>The value-match is not a microstate count.</strong> $S=A/4G$ to $2.8\times10^{-5}$ is a DIAGNOSTIC, inherited given $E$ and the measured $G$ — never the counting theorem (M1), and never evidence that $1/4$ is a derived output.</li>
+<li><strong>$1/4$ is not a derived output.</strong> It is DERIVED-GIVEN-E <em>conditional</em> on the unproven HORIZON-ADMISSIBILITY saddle plus the value-free <code>AX-SADDLE-ENTROPY</code> posit. <strong>ANCHORED $\neq$ DERIVED:</strong> $1/4$ is anchor-transferred onto the measured $G$, never anchor-eliminated; floor $\geq1$.</li>
+<li><strong>The entanglement route to $1/4$ is a tautology</strong>, returning the target for any minimal content (even a microstate-free free scalar) and carrying zero independent evidential weight; the conditional route is admissible only because it never touches that counterterm.</li>
+<li><strong>No quantitative Page curve is claimed.</strong> Only a qualitative, area-dominated turnover survives; the Page <em>time</em> is open, and the turnover is <strong>not</strong> a theorem of unitarity.</li>
+<li><strong>The two horizon area laws are unrelated.</strong> Borrowing $1/4$ from the framework's $SU(3)_c$ confinement Wilson-loop area law would be target-loaded; that firewall stays in force.</li>
+<li><strong>This wall is not a UV completion</strong> (<a href="./w1-uv-completion.html">W1</a>), and consuming the keystone (<a href="./w3-a6-coefficient.html">W3</a>) does not close it — a count and a mechanism are still owed after the coefficient lands.</li>
+<li>The frozen-branch hashes (<code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>) are audit anchors; they certify <em>which object</em> was tested, <strong>not</strong> the physics — and no horizon-sector object has any hash at all.</li>
+<li><strong>The unicorn is dissolved, not listed as a wall.</strong> "No simpler horizon-capable formulation could ever exist," or "THE universal microstate count for any realistic gravity theory," is a universal negative — unprovable in principle for any theory. The bounded, in-grammar object (a geometry-native count and turnover for <em>this</em> geometry) is the real wall.</li>
+</ul>
+<hr />
+<h2>7. Terminal disposition</h2>
+<p><strong>OPEN-ANCHORED — a per-gate bounded wall, conditional on the keystone <a href="./w3-a6-coefficient.html">W3</a>.</strong> Owned by Gap-13 (ANCHOR-CLOSED / physics-OPEN). The value-match (M0) is a banked DIAGNOSTIC and the conditional coefficient is CERTIFICATE-CONDITIONAL / non-tautological; the microstate count (M1), the horizon-capable saddle (M2) and the Page time (M3) are the bounded, target-blind, falsifiable work that remains. Even fully delivered, $1/4$ stays <em>given</em> $E$ — anchor-transferred, never anchor-eliminated — and the count and turnover ride on the shared frontier walls, so no gate here is physics-CLOSED.</p>
+<hr />
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The systematic wall analysis was run on this wall and independently cross-checked. The review <strong>confirmed the verdict</strong> and found <strong>no overstatement, no target-dependence, and no misclassification</strong>. No gate here is physics-closed (anchored ≠ closed).</p>
+<pre><code>Verdict: NOT_EXHAUSTED_BLOCKED
+Deep root the residual sits on: Granularity (the finite UV-controlled near-horizon Hilbert space / cost-floor that must exist before any microstate can be counted); secondary root Scale (the finite-area, strong-field Euclidean saddle the perturbative zero-mode carrier does not reach)
+
+The single precise hole (smallest missing rule):
+  R1 (extraction/quantization, segment S1): the rule that delivers a UV-controlled, finite, geometry-native near-horizon Hilbert space H_horizon(A) whose dimension obeys log N(A)=A/4G+subleading with no fitted prefactor — and which is itself gated on the W3 keystone object: the order-6 mixed Neumann/Dirichlet S^1_Y/Z2-orbifold-boundary + conical-defect Seeley-DeWitt coefficient, whose order-A contribution must be SHOWN to vanish (not assumed) for the frozen K6=SU(3)/T2, chi=-3 internal weights. Without this rule there is nothing well-defined to count, and the only competing candidate (the entanglement-cutoff Hilbert space / Susskind-Uglum induced-G route) is ELIMINATED_BY_LAW as a tautology (T1), not by choice.
+
+Named blockers:
+  - W3 keystone: the order-6 mixed N/D S^1_Y/Z2-orbifold-boundary + conical-defect Seeley-DeWitt coefficient is ABSENT from the literature (boundary heat-kernel tower stops at a5); its order-A term must be shown to vanish, not assumed (KT-5)
+  - HORIZON-ADMISSIBILITY (M2/KT-1): proof that the frozen 4D zero-mode gravity sector extends to an admissible, dominant Euclidean replica saddle family M_n under the frozen C_admiss/F+ grammar — a global open problem, shared with W1
+  - S1 near-horizon Hilbert space undefined =&gt; S2 microstate carriers undefined (no state basis to count)
+  - G_eff = G_Newton (KT-2) is a consistency condition not independently verified for the K6 x S2 x S1 volume factor
+  - Page time central charge c has no target-blind frozen value (gauge-convention-dependent c in {26.5,50.5}; greybody/angular-momentum-dressed; mass-dependent c~2 solar to ~50 Planckian; spread factor ~2-25)
+  - Gap-14 system-bath split on the 13D fields not built (owner-physics honest halt)
+
+Honest endpoint: W16 reduces cleanly to a single named missing object — the W3 order-6 defect/boundary Seeley-DeWitt coefficient (order-A vanishing to be shown, not assumed) feeding a finite near-horizon Hilbert space on the Granularity root — with a genuinely non-tautological conditional 1/4 route (T2) and an explicit QES island shape (T3) in hand but no microstate count, no admissible saddle, and no target-blind Page time, so the map is NOT_EXHAUSTED_BLOCKED with no target-selection leakage in what is written.
+Terminal status: OPEN-ANCHORED / CONDITIONAL-ON-W3 (Gap-13 ANCHOR-CLOSED / physics-OPEN; banked DIAGNOSTIC value-match plus non-tautological conditional 1/4 route, but the microstate count, the horizon-capable Euclidean replica saddle, and the target-blind Page time are blocked on the named W3 keystone object — the order-6 mixed N/D S^1_Y/Z2-orbifold-boundary + conical-defect Seeley-DeWitt coefficient whose order-A term must be SHOWN to vanish, not assumed)
+</code></pre>
+<hr />
+<h2>8. Cross-links</h2>
+<ul>
+<li>The <a href="./index.html">walls index</a> — the full terminal-anchored register and honest tally.</li>
+<li><strong>The keystone this wall consumes:</strong> <a href="./w3-a6-coefficient.html">W3 — the $a_6$ Seeley-DeWitt coefficient</a> (the defect/boundary coefficient and near-horizon Hilbert space).</li>
+<li><strong>Tier A (shared global):</strong> <a href="./w1-uv-completion.html">W1 — UV-completion / strong-coupling quantum gravity</a> (the HORIZON-ADMISSIBILITY saddle is part of this frontier) · <a href="./w2-continuum-existence.html">W2 — continuum existence</a>.</li>
+<li><strong>Sibling per-gate walls:</strong> <a href="./w15-born-weight.html">W15 — Born-rule weight / measure</a> · <a href="./w9-moduli-stabilization.html">W9 — moduli stabilization</a>.</li>
+<li><strong>Anchor ledgers:</strong> <a href="/anchors/gap13-anchor-ledger.html">Gap-13 (owner)</a> · <a href="/anchors/gap01-anchor-ledger.html">Gap-01 (keystone owner)</a> · <a href="/anchors/uqf3-anchor-ledger.html">UQF-3 (sibling Clay-class wall)</a>.</li>
+<li><strong>Dossier:</strong> the full <a href="/articles/DOSSIER_GAP13_FULL.html">Gap-13 dossier</a>.</li>
+</ul>
+</main>
+</div>
+</body></html>

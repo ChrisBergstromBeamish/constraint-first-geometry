@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Yang–Mills uniform-gap bridge wall</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 248px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9632; The Wall Register</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; back to The Anchors</a></div>
+<div class="ann-group">Shared global walls</div>
+<a href="w1-uv-completion.html">W1 · UV completion (shared)</a>
+<a href="w2-continuum-existence.html">W2 · Continuum existence (shared)</a>
+<div class="ann-group">Keystone bounded walls</div>
+<a href="w3-a6-coefficient.html">W3 · a6 coefficient (keystone)</a>
+<a href="w4-granularity-mdl.html">W4 · granularity to MDL</a>
+<div class="ann-group">Per-gate bounded walls</div>
+<a href="w5-given-e-bundle.html">W5 · given-E / bundle uniqueness</a>
+<a href="w6-flavor-rulebook.html">W6 · flavor F+ rulebook</a>
+<a href="w7-anomaly-descent.html">W7 · anomaly descent (BV-BRST)</a>
+<a href="w8-custodial-rho.html">W8 · custodial rho=1</a>
+<a href="w9-moduli-stabilization.html">W9 · moduli stabilization</a>
+<a href="w10-lambda-stability.html">W10 · Lambda radiative stability</a>
+<a href="w11-lambda-value.html">W11 · Lambda value</a>
+<a href="w12-baryogenesis-cp.html">W12 · baryogenesis CP-source</a>
+<a href="w13-dark-matter-portal.html">W13 · dark-matter portal</a>
+<a href="w14-inflation-spectrum.html">W14 · inflation spectrum</a>
+<a href="w15-born-weight.html">W15 · Born-rule weight</a>
+<a href="w16-bh-microstates.html">W16 · BH microstates / Page</a>
+<a href="w17-proton-operators.html">W17 · proton operators</a>
+<a href="w18-ym-uniform-gap.html" class="current">W18 · Yang-Mills uniform gap</a>
+<a href="w19-threshold-magnitudes.html">W19 · threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The Yang–Mills uniform-gap bridge wall — rendered package. Rendered from <code>w18-ym-uniform-gap.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The Yang–Mills uniform-gap bridge wall</h1>
+<blockquote>
+<p><strong>Kind: PER-GATE-BOUNDED</strong> (one finite, owned inequality — overlapping the shared continuum-existence wall W2 and the granularity bridge W4) · <strong>Disposition: TERMINAL-ANCHORED</strong> (axiom-conditional; NOT a Clay solution) — the gate is rigorously <em>reduced</em> to a single uniform lower bound, which is itself the genuine open Clay object.</p>
+</blockquote>
+<p><strong>One honest sentence.</strong> Gap-02 squeezes the entire unsolved continuum Yang–Mills mass-gap problem down to one precisely-localized inequality — a single uniform-in-cutoff lower bound on $\Delta(a,L)/\Lambda_{\rm YM}$ — proves its own geometry supplies no shortcut to it, and reports every numerical verdict at the scope it actually establishes; the inequality itself remains the open Clay wall, here and everywhere.</p>
+<hr />
+<h2>1. What is missing</h2>
+<p>The precise missing object is <strong>one inequality</strong>: a uniform-in-cutoff positive lower bound on the dimensionless mass gap of 4D pure $SU(3)$ Yang–Mills. On a Wilson lattice $\Lambda\subset(a\mathbb{Z})^4$ with action $S_W=\beta\sum_p(1-\tfrac13\,\mathrm{Re}\,\mathrm{tr}\,U_p)$, $\beta=6/g_0^2$, and the mass gap $\Delta(a,L)$ defined as the lowest nonzero eigenvalue of $H=-a^{-1}\log T$, the missing theorem is</p>
+<p>$$\frac{\Delta(a,L)}{\Lambda_{\rm YM}}\;\ge\;c\;>\;0\quad\text{uniformly as }a\to0,\;L\to\infty,\;\beta\to\infty,$$</p>
+<p>with the <em>same</em> constant $c$ for the <em>same</em> measure for which existence, reflection positivity, and nontriviality also hold in the limit.</p>
+<p><strong>The quantifier order is the whole difficulty.</strong> The statement requires $\exists(\delta,K,\kappa,a_0,L_0,n_0)\,\forall(a,L,\beta,n)$ — a <em>single</em> $\delta$ uniform over all regulators and all scales. No such uniform lower bound is known. As the gate's ledger puts it: <em>at finite $a$ both the gap and reflection positivity are trivial — the entire wall IS the $a\to0$ limit.</em> The lone inequality above <em>is</em> the entire wall.</p>
+<p><strong>What is already rigorous (and what is not).</strong> What is established is a <em>conditional</em>, not the gap. The all-operator lemma (SL-1 / M4D)</p>
+<p>$$\big[\,H1\wedge H2\wedge H3\wedge H4\,\big]\;\Rightarrow\;\text{no soft physical sequence}\;\Rightarrow\;\Delta>0,$$</p>
+<p>with $H4$ = uniform exponential clustering, holds and is hand-checkable; "uniform clustering $\Rightarrow$ the gap" is genuinely rigorous. It derives <em>no value</em>. The exact equivalence SL-0 ($\Delta>0 \equiv \operatorname{Spec}(H)\cap(0,\Delta)=\varnothing$) and the finite-$a$ floor SL-2 (RP $\Rightarrow 0\le T\le 1$, $H\ge 0$; measure existence and $\beta$-analyticity at fixed $a$) are likewise derived. The reduction chain SL-0 $\to$ SL-2 $\to$ SL-1/M4D is <strong>DERIVED / CERTIFICATE-CONDITIONAL</strong> — a conditional, never a gap. The bridge inequality is the one piece that turns the conditional into the theorem, and it is <strong>OPEN — Clay</strong>.</p>
+<p><strong>The decisive obstruction — rarity $\not\Rightarrow$ domination.</strong> In the deep UV the large-field weight $\mu_n\le e^{-c/g^2}\to0$ banks the inequality automatically. But rarity bounds a <em>weight</em>, not a <em>contribution</em>; the bare activity can compensate. Inside the $d=4$ marginal band $g(2^n a)=O(1)$ the inequality becomes a strict finite comparison between two $O(1)$ constants with no spare coercive margin — $\delta=0$ is the $d=4$ stall. The obstruction is method-invariant: both the polymer/cluster route and the asymptotic-freedom RP block-spin monotone</p>
+<p>$$M_{n+1}\le(1-c\,b_0\,g_n^2)M_n+O(g_n^4)M_n,\qquad b_0=\tfrac{11N}{3}=11\ (SU(3)),$$</p>
+<p>stall on the <em>identical</em> $\delta=0$ object at $g=O(1)$ — the signal that the obstruction is intrinsic to $d=4$ marginality, not an artifact of one tool.</p>
+<hr />
+<h2>2. Which gates hit this wall</h2>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>How it touches the wall</th>
+<th>Owns vs inherits</th>
+<th>Status on this wall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gap-02 — Yang–Mills mass gap</strong></td>
+<td>the uniform bridge $\Delta(a,L)/\Lambda_{\rm YM}\ge c>0$ through the marginal band is residual <strong>R1</strong> — <em>this is the gate</em></td>
+<td><strong>owner</strong> (sole)</td>
+<td>OPEN — Clay; no uniform lower bound is known here or anywhere</td>
+</tr>
+</tbody>
+</table>
+<p>This wall is owned by exactly one gate. Its uniformity is <em>shared</em> — the same $a\to0$, $L\to\infty$ requirement is the constructive-existence object of the shared wall <strong>W2</strong> (Gap-02 residual R3, also inherited by UQF-3 and UQF-9) and the cost-floor that may decline the limit is the bridge of <strong>W4</strong>. But the <em>mass-gap face</em> of that uniformity — the inequality on $\Delta/\Lambda_{\rm YM}$ itself — is Gap-02's alone.</p>
+<p>Anchor ledger: <a href="/anchors/gap02-anchor-ledger.html">Gap-02</a>.
+Dossier: <a href="/articles/DOSSIER_GAP02_FULL.html">Gap-02 dossier</a>.</p>
+<p><strong>Co-gate note.</strong> Even a proved R1 yields no gap without two independent co-gates: <strong>R2</strong> — nonperturbative BRST/Gribov kernel positivity surviving $a\to0$ (established only perturbatively; the Gribov–Singer–Neuberger triad blocks the naive lattice route), and <strong>R3</strong> — OS reconstruction / continuum-RP survival (no 4D $SU(3)$ continuum measure has ever been constructed; existence must come first). R2 and R3 live with the shared continuum-existence wall W2; W18 is the gap-magnitude inequality specifically.</p>
+<hr />
+<h2>3. What would close it — or why it is terminal</h2>
+<p>This is a <strong>bounded</strong> wall: one inequality, with three concrete target-blind lanes, plus a pre-registered refuting result.</p>
+<p><strong>The target.</strong> Prove $\rho_\star<1$ uniform through the marginal band, target-blind, where $\rho_\star=E_{\rm conn}A_{\rm fluc}e^{-s_{\rm marg}}$ is the marginal Kotecký–Preiss face of the same wall. The three live lanes:</p>
+<ul>
+<li><strong>Lane A</strong> — sharpen the Bałaban large-field step from a <em>weight</em> bound to a <em>contribution</em> bound (a fixed $e^{-\delta}$ contraction that survives through the band).</li>
+<li><strong>Lane B</strong> — a convergent activity/cluster expansion at $g=O(1)$ with strictly positive $\delta$.</li>
+<li><strong>Lane C</strong> — match the UV (Gaussian) and IR (product-measure) expansion domains across the band, or a genuinely group-sensitive non-expansion method exploiting $b_0=11N/3>0$ (the AF-RP monotone with the $O(g^4)M_n$ remainder controlled uniformly through $g=O(1)$).</li>
+</ul>
+<p><strong>Success criterion:</strong> a uniform $c>0$ for the same measure on which existence, RP, and nontriviality also hold — i.e. closing R1 <em>together with</em> R2 and R3 (the full Clay prize). Even then, the gap is observed, not a Gap-02 derivation of $E$: $\Lambda_{\rm YM}$ is given-E boundary data (pinned from the frozen anchors $\alpha_3(M_Z)$, $M_U\sim1.0\times10^{16}$ GeV and threshold $\delta_3=-1.7313$, $R_0=1.592\times10^{-17}$ GeV$^{-1}$), and the gap itself is a measured fact (short-range strong force, $m_{0^{++}}\approx1.7$ GeV, the running of $\alpha_s$).</p>
+<p><strong>Why it is terminal-anchored, not solved.</strong> The granularity / cost-floor axiom (a named, <em>unproven</em> posit; Hole R6, REDUCED-TO-AXIOM) can dissolve the continuum half <em>by choice</em>, leaving the finite checkable residual. But <strong>dissolved $\ne$ solved</strong>: declining the continuum limit changes the Clay question rather than answering it. The honest endpoint is the rigorous reduction plus the named open inequality — not a closure.</p>
+<p><strong>The measured diagnostic (a banked negative, not a result).</strong> A <em>sufficient proxy</em> was run, not the inequality itself. The decidability margin $D\equiv s_{\rm block}-\log(E_{\rm conn}A_{\rm fluc}N_{\rm cert})$ came out negative at every binning, with the smallest $|D|/\sigma\approx 67$:</p>
+<p>$$D(\delta_{\rm tr}{=}.5)=-4.004\pm0.041,\quad D(.25)=-5.043\pm0.041,\quad D(.125)=-6.162\pm0.041,$$</p>
+<p>built from four $O(1)$ constants — $E_{\rm conn}=19.0280=e\cdot7=e\cdot(2d-1)$ (analytic Penrose/Klarner lattice-animal bound), $A_{\rm fluc}=0.05264\pm0.00014$ (single-block $SU(3)$ Haar/Gaussian ratio), $s_{\rm block}=1.0413\pm0.0412$ (per-certificate activation cost), and $N_{\rm cert}=155/438/1342$ (distinct realized cell letters at $\delta_{\rm tr}=.5/.25/.125$). The plaquette hard gate passed first ($\langle P\rangle=0.59375\pm0.00197$ vs standard $0.5937$, $<1\sigma$). <strong>This is an INCONCLUSIVE verdict, not a refutation:</strong> the master inequality being sufficient-not-necessary, $D<0$ does not deny the gap.</p>
+<hr />
+<h2>4. Falsifier</h2>
+<p>The pre-registered refuting result for the <em>sufficient route</em> is a direct uniform</p>
+<p>$$z_\star\ge\frac{1}{E_{\rm conn}A_{\rm fluc}}\quad\Longleftrightarrow\quad\rho_\star\ge1$$</p>
+<p>through the marginal band — a direct uniform lower bound proven (not the proxy $D<0$, which is sufficient-not-necessary). That would kill this particular sufficient lane and stand as a legitimate negative close. A direct lower bound, not the proxy margin, is what a refutation requires.</p>
+<p>Two boundary facts also constrain the route space: an <strong>RP-only no-go</strong> (any reflection-positivity-only argument is excluded in advance — it would falsely gap compact $U(1)$, which is provably gapless), and the <strong>convention-underdetermination of $z_\star=\sum_{\gamma\ne0}w(\gamma)$</strong>, whose three circularity-clean readings (per-binned-letter, divergent FAIL; intensive KP activity $0.109$, PASS; single effective activity $0.353$, PASS) <em>disagree on the verdict</em> until $w(\gamma)$ is pinned by a derivation. Picking a reading to land PASS or FAIL is target-loading.</p>
+<hr />
+<h2>5. Anti-claims</h2>
+<ul>
+<li><strong>Gap-02 is NOT solved, closed, or proven.</strong> There is no Clay solution here or anywhere. The rigorous content is the <em>conditional</em> $[H1\wedge H2\wedge H3\wedge H4]\Rightarrow$ gap — not a proof that $H4$ (uniform clustering) holds.</li>
+<li><strong>Dissolved $\ne$ solved.</strong> Declining the continuum limit via the granularity axiom changes the Clay question; it does not answer it. "Reduced-to-axiom" does not lower the axiom count.</li>
+<li><strong>The frozen geometry supplies no proof lever.</strong> Lemma 1B is operator-level; the pure-glue projection is <em>ordinary</em> 4D $SU(3)$ YM (5-way descent tally INERT:10 / ORDINARY-YM:3 / WILSONIAN-IRRELEVANT:1 / TOPOLOGICAL→R4:1 / <strong>LEVER:0</strong>); $F^+$ is inert. This is the bounded banked claim — <em>not</em> the unprovable universal "no geometric modification could ever supply a lever."</li>
+<li><strong>$D<0$ does NOT refute the gap.</strong> A sufficient proxy failing is not a direct lower bound; a refutation needs $z_\star\ge1/(E_{\rm conn}A_{\rm fluc})$ (equivalently $\rho_\star\ge1$) proven directly, which was not computed.</li>
+<li><strong>Rarity $\not\Rightarrow$ domination.</strong> A weight bound $\mu_n\le e^{-c/g^2}$ is not a contribution bound; that category error <em>is</em> the wall.</li>
+<li><strong>RP alone cannot gap $SU(3)$</strong> — an RP-only argument would falsely gap compact $U(1)$. (RP itself is true and needed downstream.)</li>
+<li><strong>The frozen-branch hashes are audit anchors</strong> — they certify which object was tested; they do <strong>not</strong> validate the physics or supply a Clay lever. $\Lambda_{\rm YM}$ is given-E; deriving it would be deriving $E$.</li>
+<li><strong>The absolutely-unique / no-future-method unicorn is not this wall.</strong> "No method anywhere could ever bound the gap" is an unprovable universal negative, dissolved as a non-target. The bounded, in-grammar object — <em>this</em> uniform inequality through the marginal band — is the real wall.</li>
+</ul>
+<hr />
+<h2>6. Terminal disposition</h2>
+<p><strong>TERMINAL-ANCHORED (axiom-conditional; NOT a Clay solution).</strong> Gap-02 is rigorously <em>reduced</em> to a single uniform-in-cutoff inequality $\Delta(a,L)/\Lambda_{\rm YM}\ge c>0$ (residual R1, OPEN — Clay), proves its own geometry gives no shortcut (LEVER:0), and banks every numerical verdict at honest scope (the sufficient-proxy $D<0$ is INCONCLUSIVE, not a refutation). The continuum half is dissolution-licensed onto the granularity axiom (R6, REDUCED-TO-AXIOM) — terminal, not solved. <strong>Anchored ≠ closed; this gate is not physics-CLOSED.</strong></p>
+<hr />
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The systematic wall analysis was run on this wall and independently cross-checked. The review <strong>confirmed the verdict</strong> and found <strong>no overstatement, no target-dependence, and no misclassification</strong>. No gate here is physics-closed (anchored ≠ closed).</p>
+<pre><code>Verdict: WALL_RECORDED
+Deep root the residual sits on: Granularity / Scale — the residual ultimately sits on the a-&gt;0 continuum idealization (Scale: the uniform-in-cutoff limit IS the entire wall), which the Granularity cost-floor axiom (R6) can only DECLINE by choice, not derive; Nonseparability supplies the reason fixed-a closure does not equal the uniform limit.
+
+The single precise hole (smallest missing rule):
+  A target-blind CONTRIBUTION bound (not a weight bound): a single fixed e^{-delta} contraction with delta&gt;0 holding UNIFORMLY through the marginal band g(2^n a)=O(1) for the SAME measure on which existence/RP/nontriviality survive a-&gt;0 — equivalently a derivation of the polymer weight w(gamma) that makes z_star = sum_{gamma!=0} w(gamma) a decidable number (its three circularity-clean readings — divergent-FAIL, 0.109-PASS, 0.353-PASS — currently disagree), and that uses the asymptotic-freedom sign b0 = 11N/3 &gt; 0 so it gaps SU(N) but provably fails for gapless compact U(1). No such rule is known here or anywhere; rarity (mu_n &lt;= e^{-c/g^2}) bounds a weight, never a contribution — that category error IS the wall.
+
+Named blockers:
+  - R1 (the bridge, segment R4 of the map): no uniform-in-cutoff lower bound rho_star&lt;1 / Delta/Lambda_YM &gt;= c&gt;0 through the marginal band; delta=0 is the d=4 stall, method-invariant across the polymer/cluster route and the AF-RP block-spin monotone (Directive VII converged-wall).
+  - z_star convention-underdetermination: w(gamma) is not pinned by any derivation, so the verdict object has &gt;=2 inequivalent surviving readings -&gt; AMBIGUOUS_SURVIVORS; picking one to land PASS/FAIL is target-loading.
+  - R2 (independent co-gate): nonperturbative BRST/Gribov kernel positivity surviving a-&gt;0 — established only perturbatively; Gribov-Singer-Neuberger triad blocks the naive lattice route. Even a proved R1 yields no gap without it.
+  - R3 (independent co-gate): OS reconstruction / continuum-RP survival — NO 4D SU(3) continuum measure has ever been constructed; existence must come first.
+  - D&lt;0 master-inequality run is INCONCLUSIVE not refuting (sufficient-not-necessary proxy; smallest |D|/sigma ~ 67); a real refutation needs a DIRECT z_star &gt;= 1/(E_conn*A_fluc) proven, which was not computed.
+  - R6 (granularity/cost-floor axiom): the uniform positive floor Delta_0&gt;0 is a named UNPROVEN posit; the basin-shallowing countermodel (d_n=B*2^{-n-1}, sum finite, inf=0) refutes the uniform claim from mere finiteness -&gt; dissolution is licensed but dissolved != solved.
+
+Honest endpoint: W18 is a genuine method-invariant wall, correctly reduced and recorded: Gap-02 squeezes the entire unsolved continuum Yang-Mills mass-gap problem down to one precisely-localized uniform-in-cutoff inequality (rho_star&lt;1 through the d=4 marginal band), proves its own geometry gives no shortcut (LEVER:0) and that rarity-does-not-imply-domination is the obstruction, but supplies no derivation — so the map terminates one rule short, at a missing target-blind contribution-bound, and the residual sits on the Granularity/Scale continuum idealization.
+Terminal status: WALL-RECORDED / OPEN — Clay (R1, the uniform-in-cutoff inequality Delta(a,L)/Lambda_YM &gt;= c &gt; 0 through the d=4 marginal band) for the continuum estimate; REDUCED-TO-AXIOM / TERMINAL-ANCHORED (granularity R6) for the Fable finite-gap stance. Anchored != closed; this gate is NOT physics-CLOSED. Standing statuses unchanged: Gap-02 Precisely-OPEN [X]; UQF-11 AUDIT+ROADMAP; Lemma 1 HELD at local-action level / MIXED_WITH_OPEN at three-layer proof-domain level; R4 OPEN_CANDIDATE, no value asserted.
+</code></pre>
+<hr />
+<h2>7. Cross-links</h2>
+<ul>
+<li><strong>Walls index:</strong> <a href="/walls/index.html">/walls/</a></li>
+<li><strong>Sibling walls:</strong> <a href="/walls/w2-continuum-existence.html">W2 — continuum existence ($a\to0$ / $L\to\infty$)</a> (the shared-global uniformity this inequality is the mass-gap face of; carries co-gates R2/R3) · <a href="/walls/w4-granularity-mdl.html">W4 — granularity ⇒ MDL</a> (the cost-floor axiom that may decline the continuum half) · <a href="/walls/w3-a6-coefficient.html">W3 — the $a_6$ Seeley–DeWitt coefficient</a> (a finite datum that is <em>not</em> a continuum construction)</li>
+<li><strong>Anchor ledger:</strong> <a href="/anchors/gap02-anchor-ledger.html">Gap-02</a></li>
+<li><strong>Dossier:</strong> <a href="/articles/DOSSIER_GAP02_FULL.html">Gap-02 dossier</a></li>
+</ul>
+</main>
+</div>
+</body></html>

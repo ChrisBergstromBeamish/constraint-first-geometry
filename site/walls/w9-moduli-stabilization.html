@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The moduli-stabilization wall (saddle-vs-minimum + c_loop)</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 248px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9632; The Wall Register</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; back to The Anchors</a></div>
+<div class="ann-group">Shared global walls</div>
+<a href="w1-uv-completion.html">W1 · UV completion (shared)</a>
+<a href="w2-continuum-existence.html">W2 · Continuum existence (shared)</a>
+<div class="ann-group">Keystone bounded walls</div>
+<a href="w3-a6-coefficient.html">W3 · a6 coefficient (keystone)</a>
+<a href="w4-granularity-mdl.html">W4 · granularity to MDL</a>
+<div class="ann-group">Per-gate bounded walls</div>
+<a href="w5-given-e-bundle.html">W5 · given-E / bundle uniqueness</a>
+<a href="w6-flavor-rulebook.html">W6 · flavor F+ rulebook</a>
+<a href="w7-anomaly-descent.html">W7 · anomaly descent (BV-BRST)</a>
+<a href="w8-custodial-rho.html">W8 · custodial rho=1</a>
+<a href="w9-moduli-stabilization.html" class="current">W9 · moduli stabilization</a>
+<a href="w10-lambda-stability.html">W10 · Lambda radiative stability</a>
+<a href="w11-lambda-value.html">W11 · Lambda value</a>
+<a href="w12-baryogenesis-cp.html">W12 · baryogenesis CP-source</a>
+<a href="w13-dark-matter-portal.html">W13 · dark-matter portal</a>
+<a href="w14-inflation-spectrum.html">W14 · inflation spectrum</a>
+<a href="w15-born-weight.html">W15 · Born-rule weight</a>
+<a href="w16-bh-microstates.html">W16 · BH microstates / Page</a>
+<a href="w17-proton-operators.html">W17 · proton operators</a>
+<a href="w18-ym-uniform-gap.html">W18 · Yang-Mills uniform gap</a>
+<a href="w19-threshold-magnitudes.html">W19 · threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The moduli-stabilization wall (saddle-vs-minimum + c_loop) — rendered package. Rendered from <code>w9-moduli-stabilization.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The moduli-stabilization wall (saddle-vs-minimum + c_loop)</h1>
+<p><strong>Kind: PER-GATE-BOUNDED.</strong> One finite work-package: decide whether the symmetry-forced critical point of the frozen $K_6=SU(3)/T^2$ moduli space is a <em>minimum</em> or a <em>saddle</em>, by computing the two objects the sign turns on — the admissible-rep multiplicity table that fixes the graded Casimir net sign on the shape doublet, and the value-and-sign of the breathing-singlet loop coefficient $c_{\rm loop}=\mathrm{tr}[a_6]$. It is <strong>not</strong> a claim that the moduli are stabilized, and it is <strong>not</strong> the UV completion.</p>
+<blockquote>
+<p><strong>The terminal-anchored principle.</strong> Anchored $\neq$ closed. Both owning gates are <strong>ANCHOR-CLOSED</strong> — every object they touch carries a status, an allowed claim, and a forbidden claim — yet both are <strong>OPEN-ANCHORED</strong>: a real, finite, falsifiable residual remains, and no gate here is called physics-CLOSED.</p>
+</blockquote>
+<hr />
+<h2>1. What the wall is, in one honest sentence</h2>
+<p>Symmetry pins <em>where</em> the hidden dimensions sit for free — the gradient of any $S_3$-invariant potential vanishes at the chamber center $(t,t,t)$ — but the <em>sign</em> of the moduli-mass Hessian there is undecided: the shape doublet leans stable at tree level yet its certification rides on an absent admissible-rep multiplicity table, and the breathing singlet rides on a loop coefficient $c_{\rm loop}$ whose two computation routes disagree, so whether the critical point is a true minimum, a saddle, or has flat directions is genuinely open.</p>
+<hr />
+<h2>2. What is missing — the precise objects</h2>
+<p><strong>Location is proven; stability is what is missing.</strong> The criticality leg is a real, target-blind result. For any $S_3$-invariant functional $V$ on the three Cartan radii $(u_1,u_2,u_3)$,
+$$
+\nabla V\big|_{(t,t,t)} = 0 ,
+$$
+fixed by symmetry independent of the form of $V$ — and it carries <strong>zero</strong> stability content. The perturbation space splits exactly by $S_3$ into a breathing/volume <strong>singlet</strong> and a traceless shape <strong>doublet</strong>,
+$$
+3 = \mathbf{1} \oplus \mathbf{2} ,
+$$
+and the symmetric point is a minimum <strong>iff both eigenvalues are positive</strong>. The two eigenvalue sectors are the two missing objects.</p>
+<p><strong>(M1) The shape-doublet Hessian sign — the admissible-rep multiplicity table.</strong> Along the shape ray $u=(1+\varepsilon,1-\varepsilon,1)$ on $SU(3)/T^2$ the raw curvature is
+$$
+\left.\frac{d^2R}{d\varepsilon^2}\right|_0 = +4 - 5 = -1 ,
+$$
+(unit-normalized $+2-5/2=-1/2$) — diagonal convexity $+4$ versus the structure-constant triangle $-5$, a sign-definite, normalization-invariant result reproduced symbolically and cross-confirmed in both the SG-6 and UQF-10 ledgers. This $-1$ is the <strong>raw 3-space</strong> Hessian of $+R$ along a <em>volume-contaminated</em> ray ($\mathrm{Vol}=1-\varepsilon^2$) at a <strong>non-critical</strong> point, since $\nabla R(1,1,1)=(-\tfrac12,-\tfrac12,-\tfrac12)\neq 0$; the full $3\times3$ Hessian of $R$ has eigenvalues $\{+1,-\tfrac12,-\tfrac12\}$. Once the doublet is properly isolated (orthonormal trace-free log basis, fixed volume, shape-critical) it is an $S_3$ <strong>irrep</strong>, so its Hessian is isotropic ($\propto I$) and a saddle is structurally impossible <em>at the symmetric point</em>. The physical mass$^2$ is $M=G^{-1}\,\mathrm{Hess}(V)$ and the verdict turns entirely on the Einstein-frame sign:
+$$
+V=+R \Rightarrow \text{mass}^2\{-1,-1\}\ (\text{unstable}),\qquad V=-R \Rightarrow \text{mass}^2\{+1,+1\}\ (\text{stable}).
+$$
+The frozen branch finds $V_{\rm phys}\sim -R_{K_6}$ target-blind, hence mass$^2\{+1,+1\}$ — <strong>leaning STABLE at tree level.</strong> What is missing to certify it is the graded Casimir net sign, the supertrace $\sum (-1)^F\,d\,n\,(w_1^2+w_2^2)$ over the <strong>admissible-rep multiplicity table</strong> — presently <strong>ABSENT</strong> — with a regularization-stable $s=-1$ zeta continuation. The chiral index $\chi=-3$ <em>opposes</em> the boson-dominance rescue, so no rescue is banked. The closed-form multiplicity $m_0(p,q)=\min(p,q)+1$ if $(p-q)\equiv 0\bmod 3$ else $0$ checks against the textbook values; the full table and the regularized zeta remain.</p>
+<p><strong>(M2) The breathing-singlet loop coefficient $c_{\rm loop}$ — sign and value.</strong> The single-$\sigma$ stabilization object is the four-term potential
+$$
+V(\sigma)=c_{\rm KK}\,e^{-4\sigma}+c_{\rm bdry}\,e^{-2\sigma}+c_{\rm Wilson}\cos\theta_W\,e^{-4\sigma}+c_{\rm loop}\,e^{-6\sigma}.
+$$
+Three coefficients are computed and banked — $c_{\rm KK}=-8.892\times10^{1}/R_Y^4$, the fold-winding Casimir $c_{\rm KK}^{\rm wind}=+3.701826\times10^{-2}\,R_Y^{-4}$, $c_{\rm Wilson}$ integer sums $S(0)=+4,\ S(\pi)=+92$, branch pin $\kappa_0'=-3/(64\pi^6)<0$, $c_{\rm bdry}=-1.08\times10^{-2}$ — but <strong>none is combined into $c_{\rm loop}$</strong> (a forbidden shortcut). The missing $c_{\rm loop}$ is the $e^{-6\sigma}$ coefficient, the log-scheme residue of $c_{\rm loop}=\mathrm{tr}[a_6]$, the Seeley–DeWitt coefficient of the $\sigma$-fluctuation determinant on $K_6$. Its threshold-resolved FRG supertrace form is
+$$
+c_{\rm loop}=\frac{1}{4(4\pi)^2}\sum_{\rm levels}\Big[\deg_B(\ell)\,l^0_B\!\big(m_B^2(\ell)/k^2\big)-\deg_F(\ell)\,l^0_F\!\big(m_F^2(\ell)/k^2\big)\Big],
+$$
+with the normalization $1/(4(4\pi)^2)$ fixed. <strong>The object is route-INCONSISTENT — a stronger blocker than uncomputed.</strong> Two routes for the scale-free $a_6/a_0$ disagree by $|31/48|\approx 0.65$ (about six orders outside the $10^{-6}$ tolerance): at the $K_6$-bundle anchor Route B reproduces the canonical $a_6/a_0=-16/315$ (diff $2.7\times10^{-9}$, CORRECT) while Route A returns $-43/504$ (anchor-falsified). Route B dissolved the ghost ($a_6/a_0=149/1008$) but the graviton $\mathrm{Sym}^2(T)$ sector is still missing. The count-only diagnostic $\mathrm{Str}[1]=n_B-n_F=35-90=-55<0$ is <strong>not</strong> the sign — the threshold-resolved supertrace can have either sign, and reading the sign off $-55$ is a forbidden count-only shortcut (banked state: <code>sign = UNDETERMINED</code>).</p>
+<p><strong>(M3) $\mu_{\rm cell}$ has no $v$-independent value (the firewall, not a missing computation).</strong> Both fronts collapse onto one object, $\mu_{\rm cell}$, the log-scheme residue. The continuum $a\to0$ divergence is genuinely dissolved by the finite cell-sum $N\le B/\Delta_0$ — a value-free win — but <strong>finiteness does not imply uniqueness</strong>: a finite supertrace of a log-running 6D determinant still carries one log-scheme degree of freedom. $\mu_{\rm cell}$ would yield the Hosotani phase $\theta_{H\star}\approx 2.46\times10^{-14}$ and hence $v_{\rm EW}=246\ \mathrm{GeV}=\theta_{H\star}/(2\pi R_\gamma)$ <em>only</em> if it had a $v$-independent readout — but its only anchor is $\partial_\sigma V=0$, which <strong>is</strong> the electroweak hierarchy. Using it is circular by construction (the DERIVED no-go T1), and the <strong>Buckingham-π no-go</strong> confirms a second mass cannot be built from $\{M_{\rm Pl},\hbar,\text{dimensionless geometry}\}$ without a $\sigma$-carrying length. So $v_{\rm EW}$ is conceded as a measured second ruler — not part of this wall.</p>
+<p>A retracted value is owned plainly: an earlier $a_6$-dependent $-2.817995812\times10^{94}\ \mathrm{GeV}^6$ was retracted as $31/147$-contaminated; the corrected $-2.995681680\times10^{94}\ \mathrm{GeV}^6$ is scheme-anchored only. The Bianchi-exact curvature input is $|{\rm Riem}|^2/{\rm Scal}^2=23/75$ (residual $\sim 3\times10^{-16}$), <strong>not</strong> the Bianchi-violating $31/147$.</p>
+<hr />
+<h2>3. Which gates hit this wall</h2>
+<p>SG-6 <strong>owns</strong> the saddle-vs-minimum question; UQF-10 <strong>inherits</strong> it through the cross-confirmed shape-doublet Hessian and the same un-run $c_{\rm loop}$ matching. It is counted <strong>once</strong> across the two gates. Both also touch the keystone <a href="./w3-a6-coefficient.html">W3 — the a₆ coefficient</a>, which $c_{\rm loop}$ consumes.</p>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Relation</th>
+<th>How it touches the wall</th>
+<th>Ledger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SG-6</strong></td>
+<td><strong>owner</strong></td>
+<td>criticality is DERIVED-GIVEN-E and free; the Hessian sign (shape leans stable, breathing-singlet route-inconsistent) is its binding open residual</td>
+<td><a href="/anchors/sg6-anchor-ledger.html">/anchors/sg6-anchor-ledger.html</a></td>
+</tr>
+<tr>
+<td>UQF-10</td>
+<td>inherits</td>
+<td>the shape-doublet $d^2R/d\varepsilon^2|_0=-1$ is banked as a first-class negative <code>CERT-SHAPE-DOUBLET-SADDLE</code> (leaning REFUTED); the volume-singlet half is $c_{\rm loop}$-blocked behind the shared UV wall</td>
+<td><a href="/anchors/uqf10-anchor-ledger.html">/anchors/uqf10-anchor-ledger.html</a></td>
+</tr>
+</tbody>
+</table>
+<p>The two ledgers read the <em>same</em> shape-doublet slice in opposite registers — SG-6 isolates the trace-free doublet at a critical point and finds it <strong>leaning stable</strong> ($\{+1,+1\}$); UQF-10 records the raw single-slice $-1$ as a live falsifier <strong>leaning REFUTED</strong>. Both are honest: the single $-1$ slice refutes positive-definiteness, while the properly-isolated isotropic doublet cannot be a saddle at the symmetric point — and <strong>neither is the certified $2\times2$ signature</strong>, which is the highest-value runnable move.</p>
+<hr />
+<h2>4. What would close it — the bounded, target-blind program</h2>
+<p>A dependency order — <strong>isolate the doublet $\to$ multiplicity table $\to$ Casimir net sign $\to$ reconcile $c_{\rm loop}$ routes</strong> — so no sign is read before the object is properly isolated:</p>
+<ol>
+<li><strong>The shape-doublet signature (highest priority, runnable now, UV-independent).</strong> Build the full $2\times2$ shape-doublet Hessian in canonical kinetic-normalized coordinates on the <em>isolated</em> trace-free doublet at a <em>critical</em> point (do <strong>not</strong> repeat the volume-contaminated ray); mount the admissible-rep multiplicity table; form the graded supertrace $\sum (-1)^F\,d\,n\,(w_1^2+w_2^2)$ with a regularization-stable $s=-1$ continuation. <strong>Success:</strong> net $>0$ and $\mu_{\rm cell}\cdot q\gtrsim 0.5$ $\Rightarrow$ minimum (shape half of stability lifts). <strong>A confirming negative signature is also a valid close</strong> — a structural moduli-stability FINDING that UV completion would not rescue. Do <strong>not</strong> tune the Casimir $q$ to clear the $-1$.</li>
+<li><strong>Reconcile the two $a_6$ routes (the $c_{\rm loop}$ wall, shared with W3).</strong> Fix Route A's $K_6$-bundle $a_6$ against a spectral peel; deliver Route B's graviton $\mathrm{Sym}^2(T)$ LC $a_6$ via spectral-zeta resummation (the ghost is already dissolved); re-run the two-route value rule using the Bianchi-exact $23/75$, not $31/147$. <strong>Success:</strong> routes agree within $10^{-6}$ $\Rightarrow$ the breathing-singlet sign is decided. <strong>A definite wrong-sign $c_{\rm loop}$ is a valid FINDING</strong> — the breathing singlet is unstable. The honest endpoint short of either is Reduced-to-Axiom at <code>AXIOM-UNIFORM-CELL-VALUE</code>.</li>
+<li><strong>Enumerate the five mode spectra (the prerequisite).</strong> Enumerate the bosonic $K_6/S^2/S^1_Y$ towers, the twisted-Dirac $K_6$ tower, and the retained per-level content at $\vec u=(1,1,1)$ <strong>blind</strong> from the frozen bundle data. Until these spectra exist the supertrace is not evaluable.</li>
+</ol>
+<p><strong>Success criterion:</strong> the isolated doublet signature is fixed $\wedge$ the two $a_6$ routes agree $\wedge$ the Casimir net sign is regularization-stable $\Rightarrow$ SG-6 reaches a verdict on saddle-vs-minimum — <strong>closed only <em>given</em> $E$</strong>, never a derivation of $E$, and possibly to a confirmed instability.</p>
+<hr />
+<h2>5. Falsifier</h2>
+<p>A pre-registered, decision-grade falsifier is armed: <strong>the no-minimum test.</strong> If the graded Casimir net sign comes back $\le 0$ on the isolated doublet (or a definite wrong-sign $c_{\rm loop}$ is delivered for the breathing singlet), the symmetric point is a <strong>SADDLE-CONFIRMED</strong> — a confirmed instability of the frozen branch that <strong>UV completion would not rescue</strong>. The single most valuable <em>likely</em> outcome of this wall is this NEGATIVE. The semantics are one-sided: a wrong sign refutes; a right sign is only consistency, and even then only the shape half of stability, given $E$. A capability-to-fail control on $S^2\times S^2$ fires the <em>opposite</em> sign $(+16)$, confirming the sign test is not trivially rigged. Until the multiplicity table is mounted and the $c_{\rm loop}$ routes are reconciled, the falsifier is armed but not yet runnable, and <strong>no minimum (and no saddle) is asserted.</strong></p>
+<hr />
+<h2>6. Anti-claims (what must never be said about this wall)</h2>
+<ul>
+<li><strong>Criticality is not stability.</strong> A symmetry-forced critical point carries <strong>zero</strong> stability burden. Location is symmetry; sign is spectrum.</li>
+<li><strong>The shape minimum is not certified</strong> — only LEANING STABLE (mass$^2\{+1,+1\}$ at tree level), blocked on the absent multiplicity table plus the Casimir net sign.</li>
+<li><strong>SG-6 is not shown to be a saddle either.</strong> The raw $-1$ is a volume-contaminated, non-critical-point artifact, retired; the single-slice negative refutes positive-definiteness but is <strong>not</strong> the full $2\times2$ signature.</li>
+<li><strong>Casimir boson-dominance does not rescue the saddle</strong> — the multiplicity table is ABSENT and $\chi=-3$ opposes it; no rescue is banked.</li>
+<li><strong>$c_{\rm loop}$ is not computed</strong> — the $a_6$ object is route-inconsistent (Route A anchor-falsified, $-43/504$ vs canonical $-16/315$); this is stronger than uncomputed.</li>
+<li><strong>The sign of $c_{\rm loop}$ is not read off $-55$.</strong> $\mathrm{Str}[1]=35-90=-55$ is a count-only diagnostic; the threshold-resolved supertrace can have either sign.</li>
+<li><strong>$\mu_{\rm cell}$ has no $v$-independent value.</strong> Anchoring it at $\partial_\sigma V=0$ to "predict" $v_{\rm EW}$ is forbidden as circular by construction (the no-go T1).</li>
+<li><strong>The electroweak hierarchy is not derived.</strong> $v_{\rm EW}=246\ \mathrm{GeV}$ is a measured second ruler (consumed, not produced); $\theta_{H\star}$ is read from a minimum, not derived.</li>
+<li><strong>No global stabilization is claimed.</strong> "No flat directions anywhere, dynamically" is an explicit non-claim and a shared-open problem for <em>every</em> higher-dimensional framework; off-chamber configurations are rejected by <em>admissibility</em>, not dynamics.</li>
+<li><strong>An un-run FRG calculation is not an axiom.</strong> Axiomatizing the un-run matching would be target-loading.</li>
+<li><strong>Dissolved $\neq$ solved.</strong> The finite cell-sum dissolves the continuum UV divergence, but a finite supertrace still carries the open $\mu_{\rm cell}$ log-scheme degree of freedom.</li>
+<li><strong>The "no competitor anywhere" version is dissolved, not a wall.</strong> "No framework could ever deliver a controlled global positive-definite moduli mass matrix" is an unprovable universal negative — a non-target. The bounded, in-grammar version (this branch's Hessian sign + $c_{\rm loop}$) is the real wall.</li>
+<li>The frozen-branch hashes (<code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>) are audit anchors; they certify <em>which object</em> was tested, <strong>not</strong> the physics.</li>
+<li><strong>Existence is not stability, and $c_{\rm loop}$ is not the UV completion.</strong> A finite $a_6$ supports a bounded coefficient; it does not complete quantum gravity (that is the shared <a href="./w1-uv-completion.html">W1</a> / <a href="/anchors/uqf9-anchor-ledger.html">UQF-9</a> wall).</li>
+</ul>
+<hr />
+<h2>7. Terminal disposition</h2>
+<p><strong>OPEN-ANCHORED — a per-gate bounded wall.</strong> Owned by SG-6 (ANCHOR-CLOSED / OPEN — stability-sign-undecided); inherited and counted once by UQF-10 (ANCHOR-CLOSED / OPEN AUDIT). The criticality leg is DERIVED-GIVEN-E and free, the $3=\mathbf{1}\oplus\mathbf{2}$ split is exact, and the shape doublet leans stable ($\{+1,+1\}$ tree-level, cross-confirmed against a falsifiable $-1$ single-slice) — but the certified $2\times2$ signature via the absent admissible-rep multiplicity table (M1), the route-reconciled $c_{\rm loop}$ value and sign (M2), and the firewalled $\mu_{\rm cell}$ (M3) are the bounded, target-blind, falsifiable work that remains. Every outcome — minimum, saddle, or flat-direction — is a valid close; <strong>none may be assumed</strong>, and even a clean minimum is stability <em>given</em> $E$, never a derivation of $E$, never the electroweak hierarchy, and never the UV completion.</p>
+<hr />
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The systematic wall analysis was run on this wall and independently cross-checked. The review <strong>confirmed the verdict</strong> and found <strong>no overstatement, no target-dependence, and no misclassification</strong>. No gate here is physics-closed (anchored ≠ closed).</p>
+<pre><code>Verdict: NOT_EXHAUSTED_BLOCKED
+Deep root the residual sits on: Granularity/Scale composite: the residual hole is the regularized graded supertrace of a log-running 6D determinant on the frozen K6 (the a6 / mu_cell object). Finiteness is delivered by the Granularity cell-sum, but the surviving log-scheme degree of freedom (mu_cell) sits on Scale; the doublet-sign multiplicity table that would settle it is a Granularity (finite-label enumeration) object. Both ultimately ride the shared UV-completion wall (W1/UQF-9), which is the global Scale-root residual.
+
+The single precise hole (smallest missing rule):
+  The admissible-rep (p,q) multiplicity table on K6=SU(3)/T^2 together with the regularization-stable s=-1 (zeta) continuation of the graded supertrace sum (-1)^F d n (w1^2+w2^2) on the ISOLATED trace-free shape doublet at a critical point. This single object is the generator the doublet-sign segment (R2-&gt;R3) needs to be enumerable; its absence blocks the Casimir net sign, which in turn blocks the 2x2 signature. (The closed-form per-shell multiplicity m0(p,q)=min(p,q)+1 if (p-q)=0 mod3 else 0 is verified, but the full table and the regularized supertrace are not assembled, so the segment is NOT_EXHAUSTED_BLOCKED, not merely uncomputed.)
+
+Named blockers:
+  - Admissible-rep multiplicity table ABSENT (only the closed-form m0(p,q) shell formula is verified; full table + s=-1 zeta supertrace not assembled) -&gt; shape-doublet net Casimir sign undecided
+  - c_loop route INCONSISTENT: two structurally independent a6 routes disagree far beyond the 10^-6 tolerance; Route A (a6/a0=-43/504) is anchor-falsified against canonical -16/315; graviton Sym^2(T) sector a6 still un-delivered (ghost already dissolved at 149/1008)
+  - mu_cell has NO v-independent value: its only anchor partial_sigma V=0 IS the EW hierarchy, so using it is circular by construction (DERIVED no-go T1); Buckingham-pi forbids a second mass from {M_Pl, hbar, dimensionless geometry}
+  - Sign-from-count shortcut is forbidden: Str[1]=n_B-n_F=35-90=-55 is a count-only diagnostic, NOT the threshold-resolved supertrace sign; chi=-3 actively opposes any boson-dominance rescue
+  - Five source-hashed mode spectra (bosonic K6/S^2/S^1_Y towers, twisted-Dirac K6 tower, retained per-level content at (1,1,1)) MISSING -&gt; supertrace not evaluable (CC-1 FALSE)
+
+Honest endpoint: W09 is a genuine, finite, falsifiable OPEN wall: symmetry pins WHERE the moduli sit for free (criticality, target-blind), the shape doublet leans stable at tree level, but the saddle-vs-minimum verdict terminates precisely on one missing object — the admissible-rep multiplicity table plus its regularized s=-1 supertrace — with the breathing-singlet half independently blocked by a route-inconsistent, anchor-falsified a6, so the map cannot be fixed and no stability verdict (and no derivation of v_EW) may be claimed.
+Terminal status: OPEN-ANCHORED / MODULI-BOUNDED — criticality DERIVED-GIVEN-E and free; shape doublet LEANING STABLE (tree-level {+1,+1}, target-blind, cross-confirmed against a falsifiable single-slice -1); breathing singlet c_loop route-INCONSISTENT (Route A -43/504 anchor-falsified vs canonical -16/315); mu_cell firewalled (no v-independent value). No minimum and no saddle asserted; bounded falsifier armed but not yet runnable. Anchored != physics-closed; 0 gates physics-CLOSED.
+</code></pre>
+<hr />
+<h2>8. Cross-links</h2>
+<ul>
+<li>The <a href="./index.html">walls index</a> — the full terminal-anchored register and honest tally.</li>
+<li><strong>Tier A (shared global):</strong> <a href="./w1-uv-completion.html">W1 — UV-completion / strong-coupling quantum gravity</a> (the wall $c_{\rm loop}$ does <strong>not</strong> close) · <a href="./w2-continuum-existence.html">W2 — continuum existence</a>.</li>
+<li><strong>Tier B (keystone):</strong> <a href="./w3-a6-coefficient.html">W3 — the a₆ Seeley-DeWitt coefficient</a> (the keystone $c_{\rm loop}$ consumes) · <a href="./w4-granularity-mdl.html">W4 — granularity ⇒ MDL</a>.</li>
+<li><strong>Tier C (siblings):</strong> <a href="./w8-custodial-rho.html">W8 — custodial ρ=1 / electroweak hierarchy</a> (the companion electroweak-sector residual) · <a href="./w10-lambda-stability.html">W10 — Λ radiative stability</a> · <a href="./w11-lambda-value.html">W11 — Λ-value R-uniqueness</a>.</li>
+<li><strong>Anchor ledgers:</strong> <a href="/anchors/sg6-anchor-ledger.html">SG-6 (owner)</a> · <a href="/anchors/uqf10-anchor-ledger.html">UQF-10</a> · <a href="/anchors/gap01-anchor-ledger.html">Gap-01 — a₆</a> (shares the $a_6$ keystone).</li>
+<li><strong>Dossiers:</strong> the full <a href="/articles/DOSSIER_SG6_FULL.html">SG-6 dossier</a> · <a href="/articles/DOSSIER_UQF10_FULL.html">UQF-10 dossier</a>.</li>
+</ul>
+</main>
+</div>
+</body></html>

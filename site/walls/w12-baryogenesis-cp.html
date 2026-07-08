@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The baryogenesis CP-source wall</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 248px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9632; The Wall Register</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; back to The Anchors</a></div>
+<div class="ann-group">Shared global walls</div>
+<a href="w1-uv-completion.html">W1 · UV completion (shared)</a>
+<a href="w2-continuum-existence.html">W2 · Continuum existence (shared)</a>
+<div class="ann-group">Keystone bounded walls</div>
+<a href="w3-a6-coefficient.html">W3 · a6 coefficient (keystone)</a>
+<a href="w4-granularity-mdl.html">W4 · granularity to MDL</a>
+<div class="ann-group">Per-gate bounded walls</div>
+<a href="w5-given-e-bundle.html">W5 · given-E / bundle uniqueness</a>
+<a href="w6-flavor-rulebook.html">W6 · flavor F+ rulebook</a>
+<a href="w7-anomaly-descent.html">W7 · anomaly descent (BV-BRST)</a>
+<a href="w8-custodial-rho.html">W8 · custodial rho=1</a>
+<a href="w9-moduli-stabilization.html">W9 · moduli stabilization</a>
+<a href="w10-lambda-stability.html">W10 · Lambda radiative stability</a>
+<a href="w11-lambda-value.html">W11 · Lambda value</a>
+<a href="w12-baryogenesis-cp.html" class="current">W12 · baryogenesis CP-source</a>
+<a href="w13-dark-matter-portal.html">W13 · dark-matter portal</a>
+<a href="w14-inflation-spectrum.html">W14 · inflation spectrum</a>
+<a href="w15-born-weight.html">W15 · Born-rule weight</a>
+<a href="w16-bh-microstates.html">W16 · BH microstates / Page</a>
+<a href="w17-proton-operators.html">W17 · proton operators</a>
+<a href="w18-ym-uniform-gap.html">W18 · Yang-Mills uniform gap</a>
+<a href="w19-threshold-magnitudes.html">W19 · threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The baryogenesis CP-source wall — rendered package. Rendered from <code>w12-baryogenesis-cp.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The baryogenesis CP-source wall</h1>
+<p><strong>Kind: PER-GATE-BOUNDED (a finite, owned work-package — plus a live, pre-registered falsifier).</strong> <em>One honest sentence:</em> the open object is the rephasing-invariant high-scale CP source of leptogenesis — a Jarlskog-type invariant $I_{CP}[Y_\nu,M_R]$ together with the heavy Majorana spectrum $M_R$ and the absolute neutrino Yukawa norm — none of which the frozen geometry yet supplies, with the additional honest twist that the geometry's <em>default</em> high-scale phase comes out with the <strong>wrong sign</strong> for generating the observed asymmetry.</p>
+<p>This page presents the wall under the terminal-anchored principle: <strong>anchored ≠ closed.</strong> The gate that owns it, Gap-10/BG-10, is anchor-closed; it is not physics-closed. What is rigorous here is a <em>negative</em> statement (the bare geometry sources exactly zero asymmetry) plus a pair of firewall theorems and a pre-registered falsifier — a bounded, in-grammar work-package, never a derivation of the measured $\eta_B$.</p>
+<hr />
+<h2>What is missing</h2>
+<p>The cleanest fully-shown fact of the gate is a closed <em>negative</em>. The frozen geometry's only named direct holomorphic factor at the order-three modular fixed point $\tau=\omega=e^{2\pi i/3}$ is</p>
+<p>$$q_1(\omega)=e^{2\pi i\omega}=e^{-\pi i}\cdot e^{-\pi\sqrt3}=-\kappa,\qquad \kappa=e^{-\pi\sqrt3}>0,$$</p>
+<p>which is <strong>real</strong> (its phase is $\pi$, not $\pi/4$; numerically $\mathrm{Im}\sim 6\times10^{-18}$). If the CP-source entry is proportional to it, $H_{12}\propto q_1(\omega)\in\mathbb{R}$, then</p>
+<p>$$\mathrm{Im}\big(H_{12}^2\big)=0\ \Longrightarrow\ \varepsilon_1\propto\mathrm{Im}\big(H_{12}^2\big)=0\ \Longrightarrow\ \eta_B=0.$$</p>
+<p>So the <em>bare</em> geometry, as frozen, sources exactly zero matter–antimatter asymmetry. This is a proven obstruction (status <strong>DERIVED-GIVEN-E</strong>), <strong>not</strong> a value of $\eta_B$. The fixed point $\tau=\omega$ fixes only the magnitude $|H_{12}|\propto\kappa$; it contributes zero CP phase.</p>
+<p>What is <strong>missing</strong> is the entire object that decides a non-zero number. The textbook flavored-leptogenesis chain is assembled correctly and halted honestly: every stage is the standard formula and every one terminates at a genuinely-missing high-scale numeral,</p>
+<p>$$\varepsilon_1=\frac{1}{8\pi(Y^\dagger Y)_{11}}\sum_{j\neq1}\mathrm{Im}\big[((Y^\dagger Y)_{1j})^2\big]\,f\!\left(\frac{M_j^2}{M_1^2}\right),\qquad \eta_B=7.04\,Y_B,\quad Y_B=\frac{28}{79}\,\kappa\,\frac{\varepsilon_1}{g_*^s},$$</p>
+<p>with $g_*^s=106.75$. The light side is fully pinned — the Davidson–Ibarra mass factor $(m_3-m_1)=5.0150\times10^{-2}$ eV is a real, reproducible number — yet $\varepsilon_1$ is <em>still</em> identically zero, which is what makes the zero-CP result a genuine arithmetic obstruction rather than a numerical accident. The precise missing objects are:</p>
+<ul>
+<li><strong>The high-scale CP phase / the $\sigma_\nu$ sign bit (highest leverage).</strong> The continuum CP phase compresses to one mod-8 spin-$\mathbb{C}$/Pin bit. The default fixed by the spin-$\mathbb{C}$ index $\chi(K_6,E)=-3\ (\equiv 5\bmod 8)$ gives $e^{2\pi i(-3)/8}=e^{-3i\pi/4}=-e^{i\pi/4}$ — an eighth-root phase <em>in the same family</em> as the needed $e^{i\pi/4}$, but with the <strong>wrong sign</strong>. Status <strong>AXIOM-OPEN / RECIPE-ABSENT</strong>.</li>
+<li><strong>The heavy Majorana spectrum $M_R=(M_1,M_2,M_3)$ — the single binding wall.</strong> Named mechanism, no formula; the only figure is a band $M_R\sim 10^{9}$–$10^{14}$ GeV straddling all three flavor regimes. The candidate $M_R=\kappa\,M_U$ is off by $\sim 231\times$. Status <strong>OPEN / RECIPE-ABSENT</strong>.</li>
+<li><strong>The CP-invariant <em>form</em> $I_{CP}[Y_\nu,M_R]$.</strong> A Jarlskog-type rephasing-invariant functional whose closed form and invariance proof are writable now, but which <strong>cannot be evaluated</strong> without the recipe-absent $M_R$ and the absolute $Y_\nu$. Status <strong>AXIOM-OPEN / computation debt</strong>.</li>
+<li><strong>The flavored kinetics (CC-2…CC-5):</strong> the RIS-subtracted $\Delta L=2$ washout, the $N_2/N_3$ damping ledger, the density-matrix flavor evolution, and the final $B{-}L\to\eta_B$ assembly. Status <strong>OPEN / computation debt — 0 of 4</strong>.</li>
+</ul>
+<p>The single sharpest missing artifact is therefore the <strong>rephasing-invariant high-scale CP source $I_{CP}$ together with the $M_R$ spectrum recipe</strong>, computed target-blind — never pinned from the measured $\eta_B$.</p>
+<hr />
+<h2>Which gates hit this wall</h2>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Role at this wall</th>
+<th>Anchor ledger</th>
+<th>Dossier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gap-10/BG-10 — Baryogenesis $\eta_B$</strong></td>
+<td><strong>owns</strong> the wall: the bare zero-CP arithmetic, the seesaw + 6-vs-3 firewalls, $I_{CP}$, $M_R$, the $\sigma_\nu$ sign bit, and the pre-registered $\eta_B$ falsifier all live here</td>
+<td><a href="/anchors/gap10-bg10-anchor-ledger.html">gap10-bg10-anchor-ledger.html</a></td>
+<td><a href="/articles/DOSSIER_GAP10_BG_10_FULL.html">DOSSIER_GAP10_BG_10_FULL.html</a></td>
+</tr>
+<tr>
+<td><strong>SG-4 — Hypercharge + anomaly</strong></td>
+<td><strong>inherits</strong> the <em>same</em> one mod-8 spin-$\mathbb{C}$/Pin bit ($\sigma_\nu$): the high-scale CP sign is the same object the anomaly/orbifold descent leg carries, so closing it moves both gates together</td>
+<td><a href="/anchors/sg4-anchor-ledger.html">sg4-anchor-ledger.html</a></td>
+<td><a href="/articles/DOSSIER_SG4_FULL.html">DOSSIER_SG4_FULL.html</a></td>
+</tr>
+<tr>
+<td><strong>UQF-4 — BRST / anomaly descent</strong></td>
+<td><strong>inherits</strong> the <em>same</em> $\sigma_\nu$ mod-8 bit: the Dai–Freed/$\eta$ descent class on the $S^1_Y/\mathbb{Z}_2$ boundary carries the identical sign bit, so a blind determination moves all three gates at once</td>
+<td><a href="/anchors/uqf4-anchor-ledger.html">uqf4-anchor-ledger.html</a></td>
+<td><a href="/articles/DOSSIER_UQF4_FULL.html">DOSSIER_UQF4_FULL.html</a></td>
+</tr>
+</tbody>
+</table>
+<p>Gap-10/BG-10 <strong>owns</strong> the wall as a gate. The $\sigma_\nu$ mod-8 bit is a <em>shared</em> object: the <a href="/anchors/uqf4-anchor-ledger.html">UQF-4 ledger</a> carries the identical bit, so a blind determination of the high-scale phase is the highest-leverage move here because the same bit moves Gap-10/BG-10, SG-4 and UQF-4 at once. Gap-10/BG-10 does <strong>not</strong> derive the spectrum $E$ or the geometry: $K_6=SU(3)/T^2$, the $\mathbb{Z}_6$ center, the $\tau=\omega$ fixed point and $\chi=-3$ enter as GIVEN-E and supply only the <em>texture</em> of the inputs, never the magnitudes that decide $\eta_B$.</p>
+<hr />
+<h2>What would close it — or why it is terminal</h2>
+<p>This is a <strong>bounded, owned work-package</strong>, governed throughout by the $\kappa^3/\pi$ kill-test: a proposed axiom or constant counts only if it would be written <em>without knowing the target</em>. The cautionary example is internal to this gate. Carrying the construction with a general phase $\theta$ in the CP-source entry ($H_{12}=a\,e^{-i\theta}$, magnitude $a=4\kappa/\sqrt3$ fixed) gives</p>
+<p>$$I_{BG}(\theta)=\frac{\kappa^3}{\pi}\sin(2\theta),\qquad I_{BG}=\frac{\kappa^3}{\pi}\iff\sin(2\theta)=1\iff\theta=\frac{\pi}{4}.$$</p>
+<p>So $\kappa^3/\pi$ is the <strong>maximum</strong> of $I_{BG}(\theta)$, attained only at $\theta=\pi/4$: "the chamber selects $\theta=\pi/4$" <em>means</em> "choose maximal CP." It is <strong>true-by-construction</strong>, RETRACTED, and is used here only as the kill-test, never banked. The closure targets, in leverage order:</p>
+<ul>
+<li><strong>The high-scale CP phase / $\sigma_\nu$ (highest leverage).</strong> EITHER (path i) supply a frozen-record-fixed finite Weil/metaplectic structure that <strong>blindly</strong> computes the phase — the sharp checkable conjecture being that the spin-$\mathbb{C}$ lift of the $S^1_Y/\mathbb{Z}_2$ orbifold reflection acts on the neutrino CP two-plane as the $A_1$ Weil representation, yielding $+e^{i\pi/4}$ and pinning away the index's extra minus sign — OR (path ii) formally declare it a named axiom and downgrade BG-10 to "conditional on a CP-phase axiom." A blind finite-structure (Gauss-sum) audit of every finite quadratic module the frozen record names, $\gamma(A,q)=|A|^{-1/2}\sum_{x\in A}e^{2\pi i\,q(x)}=e^{2\pi i\,\sigma/8}$, already found that the <strong>only</strong> structure yielding $e^{i\pi/4}$ is $A_1/\mathbb{Z}_2$ — and it is <em>not</em> connected to the active neutrino projectors $P_\pm^\nu$ by any printed map. <strong>Refuting-but-valid close:</strong> a blind phase $\neq\pi/4$ (or $-e^{i\pi/4}$) validates path (ii) and may even disfavor the gate.</li>
+<li><strong>The $M_R$ recipe (the single binding wall).</strong> Derive an actual $M_R$ formula/spectrum target-blind from the frozen data $(\tau=\omega,\ N=1,\ R_{T^2,\rm Cartan}=1.710231\times10^{-17}\,\mathrm{GeV}^{-1})$; resolve or document the $\sim 231\times$ tension; then test whether the seesaw-fixed Yukawa is forced or free, since light data pins only the combination $y_\nu^2/M_R$. <strong>Refuting outcome:</strong> proving no such recipe exists in the frozen record $\Rightarrow$ $M_R$ is an honestly-named added axiom.</li>
+<li><strong>The CP-invariant $I_{CP}$ and the kinetics (CC-1…CC-5).</strong> Write $I_{CP}$ as a rephasing-invariant functional of $(Y_\nu,M_R)$ and prove invariance; then deliver the RIS-subtracted washout, the damped $N_2/N_3$ ledger (superseding — not promoting — the diagnostic floor), the flavored density-matrix solution, and finally the corpus-pinned $B{-}L\to\eta_B$ assembly. <strong>Refuting-but-valid close at CC-1:</strong> proving no basis-invariant functional of the frozen-fixable data alone is non-zero $\Rightarrow$ the CP source is genuinely an added axiom.</li>
+</ul>
+<p><strong>Success criterion (the honest endpoint):</strong> the four coupled fixes plus the assembly are completed, enabling exactly <strong>one</strong> post-freeze comparison against the measured window — a single falsifiable comparison, never a derivation of $\eta_B$. Partial delivery of any subset does <strong>not</strong> move the ledger off 0/4. The absolute version ("no leptogenesis theory anywhere could do better") is the dissolved unicorn, never the wall.</p>
+<hr />
+<h2>Falsifier</h2>
+<p>The wall carries a <strong>live, pre-registered falsifier</strong>, armed <em>before</em> any number is computed:</p>
+<p>$$\eta_B\in[6.0,6.2]\times10^{-10}\qquad(\text{measured }\eta_B\approx 6.1\times10^{-10},\ \text{CMB + BBN}).$$</p>
+<p>The falsifier is defined <strong>only on the joint solution</strong> of the four coupled fixes plus the assembly node (CC-1…CC-5). After all four hold, the recipe is run <strong>once</strong>, target-blind: a result inside the window is consistency (not a status change); a result outside the window at $3\sigma$ falsifies BG-10 as a decision-grade, accepted outcome. The measured $\eta_B$ is the floor anchor — an input compared once, never an output.</p>
+<p>A structure-first datum already rides alongside as a potential refutation: the spin-$\mathbb{C}$ index $-3$ produces the eighth-root phase $e^{-3i\pi/4}=-e^{i\pi/4}$, <em>in-family</em> but <strong>wrong-signed</strong>. If that sign is genuinely fixed by the geometry, the bare theory predicts a wrong-sign asymmetry — a falsifying datum. Crucially, a parameter reverse-engineered to hit $\eta_B$ would never come out wrong-signed; the wrong default sign is the gate's strongest evidence that the residue is a real structural fact, not a fitted knob.</p>
+<hr />
+<h2>Anti-claims (what must never be said about this wall)</h2>
+<ul>
+<li><strong>Not "BG-10 derives $\eta_B$" / "baryogenesis is closed."</strong> The bare geometry gives $\mathrm{Im}(H_{12}^2)=0\Rightarrow\varepsilon_1=0$ — a closed <em>negative</em>, not a value of $\eta_B$. The negative leg is not whole-gate closure; the gate is <strong>OPEN, 0 of 4</strong>.</li>
+<li><strong>Not "$\kappa^3/\pi$ is the forced CP invariant."</strong> It is the <em>maximum</em> of $I_{BG}(\theta)$ at $\theta=\pi/4$ — true-by-construction, RETRACTED, never banked. Any object whose keystone equals the in-window value is a relabel and must be rejected.</li>
+<li><strong>Not "the low-energy $\delta_{CP}^\ell\approx 260^\circ$ supplies the source."</strong> It is firewalled OUT by the theorem-level 6-vs-3 phase count (six high-scale phases, three low-energy); substituting it is a firewall violation.</li>
+<li><strong>Not "the quarter-phase $e^{i\pi/4}$ is derived."</strong> Path (i) was tested against every named finite structure ($\mathbb{Z}_2/\mathbb{Z}_3/\mathbb{Z}_6/S_3/A_2$) and FAILED; the sole $e^{i\pi/4}$ source ($A_1/\mathbb{Z}_2$) has no printed map to $P_\pm^\nu$. <strong>In-family $\ne$ derived.</strong></li>
+<li><strong>Not "$M_R$ is known."</strong> No value, no formula, no hash; $M_R=\kappa\,M_U$ is off by $\sim 231\times$; even a derived $M_R$ is degenerate with $Y_\nu$ (light data fixes only $y_\nu^2/M_R$).</li>
+<li><strong>Not "the diagnostic $N_2/N_3$ floor is the result."</strong> It is a DIAGNOSTIC floor only; promoting it is a structural failure.</li>
+<li><strong>Not "$M_R$ may be pinned from $\eta_B$."</strong> Pinning any scale from the measured asymmetry is target-loading and is forbidden — the falsifier is valid only on a target-blind solution.</li>
+<li><strong>Not "the frozen hashes validate the physics."</strong> <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> (and the texture hash <code>495ddbdcedb9</code>) are audit anchors certifying <em>which object</em> was tested, nothing more.</li>
+</ul>
+<hr />
+<h2>Terminal disposition</h2>
+<p><strong>OPEN-ANCHORED — a bounded, owned work-package with a pre-registered falsifier armed.</strong> Gap-10/BG-10 is ANCHOR-CLOSED / WALL-RECORDED, physics-status <strong>OPEN / Diagnostic — 0 of 4 at certificate grade</strong> by the least-closed-residual rule: the bare zero-CP leg and the seesaw + 6-vs-3 firewalls are DERIVED-GIVEN-E (a closed negative face), while $I_{CP}$, $M_R$, the $\sigma_\nu$ sign bit, and CC-2…CC-5 are OPEN. SG-4 (and UQF-4) <strong>inherit</strong> the same $\sigma_\nu$ mod-8 bit. <strong>No gate here is physics-CLOSED.</strong> The one-line verdict: <em>the bare geometry sources exactly zero asymmetry and the firewalls explain why low-energy data cannot back-fill the source — leaving a finite, refutable, ownable CP-source work-package whose default high-scale sign points the wrong way, with $\eta_B\in[6.0,6.2]\times10^{-10}$ pre-registered as the single post-freeze comparison.</em></p>
+<hr />
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The systematic wall analysis was run on this wall and independently cross-checked. The review <strong>confirmed the verdict</strong> and found <strong>no overstatement, no target-dependence, and no misclassification</strong>. No gate here is physics-closed (anchored ≠ closed).</p>
+<pre><code>Verdict: NOT_EXHAUSTED_BLOCKED
+Deep root the residual sits on: Shape — the frozen geometry (K6=SU(3)/T2, Z6, tau=omega, spin-C index chi=-3) supplies only the TEXTURE of the inputs and one mod-8 CP-bit currency; it does NOT force the magnitudes (M_R, absolute Y_nu) nor pin the sign of the sigma_nu bit to +e^{i pi/4}. The residual M_R recipe and the wrong-sign default both bottom on Shape failing to force magnitude/sign, with the eta_B value itself sitting on the Record-Interface measured floor.
+
+The single precise hole (smallest missing rule):
+  A target-blind scale rule R2 that maps the frozen data (tau=omega, N=1, R_T2,Cartan) to an actual M_R=(M1,M2,M3) heavy-Majorana spectrum formula. No candidate grammar in the frozen record generates one; the only printed guess M_R=kappa*M_U is off by ~231x, and even a derived M_R stays degenerate with Y_nu (light data fixes only y_nu^2/M_R). Without M_R the rephasing-invariant I_CP (R3) cannot be evaluated and the kinetics/assembly (R4,R5) cannot run. This is the single binding wall; the wrong-sign sigma_nu bit (R1) is the highest-leverage residual but it sits behind the same Shape root.
+
+Named blockers:
+  - R1 (sigma_nu bit): blind Gauss-sum over every named finite quadratic module (A2-&gt;e^{i pi/2}, tau=omega-&gt;phase pi, A1/Z2-&gt;e^{i pi/4}, Z6-&gt;non-unique, spin-C index chi=-3-&gt;-e^{i pi/4}) leaves the index default WRONG-SIGNED; the only correct-sign source A1/Z2 has NO printed map to the active neutrino projectors P_pm^nu, and the projector algebra P_pm(theta) is phase-degenerate so it cannot select theta=pi/4. AXIOM-OPEN / RECIPE-ABSENT.
+  - R2 (M_R spectrum): NOT_EXHAUSTED_BLOCKED — no formula, no value, no hash; M_R=kappa*M_U off ~231x; degenerate with Y_nu. The single binding wall.
+  - R3 (I_CP): AXIOM-OPEN / computation debt — closed form + invariance proof writable now, but cannot be EVALUATED without R1 and R2.
+  - R4 (kinetics CC-2..CC-4): OPEN / computation debt 0-of-4 — RIS-subtracted Delta L=2 washout unbanked; N2/N3 only a DIAGNOSTIC floor (must not be promoted); density-matrix flavor-democracy vs 3 distinct eigenvalues in tension (R3 BLOCK).
+  - R5 (assembly CC-5): OPEN / scaffolding only — sphaleron+entropy map not corpus-pinned; may not run until CC-1..CC-4 hold; plus unresolved window-convention tension (eta_B=7.04 Y_B band mismatch).
+  - Target-loading trap recorded: the kappa^3/pi &#x27;chamber selects theta=pi/4&#x27; move is the MAXIMUM of I_BG(theta), i.e. &#x27;choose maximal CP&#x27; — true-by-construction, RETRACTED, never banked.
+
+Honest endpoint: The bare frozen geometry provably sources exactly zero matter-antimatter asymmetry and the seesaw + 6-vs-3 firewalls prove low-energy data cannot back-fill the source, leaving a finite, refutable, target-blind CP-source work-package whose single binding hole is a target-blind M_R-spectrum recipe (and whose highest-leverage residual, the shared sigma_nu mod-8 bit, defaults to the wrong sign), with eta_B in [6.0,6.2]e-10 pre-registered as the one post-freeze comparison.
+Terminal status: OPEN-ANCHORED / BARYOGENESIS-BOUNDED (Gap-10/BG-10 ANCHOR-CLOSED / WALL-RECORDED; physics-status OPEN / Diagnostic — 0 of 4 at certificate grade; no gate physics-CLOSED). Binding wall: a target-blind M_R-spectrum recipe (R2); highest-leverage residual: the shared sigma_nu mod-8 CP-sign bit whose geometry default points the WRONG way; eta_B in [6.0,6.2]e-10 pre-registered as the single post-freeze comparison.
+</code></pre>
+<hr />
+<h2>Cross-links</h2>
+<ul>
+<li>The /walls/ index and the per-gate terminal-status table: <a href="/walls/index.html">/walls/index.html</a></li>
+<li>Sibling flavor wall (do <strong>not</strong> pin $M_R$ from $\eta_B$ — target-loading is forbidden in both): <a href="/walls/w6-flavor-rulebook.html">/walls/w6-flavor-rulebook.html</a></li>
+<li>Sibling anomaly-descent wall (carries the same $\sigma_\nu$ mod-8 bit): <a href="/walls/w7-anomaly-descent.html">/walls/w7-anomaly-descent.html</a></li>
+<li>Owning gate ledger and the gate sharing the CP-source bit: <a href="/anchors/gap10-bg10-anchor-ledger.html">Gap-10/BG-10</a> · <a href="/anchors/sg4-anchor-ledger.html">SG-4</a> · <a href="/anchors/uqf4-anchor-ledger.html">UQF-4</a></li>
+<li>Full dossier: <a href="/articles/DOSSIER_GAP10_BG_10_FULL.html">DOSSIER_GAP10_BG_10_FULL.html</a></li>
+<li>Anchoring method and why an in-family phase is not a derived one: <a href="/anchors/index.html">the anchoring method</a> · <a href="/anchors/layer-2-no-unpaid-labels.html">Layer 2 — no unpaid exact labels</a></li>
+</ul>
+</main>
+</div>
+</body></html>

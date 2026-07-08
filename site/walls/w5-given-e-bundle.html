@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The given-E / bundle-uniqueness wall</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 248px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9632; The Wall Register</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; back to The Anchors</a></div>
+<div class="ann-group">Shared global walls</div>
+<a href="w1-uv-completion.html">W1 · UV completion (shared)</a>
+<a href="w2-continuum-existence.html">W2 · Continuum existence (shared)</a>
+<div class="ann-group">Keystone bounded walls</div>
+<a href="w3-a6-coefficient.html">W3 · a6 coefficient (keystone)</a>
+<a href="w4-granularity-mdl.html">W4 · granularity to MDL</a>
+<div class="ann-group">Per-gate bounded walls</div>
+<a href="w5-given-e-bundle.html" class="current">W5 · given-E / bundle uniqueness</a>
+<a href="w6-flavor-rulebook.html">W6 · flavor F+ rulebook</a>
+<a href="w7-anomaly-descent.html">W7 · anomaly descent (BV-BRST)</a>
+<a href="w8-custodial-rho.html">W8 · custodial rho=1</a>
+<a href="w9-moduli-stabilization.html">W9 · moduli stabilization</a>
+<a href="w10-lambda-stability.html">W10 · Lambda radiative stability</a>
+<a href="w11-lambda-value.html">W11 · Lambda value</a>
+<a href="w12-baryogenesis-cp.html">W12 · baryogenesis CP-source</a>
+<a href="w13-dark-matter-portal.html">W13 · dark-matter portal</a>
+<a href="w14-inflation-spectrum.html">W14 · inflation spectrum</a>
+<a href="w15-born-weight.html">W15 · Born-rule weight</a>
+<a href="w16-bh-microstates.html">W16 · BH microstates / Page</a>
+<a href="w17-proton-operators.html">W17 · proton operators</a>
+<a href="w18-ym-uniform-gap.html">W18 · Yang-Mills uniform gap</a>
+<a href="w19-threshold-magnitudes.html">W19 · threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The given-E / bundle-uniqueness wall — rendered package. Rendered from <code>w5-given-e-bundle.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The given-E / bundle-uniqueness wall</h1>
+<p><strong>Kind: PER-GATE-BOUNDED (finite, owned work-package).</strong> <em>One honest sentence:</em> the open object is a <strong>bundle-uniqueness theorem</strong> showing that the weight on the frozen carrier returning the index $-3$ is the <em>unique</em> minimal admissible weight — selecting the three-generation count <strong>without</strong> invoking "three generations" and <strong>without</strong> treating the observed spectrum $E$ as a derived output rather than a given input.</p>
+<p>This page presents the wall under the terminal-anchored principle: <strong>anchored ≠ closed.</strong> Every gate that touches it is anchor-closed; none is physics-closed. The wall has two faces that must never be conflated: a <strong>bounded, ownable sub-target</strong> (the bundle/weight uniqueness over a declared admissibility class) and a <strong>terminal anchor</strong> (the spectrum $E$ itself, which no known principle forces). The first is genuine open work; the second is honestly named as a measured anchor, and the universal-negative version ("$E$ forced across all geometries") is a dissolved unicorn, never the wall.</p>
+<hr />
+<h2>What is missing</h2>
+<p>The family count is computed as a rigid topological index on the frozen carrier $K_6 = SU(3)/T^2$. By Borel–Weil–Bott, the holomorphic Euler characteristic of the matter line bundle is integer-valued and deformation-proof:</p>
+<p>$$\chi(K_6,E) = \sum_i (-1)^i \dim H^i(K_6,L_\lambda) = -3, \qquad |\chi(K_6,E)| = 3 = \text{number of generations,}$$</p>
+<p>and the chirality fold on the orbifold $S^1_Y/\mathbb{Z}_2$ supplies the Atiyah–Patodi–Singer boundary index $(n_L,n_R) = (+3,\,0)$ (against the handedness-neutral bare-circle control $(+3,+3)$). This <strong>local magnitude</strong> leg is graded <strong>DERIVED-GIVEN-E</strong> — the strongest honest status, <em>not</em> physics-CLOSED — and its obstruction vanishes only <em>given</em> $E$:</p>
+<p>$$O_{\rm SG3,local}(E) = \big(\chi(K_6,E)+3,\ (n_L,n_R)-(+3,0)\big) = 0 .$$</p>
+<p>What is missing sits <strong>strictly beyond</strong> the magnitude. The bundle whose Chern data returns $-3$ <strong>is $E$ itself</strong> — the observed Standard-Model chiral content fed in as input — so the rigid integer certifies "this geometry+bundle yields three families, given the particles we observe," not a derivation of three from the geometry alone. The precise missing object is the <strong>bundle-uniqueness theorem</strong>, named in the SG-3 ledger as <strong>AXIOM-MIN-WEIGHT-LIFT</strong>:</p>
+<p>$$\textbf{(W5 target)}\qquad \text{enumerate the }K_6\text{ weights compatible with the }\mathbb{Z}_6\text{ congruence } q \equiv 3z_2 - 2z_3 \ (\mathrm{mod}\ 6);\ \text{prove minimality singles out a unique weight with } |\chi| = 3\ \textbf{value-blind.}$$</p>
+<p>Until that lands, the full gate obstruction is <strong>not</strong> asserted to vanish — only its local face is:</p>
+<p>$$O_{\rm SG3}(E) = \big(O_{\rm uniqueness}(E),\ O_{\rm carrier\text{-}tiebreak}(E),\ O_{\rm sign}(E),\ O_{\rm local}(E)\big),\qquad O_{\rm SG3}(E) \neq 0 .$$</p>
+<p>There are three distinct gaps in $O_{\rm SG3}$ that this wall holds open:</p>
+<ul>
+<li><strong>Bundle/weight uniqueness</strong> — the weight returning $\chi=-3$ is <em>selected inside a declared admissibility class</em>, not proven the unique admissible one (SG-3 residual R3, <strong>AXIOM-OPEN</strong>, highest leverage).</li>
+<li><strong>Given-E conditioning</strong> — the bundle <em>is</em> $E$; using $\chi=-3$ to "force" $E$ would be circular (SG-3 residual R1, closeable only via R3).</li>
+<li><strong>Carrier tie-break</strong> — $K_6$ (6D) beats the cheaper $\mathbb{CP}^2 = SU(3)/U(2)$ (4D) on the family count only by paying $+2$ dimensions under an anti-fitting tie-break that is <em>aligned with the three-generation target</em> (SG-3 residual R2, <strong>FLAGGED</strong>). Both carriers in fact return three only after a bundle choice — $\mathbb{CP}^2$ via the Spin$_c$ index $\tfrac{r(r+1)}{2}$ with $r=2$, and $K_6$ via the BWB weight $(1,0)$ — so neither forces "3" from the bare carrier alone.</li>
+</ul>
+<hr />
+<h2>Which gates hit this wall</h2>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Role at this wall</th>
+<th>Anchor ledger</th>
+<th>Dossier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SG-3 — Three generations</strong></td>
+<td><strong>owns</strong> it: the bundle-uniqueness target (R3 / AXIOM-MIN-WEIGHT-LIFT) and the carrier tie-break (R2) are SG-3 residuals; the $|\chi|=3$ count turns here</td>
+<td><a href="/anchors/sg3-anchor-ledger.html">sg3-anchor-ledger.html</a></td>
+<td><a href="/articles/DOSSIER_SG3_FULL.html">DOSSIER_SG3_FULL.html</a></td>
+</tr>
+<tr>
+<td><strong>SG-4 — Hypercharge &amp; anomaly</strong></td>
+<td><strong>inherits</strong> the given-E face: anomaly-freedom is a <em>filter</em>, not a selector ($R\oplus\bar R$ vector-like additions cancel every anomaly ⇒ infinitely many spectra), so it cannot pick $E$ either</td>
+<td><a href="/anchors/sg4-anchor-ledger.html">sg4-anchor-ledger.html</a></td>
+<td><a href="/articles/DOSSIER_SG4_FULL.html">DOSSIER_SG4_FULL.html</a></td>
+</tr>
+<tr>
+<td><strong>SG-2 — Gauge recovery</strong></td>
+<td><strong>inherits</strong> the given-E face: the gauge-algebra recovery $\{8,3,1\}$, rank 4, is checked <em>against</em> $E$; the OUTCOME is a rival tie, not a derivation of $E$</td>
+<td><a href="/anchors/sg2-anchor-ledger.html">sg2-anchor-ledger.html</a></td>
+<td><a href="/articles/DOSSIER_SG2_FULL.html">DOSSIER_SG2_FULL.html</a></td>
+</tr>
+<tr>
+<td><strong>DeepRoot-shape</strong></td>
+<td><strong>inherits</strong> it at the root: the whole three-layer selector argmin bottoms on $E$, the measured anchor, and on whole-shelf carrier completeness</td>
+<td><a href="/anchors/deeproot-shape-anchor-ledger.html">deeproot-shape-anchor-ledger.html</a></td>
+<td><a href="/articles/DOSSIER_DEEPROOT_SHAPE_FULL.html">DOSSIER_DEEPROOT_SHAPE_FULL.html</a></td>
+</tr>
+</tbody>
+</table>
+<p>SG-3 <strong>owns</strong> the bounded bundle-uniqueness half (which weight); SG-2, SG-4, and DeepRoot-shape <strong>inherit</strong> the shared given-E face (that the spectrum $E$ enters as input across every structural gate). The bundle-uniqueness sub-target is bounded and ownable; the "$E$ is forced" face is terminal-as-anchor everywhere.</p>
+<hr />
+<h2>What would close it — or why it is terminal</h2>
+<p>This wall is <strong>two objects in one frame</strong>, and they close differently.</p>
+<p><strong>The bounded half — bundle/weight uniqueness (closeable in principle).</strong> The closure is a finite, target-blind Lie-theoretic computation, established without using the known generation number as input:</p>
+<ul>
+<li><strong>(A) enumerate</strong> the $K_6$ weights compatible with the $\mathbb{Z}_6$ Tong-congruence lattice;</li>
+<li><strong>(B) apply BWB</strong> to each, building the map weight $\mapsto \chi$;</li>
+<li><strong>(C) test whether minimality</strong> singles out a unique weight giving $|\chi|=3$ <em>without</em> invoking "three" and <em>without</em> consulting the LEP light-neutrino count $N_\nu = 2.984 \pm 0.008$.</li>
+</ul>
+<p><strong>Success criterion (sharper-OPEN → AXIOM-CLOSED):</strong> if a value-blind minimality criterion yields the $|\chi|=3$ weight uniquely, the bundle is <em>forced inside the declared class</em> and the given-E conditioning (R1) lifts at last. The realistic ceiling is AXIOM-CLOSED — <strong>no DERIVED-CLOSED is promised</strong>, because the spectrum $E$ at the bottom stays charged.</p>
+<p><strong>What a refuting result looks like (equally valid — a published finding):</strong> a strictly-lower-cost admissible weight is exhibited with $\chi \neq -3$. Then the bundle was <em>three-selected</em> — chosen because it gives three — and the uniqueness claim is withdrawn. The companion carrier-tie-break refutation: re-run the selector with the three-generation target masked; if $K_6$ beats $\mathbb{CP}^2$ <em>only because</em> it yields 3 (and not on "the count must be a rigid integer, not a continuous modulus" alone), the $+2$-dimension payment is confirmed target-aligned.</p>
+<p><strong>The terminal half — the spectrum $E$ (anchored, not closeable).</strong> The honest endpoint for $E$ is to <strong>declare it the irreducible measured anchor</strong> of the SHAPE root, terminal-by-anchoring. No known principle forces exactly three chiral generations as the <em>unique</em> admissible family count: anomaly-freedom is a settled filter with infinitely many solutions. The floor stays at $\ge 1$ anchor ($E$ here), by design, forever — anchored ≠ closed.</p>
+<p>The guard against a fake close is the <strong>no-target-loading rule</strong>: a closure path that <em>introduces a new target-aligned criterion</em> (e.g. "pick the weight that gives three") has <strong>relocated</strong> the input, not removed it. The minimality criterion must be writable without knowing that three should win.</p>
+<hr />
+<h2>Falsifier</h2>
+<p>The pre-registered falsifier is the <strong><code>REFUTED-BUNDLE-SELECTED</code></strong> outcome above: a target-blind enumeration in which a strictly-lower-cost admissible $K_6$ weight returns $\chi \neq -3$. Such a result kills the bundle-uniqueness claim directly — it demonstrates the index-$(-3)$ weight was selected <em>because</em> it reproduces the known count, so the minimality argument cannot be claimed to derive it. (The carrier-tie-break sub-falsifier: the target-masked selector run keeps $K_6$ over $\mathbb{CP}^2$ only when three is the answer.)</p>
+<hr />
+<h2>Anti-claims (what must never be said about this wall)</h2>
+<ul>
+<li><strong>Not "three generations are derived (from nothing)."</strong> The index is computed <em>with</em> $E$ as input; $E \in \ker O_{\rm SG3,local}$, <strong>not</strong> $\ker O_{\rm SG3,local} = \{E_{\rm SM}\}$. The honest hook is "given the particles we observe."</li>
+<li><strong>Not "three is forced across all geometries."</strong> That is a universal negative, unprovable in principle for any theory; only <em>this</em> geometry+bundle is certified.</li>
+<li><strong>Not "anomaly cancellation selects the Standard Model."</strong> Anomaly-freedom is a <em>filter</em>, not a selector: vector-like additions $R \oplus \bar R$ cancel every anomaly, so infinitely many spectra pass. The claim that $E$ is forced by anomaly-freedom + minimality is <strong>REFUTED</strong>.</li>
+<li><strong>Not "the bundle/weight is unique."</strong> It is only <em>selected inside a declared admissibility class</em> (R3); uniqueness is exactly the missing theorem.</li>
+<li><strong>Not "$K_6$ is forced for the family count."</strong> $K_6$ is the unique <em>clean</em> $SU(3)$ carrier <strong>for the gauge sector</strong> (abelian-isotropy uniqueness, $C_{SU(3)}(T^2)=T^2$); for the <em>count</em> it pays $+2$ dimensions over $\mathbb{CP}^2$ under a flagged target-aligned tie-break. The legitimate gauge result must not launder the family-count tie-break.</li>
+<li><strong>Not "left-handed, no surviving mirror" as a settled chirality output.</strong> Only the magnitude $3$ and the one-sidedness $n_R=0$ are convention-independent; the sign $-3$ rides an unpinned $\mathrm{Pin}^\pm$ orientation bit whose default convention is in fact the wrong sign for the downstream leptogenesis target.</li>
+<li><strong>Not "the spectrum $E$ is forced / derived."</strong> $E$ is a <strong>MEASURED ANCHOR</strong>, terminal-by-anchoring; "$E$ is forced" is refuted, and the absolute "$E$ unique across all mathematics" is a dissolved unicorn, never the wall.</li>
+<li><strong>Not "local magnitude closure is whole-gate closure."</strong> $O_{\rm SG3,local}=0$ does not imply $O_{\rm SG3}=0$.</li>
+</ul>
+<hr />
+<h2>Terminal disposition</h2>
+<p><strong>OPEN-ANCHORED at the bounded seam; TERMINAL-ANCHORED at the root.</strong> SG-3 <strong>owns</strong> the bundle-uniqueness wall and is <strong>OPEN-ANCHORED</strong> — a finite, falsifiable, target-blind weight-enumeration whose realistic ceiling is AXIOM-CLOSED (the given-E qualifier lifts only if R3 closes value-blind). SG-2 (gauge OUTCOME a rival tie) and SG-4 (anomaly a filter) <strong>inherit</strong> the given-E face and are <strong>TERMINAL-ANCHORED / OPEN-ANCHORED</strong> on it — the local legs are DERIVED-GIVEN-E, the spectrum is a measured anchor. DeepRoot-shape <strong>inherits</strong> it at the root and is <strong>TERMINAL-ANCHORED</strong> on the $E$-anchor row (the absolute-uniqueness unicorn dissolved). <strong>No gate here is physics-CLOSED.</strong> The one-line verdict: <em>the bundle-uniqueness sub-target is a bounded, ownable, refutable theorem-target; "force $E$" is refuted (anomaly is a filter, not a selector) and $E$ is terminal-as-anchor.</em></p>
+<hr />
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The systematic wall analysis was run on this wall and independently cross-checked. The review <strong>confirmed the verdict</strong> and found <strong>no overstatement, no target-dependence, and no misclassification</strong>. No gate here is physics-closed (anchored ≠ closed).</p>
+<pre><code>Verdict: EXHAUSTED_PARTIAL
+Deep root the residual sits on: Shape (the frozen carrier+bundle; the residual minimality criterion is a Shape-internal admissibility-grammar question on the K6 weight lattice — and underneath it E itself is the irreducible MEASURED-ANCHOR of the Shape root)
+
+The single precise hole (smallest missing rule):
+  A target-blind SELECTION rule on segment S2 (admissible-weight -&gt; chi): a minimality/admissibility criterion on the K6 weight lattice (the Z6 Tong-congruence weights), writable WITHOUT knowing the answer is &quot;3&quot; and WITHOUT the LEP N_nu input, that singles out the |chi|=3 weight (1,0) as the UNIQUE admissible survivor. Named as AXIOM-MIN-WEIGHT-LIFT; the finite enumeration + index-map it requires has not been run. (The extraction/readout sub-rule chi(L_{a,b}) = +/-(a+1)(b+1)(a+b+2)/2 is symbolically forced; only the value-blind selector is missing.)
+
+Named blockers:
+  - No value-blind minimality criterion exists that uniquely selects the index-(-3) weight: equivariant bundles on G/H are governed by Rep(H), and the representation-theory comparison shows no architecture-neutral rule privileges T^2 over U(2) at the bundle level, so the selector is currently a SELECTION inside a declared admissibility class, not a forcing (SG-3 dossier grades the weight level FAIL — the weight is selected = R3).
+  - The finite weight-enumeration + weight-&gt;chi map + minimality test (R3 closure plan steps A/B/C) is NAMED but NOT EXECUTED — candidate space not enumerated, so the segment is not rule-exhausted.
+  - The from-scratch twisted-Dirac re-index that would verify chi=3 target-blind is BLOCKED on the absent input file k6_dirac_spectrum.csv (R4/R6); only a consistency lint against the declared -3 exists.
+  - Carrier tie-break (R2): K6 (6D) beats the cheaper CP^2 (4D) on the count only by paying +2 dimensions under a tie-break aligned with the 3-generation target; both carriers return 3 only after a bundle choice, so the count argument is symmetric and FLAGGED as target-aligned.
+  - The Pin^+/- orientation bit fixing the SIGN of -3 is unpinned (R7), and its on-disk default is the wrong sign for the downstream leptogenesis target — magnitude 3 and one-sidedness n_R=0 are convention-independent, the sign is not.
+  - Anomaly-freedom is a FILTER not a SELECTOR (R + Rbar vector-like additions cancel every anomaly =&gt; infinitely many admissible spectra), so it cannot pick E; the broad &#x27;force E&#x27; demand is dissolved, not a closeable wall.
+
+Honest endpoint: The local magnitude is a genuine rigid index (|chi(K6,E)|=3, one-sided n_R=0, deformation-proof given the bundle), but the bundle whose Chern data returns -3 IS E itself — so the wall terminates on a single named, finite, not-yet-run, target-blind hole: a value-blind minimality criterion that uniquely selects the index-(-3) weight on the K6 lattice; &quot;force E&quot; is refuted (anomaly is a filter, not a selector) and E is terminal-as-anchor on the Shape root.
+Terminal status: MEASURED-ANCHOR / GIVEN-E for the spectrum E (terminal-by-anchoring); OPEN-BOUNDED (AXIOM-OPEN, ceiling AXIOM-CLOSED) for the bundle/weight-uniqueness sub-target (SG-3 R3 / AXIOM-MIN-WEIGHT-LIFT, named but NOT executed); local magnitude leg DERIVED-GIVEN-E (|chi(K6,E)|=3, n_R=0, deformation-proof given E). No gate here is physics-CLOSED.
+</code></pre>
+<hr />
+<h2>Cross-links</h2>
+<ul>
+<li>The /walls/ index and the per-gate terminal-status table: <a href="/walls/index.html">/walls/index.html</a></li>
+<li>Sibling SHAPE-root seam — the granularity ⇒ MDL metric-selection wall: <a href="/walls/w4-granularity-mdl.html">/walls/w4-granularity-mdl.html</a></li>
+<li>Sibling flavor wall on the same DeepRoot-shape root (with the $m_u$ falsifier): <a href="/walls/w6-flavor-rulebook.html">/walls/w6-flavor-rulebook.html</a></li>
+<li>Sibling anomaly-descent wall SG-4 also feeds: <a href="/walls/w7-anomaly-descent.html">/walls/w7-anomaly-descent.html</a></li>
+<li>Owning + inheriting gate ledgers: <a href="/anchors/sg3-anchor-ledger.html">SG-3</a> · <a href="/anchors/sg4-anchor-ledger.html">SG-4</a> · <a href="/anchors/sg2-anchor-ledger.html">SG-2</a> · <a href="/anchors/deeproot-shape-anchor-ledger.html">DeepRoot-shape</a></li>
+<li>The anchoring method and the given-E root behind this wall: <a href="/anchors/index.html">the anchoring method</a> · <a href="/anchors/layer-4-carrier-forcing.html">Layer 4 — carrier-forcing &amp; the given-E wall</a> · <a href="/anchors/shape-minimality-challenge.html">the shape-minimality challenge</a></li>
+</ul>
+</main>
+</div>
+</body></html>

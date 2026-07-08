@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What it means to pay for something</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 256px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:64rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:14.5px;margin:0 0 6px;line-height:1.25;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+
+<style>
+.pay-lead{font-size:1.08rem;color:#333;}
+.paybox{border:1px solid #d8d3c7;border-left:5px solid #0b8f5a;border-radius:8px;background:#f7fbf8;padding:14px 18px;margin:1.1rem 0;}
+.paybox.warn{border-left-color:#b5892a;background:#fdfaf2;}
+.payrule{font-family:"Helvetica Neue",Arial,sans-serif;font-weight:700;font-size:1.05rem;}
+.example{border:1px solid #ddd;border-radius:8px;padding:12px 16px;margin:.7rem 0;background:#fff;}
+.example h4{margin:.1rem 0 .4rem;}
+</style>
+</head>
+<body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="/">&#9632; A Framework for a Theory of Everything</a></div>
+<div class="ann-group">Start here</div>
+<a href="/">Home — intro</a>
+<a href="/gates/">The Gates — scoreboard</a>
+<a href="/residuals/">The Residuals — attack list</a>
+<div class="ann-group">The honest rule-set</div>
+<a href="/anchors/">The Anchors</a>
+<a href="/walls/">The Walls</a>
+<a href="/closure/">The Closure system</a>
+<a href="/closure/walls/">&mdash; closure paths</a>
+<div class="ann-group">The physics</div>
+<a href="/shape/">The Shape (13D)</a>
+<a href="/scale/">The Scale</a>
+<a href="/granularity/">The Granularity</a>
+<a href="/layer2/">The Second-Layer Roots</a>
+<a href="/gut/">GUT &mdash; Paper 1</a>
+<a href="/forces/">Forces &mdash; Paper 2</a>
+<a href="/quantum/">Quantum &mdash; Paper 3</a>
+<a href="/toe/" class="current">TOE &mdash; complete statement</a>
+<a href="/particles/">Particles &mdash; spectrum</a>
+<div class="ann-group">Reference</div>
+<a href="/articles/">Dossiers &amp; articles</a>
+<a href="/scripts/">Scripts</a>
+<a href="/supporting/">Supporting</a>
+<a href="/supplemental/">Supplemental (full overview)</a>
+</nav>
+<main class="anchor-content">
+<h1>What it means to &ldquo;pay&rdquo; for something</h1>
+<p class="pay-lead">All over this site you will find the same phrase: a claim counts only if it has been <em>paid for</em>. A distinction must be paid for. A label must be paid for. A separation between two systems must be paid for. This page explains, once and in plain language, what that payment actually is &mdash; and then works through the rule the phrase is used for most: <strong>every claimed separation has to be paid for.</strong></p>
+<h2>Part 1 &mdash; the general idea: no claim without a record, no record without a cost</h2>
+<p>Start with what physics is actually made of, operationally: <strong>records</strong>. Everything anyone has ever known about the physical world arrived as a finite record &mdash; a mark on a detector, a photon on a retina, a number in a lab notebook, an imprint in the environment. Physics is accessed only through finite, reproducible records; a claim with no record behind it &mdash; and no possible record behind it &mdash; is not physics yet. That is the <a href="/consciousness/">record interface</a> this framework starts from.</p>
+<p>Now the second fact: <strong>records are never free.</strong> Making a distinction &mdash; telling <em>this</em> apart from <em>that</em>, and keeping a stable mark of the difference &mdash; always costs something physical. This framework posits that the cost has a floor: a smallest, uniform, positive price <strong>&Delta;<sub>0</sub> &gt; 0</strong> under any distinguishable transition, with Planck&rsquo;s constant &#8463; as the floor&rsquo;s <em>measured</em> size. (That floor is a named posit of the framework &mdash; the one axiom the <a href="/granularity/">Granularity</a> root openly rests on &mdash; not a claim conjured from nothing.) Ordinary physics already gestures the same way: erasing one bit of information dissipates at least k<sub>B</sub>T&thinsp;ln&thinsp;2 of heat (Landauer&rsquo;s principle, measured in the lab), and no measurement distinguishes two states without an interaction that leaves a trace.</p>
+<div class="paybox"><span class="payrule">To &ldquo;pay&rdquo; for a claim means exactly this: a finite physical record exists (or could exist) that actually makes the distinction the claim needs &mdash; and the cost of that record, at least &Delta;<sub>0</sub> per distinction, has actually been spent somewhere in the world.</span><br><br>No record &mdash; no payment &mdash; no claim. The claim isn&rsquo;t <em>false</em>; it is <em>unpaid</em>: bookkeeping fiction until something in the world foots the bill.</div>
+<p>Why insist on this? Because free claims are how theories cheat without noticing. Free infinite precision, free labels that split identical things, free assumptions of independence &mdash; each one smuggles information into a theory that nothing in the world ever supplied. The payment discipline is an accounting rule: <em>every</em> input a result leans on must land in one ledger box &mdash; paid for with a record, derived from something already paid, openly declared as an axiom, or inadmissible. Nothing rides for free. That single rule is what several of this framework&rsquo;s <a href="/gates/">gate closures</a> actually run on.</p>
+<h2>Part 2 &mdash; the rule used most: every claimed separation has to be paid for</h2>
+<p>Here is the place the payment rule bites hardest. In textbook physics, whenever you model anything, you silently <em>assume</em> separability: you write &ldquo;system A&rdquo; and &ldquo;system B&rdquo; as if each has its own independent state, and you treat your experiment as disconnected from the rest of the universe. That factorization is <strong>free</strong> &mdash; nobody checks it; it is just how the notation starts.</p>
+<p>But quantum mechanics itself says that is often false. Two systems that have interacted are <strong>entangled</strong>, and an entangled whole does <em>not</em> factor &mdash; neither piece has its own state at all. A singlet pair of electrons is the textbook case: it is meaningless to say &ldquo;electron A is in state X, independently of B.&rdquo; There is only the pair. Treat them as two independent things anyway and you get wrong answers &mdash; Bell-test experiments are nature refusing the unpaid-separation assumption: the free factorization fails, measurably, and has failed in laboratories for decades.</p>
+<p>So this framework reverses the default. <strong>Reality starts as one non-factorized object, and any claim that &ldquo;A is separate from B&rdquo; is a positive claim that must be backed by something physical.</strong> The payment is a finite record that actually distinguishes A-on-its-own from A-entangled-with-B. Physically, that is decoherence doing its ordinary job: photons, air molecules, and measuring devices carry away information that distinguishes the system&rsquo;s states, the interference terms die, and the system becomes <em>effectively</em> separate and classical. Each of those environmental imprints is a paid record.</p>
+<div class="example"><h4>Two examples, one rule</h4><p><strong>Your coffee cup</strong> is legitimately &ldquo;separate&rdquo; from the table: trillions of photons and air molecules have already recorded the distinction, and keep re-recording it every instant. The payment is being made continuously, which is why treating the cup as an independent object never gets you into trouble.</p><p style="margin-bottom:0"><strong>An isolated entangled pair</strong> has had <em>no</em> distinguishing records made &mdash; nothing has paid &mdash; so the claim &ldquo;these are two independent particles&rdquo; is unpaid, and experiments duly punish it. Same rule, opposite verdict, decided entirely by whether the world holds a record of the separation.</p></div>
+<h2>Part 3 &mdash; why the universe went from &ldquo;one&rdquo; to &ldquo;separate&rdquo;</h2>
+<p>Payment requires an affordable budget, and the budget has a history. Granularity is time-dependent: at <em>t</em> = now it sits at its minimum &mdash; records are cheap, distinctions are everywhere, the wave function is at its sharpest, and the world resolves into cleanly separate objects. Trace time backward and the record budget shrinks: wave functions spread and overlap more and more, distinctions cost more than the early universe could pay &mdash; until, at the Big Bang, the cost of recording anything was unpayable and only &ldquo;one&rdquo; thing could be seen. <strong>Everything was one; the separateness we see today was earned afterward, record by record, as the budget grew.</strong> That is the honest content of the phrase <a href="/emergent-separability/">&ldquo;one, but separate&rdquo;</a> &mdash; and it is the same time-dependent granularity that dates the events of the <a href="/early-universe/">early universe</a>: each epoch begins when its distinction first becomes affordable to record.</p>
+<h2>Part 4 &mdash; where this rule does real work on this site</h2>
+<ul>
+<li><a href="/granularity/">The Granularity root</a> &mdash; the cost-floor discipline itself: no unpaid labels, no hidden infinite precision, &Delta;<sub>0</sub> &gt; 0 as the named posit and &#8463; as its measured residue.</li>
+<li><a href="/emergent-separability/">Emergent separability</a> &mdash; the full statement of the separation rule and the gate closures that needed it.</li>
+<li><a href="/consciousness/">Consciousness</a> &mdash; the record&rsquo;s-eye view: records, distinguishability, and why independence is earned, applied at the edge of what physics reaches.</li>
+<li><a href="/gates/">The Gates scoreboard</a> &mdash; closures that lean on the rule state it openly in their anchored-on blocks (&ldquo;separation is earned, not assumed&rdquo;).</li>
+<li><a href="/early-universe/">Early &amp; Distant Universe</a> &mdash; the same budget, run as a clock: 44 checkpoints dated by when each distinction first became payable.</li>
+</ul>
+<h2>Honest status</h2>
+<div class="paybox warn"><p><strong>What is standard physics here:</strong> entanglement and the failure of free factorization (measured in Bell tests), decoherence as the physical process that makes systems effectively separate (measured), and Landauer&rsquo;s erasure cost (measured).</p><p><strong>What is this framework&rsquo;s own:</strong> the accounting discipline &mdash; treating separability as <em>earned by paid records</em> rather than assumed, with a uniform positive cost floor &Delta;<sub>0</sub> &gt; 0 as a single <em>named axiom</em> (&#8463; its measured size), and the refusal to let any claim ride for free. Anchored is not derived; a posit is stated as a posit.</p><p style="margin-bottom:0"><strong>What this page does not claim:</strong> that the payment rule is experimentally established as fundamental, or that it derives quantum mechanics. It is the discipline this candidate framework runs on &mdash; laid out plainly so you can check where each closure actually spent its budget.</p></div>
+</main>
+</div>
+</body></html>
