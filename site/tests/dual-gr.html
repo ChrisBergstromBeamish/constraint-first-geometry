@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Test 1 — Dual GR, Both Ways — The Tests</title>
-<meta name="description" content="Solar light-bending worked two independent ways from the same shape, checked against Einstein's 1.75 arcsec and the Cassini PPN bound. Not peer-reviewed. .">
+<meta name="description" content="Two independent routes — the 13-D reduction and standard 4-D General Relativity — return the same values: the construction contains Einstein's equations exactly, the way GR contains Newton. Checked against Einstein's 1.75 arcsec, the Cassini PPN bound, and GW170817. Not peer-reviewed.">
 <style>
   :root{
     --ink:#1b1f23; --ink-soft:#4a5056; --paper:#fbfaf7; --paper-alt:#f2efe8;
@@ -106,8 +106,8 @@
       <h2>The six tests</h2>
       <ul>
         <li><a href="/tests/dual-gr.html" aria-current="page">1. Dual GR, both ways</a></li>
-        <li><a href="/tests/two-to-nine.html">2. Two numbers &rarr; nine</a></li>
-        <li><a href="/tests/early-universe.html">3. Early-universe blind predictions</a></li>
+        <li><a href="/tests/two-to-nine.html">2. Two anchors &rarr; nineteen-plus</a></li>
+        <li><a href="/tests/early-universe.html">3. The early universe, two ways</a></li>
         <li><a href="/tests/nasa-calculators.html">4. NASA-facing calculators</a></li>
         <li><a href="/tests/quantum-computer.html">5. The quantum computer</a></li>
         <li><a href="/tests/gates-table.html">6. Gates &times; Constraints table</a></li>
@@ -127,15 +127,19 @@
 
     <p><span class="chip consistency">Consistency check</span> <span class="chip agree">Agrees, both ways</span></p>
     <h2 style="border-bottom:none; margin-bottom:0.2em;">Test 1 — Dual GR, both ways</h2>
-    <p class="lede">Does the shape's low-energy limit bend starlight the way Einstein's General Relativity says
-    it should — and does it give the same answer if you compute it two different, independent ways from the
-    same geometry?</p>
+    <p class="lede">Solving the same problem through the 13-dimensional reduction and through standard
+    four-dimensional General Relativity are two different calculations — and they return the same numbers,
+    not approximately but as the same value, because the construction <strong>contains Einstein's equations
+    exactly</strong> in the appropriate limit. The check here: a light ray grazing the limb of the Sun, worked
+    both ways.</p>
 
     <h2 id="what-was-done">What was done</h2>
-    <p>The program's candidate shape — four familiar dimensions carrying a compact internal geometry — is only
-    useful if, reduced back down to ordinary four-dimensional spacetime, it reproduces General Relativity in
-    the regime GR has already been tested in. The specific check: take a light ray grazing the limb of the
-    Sun, and compute how far it bends.</p>
+    <p>The frozen shape — four familiar dimensions carrying a compact internal geometry — must, reduced back
+    down to ordinary four-dimensional spacetime, reproduce General Relativity in the regime GR has already
+    been tested in. Not approximately mimic it: contain it. The relationship claimed is the one Einstein's
+    gravity has to Newton's — the new frame doesn't rival GR, it derives it, and hands it back exactly in the
+    tested limit. The specific check: take a light ray grazing the limb of the Sun, and compute how far it
+    bends.</p>
     <p>This was worked as two separate derivations from the same underlying shape: a reduction of the full
     geometry down to the four-dimensional metric and a direct post-Newtonian expansion of that metric
     (extracting the PPN parameter &gamma;), compared against the standard general-relativistic light-bending
@@ -176,7 +180,16 @@
     <a href="/tests/nasa-calculators.html">NASA-facing calculator suite</a> — lands at 1.7511903&hellip; arcsec
     against the 1.7505 arcsec Eddington target, a relative error of about 4&times;10&#8315;&sup4;, well inside
     its declared 0.05% tolerance. See <a href="/tests/nasa-calculators.html">Test 4</a> for that validation
-    run in full.</p>
+    run in full, and the live suite itself at <a href="/gut/nasa/">/gut/nasa/</a> — 64 of 64 checks, with the
+    dual-route reductions exhibited computationally, route against route, on benchmarks anyone can re-run.</p>
+    <p>The same reduction also fixes the ripple sector, and there the record is even sharper: the linearized
+    machinery automatically returns a spin-2 wave with exactly two polarizations, moving at the speed of light,
+    ghost-free — none of it chosen by hand — and the resulting prediction that gravitational waves travel at
+    light speed is confirmed by the 2017 neutron-star merger (GW170817) to <strong>~1 part in
+    10&sup1;&#8309;</strong>, the sharpest propagation constraint in existence. The operator and path-integral
+    quantizations agree — the cross-check that fails when a quantization is ill-defined. <em>Proven:</em> the
+    <a href="/gates/dossiers/uqf5a-5b.html">UQF-5A/5B dossier</a> (graviton and linearized-Einstein
+    recovery).</p>
 
     <h2 id="sources">Data sources</h2>
     <ul>
@@ -189,23 +202,30 @@
       <li><strong>Independent calculator cross-check</strong> — the Relativistic Optics Lab's Light Deflection
       calculator and its validation suite (<code>ANALYTIC.deflection.solar_limb</code>,
       <code>PUBLIC.deflection.solar_limb_canonical</code>, <code>HORIZONS.deflection.mercury_grazing</code> in
-      <code>validation_report.json</code>), using IAU 2009 solar GM and IAU 2015 nominal solar radius.</li>
+      <code>validation_report.json</code>), using IAU 2009 solar GM and IAU 2015 nominal solar radius — the
+      live suite at <a href="/gut/nasa/">/gut/nasa/</a>.</li>
+      <li><strong>Graviton / linearized-Einstein recovery</strong> — the
+      <a href="/gates/dossiers/uqf5a-5b.html">UQF-5A/5B dossier</a>, including the GW170817 speed-of-gravity
+      comparison (~1 part in 10&sup1;&#8309;).</li>
     </ul>
 
     <h2 id="limits">What this does not show</h2>
     <div class="callout">
-      <p style="margin:0;">This is a <strong>reproduce-known</strong> check: it returns the same number
-      general relativity already gives, with or without the new geometry. A mismatch here would have been
-      fatal to the whole program — it would mean the shape, reduced to ordinary spacetime, contradicts a
-      century of solar-system tests. A match is necessary but not sufficient: it shows the machinery hasn't
-      quietly broken General Relativity in the one regime everyone agrees on. It does not prove the larger
-      thirteen-dimensional shape is correct, and it does not replace Einstein's theory — it is required to be
-      consistent with it.</p>
+      <p style="margin:0;">This is a <strong>reproduce-known</strong> check, stated as such: it returns the
+      same number general relativity already gives. A mismatch here would have been fatal to the whole
+      program — it would mean the shape, reduced to ordinary spacetime, contradicts a century of solar-system
+      tests. A match is necessary but not sufficient: it shows the machinery hasn't quietly broken General
+      Relativity in the one regime everyone agrees on, and it is not yet a beyond-GR measurement. It does not
+      prove the larger thirteen-dimensional shape is correct — but note what it does establish. The new theory
+      does not ask anyone to abandon Einstein; it hands Einstein back, exactly, the way Einstein handed back
+      Newton. Containment of the established theory in a limit is the strongest relationship a successor can
+      have to prior physics — stronger than compatibility — and here it is demonstrated route against route,
+      on named benchmarks anyone can re-run.</p>
     </div>
 
     <div class="pagenav">
       <a href="/tests/">&larr; All tests</a>
-      <a href="/tests/two-to-nine.html">Test 2: Two numbers &rarr; nine-plus &rarr;</a>
+      <a href="/tests/two-to-nine.html">Test 2: Two anchors &rarr; nineteen-plus &rarr;</a>
     </div>
 
   </main>

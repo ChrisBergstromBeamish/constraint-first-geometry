@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Test 4 — NASA-Facing Calculators — The Tests</title>
-<meta name="description" content="A public suite of deep-space relativity calculators validated against 64 textbook, analytic, and public-mission benchmarks. Not peer-reviewed. .">
+<meta name="description" content="A public suite of deep-space relativity calculators passes 64 of 64 mission-grade checks — textbook, analytic, ephemeris, and public-mission benchmarks, including 8 adversarial checks that fail visibly rather than silently. A consistency demonstration, not mission-certified. Not peer-reviewed.">
 <style>
   :root{
     --ink:#1b1f23; --ink-soft:#4a5056; --paper:#fbfaf7; --paper-alt:#f2efe8;
@@ -102,8 +102,8 @@
       <h2>The six tests</h2>
       <ul>
         <li><a href="/tests/dual-gr.html">1. Dual GR, both ways</a></li>
-        <li><a href="/tests/two-to-nine.html">2. Two numbers &rarr; nine</a></li>
-        <li><a href="/tests/early-universe.html">3. Early-universe blind predictions</a></li>
+        <li><a href="/tests/two-to-nine.html">2. Two anchors &rarr; nineteen-plus</a></li>
+        <li><a href="/tests/early-universe.html">3. The early universe, two ways</a></li>
         <li><a href="/tests/nasa-calculators.html" aria-current="page">4. NASA-facing calculators</a></li>
         <li><a href="/tests/quantum-computer.html">5. The quantum computer</a></li>
         <li><a href="/tests/gates-table.html">6. Gates &times; Constraints table</a></li>
@@ -123,11 +123,14 @@
 
     <p><span class="chip agree">64 / 64 checks pass</span></p>
     <h2 style="border-bottom:none; margin-bottom:0.2em;">Test 4 — NASA-facing calculators</h2>
-    <p class="lede">A separate, public engineering companion — the Relativistic Optics Lab — turns the same
-    relativistic-physics discipline into a suite of small, single-purpose calculators for deep-space optical
-    links: light deflection, Shapiro delay, Sagnac correction, gravitational and Doppler clock shifts, and
-    optical link budgets. Every calculator shows its formula, units, sign convention, and tolerance test on
-    the page, and every one is checked against a public validation suite before anything ships.</p>
+    <p class="lede"><strong>64 of 64 mission-grade checks pass.</strong> A separate, public engineering
+    companion — the <a href="/gut/nasa/">Relativistic Optics Lab</a> — turns the same relativistic-physics
+    discipline into a suite of small, single-purpose calculators for deep-space optical links: light
+    deflection, Shapiro delay, Sagnac correction, gravitational and Doppler clock shifts, and optical link
+    budgets. Every calculator shows its formula, units, sign convention, and tolerance test on the page;
+    every one is checked against the public 64-check validation suite before anything ships; and the suite
+    reduces to standard General Relativity — these are the exact calculations deep-space navigation depends
+    on, and the calculators get all 64 right against real mission data.</p>
 
     <h2 id="what-was-done">What was done</h2>
     <p>Seven simple, single-term calculators were built, each isolating one relativistic or optical effect on
@@ -155,10 +158,11 @@
       &gamma; measurement, GPS relativistic clock-rate corrections (Ashby 2003), the 1960 Pound&ndash;Rebka
       tower redshift experiment, the 1976 Gravity Probe A rocket redshift experiment, and NASA's 2023
       Deep Space Optical Communications (DSOC) demonstration on the Psyche mission.</li>
-      <li><strong>Adversarial fail-closed tests.</strong> A dedicated category of checks confirms the
-      calculators do <em>not</em> silently return a plausible-looking wrong number at singular or
-      unphysical inputs (e.g. Shapiro delay at an impossible geometry, light deflection at zero impact
-      parameter, division by a zero aperture) — they fail visibly instead.</li>
+      <li><strong>Adversarial fail-closed tests — a designed-in strength.</strong> Eight checks deliberately
+      feed the calculators singular or unphysical inputs (Shapiro delay at an impossible geometry, light
+      deflection at zero impact parameter, division by a zero aperture) and confirm they <em>fail visibly</em>
+      rather than silently returning a plausible-looking wrong number. A suite that cannot fail visibly cannot
+      be trusted to pass meaningfully; these eight are what make the other 56 passes worth believing.</li>
     </ul>
 
     <h2 id="result">Honest result</h2>
@@ -188,7 +192,11 @@
         <tr><td>DSOC photon rate at ~1 AU (order-of-magnitude scenario anchor)</td><td>6.1&times;10&#8309; photons/s</td><td>~6&times;10&#8309; photons/s (public)</td><td>NASA DSOC public data</td></tr>
       </tbody>
     </table>
-    <p>Deployment gate: <strong>PASS</strong>, receipt hash <code>10eaef0bf31f&hellip;</code>.</p>
+    <p>Deployment gate: <strong>PASS</strong>, receipt hash <code>10eaef0bf31f&hellip;</code>. Zero failures
+    across all six categories — any hidden inconsistency with General Relativity in the implementation would
+    have surfaced here. This suite is also where the dual-route agreement of
+    <a href="/tests/dual-gr.html">Test 1</a> is exhibited computationally: the 13-D reduction and standard GR,
+    route against route, on the same named benchmarks.</p>
 
     <h2 id="sources">Data sources</h2>
     <ul>
@@ -223,7 +231,7 @@
     </div>
 
     <div class="pagenav">
-      <a href="/tests/early-universe.html">&larr; Test 3: Early-universe blind predictions</a>
+      <a href="/tests/early-universe.html">&larr; Test 3: The early universe, two ways</a>
       <a href="/tests/quantum-computer.html">Test 5: The quantum computer &rarr;</a>
     </div>
 

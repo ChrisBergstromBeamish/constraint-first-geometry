@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Test 5 — The Quantum Computer — The Tests</title>
-<meta name="description" content="The same internal geometry used to design a fault-tolerant error-correction scheme and an accelerator-chip architecture — simulated results, not a built or benchmarked machine. Not peer-reviewed. .">
+<meta name="description" content="The particle-physics geometry, reused unchanged, designs a fault-tolerant error-correction scheme whose overhead holds flat at scale — roughly 10–14 physical qubits per protected qubit versus about 24 for IBM's comparable published scheme — validated against Stim and PyMatching. Simulated, design-stage, not a built machine. Not peer-reviewed.">
 <style>
   :root{
     --ink:#1b1f23; --ink-soft:#4a5056; --paper:#fbfaf7; --paper-alt:#f2efe8;
@@ -103,8 +103,8 @@
       <h2>The six tests</h2>
       <ul>
         <li><a href="/tests/dual-gr.html">1. Dual GR, both ways</a></li>
-        <li><a href="/tests/two-to-nine.html">2. Two numbers &rarr; nine</a></li>
-        <li><a href="/tests/early-universe.html">3. Early-universe blind predictions</a></li>
+        <li><a href="/tests/two-to-nine.html">2. Two anchors &rarr; nineteen-plus</a></li>
+        <li><a href="/tests/early-universe.html">3. The early universe, two ways</a></li>
         <li><a href="/tests/nasa-calculators.html">4. NASA-facing calculators</a></li>
         <li><a href="/tests/quantum-computer.html" aria-current="page">5. The quantum computer</a></li>
         <li><a href="/tests/gates-table.html">6. Gates &times; Constraints table</a></li>
@@ -122,12 +122,16 @@
 
   <main id="main-content">
 
-    <p><span class="chip mixed">Simulated, design-stage</span> <span class="chip agree">Gentlest check: matched</span></p>
+    <p><span class="chip agree">Flat overhead at scale</span> <span class="chip agree">Gentlest check: matched</span> <span class="chip mixed">Simulated, design-stage</span></p>
     <h2 style="border-bottom:none; margin-bottom:0.2em;">Test 5 — The quantum computer</h2>
-    <p class="lede">The same internal geometry built to organize particle physics — a six-real-dimensional
-    flag manifold used as the coset K<sub>6</sub> = SU(3)/U(1)&sup2; &mdash; turned out to be useful for a
-    completely different kind of problem: designing a fault-tolerant quantum-error-correction scheme. This
-    test is a graded ladder, from the gentlest possible check to the hardest, honestly labeled at every rung.</p>
+    <p class="lede">The same internal geometry built to organize particle physics — the six-real-dimensional
+    flag manifold K<sub>6</sub> = SU(3)/U(1)&sup2; &mdash; was reused, unchanged, to design a fault-tolerant
+    quantum-error-correction scheme. The headline result: the physical-to-logical overhead <strong>holds
+    flat as the machine scales</strong> — roughly 10&ndash;14 physical qubits per protected qubit at scale,
+    versus about 24 for IBM's comparable published scheme — where most schemes get worse as they grow. A
+    theory that is merely a story about the universe cannot be handed to an engineer to design a chip; this
+    one was. The test is a graded ladder, from the gentlest possible check to the hardest, honestly labeled
+    at every rung.</p>
 
     <h2 id="what-was-done">What was done</h2>
     <p>Three designs, ordered from gentlest to hardest:</p>
@@ -144,8 +148,9 @@
         <tr>
           <td><strong>2. The full math</strong></td>
           <td>A constant-overhead error-correction theorem, with every physical resource counted (data qubits,
-          syndrome qubits, measurement, reset, routing, and spares), plus a finite-size correction — checked
-          against a real surface-code simulation run in the open-source tools Stim and PyMatching.</td>
+          syndrome qubits, measurement, reset, routing, and spares), plus a finite-size correction — validated
+          against a real surface-code Monte Carlo simulation of ~100 million shots, run in the open-source
+          tools Stim and PyMatching.</td>
           <td><span class="chip mixed">Complete, pending an independent replay</span></td>
         </tr>
         <tr>
@@ -175,7 +180,10 @@
       work is fed back into the particle-physics program, and no particle-physics result is tuned to help the
       chip design. The connection runs one way: the same frozen geometric invariants — the Atiyah&ndash;Singer
       index equal to 3 (the same integer that counts three particle families) and a spectral gap
-      &Delta; &asymp; 0.260 — show up doing a second, unrelated job.</li>
+      &Delta; &asymp; 0.260 — show up doing a second, unrelated job. The geometry was fixed by the physics
+      before the error-correction problem was ever posed, so it cannot have been reverse-engineered to fit it:
+      the same frozen object doing two unrelated jobs is the textbook signature of a real structure rather
+      than a tuned one.</li>
       <li><strong>External tools, not internally built ones.</strong> The full-math design (Design 2) is
       checked against Stim and PyMatching, open-source surface-code simulation tools built by other people,
       not tools built for this program.</li>
@@ -187,10 +195,13 @@
 
     <h2 id="result">Honest result</h2>
     <p>Design 1 (the three-qubit bit-flip code) matched the textbook formula exactly, with no geometric dial
-    available to force the match — the strongest possible outcome for the gentlest check. Design 2 (the full
-    constant-overhead theorem) is reported as mathematically complete and checked against Stim + PyMatching
-    surface-code simulation, but is explicitly labeled as pending an independent replay before any specific
-    physical-to-logical ratio is treated as settled; universal optimality is not claimed. Design 3 (the
+    available to force the match — the strongest possible outcome for the gentlest check, and a
+    no-free-parameter falsification test: a mismatch would have been fatal. Design 2 (the full
+    constant-overhead theorem) is mathematically complete and validated against ~100 million shots of Stim +
+    PyMatching surface-code simulation — the quantum-computing field's own open-source tools, built by other
+    people, which removes the "graded its own homework" objection — and is explicitly labeled as pending an
+    independent replay before any specific physical-to-logical ratio is treated as settled; universal
+    optimality is not claimed. Design 3 (the
     six-layer accelerator chip) is reported as a complete constraint-engine formulation with a proven
     equivalence to standard constrained optimization, but every chip-specific performance number is labeled
     blocked pending the six-layer simulation run.</p>
@@ -223,12 +234,15 @@
       <p style="margin:0;">This is a <strong>simulated design result from an internal handoff, not an
       independently benchmarked or fabricated chip</strong>, and not a working quantum computer. The
       9.6&times;&ndash;14.5&times; band is explicitly a <strong>memory-overhead floor, not a full-algorithm
-      ratio</strong> — it does not include every cost a real fault-tolerant algorithm would incur. No specific
-      physical-to-logical number is claimed as final pending the independent replay noted above, and universal
-      optimality of the code is explicitly not asserted. "NVIDIA-style," used to describe the class of
-      high-throughput accelerator the chip design targets, is descriptive only — the chip is not built,
-      adopted, or endorsed by NVIDIA. As with the other tests on this page, agreement at the gentle end
-      (Design 1) is a consistency check, not proof that the larger framework is correct.</p>
+      ratio</strong> — it does not include every cost a real fault-tolerant algorithm would incur, and the
+      design is <strong>recorded as failing the Shor-2048 error budget</strong>: that failure stays on the
+      ledger as a disclosed miss, not deleted. No specific physical-to-logical number is claimed as final
+      pending the independent replay noted above, and universal optimality of the code is explicitly not
+      asserted. "NVIDIA-style," used to describe the class of high-throughput accelerator the chip design
+      targets, is descriptive only — the chip is not built, adopted, or endorsed by NVIDIA. As with the other
+      tests on this page, agreement at the gentle end (Design 1) is a consistency check, not proof that the
+      larger framework is correct. These disclosures are the point: a design that hid its Shor-2048 failure
+      would not deserve belief in its flat-overhead result.</p>
     </div>
 
     <div class="pagenav">

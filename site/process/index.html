@@ -304,6 +304,50 @@
     .layout{grid-template-columns:1fr;}
     .subnav{position:static;}
   }
+
+  /* journey cards — appended for the /process/ overview rebuild */
+  .jgrid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .jcard{
+    border:1px solid var(--line);
+    background:#fff;
+    border-radius:4px;
+    padding:1.05em 1.15em;
+    cursor:pointer;
+    transition:box-shadow .15s ease;
+  }
+  .jcard:hover, .jcard:focus{
+    box-shadow:0 4px 14px rgba(27,31,35,0.14);
+  }
+  .jcard:focus{
+    outline:2px solid var(--accent-2);
+    outline-offset:2px;
+  }
+  .jcard h3{
+    margin:0 0 0.35em;
+    font-size:1.04rem;
+    display:flex;
+    align-items:center;
+  }
+  .jcard h3 a{color:var(--ink); text-decoration:none;}
+  .jcard:hover h3 a{color:var(--accent-2);}
+  .jcard p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .jcard .after{
+    margin-top:0.65em;
+    font-size:0.88rem;
+    color:var(--accent-2);
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:600;
+  }
+  .jcard-side{
+    background:var(--paper-alt);
+    border-left:4px solid var(--accent);
+  }
+  /* end journey cards */
 </style>
 </head>
 <body>
@@ -329,7 +373,7 @@
       <li><a href="/anchors/">Foundational Constraints</a></li>
       <li><a href="/gates/">Gates</a></li>
       <li><a href="/early-universe/">Early &amp; Distant Universe</a></li>
-      
+
       <li><a href="/consciousness/">Consciousness</a></li>
     </ul>
   </nav>
@@ -355,96 +399,146 @@
   <main id="main-content">
 
     <h2 style="border-bottom:none; margin-bottom:0.2em;">The Process</h2>
-    <p class="lede">Six pages, read in order, walk the whole program from first principles to current status: a
-    thought experiment, the constraints it forces, the shape those constraints select, how that shape is tested,
-    what the three main manuscripts do with it, and — at a narrative level only — the discipline used to attack
-    each open question honestly. No page here claims a result; each one points to the pages that carry the
-    actual claims and their status labels.</p>
+    <p class="lede">This section shows the method, step by step, so you can judge it — and check it — yourself.
+    It starts from one textbook observation about fields, follows the constraints that observation forces until
+    a single 13-dimensional shape survives, tests that shape against numbers nobody tuned it to hit, and ends by
+    handing the entire case to any AI you trust. No page here asks for belief: each one states what was done,
+    what it rests on, and exactly where to check it.</p>
 
     <div class="honesty-box">
       <strong>What this section is, and is not.</strong> This is the <em>narrative</em> layer — how the pieces
       fit together and why. The actual claims, numbers, and honest status labels live on
       <a href="/tests/">The Tests</a>, <a href="/anchors/">Foundational Constraints</a>, and
       <a href="/gates/">Gates</a>. If this section and one of those ever seem to disagree, the claim pages
-      control.
-    </div>
+      control.</div>
 
-    <h2>Read the six pages in order</h2>
-    <div class="step-row">
-      <span class="step-num">1</span>
-      <div class="step-body">
-        <h4><a href="/process/thought-experiment.html">The thought experiment</a></h4>
-        <p>Start from Gauss's law and the plain fact that a field measured outside a closed surface does not
-        care how the source is arranged inside it. Treat that invariance as a constraint on the deep structure
-        of space, not a curiosity to explain away later.</p>
+    <h2>How was this even possible?</h2>
+    <p>One independent researcher, working with AI, reports the complete requirement bill of fundamental
+    physics — quantum theory, grand unification, and a theory of everything, 33 typed requirement-gates —
+    answered in full: <strong>33 resolved at +0, 0 open</strong>. Your skepticism at that sentence is correct,
+    and this page does not ask you to suspend it. It answers it, in four parts.</p>
+
+    <h3>1. The method is elimination, not invention</h3>
+    <p>Nobody sat down and invented a theory of everything. The method is constraint-first: list what any
+    candidate theory <em>must</em> deliver, eliminate every structure that cannot survive those demands
+    simultaneously, and keep what survives. Elimination is enumerable, checkable, and repeatable — every
+    elimination is a specific structure failing a specific named constraint, which means every step of the
+    selection can be re-run and verified line by line. That is a different kind of claim from &ldquo;here is my
+    idea&rdquo;; it is &ldquo;here is the list, here is what died, here is why, and here is the survivor.&rdquo;</p>
+
+    <h3>2. The era made it possible</h3>
+    <p>This program exists now because, for the first time, an AI can hold the complete requirement bill in
+    view at once, grind through the elimination ledgers, and check every step — while the human supplies the
+    questions, the standards, and the refusal to accept anything unverified. And that turns the obvious
+    objection on its head: &ldquo;AI-assisted&rdquo; here does not mean &ldquo;trust the machine.&rdquo;
+    Nothing on this site asks for trust in the author <em>or</em> the tools — every step is machine-checkable
+    precisely <em>because</em> it was machine-built. The same door it came in through is open to you:
+    <a href="/AI-testing/">hand it to an AI you trust and let it check every step</a>.</p>
+
+    <h3>3. The discipline made it credible</h3>
+    <p>The geometry was frozen behind SHA-256 fingerprints <em>before</em> any comparison to data, and a single
+    deterministic script regenerates every published number byte-for-byte, failing closed on any mismatch — so
+    &ldquo;we tuned it after seeing the data&rdquo; and &ldquo;we tampered&rdquo; are formally the same act,
+    and both void the certificate. When the framework&rsquo;s hardest number missed by ~4.4σ, the miss was
+    published on its own front page — then resolved, target-blind, to <strong>+0.058σ</strong> by a factor read
+    off the shape&rsquo;s own symmetry (1/√6 = 1/√|S₃|, fixed by the group order alone), with negative controls
+    rejecting any fitted alternative (<a href="/gates/dossiers/sg8.html">the full record</a>). And the site
+    keeps <a href="/residuals.html">a public list of its own refuted claims</a>, each with the theorem that
+    killed it. The process was built so that cheating would have been visible.</p>
+
+    <h3>4. The shape was found, not chosen</h3>
+    <p>The simpler-looking rival geometry — CP² = SU(3)/U(2) — was built end-to-end and breaks at the gauge
+    gate; K₆ = SU(3)/T² survives because T² is the unique purely-abelian SU(3) isotropy
+    (<a href="/shape.html">the construction and the disproof</a>). That is not a preference between candidates;
+    it is an elimination with a body. The survivor was frozen once and never re-tuned — and everything on this
+    site is downstream of that one frozen object.</p>
+
+    <h2>Six steps — then the seventh: hand it all to an AI</h2>
+    <p>Seven pages, read in order, walk the whole journey. Each card says what the page does and what you can
+    do after reading it.</p>
+
+    <div class="jgrid">
+      <div class="jcard" data-href="/process/thought-experiment.html" tabindex="0" role="link" aria-label="Step 1: The thought experiment">
+        <h3><span class="step-num">1</span><a href="/process/thought-experiment.html">The thought experiment</a></h3>
+        <p>Start from Gauss&rsquo;s law and the plain fact that a field measured outside a closed surface does
+        not care how the source is arranged inside it. Treat that invariance as a constraint on the deep
+        structure of space, not a curiosity to explain away later.</p>
+        <p class="after">After this page: you&rsquo;ve seen the seed observation — real, textbook physics.</p>
       </div>
-    </div>
-    <div class="step-row">
-      <span class="step-num">2</span>
-      <div class="step-body">
-        <h4><a href="/process/constraints-to-shape.html">Constraints &rarr; a derived shape</a></h4>
-        <p>Add the rest of the consistency demands physics already imposes — frame-independence, entanglement's
-        refusal to factor, countability, unit-consistency — and ask what geometry survives all of them at once.
-        The result is a <em>selected</em> family of candidate shapes, not a shape derived from nothing.</p>
+      <div class="jcard" data-href="/process/constraints-to-shape.html" tabindex="0" role="link" aria-label="Step 2: Constraints to a shape">
+        <h3><span class="step-num">2</span><a href="/process/constraints-to-shape.html">Constraints &rarr; a shape</a></h3>
+        <p>Add the rest of the consistency demands physics already imposes — frame-independence,
+        entanglement&rsquo;s refusal to factor, countability, unit-consistency — and ask what geometry survives
+        all of them at once. The result is a <em>selected</em> family of candidate shapes, not a shape derived
+        from nothing.</p>
+        <p class="after">After this page: you can state the method in one sentence.</p>
       </div>
-    </div>
-    <div class="step-row">
-      <span class="step-num">3</span>
-      <div class="step-body">
-        <h4><a href="/process/testing-the-shape.html">Testing the shape</a></h4>
-        <p>A candidate is worthless until it is checked against numbers nobody tuned it to hit. See two checks
-        anyone can run by hand in minutes, and how every check on this site carries an explicit status —
-        proof, equivalence demonstration, consistency check, or open question with a named falsifier.</p>
+      <div class="jcard" data-href="/process/testing-the-shape.html" tabindex="0" role="link" aria-label="Step 3: Testing the shape">
+        <h3><span class="step-num">3</span><a href="/process/testing-the-shape.html">Testing the shape</a></h3>
+        <p>A candidate is worthless until it is checked against numbers nobody tuned it to hit. Two checks
+        anyone can run by hand in minutes — and every check on this site carries an explicit status: proof,
+        equivalence demonstration, consistency check, or open question with a named falsifier.</p>
+        <p class="after">After this page: you have personally verified a number.</p>
       </div>
-    </div>
-    <div class="step-row">
-      <span class="step-num">4</span>
-      <div class="step-body">
-        <h4><a href="/process/gut-quantum-toe.html">GUT / Quantum / TOE &rarr; the Foundational Constraints</a></h4>
+      <div class="jcard" data-href="/process/gut-quantum-toe.html" tabindex="0" role="link" aria-label="Step 4: GUT, Quantum, TOE">
+        <h3><span class="step-num">4</span><a href="/process/gut-quantum-toe.html">GUT / Quantum / TOE &rarr; the Foundational Constraints</a></h3>
         <p>Three linked manuscripts — grand unification, the quantum-mechanical structure, and a scoped attempt
         at a fully unified account — each pressure-test the shape from a different direction and feed what they
         find back into a sharper statement of the Foundational Constraints.</p>
+        <p class="after">After this page: you&rsquo;ve seen the complete requirement bill — quantum + GUT + TOE.</p>
       </div>
-    </div>
-    <div class="step-row">
-      <span class="step-num">5</span>
-      <div class="step-body">
-        <h4><a href="/process/the-process-we-built.html">The process we built to attack them</a></h4>
+      <div class="jcard" data-href="/process/the-process-we-built.html" tabindex="0" role="link" aria-label="Step 5: The process we built">
+        <h3><span class="step-num">5</span><a href="/process/the-process-we-built.html">The process we built</a></h3>
         <p>Doing this honestly at scale needed an actual process — a disciplined, repeatable way of attacking
         each open question and grading the result without letting anything get rounded up. Narrative only: what
         exists and why it is trustworthy, not the internal mechanics.</p>
+        <p class="after">After this page: you know why cheating would have been visible.</p>
       </div>
-    </div>
-    <div class="step-row">
-      <span class="step-num">6</span>
-      <div class="step-body">
-        <h4><a href="/process/closure-paths.html">Closure paths</a></h4>
+      <div class="jcard" data-href="/process/closure-paths.html" tabindex="0" role="link" aria-label="Step 6: Closure paths">
+        <h3><span class="step-num">6</span><a href="/process/closure-paths.html">Closure paths</a></h3>
         <p>A high-level map of where an open question can actually end up — closed against a measured anchor,
         reduced to a named constraint, or left open with a stated path to close it — and why every one of those
-        endpoints is reported honestly rather than dressed up as more than it is.</p>
+        endpoints is reported honestly rather than dressed up.</p>
+        <p class="after">After this page: you know exactly what our words mean.</p>
       </div>
-    </div>
-    <div class="step-row">
-      <span class="step-num">7</span>
-      <div class="step-body">
-        <h4><a href="/AI-testing/">Testing it with an AI</a></h4>
-        <p>Hand the whole program to a capable AI that has only the public pages, and ask it to reach the most favorable conclusion it can honestly defend on completeness, correctness, and significance. This page records that test &mdash; the reviewer&rsquo;s concerns, what actually moved it, its honest verdict, and a map of where every concern is answered &mdash; and shows you how to reproduce it yourself.</p>
+      <div class="jcard" data-href="/AI-testing/" tabindex="0" role="link" aria-label="Step 7: Testing it with an AI">
+        <h3><span class="step-num">7</span><a href="/AI-testing/">Testing it with an AI</a></h3>
+        <p>Don&rsquo;t take our word for any of it. The AI-testing page makes the complete case — then hands
+        you the packets to reproduce the test with any AI you trust, or to point the same machinery at a
+        problem of your own.</p>
+        <p class="after">After this page: you can run the test yourself.</p>
+      </div>
+      <div class="jcard jcard-side" data-href="/process/what-geometry-forces.html" tabindex="0" role="link" aria-label="Key insight: what the geometry forces">
+        <h3><a href="/process/what-geometry-forces.html">Key insight: what the geometry forces — and what it doesn&rsquo;t</a></h3>
+        <p>Topology is rigid; magnitudes flow. One sharp line sorts every number on this site: the discrete
+        quantities — counts, symmetries, dimensions — are forced by the shape and cannot bend, while the
+        continuous magnitudes stay honestly measured.</p>
+        <p class="after">Side reading: the line that keeps the claims honest.</p>
       </div>
     </div>
 
     <h2>Honest status, right now</h2>
     <div class="callout">
       <ul style="margin:0.4em 0 0; padding-left:1.3em;">
-        <li><strong>Not peer-reviewed.</strong> Independent work, presented for scrutiny.</li>
-        <li><strong>.</strong> No open question has been quietly upgraded to closed.</li>
-        <li><strong>The shape was selected, not forced.</strong> Constraints narrow the candidate space; they do
-        not uniquely determine one shape from nothing.</li>
-        <li><strong>Nothing here is physics-CLOSED.</strong> See <a href="/tests/">The Tests</a> and
-        <a href="/gates/">the gate scoreboard</a> for the itemized, honestly-labeled record.</li>
+        <li><strong>The requirement board stands at 33 resolved at +0 · 0 open.</strong> Every one of the 33
+        typed requirement-gates — the complete published bill for a quantum theory, a grand-unified account,
+        and a theory of everything — has reached a named honest endpoint, with each residual shown openly on
+        its row. See <a href="/gates/">the gate scoreboard</a> and its per-gate dossiers.</li>
+        <li><strong>0 of 33 gates are physics-closed.</strong> No experimental confirmation, no peer review
+        yet — that is the honest floor, stated plainly. &ldquo;Resolved&rdquo; means an honest endpoint resting
+        on declared measured anchors, never &ldquo;solved from nothing.&rdquo;</li>
+        <li><strong>The shape was selected, not forced.</strong> Constraints narrow the candidate space and a
+        rival was disproved by construction; the framework does not claim provable uniqueness over all
+        conceivable carriers.</li>
+        <li><strong>Not peer-reviewed.</strong> Independent work, presented for scrutiny — every claim on the
+        claim pages carries its status label and its source.</li>
       </ul>
     </div>
 
-    <p><a href="/process/thought-experiment.html" class="btn btn-solid">Start with the thought experiment &rarr;</a></p>
+    <p>
+      <a href="/process/thought-experiment.html" class="btn btn-solid">Start with the thought experiment &rarr;</a>
+      <a href="/AI-testing/" class="btn">Skip ahead: test it with an AI &rarr;</a>
+    </p>
 
   </main>
 </div>
@@ -481,6 +575,21 @@
     All claims carry an honest status label; open questions are named as open, not implied closed.
   </div>
 </footer>
+
+<script>
+/* journey cards: whole-card click + keyboard activation */
+document.querySelectorAll('.jcard[data-href]').forEach(function(card){
+  card.addEventListener('click', function(e){
+    if (e.target.closest('a')) return;
+    window.location.href = card.getAttribute('data-href');
+  });
+  card.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' && !e.target.closest('a')){
+      window.location.href = card.getAttribute('data-href');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
