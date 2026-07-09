@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UQF-14 — Unitarity / causality / locality: full dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">UQF-14 — Unitarity / causality / locality: full dossier — rendered package. Rendered from <code>DOSSIER_UQF14_FULL.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>UQF-14 — Unitarity / causality / locality: full dossier</h1>
+<blockquote>
+<p><strong>What this is.</strong> The full, working-physicist treatment of gate <strong>UQF-14 (Unitarity / Causality / Locality)</strong> of the Fable quantum-gravity program, on the frozen 13-dimensional K₆ branch. It expands the live 30-second status card into a paper a reader can both <em>check</em> and <em>build on</em>: the rigorous machinery behind every banked sub-claim, the precise statement of every open sub-claim, the insights that produced the progress, and a concrete specialist work plan for each open hole.</p>
+<p><strong>Binding discipline (carried verbatim from the source dossier).</strong> STATUS-UPGRADES:0. The honest status is <strong>AUDIT (OPEN)</strong> and is <em>not</em> upgraded anywhere in this document. The frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> is READ-ONLY. The banked sub-claims are <strong>perturbative + truncated-Kaluza–Klein, certificate-tier</strong>, computed with <strong>no new physics added</strong> — standard quantum field theory applied inside its accepted scope. The open sub-claims are <strong>above-cutoff / nonperturbative / full-KK-tower</strong>, each blocked by a named upstream gate that is <em>itself</em> AUDIT or OPEN. <em>Inheriting a banked perturbative certificate is not a proof of high-energy consistency.</em> A theorem applied inside its framework is legitimate; stretching it across the cutoff to "close" the above-cutoff claim assumes the answer. Honest ceiling: <strong>serious candidate — NOT validated.</strong></p>
+</blockquote>
+<hr />
+<h2>1. Executive summary + honest status</h2>
+<p><strong>Headline.</strong> Wherever standard quantum field theory applies, this theory is provably unitary, causal, and local — and exactly where it cannot yet be proven, the theory says so out loud and routes the gap to the specific unsolved problem that owns it.</p>
+<p><strong>The honest grade (matches the live popup chip).</strong> <strong>OPEN</strong> — carrying a banked CERTIFICATE-tier perturbative + truncated-KK sub-row, graded <strong>AUDIT under the weakest-link min-rule</strong>. Direction: <strong>held</strong>. No status anywhere in this dossier is upgraded. (Source: <code>GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md</code>, UQF-14 row, line 40: <code>OPEN → OPEN (with a banked CERTIFICATE-tier perturbative + truncated-KK sub-row; AUDIT under the weakest-link min-rule)</code>, held; and <code>UQF14_COMPLETION_RESULT.md</code> §1: "Gate status: AUDIT / OPEN — badge permanently EXPORTED to UQF-9.")</p>
+<p><strong>What this dossier establishes, and what it does not.</strong> It establishes — at the level a working physicist can re-derive — that the four-dimensional effective theory descended from the frozen 13D construction is unitary, causal, and local <em>in every regime where standard QFT applies to it</em>: perturbatively, below the cutoff, and with a finite Kaluza–Klein truncation, given the observed Standard-Model content. Three legs are banked as VERIFIED at that scope (§3, §5). It does <strong>not</strong> establish — and explicitly refuses to claim — unitarity above the cutoff, nonperturbative strong-sector unitarity, cluster decomposition with the full infinite KK tower, or any nonperturbative-electroweak disposition. Those four are honestly OPEN and are <em>exported</em> as typed contracts to the upstream gates that own them (UQF-9, UQF-11/Gap-02, UQF-10, BG-10) — each of which is itself AUDIT/OPEN. The gate's verdict is set by the <strong>weakest inherited link</strong>; three banked legs do not lift it.</p>
+<p><strong>The one-paragraph spine.</strong> UQF-14 is structurally unlike a single-number gate. It has <strong>no internal target to derive and no internal axiom to close</strong>: it is an <em>audit/routing node</em> whose verdict is the weakest of its inherited dependencies. The honest, non-promoting win this gate delivers is <em>precision about which sub-claim is banked and which is inherited-open</em> — and a refusal to let a banked perturbative leg masquerade as an above-cutoff or nonperturbative proof. The single most important fact is that the one thing that genuinely <em>cannot</em> be proven here — that the theory stays unitary above the cutoff for every possible high-energy completion — is unprovable in principle for <strong>everyone</strong>: it simply <em>is</em> the open UV-completion-of-quantum-gravity problem. So this is not a weakness peculiar to this program; it is a wall the entire field stands at, and here it is marked as a wall instead of papered over.</p>
+<p><strong>The edge, as a pre-registered testable bet.</strong> This row dies the instant any sector shows a negative-norm physical state, a field commutator that fails to vanish outside the lightcone, a tachyonic KK mode, a Froissart-bound violation in KK-graviton exchange, or a measured cₘ ≠ c. Each falsifier propagates to the upstream gate that owns it. (Source: handoff "The edge" + <code>01_DOSSIER.md</code> §2 falsifier list.)</p>
+<hr />
+<h2>2. The community gap</h2>
+<h3>2.1 The precise open problem</h3>
+<p>A physically sane relativistic quantum theory must hold three properties simultaneously:</p>
+<ul>
+<li><strong>Unitarity</strong> — the S-matrix preserves probability (S†S = 1), and the physical state space carries a positive-definite inner product so that there are no negative-norm "ghost" states masquerading as physical probabilities.</li>
+<li><strong>Causality (microcausality)</strong> — no influence propagates outside the lightcone; operationally, local observables commute (or anticommute, for fermions) at spacelike separation, so a measurement here cannot signal to a spacelike-separated there.</li>
+<li><strong>Locality / cluster decomposition</strong> — the dynamics derive from a local action, and correlation functions factorize as the separation between two clusters of operators goes to infinity, so distant experiments are statistically independent.</li>
+</ul>
+<p>These three are the axiomatic content of standard quantum field theory: a Poincaré-covariant net of observable algebras (Haag–Kastler), with positive-definite physical states, spacelike-commuting observables, and a spectrum condition / energy positivity (Wightman). (Source: <code>UQF14_COMPLETION_RESULT.md</code> §2.)</p>
+<p>The community gap is <strong>not</strong> at everyday energies — there, the Standard Model is the most precisely tested theory in physics, and it is unitary, causal, and local by construction. The hard part is showing these three properties survive <strong>above the cutoff</strong>, where, in any theory that includes gravity, the graviton and the full tower of massive modes (here the Kaluza–Klein tower of the compact 13D geometry) become <strong>strongly coupled</strong>. At those scales perturbation theory breaks down, the dimensionful coupling Gₙ E² grows without bound in naïve power counting, and there is no guarantee that the resummed amplitudes stay inside unitarity bounds.</p>
+<h3>2.2 State of the art / best bound</h3>
+<p>No theory of quantum gravity anywhere establishes above-cutoff unitarity from first principles. This is not a gap peculiar to this program — it is <em>the</em> unsolved UV-completion-of-gravity problem, shared across the field:</p>
+<ul>
+<li><strong>Asymptotic safety</strong> conjectures a non-Gaussian ultraviolet fixed point of the gravitational renormalization-group flow that would render gravity predictive (finitely many relevant couplings) and, if realized with the right reality/positivity structure, above-cutoff-controlled. It remains a conjecture: no truncation-independent proof of the fixed point exists, and the connection from a Euclidean fixed point to Lorentzian-signature unitarity is itself open.</li>
+<li><strong>String theory</strong> offers a manifestly unitary perturbative S-matrix and tames the UV by replacing point particles with extended objects; but a background-independent, nonperturbative formulation that would certify unitarity in a given low-energy vacuum is not in hand.</li>
+<li><strong>Causal dynamical triangulations / loop approaches</strong> replace the continuum with a discrete substrate; none has delivered a unitarity certificate for the emergent low-energy theory.</li>
+</ul>
+<p>On the <strong>causality</strong> side, the strongest <em>empirical</em> bound on graviton propagation is the multi-messenger constraint from the binary-neutron-star merger:</p>
+<blockquote>
+<p>|cₘ − c| / c &lt; 10⁻¹⁵</p>
+</blockquote>
+<p>derived from the near-simultaneous arrival of the gravitational-wave signal <strong>GW170817</strong> and the gamma-ray burst <strong>GRB170817A</strong> (two triggers ~1.7 s apart). This is the tightest existing constraint that the graviton's low-energy zero-mode propagates at the speed of light. (Source: <code>UQF14_COMPLETION_RESULT.md</code> §6; <code>01_DOSSIER.md</code> §A; <code>02_CURRENT_STATE.md</code> row ANCHOR-UQF14-GRAVITON-SPEED.)</p>
+<p>On the <strong>strong-interaction</strong> side, establishing that the <em>physical</em> Hilbert space of a confining gauge theory is positive-norm nonperturbatively is equivalent to constructing the theory and proving a mass gap — the <strong>Yang–Mills existence and mass-gap problem</strong>, one of the Clay Mathematics Institute Millennium Problems, <strong>unsolved</strong>.</p>
+<h3>2.3 Prior attempts and why each falls short — for <em>this</em> gate's purpose</h3>
+<p>The honest framing of UQF-14 is that it should <strong>not</strong> try to out-do the field on any of these frontier problems. The repeated failure mode (named explicitly in the source material) is the <strong>cross-cutoff stretch</strong>: taking a perturbative, in-scope theorem and quietly extending it past its domain of validity to "close" an above-cutoff or nonperturbative claim. Three concrete examples of the trap, each of which is a RELABEL_FAIL in the internal grading and is <em>forbidden</em> here (Source: <code>02_CURRENT_STATE.md</code> §0; <code>04_MOUNT_TEST.md</code> falsification tests):</p>
+<ol>
+<li>"Epstein–Glaser all-orders microcausality ⇒ causality holds nonperturbatively." <strong>False move.</strong> Causal perturbation theory is an order-by-order construction; it is silent in the nonperturbative regime.</li>
+<li>"Kugo–Ojima ghost cancellation ⇒ confinement is unitary." <strong>False move.</strong> Kugo–Ojima decouples the unphysical sector <em>given</em> a positive physical subspace; it does not <em>establish</em> nonperturbative positivity, which is the Clay problem.</li>
+<li>"Finite-truncation locality ⇒ full-tower cluster decomposition." <strong>False move.</strong> A finite KK truncation says nothing about the convergence of the infinite tower at E ≳ M_KK.</li>
+</ol>
+<p>The gate's contribution to the community problem is therefore not a frontier proof; it is <strong>structural discipline</strong> — a clean separation of what is genuinely banked from what is genuinely open, with the open parts routed to their true owners as auditable contracts rather than buried.</p>
+<hr />
+<h2>3. The construction — rigorous math</h2>
+<blockquote>
+<p>The full per-sector audit lives in the published manuscript: Quantum Paper III, §17 ("UQF-14 — Unitarity / Causality / Locality Audit"), the §2/§3 gate ladder, and Q3 / Appendix U, module <strong>U-AUDIT-B</strong> (the formal per-sector inventory: negative-norm/ghost ledger, commutator-vanishing ledger, audit-status matrix). Public copy: <a href="https://physics.magflowmeters.com/articles/Quantum.html">https://physics.magflowmeters.com/articles/Quantum.html</a>. This section is the attack-grade recap; the manuscript controls the common material. (Source: <code>01_DOSSIER.md</code> §0.2.)</p>
+</blockquote>
+<h3>3.1 The descent chain (how the geometry supplies the inputs)</h3>
+<p>The 13D action is <strong>local in 13D</strong> — a property of the frozen construction, not a derived result. At each four-dimensional spacetime point, integrating out the compact factors K₆ × S² × S¹_Y/ℤ₂ produces a four-dimensional effective action. The chain, named so a reader can attack each link (Source: <code>01_DOSSIER.md</code> §1.1; <code>GATE_BRIEF_UQF14.md</code>):</p>
+<pre><code> 13D local action
+    --integrate out K₆ × S² × S¹_Y/ℤ₂ per spacetime point--&gt;
+ 4D effective action
+    (local at any FINITE KK truncation; analytic O(E²/M_KK²) corrections only)
+    --descend each carrier--&gt;
+ graviton zero-mode, gluons, W/Z, photon, Higgs, chiral fermions
+    --inherit per carrier--&gt;
+ commutator structure (microcausality) + BRST/positivity bookkeeping (unitarity)
+    --apply standard QFT theorems IN SCOPE--&gt;
+ banked perturbative / truncated-KK certificate
+    --above the cutoff / nonperturbatively--&gt;
+ INHERITS upstream blockers (UQF-9 / UQF-10 / UQF-11 / BG-10)
+</code></pre>
+<p>The four load-bearing facts, with their built-in attack handles:</p>
+<ol>
+<li><strong>13D locality is given.</strong> The action is local in 13D. <em>Attack handle:</em> locality <em>in 13D</em> plus finite-truncation locality <em>in 4D</em> does <strong>not</strong> establish locality with the <strong>full infinite KK tower</strong> — that is residual R3, owned by UQF-10.</li>
+<li><strong>Finite-truncation 4D locality.</strong> At any finite KK cutoff the 4D EFT is local with only analytic, EFT-suppressed O(E²/M_KK²) corrections. <em>Attack handle:</em> this is an EFT statement valid at E ≪ M_KK; it says nothing about E ≳ M_KK where the tower is strongly coupled.</li>
+<li><strong>Per-carrier positivity &amp; microcausality bookkeeping.</strong> Each descended field inherits a standard ghost/positivity structure and a standard (anti)commutator. <em>Attack handle:</em> the bookkeeping is <em>perturbative</em>; the <strong>nonperturbative</strong> physical Hilbert space (confinement) is residual R2, owned by UQF-11.</li>
+<li><strong>The graviton zero-mode propagation speed</strong> equals c to the measured precision. <em>Attack handle:</em> this is the <em>zero-mode</em>, low-energy; above-cutoff graviton unitarity is residual R1, owned by UQF-9.</li>
+</ol>
+<p>A one-line discipline statement governs the whole section: <em>"The geometry is given" is NOT "the high-energy theory is proven consistent."</em> Supplying a consistent set of fields below the cutoff does not derive the theory's behavior above it.</p>
+<h3>3.2 The decisive reduction: three pillars collapse to one class-membership statement</h3>
+<p>The first and most economical move in the campaign is a <strong>collapse, not a stretch</strong> (Source: <code>UQF14_COMPLETION_RESULT.md</code> §2; <code>specialist_reply.txt</code> §1). Unitarity, causality, and locality are <em>not</em> three independent properties each needing its own separate proof. They are three faces of <strong>one</strong> statement: that the descended theory is a member of the standard axiomatic-QFT class — a Poincaré-covariant net of observable algebras with</p>
+<ul>
+<li>a <strong>positive-definite physical state space</strong> (⇒ unitarity, no negative-norm ghosts),</li>
+<li><strong>spacelike-commuting observables</strong> (⇒ microcausality), and</li>
+<li>an <strong>energy-positivity / spectrum condition</strong> (⇒ stability and, with Lorentz covariance and a local action, cluster decomposition).</li>
+</ul>
+<p>Dropping the hidden "three independent guarantees" premise dissolves the apparent three-pillar problem into a single <strong>causal-net class-membership</strong> statement. That class-membership statement is then itself derived, given the observed Standard-Model content <strong>E</strong>, by finite-KK truncation below the cutoff from 13D locality. The net reduction is:</p>
+<blockquote>
+<p><strong>3 properties + 5 banked cancellation theorems → 1 class-membership statement, derived (given the observed Standard-Model content) by finite Kaluza–Klein truncation below the cutoff from 13-dimensional locality, resting on 2 named structural posits + 1 substrate posit + 1 measured anchor.</strong></p>
+</blockquote>
+<p>(Source: <code>UQF14_COMPLETION_RESULT.md</code> §2, verbatim reduction line.)</p>
+<p>A discipline note carried from the cert reconciliation: this collapse is recorded publicly as a <strong>DERIVED-GIVEN-E conjecture / theorem-debt</strong>, not as a proven theorem, precisely so it is not over-read. (Source: <code>08_CERT_RECONCILIATION.md</code>, deploy-prep TODO #1.)</p>
+<h3>3.3 The banked legs — rigorous content</h3>
+<p>The residual register splits the gate into seven named residuals R1–R7. Three of them — <strong>R5, R6, R7</strong> — are banked as VERIFIED, each a standard QFT result applied strictly inside its accepted scope (perturbative / finite-tower / below-cutoff), given E. (Source: <code>01_DOSSIER.md</code> §2; <code>01_BANKED_R5_R6_R7.md</code>.)</p>
+<h4>R5 — Finite-truncation 4D EFT locality / cluster decomposition</h4>
+<ul>
+<li><strong>Object.</strong> The descended 4D effective field theory of the <strong>finite KK truncation</strong> of the frozen-branch 13D-local action.</li>
+<li><strong>Scope.</strong> E ≪ M_KK (below cutoff, finite tower).</li>
+<li><strong>Theorem.</strong> A 13D-local action, with the compact factors integrated out at finite KK truncation, yields a <strong>4D-local</strong> effective action obeying cluster decomposition, with only <strong>analytic O(E²/M_KK²)</strong> corrections. The non-localities induced by integrating out massive KK modes are analytic in external momenta and power-suppressed by the heavy scale — i.e. they are ordinary local higher-dimension operators in the EFT expansion, not genuine non-localities.</li>
+<li><strong>Why cluster decomposition follows.</strong> With a local action, Lorentz covariance, and the spectral condition (energy positivity), cluster decomposition is the standard consequence: correlation functions factorize at large spacelike separation. (Source: <code>01_DOSSIER.md</code> §0.1, R5; <code>02_CURRENT_STATE.md</code> (iii).)</li>
+<li><strong>Modal status.</strong> DERIVED-GIVEN-E (perturbative / EFT).</li>
+<li><strong>What it does NOT prove.</strong> It does <strong>not</strong> close R3. Finite truncation ≠ full infinite tower; strong coupling / convergence of the tower at E ≳ M_KK is exported to UQF-10. The falsification test "R5 ⇒ close R3" is a RELABEL_FAIL. (Source: <code>01_BANKED_R5_R6_R7.md</code>, R5 falsification test.)</li>
+</ul>
+<h4>R6 — Per-sector perturbative ghost / unphysical-polarization decoupling</h4>
+<ul>
+<li><strong>Object.</strong> Per-sector decoupling of unphysical states from the physical subspace, on the physical Hilbert space H_phys = ker Q_BRST / im Q_BRST.</li>
+<li><strong>Scope.</strong> Perturbative, per-sector.</li>
+<li><strong>Theorems (the five banked cancellation results).</strong></li>
+<li><strong>Gluons:</strong> <strong>Kugo–Ojima</strong> quartet mechanism — the BRST quartet (the two unphysical gluon polarizations plus the ghost/antighost) cancels in pairs on H_phys.</li>
+<li><strong>W/Z (weak bosons):</strong> the <strong>Higgs mechanism</strong> plus the <strong>Equivalence Theorem</strong> — the longitudinal polarizations of the massive vectors are controlled by the would-be Goldstone bosons, and unphysical modes decouple from physical amplitudes at high energy.</li>
+<li><strong>Photon:</strong> <strong>Gupta–Bleuler / BRST</strong> — the timelike and longitudinal photon polarizations cancel on the physical subspace.</li>
+<li><strong>Fermions:</strong> <strong>spin-statistics</strong> with <strong>no surviving mirror fermions</strong> — the chirality projection of the frozen geometry leaves no light mirror partners, consistent with the LEP neutrino count and the no-light-mirror structure banked upstream at UQF-7. (Source: <code>01_DOSSIER.md</code> §0.1, R6; <code>GATE_BRIEF_UQF14.md</code>.)</li>
+<li><strong>Modal status.</strong> DERIVED-GIVEN-E <strong>and</strong> GIVEN <code>AXIOM-PHYSICAL-POSITIVITY</code> (perturbative kinematic positivity).</li>
+<li><strong>The load-bearing caveat (do not lose it).</strong> These theorems <strong>decouple the unphysical sector GIVEN a positive physical subspace; they do not by themselves establish that positivity.</strong> Nonperturbative 4D Yang–Mills positivity sits <em>upstream</em> of all five theorems and is exported to R2 → UQF-11/Gap-02. The dossier prose "cancellation on the physical Hilbert space" must inherit this caveat. (Source: <code>01_BANKED_R5_R6_R7.md</code>, R6; <code>specialist_reply.txt</code> R6 note; <code>08_CERT_RECONCILIATION.md</code> deploy-prep TODO #2: scope <code>AXIOM-PHYSICAL-POSITIVITY</code> to perturbative kinematics only.)</li>
+<li><strong>What it does NOT prove.</strong> It does <strong>not</strong> close R2. Perturbative ghost-decoupling ≠ nonperturbative confinement / physical-Hilbert-space unitarity. Falsification test "R6 ⇒ close R2" is a RELABEL_FAIL; so is relabeling nonperturbative-YM-positivity as a terminal corpus axiom.</li>
+</ul>
+<h4>R7 — Perturbative all-orders microcausality + the measured graviton-speed anchor</h4>
+<ul>
+<li><strong>Object.</strong> (a) all-orders perturbative microcausality; (b) measured zero-mode graviton luminality.</li>
+<li><strong>Scope.</strong> (a) perturbative, all orders; (b) graviton <strong>zero-mode / low-energy / single astrophysical baseline</strong> only.</li>
+<li><strong>Theorem / anchor.</strong></li>
+<li>(a) Each free-field carrier (graviton zero-mode and each KK mode, gluon, W, Z, photon, Higgs, each fermion and KK partner) has a <strong>Pauli–Jordan / Proca / Klein–Gordon / Dirac</strong> commutator vanishing outside the lightcone. This is extended to <strong>all loop orders</strong> by <strong>Epstein–Glaser causal perturbation theory</strong> — the rigorous, regulator-free inductive construction of the time-ordered products that builds microcausality in order by order. Kept <strong>perturbative</strong> (silent nonperturbatively / above-cutoff). (Source: <code>01_DOSSIER.md</code> §0.1, R7; handoff "Banked" item 2.)</li>
+<li>(b) The measured graviton-speed anchor from GW170817 + GRB170817A — see §3.4 for the number hygiene that must travel with it.</li>
+<li><strong>Modal status.</strong> (a) DERIVED-GIVEN-E (perturbative); (b) measured-but-irreducible <strong>zero-mode</strong> anchor.</li>
+<li><strong>What it does NOT prove.</strong> It does <strong>not</strong> close R1. Below-cutoff ≠ above-cutoff; Epstein–Glaser is kept perturbative; the measured cₘ covers the graviton zero-mode / low-energy / single-baseline only and is <strong>not</strong> a quantum-gravity causality certificate. Falsification tests "R7 ⇒ close R1" and "measured cₘ ⇒ full quantum-gravity causality" are RELABEL_FAILs. (Source: <code>01_BANKED_R5_R6_R7.md</code>, R7.)</li>
+</ul>
+<h3>3.4 Number hygiene: the GW170817 / GRB170817A anchor (the one measured invariant)</h3>
+<p>The headline graviton-speed bound is</p>
+<blockquote>
+<p>|cₘ − c| / c &lt; 10⁻¹⁵</p>
+</blockquote>
+<p>derived from the near-simultaneous arrival of GW170817 and GRB170817A (two triggers ~1.7 s apart). <strong>This bound is not itself the measured atom.</strong> The bare measured invariant is narrower: <strong>two detector triggers ~1.7 s apart of laboratory clock time at a shared apparatus.</strong> Converting that coincidence into a fractional speed bound imports <strong>three named, non-irreducible co-premises</strong>, which must travel with the number wherever it is shown (Source: <code>UQF14_COMPLETION_RESULT.md</code> §6; <code>specialist_reply.txt</code> R7; <code>01_BANKED_R5_R6_R7.md</code> R7(b)):</p>
+<ol>
+<li>a <strong>common-emission-time model</strong> (that the two messengers left one source with a bounded intrinsic emission-time offset);</li>
+<li>the <strong>~40 Mpc baseline</strong>, itself a distance-ladder / redshift-inferred quantity;</li>
+<li><strong>shared causal order</strong> — needed even to call two propagation rates "equal."</li>
+</ol>
+<p>The bare clock-coincidence is the measured atom; the speed bound is a derived statement given those three co-premises. The bound is a <strong>single low-energy, single-baseline</strong> datum and <strong>cannot</strong> be promoted to cover the strongly-coupled, above-cutoff graviton sector — that is R1 / UQF-9.</p>
+<h3>3.5 The weakest-link split (the one honest table)</h3>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Residuals</th>
+<th>Status</th>
+<th>Terminates on</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Banked</strong> (certificate-tier, perturbative + truncated-KK)</td>
+<td>R5, R6, R7</td>
+<td><strong>VERIFIED (banked)</strong></td>
+<td>standard QFT theorems in-scope + E; + one measured invariant (cₘ)</td>
+</tr>
+<tr>
+<td><strong>Open</strong> (sets the badge; inherited)</td>
+<td>R1, R2, R3, R4</td>
+<td><strong>OPEN / EXPORTED</strong></td>
+<td>upstream gates UQF-9, UQF-11, UQF-10, BG-10 — each AUDIT/OPEN</td>
+</tr>
+</tbody>
+</table>
+<p>The badge is the weakest link. Three banked legs do not lift the gate; four inherited-open legs hold it at <strong>AUDIT (OPEN)</strong>. (Source: <code>01_DOSSIER.md</code> §2.1; <code>02_CURRENT_STATE.md</code> (ii).)</p>
+<hr />
+<h2>4. The insights we used</h2>
+<p>These are the moves that made the progress believable and reproducible — shareable in full.</p>
+<h3>4.1 The three-pillars collapse (dissolving a false multiplicity)</h3>
+<p>The first insight is recognizing that "unitarity AND causality AND locality" is not a conjunction of three independent proof obligations but a <strong>single class-membership</strong> statement in axiomatic QFT (§3.2). The hidden premise — "three independent guarantees, three separate proofs" — is what makes the problem look three times as hard as it is. Dropping it does not weaken anything; it <em>clarifies</em> that there is one object to establish (membership in the Wightman / Haag–Kastler class) with three observable consequences. This is a genuine economy, and it is recorded honestly as a DERIVED-GIVEN-E conjecture, not as a finished theorem.</p>
+<h3>4.2 The weakest-link / min-rule discipline</h3>
+<p>The second insight is the <strong>min-rule</strong>: an audit gate's verdict is the least-closed of its residuals. This is what keeps the gate honest. It would be easy — and wrong — to advertise "three legs banked!" as if the gate were two-thirds closed. Under the min-rule, the three banked legs are real but <em>do not move the badge</em>; the four inherited-open legs do. The min-rule is the formal mechanism that prevents grade inflation on a gate that genuinely has strong sub-results. (Source: <code>06_GATE_GRADING_RUBRIC.md</code> via <code>02_CURRENT_STATE.md</code>; <code>01_DOSSIER.md</code> §2.1.)</p>
+<h3>4.3 Export-as-contract (routing, not burying)</h3>
+<p>The third insight is to treat each open leg not as a vague prose pointer ("this is hard, see quantum gravity") but as a <strong>typed bridge contract</strong> with an explicit shape: {required object · required theorem/certificate · must-NOT-rely-on · falsifiers/rejection-triggers · mount criteria · owner · disposition-until-mounted · gate effect}. An export is then auditable: a reader can check that the right object is being asked of the right owner, and that the open leg is not silently resting on an already-failed upstream. (Source: <code>07_CONVERGED_CLOSURE_PATH.md</code>; <code>02_BRIDGE_CONTRACTS_R1_R4.md</code>.)</p>
+<h3>4.4 The mount test (when an upstream certificate may actually discharge a leg)</h3>
+<p>The fourth insight is the <strong>five-axiom mount test</strong>: an upstream certificate may lift one of R1–R4 <strong>only if</strong> it passes all five of ANCHOR, OBJECT IDENTITY, FAITHFUL BRIDGE, COMPOSITION, MODAL STATUS. This is the guard against a plausible-looking but mis-targeted upstream result being waved through. In particular MODAL STATUS forces the certificate to prove the <em>required</em> modal class (above-cutoff / nonperturbative / full-tower), not mere admissibility; and COMPOSITION forces "sector → whole" to be proven, not assumed (e.g. finite-truncation locality must be shown to <em>compose</em> to the full tower). (Source: <code>04_MOUNT_TEST.md</code>.)</p>
+<h3>4.5 The meta-guardrail: convergence ≠ proof</h3>
+<p>The fifth and subtlest insight is recorded as a META-GUARDRAIL: <em>convergence of our reasoning is not proof of the physics — it is proof the bookkeeping has stabilized.</em> The campaign reached a fixed point (no sixth axiom needed; the reduction bottoms out cleanly). That fixed point is <strong>bookkeeping stability, not closure.</strong> The gate stays AUDIT (OPEN) until the upstream bridge objects are actually <em>built and mounted</em>. This is the guard against the deepest trap — mistaking a stable, self-consistent internal account for an external physical result. (Source: <code>07_CONVERGED_CLOSURE_PATH.md</code>; <code>04_MOUNT_TEST.md</code> META-GUARDRAIL.)</p>
+<h3>4.6 Why the dominant blind spot is "anchoring on the representation"</h3>
+<p>The recurring near-miss the discipline is built to catch is <strong>anchoring on the representation</strong>: treating the finite / perturbative / below-cutoff / descended-4D-EFT certificate as if it were the full / nonperturbative / above-cutoff / infinite-KK physical theory. Every banked leg has a precisely-stated scope, and every falsification test is a specific instance of refusing this slide (R5↛R3, R6↛R2, R7↛R1, cₘ↛full-QG-causality). Naming the blind spot explicitly is what lets a reader audit that no leg was banked too broadly. (Source: <code>07_CONVERGED_CLOSURE_PATH.md</code> "Dominant blind spot"; <code>01_BANKED_R5_R6_R7.md</code> banking-scope summary.)</p>
+<hr />
+<h2>5. Evidence &amp; reproducibility</h2>
+<h3>5.1 The certificate of record</h3>
+<p>The campaign produced a certificate packet returning verdict <strong>AUDIT_COMPLETE_OPEN</strong> (cert id <code>wm1z47vzm</code>, 2026-06-26), a clean confirmation of the converged endpoint with no over- or under-claim. (Source: <code>08_CERT_RECONCILIATION.md</code>.) The packet lives at <code>…/UQF14_COMPLETION_HANDOFF/certificates/UQF14_AUDIT_COMPLETE/</code> and contains:</p>
+<ul>
+<li><code>00_README_VERDICT.md</code> — the verdict header.</li>
+<li><code>01_BANKED_R5_R6_R7.md</code> — the three banked legs, each with explicit scope and falsification test.</li>
+<li><code>02_BRIDGE_CONTRACTS_R1_R4.md</code> — the four typed export contracts.</li>
+<li><code>03_WALL_RECORDS.md</code> — the four wall records (one per open residual).</li>
+<li><code>04_MOUNT_TEST.md</code> — the five-axiom mount test and current certificate states.</li>
+<li><code>05_FINAL_ROLLUP.md</code> — the gate roll-up.</li>
+</ul>
+<p>The verdict's meaning is precise and is reproduced verbatim so it is not mis-read: <strong>"audit-complete but physically OPEN."</strong> "Completion" means the <em>reduction reached its honest fixed point</em> — no further-reducible step remains inside the gate's scope. It does <strong>not</strong> mean the gate is solved or passes. (Source: <code>UQF14_COMPLETION_RESULT.md</code> status note; <code>07_CONVERGED_CLOSURE_PATH.md</code>.)</p>
+<h3>5.2 Frozen geometry hashes</h3>
+<p>All work rides the frozen branch <strong><code>dcc66f1b2685</code></strong> (branch) / <strong><code>a5b1e6f9d951</code></strong> (manifest meta), READ-ONLY and unmodified. A silent frozen-branch change is itself a falsification test trigger (→ REFUTED / restart). (Source: <code>01_DOSSIER.md</code> §0; <code>04_MOUNT_TEST.md</code> falsification tests.)</p>
+<h3>5.3 Current upstream-gate standings (must travel with every export)</h3>
+<p>So the gate cannot be read as resting on already-closed upstreams, the four exported legs carry their current upstream standing verbatim (Source: <code>02_BRIDGE_CONTRACTS_R1_R4.md</code>; <code>specialist_reply.txt</code> §5 fix #4; <code>08_CERT_RECONCILIATION.md</code> TODO #3):</p>
+<table>
+<thead>
+<tr>
+<th>Residual</th>
+<th>Owner</th>
+<th>Owner standing</th>
+<th>Certificate state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1 (above-cutoff graviton unitarity)</td>
+<td>UQF-9 ( = B3, the universal UV wall)</td>
+<td><strong>AUDIT</strong></td>
+<td><strong>MISSING</strong></td>
+</tr>
+<tr>
+<td>R2 (nonperturbative strong-sector unitarity)</td>
+<td>UQF-11 / Gap-02 (Clay Yang–Mills mass gap)</td>
+<td><strong>Precisely-OPEN / AUDIT</strong></td>
+<td><strong>MISSING</strong></td>
+</tr>
+<tr>
+<td>R3 (full-tower cluster decomposition)</td>
+<td>UQF-10 (downstream of UQF-9/B3)</td>
+<td><strong>AUDIT</strong></td>
+<td><strong>MISSING</strong></td>
+</tr>
+<tr>
+<td>R4 (nonperturbative EW instantons/sphalerons)</td>
+<td>BG-10</td>
+<td><strong>Open / Diagnostic — 0-of-4 at certificate grade</strong></td>
+<td><strong>MISSING</strong></td>
+</tr>
+</tbody>
+</table>
+<p>All four upstream certificates are currently <strong>MISSING</strong>; the gate does not rise.</p>
+<h3>5.4 The named-posit floor (the irreducibility judgment)</h3>
+<p>The reduction bottoms out on the following set. A posit is <strong>irreducible</strong> only if it is a directly measured invariant or is proven irreducible; plausibly-deep is not sufficient, and the default under uncertainty is <em>not irreducible</em>. (Source: <code>UQF14_COMPLETION_RESULT.md</code> §5; <code>specialist_reply.txt</code> §2A.)</p>
+<table>
+<thead>
+<tr>
+<th>Posit</th>
+<th>Role</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bare coincidence anchor</strong> (the two-detector ~1.7 s timing measurement, §3.4)</td>
+<td>the one measured invariant carrying the floor</td>
+<td><strong>IRREDUCIBLE</strong> — a recorded measured invariant; floor ≥ 1 satisfied. Deriving it from structure would be circular.</td>
+</tr>
+<tr>
+<td><strong>Shared causal order</strong> (one shared, observer-independent lightcone structure)</td>
+<td>structural root #1 — makes "spacelike-commuting", "lightcone", and "compare two speeds" simultaneously meaningful</td>
+<td><strong>NOT irreducible</strong> → reduces to the corpus <em>SHAPE</em> posit; terminal as a named corpus posit, never as an in-gate derivation.</td>
+</tr>
+<tr>
+<td><strong>Physical positivity</strong> (positive-definite inner product on physical states)</td>
+<td>structural root #2 — the true root of unitarity, logically independent of causal order</td>
+<td><strong>NOT irreducible</strong> → reduces to the corpus quantum-kinematics <em>SHAPE / GRANULARITY</em> posit; upstream of all five banked cancellation theorems.</td>
+</tr>
+<tr>
+<td><strong>Substrate disposition</strong> (a 13D substrate — continuum or granular below the cutoff — on which a point, a derivative, and a cone exist)</td>
+<td>the deepest structural premise reached</td>
+<td><strong>NOT irreducible</strong> → reduces to the corpus <em>GRANULARITY / SCALE</em> posits.</td>
+</tr>
+<tr>
+<td><strong>Causal-net membership</strong></td>
+<td>the collapse umbrella (the single class-membership statement)</td>
+<td><strong>DERIVED-GIVEN-E</strong>, by finite-KK truncation below the cutoff from the structural roots + substrate; not a free posit.</td>
+</tr>
+<tr>
+<td><strong>Scope-validity rule</strong></td>
+<td>a discipline boundary rule</td>
+<td>meta-rule; floor contribution 0; never promoted.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Fixed-point judgment:</strong> exactly one posit is claimed irreducible (the bare coincidence anchor), satisfying the floor of at least one measured invariant; every other member is in a terminal disposition. Continuing to "reduce" further would mean either reducing the corpus GRANULARITY/SCALE/SHAPE posits inside this gate (out of scope) or deriving a measurement from structure (circular). The reduction has reached its honest fixed point.</p>
+<h3>5.5 How a reader re-runs / re-derives</h3>
+<p>There is no numerical simulation to re-run for this gate — it is an <em>audit</em> gate, and its evidence is a chain of in-scope theorem applications plus one measured anchor. A reader checks it by:</p>
+<ol>
+<li><strong>Re-deriving each banked leg in scope.</strong> Confirm R5 (finite-truncation EFT locality, analytic O(E²/M_KK²) corrections), R6 (the five cancellation theorems on H_phys, given physical positivity), and R7 (Pauli–Jordan/Dirac commutator support + Epstein–Glaser all-orders) against any standard QFT reference, and confirm each is applied inside its stated scope.</li>
+<li><strong>Re-running the four falsification tests.</strong> For each of R5→R3, R6→R2, R7→R1, and cₘ→full-QG-causality, confirm the cross is <em>forbidden</em> — i.e. that no banked leg is used to close an open leg.</li>
+<li><strong>Checking the number hygiene.</strong> Confirm |cₘ − c|/c &lt; 10⁻¹⁵ is never shown without its three co-premises, and that the bare measured atom is the ~1.7 s two-trigger coincidence.</li>
+<li><strong>Echoing the upstream standings.</strong> Confirm the four exports name UQF-9 (AUDIT), UQF-11/Gap-02 (Precisely-OPEN), UQF-10 (AUDIT), BG-10 (0-of-4).</li>
+<li><strong>The independent open task</strong> — re-deriving the U-AUDIT-B inventory tables line-by-line — is itself one of the open holes (see §6, Hole H5); it is <em>not</em> yet done, and is marked OPEN.</li>
+</ol>
+<hr />
+<h2>6. Open gaps + closure path (the specialist work plan)</h2>
+<blockquote>
+<p>The most load-bearing section. Each open hole is a work-package a specialist can pick up and start. <strong>STATUS-UPGRADES:0</strong> — a refuting result is a valid close. The decisive context-setting fact: <strong>there is no self-contained closure for UQF-14.</strong> The gate rises <em>only</em> as its upstream dependencies rise; the correct next move is the upstream bridge program, <strong>not</strong> re-attacking UQF-14. (Source: <code>07_CONVERGED_CLOSURE_PATH.md</code> strongest endpoint.) The holes below are stated in the order of the specialist hole-queue. (Source: <code>SPECIALIST_HOLE_QUEUE_2026-06-29.md</code> lines 206–217; <code>GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md</code> lines 789–828.)</p>
+</blockquote>
+<h3>Hole H1 (R1) — Above-cutoff graviton-sector unitarity → UQF-9</h3>
+<p><strong>(a) Precise statement.</strong> Establish that the graviton sector remains unitary — no negative-norm physical states; high-energy amplitude growth respecting unitarity / Froissart bounds — <strong>above the perturbative cutoff</strong>, where the graviton and the full KK tower are strongly coupled, for the frozen branch.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons / traps.</strong> This is the badge-setting residual and it is a <strong>global open problem of quantum gravity</strong>, not a defect of this program. No in-framework theorem reaches above the cutoff. The required object — a nonperturbative / UV-complete above-cutoff graviton-unitarity certificate — <em>does not exist on the frozen branch</em>. <strong>Traps the verifier flagged, do not repeat:</strong>
+- The cardinal-sin move "substrate granularity UV-regulates the above-cutoff graviton sector, therefore the badge lifts" <strong>assumes the answer to UQF-9</strong> and is a RELABEL_FAIL. Those UV consequences are owned by UQF-9. (Source: <code>specialist_reply.txt</code> §3 cardinal-sin guard; <code>04_MOUNT_TEST.md</code>.)
+- Do <strong>not</strong> use Epstein–Glaser, finite-EFT locality, or the measured cₘ as an above-cutoff proof. (Source: <code>02_BRIDGE_CONTRACTS_R1_R4.md</code> R1 must-NOT-rely-on.)
+- This hole is correctly flagged <strong>DO-NOT-CHASE: unicorn</strong> in the cross-gate UQF-5C queue — above-cutoff unitarity cannot be settled until the UV completion is, and it cannot be reframed as malformed without first proving the relevant prerequisite. (Source: <code>SPECIALIST_HOLE_QUEUE_2026-06-29.md</code> line 295.)</p>
+<p><strong>(c) Exactly what closes it.</strong> A UV-completion certificate for UQF-9 / B3 — e.g. a truncation-independent non-Gaussian fixed point, or a defensible non-continuum replacement — that validates above-cutoff graviton unitarity / Froissart-bound / Landau-pole control, and that passes the five-axiom mount test (in particular MODAL STATUS: it must prove the <strong>above-cutoff</strong> status, not mere admissibility). <em>Success:</em> mounted, R1 (and the badge) lift. <em>A refuting result that closes it negatively:</em> uncontrolled high-E amplitudes, a negative-norm physical state above the cutoff, or a regulator-dependent conclusion — any of these falsifies the above-cutoff unitarity claim and is a valid (negative) close. (Source: <code>02_BRIDGE_CONTRACTS_R1_R4.md</code> R1; <code>SPECIALIST_HOLE_QUEUE_2026-06-29.md</code> line 209.)</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Start from the UQF-9 dossier and the shared-blocker B3 ledger. The concretely-buildable sub-object on the frozen branch is the <strong>6th heat-kernel coefficient a₆</strong> (a <em>necessary-not-sufficient</em> input to the fixed-point question); its current state is AUDIT_UNVERIFIED — two computation routes disagreed, and only the dimensionless <strong>124/315</strong> ratio is clean (DERIVED-PENDING-INDEPENDENT-TARGET-BLIND-REPRODUCTION); the dimensionful magnitude is scheme/scale-anchored, and an order-6 mixed Neumann+Dirichlet boundary coefficient for S¹_Y/ℤ₂ does <strong>not exist in the literature</strong> (the boundary tower stops at a₅). (Source: <code>MASTER_AXIOM_FLOOR_AND_WALL_LEDGER.md</code> B1/B3 rows; <code>GATE_REGRADE…</code> lines 1073–1077.) Do <strong>not</strong> fabricate a₆ magnitudes, a positivity functional pass, or the orbifold-defect total.</p>
+<p><strong>(e) Leverage.</strong> R1 and R3 <strong>both bottom on B3</strong> (the universal UV wall). Closing UQF-9 lifts R1 (the badge) here, lifts the downstream UQF-10 leg (R3), and feeds Gap-01, Gap-13, the graviton certificate (UQF-5A/5B), and the UV-divergence-class dissolution recorded at UQF-9. This is the single highest-leverage node for the whole quantum-gravity column. (Source: <code>MASTER_AXIOM_FLOOR_AND_WALL_LEDGER.md</code> B3 row; <code>02_BRIDGE_CONTRACTS_R1_R4.md</code> dependency graph.)</p>
+<h3>Hole H2 (R2) — Nonperturbative strong-sector unitarity → UQF-11 / Gap-02</h3>
+<p><strong>(a) Precise statement.</strong> Establish that the strong sector's <strong>physical Hilbert space</strong> is positive-norm <strong>nonperturbatively</strong> — i.e. color confinement and a mass gap fixing what the asymptotic states actually are.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons / traps.</strong> The nonperturbative certificate is the <strong>Yang–Mills mass gap</strong> — a Clay Millennium problem. The UV framework supplies UV data only and <strong>structurally cannot</strong> supply the IR certificate. <strong>Two traps the verifier explicitly flagged:</strong>
+- Do <strong>not</strong> rely on perturbative BRST / Kugo–Ojima alone: those presuppose positivity, they do not establish it. (Source: <code>02_BRIDGE_CONTRACTS_R1_R4.md</code> R2 must-NOT-rely-on; <code>01_BANKED_R5_R6_R7.md</code> R6.)
+- <strong>The Clay-level framing is itself a retired continuum unicorn — do not chase it as stated.</strong> The verifier note (Source: <code>GATE_REGRADE…</code> line 828(c)) records that pinning the close-condition to "the level the Clay Millennium problem requires" = the continuum a→0 uniform inequality, which the corpus's own <code>COMMON_BLINDSPOTS.md</code> (BS-1, lines 21–24) and <code>MASTER_AXIOM_FLOOR_AND_WALL_LEDGER.md</code> (W-MG row) name as a <strong>retired continuum unicorn: REDUCED-TO-AXIOM (granularity), axiom-conditional.</strong> The honest <em>bounded</em> target is the <strong>finite-resolution z* &lt; 1 face of Marginal-KP</strong> — the finite IR gap that survives granularity as computation-debt (≈ the measured glueball mass). The dissolution is <strong>axiom-conditional on the granularity posit P1</strong>, never "solved," and you must do the finite computation anyway with a negative control (the κ³/π lesson — do not let granularity make the result true-by-construction). (Source: <code>COMMON_BLINDSPOTS.md</code> BS-1 honesty guards; <code>MASTER_AXIOM_FLOOR_AND_WALL_LEDGER.md</code> W-MG.)
+- <strong>Hidden co-gate:</strong> the verifier flags that <strong>4D SU(3) continuum-measure existence</strong> is a separate, independent OPEN co-gate (Gap-02 R3) that the loosely-worded "spectral-gap lower bound" can absorb and hide. Treat measure-existence as its own object, not folded into the gap inequality. (Source: <code>GATE_REGRADE…</code> line 828(b).)</p>
+<p><strong>(c) Exactly what closes it.</strong> <em>Bounded form (correct):</em> a finite-resolution (z* &lt; 1) spectral-gap result for the relevant SU(3) gauge theory — the finite IR gap, axiom-conditional on granularity, with a negative control — plus an explicit disposition of 4D SU(3) measure-existence. <em>Frontier form (the unicorn, do not target):</em> the continuum a→0 uniform inequality. <em>Success:</em> a finite gap certificate that passes the mount test discharges R2. <em>Refuting close:</em> nonperturbative positivity fails / a negative-norm physical state survives confinement → valid negative close. (Source: <code>SPECIALIST_HOLE_QUEUE_2026-06-29.md</code> line 211; <code>02_BRIDGE_CONTRACTS_R1_R4.md</code> R2; <code>COMMON_BLINDSPOTS.md</code> BS-1.)</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Gap-02 dossier; the "uniform clustering ⇒ gap" implication is already rigorous — the open object is one <strong>marginal-coercivity inequality in the d=4 band</strong> (Source: <code>01_DOSSIER.md</code> R2). The W-MG ledger row gives the exact split: continuum half retired by P1; finite IR gap survives as computation-debt. Lattice-style finite computation is the natural tool; do not fabricate a gap and do not axiomatize a pass.</p>
+<p><strong>(e) Leverage.</strong> Closing the strong-sector IR certificate lifts R2 here and discharges the UQF-11/Gap-02 dependence shared with Born, Λ, and (conditionally) UQF-14. (Source: <code>MASTER_AXIOM_FLOOR_AND_WALL_LEDGER.md</code> W-MG affected-row list.)</p>
+<h3>Hole H3 (R3) — Full infinite-KK-tower cluster decomposition → UQF-10</h3>
+<p><strong>(a) Precise statement.</strong> Establish that locality / cluster decomposition survives when the <strong>full infinite KK tower</strong> is kept (not just a finite truncation) — i.e. that finite-truncation locality <strong>composes</strong> to the full tower with no tachyonic/runaway mode.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons / traps.</strong> The full-tower statement requires the compact geometry to be <strong>stable as a quantum theory</strong> — UQF-10, itself <strong>downstream of UQF-9</strong> (it needs loop control of the moduli potential, which needs the UV completion). <strong>Traps:</strong>
+- Do <strong>not</strong> rely on finite KK truncation alone (falsification test R5 → R3 is RELABEL_FAIL). The COMPOSITION axiom of the mount test must be <em>proven</em>, not assumed. (Source: <code>02_BRIDGE_CONTRACTS_R1_R4.md</code> R3; <code>04_MOUNT_TEST.md</code>.)
+- This hole is additionally gated by the F1 shape-doublet saddle, currently <strong>LEANING REFUTED</strong> — a live negative signal a specialist must reconcile, not ignore. (Source: <code>03_WALL_RECORDS.md</code> WALL R3.)</p>
+<p><strong>(c) Exactly what closes it.</strong> A compactification-stability certificate for the full KK tower — <strong>moduli mass-matrix positivity, no tachyonic/runaway modes, from a <em>performed</em> RG calculation</strong> — establishing the spectral condition holds with the infinite tower, plus a proof that finite-truncation locality composes to the full-tower cluster decomposition. <em>Success:</em> mounted, R3 lifts. <em>Refuting close:</em> a <strong>tachyonic KK mode</strong> (the named falsifier) → valid negative close. (Source: <code>SPECIALIST_HOLE_QUEUE_2026-06-29.md</code> line 213; <code>02_BRIDGE_CONTRACTS_R1_R4.md</code> R3.)</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> UQF-10 dossier; the moduli potential and its loop control; the F1 shape-doublet-saddle finding (LEANING REFUTED) must be confronted first. The B3/UQF-9 UV completion sits below it.</p>
+<p><strong>(e) Leverage.</strong> R3 bottoms on B3 (shared with R1), so the UQF-9 program partially unblocks it; conversely a clean UQF-10 stability result closes the full-tower cluster-decomposition claim here.</p>
+<h3>Hole H4 (R4) — Nonperturbative electroweak (instantons / sphalerons) → BG-10</h3>
+<p><strong>(a) Precise statement.</strong> Provide the unitarity/causality bookkeeping for <strong>nonperturbative EW</strong> processes — instantons, sphalerons, high-T baryon-number violation — currently <strong>excluded by the claim boundary</strong>.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons / traps.</strong> These effects sit <strong>outside this paper's scope</strong> and inherit BG-10, which is <strong>0-of-4 at certificate grade</strong>. <strong>Trap:</strong> do not rely on perturbative EW alone, and do not let an anomaly-blind class-membership claim stand in for an anomaly-aware nonperturbative treatment. (Source: <code>02_BRIDGE_CONTRACTS_R1_R4.md</code> R4 falsifiers.)</p>
+<p><strong>(c) Exactly what closes it.</strong> Bring the nonperturbative EW sector in-scope and discharge the BG-10 sphaleron/instanton ledger at certificate grade — a <strong>finished, basis-invariant treatment</strong> (anomaly-aware SMG-class certificate) — so the excluded sub-claim becomes a banked one. <em>Refuting close:</em> a genuine nonperturbative-EW unitarity/causality violation → valid negative close, propagated to BG-10. (Source: <code>SPECIALIST_HOLE_QUEUE_2026-06-29.md</code> line 215; <code>02_BRIDGE_CONTRACTS_R1_R4.md</code> R4.)</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> BG-10 dossier (baryogenesis / nonperturbative EW); the SMG-class anomaly machinery (cf. the B2 Dai–Freed boundary-anomaly construction and the shared-blocker B4 dynamical-mirror-decoupling work). (Source: <code>MASTER_AXIOM_FLOOR_AND_WALL_LEDGER.md</code> B2/B4 rows.)</p>
+<p><strong>(e) Leverage.</strong> Routed, not closed; closing BG-10 discharges this scoped-out export and feeds the broader baryogenesis column.</p>
+<h3>Hole H5 — Independent re-derivation of the U-AUDIT-B per-sector inventory</h3>
+<p><strong>(a) Precise statement.</strong> The banked perturbative claim rests on per-sector inventory tables — the negative-norm/ghost ledger, the commutator-vanishing ledger, and the per-sector audit-status matrix — cited to <strong>Q3 Appendix U, module U-AUDIT-B</strong>. A specialist has <strong>not</strong> independently re-derived these for completeness and coverage of <em>every</em> carrier, including all KK partners. (Source: <code>SPECIALIST_HOLE_QUEUE_2026-06-29.md</code> line 216; handoff open-hole #5.)</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons / traps.</strong> It is laborious rather than deep: the risk is an <em>asserted</em> entry — a carrier listed as "commutator vanishes" or "ghost cancels" without the explicit calculation behind it — or a <em>missing</em> carrier (especially a KK partner) not in the table at all. The trap is signing off the table because it "looks complete." This is the one open hole that is genuinely <strong>internal to UQF-14</strong> and closeable without an upstream wall falling.</p>
+<p><strong>(c) Exactly what closes it.</strong> An independent line-by-line audit reproducing the U-AUDIT-B tables: verify every carrier's commutator-vanishing entry and ghost-cancellation entry, confirm no sector is missing and no entry is asserted without the explicit calculation. <em>Success:</em> every entry independently reproduced, coverage confirmed for all carriers including KK partners → R6/R7's banking is independently corroborated (still in-scope; does not lift the gate). <em>Refuting close:</em> an asserted-but-false entry, or a missing carrier → a real defect in the banked legs, fed back into R6/R7. (Source: <code>SPECIALIST_HOLE_QUEUE_2026-06-29.md</code> line 217.)</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Quantum Paper III §17 + Q3 Appendix U module U-AUDIT-B; standard QFT references for each cancellation theorem (Kugo–Ojima, Higgs+ET, Gupta–Bleuler/BRST, spin-statistics) and each commutator (Pauli–Jordan/Proca/Klein–Gordon/Dirac). The frozen-branch carrier list (graviton zero-mode + each KK mode, gluon, W, Z, photon, Higgs, each fermion + KK partner) is the coverage checklist. (Source: <code>01_DOSSIER.md</code> §0.2, R7 carrier list.)</p>
+<p><strong>(e) Leverage.</strong> Self-contained: it corroborates (or refutes) R6/R7 directly. It is the cleanest near-term specialist win on this gate because it requires no upstream certificate.</p>
+<h3>Hole H6 — Order-by-order BRST nilpotency of the descended 4D theory → UQF-4</h3>
+<p><strong>(a) Precise statement.</strong> BRST nilpotency for the descended theory (Q²_BRST = 0 at all loop orders) is asserted as a <em>falsifier condition</em>, but order-by-order nilpotency of the descended/compactified BRST is verified upstream <strong>only partially</strong> — it couples to UQF-4, which is OPEN. A nilpotency failure at some loop order would falsify the unitarity sub-claim here. (Source: handoff open-hole #6; <code>SPECIALIST_HOLE_QUEUE_2026-06-29.md</code> UQF-14 list.)</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons / traps.</strong> <strong>Trap the verifier flagged:</strong> this hole is routed to UQF-4 with an optimistic <code>bounded:true</code>, but the open-walls record marks the UQF-4 coset-twist / descended-anomaly construction as <strong>NO-KNOWN-ROUTE</strong> ("no short path exists today"). It is still genuinely bounded / specialist-closeable, but <code>bounded:true</code> should carry the <strong>no-known-route caveat</strong> — do not present it as a near-term certainty. (Source: <code>GATE_REGRADE…</code> line 828, minor note.)</p>
+<p><strong>(c) Exactly what closes it.</strong> An order-by-order BRST-nilpotency verification for the descended 4D theory (closing the relevant UQF-4 leg). <em>Success:</em> Q²_BRST = 0 confirmed to the required loop order → the falsifier condition is discharged. <em>Refuting close:</em> a nilpotency failure at some loop order → falsifies the unitarity sub-claim and propagates to UQF-4. (Source: handoff open-hole #6.)</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> UQF-4 dossier; the descended/compactified BRST construction; the coset-twist / descended-anomaly machinery (currently NO-KNOWN-ROUTE). Connect to the B2 Dai–Freed boundary-anomaly invariant where the descended anomaly bookkeeping lives. (Source: <code>MASTER_AXIOM_FLOOR_AND_WALL_LEDGER.md</code> B2 row.)</p>
+<p><strong>(e) Leverage.</strong> Couples UQF-14's unitarity bookkeeping to UQF-4; closing the UQF-4 leg discharges this falsifier and strengthens R6's foundation.</p>
+<h3>6.7 Closure-path summary (dependency graph)</h3>
+<ul>
+<li><strong>R1 + R3 both bottom on B3 / UQF-9</strong> (the universal UV wall) — the single highest-leverage node.</li>
+<li><strong>R2 → UQF-11 / Gap-02</strong> — bounded target = finite-resolution gap (axiom-conditional on granularity); the continuum a→0 inequality is a retired unicorn; watch the hidden measure-existence co-gate.</li>
+<li><strong>R3 → UQF-10</strong> (downstream of UQF-9); falsifier = tachyonic KK mode; F1 shape-doublet saddle LEANING REFUTED must be reconciled.</li>
+<li><strong>R4 → BG-10</strong> (scoped-out, 0-of-4).</li>
+<li><strong>H5</strong> (U-AUDIT-B re-derivation) and <strong>H6</strong> (BRST nilpotency, → UQF-4 with no-known-route caveat) are the two holes most internal to / closest to UQF-14.</li>
+</ul>
+<p>The correct next move is the upstream bridge program (B3 / Gap-02 / UQF-10 / BG-10 / UQF-4), <strong>not</strong> re-attacking UQF-14. (Source: <code>07_CONVERGED_CLOSURE_PATH.md</code> strongest endpoint.)</p>
+<hr />
+<h2>7. Honest ceiling &amp; scope</h2>
+<p><strong>The honest ceiling.</strong> UQF-14 is a <strong>serious candidate — NOT validated.</strong> Unitarity, causality, and locality are demonstrated <em>where standard QFT supports them</em> (perturbative ghost cancellation, all-orders microcausality, finite-truncation EFT locality, the measured graviton-speed zero-mode bound — all given the observed SM content, all in-scope) and <em>named-and-routed where nonperturbative subtlety enters.</em> This is structural discipline, not a deep nonperturbative proof. (Source: <code>02_CURRENT_STATE.md</code> (iv); <code>01_DOSSIER.md</code> §5.)</p>
+<p><strong>What is explicitly NOT claimed.</strong>
+- <strong>No above-cutoff unitarity proof.</strong> The graviton sector's unitarity above the cutoff is conditional on UQF-9 and is <em>not</em> proven here. This is the one thing that cannot be proven here — and it is unprovable in principle for <em>everyone</em>, because it simply <em>is</em> the open UV-completion-of-gravity problem. The bounded statement — unitary where standard QFT applies, conditional above the cutoff on a UV completion — is the ceiling, not a hedge.
+- <strong>No nonperturbative strong-sector unitarity.</strong> Banked Kugo–Ojima is perturbative and <em>presupposes</em> physical positivity; it does not establish it. The nonperturbative certificate is the Clay mass gap.
+- <strong>No full-tower cluster decomposition.</strong> Banked locality is the finite-truncation EFT statement; the infinite-tower claim is exported to UQF-10.
+- <strong>No nonperturbative-EW disposition.</strong> Instantons/sphalerons are scoped out and exported to BG-10.
+- <strong>No proof that no future nonperturbative effect could violate microcausality or cluster decomposition.</strong> That is an open-ended universal negative; the correct bounded form is the pre-registered falsifier set (negative-norm state, spacelike-commutator non-vanishing, tachyonic KK mode, Froissart violation, cₘ ≠ c).
+- <strong>No Λ / vacuum-energy / cosmological-constant cancellation.</strong> Explicitly disclaimed; Λ is recorded separately and remains open (Weinberg-open). (Source: <code>01_DOSSIER.md</code> §5 binding rules; <code>UQF14_COMPLETION_RESULT.md</code> §7.)</p>
+<p><strong>The distinctions that keep this honest.</strong> <em>Dissolved ≠ solved</em> (the three-pillar collapse is an economy of statement, not a closure of physics). <em>Selection ≠ derivation.</em> <em>Given-E ≠ derivation of E</em> (the carrier content is the observed SM spectrum, not derived here). <em>Anchored ≠ derived.</em> <em>A banked perturbative leg ≠ a nonperturbative proof.</em> <em>Audit-complete ≠ physically closed</em> (the reduction reaching a fixed point is bookkeeping stability, not proof). <em>Convergence ≠ proof.</em> (Source: <code>04_METHOD_AXIOM_CLOSURE_AND_DISCIPLINE.md</code> via <code>01_DOSSIER.md</code> §5; <code>07_CONVERGED_CLOSURE_PATH.md</code> meta-guardrail.)</p>
+<p><strong>The anchors paid.</strong> Exactly one measured invariant carries the irreducible floor: the <strong>bare GW170817 + GRB170817A two-trigger ~1.7 s clock-coincidence</strong> (the speed bound |cₘ − c|/c &lt; 10⁻¹⁵ is <em>derived</em> from it given three named co-premises — common-emission-time model, ~40 Mpc baseline, shared causal order). Two value-free structural roots (shared causal order; physical positivity) and one substrate posit reduce to named corpus posits at the corpus level, never as in-gate derivations. The class-membership umbrella is DERIVED-GIVEN-E. (Source: <code>UQF14_COMPLETION_RESULT.md</code> §5, §8; <code>specialist_reply.txt</code> §2A.)</p>
+<p><strong>The final roll-up.</strong> The gate stays <strong>AUDIT (OPEN)</strong>; the badge is permanently <strong>EXPORTED to UQF-9</strong> (R1 carries it). Three banked legs are genuine in-scope verifications; four inherited-open legs set the badge. <strong>The only path to a higher grade is the upstream walls rising — no move inside UQF-14 lifts it.</strong> STATUS-UPGRADES:0. Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> READ-ONLY and unmodified.</p>
+<hr />
+<p><em>Sources synthesized (all read in full): <code>…/UQF14_COMPLETION_HANDOFF/01_DOSSIER.md</code>, <code>02_CURRENT_STATE.md</code>, <code>07_CONVERGED_CLOSURE_PATH.md</code>, <code>08_CERT_RECONCILIATION.md</code>, <code>specialist_reply.txt</code>, <code>COMMON_BLINDSPOTS.md</code> (BS-1), <code>MASTER_AXIOM_FLOOR_AND_WALL_LEDGER.md</code> (B1/B2/B3/B4/W-MG rows), and <code>certificates/UQF14_AUDIT_COMPLETE/{01_BANKED_R5_R6_R7, 02_BRIDGE_CONTRACTS_R1_R4, 03_WALL_RECORDS, 04_MOUNT_TEST}.md</code>; plus <code>…/rendered/TOE/GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md</code> (UQF-14 row + verifier note, lines 40, 789–828), <code>SPECIALIST_HOLE_QUEUE_2026-06-29.md</code> (lines 206–217, 295), and the published artifacts <code>articles/GATE_BRIEF_UQF14.md</code> + <code>articles/UQF14_COMPLETION_RESULT.md</code>. Live manuscript of record: Quantum Paper III §17 + Q3 Appendix U (U-AUDIT-B), <a href="https://physics.magflowmeters.com/articles/Quantum.html">https://physics.magflowmeters.com/articles/Quantum.html</a>. No number in this dossier is fabricated; each traces to one of these files.</em></p>
+</body></html>

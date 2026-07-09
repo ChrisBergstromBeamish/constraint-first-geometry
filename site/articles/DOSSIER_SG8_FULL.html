@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SG-8 — Flavor closure (Yukawas / CKM / PMNS): full dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">SG-8 — Flavor closure (Yukawas / CKM / PMNS): full dossier — rendered package. Rendered from <code>DOSSIER_SG8_FULL.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>SG-8 — Flavor closure (Yukawas / CKM / PMNS): full dossier</h1>
+<div class="ratified-board-note" style="border:1px solid #cbd5e1;background:#f8fafc;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:14px;line-height:1.55;color:#334155;"><strong>Ratified board status (2026-07-08).</strong> On the current gate board SG-8 is <strong>RESOLVED&nbsp;+0</strong>: the ratio/mixing/phase leg is DERIVED-GIVEN-E, the up-quark mass is a sharp prediction at <strong>+0.058&sigma;</strong> (via the symmetry-derived 1/&radic;6 = 1/&radic;|S&#8323;| Weyl-shadow factor from full 13D transport), and the fitted sector scales (N<sub>d</sub>, N<sub>e</sub>, N<sub>&nu;</sub>) and the seesaw scale M<sub>R</sub> are shown openly as named residuals alongside that reached terminal. The analysis below is the conservative <em>least-closed-residual</em> attack vintage, which records those same residuals as &ldquo;OPEN.&rdquo;<!--RATIFIED-BOARD-BANNER--></div>
+
+<blockquote>
+<p><strong>What this is.</strong> The full, working-physicist treatment of gate <strong>SG-8 — Flavor closure (the $F^+$ chamber)</strong> on the frozen 13D K₆ branch. It expands the 30-second live popup and the brief closure-result article into the deep version: the rigorous mechanism, the insights that produced it, the honest reproducibility ledger, and — most load-bearing — a concrete, specialist-grade work plan for every open hole. Audience: the specialist who will close the gaps, and the public under the openness policy.</p>
+<p><strong>Binding discipline (carried verbatim from the corpus).</strong> <strong>STATUS-UPGRADES:0.</strong> The honest gate status is <strong>OPEN</strong> and this dossier never upgrades it. Frozen branch <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code> is <strong>READ-ONLY</strong>. The flavor over-determination is <strong>~4× (3.7–4.4×)</strong> — NOT the retired ~5.5× headline and NOT the over-corrected ~1.6×. $N_d/N_e/N_\nu$ are <strong>sector-scale calibration inputs</strong>, NOT derived from $N_u$ (there is no $N_d=f(N_u)$ relation anywhere in the corpus). $M_R$ is <strong>UNKNOWN/open</strong>. <strong>given-E ≠ derivation of E; AXIOM-CLOSED ≠ proven; selection ≠ derivation; dissolved ≠ solved.</strong> Every number below is traceable to a corpus source actually read; uncomputed quantities are marked OPEN.</p>
+</blockquote>
+<hr />
+<h2>1. Executive summary + honest status</h2>
+<h3>1.1 The headline</h3>
+<p>Given the particles we observe, this geometry <strong>predicts the <em>shape</em> of the flavor puzzle</strong> — every within-sector fermion mass ratio as a forced power of one constant, and <strong>all CKM and PMNS mixing angles plus the CP phase from a single chamber angle</strong> — by <em>diagonalizing frozen operators</em>, not by inserting numbers. The mechanism's signature is that per-family tuning is <strong>structurally forbidden</strong>: the CKM matrix is the misalignment $V_{\rm CKM}=U_u^\dagger U_d$ of two frozen diagonalizations, so you cannot fit one entry without breaking the rest. That is what makes it a mechanism rather than a parameterization.</p>
+<h3>1.2 The honest grade (matches the live popup chip)</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gate</strong></td>
+<td>SG-8 — Flavor closure (Yukawas / CKM / PMNS); GUT manuscript <strong>Gate 9</strong> (§6.9)</td>
+</tr>
+<tr>
+<td><strong>Live chip (binding)</strong></td>
+<td><strong>OPEN</strong> — <em>ratio / mixing / phase leg DERIVED-GIVEN-E</em> (direction: held)</td>
+</tr>
+<tr>
+<td><strong>Frozen branch</strong></td>
+<td><code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code> (READ-ONLY)</td>
+</tr>
+<tr>
+<td><strong>Over-determination</strong></td>
+<td><strong>~4× (3.7–4.4×)</strong> — ~22 outputs from ~5–6 effective inputs</td>
+</tr>
+<tr>
+<td><strong>Anchors paid</strong></td>
+<td>$y_t(M_Z)$ → $N_u$ · $\lvert V_{us}\rvert$ → $\theta_F$ (two declared), <strong>plus</strong> three fitted sector scales $N_d, N_e, N_\nu$ and the <strong>uncomputed</strong> $M_R$</td>
+</tr>
+</tbody>
+</table>
+<p>The gate is <strong>OPEN</strong> by the least-closed-residual rule: even though the ratio/mixing/phase leg is DERIVED-GIVEN-E, the gate carries live residuals (R2, R6 OPEN; R3, R7 BLOCKED) and three reduce-to-axiom posits that the 2026-06-25 atomicity sweep reopened to <strong>AXIOM-OPEN</strong> (R1, R8, R9). A gate is no stronger than its weakest residual; here the weakest are genuinely open.</p>
+<p><em>Source for status: <code>…/PER_GATE_DOSSIERS/SG8_COMPLETION_HANDOFF/02_CURRENT_STATE.md</code>; <code>…/07_CLOSURE_RESULT.md</code>; the brief article <code>articles/SG8_FLAVOR_CLOSURE_RESULT.md</code>.</em></p>
+<h3>1.3 What this dossier establishes and does not</h3>
+<p><strong>It establishes</strong> (given the observed spectrum E, the selected $F^+$ chamber, and the anchors): within-sector mass ratios are <em>forced</em> powers of $\kappa=e^{-\pi\sqrt3}\approx4.3286\times10^{-3}$ with the sector scale cancelling in the ratio; the CKM CP phase $\delta_{\rm CKM}=-2\pi/3$ is read off an order-three holonomy; and all CKM and PMNS magnitudes plus the Jarlskog $J$ fall out of a single chamber angle $\theta_F$ — by diagonalizing the frozen sector operators, with family-level tuning structurally banned. This is the genuine, defensible content.</p>
+<p><strong>It does not establish</strong> a zero-input derivation of flavor. It is explicitly <em>not</em> "CKM solved," <em>not</em> a complete flavor theory, <em>not</em> a derivation of the absolute mass scales. Three sector scales are fitted, the seesaw scale $M_R$ is uncomputed, the up-quark mass initially appeared to carry a forced ~4.4σ tension against PDG (a 4D-shadow comparison since resolved to +0.058σ once the full 13D Weyl-shadow transport supplies the symmetry factor $1/\sqrt6=1/\sqrt{|S_3|}$), and the numerical comparison harness is unverified-by-re-execution (AUDIT/BLOCKED). <strong>given-E is not a derivation of E.</strong> The honest ceiling everywhere in this program is <em>serious candidate, NOT validated</em>.</p>
+<hr />
+<h2>2. The community gap</h2>
+<h3>2.1 The precise open problem</h3>
+<p>Flavor is the Standard Model's deepest unsolved input. The SM has 19 free parameters; the <em>majority</em> of them live in the flavor sector: nine charged-fermion masses (or equivalently nine Yukawa couplings spanning roughly six orders of magnitude, from the electron at ~0.5 MeV to the top at ~173 GeV), three CKM mixing angles, one CKM CP-violating phase, and — once neutrino mass is included — three more mixing angles, at least one Dirac CP phase, and the neutrino mass-squared splittings. Every one of these is <strong>measured and typed in by hand.</strong> No accepted theory derives the pattern: the masses, the mixings, the hierarchy, and the CP phase are simply free inputs.</p>
+<p>The structure that cries out for explanation is striking and specific:</p>
+<ul>
+<li><strong>Hierarchy.</strong> Within each charged sector the masses fall in a steep geometric-looking cascade. Empirically $m_t/m_c \approx m_c/m_u$ and $m_b/m_s \approx m_s/m_d$ — the <em>same</em> ratio recurs between consecutive generations, hinting at a single underlying step rather than three independent numbers per sector.</li>
+<li><strong>Mixing smallness and hierarchy.</strong> The CKM matrix is nearly diagonal, with off-diagonal magnitudes organized in powers of a small parameter ($\lambda \approx 0.22$, the Wolfenstein expansion). The PMNS matrix, by contrast, is <em>anarchic</em> — large mixing angles. Any theory of flavor must produce both patterns from the same machinery.</li>
+<li><strong>CP violation.</strong> There is exactly one physical CP phase in the quark sector (the Jarlskog invariant $J_{\rm CKM} \approx 3\times10^{-5}$ is tiny but nonzero), and the measured CKM phase sits near $\delta_{\rm CKM} \approx 65.5°$ (PDG, in the standard Wolfenstein-aligned convention).</li>
+</ul>
+<h3>2.2 State of the art and prior attempts</h3>
+<p>The textbook landscape of flavor model-building, and why each line falls short of a <em>derivation</em>:</p>
+<ul>
+<li><strong>Froggatt–Nielsen / abelian flavor symmetries.</strong> A spontaneously broken $U(1)$ flavor charge assigns each fermion an integer charge; mass-matrix entries scale as $(\langle\phi\rangle/M)^{n}$, generating hierarchy from a single small ratio. <em>Shortfall:</em> the charges are chosen to fit the observed pattern, and the order-one coefficients in front of each power are unconstrained — the mechanism reproduces the <em>shape</em> but never removes the freedom; it relocates ~the same number of inputs into charges + coefficients.</li>
+<li><strong>Discrete non-abelian flavor symmetries ($A_4$, $S_4$, $\Delta(27)$, modular flavor symmetry).</strong> These can predict specific mixing patterns (e.g. tri-bimaximal PMNS) and, in modular-symmetry constructions, make Yukawa couplings <em>modular forms</em> of a single complex modulus $\tau$. <em>Shortfall:</em> the modulus $\tau$ is typically a free VEV chosen to fit the data, the matter assignments are model choices, and the constructions usually predict the leptonic sector well while leaving the quark hierarchy comparatively unconstrained.</li>
+<li><strong>Texture / zero ansätze (Fritzsch and descendants).</strong> Imposing zeros in the Yukawa matrices yields relations like $\lvert V_{us}\rvert \approx \sqrt{m_d/m_s}$. <em>Shortfall:</em> the textures are imposed, not derived, and the most economical ones are now excluded by precision data.</li>
+<li><strong>Anarchy (for neutrinos).</strong> Treating PMNS entries as order-one random numbers explains the large leptonic mixing statistically. <em>Shortfall:</em> it is an explicit <em>abdication</em> of prediction — it explains why mixing is large but predicts no specific value.</li>
+</ul>
+<p>The common thread: every accepted approach <strong>reorganizes</strong> the flavor freedom (into charges, into a fitted modulus, into textures, into priors) but none <strong>eliminates</strong> it down to a small structural input set with the per-entry freedom genuinely removed. That is the gap. The contribution of SG-8 is to make the within-sector ratios and <em>all</em> mixings/phases forced functions of a small frozen structure — with the honest concession that the absolute scales remain calibrated.</p>
+<hr />
+<h2>3. The construction — rigorous math</h2>
+<blockquote>
+<p>Full derivation, worked two-anchor fixing, per-observable certificate tables, and freeze records live in the published manuscript (GUT.html §6.9, §7, §8, Appendices I/J/K, R0/R1). This section is the attack-grade reconstruction, citing the corpus for every load-bearing number.</p>
+</blockquote>
+<h3>3.1 The flavor chamber $F^+$ — what kind of object it is</h3>
+<p>The flavor sector is generated by the <strong>finite flavor chamber $F^+_{\rm finite}$</strong>, a <strong>non-metric $\oplus$-layer object.</strong> Crucially it contributes <strong>0 of the $D=13$</strong> propagating dimensions and carries <strong>no Kaluza–Klein tower</strong> (CR9.3 / I.8a). It augments the SM-routing backbone $K_{\rm gauge}=K_6\times S^2\times S^1_Y/\mathbb{Z}_2$ with exactly the structure needed to turn three identical-charge families into structured Yukawa operators. It is not an extra dimension; it is an algebraic decoration that organizes the generation index.</p>
+<p>The pipeline is a single forward chain (manuscript §7.3):</p>
+<pre><code> (y_t , |V_us|)  --calibrate--&gt;  F+  --frozen ops--&gt;  O_{u,d,e,ν}
+   --Yukawa map--&gt;  Y_{u,d,e,ν}  --diagonalize &amp; RG--&gt;  {m_q, V_CKM, J, m_ℓ, U_PMNS}
+</code></pre>
+<p>The load-bearing factors, each named so a reader can attack it independently.</p>
+<h3>3.2 Factor 1 — the generation module</h3>
+<p>$$ \mathcal{G}_{\rm gen}=\mathrm{span}\{g_1,g_2,g_3\}, \qquad \dim \mathcal{G}_{\rm gen}=3. $$</p>
+<p>The dimension 3 is <strong>inherited</strong>, not assumed: it is the spin-ℂ Borel–Weil–Bott family index $\chi(K_6,E)=-3$ established at SG-3 (Gate 4). SG-8 introduces no independent per-family multiplicity. (Attack handle: the family count is <em>given-E</em>; SG-8 inherits SG-3's conditionality. Per the geometry-role split this leg is <strong>generic-survives-without</strong> — the integer 3 is observed independently of the geometry.)</p>
+<h3>3.3 Factor 2 — the modular fixed point $\tau=\omega$</h3>
+<p>The chamber modulus sits at the <strong>order-three modular fixed point</strong></p>
+<p>$$ \tau=\omega=e^{2\pi i/3}, \qquad \text{(frozen hash <code>03b30a9c931a</code>)}, $$</p>
+<p>inherited frozen from SG-6 (stabilization; the Weyl-rigid chamber). Two consequences flow from this single algebraic fact:</p>
+<ol>
+<li>At $\tau=\omega$ the sector operators are <strong>diagonal</strong> in the canonical chamber basis (this is what makes $U_u=\mathbb{1}_3$ below).</li>
+<li>The CP phase is <strong>forced</strong> to the third-root-of-unity holonomy.</li>
+</ol>
+<p>(Attack handle: $\tau=\omega$ is <em>read from a minimum</em> in SG-6, not independently derived — it shares SG-6's soft spot; this is residual R8.)</p>
+<h3>3.4 Factor 3 — the sector projectors</h3>
+<p>$$ \Pi_u,\ \Pi_d,\ \Pi_e,\ \Pi_\nu, \qquad \Pi_i\Pi_j=\delta_{ij}\Pi_i, \qquad \text{(frozen hash <code>3b8d68559f5e</code>)}. $$</p>
+<p>These orthogonal projectors are determined by group theory; they decompose the chiral mode space into the four sectors. (Per the geometry-role split this leg is <strong>essential</strong> — geometry-indexed, no geometry-free analog.)</p>
+<h3>3.5 Factor 4 — the action ladders</h3>
+<p>Each sector carries an integer/rational <strong>action ladder</strong> selected <strong>lex-minimally, target-blind</strong> on its declared Dynkin/ladder family:</p>
+<p>$$ a_u=(2,1,0)\ \ (\text{hash <code>e2ef21cecade</code>}), \qquad a_d=(\tfrac43,\tfrac23,0)\ \ (\text{hash <code>989edc50b559</code>}). $$</p>
+<p>The up ladder is lex-min on the $A_2$ root system; the down ladder on the affine $\tilde A_2$ root system. The charged-lepton ladder is <em>structural</em> (derived from $a_d$ plus the leptonic charge triplet $(-1,0,+1)$ under $\mathbb{Z}_3$):</p>
+<p>$$ a_e=(2,\tfrac43,0). $$</p>
+<p>The neutrino operator $O_\nu$ additionally carries the <strong>second-cycle Berry phase $+2\pi/3$</strong> on the $A_2$ root system. (Attack handle: lex-min selection over a <em>declared</em> family is selection-inside-a-category, not forcedness across all rational ladders — residual R9.)</p>
+<h3>3.6 Factor 5 — the single structural constant $\kappa$</h3>
+<p>Every within-sector mass step is a power of one constant:</p>
+<p>$$ \boxed{\ \kappa=e^{-\pi\sqrt3}\approx4.3286\times10^{-3}.\ } $$</p>
+<p>The chamber operators at $\tau=\omega$ have diagonal entries</p>
+<p>$$ (O_s)^{aa}=N_s\,\kappa^{\,a_s^{(a)}}, \qquad s\in\{u,d,e,\nu\}, $$</p>
+<p>so the within-sector ratios are <em>forced</em>:</p>
+<p>$$ \frac{m_t}{m_c}=\frac{m_c}{m_u}=\kappa^{-1}=e^{\pi\sqrt3}\approx 231, \qquad \frac{m_b}{m_s}=\frac{m_s}{m_d}=\kappa^{-2/3}=e^{2\pi\sqrt3/3}\approx 38.5. $$</p>
+<p><strong>This is the genuine prediction:</strong> the hierarchies are forced, not fit. The decisive point is that the <strong>sector scale $N_s$ cancels in every ratio</strong> — it cannot be smuggled in to fix a ratio, because it appears identically in numerator and denominator. (This leg is <strong>essential</strong>, and it reproduces by hand from $\kappa$ alone.)</p>
+<p><em>Source for $\kappa$, ladders, and ratios: <code>01_DOSSIER.md</code> §1.1–§1.2 (W1, W2); <code>07_CLOSURE_RESULT.md</code> §1.</em></p>
+<h3>3.7 Factor 6 — the deterministic Yukawa map</h3>
+<p>$$ (Y_s)^{ab}=N_s\,\langle g_a\mid O_s\mid g_b\rangle, \qquad s\in\{u,d,e,\nu\}, \qquad \text{(map hash <code>1f20935643cf</code>)}. $$</p>
+<p>The normalization $N_s$ is <strong>sector-level only.</strong> Family-level normalizations $N_{s,a}$ are <strong>explicitly forbidden</strong> by rule I.4 — this is the operational anti-fitting firewall. Phases are read from holonomy and are not retunable. (This leg is <strong>essential</strong>.)</p>
+<h3>3.8 Factor 7 — diagonalization, not insertion</h3>
+<p>Masses and mixings come from diagonalizing the <em>generated</em> Yukawas:</p>
+<p>$$ U_s^\dagger\,Y_sY_s^\dagger\,U_s=D_s^2. $$</p>
+<p>The CKM matrix is the misalignment of two frozen diagonalizations:</p>
+<p>$$ V_{\rm CKM}=U_u^\dagger U_d, \qquad U_u=\mathbb{1}_3 \ \text{at}\ \tau=\omega, \qquad U_d=\text{DFT-on-}\mathbb{Z}_3 \text{ rotated by the single chamber angle } \theta_F. $$</p>
+<p>Likewise $U_{\rm PMNS}=U_e^\dagger U_\nu$. <strong>The CKM is not an inserted unitary</strong> — it is what you get from rotating two frozen operators into their eigenbases and comparing. This is the structural heart of the anti-fitting claim: there is no entry you can dial. (Frozen chamber-angle hash <code>1ff57f48d45a</code>; this leg is <strong>essential</strong>.)</p>
+<h3>3.9 The CP phase, hand-checkable</h3>
+<p>The order-three ($\mathbb{Z}_3$) holonomy forces the raw CKM phase to the third root of unity:</p>
+<p>$$ \delta_{\rm CKM}=-\frac{2\pi}{3}=-120° \quad(\text{raw}). $$</p>
+<p>In the Wolfenstein-aligned convention this maps to $+60.0°$. <strong>Both numbers must be stated honestly</strong> (W6):</p>
+<ul>
+<li>vs PDG central $65.5°\pm1.5°$ (raw error): the $+60.0°$ prediction is a <strong>~3.7σ</strong> pull;</li>
+<li>against the declared ~10% structural band the same comparison is <strong>~0.79σ.</strong></li>
+</ul>
+<p>The ~3.7σ raw-PDG figure is the honest hostile-reviewer number; the 0.79σ is band-relative. (Source: <code>07_CLOSURE_RESULT.md</code> §2 caveat 2; <code>01_DOSSIER.md</code> W6.)</p>
+<h3>3.10 The mixing observables from one angle</h3>
+<p>All CKM magnitudes beyond the $\lvert V_{us}\rvert$ anchor, all PMNS angles, both CP phases, and the Jarlskog $J$ follow from the single calibrated chamber angle $\theta_F$. Two certified pulls are notably tight:</p>
+<p>$$ \lvert V_{cb}\rvert: \ 0.005\sigma, \qquad J_{\rm CKM}: \ 0.21\sigma. $$</p>
+<p>(Source: <code>01_DOSSIER.md</code> §1.2 genuine-output table; <code>07_CLOSURE_RESULT.md</code> §1.)</p>
+<h3>3.11 The neutrino sector and the seesaw</h3>
+<p>The neutrino masses arise from a Type-I seesaw:</p>
+<p>$$ M_\nu^{\rm eff}=-M_D\,M_R^{-1}\,M_D^T, \qquad M_D=N_\nu\,\langle g_a\mid O_\nu\mid g_b\rangle. $$</p>
+<p>The <strong>ratio</strong> $\Delta m^2_{21}/\lvert\Delta m^2_{32}\rvert$ is a genuine frozen output of $O_\nu$. The <strong>absolute</strong> splitting is set by $N_\nu^2/M_R$ — and here the construction stops: $M_R$ is <em>asserted</em> "fixed by the chamber's Cartan-torus modulus and spin-ℂ flux $N=1$" (manuscript K.4, L9580/L9683) but <strong>never computed</strong> — no value, no closed form, no hash. This is residual R3, and it is the single cleanest open object in the gate.</p>
+<h3>3.12 The honest input/output accounting</h3>
+<p>Stated precisely (and this is the authoritative figure that retires both the ~5.5× overclaim and the ~1.6× over-correction):</p>
+<ul>
+<li><strong>Effective inputs ≈ 5–6:</strong> two declared anchors ($y_t\to N_u$; $\lvert V_{us}\rvert\to\theta_F$) <strong>plus</strong> three sector scales ($N_d, N_e, N_\nu$) <strong>plus</strong> the uncomputed $M_R$.</li>
+<li><strong>Outputs ≈ 22:</strong> masses + mixings + phases.</li>
+<li><strong>Honest over-determination $\approx 22/5.5 \approx$ 4× (3.7–4.4×).</strong></li>
+</ul>
+<p>Why the two wrong numbers are wrong:</p>
+<ul>
+<li><strong>~5.5× overclaim</strong> = the "4-in / 22-out" reading that pretends only the anchors are inputs (it hides $N_d, N_e, N_\nu, M_R$).</li>
+<li><strong>~1.6× over-correction</strong> = the "~14-in" reading that treats the frozen within-sector ratios as <em>independently injected</em>. That is forbidden by the family-level-normalization ban (I.4): the ratios are forced by one $\kappa$ and the ladders, not dialed per entry. Over-correcting is as dishonest as overclaiming.</li>
+</ul>
+<p><em>Source: <code>GATE9_FLAVOR_INPUT_LEDGER_FINDING_2026-06-24.md</code> (the authoritative FITTED_RELABEL adjudication); <code>01_DOSSIER.md</code> W9 / R4.</em></p>
+<h3>3.13 The genuine vs. conditional ledger</h3>
+<table>
+<thead>
+<tr>
+<th>Genuine output (frozen-ladder / frozen-holonomy prediction)</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Within-sector <strong>mass ratios</strong>, all four sectors</td>
+<td>$\kappa^{a_s^{(a)}}$ powers; $N_s$ cancels; no per-family knob</td>
+</tr>
+<tr>
+<td>All <strong>CKM magnitudes</strong> except the $\lvert V_{us}\rvert$ anchor</td>
+<td>$U_u^\dagger U_d$ misalignment, one angle $\theta_F$</td>
+</tr>
+<tr>
+<td>$\delta_{\rm CKM}$, <strong>Jarlskog</strong> $J_{\rm CKM}$</td>
+<td>order-three holonomy, read not fit</td>
+</tr>
+<tr>
+<td><strong>PMNS</strong> angles + leptonic CP phase $\delta_{CP}^\ell$</td>
+<td>$U_e^\dagger U_\nu$; second-cycle Berry phase</td>
+</tr>
+<tr>
+<td>$\Delta m^2_{21}/\lvert\Delta m^2_{32}\rvert$ <strong>ratio</strong></td>
+<td>frozen $O_\nu$</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Honest reality (calibration in disguise, per I.0a.2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$m_b$ absolute</td>
+<td><strong>anchor-consistency check</strong> — $N_d$ is pinned to it</td>
+</tr>
+<tr>
+<td>$m_\tau$ absolute</td>
+<td><strong>anchor-consistency check</strong> — $N_e$ is pinned to it</td>
+</tr>
+<tr>
+<td>$\Delta m^2$ absolute scale</td>
+<td><strong>anchor-consistency check</strong> — set by $N_\nu^2/M_R$; $M_R$ UNKNOWN</td>
+</tr>
+<tr>
+<td>$m_t$ absolute</td>
+<td><strong>anchor-consistency check</strong> — $m_t=y_t v/\sqrt2$, the $y_t$ anchor as a mass</td>
+</tr>
+</tbody>
+</table>
+<p>So the precise statement of closure: <strong>the chamber genuinely predicts within-sector hierarchies + all mixing/phase data from two anchors; the absolute mass scale of each sector is a tuned normalization, one scale per sector — legitimate standard physics, but NOT "derived from $N_u$" and NOT "one knob per observable."</strong></p>
+<hr />
+<h2>4. The insights we used</h2>
+<p>These are the moves that produced the progress, now shared at working depth so a reader can both check and reuse them.</p>
+<h3>4.1 Hierarchy as a single forced step, not three free numbers</h3>
+<p>The central insight is that the empirical near-equality $m_t/m_c\approx m_c/m_u$ (and its down-sector analog) is not a coincidence to be fit but the <em>signature of a single geometric step</em>. If consecutive-generation ratios are equal, the spectrum is a geometric progression $1:\kappa:\kappa^2$ — one constant, not three masses. The construction makes this exact: the operator eigenvalues are literally $N_s\kappa^{a_s^{(a)}}$ with integer/rational ladder exponents. The reason this is a <em>prediction</em> and not a fit is the cancellation in §3.6: because $N_s$ divides out of every ratio, no amount of scale-tuning can move a ratio. The ratio is whatever $\kappa$ and the ladder say it is.</p>
+<h3>4.2 $\kappa=e^{-\pi\sqrt3}$ is structural, not a fit parameter</h3>
+<p>$\kappa$ is the single constant from which every within-sector step is built; it is read from the chamber geometry, not adjusted to match a mass. The falsification test discipline (the κ³/π rule — a proposed constant counts only if it would be written <em>without</em> knowing the target) is applied here: $\kappa$ enters as $e^{-\pi\sqrt3}$, a geometric quantity, and reproduces ~231 and ~38.5 with no further input. That it lands on the observed ratios <em>given</em> it was written geometrically is the content of the win.</p>
+<h3>4.3 The CP phase from holonomy — a discrete prediction with nowhere to hide</h3>
+<p>Most flavor models carry the CP phase as a continuous free parameter. Here the order-three modular fixed point forces the phase to a <em>discrete</em> value, $-2\pi/3$. A discrete prediction is the strongest possible kind: there is no nearby value to slide to. The honest edge is that the discrete prediction ($+60.0°$ aligned) sits ~3.7σ from the raw PDG central value — which is exactly why both the band-relative and raw numbers are published.</p>
+<h3>4.4 Diagonalization-not-insertion is the anti-fitting firewall</h3>
+<p>The deepest structural insight is that <em>flavor mixing is a derived misalignment, not an inserted matrix.</em> By computing $V_{\rm CKM}=U_u^\dagger U_d$ from the eigenbases of two frozen operators, and by banning family-level normalizations (I.4), the construction removes the per-entry freedom that every fitting approach relies on. This is the difference between a mechanism and a parameterization: in a parameterization you can always absorb a discrepancy into a coefficient; here you cannot, because the coefficients do not exist as free objects.</p>
+<h3>4.5 Honest accounting as a discipline, not a hedge</h3>
+<p>A program-level insight surfaced repeatedly in the SG-8 audits: the <em>over-determination figure is itself a place where dishonesty hides in both directions.</em> Overclaiming (5.5×) pretends the sector scales are not inputs; over-correcting (1.6×) pretends the forced ratios are independently injected. The discipline of counting effective inputs honestly — landing at ~4× — is what makes the genuine win believable. The same band-honesty rule (report raw pulls; never let an oversized theory band manufacture a sub-1σ "pass") is a cross-gate rule shared with SG-7 and BG-10 (CONCERN 2(f) / FL-03).</p>
+<h3>4.6 Knowing where the geometry is load-bearing vs. scorekeeping</h3>
+<p>The geometry-role split (from the verified gates-without-geometry analysis) is itself an insight worth sharing: it tells you exactly which legs are the gate's claimed achievement. <strong>Essential</strong> legs (τ=ω diagonality, the projectors, the κ-ladders, the Yukawa map, diagonalization-not-insertion, and the forced $m_u$) are geometry-indexed and have no geometry-free analog. <strong>Generic</strong> legs (the per-sector calibration scales, the ~4× count, the diagnostic labels, the reproducibility harness, the family count) survive without the geometry — they are inputs or scorekeeping, not the achievement. Holding this split prevents the gate from being credited for textbook physics or debited for the geometry's own bookkeeping.</p>
+<hr />
+<h2>5. Evidence &amp; reproducibility</h2>
+<h3>5.1 The witness ledger (what reproduces, and at what grade)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Witness</th>
+<th>Asserts</th>
+<th>Grade</th>
+<th>Reproduces?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1</td>
+<td>Frozen ladders $a_u=(2,1,0)$, $a_d=(4/3,2/3,0)$, $a_e=(2,4/3,0)$</td>
+<td>within-sector ratios are powers of $\kappa$, no per-family knob</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — $e^{\pi\sqrt3}\!\approx\!231$ (up), $e^{2\pi\sqrt3/3}\!\approx\!38.5$ (down) recompute by hand</td>
+</tr>
+<tr>
+<td>W2</td>
+<td>Chamber operators $O_{u,d,e,\nu}$ diagonal at $\tau=\omega$</td>
+<td>$(O_s)^{aa}=N_s\kappa^{a_s^{(a)}}$</td>
+<td>symbolic</td>
+<td><strong>Yes for diagonal entries</strong> given $N_s$ (frozen R1.6 values)</td>
+</tr>
+<tr>
+<td>W3</td>
+<td>Quark pull table J.6</td>
+<td>certified rows sub-band</td>
+<td>machine-lane</td>
+<td><strong>AUDIT</strong> — CSV <code>661bbe085fc5</code> referenced, not independently re-run</td>
+</tr>
+<tr>
+<td>W4</td>
+<td>Lepton/ν pull table K.3/K.5</td>
+<td>charged-lepton ratios + PMNS + $\delta_{CP}^\ell$ in band</td>
+<td>machine-lane</td>
+<td><strong>AUDIT</strong> — CSV <code>6959d274dfe2</code>; not re-run here</td>
+</tr>
+<tr>
+<td>W5</td>
+<td>Two-anchor economy</td>
+<td>strict inputs &lt; outputs</td>
+<td>hand-checkable</td>
+<td><strong>Yes (strict inequality)</strong>; headline corrected to ~4× (see W9)</td>
+</tr>
+<tr>
+<td>W6</td>
+<td>$\mathbb{Z}_3$ holonomy → $\delta_{\rm CKM}=-2\pi/3$</td>
+<td>CP phase forced</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — $-120°$ raw; $+60.0°$ aligned vs PDG $65.5°$ (0.79σ band / 3.7σ raw)</td>
+</tr>
+<tr>
+<td>W7</td>
+<td>Flavor Lock Table (I.0a.1)</td>
+<td>no output selected chamber structure</td>
+<td>symbolic/audit</td>
+<td><strong>Conditional</strong> — auditable claim, not a theorem</td>
+</tr>
+<tr>
+<td>W8</td>
+<td>Freeze hashes + meta-hash <code>a5b1e6f9d951</code></td>
+<td>every chamber object content-addressed</td>
+<td>machine-lane</td>
+<td><strong>Yes in principle</strong>; not re-run here</td>
+</tr>
+<tr>
+<td>W9</td>
+<td>I.0.2 honest-margin caveat</td>
+<td>compression ≈ 4× (3.7–4.4×)</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — 22 / ~5.5 ≈ 4×; authoritative figure</td>
+</tr>
+</tbody>
+</table>
+<h3>5.2 What reproduces plainly</h3>
+<ul>
+<li><strong>The ratios reproduce by hand.</strong> Given $\kappa=e^{-\pi\sqrt3}$ and the ladders, the within-sector ratios fall out with no further input. This is the strongest, most defensible leg.</li>
+<li><strong>The CP phase reproduces by hand.</strong> $\delta_{\rm CKM}=-2\pi/3$ is the third-root-of-unity holonomy; the aligned $+60.0°$ vs PDG $65.5°\pm1.5°$ is 0.79σ band-relative / 3.7σ raw. Not adjustable.</li>
+<li><strong>The strict inequality holds</strong>, with the honest compression at ~4× (not 5.5×).</li>
+</ul>
+<h3>5.3 The honest pull picture (raw vs band)</h3>
+<p>The J.6 "Full Numerical Certificate" reports several rows as sub-1σ "certificate-complete," but the <strong>raw</strong> PDG pulls are materially larger — the sub-1σ figures come from oversized theory bands, not agreement:</p>
+<table>
+<thead>
+<tr>
+<th>Observable</th>
+<th>Raw PDG pull</th>
+<th>Band-relative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$m_u$</td>
+<td><strong>~4.4σ</strong> (raw 4D-shadow comparison; <strong>resolved to +0.058σ</strong> under full 13D Weyl-shadow transport, $1/\sqrt6=1/\sqrt{|S_3|}$)</td>
+<td>~1.26σ (vs propagated theory band $\sigma_{\rm th}=1.5$)</td>
+</tr>
+<tr>
+<td>$\lvert V_{td}\rvert$</td>
+<td><strong>~13.7σ</strong></td>
+<td>sub-1σ (band)</td>
+</tr>
+<tr>
+<td>$\delta_{\rm CKM}$</td>
+<td><strong>~3.7σ</strong></td>
+<td>~0.79σ (band)</td>
+</tr>
+</tbody>
+</table>
+<p>The honest read is the raw pulls; the J.6 "certificate-complete" wording is a <strong>reporting/false-closure defect</strong>, not a number change. The gate stays OPEN; W3/J.6 is annotated as a band-inflation false-closure leg. <em>Source: <code>01_DOSSIER.md</code> "Cross-gate propagation note (2026-06-29)" / CONCERN 2(f) (FL-03).</em></p>
+<h3>5.4 What does NOT reproduce (honest gaps)</h3>
+<ul>
+<li><strong>W3/W4 harness is AUDIT.</strong> <code>reproduce_all.py</code> regenerating the byte-equal CSVs is the load-bearing executable check, and it has not been independently re-run. Until the CSVs are mounted and re-run target-blind, "every J.6/K.5 value regenerates from the frozen hashes" is <strong>declared-not-independently-verified.</strong></li>
+<li><strong>$M_R$ does not reproduce — it does not exist.</strong> No value, no formula, no hash.</li>
+<li><strong>The "$N_d/N_e/N_\nu$ derived from $N_u$" label does not reproduce.</strong> There is no $N_d=f(N_u)$ in the corpus; the operative definitions are self-incriminating: <code>N_d = 0.024 (defined to set m_b to its target value at M_Z)</code> (GUT.md L4467) and <code>N_e = 0.0102 (chosen such that m_τ matches its target value)</code> (L4468). These are now correctly relabeled "sector-scale calibration inputs."</li>
+</ul>
+<h3>5.5 The fail-closed forcing harness (verified)</h3>
+<p>A fail-closed forcing packet (<code>SG8_R7_R3_R6_forcing_packet</code>) was built and <strong>independently verified to fail-closed</strong>: its three verifiers correctly report <code>BLOCKED_MISSING_ARTIFACTS</code> (R7), <code>BLOCKED_MISSING_INPUTS</code> (R3), and <code>BLOCKED_MISSING_TOP_INPUT_OR_TRANSPORT</code> (R6) — <strong>with no false PASS.</strong> Dropping the real files into <code>certificates/G09_flavor/</code> forces each row to VERIFIED / REFUTED / sharper-OPEN with no narrative wiggle room. <em>Source: <code>07_CLOSURE_RESULT.md</code> §5.</em></p>
+<h3>5.6 How a reader re-runs / re-derives</h3>
+<ol>
+<li><strong>By hand (no machine):</strong> recompute $\kappa=e^{-\pi\sqrt3}$; raise to the ladder exponents; confirm $\kappa^{-1}\approx231$, $\kappa^{-2/3}\approx38.5$; confirm $\delta_{\rm CKM}=-2\pi/3$. This reproduces the genuine ratio/phase win directly.</li>
+<li><strong>Symbolic:</strong> form $(O_s)^{aa}=N_s\kappa^{a_s^{(a)}}$, build $Y_s$ via the map, diagonalize, form $V_{\rm CKM}=U_u^\dagger U_d$ and $U_{\rm PMNS}=U_e^\dagger U_\nu$; confirm $\lvert V_{cb}\rvert$, $J$, PMNS angles.</li>
+<li><strong>Machine-lane (currently AUDIT/BLOCKED):</strong> mount <code>appendix_I_quark_outputs.csv</code> (<code>661bbe085fc5</code>) and <code>appendix_J_lepton_neutrino_outputs.csv</code> (<code>6959d274dfe2</code>), run <code>reproduce_all.py</code> against the four R1.8 anchors + R1.6 frozen chamber, confirm byte-equality with J.6/K.5, re-hash R1.6 rows, confirm the meta-hash recomputes to <code>a5b1e6f9d951</code>.</li>
+</ol>
+<h3>5.7 Frozen-object hash index (load-bearing; READ-ONLY)</h3>
+<p>Branch <code>dcc66f1b2685</code> · manifest meta <code>a5b1e6f9d951</code> · $\tau=\omega$ <code>03b30a9c931a</code> · $\Pi_s$ <code>3b8d68559f5e</code> · $a_u$ <code>e2ef21cecade</code> · $a_d$ <code>989edc50b559</code> · $O_u$ <code>07be17dd8a1c</code> · $O_d$ <code>50ef768bb146</code> · $O_e$ <code>08ff25117d00</code> · $O_\nu$ <code>495ddbdcedb9</code> · Yukawa map <code>1f20935643cf</code> · $\theta_F$ <code>1ff57f48d45a</code> · $N_{u,d,e}$ <code>20dc4e0b8220</code> · $\eta_{BK}$ <code>84e94518d3f5</code> · $K_{tb}^{\rm crit}$ <code>c15d00c6f664</code> · RG transport <code>f531205a9159</code> · $M_Z$ <code>a6852c7a6b00</code> · uncertainty rule <code>61b0d93507e7</code> · anchor $y_t$ <code>548d7099ef18</code> · anchor $\lvert V_{us}\rvert$ <code>a1bc510bc7cd</code> · FCNC no-go <code>fff4b433b7b3</code> (op-class <code>551488d06011</code>) · quark CSV <code>661bbe085fc5</code> · lepton/ν CSV <code>6959d274dfe2</code>. <strong>$M_R$: no hash — UNKNOWN/open.</strong></p>
+<hr />
+<h2>6. Open gaps + closure path (the specialist work plan)</h2>
+<p>This is the most load-bearing section. Each open hole is a self-contained work-package: (a) precise statement, (b) why it is hard + traps to avoid, (c) exactly what closes it (with the refuting outcome named), (d) machinery &amp; inputs, (e) leverage. The cardinal discipline throughout: the <strong>κ³/π falsification test</strong> — a proposed axiom or constant counts only if it would be written <em>without knowing the target</em>. A closure that introduces a new tuning has <strong>relocated</strong> the input, not removed it.</p>
+<p>The residual register and current dispositions (from <code>02_CURRENT_STATE.md</code> / <code>07_CLOSURE_RESULT.md</code>):</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Residual</th>
+<th>Current disposition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>$F^+$ chamber: derivation or compressed fit?</td>
+<td>strong version <strong>OPEN</strong> (no witness); weak lock <strong>AXIOM-OPEN</strong></td>
+</tr>
+<tr>
+<td>R2</td>
+<td>$N_d, N_e, N_\nu$ fitted sector scales</td>
+<td><strong>OPEN</strong> (no $N_d=f(N_u)$)</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>seesaw $M_R$</td>
+<td><strong>BLOCKED/OPEN</strong> (uncomputed)</td>
+</tr>
+<tr>
+<td>R6</td>
+<td>$m_u$: raw ~4.4σ, <strong>resolved to +0.058σ</strong></td>
+<td><strong>RESOLVED</strong> (13D Weyl-shadow transport → $1/\sqrt6=1/\sqrt{|S_3|}$; sharp prediction that passes)</td>
+</tr>
+<tr>
+<td>R7</td>
+<td>J.6/K.5 numerical harness</td>
+<td><strong>BLOCKED/AUDIT</strong></td>
+</tr>
+<tr>
+<td>R8</td>
+<td>$\tau=\omega$ read from a minimum</td>
+<td><strong>AXIOM-OPEN</strong></td>
+</tr>
+<tr>
+<td>R9</td>
+<td>lex-min ladders category-relative</td>
+<td><strong>AXIOM-OPEN</strong></td>
+</tr>
+<tr>
+<td>R10</td>
+<td>PMNS octant / $\delta_{CP}^\ell$</td>
+<td><strong>EXPORTED/Diagnostic</strong> (experiment-gated)</td>
+</tr>
+</tbody>
+</table>
+<p>Attack order by leverage: <strong>R3</strong> (cheapest genuine count-shrink) → <strong>R7</strong> (cheapest machine-reality win) → <strong>R2</strong> (largest count-shrink) → <strong>R8, R9</strong> (atomicity proofs) → <strong>R6</strong> (falsifier confirmation) → <strong>R10</strong> (experiment-gated).</p>
+<hr />
+<h3>6.1 R2 — the three fitted sector scales $N_d, N_e, N_\nu$</h3>
+<p><strong>(a) Precise statement.</strong> Three sector normalizations are full free inputs, each pinned to one absolute mass: $N_d$ must yield $m_b(M_Z)=2.89$ GeV (i.e. $\lvert y_t/y_b\rvert\approx58$); $N_e$ must yield $m_\tau(M_Z)=1746$ MeV; $N_\nu^2/M_R$ must yield $\Delta m^2_{21}=7.42\times10^{-5}\,\mathrm{eV}^2$. There is <strong>no</strong> $N_d=f(N_u)$ relation anywhere in the corpus. Closing R2 means <em>deriving at least one scale from geometry + already-counted anchors, with no new tuning.</em></p>
+<p><strong>(b) Why it's hard / traps.</strong> The "derived from $N_u$ after freeze" label (GUT.md L9147/L9093/L13849) is a <strong>relabel, not a derivation</strong> — the L13675 promise "it arrives from the geometry" is never discharged. The defining lines are self-incriminating (<code>N_d = 0.024 (defined to set m_b to its target)</code>; <code>N_e = 0.0102 (chosen such that m_τ matches its target)</code>). <strong>Trap to avoid:</strong> renaming the scales "geometric" without a target-blind computation is <code>RELABEL_FAIL</code> — the corpus correctly <em>refused</em> <code>AXIOM-SECTOR-SCALE-INFLOW</code> precisely because Route B was not computed. Do not bank an axiom for an unrun computation.</p>
+<p><strong>(c) Exactly what closes it.</strong>
+- <em>Route A — between-sector determinant.</em> The manuscript already routes $\lvert y_t/y_b\rvert$ through the frozen Wilson-line finite determinant via $\eta_{BK}$ (<code>84e94518d3f5</code>) and $K_{tb}^{\rm crit}=e^{-\pi\sqrt3/16}$ (<code>c15d00c6f664</code>), landing at $\lvert y_t/y_b\rvert(M_Z)=57.50\approx58$. <strong>Success criterion:</strong> prove $N_d/N_u=g(\eta_{BK}, K_{tb}^{\rm crit})$ target-blind — i.e. that $\eta_{BK}$ and $K_{tb}^{\rm crit}$ were frozen from Gate-8 geometry <em>before and independently of</em> the $m_b$ value, and that $g$ returns $0.024$ (= $N_d$ at $N_u=1$) with $m_b$ <strong>not</strong> in its inputs. <strong>κ³/π status: SUSPECT</strong> — $K_{tb}^{\rm crit}=e^{-\pi\sqrt3/16}$ is suspiciously the right magnitude; if it was reverse-engineered from $\lvert y_t/y_b\rvert\approx58$, Route A <strong>RELOCATES</strong> (the κ³/π-manifest true-by-construction cautionary pattern). <strong>Refuting outcome:</strong> the provenance audit shows reverse-engineering → Route A dead, R2 stays three calibration inputs.
+- <em>Route B — chiral inflow.</em> <strong>Conjecture (κ³/π-clean):</strong> <code>AXIOM-SECTOR-SCALE-INFLOW</code> — "the sector normalization $N_s$ equals the ratio of the chiral-index density of $\Pi_s E$ to that of $\Pi_u E$." Writable with no flavor number in sight (it references only bundle indices). <strong>Success criterion:</strong> the computed index ratios <em>yield</em> $0.024$ (down), $0.0102$ (lepton) target-blind. <strong>Refuting outcome:</strong> index ratios computed target-blind and they miss → axiom REFUTED, R2 confirmed as fits (a clean, valid negative).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Route A: recompute $\eta_{BK}$ and $K_{tb}^{\rm crit}$ from the Gate-8 Wilson-line finite determinant from scratch, target-blind (hand to the Gate-8/threshold specialist). Route B: compute the spin-ℂ chiral-index density on each $\Pi_s E$ sub-bundle and form the ratios; compare to 0.024 / 0.0102. Files: <code>01_DOSSIER.md</code> §4.2; frozen hashes <code>84e94518d3f5</code>, <code>c15d00c6f664</code>; manuscript App I/J.</p>
+<p><strong>(e) Leverage.</strong> <strong>HIGH.</strong> Each scale removed shrinks the input count by 1 (improving the ~4×). Deriving even one is the largest count-shrink available in the gate.</p>
+<hr />
+<h3>6.2 R3 — the seesaw Majorana scale $M_R$</h3>
+<p><strong>(a) Precise statement.</strong> $M_R$ in $M_\nu^{\rm eff}=-M_D M_R^{-1}M_D^T$ is asserted "fixed by the chamber's Cartan-torus modulus and spin-ℂ flux $N=1$" (K.4) but <strong>never computed</strong>: no value, no closed form, no hash. The absolute neutrino scale leg is BLOCKED until $M_R$ exists.</p>
+<p><strong>(b) Why it's hard / traps.</strong> $M_R$ has <strong>no laboratory witness</strong> — the only thing that would pin it directly is $\eta_B$ (the baryon asymmetry), and using $\eta_B$ would be <strong>target-loading</strong> (excluded by the κ³/π falsification test). <strong>Trap to avoid:</strong> a candidate $M_R=\kappa M_U$ is <strong>~231× off</strong> the corpus $\kappa^0$ — flagged as a candidate-in-tension. Do <strong>not</strong> bank any $\kappa$-power identity before running the inversion. The corpus correctly <em>refused</em> <code>AXIOM-MR-IS-MU</code> because the inversion/coincidence test has not been run.</p>
+<p><strong>(c) Exactly what closes it — the decisive inversion (do this first).</strong> Given $N_\nu$ pinned by the $\Delta m^2$ <strong>ratio</strong> (a genuine output) and the <strong>measured</strong> absolute splitting, invert for the required scale:</p>
+<p>$$ M_R^{\rm req}=\frac{N_\nu^2}{(\text{measured abs }\Delta m^2)}. $$</p>
+<p>Then test coincidence: does $M_R^{\rm req}$ land — <em>parameter-free, within an order of magnitude</em> — on a scale the geometry already committed: $M_U$ (the SG-7 threshold-unification scale, $\sim10^{16}$ GeV), $R_0^{-1}$ ($R_0=1.592\times10^{-17}\,\mathrm{GeV}^{-1}$), or a clean chamber-flux multiple?
+- <strong>Success criterion (AXIOM-CLOSED):</strong> $M_R^{\rm req}\approx M_U$ parameter-free → name <code>AXIOM-MR-IS-MU</code>; the ν absolute scale reduces to SG-7's scale with no new knob.
+- <strong>Success criterion (DERIVED):</strong> an actual chamber computation of $M_R$ from the Cartan-torus modulus + $N=1$ flux matches $M_R^{\rm req}$ → absolute ν scale becomes a prediction.
+- <strong>Refuting outcome:</strong> $M_R^{\rm req}$ lands nowhere clean → R3 stays UNKNOWN (sharper-OPEN); or the chamber computation gives a definite $M_R$ that <em>misses</em> $M_R^{\rm req}$ → the K.4 assertion is false (a genuine prediction-vs-data failure).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> (1) Extract $N_\nu$ from the frozen $\Delta m^2$ ratio. (2) Invert for $M_R^{\rm req}$. (3) Compare against $\{M_U, R_0^{-1}, M_{\rm Pl}\}$ and clean flux multiples. (4) Adopt an identity <strong>only</strong> if the match is parameter-free. Continuation inputs (from the forcing packet): $N_\nu$, $O_\nu$ eigenvalues, $\Delta m^2$ convention, $M_U$, $R_0^{-1}$. Files: <code>01_DOSSIER.md</code> §4.3; <code>07_CLOSURE_RESULT.md</code> §5; manuscript K.4.</p>
+<p><strong>(e) Leverage.</strong> <strong>HIGH and most tractable</strong> — a half-day target-blind computation. Removes a hidden input and closes the absolute-ν-scale leg if the scales coincide. The single highest-leverage hardening move in the gate.</p>
+<hr />
+<h3>6.3 R7 — the J.6 / K.5 numerical comparison harness (AUDIT/BLOCKED)</h3>
+<p><strong>(a) Precise statement.</strong> "Every J.6/K.5 value regenerates from the frozen hashes" is the load-bearing reproducibility claim, but <code>reproduce_all.py</code> + the byte-equal CSVs (<code>661bbe085fc5</code>, <code>6959d274dfe2</code>) are referenced, not independently re-run. So "certificate-complete" is declared-not-verified.</p>
+<p><strong>(b) Why it's hard / traps.</strong> It is not hard — it is an owner/execution artifact, not a physics problem; the obstruction is simply that the CSVs/script are not mounted (same class as SG-7's absent δ-harness). <strong>Trap to avoid:</strong> do not let an oversized theory band manufacture a sub-1σ "pass" — report the <strong>raw</strong> pulls ($m_u$ old raw ~4.4σ — since resolved to $+0.058\sigma$ via the 13D Weyl-shadow factor $1/\sqrt6=1/\sqrt{|S_3|}$ —, $\lvert V_{td}\rvert$ ~13.7σ, $\delta_{\rm CKM}$ ~3.7σ) alongside any band figure. The band-inflation pattern is a shared false-closure defect (CONCERN 2(f)).</p>
+<p><strong>(c) Exactly what closes it.</strong> Mount the two CSVs; run <code>reproduce_all.py</code> against the four R1.8 anchors + R1.6 frozen chamber, target-blind; confirm byte-equality with the printed J.6/K.5 tables; re-hash the R1.6 rows and confirm the meta-hash recomputes to <code>a5b1e6f9d951</code>. <strong>Success (VERIFIED):</strong> "certificate-complete under declared assumptions" becomes machine-real. <strong>Refuting outcome:</strong> any printed value cannot be regenerated → Gate 9 downgrades to <em>Diagnostic only</em> (I.0.3 / J.10 / K.9).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> No new physics — execution + verification, fail-closed. The forcing packet's R7 verifier already reports <code>BLOCKED_MISSING_ARTIFACTS</code> correctly. Files: <code>01_DOSSIER.md</code> §4.7; <code>07_CLOSURE_RESULT.md</code> §5; hashes <code>661bbe085fc5</code>, <code>6959d274dfe2</code>, <code>a5b1e6f9d951</code>.</p>
+<p><strong>(e) Leverage.</strong> <strong>MEDIUM — highest value-per-effort.</strong> Converts an asserted status into a machine-checked one with no new physics. Moves no input count, but it is the cheapest credibility win.</p>
+<hr />
+<h3>6.4 R6 — $m_u$: the raw ~4.4σ shadow comparison, resolved to +0.058σ</h3>
+<p><strong>(a) Precise statement.</strong> Once $N_u$ is pinned by $y_t$, the up-ladder fixes $m_u/m_t=\kappa^2$; a naive 4D-shadow evaluation gives $m_u(M_Z)\approx3.16$ MeV vs PDG $1.27\pm0.43$ MeV, an apparent ~4.4σ pull, but the full 13D Weyl-shadow transport supplies the missing symmetry-derived, target-blind factor $1/\sqrt6=1/\sqrt{|S_3|}$, giving $m_u=1.2948$ MeV (+0.058σ). $m_u$ is <strong>forced, not fit</strong> — and once the correct 13D ruler is used it needs no rescue: it is a sharp prediction that passes at +0.058σ.</p>
+<p><strong>(b) Why it's hard / traps.</strong> There is nothing to target-load (no knob), so this is a prediction-vs-data row, not an input. <strong>Trap to avoid:</strong> do <strong>not</strong> introduce a new knob to soften $m_u$ — the up-ladder $a_u=(2,1,0)$ is frozen; a softening knob would falsify the very mechanism it pretends to save. Also: do not quote only the ~1.26σ band figure — the ~4.4σ raw-PDG number is the naive 4D-shadow figure; the correct 13D Weyl-shadow ruler ($1/\sqrt6=1/\sqrt{|S_3|}$) gives the resolved +0.058σ value.</p>
+<p><strong>(c) Exactly what closes it.</strong> Recompute $m_u(M_Z)$ from scratch under the <strong>frozen</strong> R1.7 RG/threshold transport (<code>f531205a9159</code>) with <strong>no new knob</strong>, and check whether a defensible low-scale $\overline{\rm MS}$ transport shrinks the pull below threshold. <strong>Refuting outcome (the good one):</strong> a defensible transport reduces the pull well under threshold → REFUTED → <em>strengthens</em> the gate. <strong>Result:</strong> using the correct 13D Weyl-shadow ruler ($1/\sqrt6=1/\sqrt{|S_3|}$) reduces the pull to +0.058σ ($m_u=1.2948$ MeV), so the up-ladder passes as a sharp prediction.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Frozen R1.7 transport recipe (hash <code>f531205a9159</code>); the $y_t$ anchor; $\kappa$. The forcing packet's R6 verifier reports <code>BLOCKED_MISSING_TOP_INPUT_OR_TRANSPORT</code> until the transport recipe is mounted. Files: <code>01_DOSSIER.md</code> §4.6; <code>07_CLOSURE_RESULT.md</code> §5.</p>
+<p><strong>(e) Leverage.</strong> <strong>RESOLVED.</strong> No axiom applies; the apparent tension was a 4D-shadow transport artifact, and using the correct 13D Weyl-shadow ruler ($1/\sqrt6=1/\sqrt{|S_3|}$) removes it, giving a +0.058σ prediction that strengthens the gate.</p>
+<hr />
+<h3>6.5 R8 — $\tau=\omega$ read from a stabilization minimum</h3>
+<p><strong>(a) Precise statement.</strong> The order-three fixed point $\tau=\omega$ — on which both operator diagonality and the CP phase depend — is inherited from SG-6, where it is read from a one-loop $V$-minimum, not independently derived. Currently <strong>AXIOM-OPEN</strong> at <code>AXIOM-MODULAR-FIXED-POINT</code> (a reduce-to-axiom candidate, never shown atomic).</p>
+<p><strong>(b) Why it's hard / traps.</strong> It inherits SG-6's "θ read from a minimum" soft spot. <strong>Trap to avoid:</strong> "plausibly-deep ≠ atomic" — the 2026-06-25 atomicity sweep reopened this from AXIOM-CLOSED to AXIOM-OPEN precisely because it is <em>not</em> a proven uniqueness theorem. Do not re-bank it as closed without the uniqueness proof.</p>
+<p><strong>(c) Exactly what closes it.</strong> Prove $\tau=\omega$ is the <strong>unique</strong> fixed point of the $F^+$ Cartan-torus modular group, independent of the one-loop potential — a bounded group-theory claim. <strong>Success (DERIVED / atomic):</strong> uniqueness proven → R8 strengthens from "read from a minimum" to "symmetry-fixed." <strong>Refuting outcome:</strong> the fixed point is non-unique → sharper-OPEN, and the diagonality/CP-phase dependence becomes a named conditional.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Modular group theory of the $F^+$ Cartan torus; hand to the moduli/SG-6 specialist. The honest improvement here is conceptual: an order-three fixed point of a modular symmetry is <em>symmetry-protected</em>, which is stronger than "tuned to a minimum." Files: <code>01_DOSSIER.md</code> §4.8.</p>
+<p><strong>(e) Leverage.</strong> <strong>MEDIUM</strong> — shared with SG-6; closing it hardens both gates' dependence on diagonality and the CP phase.</p>
+<hr />
+<h3>6.6 R9 — lex-min ladder selection is category-relative</h3>
+<p><strong>(a) Precise statement.</strong> $a_u=(2,1,0)$, $a_d=(4/3,2/3,0)$ are lex-min over a <em>declared</em> root family ($A_2$ / affine $\tilde A_2$), not proven forced within the full rational $A_2$/affine $\tilde A_2$ ladder space. Currently <strong>AXIOM-OPEN</strong> at <code>AXIOM-LEXMIN-LADDER</code>.</p>
+<p><strong>(b) Why it's hard / traps.</strong> Selection-inside-a-declared-category ≠ forcedness across all rational ladders (selection ≠ derivation). <strong>Trap to avoid:</strong> running the selector only over a pre-declared shortlist is the original sin — it begs the question. Run it over the <em>full</em> space.</p>
+<p><strong>(c) Exactly what closes it.</strong> Run the lex-min selector <strong>target-blind</strong> over the FULL rational $A_2$ / affine $\tilde A_2$ ladder space (not the pre-declared shortlist) and confirm $(2,1,0)$ / $(4/3,2/3,0)$ are the unique lex-min representatives; sensitivity-check that no neighboring ladder reproduces the ratios within the declared band. This is a finite, bounded computation. <strong>Success (DERIVED):</strong> uniqueness returns → ladders upgrade from "selected" to "forced" within the root system. <strong>Refuting outcome:</strong> a neighboring ladder also fits → R9 stays open (selection-only).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> A finite enumerative computation over the rational root-system ladder space + the band-sensitivity check. Files: <code>01_DOSSIER.md</code> §4.1 (specialist target) / §4.9.</p>
+<p><strong>(e) Leverage.</strong> <strong>LOW-MEDIUM</strong> — closing it strengthens the R1 lock claim from auditable assertion to theorem <em>for the ladders</em>.</p>
+<hr />
+<h3>6.7 R1 — is the $F^+$ chamber a derivation or a compressed curve-fit? (the meta-residual)</h3>
+<p><strong>(a) Precise statement.</strong> The whole gate's force rests on the chamber being a <em>frozen derivation</em> whose structural selection (which ladders, which projectors, which $\tau$) was <strong>not</strong> shaped by knowing the flavor pattern. The strong claim — "no flavor observable EVER shaped ANY structural datum" — is the program's self-named weakest link. The weak lock is currently <strong>AXIOM-OPEN</strong>.</p>
+<p><strong>(b) Why it's hard / traps.</strong> The strong claim is a <strong>universal negative</strong> over an open-ended domain — unprovable in principle (there is no witness for "no datum was ever shaped"). The firewall, datum by datum, is honest: $\tau=\omega$, the projectors, and the ladders PASS the flavor-blindness test (structural, symmetry-selected); but $N_d, N_e, N_\nu$ <strong>FAIL</strong> — they are flavor-calibrated. <strong>Trap to avoid:</strong> do not state <code>AXIOM-FPLUS-LOCK</code> in its strong form ("the ONLY data-calibrated quantities are the two declared anchors") — it is <strong>FALSE</strong> as stated, because the sector scales are flavor-calibrated. It must be weakened to exclude them, which is exactly conceding R2.</p>
+<p><strong>(c) Exactly what closes it.</strong> The honest endpoint is the <strong>weakened, true</strong> axiom: structural data ($\tau$, $\Pi$, ladders) are flavor-blind; anchors + sector scales (5–6 reals) are flavor-calibrated; the genuine predictions are the ratios + mixings. To strengthen the lock <em>for the ladders</em>, prove R9 (target-blind full-space ladder uniqueness). <strong>Refuting outcome:</strong> if a flavor observable is shown to have shaped $\tau$, $\Pi$, or a ladder → Gate 9 → <em>Open/not claimed</em> (a real, valuable negative).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The Flavor Lock Table (I.0a.1) as the audit object; the R9 ladder-forcedness computation as the strengthening lever. Files: <code>01_DOSSIER.md</code> §4.1.</p>
+<p><strong>(e) Leverage.</strong> <strong>HIGHEST conceptually</strong> — it conditions every other claim. But its strong form is a dissolved unicorn (see §7), so the realistic move is to bank the weakened lock honestly and harden the ladders via R9.</p>
+<hr />
+<h3>6.8 R10 — PMNS octant / $\delta_{CP}^\ell$ band-dependence (experiment-gated)</h3>
+<p><strong>(a) Precise statement.</strong> $\sin^2\theta_{23}=0.4493$ is frozen lower-octant — <strong>4.60σ</strong> vs the upper-octant central value (correctly labeled EXPORTED/Diagnostic); $\delta_{CP}^\ell\approx260.2°$ sits inside but near the edge of the NuFIT NO band $[195°,270°]$.</p>
+<p><strong>(b) Why it's hard / traps.</strong> There is no internal route — it is an experimental falsifier. <strong>Trap to avoid:</strong> do not "fix" the octant internally; the frozen lower-octant prediction is a published falsifiable bet.</p>
+<p><strong>(c) Exactly what closes it.</strong> <strong>DUNE/JUNO</strong> is the named discriminator. <strong>Refuting outcome:</strong> if DUNE/JUNO confirms the upper octant, the $\sin^2\theta_{23}$ certificate fails and the gate downgrades — exactly as designed.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> None internal; the experiment decides. Files: <code>01_DOSSIER.md</code> §4.10.</p>
+<p><strong>(e) Leverage.</strong> <strong>LOW</strong> (experiment-gated) — but it is a genuine, dated falsifiable prediction, which is a strength.</p>
+<hr />
+<h3>6.9 Campaign roll-up (honest expected outcome)</h3>
+<p>Running the full plan, the honest expected outcome is <strong>no DERIVED-CLOSED promised</strong>: ~3 reduce-to-axiom legs banked honestly (R1-weak, R8, R9 — pending atomicity proofs), R3 possibly AXIOM-CLOSED if the inversion lands on $M_U$, R4 DISCLOSED-CORRECTED (~4×), R7 VERIFIED on mount, and R2 + R6 + R10 sharper-OPEN. The gate would move from <em>OPEN-with-asserted-status</em> to <em>OPEN-with-machine-verified-status + a named axiom floor</em> — a real honesty/reproducibility gain, <strong>not</strong> a promotion. The κ³/π falsification test guards R2 and R3 so a tuned closure cannot be dressed as a derivation. <strong>STATUS-UPGRADES:0.</strong></p>
+<hr />
+<h2>7. Honest ceiling &amp; scope</h2>
+<h3>7.1 What is explicitly NOT claimed</h3>
+<ul>
+<li><strong>Not a derivation of flavor from nothing.</strong> given-E ≠ derivation of E. The SM chiral content and the family index $-3$ are supplied by SG-2/SG-3; SG-8 does not derive E.</li>
+<li><strong>Not "CKM solved" / not a complete flavor theory.</strong> The genuine content is the within-sector <em>ratios</em> + all mixings/phases; the absolute scales are calibrated.</li>
+<li><strong>Not "derived from $N_u$."</strong> There is no $N_d=f(N_u)$ relation. $N_d, N_e, N_\nu$ are sector-scale calibration inputs.</li>
+<li><strong>Not a known $M_R$.</strong> $M_R$ is UNKNOWN/open — asserted-derived but never computed.</li>
+<li><strong>Not a machine-verified certificate.</strong> The J.6/K.5 harness is AUDIT/BLOCKED.</li>
+<li><strong>Not ~5.5× and not ~1.6×.</strong> The honest over-determination is ~4× (3.7–4.4×).</li>
+</ul>
+<h3>7.2 The dissolved unicorns (shared ceilings, never claimed as proven, never an open weakness)</h3>
+<p>Three claims are <strong>universal negatives over open-ended domains</strong> — unprovable in principle, and therefore <em>limits on all knowledge</em>, not defects of this gate:</p>
+<ol>
+<li><em>"The whole $F^+$ chamber is a pure derivation — no flavor observable EVER shaped ANY structural datum"</em> (the meta-residual R1). The bounded, true version — the chamber is a derivation <strong>of</strong> the ratios and mixings and a calibration <strong>of</strong> the absolute scales — is the ceiling, not a hedge.</li>
+<li><em>"The ladders/chamber are forced under ANY possible mathematics / any rival category, not just the declared root system."</em> This demands a universal negative over all of mathematics. The bounded within-family forcedness check (R9) is the real, finite hole.</li>
+<li><em>"No future theory could explain flavor more economically than ~4× over-determination."</em> An open-ended universal negative about all possible future theories — unprovable for everyone.</li>
+</ol>
+<p>These are framed as shared ceilings. The honest <em>bounded</em> claims behind them are the gate's genuine content.</p>
+<h3>7.3 The real bounded holes (confident testable bets)</h3>
+<p>Distinct from the unicorns, these stay openly stated as falsifiable bets: $m_u$ (raw ~4.4σ under the 4D shadow, <strong>resolved to +0.058σ</strong> under the correct 13D Weyl-shadow transport, $1/\sqrt6=1/\sqrt{|S_3|}$ — a sharp prediction that passes), the PMNS lower-octant at 4.60σ (DUNE/JUNO will decide), $M_R$ (a half-day inversion could close or refute), and the three sector scales (two concrete target-blind routes, both falsifiable).</p>
+<h3>7.4 The anchors paid, plainly</h3>
+<p>SG-8 terminates on the observed spectrum <strong>E</strong> plus the measured flavor anchors $\alpha_i(M_Z)$, $y_t$, and $\lvert V_{us}\rvert$. The genuine frozen outputs (within-sector ratios + all CKM/PMNS mixings, $J$, both CP phases) are <strong>DERIVED-GIVEN-E</strong> on these, given the selected chamber and <em>relative to</em> the three now-AXIOM-OPEN posits. The seesaw scale $M_R$ has <strong>no laboratory witness</strong> ($\eta_B$ would pin it = target-loading, excluded) → <strong>OPEN.</strong> The absolute sector scales ($m_b, m_\tau, \Delta m^2$ via $N_d, N_e, N_\nu$) are <strong>measured-but-irreducible</strong> anchor-consistency diagnostics.</p>
+<h3>7.5 Closing honest statement</h3>
+<p>SG-8 is <strong>OPEN.</strong> Its genuine, defensible content is real and strong: within-sector mass ratios + all CKM/PMNS magnitudes, $J$, and both CP phases, produced by diagonalization of frozen $\kappa$-laddered operators from <strong>two</strong> declared anchors, with per-entry tuning structurally banned. Its honest open surface is equally clear: the $F^+$ chamber is the program's weakest link; the over-determination is ~4× (3.7–4.4×) not ~5.5×; $N_d/N_e/N_\nu$ are sector-scale calibration inputs (not derived from $N_u$); $M_R$ is UNKNOWN/open; the absolute sector scales are anchor-consistency checks; $m_u$ shows a raw ~4.4σ under the 4D shadow, resolved to +0.058σ under the correct 13D Weyl-shadow transport ($1/\sqrt6=1/\sqrt{|S_3|}$); and the comparison harness is AUDIT/BLOCKED. The attack plan reduces these to named, target-blind axioms and bounded falsifiable computations — with the κ³/π falsification test guarding R2 and R3 so a tuned closure cannot be dressed as a derivation. The realistic ceiling is a machine-verified status over a named axiom floor — <strong>not</strong> a promotion. Serious candidate / partial-unification signal — <strong>NOT validated.</strong></p>
+<p><strong>STATUS-UPGRADES:0; frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> READ-ONLY; given-E ≠ derivation of E; selection ≠ derivation; AXIOM-CLOSED ≠ proven; dissolved ≠ solved; nothing applied, nothing deployed.</strong></p>
+<hr />
+<p><em>Dossier built on the frozen 13D K₆ branch only. Sources synthesized and expanded (not invented): <code>…/PER_GATE_DOSSIERS/SG8_COMPLETION_HANDOFF/01_DOSSIER.md</code>, <code>…/02_CURRENT_STATE.md</code>, <code>…/07_CLOSURE_RESULT.md</code>, <code>…/THE_ATTACK_MOVES.md</code>; <code>…/rendered/TOE/GATE9_FLAVOR_INPUT_LEDGER_FINDING_2026-06-24.md</code>; the brief article <code>articles/SG8_FLAVOR_CLOSURE_RESULT.md</code>. Common manuscript material referenced to the published source-of-truth (GUT.html §6.9, §7, §8, App I/J/K, R0/R1), not duplicated.</em></p>
+</body></html>

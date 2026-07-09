@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uncertainty Propagation — Relativistic Optics Lab</title>
+  <meta name="description" content="Per-input uncertainty distributions propagated through formula scenarios via linear sensitivity (Jacobian × σ) and seeded Monte Carlo. Tornado chart, dominant contributors, reproducible certificate.">
+  <link rel="stylesheet" href="../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    .input-row { display:grid; grid-template-columns: 1.1fr 0.9fr 0.9fr 1.0fr; gap:8px; align-items:end; margin-bottom:8px; }
+    .input-row label { font-size:0.78em; color:#6b7280; margin-bottom:2px; display:block; }
+    .input-row input, .input-row select { width:100%; padding:5px 7px; border:1px solid #d8dee4; border-radius:4px; font-size:0.92em; background:#fff; }
+    .input-row .ihead { font-size:0.75em; color:#1f2933; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; padding:0 4px; }
+    .row-head { display:grid; grid-template-columns: 1.1fr 0.9fr 0.9fr 1.0fr; gap:8px; border-bottom:1px solid #e5e7eb; padding-bottom:4px; margin-bottom:6px; }
+    .stub { display:inline-block; padding:1px 6px; background:#fff7ed; color:#b45309; border:1px solid #fed7aa; border-radius:3px; font-size:0.75em; }
+  </style>
+</head>
+<body>
+
+<main class="container">
+  <h1>Uncertainty Propagation</h1>
+  <p class="small mute">Run linear sensitivity OR seeded Monte Carlo on a formula scenario. Same seed always produces the same result.</p>
+
+  <div class="callout">
+    <strong>Uncertainty propagation is a public engineering estimate.</strong> It does not replace mission covariance analysis or orbit-determination uncertainty propagation.
+  </div>
+
+  <div class="calc-layout">
+
+    <aside class="calc-inputs">
+      <h3 style="margin-top:0">Scenario</h3>
+
+      <div class="field">
+        <label for="scenario">Scenario</label>
+        <select id="scenario">
+          <option value="shapiro_grazing" selected>Shapiro — solar grazing (Earth–Mars)</option>
+          <option value="deflection_limb">Light deflection — solar limb</option>
+          <option value="gps_clock">GPS clock offset (Δf/f → μs/day)</option>
+          <option value="custom">Custom (Shapiro-style; edit values)</option>
+        </select>
+        <span class="hint">Picking a scenario auto-fills inputs and σ defaults.</span>
+      </div>
+
+      <h3>Inputs &amp; uncertainty distributions</h3>
+      <div class="row-head">
+        <span class="ihead">Symbol</span>
+        <span class="ihead">Value</span>
+        <span class="ihead">σ</span>
+        <span class="ihead">Distribution</span>
+      </div>
+      <div id="input-rows"></div>
+
+      <h3>Method</h3>
+      <div class="field">
+        <label for="method">Propagation method</label>
+        <select id="method">
+          <option value="linear" selected>Linear sensitivity (Jacobian × σ)</option>
+          <option value="mc">Monte Carlo</option>
+        </select>
+      </div>
+
+      <div id="mc-controls" style="display:none">
+        <div class="field">
+          <label for="mc-N">Monte Carlo samples N <span class="small mute" id="mc-N-val">10000</span></label>
+          <input type="range" id="mc-N" min="500" max="100000" step="500" value="10000">
+        </div>
+        <div class="field">
+          <label for="mc-seed">Seed (integer)</label>
+          <input type="number" id="mc-seed" step="1" value="3232552386">
+          <span class="hint">Default seed is <code>0xC0FFEE42</code> (3232552386). Same seed = same result.</span>
+        </div>
+      </div>
+
+      <div style="margin-top:14px">
+        <button class="btn" id="run">Run</button>
+        <span class="small mute" id="run-status" style="margin-left:8px"></span>
+      </div>
+    </aside>
+
+    <section class="calc-outputs">
+
+      <h2 style="margin-top:0">Output uncertainty</h2>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="label">Nominal y₀</div><div class="value" id="out-y0">—</div></div>
+        <div class="kpi"><div class="label">σ_y</div><div class="value" id="out-sy">—</div></div>
+        <div class="kpi"><div class="label">p5 / p50 / p95</div><div class="value" id="out-pct">—</div></div>
+        <div class="kpi"><div class="label">Method</div><div class="value" id="out-method">—</div></div>
+      </div>
+
+      <h3>Tornado — |∂y/∂x · σ_x| ranked</h3>
+      <div id="tornado" class="formula-block" style="padding:8px"></div>
+
+      <h3>Dominant contributors</h3>
+      <div id="dominant-list"></div>
+
+      <div id="mc-summary" style="display:none">
+        <h3>Monte Carlo summary</h3>
+        <div class="formula-block" id="mc-summary-body"></div>
+      </div>
+
+      <h3>Formula in use</h3>
+      <div class="formula-block" id="formula-block">
+        <span class="small mute">Pick a scenario above to load its formula.</span>
+      </div>
+
+      <h3>Assumptions</h3>
+      <ul class="assumptions-list" id="assumptions-list"></ul>
+
+      <h3>Limits and "not included"</h3>
+      <ul class="warnings-list">
+        <li>Linear sensitivity assumes the function is locally linear and the inputs are <strong>independent</strong>. Correlated uncertainties require a full covariance matrix.</li>
+        <li>Monte Carlo with N = 10⁴ has finite-sample noise on tail percentiles (p5, p95). Increase N for tighter percentiles.</li>
+        <li>The Box–Muller normal sampler returns one draw per uniform pair — no antithetic / Latin-hypercube variance reduction. <span class="stub">TODO: optional Latin-hypercube sampling</span></li>
+        <li>Per-input distributions are sampled <strong>independently</strong>. No copula or correlation. <span class="stub">TODO: correlation matrix support</span></li>
+        <li>Scenarios use the calculator formulas in <code>shared/shared.js</code>; same approximation limits apply (weak-field PPN, paraxial, etc.).</li>
+      </ul>
+
+      <h3>Certificate</h3>
+      <p class="small mute">Exports <code>buildCertificateV2</code> with method, samples, seed, and per-output mean/std/p5/p50/p95 baked into the deterministic <code>result_hash</code>.</p>
+      <div class="cta-row">
+        <button class="btn btn-outline" id="cert-json">Download JSON certificate</button>
+        <button class="btn btn-outline" id="cert-md">Download Markdown certificate</button>
+        <span class="small mute" id="cert-hash"></span>
+      </div>
+
+    </section>
+  </div>
+</main>
+
+<script type="module">
+import { N, Formulas, fmt, sci, bootstrap, downloadAs } from "../shared/shared.js";
+import { seededRng, sample, monteCarlo, linearSensitivity } from "../shared/uncertainty.js";
+import { tornadoChart, downloadBlob } from "../shared/plots.js";
+import { buildCertificateV2 } from "../shared/certificate_v2.js";
+
+bootstrap({ activeKey: "uncert" });
+
+const $ = id => document.getElementById(id);
+
+// ============================================================
+// Scenario definitions
+//   Each scenario provides: inputs (name, default value, default sigma,
+//   default distribution), an fn(values) -> y in SI, output formatter,
+//   formula display, and the formula registry IDs / constant IDs.
+// ============================================================
+const SCENARIOS = {
+  shapiro_grazing: {
+    label: "Shapiro — solar grazing (Earth–Mars)",
+    formula_id: "shapiro_one_body_ppn_v1",
+    formula_latex:
+      "$$\\Delta t = (1+\\gamma)\\,\\frac{GM}{c^3}\\,\\ln\\!\\left(\\frac{r_1+r_2+R}{r_1+r_2-R}\\right) \\;\\;[\\text{s}]$$",
+    output: { name: "Δt", units: "s", display: v => `${(v*1e6).toPrecision(5)} μs` },
+    assumptions: [
+      "One-body weak-field PPN expansion (γ = 1 is GR)",
+      "Static spherically symmetric source",
+      "Straight-line null geodesic at leading order",
+      "r1, r2 are coordinate distances from the body; R is Euclidean emitter–receiver distance"
+    ],
+    inputs: [
+      // r1 ≈ 1 AU, r2 ≈ 1.524 AU, R ≈ r1+r2 − b²(1/r1+1/r2)/2 at b = R_sun
+      { name: "GM", value: N.GM_sun, sigma: N.GM_sun * 1e-6, dist: "normal" },
+      { name: "r1", value: N.AU,            sigma: N.AU * 1e-4, dist: "normal" },
+      { name: "r2", value: 1.524 * N.AU,    sigma: N.AU * 1e-4, dist: "normal" },
+      { name: "R",  value: 2.5239821 * N.AU, sigma: N.AU * 1e-5, dist: "normal" },
+      { name: "gamma", value: 1.0,          sigma: 2.3e-5,      dist: "normal" }
+    ],
+    fn: (v) => {
+      const denom = v.r1 + v.r2 - v.R;
+      if (denom <= 0) return NaN;
+      return (1 + v.gamma) * v.GM / Math.pow(N.c, 3) * Math.log((v.r1 + v.r2 + v.R) / denom);
+    },
+    constant_ids: ["c_si_2019", "gm_sun_iau_2009"],
+    source_ids:   ["will_2018", "iau_2009_gm_sun", "iau_2012_au"]
+  },
+
+  deflection_limb: {
+    label: "Light deflection — solar limb",
+    formula_id: "light_deflection_ppn_v1",
+    formula_latex:
+      "$$\\alpha = (1+\\gamma)\\,\\frac{2GM}{c^2 b} \\;\\;[\\text{rad}]$$",
+    output: { name: "α", units: "rad", display: v => `${(v*(180/Math.PI)*3600).toPrecision(5)} arcsec` },
+    assumptions: [
+      "First-order PPN; γ = 1 is GR",
+      "Static spherically symmetric source",
+      "Straight-line null geodesic at leading order",
+      "Observer / source at infinity; impact parameter b > body radius"
+    ],
+    inputs: [
+      { name: "GM",    value: N.GM_sun, sigma: N.GM_sun * 1e-6, dist: "normal" },
+      { name: "b",     value: N.R_sun,  sigma: N.R_sun * 1e-4,  dist: "normal" },
+      { name: "gamma", value: 1.0,      sigma: 2.3e-5,          dist: "normal" }
+    ],
+    fn: (v) => (1 + v.gamma) * 2 * v.GM / (N.c * N.c * v.b),
+    constant_ids: ["c_si_2019", "gm_sun_iau_2009", "r_sun_iau_2015"],
+    source_ids:   ["will_2018", "iau_2009_gm_sun", "iau_2015_nominal_radii"]
+  },
+
+  gps_clock: {
+    label: "GPS clock offset (μs/day from grav − SR)",
+    formula_id: "frequency_shift_ashby_v1",
+    formula_latex:
+      "$$\\Delta f/f \\;=\\; (U_e - U_r)/c^2 \\;-\\; (v_e^2 - v_r^2)/(2c^2),\\quad \\text{Output} = (\\Delta f/f)\\times 86400 \\times 10^6\\,[\\mu s/\\text{day}]$$",
+    output: { name: "GPS offset", units: "μs/day", display: v => `${v.toPrecision(5)} μs/day` },
+    assumptions: [
+      "Weak-field gravitational potentials",
+      "First-order special-relativistic transverse Doppler",
+      "Slowly varying gravitational field; v << c",
+      "Geocentric circular orbit at r_GPS"
+    ],
+    inputs: [
+      { name: "GM_earth", value: N.GM_earth, sigma: N.GM_earth * 1e-7, dist: "normal" },
+      { name: "R_earth",  value: N.R_earth,  sigma: 100,               dist: "normal" },
+      { name: "r_GPS",    value: 26578e3,    sigma: 1000,              dist: "normal" },
+      { name: "v_GPS",    value: 3874,       sigma: 5,                 dist: "normal" }
+    ],
+    fn: (v) => {
+      const U_e = -v.GM_earth / v.R_earth;
+      const U_r = -v.GM_earth / v.r_GPS;
+      const grav = (U_e - U_r) / (N.c * N.c);
+      const sr   = -(0 - v.v_GPS * v.v_GPS) / (2 * N.c * N.c); // v_e = 0
+      const total = grav + sr;
+      return total * 86400 * 1e6;   // μs/day (signed)
+    },
+    constant_ids: ["c_si_2019", "gm_earth_iers_2010"],
+    source_ids:   ["ashby_2003", "iers_2010", "wgs_84"]
+  },
+
+  custom: {
+    label: "Custom (Shapiro-style; edit values)",
+    formula_id: "shapiro_one_body_ppn_v1",
+    formula_latex:
+      "$$\\Delta t = (1+\\gamma)\\,\\frac{GM}{c^3}\\,\\ln\\!\\left(\\frac{r_1+r_2+R}{r_1+r_2-R}\\right)$$",
+    output: { name: "Δt", units: "s", display: v => `${(v*1e9).toPrecision(5)} ns` },
+    assumptions: [
+      "One-body weak-field PPN; user supplies all geometry",
+      "User is responsible for the validity of (r1, r2, R) and σ choices"
+    ],
+    inputs: [
+      { name: "GM", value: N.GM_sun, sigma: 0, dist: "fixed" },
+      { name: "r1", value: N.AU,     sigma: 0, dist: "fixed" },
+      { name: "r2", value: N.AU,     sigma: 0, dist: "fixed" },
+      { name: "R",  value: 0.5*N.AU, sigma: 0, dist: "fixed" },
+      { name: "gamma", value: 1.0,   sigma: 0, dist: "fixed" }
+    ],
+    fn: (v) => {
+      const denom = v.r1 + v.r2 - v.R;
+      if (denom <= 0) return NaN;
+      return (1 + v.gamma) * v.GM / Math.pow(N.c, 3) * Math.log((v.r1 + v.r2 + v.R) / denom);
+    },
+    constant_ids: ["c_si_2019"],
+    source_ids:   ["will_2018"]
+  }
+};
+
+let currentScenario = SCENARIOS.shapiro_grazing;
+let currentInputs   = JSON.parse(JSON.stringify(currentScenario.inputs));
+
+// ============================================================
+// UI: render input rows
+// ============================================================
+function renderInputRows() {
+  const host = $("input-rows");
+  host.innerHTML = currentInputs.map((row, i) => `
+    <div class="input-row">
+      <input type="text" value="${row.name}" data-i="${i}" data-fld="name" aria-label="symbol">
+      <input type="number" step="any" value="${row.value}" data-i="${i}" data-fld="value" aria-label="value">
+      <input type="number" step="any" value="${row.sigma}" data-i="${i}" data-fld="sigma" aria-label="sigma">
+      <select data-i="${i}" data-fld="dist" aria-label="distribution">
+        <option value="normal"     ${row.dist === "normal"     ? "selected" : ""}>normal</option>
+        <option value="uniform"    ${row.dist === "uniform"    ? "selected" : ""}>uniform</option>
+        <option value="triangular" ${row.dist === "triangular" ? "selected" : ""}>triangular</option>
+        <option value="fixed"      ${row.dist === "fixed"      ? "selected" : ""}>fixed</option>
+      </select>
+    </div>
+  `).join("");
+  host.querySelectorAll("input, select").forEach(el => {
+    el.addEventListener("input", () => {
+      const i = parseInt(el.dataset.i, 10);
+      const fld = el.dataset.fld;
+      if (fld === "value" || fld === "sigma") {
+        const v = parseFloat(el.value);
+        if (isFinite(v)) currentInputs[i][fld] = v;
+      } else {
+        currentInputs[i][fld] = el.value;
+      }
+    });
+  });
+}
+
+function loadScenario(key) {
+  currentScenario = SCENARIOS[key];
+  currentInputs   = JSON.parse(JSON.stringify(currentScenario.formula_id === "shapiro_one_body_ppn_v1" && key === "custom"
+                                              ? SCENARIOS.custom.inputs
+                                              : currentScenario.inputs));
+  // Render formula
+  $("formula-block").innerHTML = `<span class="label">${currentScenario.label}</span>${currentScenario.formula_latex}`;
+  $("assumptions-list").innerHTML = currentScenario.assumptions.map(a => `<li>${a}</li>`).join("");
+  renderInputRows();
+  if (window.renderMathInElement) window.renderMathInElement(document.body, {
+    delimiters: [{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}]
+  });
+}
+
+// ============================================================
+// Method controls
+// ============================================================
+$("method").addEventListener("change", e => {
+  $("mc-controls").style.display = e.target.value === "mc" ? "" : "none";
+});
+$("mc-N").addEventListener("input", e => { $("mc-N-val").textContent = e.target.value; });
+
+// ============================================================
+// Run
+// ============================================================
+let lastCert = null;
+let lastResult = null;
+
+async function run() {
+  $("run-status").textContent = "running…";
+  await new Promise(r => setTimeout(r, 10));
+
+  // Snapshot inputs into base + sigmas
+  const baseInputs = {};
+  const sigmas = {};
+  for (const row of currentInputs) {
+    baseInputs[row.name] = row.value;
+    sigmas[row.name] = row.sigma;
+  }
+  const fn = (v) => currentScenario.fn(v);
+
+  const method = $("method").value;
+  let mc = null, lin = null;
+  const t0 = performance.now();
+
+  // Always run linear-sensitivity for the tornado chart (cheap).
+  lin = linearSensitivity(fn, baseInputs, sigmas);
+
+  let y0, sigmaY, p5, p50, p95;
+  if (method === "mc") {
+    const N_mc = parseInt($("mc-N").value, 10) || 10000;
+    const seed = parseInt($("mc-seed").value, 10) >>> 0 || 0xC0FFEE42;
+    const inputSpecs = currentInputs.map(r => ({
+      name: r.name, dist: r.dist, mean: r.value, sigma: r.sigma
+    }));
+    mc = monteCarlo(fn, inputSpecs, N_mc, seed);
+    y0 = lin.y0;
+    sigmaY = mc.std;
+    p5 = mc.p5; p50 = mc.p50; p95 = mc.p95;
+  } else {
+    y0 = lin.y0;
+    sigmaY = lin.sigmaY;
+    // 1-σ Gaussian approx: ±1.6449·σ ⇒ p5/p95
+    p5  = y0 - 1.6449 * sigmaY;
+    p50 = y0;
+    p95 = y0 + 1.6449 * sigmaY;
+  }
+  const elapsed = performance.now() - t0;
+
+  const out = currentScenario.output;
+  $("out-y0").innerHTML  = out.display(y0);
+  $("out-sy").innerHTML  = out.display(sigmaY);
+  $("out-pct").innerHTML = `${out.display(p5)} / ${out.display(p50)} / ${out.display(p95)}`;
+  $("out-method").innerHTML = method === "mc"
+    ? `MC, N=${mc.N}, seed=${$("mc-seed").value}`
+    : `Linear (h=1e-6)`;
+
+  // Tornado data
+  const tornadoData = lin.sortedTornado
+    .filter(c => c.absolute > 0)
+    .map(c => ({
+      name: `${c.name}  (σ=${sci(c.sigma, 2)})`,
+      value: c.absolute,
+      signed: c.signed
+    }));
+  if (tornadoData.length === 0) {
+    $("tornado").innerHTML = `<span class="small mute">No non-zero σ contributions. Edit σ on at least one input.</span>`;
+  } else {
+    tornadoChart($("tornado"), tornadoData, {
+      title: `Linear-sensitivity contribution to σ(${out.name})`,
+      width: 720, rowHeight: 28
+    });
+  }
+
+  // Dominant contributors list
+  const total = lin.contributions.reduce((s, c) => s + c.pct, 0) || 0;
+  const top = lin.sortedTornado.slice(0, 5).filter(c => c.pct > 0.1);
+  $("dominant-list").innerHTML = top.length === 0
+    ? `<p class="small mute">No dominant contributor (all σ effectively zero).</p>`
+    : `<ol class="assumptions-list">${top.map(c =>
+        `<li><code>${c.name}</code> — ${c.pct.toFixed(1)} % of σ_y² (∂y/∂x = ${sci(c.partial,3)}, σ = ${sci(c.sigma,3)})</li>`
+      ).join("")}</ol>` + (total > 0
+        ? `<p class="small mute">Sum of variance fractions: ${total.toFixed(1)} %.</p>`
+        : "");
+
+  // MC summary
+  if (method === "mc") {
+    $("mc-summary").style.display = "";
+    $("mc-summary-body").innerHTML = `
+      <table>
+        <tr><th>N (finite samples)</th><td class="num">${mc.N}</td></tr>
+        <tr><th>seed</th><td class="num">${$("mc-seed").value}</td></tr>
+        <tr><th>mean</th><td class="num">${out.display(mc.mean)}</td></tr>
+        <tr><th>std</th><td class="num">${out.display(mc.std)}</td></tr>
+        <tr><th>min</th><td class="num">${out.display(mc.min)}</td></tr>
+        <tr><th>max</th><td class="num">${out.display(mc.max)}</td></tr>
+        <tr><th>elapsed</th><td class="num">${elapsed.toFixed(0)} ms</td></tr>
+      </table>
+    `;
+  } else {
+    $("mc-summary").style.display = "none";
+  }
+
+  lastResult = { method, y0, sigmaY, p5, p50, p95, mc, lin, baseInputs, sigmas };
+
+  // Certificate
+  const inputsForCert = {};
+  for (const r of currentInputs) inputsForCert[r.name] = { value: r.value, sigma: r.sigma, dist: r.dist };
+  const tornadoCert = lin.sortedTornado.map(c => ({
+    name: c.name, partial: c.partial, sigma: c.sigma, signed: c.signed, absolute: c.absolute, variance_pct: c.pct
+  }));
+  const certSpec = {
+    tool_id: "uncertainty",
+    tool_version: "0.1.0",
+    inputs: inputsForCert,
+    constants: { c: { value: N.c, units: "m/s" } },
+    constant_ids: currentScenario.constant_ids,
+    formula_ids:  [currentScenario.formula_id],
+    source_ids:   currentScenario.source_ids,
+    assumptions:  currentScenario.assumptions,
+    outputs: {
+      [currentScenario.output.name]: {
+        units: currentScenario.output.units,
+        nominal_y0: y0,
+        sigma_y: sigmaY,
+        p5, p50, p95,
+        method,
+        ...(method === "mc" ? {
+          mean: mc.mean, std: mc.std, min: mc.min, max: mc.max, N_finite: mc.N
+        } : {})
+      }
+    },
+    not_included: [
+      "correlated uncertainties (off-diagonal covariance)",
+      "non-Gaussian tail risk beyond user-specified distributions",
+      "mission-specific calibration uncertainty"
+    ],
+    approximation_limits: [
+      "Linear sensitivity assumes the function is locally linear at the nominal point",
+      "Monte Carlo accuracy on tail percentiles is bounded by N"
+    ],
+    warnings: [],
+    validation_links: [],
+    uncertainty: {
+      method,
+      samples: method === "mc" ? mc.N : null,
+      seed:    method === "mc" ? parseInt($("mc-seed").value, 10) : null,
+      tornado: tornadoCert
+    },
+    generator: "Relativistic Optics Lab — uncertainty propagation v0.1.0"
+  };
+  lastCert = await buildCertificateV2(certSpec);
+  $("cert-hash").textContent = `result_hash ${lastCert.resultHashShort} · receipt ${lastCert.receiptHashShort}`;
+  $("run-status").textContent = `done in ${elapsed.toFixed(0)} ms`;
+}
+
+$("run").addEventListener("click", run);
+$("scenario").addEventListener("change", e => { loadScenario(e.target.value); });
+
+$("cert-json").addEventListener("click", () => {
+  if (!lastCert) return alert("Run a computation first.");
+  downloadBlob(`uncertainty-${lastCert.resultHashShort}.json`, "application/json", lastCert.json);
+});
+$("cert-md").addEventListener("click", () => {
+  if (!lastCert) return alert("Run a computation first.");
+  downloadBlob(`uncertainty-${lastCert.resultHashShort}.md`, "text/markdown", lastCert.markdown);
+});
+
+// Initial load
+loadScenario("shapiro_grazing");
+window.addEventListener("load", () => setTimeout(run, 100));
+</script>
+
+</body>
+</html>

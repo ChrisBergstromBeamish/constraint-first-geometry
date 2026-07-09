@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gap-11 — Dark matter</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 252px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 10px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:14px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9670; The Anchors</a></div>
+<div class="ann-group">Start</div>
+<a href="index.html">Overview — how we judge</a>
+<a href="anchor-hierarchy-overview.html">Anchor hierarchy — map</a>
+<div class="ann-group">The method</div>
+<a href="a0-master-anchor.html">A0 — the master anchor</a>
+<a href="layer-1-metric.html">Layer 1 — MDL metric</a>
+<a href="layer-2-no-unpaid-labels.html">Layer 2 — no unpaid labels</a>
+<a href="layer-3-search-grammars.html">Layer 3 — search grammars</a>
+<a href="layer-4-carrier-forcing.html">Layer 4 — carrier-forcing</a>
+<a href="shape-minimality-challenge.html">Shape minimality challenge</a>
+<div class="ann-group">The hierarchy</div>
+<a href="deep-roots.html">The seven deep roots</a>
+<a href="master-anchors.html">Master anchors</a>
+<a href="logical-endpoint-proof.html">Logical endpoint proof</a>
+<a href="gate-traceability-template.html">Gate traceability template</a>
+<a href="blind-spots.html">Blind spots</a>
+<a href="ai-agent-completion-protocol.html">AI completion protocol</a>
+<div class="ann-group">Gate ledgers · GUT spine</div>
+<a href="sg1-anchor-ledger.html">SG-1 geometry</a>
+<a href="sg2-anchor-ledger.html">SG-2 gauge recovery</a>
+<a href="sg3-anchor-ledger.html">SG-3 generations</a>
+<a href="sg4-anchor-ledger.html">SG-4 hypercharge &amp; anomaly</a>
+<a href="sg5-anchor-ledger.html">SG-5 electroweak</a>
+<a href="sg6-anchor-ledger.html">SG-6 moduli stabilization</a>
+<a href="sg7-anchor-ledger.html">SG-7 threshold unification</a>
+<a href="sg8-anchor-ledger.html">SG-8 flavor closure</a>
+<a href="sg9-anchor-ledger.html">SG-9 proton safety</a>
+<a href="sg10-anchor-ledger.html">SG-10 claim boundary</a>
+<div class="ann-group">Gate ledgers · quantum/gravity/UV</div>
+<a href="uqf3-anchor-ledger.html">UQF-3 reflection positivity</a>
+<a href="uqf4-anchor-ledger.html">UQF-4 BRST / descent</a>
+<a href="uqf5a-5b-anchor-ledger.html">UQF-5A/5B linearized graviton</a>
+<a href="uqf5c-anchor-ledger.html">UQF-5C interacting graviton</a>
+<a href="uqf7-anchor-ledger.html">UQF-7 fermion chirality</a>
+<a href="uqf9-anchor-ledger.html">UQF-9 UV completion</a>
+<a href="uqf10-anchor-ledger.html">UQF-10 compactification</a>
+<a href="uqf14-anchor-ledger.html">UQF-14 unitarity / causality</a>
+<div class="ann-group">Gate ledgers · cosmology/BH/foundations</div>
+<a href="gap01-anchor-ledger.html">Gap-01 a6 Seeley-DeWitt</a>
+<a href="gap02-anchor-ledger.html">Gap-02 Yang-Mills mass gap</a>
+<a href="gap05-value-anchor-ledger.html">Gap-05 Lambda value</a>
+<a href="gap05-stability-anchor-ledger.html">Gap-05 Lambda stability</a>
+<a href="gap08-anchor-ledger.html">Gap-08 inflation</a>
+<a href="gap10-bg10-anchor-ledger.html">Gap-10/BG-10 baryogenesis</a>
+<a href="gap11-anchor-ledger.html" class="current">Gap-11 dark matter</a>
+<a href="gap13-anchor-ledger.html">Gap-13 BH entropy / Page</a>
+<a href="born-anchor-ledger.html">Born rule</a>
+<div class="ann-group">Gate ledgers · deep roots &amp; dissolutions</div>
+<a href="deeproot-granularity-anchor-ledger.html">Deep root — granularity</a>
+<a href="deeproot-shape-anchor-ledger.html">Deep root — structural form</a>
+<a href="lambda-catastrophe-anchor-ledger.html">Lambda-catastrophe (dissolved)</a>
+<a href="blackhole-singularity-anchor-ledger.html">Black-hole singularity (dissolved)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">Gap-11 — Dark matter: the gate anchor ledger — rendered package. Rendered from <code>gap11-anchor-ledger.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>Gap-11 — Dark matter: the gate anchor ledger</h1>
+<p><strong>The honest one-line: Gap-11 has a real, geometry-essential <em>banked</em> win — the same frozen 13D shape that recovers the Standard Model also supplies and <em>stabilizes</em> a dark-matter candidate that nobody fitted to the data, structurally selected $17$ of $18$ times — but the gate as a whole is OPEN, because the one number the relic abundance rides on (the portal normalization $N_{\rm portal}$) is a finite, in-principle-computable overlap integral that has <em>not been run</em>, and the candidate's identity and stability do not, by themselves, fix any abundance.</strong></p>
+<p>This page is the gate-specific instantiation of the <a href="./index.html">anchoring method</a>: it takes the master anchor and the four bridges and applies them, object by object, to one gate. Every exact thing Gap-11 touches gets its own row — its status, what it is <em>allowed</em> to claim, and what it is <em>forbidden</em> to claim. It follows the same eleven-part shape and the same universal table as the canonical <a href="./sg4-anchor-ledger.html">SG-4 ledger</a>.</p>
+<blockquote>
+<p><strong>selection ≠ derivation · given-E ≠ derivation-of-E · frozen/reproducible ≠ proven-unique.</strong></p>
+</blockquote>
+<hr />
+<h2>1. Gate status header</h2>
+<ul>
+<li><strong>Gate-level Gap-11 roll-up:</strong> <strong>OPEN</strong> (status = the least-closed residual; one open piece ⇒ gate OPEN). Recorded in the corpus as <em>"conditional, blocked on a named gate"</em>; live binding label <strong>CONDITIONAL-with-named-gate</strong>. A <strong>serious, structurally-selected candidate — NOT validated.</strong> Direction: <strong>held.</strong></li>
+<li><strong>Taxonomy reconciliation (2026-07-05):</strong> under the current two-axis taxonomy the gate-level grading of Gap-11 is <strong>CERTIFIED-IRREDUCIBLE</strong>, read as <strong>TERMINAL + RESIDUALS-SHOWN</strong> — the gate reaches its strongest honest terminal (the relic abundance rides on an inherited cosmological anchor, the reheating temperature $T_{\rm RH}$, plus a retained finite geometry-side compute debt, the portal normalization $N_{\rm portal}$), while the residual family below stays listed and carried unchanged. The facts are unchanged: the earlier <strong>OPEN</strong> roll-up reflects the superseded least-closed-residual rule (one open piece ⇒ gate OPEN), not different physics. No individual residual is closed, deleted, or re-graded by this note.</li>
+<li><strong>The banked identity/stability leg (given-E):</strong> on the frozen $S^1_Y/\mathbb{Z}_2$ boundary, the geometry localizes a $\mathbb{Z}_2$-odd, $Y=0$, color- and electrically-neutral zero-mode (the <strong>C-iii</strong> state) that is renormalizably stable by structure,
+$$ \big[\mathbb{Z}_2\text{-odd parity}\big]\wedge\big[Y=0\big]\ \Rightarrow\ \text{(stable, dark, renormalizable-portal-admitting candidate)}.$$</li>
+<li><strong>The local "closed leg" is a viability bound, not an abundance:</strong> the one-sided KK-overclosure gate PASSES across the inflaton band,
+$$ \Omega_{\rm KK}(E_{\rm frozen})\ \le\ 1\quad(\text{one-sided; does NOT fix }\Omega_{\rm DM}h^2).$$</li>
+<li><strong>Status, split so it cannot be misread:</strong><ul>
+<li><strong>Identity + stability (A1):</strong> <strong>DERIVED-GIVEN-E</strong>, reduced-to the frozen lex-min / SHAPE-admissibility razor (inherited, not eliminated); grade <strong>selector-CANDIDATE</strong>. <em>The candidate carries no abundance number.</em></li>
+<li><strong>KK-overclosure PASS:</strong> <strong>DERIVED-GIVEN-E (one-sided)</strong> — a necessary viability bound, never a sufficient abundance determination.</li>
+<li><strong>The portal operator + its normalization $N_{\rm portal}$:</strong> <strong>AXIOM-OPEN / UNRUN</strong> — the operator is unnamed; the normalization is a specifiable but unevaluated overlap integral.</li>
+<li><strong>The relic abundance $\Omega_{\rm DM}h^2$:</strong> <strong>OPEN / downstream-gated</strong> — not run; no value asserted anywhere.</li>
+</ul>
+</li>
+</ul>
+<p>Given $E_{\rm frozen}$, the boundary geometry <em>supplies and stabilizes</em> the candidate. What stays open is the <strong>one number</strong> the abundance depends on — the portal normalization — plus the cross-gap thermal input it consumes, plus the structural fork that decides whether $N_{\rm portal}$ is even the right object to compute.</p>
+<blockquote>
+<p><strong>selection ≠ derivation · given-E ≠ derivation-of-E · frozen/reproducible ≠ proven-unique.</strong></p>
+</blockquote>
+<hr />
+<h2>2. Frozen inputs (what Gap-11 stands on, not what it produces)</h2>
+<ul>
+<li><strong>Frozen branch hashes</strong> <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code>. The branch is read-only. <strong>These hashes are audit anchors — they certify <em>which object</em> was tested and that it cannot be quietly retuned. They do not validate the physics.</strong> Note explicitly: <strong>there is no first-principles hash for $N_{\rm portal}$</strong> — it is unrun; no frozen object exists for it.</li>
+<li><strong>The measured cosmological floor</strong> $\Omega_{\rm DM}h^2\approx 0.12$ (Planck) is <strong>GIVEN / measured</strong>. It is the <strong>only</strong> number Gap-11 compares against, and it is <strong>compared-to exactly once, post-freeze — never fitted to.</strong> Backing any coefficient out of $0.12$ is the single move this gate refuses.</li>
+<li><strong>Inherited thermal input</strong> $T_{\rm RH}\in[2.4\times10^{12},\,4\times10^{15}]\ \mathrm{GeV}$ (a $\sim3$-OOM band, $N_{\rm eff}=3.044$ in-band) is <strong>GIVEN / inherited-CONDITIONAL</strong> from Gap-09, itself re-gated on K13-2 (Gap-08) and $c_{\rm loop}$ (Gap-04). <strong>Gap-11 does not derive or close $T_{\rm RH}$.</strong></li>
+<li><strong>Upstream spectrum / branch</strong> $E_{\rm frozen}$ enters as input. <strong>Gap-11 does not derive $E$.</strong> Every banked claim below is a statement <em>about this $E$</em>, not a derivation <em>of</em> it.</li>
+</ul>
+<hr />
+<h2>3. Object anchors (given-E / upstream)</h2>
+<p>The candidate is <em>read off</em> the frozen geometry, not posited. The internal geometry contains an $S^1_Y/\mathbb{Z}_2$ factor (the hypercharge circle modded by a $\mathbb{Z}_2$ orbifold), whose boundary fixed point localizes a zero-mode with three structural quantum numbers:
+$$
+\text{C-iii}:\quad \mathbb{Z}_2\text{-odd},\qquad Y=0,\qquad (\text{color- and electrically-neutral}).
+$$
+The stabilizing $\mathbb{Z}_2$ is <strong>the orbifold action itself</strong>, fixed for independent reasons — not an imposed dark parity. <strong>Status: GIVEN-E / upstream-inherited</strong> — not Gap-11-derived; it rides on the same frozen branch the rest of the program uses.</p>
+<hr />
+<h2>4. Root and master-anchor traceability</h2>
+<p><strong>Deep roots that are load-bearing for Gap-11:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Deep root</th>
+<th>Role in Gap-11</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Shape</strong></td>
+<td>supplies the $S^1_Y/\mathbb{Z}_2$ orbifold, the boundary fixed point, and the $\mathbb{Z}_2$-odd / $Y=0$ assignment that <em>is</em> the candidate</td>
+</tr>
+<tr>
+<td><strong>Granularity</strong></td>
+<td>enforces <em>no unpaid exact labels</em> — the portal coupling must be drawn from the <code>⊗</code>-layer operator ledger, not invented; $N_{\rm portal}$ must be charged as an overlap integral, not asserted</td>
+</tr>
+<tr>
+<td><strong>Physical equivalence / invariance</strong></td>
+<td>the $Y=0$ neutrality and $\mathbb{Z}_2$-odd parity are frame-independent structural facts, making the stability a meaningful gauge-invariant statement</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td>the abundance is set across the thermal history ($T_{\rm RH}$ band); the freeze-in mechanism lives at a scale Gap-11 inherits, not sets</td>
+</tr>
+<tr>
+<td><strong>Nonseparability</strong></td>
+<td>explains <em>why</em> identity + stability + a one-sided overclosure PASS do <strong>not</strong> equal an abundance determination — the magnitude debt is a separate object</td>
+</tr>
+<tr>
+<td><strong>Record interface</strong></td>
+<td>makes the $17/18$ selection audit and the KK-overclosure PASS reproducible / reviewable</td>
+</tr>
+</tbody>
+</table>
+<p><em>Causal order</em> is not a primary load-bearing anchor for the Gap-11 structure.</p>
+<p><strong>Master anchors in play:</strong> finite invariant ledgers (the <code>⊗</code>-layer operator inventory) · no unpaid labels (the portal coupling + $N_{\rm portal}$ must be charged) · the frozen branch · given-$E$ · the <em>measured</em> floor $\Omega_{\rm DM}h^2\approx0.12$ (compared-to-only) · the anti-fitting firewall · open-residual discipline.</p>
+<hr />
+<h2>5. The Gap-11 anchor ledger (the universal table)</h2>
+<table>
+<thead>
+<tr>
+<th>Gate anchor</th>
+<th>Exact object</th>
+<th>Deep-root link</th>
+<th>Master-anchor link</th>
+<th>Status</th>
+<th>Allowed claim</th>
+<th>Forbidden claim</th>
+<th>Open residual / closure task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gate roll-up</td>
+<td>Gap-11</td>
+<td>Shape, Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / CONDITIONAL-with-named-gate</strong></td>
+<td>a banked candidate + one named decisive block</td>
+<td>"Gap-11 is closed" / "the abundance is derived"</td>
+<td>close §9 residuals (R8→R1→R2→R3…)</td>
+</tr>
+<tr>
+<td>Frozen branch</td>
+<td>hashes <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code></td>
+<td>Record interface</td>
+<td>frozen branch</td>
+<td><strong>AUDIT ONLY</strong></td>
+<td>the tested object is frozen / read-only</td>
+<td>"hashes validate the physics"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Measured floor</td>
+<td>$\Omega_{\rm DM}h^2\approx 0.12$ (Planck)</td>
+<td>Scale</td>
+<td>measured anchor</td>
+<td><strong>MEASURED-ANCHOR</strong></td>
+<td>the single comparison target, used once post-freeze</td>
+<td>"$0.12$ is derived" / "fit to $0.12$"</td>
+<td>terminal / measured-but-irreducible</td>
+</tr>
+<tr>
+<td>Upstream spectrum</td>
+<td>$E_{\rm frozen}$</td>
+<td>Shape</td>
+<td>given-$E$</td>
+<td><strong>GIVEN-E</strong></td>
+<td>the candidate is read off <em>this</em> $E$</td>
+<td>"Gap-11 derives $E$"</td>
+<td>(see SG-2/SG-3 for $E$)</td>
+</tr>
+<tr>
+<td>Candidate state</td>
+<td>C-iii: $\mathbb{Z}_2$-odd, $Y=0$, neutral</td>
+<td>Shape</td>
+<td>given-$E$</td>
+<td><strong>DERIVED-GIVEN-E (selector-CANDIDATE)</strong></td>
+<td>the geometry localizes a dark, stable state</td>
+<td>"the candidate is validated / the DM is confirmed"</td>
+<td>audit AO-1 (R7)</td>
+</tr>
+<tr>
+<td>Structural selection</td>
+<td>$17/18$ across $5$ reweightings</td>
+<td>Shape, Record interface</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED-GIVEN-E (selector-CANDIDATE, audit)</strong></td>
+<td>a geometric pick frozen before any compare</td>
+<td>"$17/18$ is a certificate / a prediction"</td>
+<td>re-run reweightings on frozen field (AO-1)</td>
+</tr>
+<tr>
+<td>Stability — parity</td>
+<td>$\mathbb{Z}_2$-odd forbids decay to even SM finals</td>
+<td>Invariance</td>
+<td>no unpaid labels</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>decay is forbidden by the orbifold parity</td>
+<td>"stability survives <em>any</em> portal automatically"</td>
+<td>preserve parity at operator level (R1↔F)</td>
+</tr>
+<tr>
+<td>Stability — renormalizability</td>
+<td>$Y=0\Rightarrow$ renormalizable portal</td>
+<td>Invariance</td>
+<td>no unpaid labels</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>$Y=0$ keeps the coupling renormalizable</td>
+<td>"the portal is named / normalized"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Viability bound</td>
+<td>KK-overclosure $\Omega_{\rm KK}\le 1$ (one-sided)</td>
+<td>Scale, Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>DERIVED-GIVEN-E (one-sided)</strong></td>
+<td>the tower does not overclose across the inflaton band</td>
+<td>"the PASS fixes / determines the abundance"</td>
+<td>non-vacuity + full $T_{\rm RH}$ band (AO-2 / R7)</td>
+</tr>
+<tr>
+<td>Portal operator</td>
+<td>the (unnamed) $\mathbb{Z}_2$-odd-preserving coupling</td>
+<td>Granularity</td>
+<td>finite invariant ledger</td>
+<td><strong>AXIOM-OPEN (R1, UNNAMED)</strong></td>
+<td>a lowest-dimension <code>⊗</code>-ledger operator must exist</td>
+<td>"the operator is named" / a parity-breaking operator</td>
+<td>name it target-blind (R1) → AXIOM-PORTAL-OPERATOR</td>
+</tr>
+<tr>
+<td>Operator-governance</td>
+<td>razor governs operators</td>
+<td>Granularity</td>
+<td>no unpaid labels</td>
+<td><strong>AXIOM-OPEN (REFUTED AS STATED)</strong></td>
+<td>only the state-side selection is banked</td>
+<td>"one razor governs both inventories"</td>
+<td>discharge AXIOM-OPERATOR-ORDERING target-blind</td>
+</tr>
+<tr>
+<td>Portal normalization</td>
+<td>$N_{\rm portal}=\int_{S^1_Y/\mathbb{Z}_2}\psi_{\rm C\text{-}iii}\,\psi_{\rm bath}\,(\text{geom})\,dy$</td>
+<td>Granularity, Shape</td>
+<td>finite invariant ledger</td>
+<td><strong>OPEN / computation debt (R2, UNRUN)</strong></td>
+<td>a finite, specifiable overlap integral</td>
+<td>"$N_{\rm portal}$ has a value" / "$N_{\rm portal}$ from $0.12$"</td>
+<td>run target-blind (R2) → AXIOM-PORTAL-NORMALIZATION</td>
+</tr>
+<tr>
+<td>Structural fork</td>
+<td>trichotomy (A3) + single-component fork (A4)</td>
+<td>Shape</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / unrun AUDIT (R8)</strong></td>
+<td>decides whether $N_{\rm portal}$ is even an object</td>
+<td>"$N_{\rm portal}$ is the single block" (pre-fork)</td>
+<td>run two inventory evals target-blind (R8)</td>
+</tr>
+<tr>
+<td>Relic abundance</td>
+<td>$\Omega_{\rm DM}h^2\propto\int(\text{rate}(N_{\rm portal},T))\,dT$</td>
+<td>Scale</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / downstream-gated (R3)</strong></td>
+<td>routine quadrature <em>once</em> its inputs are frozen</td>
+<td>"$\Omega_{\rm DM}h^2$ is computed / reproduces $0.12$"</td>
+<td>run after R2 + R6; compare once post-freeze</td>
+</tr>
+<tr>
+<td>Thermal input</td>
+<td>$T_{\rm RH}\in[2.4\times10^{12},4\times10^{15}]$ GeV</td>
+<td>Scale</td>
+<td>given-$E$</td>
+<td><strong>GIVEN / inherited-CONDITIONAL (R6)</strong></td>
+<td>a $3$-OOM band consumed by the relic integral</td>
+<td>"Gap-11 fixes $T_{\rm RH}$"</td>
+<td>export to Gap-09 → Gaps 08/04</td>
+</tr>
+<tr>
+<td>Direct-detection band</td>
+<td>$\sigma_{\rm SI}\sim10^{-55}$–$10^{-60}\,\mathrm{cm}^2$</td>
+<td>Scale</td>
+<td>open-residual discipline</td>
+<td><strong>DERIVED-GIVEN-E (forecast, banked band)</strong></td>
+<td>a refute-only falsifier; any signal kills it</td>
+<td>"a null confirms the candidate"</td>
+<td>$\sigma_{\rm SI}$ point value rides R2</td>
+</tr>
+<tr>
+<td>$\sigma_{\rm SI}$ point value</td>
+<td>the value within the band</td>
+<td>Scale</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / gated on R2 (R5)</strong></td>
+<td>computable once $N_{\rm portal}$ lands</td>
+<td>"the point value is computed"</td>
+<td>compute from $N_{\rm portal}$ (R5)</td>
+</tr>
+<tr>
+<td>Frozen coupling</td>
+<td>$\lambda_p(0.12)\sim10^{-11}$</td>
+<td>Granularity</td>
+<td>open-residual discipline</td>
+<td><strong>RECORD / role-ambiguous (R4)</strong></td>
+<td>a recorded feeble coupling</td>
+<td>"$\lambda_p$ IS $N_{\rm portal}$" (anti-fitting)</td>
+<td>export disambiguation Q01 to owner</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. The construction — the banked win and the named block, in full</h2>
+<p><strong>The forward chain (one banked candidate, one decisive block, one cross-gap cascade, one experimental adjudicator):</strong>
+$$
+\underbrace{S^1_Y/\mathbb{Z}_2\ \text{boundary}}_{\text{given-E}}\ \xrightarrow{\text{localizes}}\ \underbrace{\text{C-iii}}_{\text{banked, }17/18}\ \xrightarrow[\text{(unnamed R1)}]{\text{portal}}\ \underbrace{N_{\rm portal}}_{\text{UNRUN R2}}\ \xrightarrow[\;+\,T_{\rm RH}\,(\text{R6})\;]{\text{freeze-in}}\ \underbrace{\Omega_{\rm DM}h^2}_{\text{gated R3}}\ \xrightarrow{\text{compare once}}\ 0.12 .
+$$</p>
+<p><strong>The structural compression (the key insight).</strong> The <em>same</em> coefficient $N_{\rm portal}$ sets <strong>both</strong> the production rate (the relic abundance) <strong>and</strong> the elastic scattering rate (the direct-detection cross-section). So Gap-11 is structurally <em>one missing derivation with two downstream consumers and one experimental adjudicator.</em></p>
+<p><strong>The stability legs (banked).</strong> Two independent structural facts:
+- $\mathbb{Z}_2$-odd parity forbids decay to any final state built entirely from $\mathbb{Z}_2$-even Standard-Model fields; the candidate is the lightest parity-odd state, hence absolutely stable on cosmological timescales.
+- $Y=0$ keeps any portal coupling renormalizable (it avoids the dimension-raising hypercharge structures that would force non-renormalizable portals).</p>
+<p><strong>The portal normalization (the block).</strong> $N_{\rm portal}$ is a finite wavefunction-overlap integral on the boundary geometry, reduced $13\mathrm{D}\to4\mathrm{D}$ via the §IV conventions:
+$$
+N_{\rm portal}\ \propto\ \int_{S^1_Y/\mathbb{Z}_2}\psi_{\rm C\text{-}iii}(y)\,\psi_{\rm bath}(y)\,(\text{geometry factors})\,dy .
+$$
+It is <strong>fully specifiable but UNRUN</strong> — an explicit numerical computation, <em>not</em> a logical argument that can be carried to a value by reasoning alone.</p>
+<p><strong>The relic integral (downstream).</strong> With $N_{\rm portal}$ and a frozen $T_{\rm RH}$, the abundance is the standard freeze-in Boltzmann quadrature (the candidate is <em>never</em> in equilibrium; it is slowly populated by the feeble portal):
+$$
+\Omega_{\rm DM}h^2\ \propto\ \int\big(\text{production rate}(N_{\rm portal},T)\big)\,dT\quad\text{over the }T_{\rm RH}\text{ band}.
+$$</p>
+<p><strong>Diagnostic — the candidate is specific, not generic.</strong> The state is <em>not</em> a free posit tuned to the answer: across an $18$-candidate field re-evaluated under <strong>five</strong> reweightings of the selection razor, C-iii was selected <strong>$17$ of $18$ times</strong>, frozen <em>before</em> any abundance comparison. That a single state survives a four-fifths-or-better majority under independent reweightings — while no abundance value was in sight — is what makes the selection a real structural fact about the frozen geometry rather than an artifact of one scoring choice. (Read at <strong>selector-CANDIDATE</strong> grade: a decision-grade audit, not a certificate.)</p>
+<p><strong>The obstruction split.</strong> The local, banked piece is identity + stability + the one-sided viability bound:
+$$
+O_{\rm Gap11,local}(E_{\rm frozen})=\big(O_{\rm identity},\,O_{\rm stability},\,O_{\rm overclosure}\big)\ \text{is discharged given }E.
+$$
+The full gate obstruction additionally carries the magnitude debt:
+$$
+O_{\rm Gap11}(E)=\big(O_{\rm operator},\,O_{N_{\rm portal}},\,O_{\rm relic}(T_{\rm RH}),\,O_{\rm adjudication}\big),
+$$
+and we do <strong>not</strong> assert $O_{\rm Gap11}(E_{\rm frozen})=0$: the operator is unnamed, $N_{\rm portal}$ is unrun, the relic integral is gated, and the adjudication is an experiment.</p>
+<hr />
+<h2>7. Declared-structure splits — three phrases hiding multiple claims</h2>
+<p><strong>(a) "The dark-matter candidate" splits into three statuses.</strong>
+1. <strong>Identity + neutrality + stability (A1).</strong> <strong>DERIVED-GIVEN-E</strong>, reduced to the frozen lex-min razor; grade <strong>selector-CANDIDATE</strong>. Carries <em>no</em> abundance number.
+2. <strong>The portal operator that couples it to the bath (R1).</strong> <strong>AXIOM-OPEN / UNNAMED.</strong>
+3. <strong>The abundance it produces (R3).</strong> <strong>OPEN / downstream-gated</strong> on $N_{\rm portal}$ and $T_{\rm RH}$.</p>
+<p><strong>(b) "One razor selects the dark matter" splits into a banked half and a refuted half.</strong>
+- The <strong>state-side</strong> selection (which <em>particle</em>) is banked at selector-CANDIDATE grade.
+- The <strong>operator-side</strong> governance (which <em>coupling</em>) is <strong>REFUTED AS STATED</strong> by two adversarially-verified theorems: a razor validated on architecture-branches is not, without an explicit extension, an ordering on operators (a count-vs-mass-dimension type mismatch). It terminates in the named posit <strong>AXIOM-OPERATOR-ORDERING</strong>. "REFUTED AS STATED" means the <em>strong anchor-transfer</em> from state to operator is not licensed — it does <strong>not</strong> mean the candidate was disproven.</p>
+<p><strong>(c) "$N_{\rm portal}$ is the block" splits on the structural fork.</strong> $N_{\rm portal}$ is a real, decisive debt <strong>only</strong> in the conjunction <em>{A2 discharged ∧ trichotomy = (ii) unique-operator freeze-in ∧ single-component = true}</em>. On branch (i) the abundance is <em>geometric</em> and $N_{\rm portal}$ is a <strong>non-object</strong>; on branch (iii) it is only a <strong>correction</strong>; on the tower-co-carry branch the answer routes into the already-banked KK-overclosure machinery and $N_{\rm portal}$ is the <em>wrong object</em>. So the fork must be run <strong>before</strong> $N_{\rm portal}$ is dignified as the single-object block.</p>
+<hr />
+<h2>8. The two theorems — the honest enlargement of the floor</h2>
+<p>The most important move here was a <strong>negative</strong> one. An earlier reading had bundled a load-bearing shortcut into one posit: that the same razor selecting the dark <em>state</em> ($17/18$) also governs the <em>operator</em> inventory by the same ordering. Two theorems settle it (both valid, both not reverse-engineered from the measured value):</p>
+<ul>
+<li><strong>Theorem 1 (razor-governs-operators): REFUTED AS STATED.</strong> A razor defined on architecture-branches is not, without explicit extension, an ordering on operators — a type mismatch. The razor's only operator-touching coordinate is a <strong>count</strong>, whereas the needed rule is <strong>lowest-mass-dimension</strong> on a single operator; the two functionals are mutually blind to each other's discriminating variable.</li>
+<li><strong>Theorem 2 (operator-admissibility-metric): REFUTED AS STATED.</strong> An explicit admissible pair — a dim-5 fitted-coefficient Higgs-portal vs. a dim-6 generator-rule coupling — is ranked in <strong>opposite order</strong> by mass-dimension-first vs. the record-cost metric. A genuine disagreement, constructed with no abundance value in sight.</li>
+</ul>
+<p>The consequence is <strong>reduce-not-relabel in reverse</strong>: the honest count was restored from one over-merged posit to <strong>two</strong> items — (a) the genuine identity/stability win, intact and number-free, falsification test PASS; and (b) a newly-named, undischarged premise (operator-governance), now exposed as <strong>AXIOM-OPEN</strong>. The gate was made <strong>honest-larger, not more closed.</strong> Being right about each residual is the deliverable.</p>
+<hr />
+<h2>9. Open residuals — the magnitude-debt family</h2>
+<p>The banked candidate is one face of Gap-11. These distinct residuals make up the rest, and none is closed by identity, stability, or the one-sided viability bound:</p>
+<ul>
+<li><strong>R8 — the structural fork (trichotomy A3 + single-component A4).</strong> <strong>OPEN / unrun AUDIT.</strong> Decides whether $N_{\rm portal}$ is even an object. <em>Run this first.</em></li>
+<li><strong>R1 — the portal operator.</strong> <strong>AXIOM-OPEN / UNNAMED.</strong> A lowest-dimension, $\mathbb{Z}_2$-odd-preserving operator from the <code>⊗</code>-ledger. Gates R2.</li>
+<li><strong>R2 — the portal normalization $N_{\rm portal}$.</strong> <strong>OPEN / computation debt — UNRUN.</strong> The single decisive overlap integral. A real debt <em>only</em> on the surviving fork branch.</li>
+<li><strong>R3 — the relic abundance $\Omega_{\rm DM}h^2$.</strong> <strong>OPEN / downstream-gated</strong> on R2 + R6. May be <em>vacated</em> on fork branch (i) or tower-co-carry.</li>
+<li><strong>R5 — the $\sigma_{\rm SI}$ point value.</strong> <strong>OPEN / gated on R2.</strong> The <em>band</em> and the refute-only falsifier are already banked; the point value rides $N_{\rm portal}$.</li>
+<li><strong>R6 — the thermal input $T_{\rm RH}$.</strong> <strong>INHERITED-CONDITIONAL / exported</strong> to Gap-09 → Gaps 08/04. A $\sim3$-OOM band; not closeable inside Gap-11.</li>
+<li><strong>R4 — $\lambda_p(0.12)\sim10^{-11}$ vs. $N_{\rm portal}$.</strong> <strong>OPEN-as-question (Q01) / exported to owner.</strong> Its role is undefined in the corpus; assuming the identity is the prohibited anti-fitting move.</li>
+<li><strong>R7 — audits AO-1 / AO-2.</strong> <strong>OPEN / verification.</strong> Re-run the $5$ reweightings on the frozen $18$-candidate field (confirm $17/18$ is a non-tie pick); confirm the KK-overclosure PASS is non-vacuous and holds across the <em>full</em> Gap-09 band, not only the inflaton band.</li>
+</ul>
+<hr />
+<h2>10. Anti-claims (what this page refuses to say)</h2>
+<ul>
+<li>Gap-11 does <strong>not</strong> derive or predict $\Omega_{\rm DM}h^2\approx 0.12$. <strong>No $\Omega_{\rm DM}h^2$ value is asserted anywhere</strong> — the relic integral is gated, not run, and $N_{\rm portal}$ has no assertable value.</li>
+<li>Gap-11 does <strong>not</strong> derive $E$; the candidate is read off <em>this</em> $E$.</li>
+<li><strong>One geometric rule does not select both the particle and its portal operator.</strong> REFUTED AS STATED by two verified theorems; only the state-side selection is banked.</li>
+<li>$\lambda_p(0.12)\sim10^{-11}$ <strong>is not</strong> asserted to be $N_{\rm portal}$. Assuming the identity backs the normalization out of $0.12$ — the prohibited anti-fitting move (the $\kappa^3/\pi$ anti-pattern). It is a question for the owner (Q01).</li>
+<li><strong>The KK-overclosure PASS does not fix the abundance.</strong> It is one-sided — a necessary viability bound, never a sufficient abundance determination; it must never be upgraded from PASS to abundance-determined.</li>
+<li>The $17/18$ selection is <strong>not</strong> a certificate and <strong>not</strong> a prediction — a decision-grade audit at selector-CANDIDATE grade; never re-scored from memory.</li>
+<li>The direct-detection forecast is <strong>refute-only</strong>: any positive signal above the band kills the minimal candidate, but <strong>no null result can confirm</strong> it (the forecast sits $\sim6$–$11$ OOM below the neutrino floor $\sim10^{-49}\,\mathrm{cm}^2$). That asymmetry is an observation limit on all of physics, not a defect of this theory.</li>
+<li>The frozen-branch hashes are audit anchors; they do <strong>not</strong> validate the physics, and there is <strong>no hash for $N_{\rm portal}$</strong>.</li>
+<li><strong>Local banked structure is not whole-gate closure.</strong> $O_{\rm Gap11,local}(E_{\rm frozen})$ discharged does not imply $O_{\rm Gap11}(E_{\rm frozen})=0$.</li>
+</ul>
+<hr />
+<h2>11. Specialist closure plan</h2>
+<p>Each open residual is a concrete, finite, target-blind work-package. Attack order follows the leverage ranking; the hard discipline throughout: <strong>target-blind, never tune to $0.12$.</strong></p>
+<ol>
+<li><strong>R8 — decide the branch (RUN FIRST).</strong> Run the two inventory evaluations (trichotomy A3, single-component fork A4) target-blind on the frozen <code>⊗</code>-ledger; discharge AXIOM-OPERATOR-ORDERING here, not by inheritance. <strong>Falsifier / dissolving close:</strong> branch (i) → abundance geometric, $N_{\rm portal}$ dissolves; branch (iii) → $N_{\rm portal}$ demotes to a correction; tower-co-carry → route into banked KK-overclosure + Gap-09. Any of these shrinks the gate honestly without running R2.</li>
+<li><strong>R1 — name the portal operator</strong> (cheapest genuine step, on branch ii). Run a target-blind operator-inventory razor that names the lowest-dimension, $\mathbb{Z}_2$-odd-preserving operator <em>and</em> exhibits an explicit operator ordering. <strong>Success ladder:</strong> DERIVED-GIVEN-E if unique; else <strong>Reduced to Axiom</strong> <code>AXIOM-PORTAL-OPERATOR</code> (named, value-free, falsification test PASS). <strong>Refuting:</strong> no admissible parity-preserving operator → forces branch (i).</li>
+<li><strong>R2 — run $N_{\rm portal}$</strong> (the block, only on branch ii + single-component). Evaluate the overlap integral target-blind via the §IV reduction; track the K13-2 normalization-convention hazard; <strong>never</strong> back it out of $0.12$. <strong>Success ladder:</strong> DERIVED-CLOSED only if it evaluates with no fudge <em>and</em> the downstream integral lands near $0.12$ post-freeze; else <code>AXIOM-PORTAL-NORMALIZATION</code> if it is named and verified to <em>yield</em> a value; else <strong>OPEN / [O]</strong> (the realistic terminus — an owner/machine computation, not [A]).</li>
+<li><strong>R3 — run the relic integral</strong> once R2 and R6 are frozen: evaluate the freeze-in quadrature, resolve the UV/IR regime (Q04), freeze, compare to $0.12$ <strong>exactly once</strong>. May be vacated on branch (i) / tower-co-carry.</li>
+<li><strong>R5 — the $\sigma_{\rm SI}$ point value:</strong> compute from the same $N_{\rm portal}$ (consistency check: confirm it lands in the recorded band); export the refute-only falsifier to the prediction/falsification matrix.</li>
+<li><strong>R6 — freeze $T_{\rm RH}$:</strong> export to Gap-09 (transitively Gaps 08/04); terminal-by-export. The band narrows only when Gap-09 closes.</li>
+<li><strong>R4 — disambiguate $\lambda_p(0.12)$:</strong> emit Q01 to the owner; EXPORTED is the honest terminus. Not closeable by argument; never assume the identity.</li>
+<li><strong>R7 — audit AO-1 / AO-2:</strong> re-run the reweightings and the KK relic sum on a fresh, frozen re-run; VERIFIED-by-audit confirms the banked structure at candidate grade (no promotion). A failed AO-2 coverage is a <em>sharper-OPEN</em> result.</li>
+</ol>
+<p>Closing the surviving subset upgrades Gap-11 from "candidate banked, gate open" toward a frozen prediction — and even then, only <em>given</em> $E$ and a frozen $T_{\rm RH}$, and only by comparing to $0.12$ once, never by tuning to it.</p>
+<hr />
+<h2>12. Completion tests for this page</h2>
+<p><strong>Required presence (all met):</strong> gate roll-up OPEN / CONDITIONAL-with-named-gate · the banked identity/stability leg · its DERIVED-GIVEN-E (selector-CANDIDATE) label · the one-sided KK-overclosure bound · $E$ not derived · frozen hashes (AUDIT ONLY) · the measured floor $\Omega_{\rm DM}h^2\approx0.12$ as MEASURED-ANCHOR · C-iii object · the $17/18$ selection diagnostic · both stability legs · the unnamed operator (R1) · $N_{\rm portal}$ UNRUN (R2) · the structural fork (R8) · the gated relic integral (R3) · the inherited $T_{\rm RH}$ band (R6) · the $\sigma_{\rm SI}$ band + refute-only falsifier (R5) · $\lambda_p(0.12)$ role-ambiguous (R4) · the two theorems · every open residual as its own row · the anti-fitting / no-$\Omega$-asserted anti-claims.</p>
+<p><strong>Required absence (all held):</strong> no claim that Gap-11 is fully closed · $\Omega_{\rm DM}h^2$ derived or asserted · $N_{\rm portal}$ given a value or backed out of $0.12$ · $\lambda_p(0.12)$ asserted to be $N_{\rm portal}$ · the KK-overclosure PASS upgraded to abundance-determined · one razor sold as governing both inventories · the $17/18$ selection sold as a certificate/prediction · a null confirming the candidate · hashes validating physics · local banked structure = whole-gate closure · any reader-visible build-process vocabulary.</p>
+<hr />
+<p><em>This gate follows the same eleven-part shape and the same universal table as the canonical <a href="./sg4-anchor-ledger.html">SG-4 ledger</a>.</em></p>
+<p><strong>See also:</strong> <a href="./index.html">the anchoring method</a> · <a href="./a0-master-anchor.html">the master anchor</a> · <a href="./layer-2-no-unpaid-labels.html">Layer 2 — no unpaid exact labels</a> (why the portal coupling + $N_{\rm portal}$ must be charged, not asserted) · <a href="./layer-4-carrier-forcing.html">Layer 4 — carrier-forcing &amp; the given-E wall</a> · the sibling <a href="./gap13-anchor-ledger.html">Gap-13 ledger</a> · the full <a href="../articles/DOSSIER_GAP11_FULL.html">Gap-11 dossier</a>.</p>
+</main>
+</div>
+</body></html>

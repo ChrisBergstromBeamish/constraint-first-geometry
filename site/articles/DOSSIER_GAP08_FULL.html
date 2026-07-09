@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gap-08 — Inflation spectrum: full dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">Gap-08 — Inflation spectrum: full dossier — rendered package. Rendered from <code>DOSSIER_GAP08_FULL.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>Gap-08 — Inflation spectrum: full dossier</h1>
+<blockquote>
+<p><strong>Honest status (matches the live popup chip): OPEN · CANDIDATE (testable). Direction: held. STATUS-UPGRADES:0.</strong>
+Binding label: <em>Conditional / Diagnostic; EXCLUDED cosmology sector (Axiom I / SG-10 §9.3.2).</em>
+Frozen 13D K₆ branch <code>dcc66f1b2685</code> / manifest <code>a5b1e6f9d951</code> — READ-ONLY.</p>
+</blockquote>
+<hr />
+<h2>1. Executive summary + honest status</h2>
+<p><strong>Headline.</strong> The frozen 13D geometry, run forward into the early universe, hands us a single surviving inflaton candidate — the <em>breathing</em> modulus σ rolling down an exponential plateau — whose scalar tilt lands dead-center on Planck as a <em>consistency-check</em>, and whose gravitational-wave signal is a <strong>pre-registered bet that LiteBIRD will settle by ~2030.</strong> The geometry does two pieces of genuine, target-blind narrowing work: it <em>kills one of the two candidate inflatons by computation</em> (the ρ mode is too stiff to inflate) and it <em>fixes the tilt direction with no dial</em> (the plateau slope is read off the dimension split). Everything past those two wins is honestly open, the spectrum's magnitude relocates onto un-traced conventions rather than reducing, and — decisively — the whole gate lives inside a sector the programme has declared <strong>out of scope</strong>.</p>
+<p><strong>The honest grade, in one paragraph.</strong> Gap-08 is <strong>OPEN (cascade)</strong>, and it can <em>never</em> close in-scope. Cosmology — inflation, reheating, CMB, structure — is a declared excluded sector (Axiom I / SG-10 §9.3.2); a script-enforced lint forbids using this gate to support any in-scope claim, so even a perfect n_s/r match would remain a <em>diagnostic consistency</em>, never a derivation. Within that diagnostic lane the gate is <em>also</em> open on its own terms: the σ number is convention-anchored (it relocates onto at least two un-traced local conventions), three σ countersigns are uncleared, the loop coefficient c_loop is inherited-open, the absolute amplitude A_s is BLOCKED, and the spectrum's life-or-death is reserved for a future measurement. The honest ceiling is <strong>"a serious candidate consistency, pre-registered to die — NOT a validated spectrum, NOT an in-scope result."</strong></p>
+<p><strong>What this dossier establishes, and what it does not.</strong> It establishes — at the grades the corpus records, and no higher — that: (i) the ρ-inflaton is a <em>computed DEAD</em> verdict at qualitative grade (KK-stiff); (ii) the surviving σ-inflaton is an exponential-plateau candidate whose plateau slope λ² = 4/K_σσ = 1/6 is <em>dial-free given the frozen split</em> n = (6, 2, 1); (iii) the projected scalar tilt n_s ∈ [0.9643, 0.9679] sits Planck-dead-center as a consistency-check, with a red-tilt <em>direction</em> that is near-universal across the four named normalization branches; (iv) a convention-independent, pre-registered <strong>union falsifier</strong> exists: r outside [3.5, 36]×10⁻³ kills the candidate across all four named conventions, and the current bound r &lt; 0.036 is survived; and (v) the gravitational-coupling anchor κ₁₃² = 1/(π⁴ M_U⁹ M_Pl²) is closed-by-computation. It does <strong>not</strong> establish that λ² = 1/6 is a banked, derived output (it is a <em>theorem-candidate</em>, fail-closed on an unread frozen source); it does <strong>not</strong> claim n_s or r as predictions in the reserved sense; it does <strong>not</strong> claim a certificate-grade ρ-death; it does <strong>not</strong> claim an absolute amplitude; and it does <strong>not</strong> — and cannot — claim the gate closed. <em>A given spectrum is not a derived spectrum; anchored ≠ derived; AXIOM-CLOSED ≠ proven; selection ≠ derivation; dissolved ≠ solved.</em></p>
+<p><em>Status, spine, and every grade in this section are reproduced from</em> <code>…/TOE/PER_GATE_DOSSIERS/GAP08_COMPLETION_HANDOFF/01_DOSSIER.md</code> (§0, §6), <code>…/02_CURRENT_STATE.md</code>, <code>…/specialist_reply.txt</code> (§1, §5), <code>…/TOE/TOE_Self_close_chapters/ch_09_gap08_inflation.md</code> (§09.0), and the regrade entry <code>…/TOE/GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md</code> (Gap-08, lines 1364–1414).</p>
+<hr />
+<h2>2. The community gap</h2>
+<h3>2.1 The precise open problem</h3>
+<p>Modern cosmology has no first-principles answer for <strong>why</strong> inflation produced the spectrum we actually observe. The inflationary paradigm successfully explains the large-scale homogeneity, flatness, and near-scale-invariance of the cosmic microwave background (CMB) by positing a phase of quasi-de Sitter expansion driven by a scalar "inflaton" field rolling down a potential V(φ). But the paradigm is a <em>framework</em>, not a theory of a specific field: the three quantities a working cosmologist cares about —</p>
+<ul>
+<li>the <strong>scalar spectral index</strong> n_s (the tilt of the primordial density-fluctuation power spectrum away from exact scale-invariance n_s = 1),</li>
+<li>the <strong>tensor-to-scalar ratio</strong> r (the amplitude of primordial gravitational waves relative to density fluctuations), and</li>
+<li>the <strong>scalar amplitude</strong> A_s (the overall normalization of the fluctuations),</li>
+</ul>
+<p>together with the <strong>identity of the field that did the inflating</strong> and the <strong>number of e-folds</strong> N_<em> between the pivot scale's horizon-crossing and the end of inflation — are all </em>fit to data<em>, not derived. Hundreds of inflationary models exist; they are discriminated by data, not selected by first principles. No accepted theory predicts (n_s, r, A_s) from a fixed, independently-motivated geometry, and the single most decisive discriminator — a measurement of the primordial tensor amplitude r via CMB B-mode polarization — </em><em>has not yet been made.</em>*</p>
+<p>This is the gap Gap-08 addresses: <em>can a fixed, frozen higher-dimensional geometry — chosen for entirely non-cosmological reasons — supply an inflaton and a falsifiable spectrum, target-blind?</em></p>
+<h3>2.2 State of the art / best bounds</h3>
+<p>The measured comparators (held throughout as <em>comparison targets, never inputs</em> — see §7) are, to the precision the corpus uses:</p>
+<table>
+<thead>
+<tr>
+<th>Comparator</th>
+<th>Measured value</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scalar tilt n_s</td>
+<td>≈ 0.965 (Planck-measured, "dead-center")</td>
+<td>comparator</td>
+</tr>
+<tr>
+<td>Tensor-to-scalar ratio r</td>
+<td><strong>r &lt; 0.036</strong> (current upper bound, MEASURED)</td>
+<td>comparator / falsifier edge</td>
+</tr>
+<tr>
+<td>Scalar amplitude A_s</td>
+<td>≈ 2.1×10⁻⁹ (Planck-measured)</td>
+<td>comparator (for the BLOCKED A_s leg)</td>
+</tr>
+<tr>
+<td>Effective neutrino number N_eff</td>
+<td>3.044 (in-band)</td>
+<td>comparator (reheating interface)</td>
+</tr>
+<tr>
+<td>Forthcoming tensor measurement</td>
+<td><strong>LiteBIRD, ~2030</strong></td>
+<td>the decisive external adjudicator</td>
+</tr>
+</tbody>
+</table>
+<p>The headline experimental fact is the <strong>absence</strong> of a tensor detection: the current bound r &lt; 0.036 rules out the simplest large-field (e.g. φ², "natural") inflation models but is consistent with a broad class of <em>plateau</em> models (Starobinsky/R², α-attractors, and the construction here), which generically predict small r. The forthcoming LiteBIRD satellite is designed precisely to reach the σ(r) sensitivity at which these plateau models live (roughly r ~ 10⁻³), making ~2030 the decisive moment.</p>
+<p><em>Comparator values and the r &lt; 0.036 bound:</em> <code>GATE_BRIEF_GAP08.md</code> (Current honest status), <code>ch_09_gap08_inflation.md</code> §09.1, §09.5 (A_s ≈ 2.1×10⁻⁹), §09.14 (N_eff = 3.044).</p>
+<h3>2.3 Prior attempts and why each falls short</h3>
+<ul>
+<li><strong>Bottom-up inflationary model-building.</strong> The dominant approach fits a chosen potential's parameters to (n_s, r). This <em>describes</em> the data but derives nothing: the field and the potential are inputs, and the predictivity is at most "a relation between n_s and r within an assumed family." It cannot answer "why this field, why this slope."</li>
+<li><strong>String-landscape / moduli inflation.</strong> Higher-dimensional constructions can, in principle, supply inflatons from geometric moduli — but the landscape's vastness means the spectrum is <em>selected by anthropics or by hand</em>, not forced; the moduli potentials carry many undetermined coefficients (the analogue of c_loop here), and the kinetic normalizations are convention-laden.</li>
+<li><strong>Starobinsky / α-attractor universality.</strong> Plateau models give the celebrated near-universal n_s ≈ 1 − 2/N_<em> with small r, which is robustly compatible with Planck. This is </em>generic plateau phenomenology<em> — it survives geometry-free and is shared by any plateau model; it is the comparator backdrop, not a derivation of a </em>specific<em> slope from a </em>specific* geometry.</li>
+</ul>
+<p><strong>The unfilled hole this gate targets.</strong> None of these derives the <em>specific</em> plateau slope from an independently-fixed geometry while staying target-blind, and none pre-commits a <em>convention-independent</em> tensor falsifier. The two genuine moves Gap-08 banks — a computed kill of one candidate inflaton, and a dial-free slope read off a frozen split — are exactly the moves the prior attempts cannot make. The honest counter-weight, stated up front: even those moves sit inside an <em>excluded</em> sector and the magnitude still relocates onto conventions, so this is <em>narrowing</em>, not closure.</p>
+<hr />
+<h2>3. The construction — rigorous math</h2>
+<blockquote>
+<p>Full construction lives in the published manuscript: <strong>Scoped TOE main statement §6.2</strong> "Inflation branches and K13-2 (Gap 08)" + <strong>§7 truth-table</strong>, and <strong>Paper IV formal register</strong> (K13-2 source anchor, corpus line L10268). This section reproduces the attack-grade derivation and every banked number, each cited to the corpus file it was read from.</p>
+</blockquote>
+<h3>3.1 The forward chain (the whole pipeline at a glance)</h3>
+<p>The geometry touches cosmology through one forward chain — no new geometry is searched, and no in-scope claim may rest on it:</p>
+<pre><code> frozen 13D split  n = (6, 2, 1)
+        │
+        ├─► two candidate inflaton directions  {ρ, σ}
+        │       ρ  ── KK-stiffness test ──►  DEAD (qualitative grade; computed verdict)
+        │       σ  ── breathing modulus rolls a potential ──►  exponential plateau (v10 regime)
+        │
+        ├─► plateau slope   λ² = 4/K_σσ = 1/6   [read off n=(6,2,1); NO dial]  — geometry-fixed (CANDIDATE)
+        │
+        ├─► + K13-2 normalization conventions (III-a parity bit; III-b (9/11)² factor) + countersigns + c_loop
+        │
+        ├─► PROJECTED   n_s ∈ [0.9643, 0.9679],   r ∈ [3.5, 10]×10⁻³   (operative branch T6)
+        │       ── compare (NEVER fit) against ──►  MEASURED comparators (Planck n_s, r-bound, N_eff)
+        │
+        └─► union falsifier ──►  LiteBIRD r outside [3.5, 36]×10⁻³ (all four branches) ⇒ candidate dies
+</code></pre>
+<p><em>Pipeline reproduced from</em> <code>01_DOSSIER.md</code> §1.1; <code>ch_09_gap08_inflation.md</code> §09.0, §09.18.</p>
+<h3>3.2 The breathing-mode potential</h3>
+<p>The surviving candidate is the geometry's <em>breathing</em> modulus σ — the scalar that controls the overall scale of the compact internal space. Its potential, assembled from the dimensional reduction, is (corpus §II):</p>
+<blockquote>
+<p><strong>V(σ) = c_KK e^{−4σ} + c_bdry e^{−2σ} + c_Wilson cos θ_W e^{−4σ} + c_loop e^{−6σ}</strong></p>
+</blockquote>
+<p>Each term has a geometric origin: the e^{−4σ} terms from Kaluza–Klein curvature and Wilson-line contributions, the e^{−2σ} boundary term, and the e^{−6σ} <em>loop</em> term whose coefficient c_loop is the one genuinely-computational residue (a 2-loop-equivalent FRG quantity; see §3.7 and §6). In the corrected (v10) regime the potential supports an <strong>exponential plateau</strong>, the regime that gives small r and the near-universal tilt.</p>
+<p><em>Potential form and the four terms:</em> <code>C_c_loop_coefficient.md</code> (what_is_known); <code>ch_09_gap08_inflation.md</code> §09.2.</p>
+<p>A v10 Amendment records an important sub-result: with c_bdry <strong>negative</strong> across its band, the well is <strong>unconditional in c_loop</strong> — c_loop <em>cannot threaten the existence of the well</em> (the Gap-04 sign/bound result). Consequently, for Gap-08, c_loop's role is confined to the <strong>absolute amplitude A_s</strong>; it does NOT enter n_s, r, or the union falsifier. <em>(This is the single most important scoping fact about c_loop — see §6, Hole D.)</em> Source: <code>C_c_loop_coefficient.md</code> (v10 Amendment); <code>ch_09_gap08_inflation.md</code> §09.2(ii).</p>
+<h3>3.3 Win #1 — the ρ-inflaton is computed DEAD (KK-stiff)</h3>
+<p>Of the two candidate inflaton directions the frozen split offers, the ρ ("breathing"/radial-type) direction is <strong>too stiff to inflate</strong>: it is <em>KK-stiff</em>, meaning its effective mass sits at the Kaluza–Klein scale, far above the inflationary (slow-roll) scale, so it cannot support a slow roll. This is a <strong>computed verdict</strong>, not an assertion — real narrowing of the candidate field from two to one.</p>
+<p><strong>Honest grade (carry verbatim).</strong> The ρ-death is at <strong>qualitative grade</strong>. A certificate-grade kill (an explicit quantitative KK-stiffness bound above the inflationary scale) is the <em>optional sharpening</em> — explicitly <strong>NOT required and NOT claimed</strong>; the σ-survivor carries the gap, so ρ does not need a sharper kill. The countersign slot that would formalize the verdict is <strong>pending</strong>. Separately, the NT-1 χ-leg run <em>gate-halted on a scale artifact at v14, VOID both directions</em> — "VOID both directions" means the run is <em>inconclusive, not evidence either way</em>; the ρ-leg qualitative-stiff verdict stands independently of it, and <strong>no value is asserted for the χ-leg</strong>.</p>
+<p><em>ρ-DEAD grade, the optional certificate, the NT-1/χ VOID:</em> <code>ch_09_gap08_inflation.md</code> §09.8, §09.9; <code>01_DOSSIER.md</code> §2.1 (W3), §2.3(f); <code>specialist_reply.txt</code> R2.</p>
+<h3>3.4 Win #2 — the dial-free plateau slope λ² = 4/K_σσ = 1/6</h3>
+<p>This is the one number that would be a genuine geometric output. For the σ exponential plateau, the slope of the plateau is</p>
+<blockquote>
+<p><strong>λ² = 4 / K_σσ</strong></p>
+</blockquote>
+<p>where K_σσ is the σ-kinetic-metric coefficient. The claim is that the frozen dimension split n = (6, 2, 1) fixes K_σσ = 24, hence</p>
+<blockquote>
+<p><strong>λ² = 4/24 = 1/6</strong></p>
+</blockquote>
+<p>with <strong>no dial available to place it</strong>. The <em>tilt direction</em> — a red tilt (n_s &lt; 1) — is geometry-fixed given the split, not fitted. This is the load-bearing structural datum of the gate.</p>
+<p><strong>The honest layering (this is where the rigor must be exact).</strong> The corpus checks this at three layers and <em>fails closed</em> at the third:</p>
+<ol>
+<li><strong>Arithmetic layer (checkable, trivially true).</strong> The identity λ² = 1/6 ⟺ K_σσ = 24 is pure bookkeeping: 4/24 = 1/6. This is algebra, <strong>not physics</strong>. (Verified exact: 4/24 = 1/6; note 4/9 ≠ 1/6.)</li>
+<li><strong>Plateau-phenomenology layer (order-of-magnitude sanity check only).</strong> For a plateau at N_<em> ≈ 50–60, the slow-roll relation n_s ≈ 1 − 2/N_</em> gives, at N_<em> ≈ 55, n_s ≈ 1 − 2/55 ≈ 0.9636 — the same Planck-dead-center region as the banked band [0.9643, 0.9679] — and r at the 10⁻²–10⁻³ order. This </em><em>passes as a sanity check, NOT a derivation.</em>*</li>
+<li><strong>Geometry layer — FAIL-CLOSE.</strong> The load-bearing physics claim — that K_σσ = 24 is <em>forced by</em> the split and not <em>chosen</em> — requires reading the <strong>frozen σ-kinetic reduction source (the D.1 region, ≈ corpus line L10268)</strong>, which is <strong>not in scope</strong> and <strong>must not be fabricated</strong>. Until it is read in scope and verified, λ² = 1/6 stays a <strong>THEOREM-CANDIDATE / CANDIDATE computed verdict, NOT a derived or banked result.</strong></li>
+</ol>
+<p>This fail-close is registered as <strong>BLOCKER A1-GEOM</strong> (see §6, Hole A). A distinct-quantity caution is recorded as a fail-safe: the K13-2 normalization datum K = 99/11 = 9 is the kinetic <em>normalization</em> constant — <strong>not the same symbol</strong> as K_σσ = 24 — and if they are the same object, the factor 24/9 = 8/3 needs an account (an OPEN consistency question, TOE-GAP-08-Q01).</p>
+<p><em>Three-layer check, BLOCKER A1-GEOM, the 8/3 caution, the order-of-magnitude n_s ≈ 0.9636:</em> <code>ch_09_gap08_inflation.md</code> §09.11; arithmetic re-verified in <code>specialist_reply.txt</code> §4 (line 149–150: "4/24 = 1/6, 4/9 ≠ 1/6, 24/9 = 8/3").</p>
+<h3>3.5 The projected scalar tilt n_s ∈ [0.9643, 0.9679]</h3>
+<p>The σ exponential plateau (α-attractor-like family), evaluated in slow roll, gives a <strong>PROJECTED</strong> scalar spectral index</p>
+<blockquote>
+<p><strong>n_s ∈ [0.9643, 0.9679]</strong> (Planck-dead-center)</p>
+</blockquote>
+<p>For an exponential plateau the tilt is dominated by the −2/N_<em> term and is only weakly sensitive to λ², which is exactly why the corpus records the tilt as </em><em>"near-universal across branches"</em><em> — robust to the T/D normalization and 6/u breathing convention choices, unlike r. The band's </em>adjudication<em> is by Planck, which is already MEASURED and dead-center; this comparison is a </em><em>consistency-check, NOT a prediction in the reserved sense</em>* (the Planck comparator is held strictly as a target).</p>
+<p>An important reproducibility gap: the §IV inflation stanza publishes the n_s and r bands but <strong>does not publish the e-fold number N_</strong><em> used to evaluate them — N_</em> is <strong>NOT STATED in the read corpus stanza</strong>, and the band's full reproducibility is therefore incomplete (see §6, Hole E). N_<em> is set by the reheating history, i.e. by Gap-09 (the reheating temperature band T_RH ∈ [2.4×10¹², 4×10¹⁵] GeV maps to an N_</em> window).</p>
+<p><em>n_s band, near-universal tilt, consistency-check framing, N_</em> not stated:* <code>ch_09_gap08_inflation.md</code> §09.12, §09.10; <code>01_DOSSIER.md</code> §0.1.</p>
+<h3>3.6 The tensor ratio r — the four-branch table and the union falsifier</h3>
+<p>The tensor-to-scalar ratio r is where the K13-2 normalization ambiguity becomes <em>experimentally adjudicable</em>. The geometry produces a <strong>finite four-branch menu</strong> of r-bands, indexed by two binary convention axes — breathing (K₆-only "6" vs uniform "u") and normalization (textbook "T" vs D.1 "D"):</p>
+<table>
+<thead>
+<tr>
+<th>Branch</th>
+<th>Convention</th>
+<th>r band (PROJECTED)</th>
+<th>n_s</th>
+<th>Standing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T6</strong></td>
+<td>Textbook norm · K₆-only breathing</td>
+<td><strong>[3.5, 10]×10⁻³</strong></td>
+<td>[0.9643, 0.9679]</td>
+<td>FROZEN operative branch (v10/v11); slot PENDING</td>
+</tr>
+<tr>
+<td><strong>T_u</strong></td>
+<td>Textbook norm · uniform breathing</td>
+<td>[6, 17]×10⁻³ (v15: [6.1, 17])</td>
+<td>Planck-centered</td>
+<td>where a TEXTBOOK ruling lands if uniform breathing is operative</td>
+</tr>
+<tr>
+<td><strong>D6</strong></td>
+<td>D.1 norm ((D−2)=11) · K₆-only</td>
+<td>[8, 24]×10⁻³</td>
+<td>robust</td>
+<td>survives r &lt; 0.036</td>
+</tr>
+<tr>
+<td><strong>D_u</strong></td>
+<td>D.1 norm · uniform breathing</td>
+<td>[10, 36]×10⁻³</td>
+<td>robust</td>
+<td>survives r &lt; 0.036</td>
+</tr>
+</tbody>
+</table>
+<p>The pre-registered, convention-independent <strong>union falsifier</strong> (carry verbatim):</p>
+<blockquote>
+<p><strong>If LiteBIRD measures r outside [3.5, 36]×10⁻³, the σ-inflaton is falsified regardless of [the four named] conventions.</strong></p>
+</blockquote>
+<p>The lower edge 3.5×10⁻³ is T6's floor; the upper edge 36×10⁻³ is D_u's ceiling. Inside the union, the four bands <strong>separate at LiteBIRD resolution</strong> — "the convention becomes an observable" (v11): the ~2030 measurement simultaneously tests the model AND reads off which of the four named normalizations nature uses. The current bound <strong>r &lt; 0.036 (MEASURED) is survived by all four branches.</strong> The operative-branch (T6) forecast is recorded as "LiteBIRD-testable at 3.5–10σ" (PROJECTED).</p>
+<p><strong>The critical honesty caveat (carry verbatim).</strong> The falsifier <strong>POSIT is atomic</strong>, but the <strong>specific numeric band edges are PROVISIONAL-on-III-b</strong>. The convention-independence is banked <strong>only across the four NAMED branches</strong> (T6/T_u/D6/D_u); there is an additional un-traced freedom — the (9/11)² = 81/121 normalization factor (III-b, see §3.8) — that lies <em>outside</em> those four branches and is mentioned by neither convention axis. Until that factor is source-traced, the band edges inherit its unresolved freedom. So the falsifier must be stated honestly as: <em>atomic posit; numeric band provisional.</em> It is NOT "byte-fixed regardless of ANY internal bookkeeping choice."</p>
+<p><em>Four-branch table, union [3.5,36]×10⁻³, T6 operative [3.5,10]×10⁻³, "convention becomes an observable," r &lt; 0.036 survived:</em> <code>ch_09_gap08_inflation.md</code> §09.13, §09.1; <code>01_DOSSIER.md</code> §1.1. <em>PROVISIONAL-on-III-b caveat:</em> <code>specialist_reply.txt</code> R8 (lines 88–91), §3 (III-b).</p>
+<h3>3.7 The κ₁₃ anchor and the BLOCKED absolute amplitude A_s</h3>
+<p>The absolute scalar amplitude A_s rides two inputs and is currently <strong>BLOCKED</strong>. The amplitude relation is anchored by the 13D gravitational coupling, which <strong>is</strong> closed-by-computation (v11):</p>
+<blockquote>
+<p><strong>κ₁₃² = 1/(π⁴ M_U⁹ M_Pl²)</strong> — closed form, corpus-verbatim, at the frozen radii.</p>
+</blockquote>
+<p>This is a genuine sub-win: pure geometry, no dial; the fold contributes a factor-2 band. But the <em>absolute</em> A_s value remains <strong>BLOCKED on two named inputs</strong>: (i) <strong>K13-2</strong> — which operative branch/convention, fixed by the σ-map yaml read (B3); and (ii) <strong>c_loop</strong> — the σ⁻⁶ loop coefficient (inherited from Gap-04). The corpus standing non-claim is verbatim: <em>"No absolute amplitude is claimed in this document."</em> A tilt + ratio with no amplitude is not a spectrum. When B3 + c_loop discharge, the frozen A_s relation is evaluated and consistency-checked against Planck's A_s ≈ 2.1×10⁻⁹ — held as a comparison target only, with a ±factor-2 fold tolerance from κ₁₃ (so no per-entry fitting leaks in; a mismatch beyond that band is a <em>recorded tension</em>, not a silent re-tune).</p>
+<p><em>κ₁₃ closed form, A_s BLOCKED on c_loop + yaml, the factor-2 fold band, Planck A_s ≈ 2.1×10⁻⁹ as comparator:</em> <code>ch_09_gap08_inflation.md</code> §09.17, §09.5; <code>specialist_reply.txt</code> R4, R5.</p>
+<h3>3.8 The K13-2 normalization — one "bit" became two un-traced freedoms</h3>
+<p>The K13-2 convention is the σ-kinetic normalization, and it is the gate-defining residual. The early framing treated it as a single "one bit" / "one convention" choice. The specialist deliverable <strong>refutes</strong> that single-bit framing: R1 resolves into <strong>TWO distinct un-traced local freedoms</strong> — the σ number does <strong>not reduce, it RELOCATES</strong>:</p>
+<ul>
+<li>
+<p><strong>III-a — the K13-2 parity bit.</strong> The σ-kinetic denominator: D.1 uses (D−2) = 11; the textbook 4D reduction would use (D₄−2) = 2. This axis is <strong>OWNER-RULED</strong> (retained as D.1, intentional, recorded 2026-06-15) and is <strong>external-to-AI</strong>: an AI cannot manufacture authorial intent the source does not record; attempting to "resolve" it would be fabrication. Reduced to Axiom at <strong>OWNER-DECISION grade</strong>, value-free, with a demotion clause retained. The support cited (NOT proof): the explicit D.1 occurrence at L10268, and that the D.1 denominator yields the <strong>integer</strong> normalization K = 99/11 = 9 (the textbook denominator would give the non-integer 99/2 = 49.5). This integer-K coincidence is <strong>support, not proof</strong>, and is NOT banked as a derivation.</p>
+</li>
+<li>
+<p><strong>III-b — the (9/11)² = 81/121 normalization factor.</strong> This is a <strong>separate, newly-exposed</strong> freedom. The arithmetic spine, re-verified exact: the recorded factor 81/22 = (11/2)·(9/11)² = 9²/(2·11). The (11/2) is the raw denominator ratio (D−2)/(D₄−2) = 11/2; the additional (9/11)² = 81/121 factor is mentioned by <strong>neither</strong> the breathing axis (B1) nor the normalization axis (B2). A corpus-wide search for "81/121" and "(9/11)²" in this context returns <strong>nothing</strong> (only an unrelated M_<em> scale-floor exponent), so III-b is </em><em>genuinely un-source-traced</em><em>. It is carried as a NEW named value-free posit, </em><em>AXIOM-K13-2-RESIDUAL-NORMALIZATION-FACTOR</em><em>, </em><em>OPEN byte-trace, REDUCE_FURTHER</em><em>: it demotes to a derived consequence of the SHAPE-SPLIT </em><em>only if</em>* an external read shows it follows from n = (6, 2, 1) target-blind.</p>
+</li>
+</ul>
+<p><strong>Net.</strong> The gate carries <strong>≥ 2 local conventions, not one</strong> — it RELOCATES, it does not reduce. The four convention branches span r across [3.5, 36]×10⁻³ — a factor of ~10 — so the <em>magnitude</em> is convention-anchored, not formula-forced. The breathing axis itself (III-a's partner) IS source-resolved: it is CLOSED by source (D.1.0 uniform-breathing declaration — the operative breathing mode is uniform across n = (6, 2, 1)).</p>
+<p><em>Single-bit framing refuted, III-a parity bit, III-b (9/11)²=81/121 newly exposed, 81/22 = (11/2)·(9/11)², K = 99/11 = 9 vs 99/2, breathing axis CLOSED-by-source:</em> <code>specialist_reply.txt</code> R1 (lines 30–47), §3, §4 (lines 148–153); <code>ch_09_gap08_inflation.md</code> §09.6, §09.16; regrade <code>…2026-06-29.md</code> lines 1384–1387.</p>
+<h3>3.9 The 18-row inventory (structural map)</h3>
+<p>For completeness, the corpus assigns <strong>18 inventory rows</strong> to Gap-08, organized by convergence class. The actionable computational/mechanical lane (OPEN_TARGET) holds: c_loop (the FRG-2 number), the σ-map yaml read (B3), the absolute A_s (D2), the slope A1, the tilt A2, the r per-branch integration A3, N_* (A4), and the Gap-09/Gap-12 interfaces. The dominant terminal is the LiteBIRD measurement (OBSERVATION_BLOCKED) and the excluded-sector scope wall. Already-banked closures (reproduced, not new): the breathing axis (CLOSED-by-source) and κ₁₃ (CLOSED-by-computation). Optional sharpenings (not blockers): the certificate-grade ρ-death and the NT-1/χ re-run.</p>
+<p><em>Full 18-row table and convergence-class legend:</em> <code>ch_09_gap08_inflation.md</code> §09.0 (the inventory table), §09.19 (convergence summary).</p>
+<hr />
+<h2>4. The insights we used</h2>
+<p>These are the reasoning moves that made the progress believable and reproducible — shared at working-physicist depth so a reader can both check them and build on them.</p>
+<p><strong>(1) Two candidates, then computed elimination — "one dead, one survivor."</strong> Rather than <em>positing</em> an inflaton, the construction reads off the geometry's <em>own</em> moduli as the only candidate inflaton directions (ρ, σ), then <em>eliminates</em> by computation. The insight is that KK-stiffness is a <em>target-blind</em> discriminator: a modulus whose mass sits at the KK scale physically cannot slow-roll, independent of any cosmological comparator. This converts "which field inflates?" — normally a free choice — into a computed narrowing. The honest limit kept in view: the elimination is qualitative-grade, and a single survivor is <em>narrowing</em>, not a closed spectrum.</p>
+<p><strong>(2) Dial-free given the split — separating what the geometry fixes from what it does not.</strong> The decisive discipline is to isolate the <em>one</em> quantity that is dial-free given the frozen split (the plateau slope λ² = 4/K_σσ) from the quantities that carry hidden normalizations (the σ magnitude). The slope read-off has <em>no adjustable parameter</em> once the split is fixed — that is what makes the tilt <em>direction</em> a genuine geometric output. Crucially, the same discipline forces the honest fail-close: the <em>forcing</em> of K_σσ = 24 from the split is a physics claim that needs the frozen reduction source, so it is held as a theorem-candidate, not banked. The lesson generalizes: an arithmetic identity (4/24 = 1/6) is never itself physics; the physics is whether the inputs are <em>forced</em>.</p>
+<p><strong>(3) Turn a bookkeeping ambiguity into an observable.</strong> The normalization convention is exactly where a hidden tuning could hide. The insight that rescues honesty here is that the four named conventions produce r-bands that <strong>separate at the experiment's resolution</strong> — so instead of <em>choosing</em> a convention to land in the window (which would be true-by-construction and would RELOCATE the mystery), the construction <em>pre-registers all four</em> and lets the measurement read off which one nature uses. This is the cleanest possible disposition of an internal ambiguity: it becomes a falsifiable, convention-independent <em>union</em> prediction plus an information-bearing branch separation.</p>
+<p><strong>(4) Reduce-not-relabel, applied to the normalization.</strong> The most important <em>anti</em>-promotion insight in this gate: when the deep audit looked harder at K13-2, it did not find the single convention reducing — it found a <em>second</em> un-traced freedom (III-b, the (9/11)² factor) that the single-bit framing had hidden. The honest move was to <strong>demote</strong>: name the new freedom as a distinct posit and mark the band PROVISIONAL, rather than relabel the situation as resolved. Discharging III-b target-blind is <em>strictly harder</em> than the old framing claimed (it needs the external kinetic-metric reduction + the (9/11)² accounting + the 8/3 bridge, none reachable without fabrication), so the freedoms are NAMED, not relabeled away. This is the κ³/π discipline operating in real time.</p>
+<p><strong>(5) The κ³/π falsification test as a standing firewall.</strong> Every named convention/axiom the gate would rest on is checked against one question: <em>would it be written WITHOUT knowing the comparators (Planck n_s, the r bound, N_eff, the LiteBIRD window)?</em> The dial-free slope and the ρ-DEAD verdict pass cleanly (no comparator enters). A normalization branch <em>chosen to land r in the LiteBIRD window</em> would FAIL — it is true-by-construction and RELOCATES the mystery into the convention. This firewall is <em>non-axiomatic</em> (it is a verification procedure, not a measured invariant) and it guards III-a/III-b specifically.</p>
+<p><strong>(6) Scope honesty as a first-class result.</strong> The single highest-order insight: disclosing the <em>excluded-sector wall</em> up front is not a hedge — it is the binding frame. Because cosmology is out of scope (Axiom I / SG-10 §9.3.2), the gate's genuine wins are <em>narrowing</em> wins inside a diagnostic that can never close in-scope. Naming this prevents the most seductive overclaim ("the geometry predicts the CMB spectrum") and reframes the honest edge as a strength: <em>a confident, falsifiable bet built to die under one measurement.</em></p>
+<p><em>Insights distilled from</em> <code>01_DOSSIER.md</code> §2.2, §5; <code>specialist_reply.txt</code> §1, §4 (reduce-not-relabel, lines 139–142); <code>ch_09_gap08_inflation.md</code> §09.13(iii) ("the convention becomes an observable"); regrade <code>…2026-06-29.md</code> line 1413 (the overclaim corrections that motivated the scope-wall disclosure).</p>
+<hr />
+<h2>5. Evidence &amp; reproducibility</h2>
+<h3>5.1 Frozen data and hashes</h3>
+<ul>
+<li><strong>Frozen 13D branch:</strong> <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code> — READ-ONLY; nothing in this gate mutates or closes it.</li>
+<li><strong>Dimension split:</strong> n = (6, 2, 1) — a facet of the frozen branch; the source of K_σσ and hence the slope.</li>
+<li><strong>K13-2 datum 81/22:</strong> FROZEN, source-confirmed at v15 at corpus line <strong>L10268</strong>; arithmetic re-verified exact: 81/22 = (11/2)·(9/11)² = 9²/(2·11).</li>
+<li><strong>Union falsifier band [3.5, 36]×10⁻³:</strong> byte-fixed across the four named branches; convention-independent at the POSIT level (numeric edges PROVISIONAL-on-III-b).</li>
+</ul>
+<h3>5.2 The witness ledger (what a skeptic can re-check)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Witness</th>
+<th>Grade</th>
+<th>Holds?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1</td>
+<td>Dimension split n = (6,2,1) fixing K_σσ</td>
+<td>hand-checkable</td>
+<td>Yes — facet of frozen branch</td>
+</tr>
+<tr>
+<td>W2</td>
+<td>Plateau slope λ² = 4/K_σσ = 1/6 (dial-free given split)</td>
+<td>symbolic</td>
+<td>Yes as arithmetic; <strong>forcing fails-closed at A1-GEOM</strong> (CANDIDATE)</td>
+</tr>
+<tr>
+<td>W3</td>
+<td>ρ-inflaton DEAD (KK-stiff)</td>
+<td>symbolic</td>
+<td>Computed verdict, qualitative grade; countersign pending</td>
+</tr>
+<tr>
+<td>W4</td>
+<td>σ plateau → n_s ∈ [0.9643, 0.9679]</td>
+<td>machine-lane</td>
+<td>PROJECTED; conditional on K13-2 + countersigns + N_*</td>
+</tr>
+<tr>
+<td>W5</td>
+<td>r ∈ [3.5, 10]×10⁻³ (operative branch T6)</td>
+<td>machine-lane</td>
+<td>PROJECTED, convention-anchored; moves to ~36×10⁻³ on other branches</td>
+</tr>
+<tr>
+<td>W6</td>
+<td>K13-2: 81/22 = (11/2)·(9/11)²</td>
+<td>hand-checkable</td>
+<td>Arithmetic Yes; <strong>the (9/11)² factor is un-source-traced (III-b)</strong></td>
+</tr>
+<tr>
+<td>W7</td>
+<td>Four-branch table T6/T_u/D6/D_u</td>
+<td>machine-lane</td>
+<td>Asserted from §6.2 table; not independently re-run here</td>
+</tr>
+<tr>
+<td>W8</td>
+<td>No-target-loading firewall (κ³/π falsification test)</td>
+<td>symbolic/audit</td>
+<td>Conditional discipline claim; reviewer must confirm no comparator leaked</td>
+</tr>
+<tr>
+<td>W9</td>
+<td>LiteBIRD union falsifier (r outside [3.5,36]×10⁻³)</td>
+<td>symbolic</td>
+<td>Yes — a genuine pre-registered falsifier (POSIT atomic; band provisional)</td>
+</tr>
+<tr>
+<td>W10</td>
+<td>SG-10 excluded-sector lint</td>
+<td>machine-lane</td>
+<td>Yes in principle — boundary script-enforced</td>
+</tr>
+</tbody>
+</table>
+<p><em>Witness ledger reproduced from</em> <code>01_DOSSIER.md</code> §2.1.</p>
+<h3>5.3 Numerical sanity checks (model vs measured, honest pulls)</h3>
+<ul>
+<li><strong>n_s order-of-magnitude:</strong> plateau n_s ≈ 1 − 2/N_<em> at N_</em> ≈ 55 gives ≈ 0.9636, in the same dead-center region as the banked band [0.9643, 0.9679] and the Planck-measured ≈ 0.965. <em>Pull: consistent — but this is an order-of-magnitude sanity check, NOT a derivation</em> (<code>ch_09_gap08_inflation.md</code> §09.11).</li>
+<li><strong>r order:</strong> the plateau gives r at 10⁻²–10⁻³, consistent with the bound r &lt; 0.036 (all four branches survive). <em>Pull: consistent.</em></li>
+<li><strong>A_s:</strong> <strong>no value computed</strong> — BLOCKED on c_loop + the yaml read. When it lands, it is consistency-checked against Planck A_s ≈ 2.1×10⁻⁹ with a ±factor-2 fold tolerance. <em>Marked OPEN.</em></li>
+<li><strong>Numerology caveat (carry verbatim).</strong> Illustrative expressibility hit-counts (e.g. "130 expressions hit 81/22, 3657 hit 9, 1442 hit 24") are <strong>UNVERIFIED illustrative figures</strong> — no enumeration script is committed, and an independent narrower sweep did not reproduce the exact counts. They support only the <em>qualitative</em> "small-integer expressibility is near-worthless as evidence" point and carry <strong>NO logical-spine weight.</strong> <em>(Do not cite these as evidence.)</em> Source: <code>specialist_reply.txt</code> §4 (lines 143–147).</li>
+</ul>
+<h3>5.4 How a reader re-runs / re-derives</h3>
+<ol>
+<li><strong>Arithmetic spine (hand-checkable now):</strong> confirm 4/24 = 1/6; 81/22 = (11/2)·(9/11)²; 99/11 = 9 vs 99/2 = 49.5; 24/9 = 8/3. (All exact; <code>specialist_reply.txt</code> §4 lines 148–150.)</li>
+<li><strong>Slope phenomenology (machine, minutes):</strong> evaluate n_s = 1 − 2/N_<em> and the plateau r at N_</em> ∈ [50, 60]; confirm the dead-center n_s and the right r order. Note this is a sanity check only.</li>
+<li><strong>Four-branch r-integration (machine, the named OPEN_TARGET A3):</strong> reproduce the four r-bands from the plateau potential under the four conventions; confirm the union [3.5, 36]×10⁻³. <em>(Reproduction script not committed in scope; see §6, Hole E.)</em></li>
+<li><strong>The fail-closes (cannot be re-run without the source):</strong> BLOCKER A1-GEOM (the σ-kinetic reduction at L10268), III-b (the 81/121 byte-trace at L10268), and B3 (the frozen σ-map yaml). These require an <em>external mechanical read</em> of frozen files and <strong>must not be fabricated</strong> — if the frozen file is not produced, the item <em>fail-closes</em>.</li>
+</ol>
+<blockquote>
+<p><strong>Reproducibility honesty:</strong> there is a small helper, <code>…/Fable_Version/rendered/scripts/inflation_sigma_map_read.py</code>, associated with the σ-map yaml read (B3); the yaml file itself was <strong>not located/read in scope</strong> for this dossier, so the operative-branch bit is recorded as PENDING, not read. <em>(Do not claim a read that did not happen.)</em></p>
+</blockquote>
+<hr />
+<h2>6. Open gaps + closure path (the specialist work plan)</h2>
+<blockquote>
+<p>Binding ceiling for this whole section: <strong>no path closes the gate in-scope</strong> — cosmology is excluded (Axiom I / SG-10 §9.3.2). The realistic terminal bins are <em>Reduced to Axiom (named convention)</em>, <em>exported</em>, <em>BLOCKED</em>, or <em>OPEN (observation bet)</em>. Every numeric target below must pass the κ³/π falsification test (writable WITHOUT the comparators). <strong>A REFUTING result is a valid close.</strong></p>
+</blockquote>
+<h3>Hole A — BLOCKER A1-GEOM: is K_σσ = 24 (λ² = 1/6) <em>forced</em> by the split?</h3>
+<p><strong>(a) Precise statement.</strong> The physics claim "K_σσ = 24 is forced by n = (6, 2, 1), not chosen" is fail-closed. The arithmetic identity (λ² = 1/6 ⟺ K_σσ = 24) is trivially true; what is missing is the <em>worked reduction</em> showing K_σσ = 24 follows from the dimension counts of n = (6, 2, 1) <strong>under the frozen σ-kinetic metric</strong>, plus a stated relation between K_σσ = 24 (slope) and the K = 99/11 = 9 (normalization) — i.e. an account of the factor 24/9 = 8/3.</p>
+<p><strong>(b) Why it's hard / traps to avoid.</strong> The load-bearing line lives in the frozen σ-kinetic reduction source (the <strong>D.1 region, ≈ corpus line L10268</strong>), which is <em>not in scope</em>. The cardinal trap, named so it is not repeated: <strong>do not fabricate the reduction.</strong> A plausible-looking derivation that lands K_σσ = 24 would be the worst outcome (a fake "closure"). Second trap: do <strong>not</strong> silently assume K_σσ = 24 and K = 9 are the same object — the 8/3 factor must be <em>accounted</em>, not assumed away. Third trap: do <strong>not</strong> treat the small-integer coincidences (integer K = 9; the 8/3 factor) as evidence the gate banks — they are carried as <em>open consistency questions / cited support</em> only (the retired κ³/π and 5+3=8 cautionary discipline applies).</p>
+<p><strong>(c) Exactly what closes it.</strong> Read the frozen σ-kinetic reduction at L10268 <strong>in scope</strong>, target-blind, and (i) confirm or refute that K_σσ = 24 follows from n = (6, 2, 1) under the frozen kinetic metric, and (ii) state the K_σσ-vs-K relation (the 8/3 bridge). <strong>Success:</strong> a single value falls out target-blind ⇒ λ² = 1/6 becomes a banked theorem (or <em>Reduce to Axiom</em> <code>AXIOM-BREATHING-KINETIC-NORMALIZATION</code>, value-free, if the source merely <em>records</em> the convention). <strong>Refuting close (valid):</strong> the source does NOT single out K_σσ = 24 ⇒ λ² = 1/6 is a <em>refuted</em> candidate and the slope is a declared convention range. Either resolves the gate's central structural datum.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The dimensional-reduction kinetic-metric computation for a breathing modulus on n = (6, 2, 1); the frozen source at L10268 (Paper IV register). Start from <code>ch_09_gap08_inflation.md</code> §09.11 (the three-layer attempt + BLOCKER A1-GEOM statement) and the corresponding <code>03_attempt.md</code> it references.</p>
+<p><strong>(e) Leverage.</strong> Closing this converts the σ slope from convention-anchored to geometry-forced — the difference between "convention-picked" and "geometry-forced" for the entire tilt direction. It is upstream of Holes B and C (the conventions) and the most leverage-bearing AI-pursuable theory move in the gate.</p>
+<hr />
+<h3>Hole B — III-b: source-trace the (9/11)² = 81/121 normalization factor</h3>
+<p><strong>(a) Precise statement.</strong> The factor (9/11)² = 81/121 in 81/22 = (11/2)·(9/11)² is un-source-traced. It is mentioned by neither the breathing axis (B1) nor the normalization axis (B2), and a corpus-wide search for "81/121"/"(9/11)²" returns nothing in this context. The missing object is a <em>source read</em> establishing whether this factor follows from n = (6, 2, 1) target-blind or is a free convention.</p>
+<p><strong>(b) Why it's hard / traps to avoid.</strong> This is a <em>newly-exposed</em> freedom — the prior "one bit / one convention" framing <strong>hid it</strong> (the trap: believing the single-bit story and calling the band convention-independent). Until it is traced, the LiteBIRD operative band is <strong>PROVISIONAL-on-III-b</strong>, and the union's convention-independence holds <em>only across the four named branches</em>, NOT "regardless of any internal bookkeeping choice." Trap: do not restate the band as settled/byte-fixed while this freedom is open (this exact overclaim was caught in the regrade).</p>
+<p><strong>(c) Exactly what closes it.</strong> An <strong>external mechanical read</strong> of the frozen file at L10268 to source-trace 81/121. <strong>Success:</strong> the factor demotes to a derived consequence of the SHAPE-SPLIT (<code>AXIOM-K13-2-RESIDUAL-NORMALIZATION-FACTOR</code> discharged) ⇒ λ² = 1/6 becomes a banked theorem and the band becomes non-provisional. <strong>Refuting close (valid):</strong> the factor is a free convention ⇒ it stays a named value-free posit and the band stays a <em>disclosed range</em>. This is named the <strong>single highest-value AI-pursuable next move.</strong></p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The frozen Paper IV register at L10268; the arithmetic anchor 81/22 = (11/2)·(9/11)² (re-verified exact). Start from <code>specialist_reply.txt</code> R1/§3 (III-b) and regrade <code>…2026-06-29.md</code> lines 1386–1387.</p>
+<p><strong>(e) Leverage.</strong> Resolving III-b is what makes λ² = 1/6 <em>either</em> a banked theorem <em>or</em> a refuted candidate — it co-closes with Hole A and removes the PROVISIONAL flag on the LiteBIRD band (Hole F).</p>
+<hr />
+<h3>Hole C — B3: read the frozen σ-map yaml (operative branch T6 vs T_u)</h3>
+<p><strong>(a) Precise statement.</strong> Which single band is operative (T6 vs T_u) is fixed by one mechanical read of the frozen σ-map yaml (the named K13-2 PENDING gate). The yaml + exact key + freeze hash are not located/read in scope.</p>
+<p><strong>(b) Why it's hard / traps to avoid.</strong> It is <em>almost</em> mechanical — but the trap is precisely to <strong>claim the read without the file in scope.</strong> "The gate is mechanical (no physics decision once the file is read)" — but only <em>once read</em>. If the frozen yaml is not produced, the item must <strong>fail-close</strong>, not be guessed. A second trap: the read must be non-circular — confirm the file is under a freeze hash so it cannot have been edited to match the bands it adjudicates (freeze-before-compare).</p>
+<p><strong>(c) Exactly what closes it.</strong> Identify the exact frozen yaml + key under a freeze hash, confirm it records K₆-only vs uniform breathing, and read the single bit. <strong>Success:</strong> the operative branch is fixed (decision-grade). <strong>Refuting/fail-close (valid):</strong> the frozen file is not produced ⇒ B3 stays PENDING and the operative-branch identity stays open. Confirm consistency with B1 (the D.1.0 uniform-breathing source declaration — TOE-GAP-08-Q06).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The helper <code>…/Fable_Version/rendered/scripts/inflation_sigma_map_read.py</code>; the frozen σ-map yaml (location TBD). Start from <code>ch_09_gap08_inflation.md</code> §09.3 and <code>01_DOSSIER.md</code> §3.1 (R1/B3).</p>
+<p><strong>(e) Leverage.</strong> Fixes which of the four r-bands is operative (narrows the forecast from the union to a single band) and is an input to the absolute A_s (Hole D). Does NOT, by itself, close the gate.</p>
+<hr />
+<h3>Hole D — c_loop: the σ⁻⁶ FRG-2 loop coefficient (gates ONLY A_s)</h3>
+<p><strong>(a) Precise statement.</strong> c_loop, the e^{−6σ} coefficient of V(σ), is OPEN. It gates <strong>only</strong> the absolute scalar amplitude A_s — <strong>NOT</strong> n_s, r, or the union falsifier. The missing object is the <em>computed value of c_loop</em> (sign + magnitude) inside the frozen window <strong>0 &lt; c_loop &lt; A²/(4 c_bdry)</strong>.</p>
+<p><strong>(b) Why it's hard / traps to avoid.</strong> It is a genuine 2-loop-equivalent FRG computation, AI-setup-able but <strong>NOT AI-closeable</strong> (the actual computation is the owner/machine FRG-2 lane). It is the Gap-04 residue — <em>shared</em>, so it should be <strong>exported</strong> to the moduli/loop specialist, not re-derived inside Gap-08. Trap: do not let c_loop be read as threatening the well — the v10 Amendment shows the well is <em>unconditional in c_loop</em> (c_bdry &lt; 0 across its band), so c_loop's Gap-08 role is confined to the amplitude. Trap: confirm (don't assume) that n_s/r/union are c_loop-independent (TOE-GAP-08-Q09).</p>
+<p><strong>(c) Exactly what closes it.</strong> Run the pre-registered FRG-2 computation at the frozen radii (via the c_loop prereg runner) to return c_loop in the frozen window; then evaluate the frozen A_s relation and consistency-check against Planck A_s ≈ 2.1×10⁻⁹ (comparator-only, ±factor-2 fold tolerance). <strong>Success:</strong> c_loop in-window ⇒ A_s derivable. <strong>Refuting close (valid):</strong> c_loop outside the window, or an A_s mismatch beyond the factor-2 band ⇒ a <em>recorded tension</em>, not a silent re-tune.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> FRG-2 method + operator basis (σ⁻⁶ vs the a₄/a₆ heat-kernel ladder of Gap-04 T2) + frozen-radii inputs (TOE-GAP-08-Q10); the c_loop prereg runner (v15, EXTERNAL). Start from <code>C_c_loop_coefficient.md</code> and <code>ch_09_gap08_inflation.md</code> §09.2.</p>
+<p><strong>(e) Leverage.</strong> Closing c_loop is the <em>only</em> block on the absolute amplitude A_s (κ₁₃ is already closed-by-computation), and it also supplies Gap-09's absolute scale. Cross-gate: it is the Gap-04 ↔ Gap-08 ↔ Gap-09 shared residue.</p>
+<hr />
+<h3>Hole E — N_*: publish the e-fold window the bands assume</h3>
+<p><strong>(a) Precise statement.</strong> N_<em> (the e-folds between pivot horizon-crossing and the end of inflation) is </em><em>NOT STATED</em><em> in the read corpus stanza, yet the n_s and r bands are evaluated at it. The bands' reproducibility is therefore incomplete. The missing object is the published N_</em> window + the explicit n_s(N_*, λ²) expression + the four-branch r-integration.</p>
+<p><strong>(b) Why it's hard / traps to avoid.</strong> N_<em> is set by the reheating history (Gap-09), so it </em>cascades<em> — it cannot be pinned inside Gap-08 alone. Trap: do not assert an N_</em> value to make the bands reproducible; publish the <em>window</em> and show consistency. Trap: do not present n_s as a prediction — it is a consistency-check (comparator held target-only).</p>
+<p><strong>(c) Exactly what closes it.</strong> Publish the N_<em> window the bands assume; show it is consistent with the Gap-09 reheating band T_RH ∈ [2.4×10¹², 4×10¹⁵] GeV; publish the explicit n_s(N_</em>, λ²) and the four-branch r-integration so the bands are reproducible. <strong>Success:</strong> bands reproducible at a stated, Gap-09-consistent N_<em>. </em><em>Refuting close (valid):</em><em> no N_</em> window is consistent with the Gap-09 band ⇒ a recorded cross-gate tension.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The slow-roll plateau map; the Gap-09 T_RH band and reheating→N_* matching. Start from <code>ch_09_gap08_inflation.md</code> §09.10 (A4), §09.12 (A2), §09.13 (A3); the Gap-09 chapter <code>ch_10_gap09_reheating.md</code>.</p>
+<p><strong>(e) Leverage.</strong> Completes the bands' reproducibility and ties the spectrum to the reheating history; couples to Hole D (A_s) and the Gap-09 re-gate (shared K13-2 + c_loop inputs).</p>
+<hr />
+<h3>Hole F — LiteBIRD r (~2030): the external adjudicator (observation bet)</h3>
+<p><strong>(a) Precise statement.</strong> The σ-inflaton's life/death and the operative convention are observation-blocked: the LiteBIRD tensor-to-scalar measurement (~2030) has not been made.</p>
+<p><strong>(b) Why it's hard / traps to avoid.</strong> No computation substitutes for it — it is a contingent measured number describing the tensor amplitude <em>our</em> universe realized, the wrong shape of object for any axiom to dissolve. The model's job before ~2030 is to <strong>keep the four bands frozen (freeze-before-compare)</strong> so the test stays honest. Trap: do not re-tune the bands toward an emerging hint; a band moved to match data is true-by-construction and RELOCATES. Trap: remember the band edges are PROVISIONAL-on-III-b until Hole B lands — state the falsifier as <em>atomic posit, provisional numeric band.</em></p>
+<p><strong>(c) Exactly what closes it (adjudicates it).</strong> The LiteBIRD measurement. <strong>r outside [3.5, 36]×10⁻³ ⇒ the candidate dies</strong> (a refuting result — a valid, honest close of the bet). <strong>r inside the union ⇒ the candidate survives</strong> and the measured value reads off which of the four named conventions is operative (the convention becomes an observable).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> External experiment (LiteBIRD). The frozen four-branch table and union [3.5, 36]×10⁻³. Consistency question TOE-GAP-08-Q16: after the v15 sharpening of T_u to [6.1, 17], the union edges are unchanged (lower still 3.5 from T6, upper still 36 from D_u) — confirm.</p>
+<p><strong>(e) Leverage.</strong> This is the gate's headline adjudicator — but note: <strong>even a confirming LiteBIRD reading discharges the falsifier, NOT the scope-wall (Hole G).</strong> The gate cannot close in-scope whatever LiteBIRD returns.</p>
+<hr />
+<h3>Hole G — the excluded-sector scope wall (DOMINANT terminal; disclose, do not "close")</h3>
+<p><strong>(a) Precise statement.</strong> Cosmology (inflation / reheating / CMB / structure) is a declared out-of-scope sector (Axiom I / SG-10 §9.3.2). This is the gate's <strong>dominant terminal</strong> and the single highest-order reason it can never close in-scope.</p>
+<p><strong>(b) Why it's not a closeable hole.</strong> It is <strong>ATOMIC by kind</strong> — a definitional domain boundary, droppable only by <em>enlarging scope</em>, never derived. It is not a defect to fix; it is the binding frame. The trap (caught in the regrade) is to <em>omit</em> it — presenting the falsifiable spectrum as if a LiteBIRD confirmation would validate an in-scope cosmological claim. It would not.</p>
+<p><strong>(c) The correct disposition.</strong> <strong>Disclose it as the dominant terminal.</strong> Even a perfect n_s/r match remains a <em>diagnostic consistency</em>, never a derivation, and may never be cited to support an in-scope claim (SG-10 lint, script-enforced). There is no "close" here — only honest disclosure.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> <code>…/PER_GATE_DOSSIERS/SG10_COMPLETION_HANDOFF/01_DOSSIER.md</code> §9.3.2; <code>…/TOE/GAPS_AND_WALLS_REGISTER.md</code>. The SG-10 lint enforces the boundary at the deploy step.</p>
+<p><strong>(e) Leverage.</strong> Disclosing it correctly <em>protects</em> the program's credibility: it converts the honest edge ("built to die") into a strength rather than letting a reader infer an in-scope cosmological claim that the program does not make.</p>
+<hr />
+<h3>Holes parked as dissolved unicorns (NOT sent for plugging — frame as shared ceilings)</h3>
+<p>These are <strong>not</strong> open weaknesses and must never be claimed as proven; they are universal negatives or unprovable-in-principle objects, correctly parked:</p>
+<ul>
+<li><strong>B-UQFC-14-UV-1 (global internal-volume stability / the σ → −∞ UV corner).</strong> An FRG-4 deep audit found it <strong>perturbatively undecidable</strong> (beyond the heat-kernel/EFT ordering boundary), tied to the same <strong>122-orders-of-magnitude Λ hardness</strong> that is Weinberg-OPEN <em>for everyone</em>. It is explicitly <strong>NON-BLOCKING</strong> for the falsifiable spectrum (which rides the local-admissibility chamber center). Carry as a <em>declared background tie</em>, not a hole. (<code>ch_09_gap08_inflation.md</code> §09.7.)</li>
+<li><strong>A source proof that (D−2) = 11 was INTENDED (the slip-vs-intent bit, B2 / III-a).</strong> Proving an author's past intent the text does not record is unprovable in principle. <strong>OWNER-RULED</strong> (retained as intentional; supported but not proven by the integer K = 99/11 = 9 vs non-integer 99/2), explicitly <strong>NOT theorem-forceable</strong>. The correct output is to <em>record the ruling and stop</em>. The convention-independent union falsifier is byte-unchanged by this ruling. (<code>ch_09_gap08_inflation.md</code> §09.6.)</li>
+<li><strong>"λ² = 1/6 is forced under ANY possible normalization convention / no other geometry could reproduce this spectrum."</strong> An absolute universal-negative over open-ended convention/theory space — unprovable for any object in any field. The bounded, banked claim — <em>the slope and bands are forced GIVEN the frozen split and the named conventions, with a convention-independent falsifier</em> — is the honest ceiling. (Handoff GAP08.md, dissolved unicorns.)</li>
+</ul>
+<hr />
+<h2>7. Honest ceiling &amp; scope</h2>
+<p><strong>The dominant terminal.</strong> Gap-08 sits inside the <strong>EXCLUDED cosmology sector</strong> (Axiom I / SG-10 §9.3.2). The gate <strong>can never close in-scope</strong>; even a perfect n_s/r match — and even a confirming LiteBIRD reading — is a <em>diagnostic consistency</em>, never a derivation, and may never support an in-scope claim. <em>Dissolved ≠ solved; selection ≠ derivation; given-E ≠ derivation-of-E; a captured log ≠ an independent countersign.</em></p>
+<p><strong>What is genuinely banked (target-blind wins).</strong> Exactly two: (1) the <strong>computed ρ-DEAD</strong> verdict (KK-stiff, qualitative grade — real candidate-field narrowing) and (2) the <strong>dial-free-given-the-split tilt DIRECTION</strong> λ² = 4/K_σσ = 1/6 at CANDIDATE grade. Plus the sub-win that κ₁₃² = 1/(π⁴ M_U⁹ M_Pl²) is closed-by-computation and the breathing axis is closed-by-source. Both target-blind wins are <em>narrowing</em>, not closure.</p>
+<p><strong>What is explicitly NOT claimed.</strong>
+- <strong>NOT</strong> that λ² = 1/6 is a derived/banked output — it is a <strong>THEOREM-CANDIDATE</strong>, fail-closed at BLOCKER A1-GEOM; the σ number does not reduce, it <strong>RELOCATES</strong> onto ≥ 2 un-traced conventions (III-a parity bit; III-b (9/11)² = 81/121) plus the unbanked 24/9 = 8/3 reconciliation.
+- <strong>NOT</strong> that n_s or r is a <em>prediction</em> in the reserved sense — they are PROJECTED outputs at CANDIDATE grade; the Planck n_s agreement is a <em>consistency-check</em> (comparator held target-only).
+- <strong>NOT</strong> a certificate-grade ρ-death — the qualitative KK-stiff verdict is the recorded terminal; the NT-1 χ-leg is VOID-both-directions (no value asserted).
+- <strong>NOT</strong> an absolute amplitude — A_s is BLOCKED on c_loop (the only block, κ₁₃ being closed).
+- <strong>NOT</strong> "convention-independent regardless of ANY bookkeeping choice" — convention-independence is banked only across the four NAMED branches; III-b lies outside them, so the numeric band is <strong>PROVISIONAL-on-III-b</strong>.
+- <strong>NOT</strong> that the small-integer coincidences (integer K = 9; the 8/3 factor; expressibility hit-counts) are evidence the gate banks — they are open consistency questions / unverified illustrative figures, carried as <em>support, not proof</em>.</p>
+<p><strong>The anchors paid.</strong> No measured invariant is an <em>input</em>: the comparators (Planck n_s, the r bound, N_eff, A_s) are held strictly as comparison targets (the ≥ 1 measured-invariant floor anchor; <em>transfer-onto, not anchor-on</em>). The convention axes are paid as named axioms: III-a at OWNER-DECISION grade (value-free, demotion clause live), III-b as REDUCE_FURTHER (un-source-traced). The κ³/π falsification test is a non-axiomatic discipline-firewall guarding those choices.</p>
+<p><strong>The honest ceiling, stated as the strength it is.</strong> Gap-08 is <strong>a serious candidate consistency — pre-registered to die.</strong> The geometry fixes a tilt <em>direction</em> and fails the rest closed; the spectrum is built to be falsified by a single ~2030 measurement, and inside the surviving band the conventions themselves become observable. That is a confident, falsifiable bet, openly bounded by an excluded-sector wall it can never cross. <strong>NOT a validated spectrum. NOT an in-scope result. STATUS-UPGRADES:0.</strong> Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> READ-ONLY; the Prime Directives doc is INTERNAL — apply, never publish.</p>
+<hr />
+<p><em>Dossier built by synthesizing and expanding the existing corpus: the brief</em> <code>GATE_BRIEF_GAP08.md</code><em>; the completion-handoff dossier</em> <code>…/PER_GATE_DOSSIERS/GAP08_COMPLETION_HANDOFF/01_DOSSIER.md</code><em>,</em> <code>02_CURRENT_STATE.md</code><em>,</em> <code>specialist_reply.txt</code><em>; the self-close chapter</em> <code>…/TOE_Self_close_chapters/ch_09_gap08_inflation.md</code><em>; the named-missing-objects + c_loop subsystem under</em> <code>…/gap_08_inflation_spectrum/</code><em>; and the regrade/hole-queue entries in</em> <code>…/TOE/GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md</code><em>. No number, band, hash, sign, or equation was invented; every quantity is traceable to a cited corpus file actually read, or marked OPEN. STATUS-UPGRADES:0.</em></p>
+</body></html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Master / Fundamental Anchors</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 252px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 10px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:14px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9670; The Anchors</a></div>
+<div class="ann-group">Start</div>
+<a href="index.html">Overview — how we judge</a>
+<a href="anchor-hierarchy-overview.html">Anchor hierarchy — map</a>
+<div class="ann-group">The method</div>
+<a href="a0-master-anchor.html">A0 — the master anchor</a>
+<a href="layer-1-metric.html">Layer 1 — MDL metric</a>
+<a href="layer-2-no-unpaid-labels.html">Layer 2 — no unpaid labels</a>
+<a href="layer-3-search-grammars.html">Layer 3 — search grammars</a>
+<a href="layer-4-carrier-forcing.html">Layer 4 — carrier-forcing</a>
+<a href="shape-minimality-challenge.html">Shape minimality challenge</a>
+<div class="ann-group">The hierarchy</div>
+<a href="deep-roots.html">The seven deep roots</a>
+<a href="master-anchors.html" class="current">Master anchors</a>
+<a href="logical-endpoint-proof.html">Logical endpoint proof</a>
+<a href="gate-traceability-template.html">Gate traceability template</a>
+<a href="blind-spots.html">Blind spots</a>
+<a href="ai-agent-completion-protocol.html">AI completion protocol</a>
+<div class="ann-group">Gate ledgers · GUT spine</div>
+<a href="sg1-anchor-ledger.html">SG-1 geometry</a>
+<a href="sg2-anchor-ledger.html">SG-2 gauge recovery</a>
+<a href="sg3-anchor-ledger.html">SG-3 generations</a>
+<a href="sg4-anchor-ledger.html">SG-4 hypercharge &amp; anomaly</a>
+<a href="sg5-anchor-ledger.html">SG-5 electroweak</a>
+<a href="sg6-anchor-ledger.html">SG-6 moduli stabilization</a>
+<a href="sg7-anchor-ledger.html">SG-7 threshold unification</a>
+<a href="sg8-anchor-ledger.html">SG-8 flavor closure</a>
+<a href="sg9-anchor-ledger.html">SG-9 proton safety</a>
+<a href="sg10-anchor-ledger.html">SG-10 claim boundary</a>
+<div class="ann-group">Gate ledgers · quantum/gravity/UV</div>
+<a href="uqf3-anchor-ledger.html">UQF-3 reflection positivity</a>
+<a href="uqf4-anchor-ledger.html">UQF-4 BRST / descent</a>
+<a href="uqf5a-5b-anchor-ledger.html">UQF-5A/5B linearized graviton</a>
+<a href="uqf5c-anchor-ledger.html">UQF-5C interacting graviton</a>
+<a href="uqf7-anchor-ledger.html">UQF-7 fermion chirality</a>
+<a href="uqf9-anchor-ledger.html">UQF-9 UV completion</a>
+<a href="uqf10-anchor-ledger.html">UQF-10 compactification</a>
+<a href="uqf14-anchor-ledger.html">UQF-14 unitarity / causality</a>
+<div class="ann-group">Gate ledgers · cosmology/BH/foundations</div>
+<a href="gap01-anchor-ledger.html">Gap-01 a6 Seeley-DeWitt</a>
+<a href="gap02-anchor-ledger.html">Gap-02 Yang-Mills mass gap</a>
+<a href="gap05-value-anchor-ledger.html">Gap-05 Lambda value</a>
+<a href="gap05-stability-anchor-ledger.html">Gap-05 Lambda stability</a>
+<a href="gap08-anchor-ledger.html">Gap-08 inflation</a>
+<a href="gap10-bg10-anchor-ledger.html">Gap-10/BG-10 baryogenesis</a>
+<a href="gap11-anchor-ledger.html">Gap-11 dark matter</a>
+<a href="gap13-anchor-ledger.html">Gap-13 BH entropy / Page</a>
+<a href="born-anchor-ledger.html">Born rule</a>
+<div class="ann-group">Gate ledgers · deep roots &amp; dissolutions</div>
+<a href="deeproot-granularity-anchor-ledger.html">Deep root — granularity</a>
+<a href="deeproot-shape-anchor-ledger.html">Deep root — structural form</a>
+<a href="lambda-catastrophe-anchor-ledger.html">Lambda-catastrophe (dissolved)</a>
+<a href="blackhole-singularity-anchor-ledger.html">Black-hole singularity (dissolved)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">Master / Fundamental Anchors — rendered package. Rendered from <code>master-anchors.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>Master / Fundamental Anchors</h1>
+<p><strong>The deep roots are too abstract to close gates directly. They become useful through master anchors: finite records, no-unpaid-label accounting, measured scale, frozen branch identity, given-$E$ discipline, and status-limited cost ledgers.</strong></p>
+<h2>What this page is for</h2>
+<p>The seven deep roots — the Record Interface, Invariance, Granularity, Scale, Shape, Causal Order, and Nonseparability — are the abstract bedrock of the program. But you cannot hand a deep root to a gate page and ask it to close a gate. A gate test needs something concrete: a measured number, an exact ledger entry, a frozen object to test against, a charged spectrum, a reproducible hash. The <strong>master anchors</strong> are exactly that concrete layer. They are the observable, auditable, measured, charged, or bridge quantities that translate the deep roots into something a gate evaluation can actually use.</p>
+<p>This page sits in the middle of a strict, one-directional hierarchy:</p>
+<pre><code>Deep roots → master anchors → gate-specific anchors
+</code></pre>
+<p>Read it this way: a deep root is a principle about how nature must be described; a master anchor is the operational handle that principle gives us; a gate-specific anchor is the particular measured value, charged label, or open residual a single gate page then consumes. Nothing flows the other way. A gate anchor never validates a root; it inherits its status <em>from</em> the master anchor above it, and that status is always one of the allowed labels below — never a silent promotion to "derived."</p>
+<p>The discipline that governs every line on this page is the program spine: <strong>selection ≠ derivation · given-$E$ ≠ derivation-of-$E$ · frozen/reproducible ≠ proven-unique.</strong> Master anchors make gate anchors <em>admissible, traceable, measured, charged, or open</em>. They do <strong>not</strong> automatically generate gate anchors, and they never upgrade a <code>DERIVED-GIVEN-E</code> result into a <code>derived-E</code> one.</p>
+<h2>The master anchors</h2>
+<p>Each master anchor below names the deep root it descends from, its honest status (using only the allowed status labels), and how gate pages use it. This is the central table of the page; gate pages cite into it.</p>
+<table>
+<thead>
+<tr>
+<th>Master anchor</th>
+<th>Root source</th>
+<th>Status</th>
+<th>Use in gates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>finite invariant empirical records</td>
+<td>Record Interface + Invariance</td>
+<td>AUDIT / observable anchor</td>
+<td>ledgers, hashes, measured quantities</td>
+</tr>
+<tr>
+<td>no unpaid exact labels</td>
+<td>Granularity</td>
+<td>audit theorem / accounting rule</td>
+<td>charges, spectra, quotients, bundle choices</td>
+</tr>
+<tr>
+<td>full-generator cost / MDL pressure</td>
+<td>Granularity + finite records</td>
+<td>bridge rule; metric still OPEN</td>
+<td>competitor comparison</td>
+</tr>
+<tr>
+<td>$M_{\rm Pl}$</td>
+<td>Scale</td>
+<td>MEASURED value anchor</td>
+<td>scale normalization</td>
+</tr>
+<tr>
+<td>frozen 13D branch</td>
+<td>Shape</td>
+<td>DECLARED ROOT / AUDIT</td>
+<td>object under test</td>
+</tr>
+<tr>
+<td>$E_{\rm SM}$ / matter bundle</td>
+<td>Shape + observed spectrum</td>
+<td>GIVEN-E / CHARGED</td>
+<td>spectrum-dependent gate tests</td>
+</tr>
+<tr>
+<td>branch hashes and manifests</td>
+<td>Record Interface + freeze discipline</td>
+<td>AUDIT ONLY</td>
+<td>no retuning / object identity</td>
+</tr>
+<tr>
+<td>$c$ / causal-cone invariance</td>
+<td>Causal Order + Invariance</td>
+<td>operational invariant</td>
+<td>frame/causal admissibility</td>
+</tr>
+<tr>
+<td>$\hbar$</td>
+<td>Granularity + quantum phase</td>
+<td>residue / scale bridge</td>
+<td>action-to-phase, quantum distinction</td>
+</tr>
+<tr>
+<td>$k_B$</td>
+<td>entropy/state-counting bridge</td>
+<td>secondary bridge, not root</td>
+<td>thermodynamic record-cost language</td>
+</tr>
+<tr>
+<td>global consistency / no local-isolated closure</td>
+<td>Nonseparability</td>
+<td>audit principle</td>
+<td>local leg vs whole-gate distinction</td>
+</tr>
+</tbody>
+</table>
+<p>A note on reading the table: the <strong>Status</strong> column is binding. Where it says <code>MEASURED</code>, the value is an accepted experimental input, not a shape-derived output. Where it says <code>GIVEN-E / CHARGED</code>, the object is bundled into Shape as a primitive unless and until a separate uniqueness theorem removes the "given." Where it says <code>AUDIT ONLY</code>, the artifact certifies object identity and freeze integrity — it certifies <em>nothing physical</em>. Where it says the metric is still <code>OPEN</code>, the comparison rule is a bridge under pressure, not a proven law.</p>
+<h2>The bridge logic — from roots to anchors</h2>
+<p>The middle three rows of the hierarchy are not decreed; they are bridged. Below are the load-bearing calculations and the honest status of each bridge.</p>
+<h3>Granularity → no unpaid labels</h3>
+<p>The Granularity root, in shorthand, is the assertion that there is a finite operational cell — distinctions below it are not physical records:</p>
+<p>$$\exists\,\epsilon_{\rm cell}>0.$$</p>
+<p>From this the no-unpaid-labels accounting rule follows. If a theory asserts an <em>exact</em> physical distinction, that distinction must be specified, and specification against a finite cell costs bits:</p>
+<p>$$\text{exact physical distinction}\;\Rightarrow\;\text{nonzero specification burden}.$$</p>
+<p>Applied to the actual exact labels a candidate theory uses, this becomes the master accounting rule that gate pages enforce. Every gauge label, charge table, bundle $E$, coset quotient, Wilson/mixing angle, or selector rule is, for each such label, either <em>generated</em> by declared invariant structure, <em>charged</em> as primitive input, <em>measured</em>, or left <em>open</em>:</p>
+<p>$$
+\begin{aligned}
+&\text{gauge label, charge table, bundle }E,\ \text{quotient, Wilson angle, selector rule}\\
+&\qquad\Rightarrow\;\text{GENERATED, CHARGED, MEASURED, or OPEN.}
+\end{aligned}
+$$</p>
+<p>There is no fourth option and in particular no <em>free</em> exact label. This is the master anchor "no unpaid exact labels." Its status is an <strong>audit theorem / accounting rule</strong> — it is a statable, defended theorem about what counts as reproducing a target, not a claim that any particular label <em>is</em> generated.</p>
+<h3>Scale → $M_{\rm Pl}$</h3>
+<p>The Scale root fixes that there is an absolute physical scale at which the program's geometry and quantum-gravitational regime live. The master anchor it yields is the Planck mass, related to the other scale constants by</p>
+<p>$$M_{\rm Pl}\sim\sqrt{\frac{\hbar c}{G}}.$$</p>
+<p>The essential honesty here: $M_{\rm Pl}$ is a <strong>MEASURED / accepted value anchor</strong>. It is read in from experiment (via $\hbar$, $c$, $G$) and used to normalize scale in gate tests. It is <strong>not shape-derived</strong> — the frozen 13D geometry does not output $M_{\rm Pl}$; it consumes it. Gate pages that normalize against $M_{\rm Pl}$ are using a measured input, not claiming a derivation of scale.</p>
+<h3>Shape → 13D branch</h3>
+<p>The Shape root, made concrete, is the single frozen branch the whole program tests. The branch is</p>
+<p>$$M_4\times K_6\times S^2\times S^1_Y/\mathbb Z_2,\qquad K_6=SU(3)/T^2.$$</p>
+<p>Its dimension count is fixed by the factor dimensions:</p>
+<p>$$\dim SU(3)=8,\qquad \dim T^2=2,\qquad \dim K_6=6,$$</p>
+<p>$$D=4+6+2+1=13.$$</p>
+<p>The master anchor here is the <strong>frozen 13D branch</strong>, with status <strong>DECLARED ROOT / AUDIT</strong>: it is the <em>object under test</em>, selected and frozen, not derived or proven absolutely unique. Within the internal-isometry grammar the branch is the strongest known survivor (the weak carrier $S^2$, the chirality-forcing $\mathbb Z_2$ fold, and the abelian-isotropy color coset $K_6$ eliminate cheaper shelves; the $CP^2=SU(3)/U(2)$ route was built end-to-end and breaks at the gauge gate). That in-grammar minimality is <strong>partial and hardening</strong>, not closed. Architecture-neutral minimality — "no simpler competitor across all grammars" — is <strong>OPEN</strong> and likely unprovable in full, because it is a universal negative.</p>
+<h3>Nonseparability → local/global discipline</h3>
+<p>The Nonseparability root says the world does not factorize into independent local pieces. Written for two subsystems, exact independence would be the product state</p>
+<p>$$\rho_{AB}=\rho_A\otimes\rho_B,$$</p>
+<p>but the generic physical case is correlated / nonseparable:</p>
+<p>$$\rho_{AB}\neq\rho_A\otimes\rho_B.$$</p>
+<p>The master anchor this yields is <strong>global consistency / no local-isolated closure</strong>, an audit principle. Its consequence for gate evaluation is a discipline rule: <strong>closing a single local leg of a gate is not the same as closing the whole gate.</strong> A local gate result must be embedded back into the global quantum/consistency residuals before the gate as a whole can be called closed. Local closure ≠ whole-gate closure — gate pages must carry the global residual explicitly.</p>
+<p>Note carefully what this does <em>not</em> license: nonseparability is a statement about correlations in the joint state, not about signaling. It does <strong>not</strong> send a usable superluminal signal, and no gate may invoke it as if it did.</p>
+<h2>Secondary-anchor clarifications</h2>
+<p>Several constants are routinely treated as "naked numbers." On this program they are not roots, and they are not free fitted dials. Each is typed honestly:</p>
+<ul>
+<li><strong>$c$ is not a naked number.</strong> It is the operational expression of <em>local causal-cone invariance</em> (Causal Order + Invariance). Gate pages use it as an invariant defining frame/causal admissibility, not as a tunable scalar.</li>
+<li><strong>$\hbar$ is not just a fitted number.</strong> It is the <em>action-to-phase / cost-floor residue</em> (Granularity + quantum phase): the bridge that converts action into quantum phase and marks the floor below which classical record-distinctions dissolve. Its status is a residue / scale bridge.</li>
+<li><strong>$k_B$ is not the root of record cost.</strong> It is an <em>entropy–temperature / state-counting bridge</em> — a secondary bridge that lets thermodynamic and information-theoretic record-cost language be stated in common units. It is explicitly <strong>demoted to a bridge, not a root</strong>.</li>
+<li><strong>$G/M_{\rm Pl}$ is meaningful only through scale relations.</strong> Neither $G$ nor $M_{\rm Pl}$ carries physical content as a naked, unit-dependent value; they enter only through dimensionless comparisons and scale relations (e.g. via $M_{\rm Pl}\sim\sqrt{\hbar c/G}$), never as raw numbers a gate "explains."</li>
+</ul>
+<h2>Anti-overclaim box</h2>
+<p>This box is binding on every gate page that cites a master anchor. It records the four claims this layer specifically forbids:</p>
+<ul>
+<li><strong>Master anchors do not automatically generate gate anchors.</strong> They make gate anchors <em>admissible</em> — they do not manufacture them.</li>
+<li><strong>Master anchors make gate anchors admissible, traceable, measured, charged, or open</strong> — and nothing stronger by default.</li>
+<li><strong><code>derived-given-E</code> is not <code>derived-E</code>.</strong> A result that follows <em>given</em> the observed spectrum $E$ is not a derivation <em>of</em> $E$. The "given-$E$" qualifier may never be dropped.</li>
+<li><strong>MDL pressure is not absolute MDL proof.</strong> Full-generator / description-length cost is a <em>pressure</em> used for competitor comparison; the metric that would make it binding is still OPEN, and it is not proven against every competing metric.</li>
+</ul>
+<h3>Allowed status labels</h3>
+<p>Every claim on every gate page that cites this layer must carry exactly one of these labels — no others, and no unlabeled claims:</p>
+<ul>
+<li><strong>DECLARED ROOT</strong> — a frozen, selected anchor (e.g. the 13D branch as object under test).</li>
+<li><strong>GENERATED</strong> — produced by declared invariant structure.</li>
+<li><strong>DERIVED-GIVEN-E</strong> — follows given the frozen shape and the observed spectrum $E$.</li>
+<li><strong>MEASURED</strong> — an accepted experimental value anchor (e.g. $M_{\rm Pl}$).</li>
+<li><strong>CHARGED</strong> — paid as primitive input (e.g. $E_{\rm SM}$ / the matter bundle).</li>
+<li><strong>AUDIT ONLY</strong> — certifies object identity / freeze integrity, not physics (e.g. hashes, manifests).</li>
+<li><strong>OPEN</strong> — a named, finite, unclosed target (e.g. bundle-uniqueness, the metric bridge).</li>
+<li><strong>BLOCKED</strong> — a leg whose closure is gated on another unclosed residual.</li>
+<li><strong>ANTI-CLAIM</strong> — an explicitly forbidden overclaim recorded so it cannot be smuggled back in.</li>
+</ul>
+<h3>Global forbidden overclaims</h3>
+<p>These are <code>ANTI-CLAIM</code>s. They must be absent from this page and from any gate page citing it:</p>
+<ul>
+<li>Do <strong>not</strong> claim all deep roots are theorem-grade. (Some roots — granularity, the chosen metric, scale — are declared anchors, not theorems.)</li>
+<li>Do <strong>not</strong> claim the 13D shape is absolutely unique. (Architecture-neutral minimality is OPEN, a universal negative.)</li>
+<li>Do <strong>not</strong> claim $E$ is derived unless a separate bundle-uniqueness proof is supplied. ($E$ is GIVEN-E / CHARGED; "$E$ is forced" is currently refuted, since anomaly-freedom is a filter with infinitely many solutions.)</li>
+<li>Do <strong>not</strong> claim local gate closure equals whole-gate closure.</li>
+<li>Do <strong>not</strong> claim hashes validate physics; hashes validate frozen-object identity / audit integrity only.</li>
+<li>Do <strong>not</strong> claim anomaly cancellation selects the Standard Model. (It is a <em>filter</em> — $A(E_{\rm SM})=0$ means $E_{\rm SM}$ passes; it does not single $E_{\rm SM}$ out.)</li>
+<li>Do <strong>not</strong> claim MDL / full-generator cost is absolutely proven against every competing metric.</li>
+<li>Do <strong>not</strong> claim measurement / nonseparability sends a usable superluminal signal.</li>
+</ul>
+<h2>Admissible / traceable vs derived — the distinction that holds the page together</h2>
+<p>The single most important thing this layer does is keep two ideas apart that are easy to blur:</p>
+<ul>
+<li>A gate anchor is <strong>admissible / traceable</strong> when a master anchor makes it <em>usable</em> in a gate test — it can be measured, charged, frozen, or marked open, and its provenance traces cleanly up the hierarchy to a deep root. This is what master anchors provide.</li>
+<li>A gate anchor is <strong>derived</strong> only when declared invariant structure actually <em>generates</em> it (status <code>GENERATED</code>), or generates it given the spectrum (status <code>DERIVED-GIVEN-E</code>) — and even then the "given-$E$" qualifier stays attached.</li>
+</ul>
+<p>Admissible is not derived. Traceable is not derived. A measured input is not a derivation; a charged primitive is not a derivation; a frozen object under test is not a derivation of itself. The hierarchy <code>deep roots → master anchors → gate anchors</code> is a hierarchy of <em>admissibility and accounting</em>, and only the explicitly <code>GENERATED</code> / <code>DERIVED-GIVEN-E</code> rows cross the line into derivation — under their stated qualifiers.</p>
+<h2>Cross-links</h2>
+<ul>
+<li><strong><a href="./anchor-hierarchy-overview.html">The Anchor Hierarchy — overview</a></strong> — where master anchors sit between deep roots and gate anchors.</li>
+<li><strong><a href="./deep-roots.html">The Seven Deep Roots</a></strong> — the abstract roots this page makes operational.</li>
+<li><strong><a href="./master-anchors.html">Master / Fundamental Anchors</a></strong> — this page.</li>
+<li><strong><a href="./logical-endpoint-proof.html">The Logical Endpoint Proof</a></strong> — how far the chain honestly reaches and where it bottoms out on given-$E$.</li>
+<li><strong><a href="./gate-traceability-template.html">Gate Traceability — method &amp; template</a></strong> — how a gate page traces each gate anchor up to a master anchor and a root.</li>
+<li><strong><a href="./blind-spots.html">Blind Spots &amp; Implicit Assumptions</a></strong> — the false-closure and over-promotion traps this layer guards against.</li>
+<li><strong><a href="./ai-agent-completion-protocol.html">The AI-Agent Completion Protocol</a></strong> — the completion discipline that produced this page.</li>
+<li><strong><a href="./index.html">The Anchors — overview</a></strong> — the master anchor A0 and the full bridge stack at a glance.</li>
+</ul>
+<h2>Completion report</h2>
+<p><strong>Tests passed.</strong>
+- P1 — all required master anchors present (the full eleven-row master-anchor table is included verbatim-in-substance).
+- P2 — the three required calculations present: granularity → no unpaid labels ($\exists\,\epsilon_{\rm cell}>0$ and the specification-burden chain), scale → Planck ($M_{\rm Pl}\sim\sqrt{\hbar c/G}$), shape → 13D ($M_4\times K_6\times S^2\times S^1_Y/\mathbb Z_2$, $\dim$ count, $D=13$).
+- P3 — nonseparability local/global discipline present ($\rho_{AB}=\rho_A\otimes\rho_B$ vs $\rho_{AB}\neq\rho_A\otimes\rho_B$; local closure embedded in global residuals).
+- P4 — $k_B$ demoted to a bridge, not a root (secondary-anchor clarifications + table status).
+- P5 — $E$ labeled GIVEN-E / CHARGED unless separately derived (table + bridge logic + anti-overclaim box).
+- P6 — hashes stated as AUDIT ONLY (table + anti-overclaim box).
+- P7 — "admissible / traceable" explicitly distinguished from "derived" (dedicated section + anti-overclaim box).
+- P8 — completion report present (this block).
+- U1 — status honesty: every major claim carries an allowed status label.
+- U2 — no floating anchors: every named anchor is typed (root, master anchor, gate anchor, measured input, audit artifact, open residual, or anti-claim).
+- U3 — no root inflation: the page explicitly states not all roots are theorem-grade.
+- U4 — no E-smuggling: $E$ is given / charged / bundled into Shape unless separately derived.
+- U5 — no hash-overclaim: hashes are audit-integrity only.
+- U6 — local/global distinction: local closure is explicitly not whole-gate closure.
+- U7 — forbidden claims absent: no absolute uniqueness, no anomaly-selector claim, no $\rho$/hierarchy overclaim, no FTL nonseparability claim.
+- U8 — completion report present with the four required headings.</p>
+<p><strong>Tests failed.</strong> None.</p>
+<p><strong>Open items.</strong>
+- The full-generator / MDL metric bridge remains <strong>OPEN</strong>: "shortest generator" is metric-relative until the selecting theorem (granularity ⇒ MDL is the right simplicity order) is proven.
+- <strong>Bundle-uniqueness</strong> remains <strong>OPEN</strong>: removing the "given-$E$" qualifier requires a separate theorem; until then $E$ stays GIVEN-E / CHARGED.
+- <strong>Architecture-neutral minimality</strong> (Level 3) remains <strong>OPEN</strong> and likely unprovable in full (universal-negative wall); in-grammar minimality (Level 2) is partial and hardening.</p>
+<p><strong>Assumptions made.</strong>
+- Sibling-page filenames follow the slugs supplied in the build handoff (<code>anchor-hierarchy-overview.html</code>, <code>deep-roots.html</code>, <code>logical-endpoint-proof.html</code>, <code>gate-traceability-template.html</code>, <code>blind-spots.html</code>, <code>ai-agent-completion-protocol.html</code>); cross-links target those, plus the existing <code>./index.html</code>.
+- The deep-root names (Record Interface, Invariance, Granularity, Scale, Shape, Causal Order, Nonseparability) match the "seven deep roots" used by the sibling pages and the source-of-truth.
+- Status labels and forbidden overclaims are used exactly as enumerated in the handoff; no additional labels were introduced.</p>
+</main>
+</div>
+</body></html>

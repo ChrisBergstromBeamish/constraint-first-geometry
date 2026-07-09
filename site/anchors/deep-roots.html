@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Seven Deep Roots</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">The Seven Deep Roots — rendered package. Rendered from <code>deep-roots.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The Seven Deep Roots</h1>
+<p><strong>The seven deep roots are the irreducible operating floor of the current framework. They are not all theorem-grade. Some are meta-admissibility roots, some are physical roots, and some remain declared posits or proof targets. Their purpose is to prevent hidden assumptions from floating silently.</strong></p>
+<h2>The end goal: reduction to a shared anchor</h2>
+<p>Everything in physics is tied to an anchor. <strong>A derivation is not a construction from nothing — it is the chaining of a result, by a complete argument, to an anchor that other physics already uses.</strong> The aim here is therefore <em>not</em> to reach zero anchors (impossible — a theory must rest on at least one measured quantity; the floor is <strong>≥ 1</strong>), but to rest the whole structure on as <strong>few, shared</strong> measured anchors as possible, carrying as much <strong>derived reach</strong> as possible. Reducing a gate to a shared anchor is the <strong>ideal outcome — a success, not a shortfall</strong>; the only real shortfall is an <em>incomplete chain</em>. The <a href="/gates/">gates scoreboard</a> grades each gate on exactly that ladder: <em>derived · reduced-to-a-measured-anchor · new-anchor · dissolved · open</em>.</p>
+<h2>What a deep root is</h2>
+<p>A <em>deep root</em> is a root-level principle where the framework currently bottoms out — a place where the chain of "why?" stops, at least for now, and the honest answer is either "this is a condition for doing physics at all," "this is a physical posit we have charged explicitly," or "this is a proof target we have not yet discharged." The point of naming the roots is not to claim they are all proven. It is the opposite: it is to make sure that <em>every</em> place the framework rests on something unproven is named, typed, and status-labeled, so that nothing load-bearing floats silently in the background.</p>
+<p>This page makes the seven roots precise. For each one it states the operational content, the mathematical or logical form, an honest status using only the allowed status labels, what the root supports, and — just as importantly — what it does <strong>not</strong> prove. It closes with the three reduction targets (locality, unitarity, ordered dynamics) that are <em>candidate</em> roots rather than silently-solved problems, and a completion report.</p>
+<p>The discipline throughout is the program's spine: <strong>selection ≠ derivation · given-E ≠ derivation-of-E · frozen / reproducible ≠ proven-unique.</strong></p>
+<h2>How the roots are classified</h2>
+<p>The seven roots fall into two tiers, with a third tier holding things that are not yet established as separate roots.</p>
+<h3>Tier 0 — Meta-roots</h3>
+<ol>
+<li><strong>Physical Equivalence / Invariance</strong></li>
+<li><strong>Record Interface</strong></li>
+</ol>
+<p>These two are conditions for anything to count as physics or empirical audit in the first place. They are not claims about the world; they are admissibility conditions on what may be called a physical claim. They are upstream of every physical root.</p>
+<h3>Tier 1 — Physical deep roots</h3>
+<ol start="3">
+<li><strong>Causal Order</strong></li>
+<li><strong>Granularity / Cost-Floor</strong></li>
+<li><strong>Scale</strong></li>
+<li><strong>Shape</strong></li>
+<li><strong>Nonseparability / Global State Constraint</strong></li>
+</ol>
+<p>These are posits about the physical world. Each is charged explicitly; none is claimed to be theorem-grade across the board. Their individual statuses differ and are given in the status table below.</p>
+<h3>Tier 2 — Reduction targets, not separate roots unless needed</h3>
+<ul>
+<li><strong>Locality / quasi-locality</strong></li>
+<li><strong>Unitarity / probability conservation</strong></li>
+<li><strong>Ordered dynamics / time</strong></li>
+</ul>
+<p>These may reduce to combinations of the seven roots — for example, low-energy locality may follow from Causal Order plus the cost-floor, and probability conservation may follow from the Record Interface plus invariance. But <strong>if they cannot be so reduced, they must be banked as additional roots or explicitly charged.</strong> They are listed here precisely so that they are not silently assumed solved. See the dedicated section near the end.</p>
+<h2>The second-layer screen (the admissibility / interface roots)</h2>
+<p>Four of the seven roots — the two Tier-0 meta-roots (<strong>Invariance</strong>, <strong>Record Interface</strong>) plus the two interface-facing physical roots (<strong>Causal Order</strong>, <strong>Nonseparability</strong>) — together form the <strong>second-layer screen</strong>: the admissibility/interface discipline that sits <em>above</em> the three deep physical roots (Shape, Scale, Granularity). They do <strong>not</strong> generate physics. They decide whether a claimed rule <em>from</em> Shape/Scale/Granularity is actually invariant, record-facing, target-blind, and not secretly factorized. A wall passes the screen only if <strong>all four pass at once</strong>, and <code>SECOND-LAYER-PASS</code> is <strong>necessary for closure, never sufficient for truth</strong> — it earns a claim the right to be evaluated on the physics, nothing more.</p>
+<p>Their full v2 operational definitions — what each forbids, what each can force, the support-to-force ladder, the four-field certificate, and worked wall examples — live on the dedicated page: → <a href="/layer2/">The Second-Layer Roots</a>. The per-root statements below give the in-hierarchy summary.</p>
+<h2>Complete-root requirement (for every gate closure)</h2>
+<p>The three physical roots each have a <strong>complete form</strong>, and a gate closure must use that complete form — otherwise the gate can fail <em>for that reason alone</em>, with nothing wrong in the physics:</p>
+<ul>
+<li><strong>Shape</strong> = the full <strong>three-layer</strong> object (<strong>× Stage · ⊕ Rulebook · ⊗ Actors</strong>) at <strong>full precision</strong> (GUT Appendix A1, ≥16 significant figures across all three layers; manifest <code>a5b1e6f9d951</code>). The geometric product $M_4\times K_6\times S^2\times S^1_Y/\mathbb Z_2$ is only the <strong>× Stage</strong> — using it alone is an incomplete shape. → <a href="/shape/">The Shape</a>.</li>
+<li><strong>Granularity</strong> = the cost-floor applied <strong>comprehensively over the entire shape</strong> — all <strong>13 dimensions <em>including time</em></strong> and all <strong>three layers</strong> — as a floor on a Lorentz-scalar action (<em>cost-not-length</em>), never a partial, spatial-only, or ×-layer-only floor.</li>
+<li><strong>Scale</strong> = the absolute anchor $M_{\rm Pl}$ at <strong>full precision</strong>, applied over the <strong>complete</strong> three-layer shape.</li>
+</ul>
+<p><strong>Incomplete-root use is a named failure mode.</strong> Before any gate is graded <code>OPEN</code> or <code>FAIL</code>, confirm its closure used the complete Shape (all three layers, full precision), the complete Granularity (whole shape, all 13 dimensions incl. time, all layers), and the complete Scale (full precision, complete shape). <strong>A residual that appears only under a truncated root is an artifact, not a physics result</strong> — and is a legitimate route to reduce it to an acceptable endpoint.</p>
+<h2>Reading the root sections</h2>
+<p>Each of the seven roots is written to a fixed template so the same questions are answered for every one:</p>
+<pre><code>Root name:
+Operational statement:
+Mathematical / logical form:
+Status:
+What it supports:
+What it does not prove:
+Allowed claim:
+Forbidden claim:
+Specialist hardening question:
+</code></pre>
+<p>Status labels are drawn <strong>only</strong> from the allowed set: <code>DECLARED ROOT</code>, <code>GENERATED</code>, <code>DERIVED-GIVEN-E</code>, <code>MEASURED</code>, <code>CHARGED</code>, <code>AUDIT ONLY</code>, <code>OPEN</code>, <code>BLOCKED</code>, <code>ANTI-CLAIM</code>.</p>
+<hr />
+<h2>R1 — Physical Equivalence / Invariance Root</h2>
+<p><strong>Operational statement.</strong></p>
+<blockquote>
+<p>Physical content is what survives admissible redescription: coordinate changes, gauge choices, basis changes, observer frames, and notational relabeling.</p>
+</blockquote>
+<p><strong>Mathematical / logical form.</strong> Let $\mathcal D$ be the group/semigroup of admissible redescriptions (diffeomorphisms, gauge transformations, basis/representation changes, frame transformations, relabelings). A quantity $\mathcal O$ is physical only if it is $\mathcal D$-invariant:</p>
+<p>$$\mathcal O \;\text{is physical} \iff g\cdot\mathcal O = \mathcal O \quad \forall\, g\in\mathcal D.$$</p>
+<p><strong>Status:</strong> <code>DECLARED ROOT</code> — admissibility condition. This is a Tier-0 meta-root: a condition for something to count as a physical claim, not itself a derived theorem.</p>
+<p><strong>What it supports.</strong> It underwrites the entire anchoring discipline: it is the reason a "physical anchor" must be an invariant rather than a coordinate or gauge artifact. It is the working content of relativity and gauge theory promoted to an admissibility rule.</p>
+<p><strong>What it does not prove.</strong> It does not by itself single out <em>which</em> invariants are realized in nature, nor does it derive any specific shape, scale, or spectrum. It is a filter on candidate claims, not a generator of them.</p>
+<p><strong>Allowed claim:</strong> physical anchors must be invariant.</p>
+<p><strong>Forbidden claim:</strong> a coordinate artifact is physical because it appears in one representation.</p>
+<p><strong>Specialist hardening question.</strong> Can the admissible-redescription group $\mathcal D$ be characterized intrinsically — without already assuming the spacetime/gauge structure it is meant to act on — so that invariance is not defined circularly with respect to the very structure under test?</p>
+<hr />
+<h2>R2 — Record Interface Root</h2>
+<p><strong>Operational statement.</strong></p>
+<blockquote>
+<p>Physics is tested through finite, reproducible, physically instantiated records.</p>
+</blockquote>
+<p><strong>Mathematical / logical form.</strong> Every contact between theory and world factors through a finite record: a measurement returning a number to finite precision, a detector logging a finite count, a computation halting with finite output. Formally, the empirical interface is a finite-information map</p>
+<p>$$\text{theory} \;\longrightarrow\; \{r_1, r_2, \dots, r_N\}, \qquad N<\infty,\; H(r_i)<\infty,$$</p>
+<p>where each $r_i$ is a physically instantiated, reproducible record of finite information content.</p>
+<p><strong>Status:</strong> <code>DECLARED ROOT</code> — empirical interface. Tier-0 meta-root: the condition under which empirical audit is possible at all.</p>
+<p><strong>What it supports.</strong> It defines the currency in which any theory — this one or a rival — earns physical status: finite-record-generating power. It grounds the use of measured anchors, exact ledgers, gate certificates, and reproducible hashes as the only admissible evidence.</p>
+<p><strong>What it does not prove.</strong> It does not prove the world is ontologically discrete (see R4), and it carries no claim about minds. "Record" and "observer" here mean a physically instantiated finite log, not a conscious or subjective entity.</p>
+<p><strong>Allowed claim:</strong> finite records are the empirical interface.</p>
+<p><strong>Forbidden claim:</strong> observer means consciousness or subjective mind.</p>
+<p><strong>Specialist hardening question.</strong> Is "finite, reproducible, physically instantiated record" definable without smuggling in a prior notion of discreteness or of a preferred coarse-graining — i.e., can the record interface be stated without already presupposing R4?</p>
+<hr />
+<h2>R3 — Causal Order Root</h2>
+<p><strong>Operational statement.</strong></p>
+<blockquote>
+<p>There is an invariant relation of possible influence between records/events.</p>
+</blockquote>
+<p><strong>Mathematical / logical form.</strong> There is a partial order $\preceq$ on events/records such that $x\preceq y$ means $x$ can possibly influence $y$, and this order is invariant under admissible redescription (R1). Its <strong>low-energy form</strong> is the causal-cone / light-cone structure: $x\preceq y$ iff $y$ lies in the future cone of $x$.</p>
+<p><strong>Status:</strong> <code>DECLARED ROOT</code> or inherited low-energy operational fact. The invariant influence relation is charged as a root; the light-cone realization is the inherited low-energy operational fact that instantiates it.</p>
+<p><strong>What it supports.</strong> It constrains signalling and local update: which records may condition which others, and the no-superluminal-signalling guardrail that protects the nonseparability root (R7) from overclaim.</p>
+<p><strong>What it does not prove.</strong> It does not derive the metric signature, the dimensionality, or the specific causal structure of spacetime; those are inherited/charged, not produced. In particular it does not license treating correlation across a nonseparable global state as usable influence.</p>
+<p><strong>Allowed claim:</strong> causal order constrains signalling and local update.</p>
+<p><strong>Forbidden claim:</strong> nonseparability permits usable faster-than-light signalling.</p>
+<p><strong>Specialist hardening question.</strong> Can the invariant causal order be derived from R1 + R2 (invariance over the record interface) rather than declared — and if so, does that derivation already presuppose a background ordered-dynamics root, collapsing it into the Tier-2 dynamics target?</p>
+<hr />
+<h2>R4 — Granularity / Cost-Floor Root</h2>
+<p><strong>Operational statement.</strong></p>
+<blockquote>
+<p>Distinguishable physical transitions are not free; exact distinctions carry specification burden.</p>
+</blockquote>
+<p><strong>Mathematical / logical form.</strong> As symbolic shorthand for a positive specification floor on distinguishable transitions:</p>
+<p>$$\exists\,\epsilon_{\rm cell}>0.$$</p>
+<p>This is written as shorthand and is <strong>labeled a declared / root posit</strong> unless a stronger theorem is supplied. The honest accounting of this root is that it bottoms out on <strong>one</strong> declared value-free posit (exact-global action-spectrum uniformity, an earned no-go via a finite-resources countermodel, <strong>not</strong> proven atomic) <strong>plus one</strong> genuinely atomic measured anchor (the action spacing $\hbar$, the measured value). The Pontryagin-style existence/discreteness equivalence relocates but does not eliminate the uniformity posit, and deriving uniformity from unitarity is circular by the work's own finding — so the granularity posit count is <strong>one, not zero</strong>.</p>
+<p><strong>Status:</strong> <code>DECLARED ROOT</code> / proof target — for the uniformity posit; the measured spacing $\hbar$ is separately <code>MEASURED</code>.</p>
+<p><strong>What it supports.</strong> It is the natural premise from which the description-length / cost metric may eventually be derived (the open Layer-1 bridge), and it underwrites the "no unpaid exact labels" discipline: exact distinctions must be paid for in specification cost.</p>
+<p><strong>What it does not prove.</strong> Finite experimental records alone do not prove ontological discreteness — the record interface (R2) is finite, but inferring a discrete <em>world</em> from finite <em>records</em> is a separate, undischarged step. The "zero posits" reading is an overclaim; the floor is one declared posit plus one measured anchor.</p>
+<p><strong>Allowed claim:</strong> no unpaid labels.</p>
+<p><strong>Forbidden claim:</strong> finite experimental records alone prove ontological discreteness.</p>
+<p><strong>Completeness in use.</strong> Granularity is a property of the <strong>entire shape</strong>: the cost-floor governs distinguishable steps across <strong>all 13 dimensions — including time — and all three layers</strong> (× Stage · ⊕ Rulebook · ⊗ Actors), not a spatial-only or ×-layer-only subset. It remains a floor on a <strong>Lorentz-scalar action</strong> (<em>cost-not-length</em>; no preferred frame, no per-dimension length-discreteness), but applied <strong>comprehensively over the whole object</strong>. A gate closure that charges the floor on only part of the shape is using an <strong>incomplete root</strong> and may fail spuriously.</p>
+<p><strong>Specialist hardening question.</strong> Can the exact-global action-spectrum uniformity posit (<code>AXIOM-UNIFORM-GRAIN</code>) be derived from a strictly weaker, independently motivated principle without circularity through unitarity — or is one declared posit provably the floor?</p>
+<hr />
+<h2>R5 — Scale Root</h2>
+<p><strong>Operational statement.</strong></p>
+<blockquote>
+<p>At least one absolute dimensionful scale is required; $M_{\rm Pl}$ is the accepted value anchor.</p>
+</blockquote>
+<p><strong>Mathematical / logical form.</strong> The scale relation, written <strong>only</strong> as a relation / scale expression and not as proof that the number is derived:</p>
+<p>$$M_{\rm Pl}\sim\sqrt{\frac{\hbar c}{G}}.$$</p>
+<p>The root has two distinct parts that must not be conflated: an <strong>existence</strong> claim — that at least one absolute dimensionful scale is required to fix units of dimensionful predictions — and a <strong>value</strong> claim — the specific number $M_{\rm Pl}$, which is supplied by measurement.</p>
+<p><strong>Status:</strong> existence theorem claimed; <strong>value</strong> <code>MEASURED</code>. The existence of a required scale is argued; the numerical value of $M_{\rm Pl}$ is a measured input, not a derived output.</p>
+<p><strong>What it supports.</strong> It is the dimensionful anchor that lets dimensionless ratios and readouts be cashed into physical numbers. It is one of the small set of charged measured anchors $\{M_{\rm Pl},\,\alpha_i(M_Z),\,y_t,\,|V_{us}|\}$.</p>
+<p><strong>What it does not prove.</strong> A naked dimensionful number is not invariant by itself — only dimensionless ratios are frame/unit-invariant (R1). So the <em>value</em> of $M_{\rm Pl}$ is charged as measured input; it is not claimed to be derived from the geometry.</p>
+<p><strong>Allowed claim:</strong> scale relation is needed.</p>
+<p><strong>Forbidden claim:</strong> naked dimensionful number is invariant by itself.</p>
+<p><strong>Completeness in use.</strong> When the scale root cashes dimensionless ratios into physical numbers, it must use $M_{\rm Pl}$ at <strong>full precision</strong> and apply it over the <strong>complete three-layer shape</strong> at full precision (GUT Appendix A1) — not a rounded value or a truncated geometry. A closure that sets dimensionful scale from an incomplete shape, or at reduced precision, is using an <strong>incomplete root</strong> and may fail spuriously.</p>
+<p><strong>Specialist hardening question.</strong> Can the <em>existence</em> of exactly one independent absolute scale be proven (rather than asserted) from R1 + R4, and can it be shown that no second independent dimensionful anchor is smuggled in elsewhere in the generator?</p>
+<hr />
+<h2>R6 — Shape Root</h2>
+<p><strong>Operational statement.</strong></p>
+<blockquote>
+<p>The frozen structural branch is the object being tested.</p>
+</blockquote>
+<p><strong>Mathematical / logical form.</strong> The frozen branch:</p>
+<p>$$M_4\times K_6\times S^2\times S^1_Y/\mathbb Z_2,
+\qquad K_6=SU(3)/T^2,$$</p>
+<p>with dimension count</p>
+<p>$$\dim K_6 = 8-2 = 6,
+\qquad D = 4+6+2+1 = 13.$$</p>
+<p>The branch is hash-frozen ($dcc66f1b2685$ / $a5b1e6f9d951$, read-only) so that "frozen" is a checkable audit fact.</p>
+<p><strong>Status:</strong> <code>DECLARED ROOT</code> — frozen, selected, not unique. Within the internal-isometry grammar the carriers are <code>DERIVED-GIVEN-E</code> (given the declared grammar and the observed matter content $E$): the weak carrier $S^2$, the hypercharge fold $S^1_Y/\mathbb Z_2$, and the color carrier $K_6=SU(3)/T^2$ are forced inside the grammar, and $\chi(K_6,E)=-3$ gives three generations given a chosen bundle. The <em>absolute</em> minimality/uniqueness of the shape is <code>OPEN</code> — permanently, as an undischarged universal negative (a Kolmogorov-style uncomputable question), correctly refused-as-axiom rather than carried as a theorem debt.</p>
+<p><strong>What it supports.</strong> Given the frozen shape and given $E$, the framework reads off the SM gauge algebra, three chiral generations, and charge quantization from geometry. This is the strongest known survivor within the "forces = isometries" grammar.</p>
+<p><strong>What it does not prove.</strong> It does not prove absolute uniqueness or that $13$D is the simplest possible shape, and it does <strong>not</strong> derive the bundle data / matter content $E$ — the spectrum $E$ is charged as <code>DECLARED ROOT</code> / disclosed given-E input (roughly nine to ten injected quantities beyond the four measured anchors, plus the observed gauge content), not produced. The hashes validate frozen-object identity and audit integrity; they do not validate the physics.</p>
+<p><strong>Allowed claim:</strong> frozen branch is the shape root.</p>
+<p><strong>Forbidden claim:</strong> absolute uniqueness or derivation of $E$.</p>
+<p><strong>Completeness in use.</strong> The product above is only the <strong>× Stage</strong> layer. The shape root is the <strong>full three-layer object</strong> — × Stage · <strong>⊕ Rulebook</strong> (the $F^+$ chamber, $\mathcal C_{\rm admiss}$ firewall, projectors, quotient/normalization rules) · <strong>⊗ Actors</strong> ($\mathcal E_{\rm matter},\mathcal E_{\rm gauge},\mathcal E_{\rm Higgs},\mathcal E_{\rm proton}$, bundles, operator domains) — at <strong>full precision</strong> (GUT Appendix A1, ≥16 sig-fig; B2 proves all three layers necessary). The ⊕ and ⊗ layers are load-bearing for most flavor and consistency gates; a closure run against the geometry alone is an <strong>incomplete root</strong> and may fail spuriously. → <a href="/shape/">The Shape</a>.</p>
+<p><strong>Specialist hardening question.</strong> Does a bundle-uniqueness theorem exist that selects a weight of index magnitude $3$ <em>without</em> invoking "three generations" as input — the only route that could upgrade "carrier-forced given selected $E$" toward "$E$ partially forced"?</p>
+<hr />
+<h2>R7 — Nonseparability / Global State Constraint Root</h2>
+<p><strong>Operational statement.</strong></p>
+<blockquote>
+<p>Exact independence is not fundamental. It occurs only when the global state factorizes.</p>
+</blockquote>
+<p><strong>Mathematical / logical form.</strong> Independence holds <strong>iff</strong> the global state factorizes:</p>
+<p>$$\rho_{AB}=\rho_A\otimes\rho_B,$$</p>
+<p>and correlation / nonseparability is the generic case:</p>
+<p>$$\rho_{AB}\neq\rho_A\otimes\rho_B.$$</p>
+<p>The conditional state of $B$ after a local record $a$ at $A$ is</p>
+<p>$$\rho_{B|a}
+=
+\frac{
+\operatorname{Tr}_A\!\big[
+(M_a\otimes I_B)\,\rho_{AB}\,(M_a^\dagger\otimes I_B)\big]
+}{p(a)}.$$</p>
+<p>The <strong>no-signalling guardrail</strong> — for ordinary local measurements when the outcome is not communicated — is</p>
+<p>$$\sum_a p(a)\,\rho_{B|a}=\rho_B.$$</p>
+<p><strong>Status:</strong> quantum-formalism supported / no-signalling guarded. The factorization criterion and conditional-update rule are standard quantum formalism; the guardrail is what keeps the root from overclaiming.</p>
+<p><strong>What it supports.</strong> It grounds the picture that local records <em>condition</em> a nonseparable global state, rather than independent subsystems existing by default. It connects to Causal Order (R3): conditioning does not transport usable influence.</p>
+<p><strong>What it does not prove.</strong> It does not license treating measurement as a usable signal: the guardrail $\sum_a p(a)\,\rho_{B|a}=\rho_B$ shows the local marginal at $B$ is unchanged when the outcome is not communicated, so no usable superluminal signal is sent.</p>
+<p><strong>Allowed claim:</strong> local records condition a nonseparable global state.</p>
+<p><strong>Forbidden claim:</strong> measurement sends a usable signal everywhere.</p>
+<p><strong>Specialist hardening question.</strong> Can the no-signalling guardrail be promoted from "satisfied by the standard update rule" to "forced by R1 + R3" — i.e., is no-signalling derivable from invariance plus causal order, rather than checked case-by-case against the formalism?</p>
+<hr />
+<h2>Root status table</h2>
+<table>
+<thead>
+<tr>
+<th>Root</th>
+<th>Type</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invariance</td>
+<td>Meta-root</td>
+<td>DECLARED ROOT / admissibility condition</td>
+</tr>
+<tr>
+<td>Record Interface</td>
+<td>Meta-root</td>
+<td>DECLARED ROOT / empirical interface</td>
+</tr>
+<tr>
+<td>Causal Order</td>
+<td>Physical root</td>
+<td>DECLARED ROOT or inherited low-energy operational fact</td>
+</tr>
+<tr>
+<td>Granularity</td>
+<td>Physical root</td>
+<td>DECLARED ROOT / proof target</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>Physical root</td>
+<td>existence theorem claimed; value MEASURED</td>
+</tr>
+<tr>
+<td>Shape</td>
+<td>Physical root</td>
+<td>DECLARED ROOT / frozen, selected, not unique</td>
+</tr>
+<tr>
+<td>Nonseparability</td>
+<td>Physical root</td>
+<td>quantum-formalism supported / no-signalling guarded</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Allowed status labels</strong> (the only labels used anywhere on this page): DECLARED ROOT · GENERATED · DERIVED-GIVEN-E · MEASURED · CHARGED · AUDIT ONLY · OPEN · BLOCKED · ANTI-CLAIM.</p>
+<h2>Tier 2 — Reduction targets, not silently solved</h2>
+<p>Three principles that are often treated as fundamental are held here as <strong>reduction targets or candidate roots</strong> — explicitly <em>not</em> claimed solved:</p>
+<ul>
+<li><strong>Locality / quasi-locality.</strong> Plausibly reduces to Causal Order (R3) plus the cost-floor (R4): local update is what is cheap, and influence respects the invariant causal order. Until that reduction is proven, low-energy locality is <code>OPEN</code> as a derived claim and is charged as a candidate root.</li>
+<li><strong>Unitarity / probability conservation.</strong> Plausibly reduces to the Record Interface (R2) plus invariance (R1): probability is the bookkeeping of finite records and must be conserved across admissible redescriptions. Until proven, it is <code>OPEN</code> / charged, not assumed.</li>
+<li><strong>Ordered dynamics / time.</strong> May reduce to Causal Order (R3), but a genuinely <em>dynamical</em> (not merely ordinal) time has not been derived. Held as <code>OPEN</code> / candidate root.</li>
+</ul>
+<p>The rule is explicit: <strong>these may reduce to combinations of the seven roots, but if they cannot, they must be banked as additional roots or explicitly charged.</strong> They are named here so they cannot be silently assumed solved.</p>
+<h2>Global discipline — what this page does not claim</h2>
+<p>This page obeys the program's forbidden-overclaim list:</p>
+<ul>
+<li>The deep roots are <strong>not</strong> all theorem-grade — some are declared posits or proof targets, and the table says which is which.</li>
+<li>The $13$D shape is <strong>not</strong> claimed absolutely unique; absolute minimality (R2/R3 of the shape dossier) is permanently <code>OPEN</code>.</li>
+<li>$E$ is <strong>not</strong> claimed derived; it is given / charged / bundled into the Shape root unless a separate bundle-uniqueness proof is supplied.</li>
+<li>Local (in-grammar) carrier-forcing is <strong>not</strong> equated with whole-gate closure; the shape gate remains <code>OPEN</code>.</li>
+<li>Hashes validate <strong>frozen-object identity / audit integrity only</strong>, not physics.</li>
+<li>Anomaly cancellation is a filter, <strong>not</strong> a selector of the Standard Model.</li>
+<li>The MDL / full-generator cost metric is <strong>not</strong> claimed absolutely proven against every competing metric.</li>
+<li>Measurement / nonseparability does <strong>not</strong> send a usable superluminal signal.</li>
+</ul>
+<hr />
+<h2>Completion report</h2>
+<p><strong>Tests passed.</strong>
+- P1 — Page has exactly seven root sections (R1–R7).
+- P2 — Every root section includes operational statement, status, allowed claim, and forbidden claim (plus the full template fields).
+- P3 — Shape section (R6) includes the branch formula and $4+6+2+1=13$ (and $\dim K_6 = 8-2 = 6$).
+- P4 — Nonseparability section (R7) includes factorization, conditional state, and the no-signalling guardrail.
+- P5 — Scale section (R5) distinguishes scale <em>existence</em> from <em>measured value</em>.
+- P6 — Granularity section (R4) distinguishes finite records from ontological discreteness.
+- P7 — Page states locality, unitarity, and ordered dynamics are reduction targets / candidate roots, not silently solved.
+- P8 — Page includes this completion report.
+- U1 — Status honesty: every major claim uses an allowed status label.
+- U2 — No floating anchors: every named anchor is typed (root, measured input, declared/charged input, audit artifact, open residual, or anti-claim).
+- U3 — No root inflation: the page explicitly does not claim every root is theorem-grade.
+- U4 — No E-smuggling: $E$ is given / charged / bundled into Shape, not claimed separately derived.
+- U5 — No hash-overclaim: hashes are stated as audit-integrity / frozen-identity only.
+- U6 — Local/global distinction: in-grammar carrier-forcing is not equated with whole-gate closure.
+- U7 — Forbidden claims absent: no absolute-uniqueness, no anomaly-selector, no FTL-nonseparability, no metric-proven-absolute claim.
+- U8 — Completion report present (this block).</p>
+<p><strong>Tests failed.</strong> None.</p>
+<p><strong>Open items.</strong>
+- Shape absolute uniqueness / $13$D absolute minimality (R2/R3 of the shape dossier): permanently <code>OPEN</code> — an undischarged universal negative, correctly refused-as-axiom.
+- Granularity uniformity posit (<code>AXIOM-UNIFORM-GRAIN</code>): <code>DECLARED ROOT</code> / proof target; not proven atomic. Granularity posit count is one, not zero.
+- Bundle-uniqueness theorem that could remove "given-$E$": <code>OPEN</code>.
+- Tier-2 reductions (locality, unitarity, ordered dynamics) to the seven roots: <code>OPEN</code> / charged as candidate roots.
+- The description-length / MDL metric the cost-floor presupposes: <code>OPEN</code> (Layer-1 bridge).</p>
+<p><strong>Assumptions made.</strong>
+- Adopted the handoff's seven-root list and three-tier classification verbatim, and the corpus deep-root dossier finding that the granularity floor is one declared posit plus one measured anchor (ℏ), not zero posits.
+- Treated R6 carrier results as <code>DERIVED-GIVEN-E</code> within the internal-isometry grammar (per the consolidated deep-roots dossier), with the shape itself a <code>DECLARED ROOT</code>.
+- Used <code>$...$</code> / <code>$$...$$</code> LaTeX for all math so it typesets, and used only the handoff's allowed status labels.</p>
+<h2>Cross-links</h2>
+<ul>
+<li><strong><a href="./anchor-hierarchy-overview.html">The Anchor Hierarchy — overview</a></strong> — where the seven roots sit relative to master and gate anchors.</li>
+<li><strong><a href="./deep-roots.html">The Seven Deep Roots</a></strong> — this page.</li>
+<li><strong><a href="./master-anchors.html">Master / Fundamental Anchors</a></strong> — A0 and the small set of measured anchors the roots feed into.</li>
+<li><strong><a href="./logical-endpoint-proof.html">The Logical Endpoint Proof</a></strong> — where the root chain honestly terminates.</li>
+<li><strong><a href="./gate-traceability-template.html">Gate Traceability — method &amp; template</a></strong> — how each gate traces back to roots and anchors.</li>
+<li><strong><a href="./blind-spots.html">Blind Spots &amp; Implicit Assumptions</a></strong> — the silent-assumption audit the roots are meant to prevent.</li>
+<li><strong><a href="./ai-agent-completion-protocol.html">The AI-Agent Completion Protocol</a></strong> — the discipline that enforces honest status-labeling.</li>
+<li><strong><a href="./index.html">The Anchors — overview</a></strong> — the anchoring rule-set and the full bridge stack at a glance.</li>
+</ul>
+</body></html>

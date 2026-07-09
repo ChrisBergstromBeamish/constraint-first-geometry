@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SG-2 — Gauge recovery SU(3)&amp;times;SU(2)&amp;times;U(1): full dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">SG-2 — Gauge recovery SU(3)xSU(2)xU(1): full dossier — rendered package. Rendered from <code>DOSSIER_SG2_FULL.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>SG-2 — Gauge recovery SU(3)xSU(2)xU(1): full dossier</h1>
+<blockquote>
+<p><strong>What this is.</strong> The full, specialist-grade dossier for <strong>SG-2 (Gauge recovery — the Standard-Model gauge algebra from internal isometries)</strong> on the <strong>frozen 13D K₆ branch</strong>. It expands the brief closure-attack packet into a believable, checkable, reusable treatment: the rigorous mathematics behind the recovery, the insights that produced it, the certificates and witnesses that back it, an honest map of every open hole, and — most load-bearing — a concrete <strong>specialist work plan</strong> for closing each hole.</p>
+<p><strong>Binding discipline (carried verbatim).</strong> <strong>STATUS-UPGRADES:0.</strong> This dossier reflects the gate's honest current status — <strong>DERIVED-GIVEN-E (held)</strong> — and never upgrades it. Frozen branch <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code> are READ-ONLY. The gauge-group <strong>OUTCOME is a rival TIE</strong>; the genuine Fable-internal contribution is the <strong>carrier-forcedness</strong>, not the outcome. <strong>given-E ≠ derivation of E.</strong> AXIOM-CLOSED ≠ proven; selection ≠ derivation; dissolved ≠ solved.</p>
+<p><em>Sources synthesized: the closure-attack dossier <code>…/rendered/TOE/PER_GATE_DOSSIERS/DOSSIER_SG2_GAUGE_RECOVERY_CLOSURE_ATTACK.md</code>; the validator report <code>…/PER_GATE_DOSSIERS/_gate_attack_2026-06-27/reports/SG2_report.json</code>; the re-grade ledger <code>…/rendered/TOE/GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md</code> (SG-2 block); the specialist hole queue <code>…/rendered/TOE/SPECIALIST_HOLE_QUEUE_2026-06-29.md</code>; and the manuscript <code>…/rendered/GUT/GUT.md</code> (§5.1, §3.5, Appendix GS, Appendix D, Appendix C2/C3). Every number, hash, and verdict below is traceable to one of these files.</em></p>
+</blockquote>
+<hr />
+<h2>1. Executive summary + honest status</h2>
+<h3>1.1 Headline</h3>
+<p><strong>Feed the frozen 13D shape into one rule — <em>forces are the shape's own symmetries</em> — and the Standard Model's exact gauge algebra falls out by equality: 8 + 3 + 1 = 12 generators, rank 4, not one extra and not one missing.</strong> The colour force is the symmetry of the flag manifold K₆ = SU(3)/T², the weak force the symmetry of the two-sphere S², hypercharge the symmetry of a folded circle S¹_Y/ℤ₂. No coupling value and no fitted number is consulted in making this read — it is architectural, read off the geometry alone.</p>
+<h3>1.2 The honest grade (matches the live popup)</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gate id</strong></td>
+<td>SG-2 — Gauge recovery: SU(3)_c × SU(2)_L × U(1)_Y from internal isometries</td>
+</tr>
+<tr>
+<td><strong>Status label (binding)</strong></td>
+<td><strong>DERIVED-GIVEN-E</strong> — direction <strong>held</strong> (re-grade <code>DERIVED-GIVEN-E → DERIVED-GIVEN-E</code>, source: re-grade ledger SG-2 line)</td>
+</tr>
+<tr>
+<td><strong>Validator endpoint</strong></td>
+<td><code>SG2_GAUGE_RECOVERY_DERIVED_GIVEN_E_WITH_OPEN_CARRIER_WALLS</code>; descent status <code>CONVERGED_WITH_TERMINAL_WALLS</code>; gate status <code>OPEN/wall</code> (two terminal walls remain); STATUS-UPGRADES:0 (source: <code>SG2_report.json</code>)</td>
+</tr>
+<tr>
+<td><strong>Frozen hashes it rides</strong></td>
+<td>Branch <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code>. Carrier geometry K_gauge = K₆ × S² × S¹_Y with K₆ = SU(3)/T² (R1.2 / R1.4 isometry data). Parity table <code>ac4d2df3e708</code> (R1.3) is an SG-3/SG-4 object, co-read only because S¹_Y/ℤ₂ is the hyper carrier.</td>
+</tr>
+<tr>
+<td><strong>Anchors</strong></td>
+<td>The observed spectrum <strong>E</strong> (the SM gauge content as <em>given-E</em>, plus the <strong>LEP/SLD light-species count 2.984 ± 0.008</strong> forbidding mirror fermions) and the measured couplings <strong>α_i(M_Z)</strong> (declared anchors, <strong>NOT</strong> Gate-2 outputs — handled at SG-7).</td>
+</tr>
+<tr>
+<td><strong>Holes</strong></td>
+<td>4 open holes (re-grade ledger); 2 terminal walls in the validator (<code>W_R2_NEUTRALITY</code>, <code>W_R3_COMPLETENESS</code>).</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 What this dossier establishes and what it does not</h3>
+<p><strong>Establishes (given-E, given the selected &amp; frozen geometry):</strong> the surviving 4D isometry algebra of the frozen compact factors <strong>equals</strong> 𝔰𝔲(3)_c ⊕ 𝔰𝔲(2)_L ⊕ 𝔲(1)_Y — <em>equality, not containment</em>. The witness is the simple-summand multiset {8, 3, 1}, rank 4, with <strong>no extra unbroken factor and no missing SM factor</strong> (the gate's two failure modes). Beyond the bare recovery, three <em>forcedness</em> results — <strong>category-internal</strong> (their architecture-neutrality is <em>asserted, not proven</em>; see "Does not establish" below) — are the gate's genuine Fable-internal content: <strong>(C1)</strong> K₆ is the unique <em>clean</em> SU(3) carrier by abelian-isotropy uniqueness; <strong>(C2)</strong> S² is forced for weak by fact F1; <strong>(C3)</strong> S¹_Y/ℤ₂ is forced for hypercharge by fact F2 — with the cheaper rival carrier CP² = SU(3)/U(2) explicitly killed (built end-to-end and shown to BREAK).</p>
+<p><strong>Does not establish, and does not claim:</strong> that the SM gauge group is a <em>Fable-discriminating</em> result (it is a <strong>rival TIE</strong> — string, M-, F-theory, noncommutative geometry, and lattice constructions all recover it). That this gauge group is the <strong>unique output across all geometries</strong> (the route is existence + equality on one frozen branch; <em>given-E ≠ derivation of E</em>). That the carrier-forcedness results are <strong>architecture-neutral theorems</strong> rather than theorems <em>inside</em> the declared "forces = isometries" category (their neutrality is asserted, not proven — the two terminal walls). It also makes <strong>no coupling-unification numerics</strong> (that is SG-7).</p>
+<p>This is the cardinal honest line, and it is the gate's integrity spine: <strong>the OUTCOME is a tie; the discrimination is the carrier-forcedness.</strong></p>
+<hr />
+<h2>2. The community gap</h2>
+<h3>2.1 The precise open problem</h3>
+<p>The Standard Model's gauge group, SU(3)_c × SU(2)_L × U(1)_Y, is <em>postulated</em>. The three factors are written in by hand; nothing in the SM explains why there are exactly these three, why their dimensions are 8, 3, and 1, or why the rank is 4. A genuine unified theory is expected to do better — to <strong>produce</strong> the gauge group from a single deeper structure, rather than assume it.</p>
+<p>This is a half-century-old aspiration. Grand unification (Georgi–Glashow SU(5), SO(10), E₆, Pati–Salam) embeds the SM factors in a single larger simple group, but the larger group is itself postulated, and the breaking pattern down to the SM is a separate input. Kaluza–Klein and string/M/F-theory constructions <em>geometrize</em> the gauge group — they read it from the isometries of, or the structure groups of bundles over, a compact internal space — but the compact space (or the bundle, or the brane configuration) is a model choice, tuned to land on the desired group.</p>
+<h3>2.2 The honest community truth: recovering the group is a tie</h3>
+<p>Here is the discriminating fact a working physicist must hold onto: <strong>recovering SU(3) × SU(2) × U(1) is a constraint that essentially every serious framework satisfies.</strong> String constructions arrange it through the structure groups of gauge bundles and intersecting branes; M-theory on G₂ manifolds and F-theory on elliptic fourfolds engineer it through singularity types; Connes–Chamseddine noncommutative geometry produces it from the spectral data of a finite algebra; lattice and deconstruction models build it directly. The <em>outcome</em> therefore discriminates nothing — a theory that reproduces the SM gauge group has passed a filter every credible competitor also passes (source: SG-2 closure-attack dossier §0.1, §1.2 firewall table; re-grade ledger SG-2 "gap" block).</p>
+<p>So the community gap is <strong>not</strong> "produce SU(3) × SU(2) × U(1)" — that is solved many times over. The real, unmet gap is sharper: <strong>produce the gauge group from a <em>forced</em> shape</strong> — a structure that is not freely tuned to the answer, where the <em>carrier of each force is the unique admissible one</em> rather than one engineering choice among many. None of the rival frameworks derives the group from a forced carrier; they all retain the freedom to arrange it. This is the precise crack SG-2 attacks: not the outcome, but the <em>forcedness of the carriers</em> within a declared grammar.</p>
+<h3>2.3 State of the art and why prior attempts fall short</h3>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>How it recovers the group</th>
+<th>Why it does not close the <em>forced-shape</em> gap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GUT (SU(5)/SO(10)/E₆)</td>
+<td>embed SM in a postulated simple group</td>
+<td>the larger group + breaking pattern are inputs; not forced</td>
+</tr>
+<tr>
+<td>String / heterotic</td>
+<td>bundle structure groups on a Calabi–Yau</td>
+<td>the bundle/CY is a model choice; gauge sourced from bundle, not from a forced isometry</td>
+</tr>
+<tr>
+<td>M-theory (G₂) / F-theory</td>
+<td>singularity types of the compact space</td>
+<td>singularity structure is engineered to the target</td>
+</tr>
+<tr>
+<td>Noncommutative geometry</td>
+<td>spectral data of a finite algebra</td>
+<td>the finite algebra is chosen; the "almost-commutative" ansatz is the input</td>
+</tr>
+<tr>
+<td>Lattice / deconstruction</td>
+<td>gauge factors built in directly</td>
+<td>the construction <em>is</em> the assumption</td>
+</tr>
+</tbody>
+</table>
+<p>Every entry recovers the outcome; none turns the <em>carrier</em> into a forced object. SG-2's distinctive move (§3) is to commit to one grammar — <em>gauge forces are the continuous isometries of the compact factors</em> — and then ask, inside that grammar, <strong>which shapes are the admissible carriers, and is the survivor unique?</strong> That question has a sharp, finite, Lie-theoretic answer, and it is what the gate banks.</p>
+<hr />
+<h2>3. The construction — rigorous mathematics</h2>
+<blockquote>
+<p>Full derivation authority: GUT.md §5.1 (narrative), §3.5 (the menu of internal geometries), Appendix GS (candidate datasheets + facts F1/F2/F3), Appendix D (formal certificate), Appendix C2/C3 (carrier dossiers). This section is the worked, attack-grade construction; it shows the steps, it does not gesture at them.</p>
+</blockquote>
+<h3>3.1 The grammar and the pipeline</h3>
+<p>The category-defining translation of the program (Dictionary row 1; Definition R2.5; GUT.md §2.9): <strong>the 4D gauge group is generated by the continuous isometries of the internal compact factors</strong> — the Kaluza–Klein mechanism, with gauge bosons appearing as the KK modes of the isometry Killing vectors. Gate 2 is the <strong>root gate</strong>: Gates 3, 4, 5, 7, 8, 9, 10 all consume its output (source: closure-attack dossier §1.1).</p>
+<p>The recovery is one architectural read:</p>
+<pre><code> K_gauge = K6 × S² × S¹_Y   --isometry algebra--&gt;   g_geom = su(3) ⊕ su(2) ⊕ u(1)
+   --quotients/parities/bundle data act--&gt;   g_SM = su(3)_c ⊕ su(2)_L ⊕ u(1)_Y   (EQUALITY)
+</code></pre>
+<p>The load-bearing steps, each named so a reader can attack it:</p>
+<h3>3.2 Step 1 — carrier identification (the existence leg)</h3>
+<p>Each compact factor sources exactly one simple summand of the gauge algebra, by the standard isometry algebras of homogeneous spaces:</p>
+<ul>
+<li><strong>K₆ = SU(3)/T²</strong> is the <em>complete flag manifold</em> of ℂ³. Its dimension is dim SU(3) − dim T² = 8 − 2 = <strong>6</strong>; it is a compact homogeneous Kähler manifold with <strong>isometry group SU(3)</strong> and Euler characteristic χ(K₆) = |W(SU(3))| = |S₃| = <strong>6</strong> (source: GUT.md §Appendix C2 / the flag-manifold glossary entry, line 2544). Its isometry algebra is 𝔰𝔲(3) → <strong>colour</strong>.</li>
+<li><strong>S²</strong> is the homogeneous space SU(2)/U(1); Isom(S²) = SU(2) (mod the discrete reflection). Its isometry algebra is 𝔰𝔲(2) → <strong>weak</strong>.</li>
+<li><strong>S¹_Y</strong> is the parent circle; Isom(S¹) = U(1), the translations act as <strong>hypercharge</strong>. (For the chirality channel the carrier of record is the <em>folded</em> circle S¹_Y/ℤ₂; see Step 5.)</li>
+</ul>
+<p>Gauge bosons are the KK modes of these Killing isometries (Appendix D.1). <em>Attack handle:</em> this is one factor → one summand <strong>by construction of K_gauge</strong>; the existence leg is given-the-selected-geometry.</p>
+<h3>3.3 Step 2 — the equality clause (no-extra / no-missing)</h3>
+<p>The certified claim is <strong>equality</strong>, not containment. Summing the simple summands:</p>
+<ul>
+<li>dim SU(3) = 8, dim SU(2) = 3, dim U(1) = 1 ⟹ <strong>8 + 3 + 1 = 12</strong> generators.</li>
+<li>rank = rank SU(3) + rank SU(2) + rank U(1) = 2 + 1 + 1 = <strong>4</strong>.</li>
+<li>the simple-summand multiset is <strong>exactly {𝔰𝔲(3), 𝔰𝔲(2), 𝔲(1)}</strong> — <em>no extra unbroken factor</em> (over-production failure mode) and <em>no missing SM factor</em> (under-production failure mode).</li>
+</ul>
+<p>This is the whole force of the gate: containment ("the algebra contains the SM factors") would be trivially satisfiable by almost any large carrier; <strong>equality</strong> is the non-trivial statement, and it is exactly what the <code>G02_gauge_recovery</code> certificate's <em>multiset test</em> and <em>no-extra-summand check</em> verify (source: closure-attack dossier §1.1 item 2; GUT.md §5.1 "Surviving / frozen object", line 1735: <em>"simple-summand multiset {𝔰𝔲(3),𝔰𝔲(2),𝔲(1)}, 8+3+1=12 generators, rank 4, no extra summand"</em>). The over-production check is precisely where the cheaper CP² carrier dies (§3.6).</p>
+<h3>3.4 Step 3 — abelian-isotropy / CSDR centralizer rule (carrier-forcedness leg C1)</h3>
+<p>Under coset dimensional reduction (CSDR), a homogeneous-space carrier G/H gauges G <strong>only if the isotropy subgroup H does not itself act as gauge</strong>. The 4D unbroken gauge group is governed by the <strong>centralizer</strong> C_G(H) (the part of G commuting with the isotropy embedding); a non-trivial centralizer-gauge means the isotropy is "gauge-active" and adds surviving gauge.</p>
+<p>The decisive structural fact for colour, G = SU(3):</p>
+<ul>
+<li><strong>H = T² (the maximal torus):</strong> T² = {diag(e^{iα}, e^{iβ}, e^{−i(α+β)})} ⊂ SU(3) is the unique maximal abelian subgroup (Cartan torus), unique up to conjugation, of dimension 2 = rank SU(3) (source: GUT.md glossary entry, line 2519). Its centralizer is <strong>C_SU(3)(T²) = T²</strong> — the Cartan only (source: re-grade ledger SG-2, line 80: <em>"centralizer C_SU(3)(T2)=T2, Cartan only"</em>). So <strong>no extra non-abelian gauge survives</strong>: K₆ = SU(3)/T² is a <strong>clean</strong> SU(3) carrier.</li>
+<li><strong>H = U(2) (the CP² isotropy):</strong> U(2) ⊂ SU(3) is <strong>non-abelian</strong>, hence gauge-active under the centralizer rule; it over-produces gauge (§3.6).</li>
+</ul>
+<p><strong>Abelian-isotropy uniqueness (C1):</strong> the maximal torus T² is the <em>unique purely-abelian (maximal-rank)</em> SU(3) isotropy — any larger connected isotropy contains a non-abelian factor. Therefore K₆ is the <strong>unique clean SU(3) carrier</strong>. This is the gate's genuine Fable-internal contribution: not "the SM has SU(3)" (everyone has that), but "<em>this</em> carrier is the clean one, and the cheaper rival is not." <em>Attack handle:</em> "gauge-active = non-trivial centralizer" is a grammar rule; its architecture-neutrality is the open wall R2 (§6.1).</p>
+<h3>3.5 Step 4 — Fact F1 forces S² for weak (carrier-forcedness leg C2)</h3>
+<p>GS.2 <strong>Fact F1 — abelian geometries carry no non-abelian force.</strong> The isometry group of any torus T^n is U(1)^n ⋊ (discrete), which is <strong>abelian</strong>; an abelian isometry group contains no SU(2). Therefore <strong>no torus and no torus orbifold has SU(2) among its isometries</strong> (source: GUT.md §3.5 shelf table, lines 2716–2719: tori T^n and T^6/Γ eliminated by "gauge recovery (F1)"). The non-abelian weak force cannot be carried by any abelian factor; it requires a genuinely non-abelian-isometry carrier, and <strong>S² = SU(2)/U(1) is the minimal one</strong> (dim 2, Isom = SU(2)).</p>
+<p><em>Attack handle:</em> F1 is a clean classification fact <strong>inside the category</strong>. A string framework routes around it via bundle structure groups — a <em>different category</em> — so F1's architecture-neutrality is conditional (§6.3). For SG-2 within the grammar, the consequence is sharp: S² is forced as the minimal weak carrier.</p>
+<h3>3.6 The CP² over-production kill (the genuine, non-tie elimination)</h3>
+<p>This is the part of SG-2 that is <strong>not a tie</strong> — a Fable-internal elimination a rival framework could not write. The cheaper SU(3) carrier candidate is <strong>CP² = SU(3)/U(2)</strong> (complex projective plane, dim 4). Its isotropy U(2) = (SU(2) × U(1))/ℤ₂ is <strong>non-abelian</strong>, hence gauge-active. Under the CSDR centralizer rule the carrier then faces a <strong>lose-lose fork</strong>, stated disjunctively in the manuscript (GUT.md §3.5):</p>
+<ol>
+<li><strong>Keep the extra structure</strong> → an unwanted SU(2) × U(1) survives from the gauge-active isotropy → the equality clause fails (an extra unbroken factor) → <strong>Gate-2 fails</strong> (over-production); <strong>or</strong></li>
+<li><strong>Drop it</strong> → the matter is isotropy-locked, weak/hyper forced into colour → <strong>axiom A1.4 violated</strong> (the matter-routing rule).</li>
+</ol>
+<p>Separately (and downstream), CP²'s family count is a <em>tunable bundle choice</em> killed at Gate-4/chirality — but the Gate-2 elimination above does <strong>not</strong> rely on that and is therefore the stronger, architecture-internal kill.</p>
+<p><strong>The adversarial witness.</strong> The program built the CP² swap <strong>end-to-end</strong> as its own 11D adversarial test (run id <code>wsmnjvt55</code>), and the route <strong>BREAKS at Gate 2 by over-producing gauge</strong> (source: re-grade ledger SG-2, line 80: <em>"the CP² swap was built end-to-end (run wsmnjvt55) and BREAKS at Gate 2 by over-producing gauge — a structural exclusion, not a tunable-family hand-wave"</em>). This is the corpus's own falsification attempt against itself, and the cheaper carrier failed it. This is the discriminating move: the κ³/π firewall test ("could a rival framework write this exact sentence?") returns <strong>No</strong> for the CP²-kill, where it returns <strong>Yes</strong> for the bare outcome (closure-attack dossier §4.1 firewall table).</p>
+<h3>3.7 Step 5 — Fact F2 forces the fold S¹_Y/ℤ₂ for hypercharge (carrier-forcedness leg C3)</h3>
+<p>GS.2 <strong>Fact F2 — closed odd-dimensional factors produce no net chirality.</strong> The chiral index of a Dirac operator on a <em>closed</em> odd-dimensional manifold vanishes identically. So a <strong>bare</strong> S¹_Y mirrors every fermion: it produces a left-right symmetric (mirror) spectrum (source: GUT.md §3.5 sphere shelf, line 2703: S¹ "None (F2): both handednesses survive → mirror partners ... Eliminated as-is — chirality (mirrors). Rescued by folding → S¹/ℤ₂").</p>
+<p>The mirror sector would be visible in the <strong>LEP/SLD light-species count, measured at 2.984 ± 0.008</strong> — which shows <em>no</em> mirror partners (source: closure-attack dossier §0; re-grade ledger SG-2, line 129). The repair is the <strong>ℤ₂ fold</strong>: S¹_Y/ℤ₂ has fixed-point boundaries, and boundaries re-open the chirality channel via the Atiyah–Patodi–Singer (APS) index. The hypercharge U(1)_Y is the translation generator along the parent circle, quantized by its topology.</p>
+<p><em>Attack handle:</em> F2 forces the fold for the <em>chirality</em> reason, which is properly SG-3/SG-4 content; for SG-2 the relevant deliverable is only the <strong>carrier identity</strong> — the hyper carrier is the <em>folded</em> circle S¹_Y/ℤ₂, not the bare one, and U(1)_Y survives. (Cross-evidence from SG-3: the APS one-sided index on S¹_Y/ℤ₂ returns (n_L, n_R) = (+3, 0); the bare-S¹ control returns (+3, +3) — proving the fold is load-bearing; source: re-grade ledger SG-3, line 175.)</p>
+<h3>3.8 The full shelf — why the survivors are forced and the rivals killed</h3>
+<p>The construction is not "K₆, S², S¹ chosen because they work." The manuscript runs the whole homogeneous shelf through F1/F2/F3 and the equality clause, and records the elimination reason for each (GUT.md §3.5, Appendix GS, lines 2691–2719; closure-attack dossier §4.3):</p>
+<table>
+<thead>
+<tr>
+<th>Carrier</th>
+<th>dim</th>
+<th>Isom</th>
+<th>Verdict</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>K₆ = SU(3)/T²</strong></td>
+<td>6</td>
+<td>SU(3)</td>
+<td><strong>Retained</strong></td>
+<td>clean SU(3) carrier; abelian isotropy (C1)</td>
+</tr>
+<tr>
+<td>CP² = SU(3)/U(2)</td>
+<td>4</td>
+<td>SU(3)</td>
+<td><strong>Eliminated</strong></td>
+<td>non-abelian U(2) isotropy → over-produces gauge (Gate-2) or isotropy-locks (A1.4); built &amp; BROKE (run <code>wsmnjvt55</code>)</td>
+</tr>
+<tr>
+<td><strong>S²</strong></td>
+<td>2</td>
+<td>SU(2)</td>
+<td><strong>Retained</strong></td>
+<td>minimal non-abelian carrier; required for weak (F1)</td>
+</tr>
+<tr>
+<td><strong>S¹_Y/ℤ₂</strong></td>
+<td>1</td>
+<td>U(1)</td>
+<td><strong>Retained</strong></td>
+<td>hyper carrier; fold re-opens chirality (F2)</td>
+</tr>
+<tr>
+<td>bare S¹</td>
+<td>1</td>
+<td>U(1)</td>
+<td>Eliminated as-is</td>
+<td>F2 mirrors; rescued by folding</td>
+</tr>
+<tr>
+<td>S³ ≅ SU(2)</td>
+<td>3</td>
+<td>SO(4)</td>
+<td>Eliminated</td>
+<td>F2 chirality + Occam vs S² (extra dim, extra SU(2), no gate served)</td>
+</tr>
+<tr>
+<td>S⁵ ≅ SU(3)/SU(2), S⁷</td>
+<td>5, 7</td>
+<td>SO(6), SO(8)</td>
+<td>Eliminated</td>
+<td>F2 chirality + wrong surviving group (over-large isometry)</td>
+</tr>
+<tr>
+<td>Lens S³/ℤ_n</td>
+<td>3</td>
+<td>⊂ SO(4)</td>
+<td>Eliminated</td>
+<td>F2 chirality</td>
+</tr>
+<tr>
+<td>ℝP^n = S^n/ℤ₂</td>
+<td>n</td>
+<td>quotient O(n+1)</td>
+<td>Eliminated</td>
+<td>admissibility (D7, n even) or chirality (n odd)</td>
+</tr>
+<tr>
+<td>tori T^n, T^6/Γ</td>
+<td>n, 6</td>
+<td>U(1)^n abelian</td>
+<td>Eliminated</td>
+<td>gauge recovery (F1): abelian → no non-abelian force</td>
+</tr>
+<tr>
+<td>Calabi–Yau 3-fold, K3</td>
+<td>6, 4</td>
+<td>none</td>
+<td>Eliminated</td>
+<td>F3: no continuous isometries → no forces</td>
+</tr>
+</tbody>
+</table>
+<p>The pattern a reader internalizes after F1–F3: even-dimensional spheres can carry handedness, odd-dimensional ones cannot (F2); a sphere's symmetry grows with dimension, usually past what the SM wants; abelian shapes carry no non-abelian force (F1); shapes with no isometry carry no force (F3). The selector is meant to feel <em>mechanical</em>, not curated (GUT.md line 2693).</p>
+<h3>3.9 Representation / charge recovery (deferred to Gates 3–5)</h3>
+<p>Appendix D.2–D.3 assign each surviving multiplet its (SU(3), SU(2), Y, Q) from projector data, with Q = T₃ + Y verified componentwise and the global ℤ₆ identification gluing the three centers ([SU(3) × SU(2) × U(1)]/ℤ₆). <strong>SG-2 itself is blind to the global quotient</strong> — the ℤ₆ is invisible to the Lie algebra and binds only representations. The rep-level recovery and centers are SG-3/SG-4 content and are <em>cited</em> here, not claimed here (source: closure-attack dossier §1.1 item 6).</p>
+<h3>3.10 What "closed" means here, and its conditionality</h3>
+<p>"Closed" for SG-2 is <strong>a rigid algebra-equality recovery + three carrier-forcedness theorems, all category-internal</strong> — strictly <em>not</em> a cross-geometry uniqueness proof, <em>not</em> "the SM gauge group is forced by nature," <em>not</em> a coupling-unification result. It is conditional on three things:</p>
+<ul>
+<li><strong>given-E</strong> — the SM chiral content E (gauge group, charges, family index −3) is supplied as the <em>target</em> the recovery is checked against. SG-2 certifies <em>this geometry yields E's gauge algebra</em>; it does <strong>not</strong> derive E.</li>
+<li><strong>given-the-selected-geometry</strong> — the frozen 13D K₆ branch. SHAPE is selected-not-forced <em>absolutely</em> (Kolmogorov/MDL-shortest only over the declared grammar + dimensional ladder + named rivals; the honest charged-input cost is ~4 anchors + 9–10 injected reals, ~13–14 total; source: re-grade ledger SG-1, line 81). The carrier-forcedness theorems C1–C3 are forced <em>within</em> that grammar.</li>
+<li><strong>given-the-grammar</strong> — the category "forces = isometries" (R2.5) + the CSDR centralizer rule. A reviewer who rejects the category (a string theorist sourcing gauge from bundles/branes) is <em>outside</em> the scope of F1/F2/C1; the manuscript declares this openly (GUT.md §2.9).</li>
+</ul>
+<p><strong>The genuine, defensible content</strong> (survives the honest accounting):</p>
+<table>
+<thead>
+<tr>
+<th>Genuine content (Fable-internal, category-relative)</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Surviving algebra <strong>equals</strong> 𝔰𝔲(3) ⊕ 𝔰𝔲(2) ⊕ 𝔲(1) (no extra/missing)</td>
+<td>isometry algebra of K₆ × S² × S¹_Y; multiset + no-extra-summand check</td>
+</tr>
+<tr>
+<td>K₆ = SU(3)/T² is the <strong>unique clean SU(3) carrier</strong></td>
+<td>abelian-isotropy uniqueness; C_SU(3)(T²) = T² adds no gauge</td>
+</tr>
+<tr>
+<td>S² <strong>forced</strong> for non-abelian weak</td>
+<td>fact F1</td>
+</tr>
+<tr>
+<td>folded S¹_Y/ℤ₂ <strong>forced</strong> for hypercharge, no mirrors</td>
+<td>fact F2 + LEP/SLD 2.984 ± 0.008</td>
+</tr>
+<tr>
+<td><strong>CP² over-produces gauge</strong> → fails Gate-2 OR isotropy-locks (A1.4)</td>
+<td>U(2) non-abelian isotropy; built end-to-end and BROKE</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The conditional / non-genuine content</strong> (the rival-TIE and cross-geometry leg):</p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Honest reality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"the SM gauge group SU(3) × SU(2) × U(1)"</td>
+<td><strong>rival TIE</strong> — string/M/F/NCG/lattice all recover it; not Fable-discriminating</td>
+</tr>
+<tr>
+<td>"this gauge group is unique"</td>
+<td><strong>NOT claimed</strong> — given-E; existence + equality on one branch</td>
+</tr>
+<tr>
+<td>coupling values α_i(M_Z)</td>
+<td><strong>declared anchors</strong>, not Gate-2 outputs; unification is SG-7</td>
+</tr>
+<tr>
+<td>centers / ℤ₆ / charge tables</td>
+<td><strong>deferred to Gates 3–5</strong>; SG-2 is Lie-algebra-blind to the global quotient</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>4. The insights we used</h2>
+<p>These are the moves that made the progress believable and reproducible — now shared at working-physicist depth so a reader can both check them and build on them.</p>
+<h3>4.1 Forces = isometries: commit to one grammar, then ask "is the carrier forced?"</h3>
+<p>The pivotal reframe is <em>not</em> trying to out-engineer the rivals at producing the outcome (a losing game — everyone produces it). It is to <strong>commit to a single grammar</strong> (gauge = continuous isometries, KK) and then ask the sharp, finite question the grammar makes possible: <em>among the shapes the grammar admits, which can carry each force, and is the survivor unique?</em> The grammar converts a vague "produce the group" ambition into a <strong>bounded Lie-theoretic classification problem</strong> with a yes/no answer. This is why SG-2 can bank something the rivals cannot: a forcedness claim, not an outcome claim.</p>
+<h3>4.2 Abelian-isotropy uniqueness — the one structural fact that does the work</h3>
+<p>The whole carrier-forcedness for colour rests on one clean piece of Lie theory: <strong>the maximal torus is the unique connected abelian subgroup of maximal rank, and its centralizer in G is itself.</strong> For SU(3), C_SU(3)(T²) = T² (Cartan only), so the CSDR reduction off K₆ = SU(3)/T² survives <em>exactly</em> 𝔰𝔲(3) and no more. Any larger isotropy contains a non-abelian factor, is gauge-active, and over-produces. This single fact — deformation-proof, number-free, hand-checkable — is the gate's spine. It is why "K₆ is the clean carrier" is a <em>structural</em> statement, not a curated preference.</p>
+<h3>4.3 The equality discipline — containment is trivial, equality is the gate</h3>
+<p>A subtle insight that separates SG-2 from a weak "the algebra contains the SM" claim: the gate's content is <strong>equality</strong>. The over-production check (no extra unbroken factor) is what kills the cheaper rivals; the under-production check (no missing factor) is the existence leg. Stating the gate as equality is what makes it falsifiable — <em>find a surviving extra U(1) or a missing SU(2) and the gate falls</em> — and it is precisely the predicate the G02 certificate machine-checks.</p>
+<h3>4.4 Build your own adversary — the CP² end-to-end break</h3>
+<p>The most credibility-bearing insight is methodological: rather than <em>assert</em> CP² fails, the program <strong>built the CP² swap end-to-end</strong> (run <code>wsmnjvt55</code>) as an adversarial witness and let it break at Gate 2 by over-producing gauge. A theory that builds its own cheapest rival and shows it failing is doing the opposite of curve-fitting — it is the structural-exclusion analogue of a controlled negative experiment. This is why the CP²-kill is bankable as Fable-internal where the bare outcome is not.</p>
+<h3>4.5 The firewall test (κ³/π discipline at the framing level)</h3>
+<p>The honesty insight that keeps the gate from over-claiming: for <strong>every</strong> Gate-2 claim, ask <em>"could a rival framework write this exact sentence?"</em> If yes, it is a TIE leg (label it shared); if no, it is genuine Fable-internal. Run on SG-2: "the low-energy algebra is 𝔰𝔲(3) ⊕ 𝔰𝔲(2) ⊕ 𝔲(1)" → <strong>Yes</strong> (shared); "K₆ is the unique <em>clean</em> SU(3) carrier by abelian isotropy" → <strong>No</strong> (Fable-internal). This test is what forbids banking the OUTCOME as a Fable win — the cardinal overclaim — and it is the gate's integrity spine (source: closure-attack dossier §4.1).</p>
+<h3>4.6 Architectural read with no number consulted — the un-tunable property</h3>
+<p>A property worth its own line: the Gate-2 read consults <strong>no coupling value and no UV number</strong>. The α_i(M_Z) are declared anchors handled at SG-7, <em>not</em> Gate-2 outputs; the validator's negative controls confirm the gate does not smuggle them in (<code>NC_GROUP_TARGET_LOADED_SCOPE</code>, <code>NC_M_R_AS_ANCHOR</code>, <code>NC_TARGET_ANCHOR</code> all pass; source: <code>SG2_report.json</code> negative_control_results). Because the gate consults no fitted number, it <strong>cannot be quietly tuned</strong> — there is nothing to dial. This is what makes the falsifiable bet (§5.4) honest rather than a hedge.</p>
+<hr />
+<h2>5. Evidence &amp; reproducibility</h2>
+<h3>5.1 The witness ledger (each leg graded + reproduces flag)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Witness</th>
+<th>Asserts</th>
+<th>Grade</th>
+<th>Reproduces?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1</td>
+<td>Isometry-algebra identification (K₆→𝔰𝔲(3), S²→𝔰𝔲(2), S¹_Y→𝔲(1))</td>
+<td>each carrier sources one simple summand</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — standard homogeneous-space isometry algebras</td>
+</tr>
+<tr>
+<td>W2</td>
+<td>Generator / rank count 8+3+1=12, rank 4</td>
+<td 8_3_1="8,3,1">multiset exactly</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — dim SU(3)=8, SU(2)=3, U(1)=1; rank 2+1+1=4</td>
+</tr>
+<tr>
+<td>W3</td>
+<td>Equality clause (no extra, no missing)</td>
+<td>G02 multiset + no-extra-summand passes</td>
+<td>machine-lane</td>
+<td><strong>AUDIT / BLOCKED</strong> — certificate folder referenced; input absent on disk</td>
+</tr>
+<tr>
+<td>W4</td>
+<td>Abelian-isotropy uniqueness (C1)</td>
+<td>T² unique purely-abelian SU(3) isotropy; K₆ unique clean carrier</td>
+<td>symbolic</td>
+<td><strong>Yes</strong> — max torus is unique connected abelian subgroup of max rank</td>
+</tr>
+<tr>
+<td>W5</td>
+<td>Fact F1</td>
+<td>S² forced for weak</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — Isom(T^n)=U(1)^n abelian; contains no SU(2)</td>
+</tr>
+<tr>
+<td>W6</td>
+<td>Fact F2</td>
+<td>bare S¹_Y mirrors; fold forced</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — odd-dim closed Dirac index vanishes; APS boundary re-opens chirality</td>
+</tr>
+<tr>
+<td>W7</td>
+<td>CP² over-production verdict</td>
+<td>U(2) gauge-active → CP² fails Gate-2 OR isotropy-locks</td>
+<td>symbolic / build</td>
+<td><strong>Yes</strong> — centralizer of U(2)⊂SU(3) non-trivial; 11D CP² build (<code>wsmnjvt55</code>) BROKE</td>
+</tr>
+<tr>
+<td>W8</td>
+<td>Architectural-read discipline</td>
+<td>recovery uses no α_i, no UV number</td>
+<td>symbolic/audit</td>
+<td><strong>Yes</strong> — validator NC checks pass</td>
+</tr>
+<tr>
+<td>W9</td>
+<td>Freeze hashes</td>
+<td>every carrier object content-addressed</td>
+<td>machine-lane</td>
+<td><strong>Yes in principle</strong> — re-hash R1.2/R1.4 carrier data + recompute meta-hash</td>
+</tr>
+</tbody>
+</table>
+<h3>5.2 What reproduces, plainly</h3>
+<ul>
+<li><strong>The algebra recovery reproduces by hand.</strong> The isometry algebras of SU(3)/T², S², S¹ are textbook; the multiset {8,3,1} and rank 4 fall out with no further input. This is the strongest, most defensible leg — standard differential geometry on a declared carrier.</li>
+<li><strong>The carrier-forcedness facts F1/F2/C1 reproduce by hand (within the grammar).</strong> F1: Isom(T^n) is abelian. F2: the odd-dim chiral index vanishes. C1: T² is the unique maximal torus of SU(3) with C_SU(3)(T²)=T². None needs a number; all are deformation-proof structural statements.</li>
+<li><strong>The CP² kill reproduces</strong> — the genuine discriminating move. That U(2) is non-abelian and therefore gauge-active under the centralizer rule is hand-checkable; the 11D CP² build (<code>wsmnjvt55</code>) is the corpus's own adversarial witness that the cheaper carrier breaks at Gate 2.</li>
+</ul>
+<h3>5.3 What does NOT yet reproduce (honest gaps)</h3>
+<ul>
+<li><strong>The OUTCOME does not reproduce as a Fable discrimination — it is a TIE.</strong> SU(3) × SU(2) × U(1) coming out is true and re-derivable, but it is <em>not</em> evidence for the geometry because every serious framework reproduces it. What is Fable-specific is the carrier-forcedness, and that is category-relative (R2).</li>
+<li><strong>Cross-geometry uniqueness does NOT reproduce — it is not claimed.</strong> There is no theorem "this gauge group is the unique output of all admissible geometries." The recovery is given-E: a single-branch existence + equality certificate.</li>
+<li><strong>C1 uniqueness is a clean-class result, not an ALL-SU(3)-carriers theorem.</strong> Abelian-isotropy uniqueness covers the <em>purely-abelian-isotropy</em> class; a full enumeration over every SU(3) carrier is audit-grade, not delivered (R3).</li>
+<li><strong>The G02 multiset certificate is BLOCKED in this packet.</strong> The no-extra-summand / multiset check is a finite, fail-closed test but the input file is <em>absent on disk</em> (validator BLOCKED status); until re-run, "no extra factor survives" is declared-not-independently-verified-here.</li>
+<li><strong>Architecture-neutrality of F1/F2/C1 is asserted, not proven.</strong> They are theorems <em>inside</em> the "forces = isometries" category; their force against a reviewer in a different category (bundles/branes) is declared-conditional (the validator records this as two terminal walls, <code>W_R2_NEUTRALITY</code> and <code>W_R3_COMPLETENESS</code>).</li>
+</ul>
+<h3>5.4 The falsifiable bet (confident, testable — not a hedge)</h3>
+<p>The honest edge is a <strong>confident testable bet</strong>: the architectural read consults <em>no coupling and no fitted number</em>, so it cannot be quietly tuned. Once the G02 certificate is mounted and re-run it must return <strong>exactly {8,3,1}, rank 4, with no extra unbroken factor and no missing one</strong>. The falsification map (GUT.md §6.12) is explicit: <strong>find a surviving extra U(1) or a missing SU(2), and Gate 2 falls</strong> (status → <em>Open / not claimed</em>). The one thing we do <strong>not</strong> claim is the one nobody can: that this gauge group is the unique output of <em>all</em> possible geometries — that cross-geometry uniqueness is unprovable in principle for every framework (§7).</p>
+<h3>5.5 How to re-run / re-derive (reproducibility recipe)</h3>
+<ol>
+<li><strong>Algebra recovery (hand):</strong> confirm Isom(SU(3)/T²)=SU(3), Isom(S²)=SU(2), Isom(S¹)=U(1) from textbook homogeneous-space isometry theory; sum dims (8+3+1=12) and ranks (2+1+1=4); verify the multiset is exactly {8,3,1}.</li>
+<li><strong>C1 (group theory):</strong> verify T² is the unique connected abelian subgroup of maximal rank in SU(3) and that C_SU(3)(T²)=T² (Cartan only); confirm any larger connected H contains a non-abelian factor.</li>
+<li><strong>F1/F2 (hand):</strong> Isom(T^n)=U(1)^n (abelian, no SU(2)); the Dirac index on a closed odd-dim manifold vanishes; APS boundary index on the fold is one-sided.</li>
+<li><strong>CP² kill:</strong> compute C_SU(3)(U(2)) and confirm U(2) is gauge-active; the disjunctive fork follows.</li>
+<li><strong>Certificate (machine, BLOCKED until mounted):</strong> mount <code>certificates/G02_gauge_recovery/</code>, re-run the multiset + no-extra-summand check on R1.2/R1.4 isometry data, re-hash carriers (<code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>), confirm the D.4 exotics ledger marks every candidate Absent/Massive.</li>
+</ol>
+<h3>5.6 Validator state (frozen)</h3>
+<p>The unified validator returns <code>SCHEMA_CONVERGED</code> with STATUS-UPGRADES:0 and an explicit firewall (<code>AUDIT_DONE → THEORY_CONFIRMED</code> and <code>SCHEMA_CONVERGED → TRUE</code> are forbidden inferences). The descent certificate is <code>CONVERGED_WITH_TERMINAL_WALLS</code> (9 nodes, 8 edges, zero breaks, at least one terminal wall remains → gate status <code>OPEN/wall</code>). Leaf results: <code>L_RECOVERY</code> = DERIVED-GIVEN-E; <code>L_ANCHOR_ALPHA3</code> = measured-ANCHOR; four NAMED_AXIOM leaves (<code>L_AX_ISOMETRIES</code>, <code>L_AX_CLEAN_CARRIER</code>, <code>L_AX_NONABELIAN</code>, <code>L_AX_HYPERFOLD</code>); two WALL leaves (<code>W_R2_NEUTRALITY</code>, <code>W_R3_COMPLETENESS</code>). Structural posit IDs: AXIOM-CLEAN-CARRIER, AXIOM-HYPER-CARRIER-FOLD, AXIOM-NONABELIAN-NEEDS-NONABELIAN-CARRIER, AX_FORCES_ARE_ISOMETRIES, P2_SHAPE_FROZEN_13D. Floor count = 1 (only the α₃ anchor is <em>counted</em>; E and the frozen shape are necessary glue, not counted). (Source: <code>SG2_report.json</code>.)</p>
+<hr />
+<h2>6. Open gaps + closure path — the specialist work plan</h2>
+<blockquote>
+<p>The most load-bearing section. For each open hole: (a) precise statement, (b) why it's hard / traps to avoid, (c) exactly what closes it (success criterion + what a refuting result looks like), (d) machinery &amp; inputs with exact paths, (e) leverage. The four holes are from the re-grade ledger and hole queue; the two terminal walls (<code>W_R2_NEUTRALITY</code>, <code>W_R3_COMPLETENESS</code>) correspond to Holes 1 and 2. <strong>Physics only; no device engineering.</strong></p>
+<p><strong>The decisive structural fact for this work plan:</strong> SG-2 carries <strong>no tunable real, no scale, no coupling</strong> — α_i(M_Z) are SG-7 anchors. So the residuals do <em>not</em> terminate on a numeric invariant; they terminate on <strong>structural / spectral truths</strong> (the observed gauge group E, the LEP/SLD count) or are <strong>grammar / claim-boundary</strong> items, plus one <strong>computation-debt</strong> certificate. There is therefore almost nothing to target-load except the <em>framing</em>, where the κ³/π blade forbids banking the OUTCOME tie. Every genuine-physics path below is a <strong>bounded, finite Lie-theory computation</strong> on a small object.</p>
+</blockquote>
+<h3>6.1 Hole 1 (HIGHEST LEVERAGE) — architecture-neutrality of the abelian-isotropy / CSDR-centralizer uniqueness (C1) — validator wall <code>W_R2_NEUTRALITY</code></h3>
+<p><strong>(a) Precise statement.</strong> "K₆ is the unique <em>clean</em> SU(3) carrier" is currently a theorem <strong>asserted inside</strong> the "forces = isometries" + CSDR grammar, not proven as a standalone theorem. The missing object is a <strong>CSDR-centralizer uniqueness theorem</strong> over the SU(3) subgroup lattice.</p>
+<p><strong>(b) Why it's hard / traps to avoid.</strong> The hardness is <em>not</em> the computation (it is finite and small) — it is the <strong>category-relativity</strong>: "clean = abelian isotropy = trivial centralizer-gauge" is a <em>grammar rule</em>, and a bundle/brane reviewer is outside its scope. Full category-neutrality (proving "forces = isometries" is the right category) is <em>not</em> available — that is a modeling choice, not a theorem (R8/wall). <strong>Trap to avoid #1:</strong> do not over-claim the result as architecture-neutral <em>full stop</em> — the honest ceiling is "DERIVED-CLOSED <em>inside</em> CSDR." The frozen docs explicitly deny "K₆ is the unique clean SU(3) carrier as an architecture-neutral / proven theorem" (re-grade ledger bright-line). <strong>Trap #2:</strong> prove the CP² exclusion <em>without</em> invoking the anti-fitting rule — the manuscript is explicit that the centralizer argument is the standalone one, and leaning on anti-fitting would be a weaker, target-flavored kill. <strong>Trap #3:</strong> do not reverse-engineer; the test is whether the enumeration <em>returns</em> T²-uniqueness, not whether you can arrange it.</p>
+<p><strong>(c) Exactly what closes it.</strong> Prove: <em>Among all homogeneous spaces SU(3)/H with H a closed connected subgroup, the carriers whose CSDR reduction yields exactly 𝔰𝔲(3) as the surviving 4D gauge algebra (no extra factor, no isotropy-locking) are precisely those with H a maximal torus; up to conjugacy H = T², so K₆ is unique.</em> <strong>Success criterion:</strong> the finite enumeration returns H = T² as the <em>unique</em> pass. <strong>Refuting result (also a valid close):</strong> if a second H passes the equality clause, C1 weakens to "unique among ..." — a sharper-OPEN; if T² itself fails the equality clause under careful CSDR, the whole carrier claim falls (very unlikely; standard coset reduction). Either way the wall is resolved to a definite verdict.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> (1) Enumerate the closed connected subgroups H ⊂ SU(3) up to conjugacy: <strong>{1, U(1), T², SU(2), U(2), SU(3)}</strong> (~6 conjugacy classes; the lattice is small). (2) For each, compute the CSDR-surviving gauge algebra = centralizer data C_SU(3)(H) and check the equality clause (𝔰𝔲(3) exactly, no extra, no locking). (3) Confirm H = T² is the unique pass. Known anchors already in hand: C_SU(3)(T²) = T² (Cartan only); U(2) is non-abelian/gauge-active. Tools: CSDR / coset dimensional-reduction machinery; the SU(3) subgroup lattice. Start from: closure-attack dossier §4.2 (AXIOM-CLEAN-CARRIER, target-blind); GUT.md §3.5 + Appendix GS.5; <code>SG2_report.json</code> leaf <code>L_AX_CLEAN_CARRIER</code>. Named axiom floor (κ³/π-clean): <strong>AXIOM-CLEAN-CARRIER</strong> — <em>"a homogeneous carrier G/H is 'clean' iff its isotropy H is a maximal torus of G (so its CSDR centralizer adds no non-abelian gauge); for SU(3) the unique clean carrier is SU(3)/T² = K₆."</em></p>
+<p><strong>(e) Leverage.</strong> HIGHEST closeable target. This is the gate's principal Fable-internal claim; converting it from assertion to <strong>DERIVED-CLOSED-inside-CSDR</strong> theorem is the single biggest real gain. Cross-gate: K₆ is the <em>same</em> carrier SG-3 uses for the family index (χ = −3), so hardening C1 strengthens the carrier identity SG-3 depends on. Specialist: hand to a CSDR / coset-reduction specialist.</p>
+<h3>6.2 Hole 2 — SU(3)-carrier completeness over the homogeneous shelf — validator wall <code>W_R3_COMPLETENESS</code></h3>
+<p><strong>(a) Precise statement.</strong> C1 covers the purely-abelian-isotropy class and kills CP² explicitly, but there is <strong>no single delivered enumeration theorem</strong> over the whole homogeneous SU(3) coset shelf showing every non-T² carrier over-produces gauge or fails chirality. The clean-class result is in hand; the <em>completeness ledger</em> is not.</p>
+<p><strong>(b) Why it's hard / traps.</strong> The homogeneous shelf is short and classifiable, so the <em>bounded</em> part is genuinely closeable. The trap is <strong>scope creep into the unbounded universal negative</strong>: "no manifold of ANY kind (incl. non-homogeneous, unclassified) with SU(3) isometries survives" is a universal negative, unprovable in principle (it is a dissolved unicorn — frame as a shared ceiling, never as an open weakness). <strong>Trap to avoid:</strong> do not market the homogeneous-shelf result as "unique carrier full stop"; the honest endpoint is "unique carrier <em>among homogeneous SU(3) carriers</em>." A useful dimensional anchor from the classification: dim H ≤ 4 ⟹ dim M ≥ 4; S⁵/Wu manifolds are killed by odd-dimensionality (re-grade ledger SG-1, line 89).</p>
+<p><strong>(c) Exactly what closes it.</strong> Assemble the GS.5/GS.6 coset shelf + relevant products (notably Witten's CP² × S² × S¹, which <em>passes Gate 2 but dies at chirality</em>, GS.11) into <strong>one completeness ledger</strong> recording, per carrier: surviving gauge algebra (centralizer), equality verdict, chirality verdict. Certify the homogeneous shelf. <strong>Success criterion:</strong> every non-T² homogeneous SU(3) carrier has a recorded elimination row (over-production / wrong-group / chirality). <strong>Refuting result (valid close):</strong> if a non-T² homogeneous carrier survives both the equality clause <em>and</em> chirality, C1's "unique" downgrades — a genuine, publishable finding.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Take the GS.5 coset shelf + GS.6 funnel rows for SU(3) carriers (already in GUT.md §3.5 / Appendix GS — the shelf table is reproduced in §3.8 above); for each record (algebra, equality, chirality); add the product carriers (Witten's CP² × S² × S¹). Tools: homogeneous-spaces classification + CSDR centralizer check. Start from: closure-attack dossier §4.3 (AXIOM-SU3-CARRIER-SHELF, target-blind); hole queue SG-2 item 2; GUT.md §3.5 shelf + GS.11. Named axiom floor: <strong>AXIOM-SU3-CARRIER-SHELF</strong> — <em>"the complete shelf of internal-isometry SU(3) carriers in the declared category is {SU(3)/T², SU(3)/U(2)=CP², and products thereof with abelian/S² factors}; every member except SU(3)/T² over-produces gauge or delivers the family count only as a tunable bundle choice."</em></p>
+<p><strong>(e) Leverage.</strong> HIGH. Turns "unique <em>clean</em> carrier" into "unique carrier <em>among homogeneous SU(3) carriers</em>" — a bounded, genuine strengthening. Reachable to DERIVED for the homogeneous shelf; the non-homogeneous case stays the explicitly-flagged residual scope. Specialist: homogeneous-spaces specialist.</p>
+<h3>6.3 Hole 3 — F1 generalization (no abelian carrier supplies non-abelian SU(2))</h3>
+<p><strong>(a) Precise statement.</strong> Fact F1 is stated as a <em>class fact</em> for tori/torus-orbifolds; it is not packaged as a <strong>closed theorem</strong> with S²-forcedness as a corollary at full generality.</p>
+<p><strong>(b) Why it's hard / traps.</strong> It is <em>not</em> hard — it is essentially a one-line no-go. The only trap is the category boundary: F1 holds <em>inside</em> "forces = isometries"; a string framework routes around it via bundle structure groups (the <em>other category</em>). <strong>Trap:</strong> do not claim F1 as architecture-neutral against bundle constructions — state it as a theorem inside CSDR.</p>
+<p><strong>(c) Exactly what closes it.</strong> Package the no-go: <em>Isom(M) abelian ⟹ CSDR-surviving gauge algebra abelian ⟹ SU(2)_L requires a non-abelian-isometry carrier ⟹ S² = SU(2)/U(1) is the minimal one.</em> <strong>Success criterion:</strong> the three implications each verified within CSDR; S²-forcedness drops out as a corollary. <strong>Refuting result:</strong> only if some abelian carrier sneaks a non-abelian factor via bundle data — which is the other category, outside scope (so within-grammar it cannot refute).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> (1) Isom(T^n) = U(1)^n abelian (textbook). (2) CSDR from an abelian-isometry carrier yields only abelian gauge (centralizer of an abelian group adds no non-abelian survivor). (3) S² is the minimal non-abelian-isometry carrier (dim 2, Isom = SU(2)). Start from: closure-attack dossier §4.4; hole queue SG-2 item 3; GUT.md §3.5 shelf (tori rows). Named axiom: <strong>AXIOM-NONABELIAN-NEEDS-NONABELIAN-CARRIER</strong> — <em>"a non-abelian gauge factor can survive only from a carrier with non-abelian isometry; therefore SU(2)_L requires a non-abelian-isometry carrier, minimal S² = SU(2)/U(1)."</em> Hand to the same CSDR specialist as Hole 1.</p>
+<p><strong>(e) Leverage.</strong> MEDIUM. Reaches AXIOM-CLOSED, promotable to DERIVED with the bounded no-go proof; strengthens C2 (S² forced) from stated-fact to theorem.</p>
+<h3>6.4 Hole 4 (CHEAPEST / BLOCKED) — G02 multiset / no-extra-summand certificate is AUDIT (input absent on disk)</h3>
+<p><strong>(a) Precise statement.</strong> "No extra unbroken factor survives, no SM factor is missing" — the gate's load-bearing equality claim — is machine-witnessed by the <code>certificates/G02_gauge_recovery/</code> multiset + no-extra-summand check, but that check is <strong>referenced, not independently re-executed</strong>; per the validator the input file is <strong>absent on disk (BLOCKED)</strong>. (Confirmed: a corpus-wide search for a <code>G02</code> certificate folder returned nothing on disk.)</p>
+<p><strong>(b) Why it's hard / traps.</strong> Not hard — it is mechanical and fail-closed. No new physics. <strong>Trap to avoid:</strong> do not let "claimed certificate pass" drift into "machine-verified" until the file is actually mounted and re-run — that would be a phantom-citation overclaim (the program has caught this exact failure mode elsewhere, e.g. SG-9's phantom certificate). The status is BLOCKED, not VERIFIED, until the re-run happens.</p>
+<p><strong>(c) Exactly what closes it.</strong> (1) Mount <code>certificates/G02_gauge_recovery/</code>. (2) Re-run the multiset test on R1.2/R1.4 isometry data: confirm the surviving simple-summand multiset is <strong>exactly {8,3,1}, rank 4</strong>, with the no-extra-summand predicate passing. (3) Re-hash the carrier objects, confirm <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> recompute byte-equal. (4) Confirm the D.4 exotics ledger marks every candidate <strong>Absent / Massive</strong>. <strong>Success criterion:</strong> VERIFIED — "claimed certificate pass" becomes machine-real. <strong>Refuting result (valid close):</strong> any extra/missing summand → Gate 2 → <em>Open / not claimed</em> (per the §6.12 falsification map) — a downgrade, which is a legitimate honest outcome.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> No new math — execution + verification only. Inputs: R1.2/R1.4 isometry data; the frozen carrier hashes; Appendix D.4 exotics ledger. Start from: closure-attack dossier §4.7; hole queue SG-2 item 4. Status flow: <strong>BLOCKED_INPUTS → (mount) → VERIFIED or REFUTED.</strong></p>
+<p><strong>(e) Leverage.</strong> LOW-MEDIUM on the gate's <em>meaning</em> but <strong>highest value-per-effort</strong> — converts the gate's central asserted predicate into a machine-checked one with no new physics. Best first task for an owner-artifact session.</p>
+<h3>6.5 The disclosed residuals (correct as stated — keep stated, never promote)</h3>
+<p>Three further residuals are <strong>not holes to close</strong> but honest claim-boundaries to <em>keep correctly stated</em>:</p>
+<ul>
+<li><strong>R1 — the OUTCOME is a rival TIE.</strong> DISCLOSED. The action is a <em>wording audit</em>: wherever SG-2 is cited (ledger, dossiers, public package), label the OUTCOME a shared filter-pass and only the carrier-forcedness Fable-internal. <strong>Never bank the OUTCOME as a Fable win — that is the cardinal overclaim.</strong> A refuting result would require showing some rival <em>cannot</em> recover the SM group — false. Named axiom: <strong>AXIOM-GAUGE-OUTCOME-TIE</strong>.</li>
+<li><strong>R6 — the given-E conditionality.</strong> DISCLOSED. SG-2 certifies <em>this branch yields the SM algebra</em>, not that the algebra is unique across geometries. Not closeable without overclaim (abandoning given-E would assert cross-geometry uniqueness the existence+equality route cannot supply). Named axiom: <strong>AXIOM-GIVEN-E-RECOVERY</strong>. Keep the conditional stated; never let "the geometry <em>yields</em>" drift into "the geometry <em>forces across all geometries</em>."</li>
+<li><strong>R8 — grammar dependence ("forces = isometries").</strong> AXIOM-CLOSED at a named root posit. One cannot prove a modeling category is "the right one"; the honest move is to name <strong>AXIOM-FORCES-ARE-ISOMETRIES</strong> (validator leaf <code>AX_FORCES_ARE_ISOMETRIES</code>) in the axiom ledger alongside GRANULARITY / SCALE / SHAPE, so the category-relativity of C1–C3 is a <em>declared</em> axiom, not a hidden one. This also sharpens R1: the rivals tie on the outcome precisely because they use a <em>different</em> category to reach it.</li>
+</ul>
+<h3>6.6 Attack-plan roll-up</h3>
+<table>
+<thead>
+<tr>
+<th>Hole / residual</th>
+<th>Technique</th>
+<th>Named axiom (κ³/π-clean)</th>
+<th>Specialist target / artifact</th>
+<th>Realistic endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hole 1 — C1 neutrality (<code>W_R2</code>)</td>
+<td>axiom-floor + selector</td>
+<td>AXIOM-CLEAN-CARRIER</td>
+<td>CSDR-centralizer uniqueness over SU(3) subgroup lattice</td>
+<td><strong>DERIVED-CLOSED-inside-CSDR</strong> (bounded)</td>
+</tr>
+<tr>
+<td>Hole 2 — shelf completeness (<code>W_R3</code>)</td>
+<td>eliminative enumeration</td>
+<td>AXIOM-SU3-CARRIER-SHELF</td>
+<td>completeness ledger over homogeneous shelf</td>
+<td>DERIVED for homogeneous shelf</td>
+</tr>
+<tr>
+<td>Hole 3 — F1 generalization</td>
+<td>axiom-floor + no-go</td>
+<td>AXIOM-NONABELIAN-NEEDS-NONABELIAN-CARRIER</td>
+<td>abelian-isometry ⟹ abelian-gauge no-go</td>
+<td>AXIOM-CLOSED → DERIVED (bounded)</td>
+</tr>
+<tr>
+<td>Hole 4 — G02 certificate</td>
+<td>machine-lane</td>
+<td>(none)</td>
+<td>mount + re-run multiset / no-extra-summand</td>
+<td>BLOCKED → VERIFIED (best value/effort)</td>
+</tr>
+<tr>
+<td>R1 OUTCOME-TIE</td>
+<td>firewall (framing)</td>
+<td>AXIOM-GAUGE-OUTCOME-TIE</td>
+<td>wording audit</td>
+<td>DISCLOSED (honesty spine)</td>
+</tr>
+<tr>
+<td>R6 given-E</td>
+<td>guarded restatement</td>
+<td>AXIOM-GIVEN-E-RECOVERY</td>
+<td>keep conditional stated</td>
+<td>DISCLOSED-CONSISTENT</td>
+</tr>
+<tr>
+<td>R8 grammar</td>
+<td>axiom-floor</td>
+<td>AXIOM-FORCES-ARE-ISOMETRIES</td>
+<td>name in axiom ledger</td>
+<td>AXIOM-CLOSED</td>
+</tr>
+</tbody>
+</table>
+<p><strong>REDUCE-vs-RELOCATE verdict.</strong> The plan does not turn one hard problem into three harder ones, and — critically — it does not try to "close" the things that cannot be closed (R1 tie; R6 given-E). Each genuine-physics path is a <em>bounded finite Lie-theory computation</em> on a small object (Hole 1: the six-class SU(3) subgroup lattice; Hole 2: the short classified coset shelf; Hole 3: a one-line no-go corollary). None introduces a tunable real; there is nothing to target-load in SG-2 except the framing. The honest expected outcome of a full campaign: <strong>Hole 1 → DERIVED-CLOSED-inside-CSDR (the biggest real gain); Hole 2 → DERIVED for the homogeneous shelf; Hole 3 → AXIOM-CLOSED→DERIVED; Hole 4 → VERIFIED; R1/R6 stay DISCLOSED; R8 AXIOM-CLOSED.</strong> No promotion of the gate's label is implied — <strong>SG-2 stays DERIVED-GIVEN-E</strong> — but its carrier-forcedness moves from category-relative <em>assertions</em> to category-relative <em>theorems</em>, and the OUTCOME-tie stays correctly disclaimed. That is the only kind of "more closure" SG-2 admits.</p>
+<hr />
+<h2>7. Honest ceiling &amp; scope</h2>
+<p><strong>Overall disposition: DERIVED-GIVEN-E — and it stays there.</strong> The genuine content (algebra equality {8,3,1}, rank 4, no extra/missing; carrier-forcedness C1/C2/C3, including the CP² end-to-end break) is rigid <em>within the declared grammar</em>. The gauge-group OUTCOME is a <strong>rival TIE</strong>; cross-geometry uniqueness is <strong>not claimed</strong>. Hardening the open holes moves the carrier-forcedness from category-relative assertions to category-relative theorems — it does <strong>not</strong> promote the gate's label. Ceiling, as everywhere: <strong>serious candidate, NOT validated.</strong></p>
+<p><strong>Dissolved ≠ solved.</strong> Three "unicorns" are dissolved as shared ceilings — limits on <em>all</em> knowledge, not gaps in ours — and must <strong>never</strong> be printed as open weaknesses or claimed as proven:</p>
+<ul>
+<li><strong>Cross-geometry uniqueness</strong> — proving this gauge group is THE unique output across <em>all</em> admissible geometries. The isometry route is existence + equality on one frozen branch; demanding uniqueness over the open-ended space of all geometries is a universal negative, unprovable in principle for <em>every</em> framework. Not a Fable gap.</li>
+<li><strong>Full category-neutrality</strong> — proving "forces = isometries" is the category nature uses. A modeling category cannot be proven the right one; the honest move is to name AXIOM-FORCES-ARE-ISOMETRIES as a declared root posit. The bounded, conditional CSDR theorem <em>is</em> the ceiling.</li>
+<li><strong>SU(3)-carrier completeness over non-homogeneous / unclassified manifolds</strong> — "no manifold of <em>any</em> kind with SU(3) isometries survives." Over the unbounded class of all (possibly non-homogeneous) carriers this is a universal negative; only the classified/homogeneous shelf is a bounded, plug-able hole (Hole 2).</li>
+</ul>
+<p><strong>Selection ≠ derivation; given-E ≠ derivation of E.</strong> SHAPE is selected-not-forced <em>absolutely</em> — forced only inside the declared grammar + MDL metric, at a cost of ~4 anchors + ~9–10 injected reals (~13–14 total). SG-2 consults <strong>none</strong> of the numeric anchors {ℏ, M_Pl, α_i(M_Z), y_t, |V_us|}: it reads no coupling and no UV number. It owes <strong>no new measured invariant</strong> — the only objects it owes are <em>theorems and one certificate re-run</em>, not measurements. Its dependence is on existing structural/spectral anchors: the observed SM gauge group as given-E content, and the LEP/SLD light-species count 2.984 ± 0.008 for the no-mirror requirement.</p>
+<p><strong>Explicitly NOT claimed by this dossier:</strong> (1) that recovering SU(3) × SU(2) × U(1) discriminates Fable from rivals — it is a tie; (2) that this gauge group is forced across all geometries — given-E only; (3) that F1/F2/C1 are architecture-neutral theorems — they are theorems <em>inside</em> the category (two terminal walls); (4) any coupling-unification numeric — that is SG-7; (5) the representation/charge/ℤ₆ structure — that is Gates 3–5.</p>
+<p><strong>The anchors paid.</strong> Two measured invariants (the observed spectrum E including the gauge group as given-E content; the LEP/SLD count) and two grammar-anchors ("forces = isometries" + the CSDR centralizer rule). The gauge-group OUTCOME is <em>measured-but-shared</em> → DISCLOSED, carrying no Fable-discriminating anchor.</p>
+<p><strong>Closing honest statement.</strong> SG-2 is DERIVED-GIVEN-E. Its genuine, defensible content is real and rigid: the surviving 4D isometry algebra <strong>equals</strong> 𝔰𝔲(3)_c ⊕ 𝔰𝔲(2)_L ⊕ 𝔲(1)_Y (equality, not containment; multiset {8,3,1}, rank 4, no extra/missing), and — the Fable-internal part — the <strong>carriers are forced</strong> within the declared grammar: K₆ = SU(3)/T² is the unique <em>clean</em> SU(3) carrier by abelian-isotropy uniqueness (C_SU(3)(T²)=T², so the CSDR centralizer adds no gauge; the cheaper CP² = SU(3)/U(2) over-produces gauge via its non-abelian U(2) isotropy and is killed — the 11D CP² build <code>wsmnjvt55</code> BREAKS), S² is forced for weak by F1, and the folded S¹_Y/ℤ₂ is forced for hypercharge by F2. Its honest open surface is equally clear: the gauge-group OUTCOME is a <strong>rival TIE</strong> — a filter string/M/F/NCG/lattice all pass, not a Fable discrimination; the recovery is given-E; the carrier-forcedness results are theorems <em>inside</em> the "forces = isometries" category (architecture-neutrality asserted, not proven — two terminal walls); SU(3)-carrier completeness over all carriers is established for the clean class but audit-grade as a full enumeration; and the G02 multiset certificate is BLOCKED (input absent on disk). The attack plan reduces these to named, target-blind axioms and bounded finite Lie-theory computations, with the κ³/π falsification test guarding the <em>framing</em> (never bank the OUTCOME tie as a Fable win). The realistic ceiling is a uniqueness theorem inside CSDR for the clean carrier (Hole 1 → DERIVED-CLOSED-inside-CSDR) plus a verified certificate (Hole 4) over a named grammar axiom (R8) — a real strengthening of the carrier-forcedness from assertion to theorem, <strong>not</strong> a promotion of the gate's label and <strong>not</strong> a closure of the OUTCOME tie. <strong>STATUS-UPGRADES:0; frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> READ-ONLY; given-E ≠ derivation of E; the gauge-group OUTCOME is and remains a tie — the discrimination is the carrier-forcedness; nothing applied, nothing deployed.</strong></p>
+<p><em>Dossier built 2026-06-29. Frozen 13D K₆ branch only. Synthesized + expanded from the corpus closure-attack dossier, the validator report, the 2026-06-29 re-grade ledger and hole queue, and GUT.md — common material referenced to source, not invented.</em></p>
+</body></html>

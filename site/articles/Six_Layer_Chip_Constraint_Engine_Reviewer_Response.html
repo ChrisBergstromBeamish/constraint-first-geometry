@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Six-Layer Chip Constraint Engine &mdash; reviewer attack-response</title><style>
+:root{--ink:#1a1c20;--muted:#5a6068;--line:#dfe2e7;--bg:#fbfcfd;--accent:#2b4a6f;--accent-soft:#eef3f8;--code-bg:#f4f6f8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.64 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+header.hero{background:linear-gradient(180deg,#0f1b2b 0%,#1d3350 100%);color:#eef3f8;padding:36px 0 28px;border-bottom:3px solid #0a1320}
+header.hero .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:#9fb6d2;margin:0 0 12px}
+header.hero h1{font-size:27px;line-height:1.22;margin:0 0 8px;font-weight:700;color:#fff}
+header.hero .sub{font-size:16px;color:#cdd9ea;margin:0}
+header.hero .back{font-size:14px;color:#9fb6d2;margin-top:16px}header.hero a{color:#d7e2f0;border-bottom:1px solid #41597a}
+main{padding:24px 0 46px}h1{font-size:23px;color:var(--accent);line-height:1.26;margin:28px 0 12px}
+h2{font-size:20px;color:var(--accent);margin:26px 0 10px}h3{font-size:17px;color:var(--accent);margin:20px 0 8px}
+p{margin:0 0 14px}img{max-width:100%;height:auto;vertical-align:middle}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid #b9cbe0}a:hover{border-bottom-color:var(--accent)}
+ul,ol{margin:0 0 14px;padding-left:24px}li{margin:0 0 7px}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left}th{background:var(--accent-soft);color:var(--accent)}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em;background:var(--code-bg);padding:1px 4px;border-radius:3px}
+blockquote{margin:14px 0;padding:6px 16px;border-left:3px solid var(--line);color:var(--muted)}
+</style></head><body><header class="hero"><div class="wrap"><p class="eyebrow">Quantum-computer stress test &middot; supporting note</p><h1>Six-Layer Chip Constraint Engine &mdash; reviewer attack-response</h1><p class="sub">Short answers to the objections a chip-design / EDA reviewer raises. A complete constraint-coupled framework and a search-space collapse &mdash; conditional on simulation, not a chip.</p><p class="back"><a href="/#test-it">&larr; back to &ldquo;Test it&rdquo;</a></p></div></header><main><div class="wrap"><p>Short answers to the objections a chip-design / EDA reviewer raises. The honest contribution is a complete constraint-coupled design framework and a search-space collapse, conditional on simulation — not a chip.</p>
+<p><strong>Independent check status:</strong> the ordinary multiphysics formulation (objective, constraint families, coupling matrix, KKT) is standard and correct; the native route, the admissibility projector, the feasible-set equivalence, and the pullback-KKT derivation are complete and consistent; every numeric chip value is a <code>BLOCKED</code> token; <code>NVIDIA-style</code> is descriptive, and adoption is <code>NOT_CLAIMED</code>.</p>
+<h3>Attack 1 — "NVIDIA didn't build this; the name is marketing."</h3>
+<p>Conceded up front, in the banner and Note 3. "NVIDIA-style" denotes the <em>class</em> of high-throughput accelerators, used descriptively; there is no claim NVIDIA built, adopted, reviewed, or endorsed this. The patent-safe framing is a computer-implemented design system.</p>
+<h3>Attack 2 — "Calling constrained optimization 'geometry' adds nothing."</h3>
+<p>This is the honest point, not a hidden weakness. The pullback derivation <em>proves</em> the native route is the ordinary KKT system composed with the projection Jacobian — same stationarity, same multipliers, fewer free variables. The value claimed is exactly that: search-space collapse and cleaner cross-layer accounting, not new physics.</p>
+<h3>Attack 3 — "Your equivalence needs the projection to cover all feasible designs."</h3>
+<p>Stated as the key boundary. F₁₃ = F_reg ∩ Im(Π); if Im(Π) does not cover F_reg, the claim is a <em>disciplined admissible subspace, not universal optimality</em>. The projector-equivalence itself is tagged <code>DECLARED_CONDITIONAL</code>; unprovable, it becomes <code>BLOCKED_BY_MISSING_PROJECTOR_EQUIVALENCE</code>.</p>
+<h3>Attack 4 — "You have no collapse factors and no chip numbers."</h3>
+<p>Correct, and that is the blocked-value ledger. Objective weights, collapse factors, coupling-graph and mode-spectrum counts, noise values, and all six-layer simulation evidence are <code>BLOCKED</code>; every gate verdict is <code>PENDING_SIMULATION</code>. No fabricated performance appears.</p>
+<h3>Attack 5 — "Real chip design needs PDK closure, parasitics, DRC, tapeout."</h3>
+<p>Out of scope, and stated: this is a constraint-coupled design <em>framework</em> plus a search-space collapse, not foundry process-design-kit closure, layout parasitics, design-rule checking, or tapeout. Those require frozen simulation logs the note does not have.</p>
+<h3>Attack 6 — "The admissibility projector is hand-wavy."</h3>
+<p>It is the corpus's idempotent Π_adm with a weighted defect ε_adm that includes the cross-layer incompatibility terms — the same couplings that are off-diagonal blocks in the ordinary route. Its equivalence to the constraint set is stated conditionally, not assumed.</p>
+<h3>Net status</h3>
+<p><strong>NVIDIA_SIX_LAYER_FULL_MATH_COMPLETE_PENDING_SIMULATION</strong> — the ordinary optimization, six-layer constraints, coupling matrix, KKT, native parent object, projections, admissibility projector, feasible-set equivalence, pullback-KKT, and search-space-collapse formulae are all present and consistent; every numeric chip value is blocked pending a frozen manifest. Not a solved chip, not an NVIDIA-adopted design, not a fabricated-performance claim.</p></div></main></body></html>

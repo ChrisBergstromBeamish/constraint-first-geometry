@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Second-Layer Roots — the admissibility / interface discipline</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 256px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:64rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:14.5px;margin:0 0 6px;line-height:1.25;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="/">&#9632; A Framework for a Theory of Everything</a></div>
+<div class="ann-group">Start here</div>
+<a href="/">Home — intro</a>
+<a href="/gates/">The Gates — scoreboard</a>
+<a href="/residuals/">The Residuals — attack list</a>
+<div class="ann-group">The honest rule-set</div>
+<a href="/anchors/">The Anchors</a>
+<a href="/walls/">The Walls</a>
+<a href="/closure/">The Closure system</a>
+<a href="/closure/walls/">&mdash; closure paths</a>
+<div class="ann-group">The physics</div>
+<a href="/shape/">The Shape (13D)</a>
+<a href="/scale/">The Scale</a>
+<a href="/granularity/">The Granularity</a>
+<a href="/paying/">What &ldquo;paying&rdquo; means</a>
+<a href="/layer2/" class="current">The Second-Layer Roots</a>
+<a href="/gut/">GUT &mdash; Paper 1</a>
+<a href="/forces/">Forces &mdash; Paper 2</a>
+<a href="/quantum/">Quantum &mdash; Paper 3</a>
+<a href="/toe/">TOE &mdash; complete statement</a>
+<a href="/particles/">Particles &mdash; spectrum</a>
+<div class="ann-group">Reference</div>
+<a href="/articles/">Dossiers &amp; articles</a>
+<a href="/scripts/">Scripts</a>
+<a href="/supporting/">Supporting</a>
+<a href="/supplemental/">Supplemental (full overview)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The Second-Layer Roots — the admissibility / interface discipline — rendered package. Rendered from <code>index.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The Second-Layer Roots — the admissibility / interface discipline</h1>
+<p><strong>Thesis.</strong> The <em>second-layer roots</em> are the four admissibility/interface disciplines that sit <strong>above</strong> the three deep physical roots — <strong><a href="/shape/">the Shape</a></strong>, <strong><a href="/scale/">the Scale</a></strong>, and <strong><a href="/granularity/">the Granularity</a></strong>. They are <strong>Invariance</strong>, <strong>Record Interface</strong>, <strong>Causal Order</strong>, and <strong>Nonseparability</strong>. The deep roots supply the physical substrate — the frozen object, the absolute magnitude, the finite cost. The second-layer roots supply the discipline that decides whether a claimed rule <em>from</em> that substrate is actually invariant, actually record-facing, actually target-blind, and not secretly factorized. They do <strong>not</strong> generate physics. They are the screen every claimed closure must pass before it is even eligible to be called closed. The single sentence the rest of this page unpacks: <strong>a rule that survives Shape, Scale, and Granularity is still inadmissible until it also survives all four second-layer roots — and passing them is necessary for closure, never sufficient for truth.</strong></p>
+<p><strong>Honesty guard (read before anything else).</strong> None of these four roots is an answer-generator. Invariance does not tell you <em>which</em> invariant nature realizes; it only tells you a coordinate, gauge, basis, scheme, or off-shell artifact does not count. Record Interface does not tell you <em>what</em> the observable is; it only tells you a claim with no finite, correct-object endpoint is not reviewable. Causal Order does not tell you the <em>value</em> of a target; it only tells you a rule shaped by that value is a fit, not a derivation. Nonseparability does not tell you <em>how</em> sectors couple; it only tells you that assuming they do not is a debt that must be proven, paid, or tested. These are filters on candidate claims, not sources of them. Passing them removes a way to be <em>wrong</em>; it does not supply a reason to be <em>right</em>. This page is a completeness statement of the four interface roots, <strong>not</strong> an anchor-elimination and <strong>not</strong> a status change. The site invariants stand verbatim in spirit: <strong>Anchored is not derived. Selected is not forced. Frozen-and-reproducible is not proven-unique. Dissolved is not solved.</strong> This is a Theory-of-Everything <em>candidate</em> under honest audit: <strong>0 of 33 gates are physics-closed</strong>, and the running status change count is <strong>no status changes</strong>.</p>
+<blockquote>
+<p>The single most common way to mis-state the role of this layer is to treat passing it as a result. It is the opposite of a result: it is the elimination of a <em>false</em> result. A gate that has cleared all four second-layer roots has earned only the right to be evaluated on the deep roots and the Layer-1 observable — nothing more.</p>
+</blockquote>
+<hr />
+<h2>1. Where the second layer sits</h2>
+<p>The seven deep roots (see <strong><a href="/anchors/deep-roots.html">The Seven Deep Roots</a></strong>) fall into two tiers relative to physics. The four roots on this page are the <strong>upstream</strong> tier — two meta-roots (Invariance, Record Interface) that are conditions for anything to count as physics or empirical audit at all, plus two physical-but-interface-facing roots (Causal Order, Nonseparability) that police the <em>direction of information flow</em> and the <em>accounting of independence</em>. They sit above the three deep physical roots that supply the substrate:</p>
+<pre><code>SECOND LAYER  (admissibility / interface discipline)
+    Invariance        — branch-preserving equivalence
+    Record Interface  — finite observable / audit endpoint
+    Causal Order      — no backward target → rule flow
+    Nonseparability   — no unpaid factorization / independence
+
+DEEP ROOTS  (physical substrate)
+    Shape             — the frozen object identity
+    Scale             — the absolute magnitude
+    Granularity       — the finite cost-floor
+</code></pre>
+<p>The deep roots tell you <em>what the object is, how big it is, and what a finite step costs</em>. The second-layer roots tell you <em>whether a claim about that object is admissible as physics in the first place</em>. A wall is closed only when the deep roots are saturated, a Layer-1 observable is reached, <strong>and</strong> the second-layer screen passes. This page is the discipline of that screen.</p>
+<h3>1.1 What each root catches — the one-line overview</h3>
+<table>
+<thead>
+<tr>
+<th>Root</th>
+<th>Compressed definition</th>
+<th>What it catches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Invariance</strong></td>
+<td>branch-preserving equivalence discipline</td>
+<td>representation / coordinate / gauge / basis / scheme / off-shell-sign <strong>artifacts</strong></td>
+</tr>
+<tr>
+<td><strong>Record Interface</strong></td>
+<td>finite observable / audit endpoint discipline</td>
+<td>no-observable / wrong-record / wrong-object / hash-as-derivation <strong>artifacts</strong></td>
+</tr>
+<tr>
+<td><strong>Causal Order</strong></td>
+<td>no backward target → rule information flow</td>
+<td><strong>target leakage</strong> — the answer secretly choosing the rule, exponent, chamber, or tolerance</td>
+</tr>
+<tr>
+<td><strong>Nonseparability</strong></td>
+<td>no unpaid factorization or free independence</td>
+<td><strong>unpaid factorization debt</strong> — independent sectors, additive ledgers, shared objects miscounted</td>
+</tr>
+</tbody>
+</table>
+<p>Read the table as four distinct failure modes. A claim can be perfectly invariant and still fail Record Interface (it survives every redescription but never touches a finite observable). It can have a clean record and still fail Causal Order (the observable closes the loop because it was used to pick the rule). It can pass all three and still fail Nonseparability (three "independent successes" are one shared scheme object counted thrice). All four are independent guards, and a claim must clear every one.</p>
+<hr />
+<h2>2. Invariance</h2>
+<h3>2.1 One-sentence definition</h3>
+<blockquote>
+<p><strong>Invariance is the discipline that only branch-preserving content counts as physical; coordinate, gauge, basis, scheme, observer, and parametrization artifacts do not close gates.</strong></p>
+</blockquote>
+<p>Compressed: <code>Invariance = branch-preserving equivalence discipline.</code> A claim is physical only to the extent that its content survives all transformations that preserve the same physical branch. Coordinate, gauge, basis, representation, observer, scheme, and field-parametrization choices are not physical content unless they leave invariant residue.</p>
+<h3>2.2 Why this root exists</h3>
+<p>Description is not content. The same physics can be written in infinitely many equivalent ways, and any quantity that changes when you merely change the description was never physics — it was bookkeeping. Invariance exists because the most seductive false closures are the ones that look like results only in one description: a sign that flips under a gauge choice, a value that is finite only in one scheme, a "match" that holds in one basis and one parametrization. The root forces the agent to separate the residue that survives every branch-preserving redescription from the artifact that does not.</p>
+<h3>2.3 Relationship to Shape / Scale / Granularity</h3>
+<p>Invariance is <em>branch-relative</em>, and the branch is supplied by the deep roots. It does not ask the generic question "is this covariant?" It asks: <strong>what transformations preserve this frozen Shape object — including its metric stage, quotient/fold data, rulebook, actor bundle, operator, connection, and readout map?</strong> A transformation that preserves only the metric but changes the actor/operator layer may not preserve the branch at all.</p>
+<ul>
+<li><strong>Shape-derived.</strong> A transformation preserving only the × Stage is not automatically branch-preserving; it must preserve the ⊕ Rulebook and ⊗ Actors too. Object identity (which operator, which connection, which bundle) is a Shape fact, and Invariance enforces that it is held fixed across the redescription.</li>
+<li><strong>Scale-derived.</strong> Invariance must distinguish dimensionless invariants, unit conventions, renormalization-scheme dependence, normalization-selected values, scale-window-dependent claims, absolute magnitudes, and dissolved quantities. <strong>A number is not invariant merely because it is reproducible</strong> — it must survive the relevant scale/scheme transformations or be labeled scheme-dependent, anchored, fitted, or dissolved.</li>
+<li><strong>Granularity-derived.</strong> Invariance must be finitely auditable: a finite transformation grammar, declared equivalence classes, canonical representatives, a finite invariant ledger, no hidden continuous convention knobs, and <strong>no "up to convention" without a closed convention class.</strong></li>
+</ul>
+<h3>2.4 What this root forbids</h3>
+<pre><code>Do not claim coordinate/gauge covariance is enough for physical invariance.
+Do not claim a reproducible hash is physical invariance.
+Do not claim an off-shell local sign is an invariant positivity verdict.
+Do not treat two operators as equivalent unless object identity is proven.
+</code></pre>
+<p>What it catches, concretely: coordinate artifacts, gauge artifacts, BRST/ghost-sign mistakes, basis artifacts, representation artifacts, field-parametrization artifacts, renormalization-scheme artifacts, normalization artifacts, off-shell sign artifacts, and wrong-object equivalences.</p>
+<h3>2.5 What this root can force</h3>
+<p>A rule is <strong>Invariance-forced</strong> only if the branch-preserving transformation class is closed, all non-invariant candidates are eliminated, a unique invariant rule or invariant equivalence class survives, the rule is target-blind, and perturbing the branch-preserving equivalence structure changes or removes the rule. In certificate form (the four-field grade specialized to invariance):</p>
+<pre><code>The branch-preserving equivalence class is closed,
+all non-invariant candidates are eliminated,
+and one invariant rule / equivalence class survives.
+</code></pre>
+<h3>2.6 What this root cannot claim</h3>
+<p>If Invariance merely says "this is compatible with covariance," the result is <strong>ROOT-SUPPORTED</strong>, not ROOT-FORCED. Invariance cannot promote a frozen object into a unique object — frozen-and-reproducible is not proven-unique, and a hash certifies <em>which</em> object was tested, not that the object is invariantly singled out. It cannot read a physical verdict off a description-dependent quantity.</p>
+<h3>2.7 Support-to-force ladder (Invariance)</h3>
+<p>The general ladder (Section 6) instantiated for this root:</p>
+<pre><code>NARRATIVE-ONLY      : names &quot;we should be covariant&quot; but constrains nothing.
+ROOT-COMPATIBLE     : the claim does not contradict branch-preserving invariance.
+ROOT-SUPPORTED      : invariance makes the rule natural; non-invariant rivals survive.
+ROOT-CONSTRAINED    : invariance eliminates some non-invariant candidates.
+ROOT-SELECTIVE      : invariance + toolbox leaves a small finite invariant family.
+ROOT-FORCED-FAMILY  : one invariant equivalence class survives, modulo allowed transforms.
+ROOT-FORCED         : one target-blind invariant rule survives inside the closed class.
+TARGET-LOADED       : the &quot;invariant&quot; was chosen in the basis that makes the number match.
+</code></pre>
+<h3>2.8 Wall example — Gap-01 positivity and the off-shell sign</h3>
+<p>Computing the frozen 13D graviton+ghost $a_6$ Seeley–DeWitt diagnostic, one is tempted to read a positivity verdict off the sign of a local heat-kernel density. <strong>Invariance forbids this.</strong> A positivity verdict cannot be read from an <strong>off-shell, odd-$D$, gauge-dependent, local</strong> $a_6$ sign: the sign is not a valid invariant positivity predicate. It is gauge- and field-parametrization-dependent off-shell, and in odd $D=13$ a dimensionful $a_6$ is not even a canonical finite local observable — only consistency coefficients may be reported. The invariant content, if any, lives in route-agreement and exact identities, not in the local sign. <strong>Verdict: any positivity claim read from the off-shell local sign is INVARIANCE-BLOCKED.</strong></p>
+<h3>2.9 Checklist for agents (Invariance)</h3>
+<pre><code>[ ] Name the physical object held fixed.
+[ ] Name the transformations that preserve that object (the branch).
+[ ] Name the transformations that change the branch.
+[ ] List the quantities that survive the preserving transformations.
+[ ] List the quantities that are artifacts of description.
+[ ] State the on-shell / off-shell status of any gauge-dependent claim.
+[ ] Confirm the equivalence-class ledger is finite and the convention class is closed.
+[ ] Confirm the surviving rule is target-blind (written without the target value).
+</code></pre>
+<h3>2.10 Honest ceiling</h3>
+<p>This root is an admissibility/interface root. <strong>It does not generate physics by itself.</strong> It tells us whether a claimed rule from Shape, Scale, and Granularity is invariant — whether its content survives every branch-preserving redescription — and nothing more. Passing Invariance removes representation, gauge, scheme, and off-shell-sign artifacts from a claim; it is necessary for closure, <strong>not sufficient for truth.</strong> A perfectly invariant claim can still have no observable endpoint, can still be target-loaded, and can still hide factorization debt. Invariance is one of four guards, and clearing it is not a status change.</p>
+<hr />
+<h2>3. Record Interface</h2>
+<h3>3.1 One-sentence definition</h3>
+<blockquote>
+<p><strong>Record Interface is the discipline that every claim must terminate in a finite physical observable or finite audit record tied to the correct object.</strong></p>
+</blockquote>
+<p>Compressed: <code>Record Interface = finite observable/audit endpoint discipline.</code> A claim is reviewable only if it terminates in a finite physical observable or a finite audit record — and that record must be read off the <em>correct</em> object.</p>
+<h3>3.2 Why this root exists</h3>
+<p>A claim with no endpoint cannot be tested, and a claim with the wrong endpoint cannot be trusted. Record Interface exists because two distinct failures hide here: the claim that never reaches a finite observable at all (an internal coordinate sold as a result), and the claim that reaches a finite record attached to a <em>different</em> object than the one in question (a numeric match on the wrong operator, bundle, or connection). The root also separates two strengths of "record" that are constantly conflated: a <strong>physical observable</strong> that the world supplies, and an <strong>audit record</strong> that the computation supplies. The second is real and useful, but it does not prove physical truth.</p>
+<h3>3.3 Relationship to Shape / Scale / Granularity</h3>
+<ul>
+<li><strong>Shape-derived.</strong> The readout map must run from the <em>correct</em> object: <code>Shape object → operator/path/bundle/invariant → record</code>. A record attached to a different operator, bundle, connection, or quotient object does not close the wall, no matter how clean the number.</li>
+<li><strong>Scale-derived.</strong> Every record must declare its unit, renormalization scheme, energy scale, scale window, normalization, uncertainty, tolerance, fit/input/output status, and dimensionless-vs-dimensionful status. Without these, a record may exist but not be <strong>comparable</strong> — and an incomparable record closes nothing.</li>
+<li><strong>Granularity-derived.</strong> Records must be finite: a finite file, finite table, finite value, finite uncertainty, finite tolerance, finite hash, finite reproducer, finite pass/fail predicate, and a finite, wired falsifier. A claim requiring infinite precision, an unbounded lookup table, or an undefined tolerance does <strong>not</strong> have a valid Record Interface.</li>
+</ul>
+<h3>3.4 What this root forbids</h3>
+<pre><code>Do not call an internal variable an observable without a readout map.
+Do not call a captured terminal log an independent reproduction.
+Do not call a consistency coefficient a measured invariant.
+Do not use a record from the wrong object to close a wall.
+</code></pre>
+<p>What it catches: an internal coordinate sold as an observable; a wrong-object comparison; a computed value with no physical endpoint; a log treated as independent reproduction; a hash treated as derivation; unclear units or scale window; a post-hoc tolerance; an open-ended lookup table; a falsifier that was never wired.</p>
+<h3>3.5 What this root can force</h3>
+<p>A rule is <strong>Record-Interface-forced</strong> only if the correct Shape object supplies the readout map, the record is finite and auditable, the Scale context is fixed, the record <strong>tests</strong> the rule rather than <strong>selecting</strong> it, and changing the record target would not change the rule grammar. In standard form:</p>
+<pre><code>The correct Shape object has only one admissible finite readout to the relevant
+observable/audit record, or all other readouts are eliminated as wrong-object /
+wrong-scale / non-finite / target-loaded.
+</code></pre>
+<h3>3.6 What this root cannot claim</h3>
+<p>Record Interface cannot turn an audit win into a physics win. The most important distinction on this root: <strong>a strong, exact audit record is not gate closure.</strong> An audit record certifies that a computation was done correctly on a specified object; it does not certify that the object's physics is true, nor that the routes which must agree do agree, nor that the total physical quantity has even been emitted.</p>
+<h3>3.7 Support-to-force ladder (Record Interface)</h3>
+<pre><code>NARRATIVE-ONLY      : &quot;there will be an observable&quot; — none named.
+ROOT-COMPATIBLE     : a record could in principle exist for this claim.
+ROOT-SUPPORTED      : a finite record exists but does not yet uniquely test the rule.
+ROOT-CONSTRAINED    : wrong-object / wrong-scale / non-finite readouts are eliminated.
+ROOT-SELECTIVE      : a small finite family of admissible correct-object readouts remains.
+ROOT-FORCED-FAMILY  : one readout class survives, modulo allowed transforms.
+ROOT-FORCED         : one finite correct-object readout tests the rule, target-blind.
+TARGET-LOADED       : the readout map was chosen because it outputs the target.
+</code></pre>
+<h3>3.8 Wall example — Gap-01 exact rational sphere checks vs. the total $a_6$</h3>
+<p>In the Gap-01 / $a_6$ work, the program has <strong>exact rational heat-kernel cross-checks</strong> — for example sphere-rational and Bianchi identities computed in closed form. These are strong audit records: they are finite, exact, reproducible, and they catch errors. <strong>Record Interface insists on the limit of what they prove.</strong> They do not emit the <strong>total physical $a_6$ value</strong>, and the two structurally independent physical routes (the canonical Casimir route and the physical Levi-Civita/Lichnerowicz route) have not been reconciled. An exact correctness gate on a sub-object is an audit win; it is not the physical observable the gate requires. <strong>Verdict: the exact sphere checks are ROOT-SUPPORTED audit records; the gate remains RECORD-BLOCKED until the total $a_6$ is emitted from the correct object and the routes agree.</strong></p>
+<h3>3.9 Checklist for agents (Record Interface)</h3>
+<pre><code>[ ] Name the thing being read and the correct object identity.
+[ ] Name the readout map from that object.
+[ ] State the observable or audit record produced.
+[ ] Declare units, scale, scheme, uncertainty, tolerance.
+[ ] Classify the record: physical observable / computational / audit-only / falsifier.
+[ ] State whether the record TESTS the rule or SELECTED the rule.
+[ ] Confirm the record is finite (file, value, tolerance, predicate, falsifier).
+[ ] Confirm reproduction is independent — a captured log is not a reproduction.
+</code></pre>
+<h3>3.10 Honest ceiling</h3>
+<p>This root is an admissibility/interface root. <strong>It does not generate physics by itself.</strong> It tells us whether a claimed rule from Shape, Scale, and Granularity terminates in a finite, correct-object observable or audit record — and whether that record tests the rule rather than having selected it. Passing Record Interface removes no-observable, wrong-object, and audit-as-physics artifacts; it is necessary for closure, <strong>not sufficient for truth.</strong> An exact audit record is the cleanest thing on the board and still closes nothing by itself. Record Interface is one of four guards, and clearing it is not a status change.</p>
+<hr />
+<h2>4. Causal Order</h2>
+<h3>4.1 One-sentence definition</h3>
+<blockquote>
+<p><strong>Causal Order is the discipline that rules, grammars, maps, scales, and tolerances must not be shaped by target observables unless explicitly paid as fits.</strong></p>
+</blockquote>
+<p>Compressed: <code>Causal Order = no backward target-to-rule information flow.</code> A rule is causally clean only if it can be specified without knowing the target observable — unless the dependence is explicitly declared and paid as a fit.</p>
+<h3>4.2 Why this root exists</h3>
+<p>The single most efficient way to manufacture a fake derivation is to let the answer choose the rule. Pick the chamber that lands the mass ratio, the exponent that matches, the tolerance that turns the miss into a hit, the scale window where the number agrees — and then present the result as if the rule came first. Causal Order exists to enforce the direction of information flow:</p>
+<pre><code>root/object → rule/grammar/map → prediction/readout → target comparison
+</code></pre>
+<p>and to forbid the reverse:</p>
+<pre><code>target → rule selection → claimed derivation
+</code></pre>
+<p>A fit is a legitimate, honest thing — <em>when declared and paid as a fit.</em> What Causal Order forbids is a fit sold as a derivation.</p>
+<h3>4.3 Relationship to Shape / Scale / Granularity</h3>
+<ul>
+<li><strong>Shape-derived.</strong> The branch/map must be fixed <em>before</em> comparison: frozen Shape object → declared rulebook/map → computed output → observable comparison. If the observed target chooses the branch, chamber, projector, exponent, connection, field basis, tolerance, or scale window after the fact, the map is <strong>target-loaded.</strong></li>
+<li><strong>Scale-derived.</strong> Causal Order forces the agent to <em>freeze or pay</em> every scale-side choice: renormalization scheme, energy scale, scale window, threshold policy, sector normalization, RG bridge, tolerance, rounding rule, absolute anchor policy. Changing any of these after seeing the result is target-loading unless declared as a paid fit. (This is exactly why the program's flavor sector normalizations $N_d, N_e, N_\nu$ are carried openly as paid calibration inputs, not as predictions.)</li>
+<li><strong>Granularity-derived.</strong> Causal Order lives in finite artifacts: a frozen manifest, an allowed-input manifest, a forbidden-target manifest, a holdout table, a pre-registered grammar, pre-registered tolerances, a run log, versioned output, and a finite audit trail. Target-blindness must be a checkable finite fact, not a promise.</li>
+</ul>
+<h3>4.4 What this root forbids</h3>
+<pre><code>Do not call a fit a derivation.
+Do not call a post-target grammar pre-registered.
+Do not use target values to choose projectors, exponents, chambers, or tolerances.
+Do not promote target-loaded rules to root-forced.
+</code></pre>
+<p>What it catches: post-hoc rule selection, answer-shaped grammar, post-target chamber selection, post-target exponent assignment, tolerance tuning, scale-window tuning, a fit sold as a prediction, cherry-picked observables, and using holdouts during reconstruction.</p>
+<h3>4.5 What this root can force</h3>
+<p>A rule is <strong>Causal-Order-clean</strong> only if the rule and grammar can be written without the target value, allowed inputs and forbidden targets are declared, scale/tolerance choices are pre-fixed or paid, changing the target would not change the rule, and the target is used only as a test unless explicitly paid as an input. In standard form:</p>
+<pre><code>The rule grammar is derivable without target values;
+all target-dependent grammars are eliminated or paid as fits.
+</code></pre>
+<h3>4.6 What this root cannot claim</h3>
+<p>Causal Order cannot, by itself, make a rule <em>correct</em> — it can only certify that the rule was not contaminated by the answer. A causally clean rule can still be wrong (it can disagree with the target), still lack an observable endpoint, and still hide factorization debt. Causal Order is about <em>provenance</em>, not <em>validity</em>.</p>
+<h3>4.7 Support-to-force ladder (Causal Order)</h3>
+<pre><code>NARRATIVE-ONLY      : &quot;we did not peek&quot; — no manifest, no holdout.
+ROOT-COMPATIBLE     : the rule could in principle be written without the target.
+ROOT-SUPPORTED      : the rule looks target-blind but inputs/targets are not declared.
+ROOT-CONSTRAINED    : some target-dependent grammars are eliminated.
+ROOT-SELECTIVE      : a small finite family of target-blind grammars remains.
+ROOT-FORCED-FAMILY  : one grammar class survives without target backflow.
+ROOT-FORCED         : one target-blind rule grammar survives; target used only as a test.
+TARGET-LOADED       : the rule depends on the desired answer.
+</code></pre>
+<h3>4.8 Wall example — the SG8 flavor exponent</h3>
+<p>An SG8 flavor exponent chosen <em>because it matches a mass ratio</em> is <strong>target-loaded</strong>: the target observable flowed backward and selected the exponent, so the apparent agreement is circular. By contrast, an exponent <strong>derived from a Shape path/winding/action class before comparison</strong> — read off the geometry as a discrete residue, with the falsifier and tolerance frozen before any output is read — may be causal-order clean. The discriminating question is not "does it match?" but "could the exponent have been written down without ever seeing the mass ratio?" If the answer is no, the rule is TARGET-LOADED regardless of how good the match looks. <strong>Verdict: a fitted exponent is CAUSAL-ORDER-BLOCKED; a pre-registered winding-class exponent is the only route to ROOT-FORCED here — and that map is currently open, so the flavor result is at most Shape-supported.</strong></p>
+<h3>4.9 Checklist for agents (Causal Order)</h3>
+<pre><code>[ ] Declare allowed inputs.
+[ ] Declare forbidden targets (and the holdout table).
+[ ] State the rule grammar and the map-construction time/order.
+[ ] State the scale/tolerance policy and confirm it was fixed before outputs.
+[ ] Run the target-perturbation test: if the target changed, would the rule change?
+[ ] Classify the result: prediction vs paid fit.
+[ ] Confirm holdouts were not used during reconstruction.
+[ ] Confirm no projector / exponent / chamber / tolerance was chosen by the target.
+</code></pre>
+<h3>4.10 Honest ceiling</h3>
+<p>This root is an admissibility/interface root. <strong>It does not generate physics by itself.</strong> It tells us whether a claimed rule from Shape, Scale, and Granularity was specified <em>without</em> the target observable flowing backward to shape it — or was honestly declared and paid as a fit. Passing Causal Order removes target-dependence artifacts: post-hoc selection, answer-shaped grammars, tuned tolerances, fits sold as predictions. It is necessary for closure, <strong>not sufficient for truth.</strong> A target-blind rule can still be wrong, can still lack an endpoint, and can still hide factorization debt. Causal Order is one of four guards, and clearing it is not a status change.</p>
+<hr />
+<h2>5. Nonseparability</h2>
+<h3>5.1 One-sentence definition</h3>
+<blockquote>
+<p><strong>Nonseparability is the discipline that exact independence, factorization, additive cost, and sector splitting are never free.</strong></p>
+</blockquote>
+<p>Compressed: <code>Nonseparability = no unpaid factorization or free independence.</code> Every sector split, factorization assumption, additive cost ledger, independent fit, or cross-wall decoupling must be <strong>proven, paid, or tested</strong> — exact independence is never assumed because the math is easier that way.</p>
+<h3>5.2 Why this root exists</h3>
+<p>Independence is the most expensive assumption that costs nothing to write down. Treating two sectors as independent lets you compute them separately, add their costs, and count their successes twice. But if the global object does not actually factorize over those sectors, every one of those moves is a miscount: the additive cost ledger is wrong, the "independent" fits share hidden parameters, and three "independent successes" may be one shared scheme object counted three times. Nonseparability exists to convert every silent independence assumption into an explicit entry on a factorization-debt ledger that must be discharged by proof, payment, or test.</p>
+<h3>5.3 Relationship to Shape / Scale / Granularity</h3>
+<ul>
+<li><strong>Shape-derived.</strong> Start from the <em>whole branch</em>: metric stage + quotient/fold + rulebook + actor/operator + connection + readout map. If sectors are computed independently, the agent must <strong>show the Shape genuinely factorizes</strong> for those sectors, or <strong>charge</strong> the independence assumption.</li>
+<li><strong>Scale-derived.</strong> Track cross-scale dependencies: thresholds, RG flow, compactification scales, sector normalizations, <strong>shared heat-kernel scheme objects</strong>, correlated uncertainties, shared anchors, scale bridges. A scale object shared by multiple walls is <strong>one shared object, not separate knobs.</strong></li>
+<li><strong>Granularity-derived.</strong> Force factorization into a finite ledger: the factorization assumption, its claimed exact/approximate status, its justification, its charged cost, the residual coupling, the observable test, and its status. <strong>No hidden independence can be treated as zero-cost.</strong></li>
+</ul>
+<h3>5.4 What this root forbids</h3>
+<pre><code>Do not assume sectors are independent because calculations are easier that way.
+Do not count a shared scheme object three times as three independent successes.
+Do not use additive cost unless factorization is proven or paid.
+Do not claim nonseparability implies faster-than-light signalling;
+   it is an accounting/root discipline, not a signalling claim.
+</code></pre>
+<p>What it catches: independent sector patches, separate fits sold as one generator, additive MDL without an independence proof, uncounted shared scheme objects, wrongly duplicated anchors, ignored cross-wall dependencies, and joint observable vectors split into cherry-picked passes.</p>
+<h3>5.5 What this root can force</h3>
+<p>A rule is <strong>Nonseparability-clean</strong> only if the global object is stated, exact separations are proven or approximate separations are charged/tested, shared anchors are counted once as shared, joint observables are generated jointly or the independence debt is paid, and residual factorization ambiguity is named. In standard form:</p>
+<pre><code>The global Shape/Scale object either proves a factorization or forces a joint generator;
+no independent sector patch remains admissible without a paid debt.
+</code></pre>
+<h3>5.6 What this root cannot claim</h3>
+<p>Nonseparability is an <strong>accounting and root discipline, not a signalling claim.</strong> It does not assert faster-than-light influence; the no-signalling guardrail (see the Nonseparability deep root, R7) keeps it from overclaiming. It also cannot, by itself, tell you <em>how</em> sectors couple — it only forbids assuming they do not without paying for it. A factorization that is honestly <em>proven</em> is allowed; what is forbidden is factorization assumed for convenience.</p>
+<h3>5.7 Support-to-force ladder (Nonseparability)</h3>
+<pre><code>NARRATIVE-ONLY      : &quot;the sectors are basically independent&quot; — no ledger.
+ROOT-COMPATIBLE     : independence is not obviously contradicted.
+ROOT-SUPPORTED      : factorization is plausible but neither proven nor charged.
+ROOT-CONSTRAINED    : some unpaid independence assumptions are eliminated.
+ROOT-SELECTIVE      : a small finite family of admissible factorizations remains.
+ROOT-FORCED-FAMILY  : one factorization class survives, modulo the global object.
+ROOT-FORCED         : the global object proves a factorization or forces a joint generator.
+TARGET-LOADED       : the sector split was chosen to make the cost ledger smaller.
+</code></pre>
+<h3>5.8 Wall example — the shared heat-kernel / LC-hopping object across Gap-01, SG-6, SG-7</h3>
+<p>Gap-01, SG-6, and SG-7 <strong>share a heat-kernel scheme / LC-hopping object.</strong> Nonseparability forbids treating them as independent. If they are scored as three independent knobs, the theory has more free parameters than it really does; if they are counted as three independent <em>successes</em>, the theory is over-credited — the same one object is being counted three times. The honest accounting is that there is <strong>one shared scheme object</strong> underneath all three, and the correct ledger counts it once, with the cross-wall coupling named and either proven to factorize or charged. <strong>Verdict: treating Gap-01 / SG-6 / SG-7 as independent is FACTORING-BLOCKED; the shared object must be counted once and the residual coupling carried on the factorization-debt ledger.</strong></p>
+<h3>5.9 Checklist for agents (Nonseparability)</h3>
+<pre><code>[ ] State the global object (full branch: stage + rulebook + actors + connection + readout).
+[ ] List exact product structures and approximate product structures.
+[ ] List shared anchors, shared scheme objects, shared scale bridges.
+[ ] Identify residual correlations and name the factorization debt.
+[ ] State whether outputs are generated jointly or patched separately.
+[ ] Count each shared object once — never as N independent successes.
+[ ] Justify any additive cost ledger with a factorization proof or a charged cost.
+[ ] Name residual factorization ambiguity explicitly.
+</code></pre>
+<h3>5.10 Honest ceiling</h3>
+<p>This root is an admissibility/interface root. <strong>It does not generate physics by itself.</strong> It tells us whether a claimed rule from Shape, Scale, and Granularity has paid for every independence and factorization assumption it uses — whether sectors are genuinely separable, whether shared objects are counted once, whether joint observables are generated jointly. Passing Nonseparability removes unpaid-factorization artifacts: independent-sector patches, additive ledgers without proofs, shared objects miscounted as separate successes. It is necessary for closure, <strong>not sufficient for truth.</strong> A claim with a clean factorization ledger can still be non-invariant, lack an endpoint, or be target-loaded. Nonseparability is one of four guards, and clearing it is not a status change.</p>
+<hr />
+<h2>6. The support-to-force ladder (shared reference)</h2>
+<p>A second-layer root becomes <strong>ROOT-FORCED</strong> only when it becomes a <em>necessity condition</em>, not merely a warning. The grading ladder below is the single shared standard for all four roots; each root's section above instantiated it. The general conversion rule:</p>
+<pre><code>ROOT-SUPPORTED:
+  the second-layer root makes the rule natural or useful.
+
+ROOT-CONSTRAINED:
+  the second-layer root eliminates some alternatives.
+
+ROOT-FORCED:
+  given the deep roots, wall object, laws, and the closed admissible class,
+  the second-layer root eliminates all non-equivalent alternatives
+  and leaves one rule / equivalence class.
+</code></pre>
+<p>The full ladder, lowest to highest, with the target-loaded floor:</p>
+<pre><code>NARRATIVE-ONLY:
+  names a concern but does not constrain anything.
+
+ROOT-COMPATIBLE:
+  does not contradict the second-layer root.
+
+ROOT-SUPPORTED:
+  the root makes the rule natural, but alternatives survive.
+
+ROOT-CONSTRAINED:
+  the root eliminates some alternatives.
+
+ROOT-SELECTIVE:
+  the root plus toolbox leaves a small finite family.
+
+ROOT-FORCED-FAMILY:
+  one equivalence class survives, modulo allowed transformations.
+
+ROOT-FORCED:
+  one target-blind rule survives inside a closed class.
+
+TARGET-LOADED:
+  the rule depends on the desired answer.
+</code></pre>
+<p><code>TARGET-LOADED</code> is not a rung above <code>ROOT-FORCED</code> — it is the <strong>disqualifier</strong>. Any rule that depends on the desired answer fails the bottom of the ladder regardless of how forced it looks on the other fields, exactly as the deep-root pages downgrade a target-selected rule to TARGET-SELECTION-RISK.</p>
+<h3>6.1 The four-field certificate</h3>
+<p>Every second-layer ROOT-FORCED claim must fill all four fields. A blank field means the claim is at most ROOT-SUPPORTED.</p>
+<pre><code>1. Anchor-transfer chain
+2. Necessity counterfactual
+3. Closed candidate class
+4. Target-blindness
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What it requires</th>
+<th>Per-root anchor-transfer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Anchor-transfer chain</strong></td>
+<td>Name where the rule's content comes from — not the target.</td>
+<td><strong>Invariance:</strong> branch-preserving gauge/BRST class → invariant physical operator. <strong>Record Interface:</strong> correct Shape operator → measured/audit record. <strong>Causal Order:</strong> frozen allowed-input grammar → rule independent of target. <strong>Nonseparability:</strong> global Shape object → joint generator / factorization ledger.</td>
+</tr>
+<tr>
+<td><strong>2. Necessity counterfactual</strong></td>
+<td>Perturb the root/interface and show the rule changes or disappears.</td>
+<td>If the gauge equivalence class changes, the invariant operator changes. If the readout object changes, the valid record changes. If the causal order is reversed, the rule becomes target-loaded. If the global object does not factorize, the additive ledger fails.</td>
+</tr>
+<tr>
+<td><strong>3. Closed candidate class</strong></td>
+<td>Define the <em>complete</em> admissible class — never a hand-drawn list.</td>
+<td>all branch-preserving transformations; all correct-object readout maps; all allowed-input grammars; all factorization assumptions compatible with the global Shape.</td>
+</tr>
+<tr>
+<td><strong>4. Target-blindness</strong></td>
+<td>The rule must be writable without the target value or desired status.</td>
+<td>Failure: choosing a basis because it makes the number match; choosing a tolerance after seeing the miss; choosing a sector split because it makes the cost ledger smaller; choosing a readout map because it outputs the target.</td>
+</tr>
+</tbody>
+</table>
+<p>The per-root forcing standards, stated once:</p>
+<pre><code>Invariance-forced:
+  the branch-preserving equivalence class is closed, all non-invariant
+  candidates are eliminated, and one invariant rule/equivalence class survives.
+
+Record-interface-forced:
+  the correct Shape object has only one admissible finite readout to the relevant
+  observable/audit record, or all others are eliminated as wrong-object /
+  wrong-scale / non-finite / target-loaded.
+
+Causal-order-forced:
+  the rule grammar is derivable without target values; all target-dependent
+  grammars are eliminated or paid as fits.
+
+Nonseparability-forced:
+  the global Shape/Scale object either proves a factorization or forces a joint
+  generator; no independent sector patch remains admissible without a paid debt.
+</code></pre>
+<hr />
+<h2>7. Completeness test for the second layer</h2>
+<p>A wall passes the <strong>second-layer screen</strong> only if <strong>all four</strong> roots pass at once. Failing any one is enough to keep the wall from being labeled closed.</p>
+<pre><code>Invariance:
+  The claim survives the branch-preserving equivalence class.
+
+Record Interface:
+  The claim terminates in a finite correct-object observable/audit record.
+
+Causal Order:
+  The rule was specified without target backflow, or declared as a paid fit.
+
+Nonseparability:
+  No independence/factorization debt is hidden.
+</code></pre>
+<p>The verdict labels, applied to any wall after running the screen:</p>
+<table>
+<thead>
+<tr>
+<th>Verdict</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SECOND-LAYER-PASS</strong></td>
+<td>all four roots pass; the wall is <em>eligible</em> for deep-root + Layer-1 evaluation (this is not closure)</td>
+</tr>
+<tr>
+<td><strong>INVARIANCE-BLOCKED</strong></td>
+<td>the claim is a representation/gauge/scheme/off-shell artifact</td>
+</tr>
+<tr>
+<td><strong>RECORD-BLOCKED</strong></td>
+<td>no finite correct-object observable/audit endpoint, or audit-only sold as physics</td>
+</tr>
+<tr>
+<td><strong>CAUSAL-ORDER-BLOCKED</strong></td>
+<td>the rule was shaped by the target (target leakage), not declared as a paid fit</td>
+</tr>
+<tr>
+<td><strong>FACTORING-BLOCKED</strong></td>
+<td>unpaid factorization/independence debt; shared objects miscounted</td>
+</tr>
+<tr>
+<td><strong>SECOND-LAYER-PARTIAL</strong></td>
+<td>some roots pass and others are not yet evaluated or not yet discharged</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Crucial honesty point.</strong> <code>SECOND-LAYER-PASS</code> is <strong>not</strong> gate closure. It certifies only that a claim has survived the four admissibility filters and is therefore <em>worth evaluating on the physics</em>. The deep roots (Shape, Scale, Granularity) and a Layer-1 observable test still have to be saturated for a gate to be physics-closed — and on this candidate, <strong>0 of 33 gates are physics-closed.</strong> The four wall examples on this page (the Gap-01 off-shell sign, the Gap-01 exact sphere checks, the SG8 exponent, and the Gap-01/SG-6/SG-7 shared object) are all currently <em>blocked</em> by at least one second-layer root, which is exactly why their gates remain open.</p>
+<hr />
+<h2>8. Red-team traps</h2>
+<p>The four interface roots exist to block sentences that <em>sound</em> like results. Each of these is a false closure the second layer must never let stand:</p>
+<blockquote>
+<p><strong>"It's gauge-covariant, so it's physical."</strong> Rejected — covariance is compatibility, not invariance. Only branch-preserving residue counts, and an off-shell local sign is not an invariant predicate (Invariance §2).</p>
+<p><strong>"The hash reproduces, so the physics is validated."</strong> Rejected — a hash is an audit anchor certifying <em>which object</em> was tested, not that the object's physics is true (Invariance §2.6 / Record Interface §3.6).</p>
+<p><strong>"The exact check passed, so the gate is closed."</strong> Rejected — an exact audit record on a sub-object is an audit win, not the emission of the total physical observable, and not route agreement (Record Interface §3.8).</p>
+<p><strong>"The exponent matches the mass ratio, so it's derived."</strong> Rejected — if the ratio chose the exponent, the rule is target-loaded; a match is not a derivation (Causal Order §4.8).</p>
+<p><strong>"Three independent sectors all worked."</strong> Rejected — if they share one scheme object, that is one success counted three times, not three independent successes (Nonseparability §5.8).</p>
+<p><strong>"Independence is the natural default."</strong> Rejected — exact independence is never free; it must be proven, paid, or tested against the global object (Nonseparability §5).</p>
+</blockquote>
+<hr />
+<h2>9. Status ledger</h2>
+<p>The honest standing of the four interface roots, by claim type. These are admissibility roots: their job is to <em>block</em>, and their status is about whether the discipline is enforced, never about whether physics is generated.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Endpoint type</th>
+<th>Status</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invariance (branch-preserving equivalence)</td>
+<td>meta-root / discipline</td>
+<td><strong>DECLARED ROOT / ENFORCED</strong></td>
+<td>admissibility condition; upstream of every physical root</td>
+</tr>
+<tr>
+<td>Record Interface (finite endpoint)</td>
+<td>meta-root / discipline</td>
+<td><strong>DECLARED ROOT / ENFORCED</strong></td>
+<td>empirical-interface condition; audit ≠ physics</td>
+</tr>
+<tr>
+<td>Causal Order (no target backflow)</td>
+<td>physical interface root / discipline</td>
+<td><strong>DECLARED ROOT / ENFORCED</strong></td>
+<td>provenance guard; fit must be declared and paid</td>
+</tr>
+<tr>
+<td>Nonseparability (no unpaid factorization)</td>
+<td>physical interface root / discipline</td>
+<td><strong>DECLARED ROOT / ENFORCED</strong></td>
+<td>accounting discipline; no-signalling guarded</td>
+</tr>
+<tr>
+<td>Second-layer screen (all four)</td>
+<td>admissibility verdict</td>
+<td><strong>NECESSARY-NOT-SUFFICIENT</strong></td>
+<td><code>SECOND-LAYER-PASS</code> ≠ gate closure</td>
+</tr>
+<tr>
+<td>Gap-01 off-shell positivity sign</td>
+<td>claim</td>
+<td><strong>INVARIANCE-BLOCKED</strong></td>
+<td>sign is not an invariant positivity predicate</td>
+</tr>
+<tr>
+<td>Gap-01 exact sphere/Bianchi checks</td>
+<td>audit record</td>
+<td><strong>ROOT-SUPPORTED / RECORD-BLOCKED for closure</strong></td>
+<td>strong audit win; total $a_6$ not emitted; routes not reconciled</td>
+</tr>
+<tr>
+<td>SG8 fitted flavor exponent</td>
+<td>claim</td>
+<td><strong>CAUSAL-ORDER-BLOCKED / TARGET-LOADED</strong></td>
+<td>pre-registered winding-class exponent is the only clean route; open</td>
+</tr>
+<tr>
+<td>Gap-01 / SG-6 / SG-7 shared scheme object</td>
+<td>accounting</td>
+<td><strong>FACTORING-BLOCKED if treated as independent</strong></td>
+<td>one shared object; count once; coupling carried as debt</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Discipline, restated.</strong> The four second-layer roots are admissibility/interface roots. They do <strong>not</strong> generate physics; they decide whether a claimed rule from Shape, Scale, and Granularity is invariant, record-facing, target-blind, and not secretly factorized. Passing them is <strong>necessary for closure, not sufficient for truth.</strong> Anchored is not derived · selected is not forced · frozen-and-reproducible is not proven-unique · dissolved is not solved. This is a Theory-of-Everything candidate under honest audit — <strong>0 of 33 gates are physics-closed. no status changes.</strong></p>
+<hr />
+<h2>10. Read it / cross-links</h2>
+<ul>
+<li><strong>The three deep physical roots the second layer sits above:</strong> <strong><a href="/shape/">The Shape</a></strong> (the frozen three-layer object) · <strong><a href="/scale/">The Scale</a></strong> (the absolute magnitude) · <strong><a href="/granularity/">The Granularity</a></strong> (the finite cost-floor).</li>
+<li><strong><a href="/anchors/deep-roots.html">The Seven Deep Roots</a></strong> — where these four (Invariance and Record Interface as Tier-0 meta-roots; Causal Order and Nonseparability as physical roots) sit in the full root hierarchy, with operational statements, allowed/forbidden claims, and specialist hardening questions.</li>
+<li><strong><a href="/gates/">The gate scoreboard</a></strong> — honest per-gate status across all 33 gates · the <strong><a href="/walls/">walls register</a></strong> · the <strong><a href="/closure/">closure routing</a></strong>.</li>
+<li><strong><a href="/anchors/">The anchors overview</a></strong> — the anchoring rule-set and the full bridge stack at a glance.</li>
+</ul>
+<hr />
+<h2>Appendix — the per-root agent checklists</h2>
+<p>The four checklists, collected for reference. Each is the finite set of questions an agent must answer before a wall may be labeled <code>SECOND-LAYER-PASS</code>. A blank box is a blocked screen.</p>
+<h3>A.1 Invariance checklist</h3>
+<pre><code>[ ] Name the physical object held fixed.
+[ ] Name the transformations that preserve that object (the branch).
+[ ] Name the transformations that change the branch.
+[ ] List the quantities that survive the preserving transformations.
+[ ] List the quantities that are artifacts of description.
+[ ] State the on-shell / off-shell status of any gauge-dependent claim.
+[ ] Confirm the equivalence-class ledger is finite and the convention class is closed.
+[ ] Confirm the surviving rule is target-blind.
+</code></pre>
+<h3>A.2 Record Interface checklist</h3>
+<pre><code>[ ] Name the thing being read and the correct object identity.
+[ ] Name the readout map from that object.
+[ ] State the observable or audit record produced.
+[ ] Declare units, scale, scheme, uncertainty, tolerance.
+[ ] Classify the record: physical observable / computational / audit-only / falsifier.
+[ ] State whether the record TESTS the rule or SELECTED the rule.
+[ ] Confirm the record is finite (file, value, tolerance, predicate, falsifier).
+[ ] Confirm reproduction is independent — a captured log is not a reproduction.
+</code></pre>
+<h3>A.3 Causal Order checklist</h3>
+<pre><code>[ ] Declare allowed inputs.
+[ ] Declare forbidden targets (and the holdout table).
+[ ] State the rule grammar and the map-construction time/order.
+[ ] State the scale/tolerance policy and confirm it was fixed before outputs.
+[ ] Run the target-perturbation test: if the target changed, would the rule change?
+[ ] Classify the result: prediction vs paid fit.
+[ ] Confirm holdouts were not used during reconstruction.
+[ ] Confirm no projector / exponent / chamber / tolerance was chosen by the target.
+</code></pre>
+<h3>A.4 Nonseparability checklist</h3>
+<pre><code>[ ] State the global object (stage + rulebook + actors + connection + readout).
+[ ] List exact product structures and approximate product structures.
+[ ] List shared anchors, shared scheme objects, shared scale bridges.
+[ ] Identify residual correlations and name the factorization debt.
+[ ] State whether outputs are generated jointly or patched separately.
+[ ] Count each shared object once — never as N independent successes.
+[ ] Justify any additive cost ledger with a factorization proof or a charged cost.
+[ ] Name residual factorization ambiguity explicitly.
+</code></pre>
+<p><strong>Final standard.</strong> This page succeeds if, for any wall, you can now answer: <em>Does the claim survive every branch-preserving redescription? Does it terminate in a finite, correct-object observable or audit record? Was the rule written without the target flowing backward into it? Is every independence assumption proven, paid, or tested?</em> If all four are yes, the wall earns <code>SECOND-LAYER-PASS</code> — eligibility, not closure. If any is no, the wall is blocked, and that block is exactly why its gate is honestly open. The second layer removes ways to be wrong; it never supplies a way to be right. <strong>0 of 33 gates are physics-closed. no status changes.</strong></p>
+</main>
+</div>
+</body></html>

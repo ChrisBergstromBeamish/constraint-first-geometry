@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UQF-7 — Fermion chirality</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 252px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 10px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:14px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9670; The Anchors</a></div>
+<div class="ann-group">Start</div>
+<a href="index.html">Overview — how we judge</a>
+<a href="anchor-hierarchy-overview.html">Anchor hierarchy — map</a>
+<div class="ann-group">The method</div>
+<a href="a0-master-anchor.html">A0 — the master anchor</a>
+<a href="layer-1-metric.html">Layer 1 — MDL metric</a>
+<a href="layer-2-no-unpaid-labels.html">Layer 2 — no unpaid labels</a>
+<a href="layer-3-search-grammars.html">Layer 3 — search grammars</a>
+<a href="layer-4-carrier-forcing.html">Layer 4 — carrier-forcing</a>
+<a href="shape-minimality-challenge.html">Shape minimality challenge</a>
+<div class="ann-group">The hierarchy</div>
+<a href="deep-roots.html">The seven deep roots</a>
+<a href="master-anchors.html">Master anchors</a>
+<a href="logical-endpoint-proof.html">Logical endpoint proof</a>
+<a href="gate-traceability-template.html">Gate traceability template</a>
+<a href="blind-spots.html">Blind spots</a>
+<a href="ai-agent-completion-protocol.html">AI completion protocol</a>
+<div class="ann-group">Gate ledgers · GUT spine</div>
+<a href="sg1-anchor-ledger.html">SG-1 geometry</a>
+<a href="sg2-anchor-ledger.html">SG-2 gauge recovery</a>
+<a href="sg3-anchor-ledger.html">SG-3 generations</a>
+<a href="sg4-anchor-ledger.html">SG-4 hypercharge &amp; anomaly</a>
+<a href="sg5-anchor-ledger.html">SG-5 electroweak</a>
+<a href="sg6-anchor-ledger.html">SG-6 moduli stabilization</a>
+<a href="sg7-anchor-ledger.html">SG-7 threshold unification</a>
+<a href="sg8-anchor-ledger.html">SG-8 flavor closure</a>
+<a href="sg9-anchor-ledger.html">SG-9 proton safety</a>
+<a href="sg10-anchor-ledger.html">SG-10 claim boundary</a>
+<div class="ann-group">Gate ledgers · quantum/gravity/UV</div>
+<a href="uqf3-anchor-ledger.html">UQF-3 reflection positivity</a>
+<a href="uqf4-anchor-ledger.html">UQF-4 BRST / descent</a>
+<a href="uqf5a-5b-anchor-ledger.html">UQF-5A/5B linearized graviton</a>
+<a href="uqf5c-anchor-ledger.html">UQF-5C interacting graviton</a>
+<a href="uqf7-anchor-ledger.html" class="current">UQF-7 fermion chirality</a>
+<a href="uqf9-anchor-ledger.html">UQF-9 UV completion</a>
+<a href="uqf10-anchor-ledger.html">UQF-10 compactification</a>
+<a href="uqf14-anchor-ledger.html">UQF-14 unitarity / causality</a>
+<div class="ann-group">Gate ledgers · cosmology/BH/foundations</div>
+<a href="gap01-anchor-ledger.html">Gap-01 a6 Seeley-DeWitt</a>
+<a href="gap02-anchor-ledger.html">Gap-02 Yang-Mills mass gap</a>
+<a href="gap05-value-anchor-ledger.html">Gap-05 Lambda value</a>
+<a href="gap05-stability-anchor-ledger.html">Gap-05 Lambda stability</a>
+<a href="gap08-anchor-ledger.html">Gap-08 inflation</a>
+<a href="gap10-bg10-anchor-ledger.html">Gap-10/BG-10 baryogenesis</a>
+<a href="gap11-anchor-ledger.html">Gap-11 dark matter</a>
+<a href="gap13-anchor-ledger.html">Gap-13 BH entropy / Page</a>
+<a href="born-anchor-ledger.html">Born rule</a>
+<div class="ann-group">Gate ledgers · deep roots &amp; dissolutions</div>
+<a href="deeproot-granularity-anchor-ledger.html">Deep root — granularity</a>
+<a href="deeproot-shape-anchor-ledger.html">Deep root — structural form</a>
+<a href="lambda-catastrophe-anchor-ledger.html">Lambda-catastrophe (dissolved)</a>
+<a href="blackhole-singularity-anchor-ledger.html">Black-hole singularity (dissolved)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">UQF-7 — Fermion chirality / quantization: the gate anchor ledger — rendered package. Rendered from <code>uqf7-anchor-ledger.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>UQF-7 — Fermion chirality / quantization: the gate anchor ledger</h1>
+<p><strong>The honest one-line: UQF-7 has a real, checkable <em>classical</em> win — the frozen survivor geometry hands us exactly the matter we observe, three families of a single handedness with zero mirror zero-modes, and that count is twice-confirmed — but the gate as a whole is OPEN (AUDIT), because whether that chirality <em>survives quantization</em> is a wall with no known route anywhere in the field.</strong></p>
+<p>This page is the gate-specific instantiation of the <a href="./index.html">anchoring method</a>: it takes the master anchor and the four bridges and applies them, object by object, to one gate. Every exact thing UQF-7 touches gets its own row — its status, what it is <em>allowed</em> to claim, and what it is <em>forbidden</em> to claim. It follows the same eleven-part shape and the same universal table as the canonical <a href="./sg4-anchor-ledger.html">SG-4 ledger</a>.</p>
+<blockquote>
+<p><strong>selection ≠ derivation · given-E ≠ derivation-of-E · frozen/reproducible ≠ proven-unique.</strong></p>
+</blockquote>
+<hr />
+<h2>1. Gate status header</h2>
+<ul>
+<li><strong>Gate-level UQF-7 roll-up:</strong> <strong>OPEN (AUDIT)</strong> — status = least-closed residual.</li>
+<li><strong>Taxonomy reconciliation (2026-07-05):</strong> under the current two-axis taxonomy, the gate-level grading is <strong>a reached classical terminal (classical index DERIVED-GIVEN-E), read as TERMINAL + RESIDUALS-SHOWN</strong> — the open quantum-chirality wall (A2/A3, R1) below remains listed and carried unchanged. The facts are unchanged: the earlier <strong>OPEN (AUDIT)</strong> roll-up reflects the superseded least-closed-residual rule, not different facts. No residual is closed, deleted, or re-graded.</li>
+<li><strong>Classical zero-mode leg (given-E):</strong> the statement that the Dirac operator on the internal space, with the orbifold boundary, returns a one-sided chiral index of magnitude three,
+$$
+(n_L,\,n_R) = (+3,\,0),\qquad |\mathrm{index}| = 3 .
+$$
+This is the closed <em>local/classical</em> leg — the gate's analog of a closed obstruction-zero leg.</li>
+<li><strong>Status, split so it cannot be misread:</strong><ul>
+<li><strong>Classical index leg</strong> (APS $(+3,0)$ + BWB $\chi(K_6,E)=-3$): <strong>DERIVED-GIVEN-E</strong> — theorem-grade inside the index framework, given the Standard-Model bundle $E$. <em>The classical count is not itself axiom-open.</em></li>
+<li><strong>Quantum-chirality certificate</strong> (the non-perturbative coset-twist quantization): <strong>OPEN / WALL</strong> — no known route. This is the gate-defining residual.</li>
+<li><strong>Gate-level UQF-7:</strong> <strong>OPEN (AUDIT).</strong></li>
+</ul>
+</li>
+</ul>
+<p>Given the frozen branch, the classical chiral spectrum comes out correct twice over, with no per-leg retuning. What stays open is the <em>dynamical</em> bridge: whether the four-dimensional descent can be quantized without spawning light opposite-handed partners. One open piece ⇒ the whole gate is OPEN, regardless of how strong the closed pieces are. <strong>No status was upgraded.</strong></p>
+<blockquote>
+<p><strong>selection ≠ derivation · given-E ≠ derivation-of-E · frozen/reproducible ≠ proven-unique.</strong></p>
+</blockquote>
+<hr />
+<h2>2. Frozen inputs (what UQF-7 stands on, not what it produces)</h2>
+<ul>
+<li><strong>Frozen branch hashes</strong> <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code>. The branch is read-only. <strong>These hashes are audit anchors — they certify <em>which object</em> was tested and that it cannot be quietly retuned. They do not validate the physics.</strong></li>
+<li><strong>The frozen 13-dimensional active branch</strong>
+$$
+\mathfrak{B}_{\rm active} = \big[\mathcal{M}_4 \times K_6 \times S^2 \times S^1_Y/\mathbb{Z}_2\big] \oplus \big[F^+_{\rm finite} \oplus C_{\rm admiss}\big] \otimes \big[E_{\rm matter}\oplus E_{\rm gauge}\oplus E_{\rm Higgs}\oplus E_{\rm proton}\big],
+$$
+with $D = 13 = 4 + 6 + 2 + 1$ and $K_6 = SU(3)/T^2$ the $SU(3)$ flag manifold. <strong>Status: GIVEN / upstream-inherited</strong> — UQF-7 is a survival/consistency gate <em>evaluated on the survivor</em>; it searches no new geometry and does not derive the branch.</li>
+<li><strong>Upstream Standard-Model content</strong> $E$ is <strong>given / charged / inherited</strong> — it is the input bundle the index is twisted by. <strong>UQF-7 does not derive $E$.</strong> Every "passes" below is a statement <em>about this $E$</em>, not a derivation <em>of</em> it. The index does not reproduce without $E$.</li>
+</ul>
+<hr />
+<h2>3. Object anchors (the structures the gate acts on, given-E)</h2>
+<p>The chirality-relevant frozen objects are:</p>
+<table>
+<thead>
+<tr>
+<th>Internal factor</th>
+<th>Routes to</th>
+<th>Chirality role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$K_6 = SU(3)/T^2$</td>
+<td>$SU(3)_c$ color</td>
+<td>carries the Dirac index / family count</td>
+</tr>
+<tr>
+<td>$S^2$</td>
+<td>$SU(2)_L$ weak</td>
+<td>spectator for chirality</td>
+</tr>
+<tr>
+<td>$S^1_Y/\mathbb{Z}_2$</td>
+<td>$U(1)_Y$ hypercharge</td>
+<td>the orbifold <strong>chirality filter</strong> (boundary)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The internal Dirac operator $D_{K_6}$ twisted by $E$.</li>
+<li>The spin-$\mathbb{C}$ family index $\chi(K_6,E)=-3$.</li>
+<li>The global $\mathbb{Z}_6$ charge identification.</li>
+<li>The $\mathbb{Z}_2$ orbifold action on $S^1_Y$ that acts as the chirality projector at the boundary.</li>
+</ul>
+<p><strong>Status: GIVEN-E / upstream-inherited</strong> — read off the frozen branch, not UQF-7-derived.</p>
+<hr />
+<h2>4. Root and master-anchor traceability</h2>
+<p><strong>Deep roots that are load-bearing for UQF-7:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Deep root</th>
+<th>Role in UQF-7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Shape</strong></td>
+<td>supplies $K_6=SU(3)/T^2$, the $\mathbb{Z}_2$ fold, and the bundle $E$ being tested</td>
+</tr>
+<tr>
+<td><strong>Granularity</strong></td>
+<td>enforces <em>no unpaid exact labels</em> — the index, the fold action, and the charge identification are all charged or generated</td>
+</tr>
+<tr>
+<td><strong>Physical equivalence / invariance</strong></td>
+<td>makes the chiral index a frame-independent, regulator-meaningful object</td>
+</tr>
+<tr>
+<td><strong>Record interface</strong></td>
+<td>makes the APS / BWB ledgers reproducible and reviewable</td>
+</tr>
+<tr>
+<td><strong>Nonseparability</strong></td>
+<td>explains <em>why</em> a closed classical zero-mode count does <strong>not</strong> equal a closed quantum chirality certificate — the deciding datum is dynamical, not topological</td>
+</tr>
+</tbody>
+</table>
+<p><em>Scale</em> enters only as the UV/IR boundary (R5); <em>causal order</em> is not a primary load-bearing anchor for the classical index.</p>
+<p><strong>Master anchors in play:</strong> finite invariant ledgers · no unpaid labels · the frozen branch · given-$E$ · the <em>declared</em> dynamical-bridge assumption (refused, not paid) · open-residual discipline.</p>
+<hr />
+<h2>5. The UQF-7 anchor ledger (the universal table)</h2>
+<table>
+<thead>
+<tr>
+<th>Gate anchor</th>
+<th>Exact object</th>
+<th>Deep-root link</th>
+<th>Master-anchor link</th>
+<th>Status</th>
+<th>Allowed claim</th>
+<th>Forbidden claim</th>
+<th>Open residual / closure task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gate roll-up</td>
+<td>UQF-7</td>
+<td>Shape, Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN (AUDIT)</strong></td>
+<td>a closed classical leg + an open quantum wall</td>
+<td>"UQF-7 is closed"</td>
+<td>close §10 residuals B4 (A2+A3)</td>
+</tr>
+<tr>
+<td>Frozen branch</td>
+<td>hashes <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code></td>
+<td>Record interface</td>
+<td>frozen branch</td>
+<td><strong>AUDIT ONLY</strong></td>
+<td>the tested object is frozen/read-only</td>
+<td>"hashes validate the physics"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Active branch</td>
+<td>$\mathfrak{B}_{\rm active}$, $D=13$</td>
+<td>Shape</td>
+<td>given-branch</td>
+<td><strong>GIVEN / upstream</strong></td>
+<td>the gate is evaluated on this survivor</td>
+<td>"UQF-7 derives the branch"</td>
+<td>(see selection/SHAPE gates)</td>
+</tr>
+<tr>
+<td>Upstream content</td>
+<td>$E$ (SM bundle)</td>
+<td>Shape</td>
+<td>given-$E$</td>
+<td><strong>GIVEN-E</strong></td>
+<td>the index is twisted by <em>this</em> $E$</td>
+<td>"UQF-7 derives $E$"</td>
+<td>(see SG-2/SG-3 for $E$)</td>
+</tr>
+<tr>
+<td>Internal space</td>
+<td>$K_6=SU(3)/T^2$</td>
+<td>Shape</td>
+<td>given-branch</td>
+<td><strong>GIVEN-E</strong></td>
+<td>carries the family index</td>
+<td>"$K_6$ is forced here"</td>
+<td>(see SHAPE-minimality)</td>
+</tr>
+<tr>
+<td>Chirality filter</td>
+<td>$\mathbb{Z}_2$ action on $S^1_Y$</td>
+<td>Invariance</td>
+<td>declared structure</td>
+<td><strong>GIVEN-E</strong></td>
+<td>the fold projects out mirror zero-modes</td>
+<td>"the filter is added by hand"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>APS classical index</td>
+<td>$(n_L,n_R)=(+3,0)$ on $K_6$</td>
+<td>Invariance, Granularity</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>3 families, one handedness, zero mirror zero-modes</td>
+<td>"it settles the quantum spectrum"</td>
+<td>— (firewalled from R1)</td>
+</tr>
+<tr>
+<td>BWB cross-check</td>
+<td>$\chi(K_6,E)=-3$, $|\mathrm{index}|=3$</td>
+<td>Invariance</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>a second route reproduces the <em>same</em> invariant</td>
+<td>"two independent anchors"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Perturbative no-mirror</td>
+<td>W3 check</td>
+<td>Invariance</td>
+<td>open-residual discipline</td>
+<td><strong>DERIVED-GIVEN-E (perturbative)</strong></td>
+<td>no opposite-handed states near SM masses, to perturbative order</td>
+<td>"no light mirrors (full)"</td>
+<td>reaches non-pert via R1</td>
+</tr>
+<tr>
+<td>Neutrino-count anchor</td>
+<td>$N_\nu = 2.984\pm0.008$</td>
+<td>Record interface</td>
+<td>measured invariant</td>
+<td><strong>MEASURED-ANCHOR</strong></td>
+<td>family count consistent with measurement</td>
+<td>"a mirror-freedom proof"</td>
+<td>irreducible consistency anchor</td>
+</tr>
+<tr>
+<td>Classical obstruction</td>
+<td>$O_{\rm UQF7,class}(E_{\rm frozen})=0$</td>
+<td>Invariance</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>classical chirality admissibility holds</td>
+<td>"$O_{\rm UQF7}=0$ (full)"</td>
+<td>close quantum certificate</td>
+</tr>
+<tr>
+<td>Quantum certificate</td>
+<td>$Q^{\rm 4D}_{\rm desc}$ + readout $R$ + $P_{\text{IR-chiral}}$</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / WALL</strong></td>
+<td>the object is <em>located</em> (identity), not evaluated</td>
+<td>"the quantum certificate is built"</td>
+<td>construct B4 target-blind</td>
+</tr>
+<tr>
+<td>Production obstruction</td>
+<td>$[\omega]\in H^*_{SU(3)}(SU(3)/T^2)$</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / WALL (A2, shared)</strong></td>
+<td>a named boundary-lifted class</td>
+<td>"$[\omega]=0$" / "A2 is a computation-debt"</td>
+<td>compute $[\omega]$ across the lift</td>
+</tr>
+<tr>
+<td>Removal obstruction</td>
+<td>mod-2 / mod-8 spin$^c$/Pin sign bit (SMG)</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / WALL (A3, shared)</strong></td>
+<td>dynamical decoupling is the deciding datum</td>
+<td>"topology decides A3" / "axiomatize no-mirrors"</td>
+<td>run the B4 SMG program</td>
+</tr>
+<tr>
+<td>Faithful-bridge</td>
+<td>classical-index $\to$ IR spectrum map $R$</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / unproven</strong></td>
+<td>the bridge is <em>named and refused</em>, not assumed</td>
+<td>"the bridge is functorial"</td>
+<td>prove $R$ faithful, target-blind</td>
+</tr>
+<tr>
+<td>Atomic anchor</td>
+<td>A1: CHIRAL-CONTENT-IS-DATA</td>
+<td>Granularity</td>
+<td>measured invariant</td>
+<td><strong>AXIOM-OPEN / measured (no floor growth)</strong></td>
+<td>already in the SHAPE/$E$ floor</td>
+<td>"the gate adds a new axiom"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>UV/IR boundary</td>
+<td>R5 structural boundary</td>
+<td>Scale</td>
+<td>open-residual discipline</td>
+<td><strong>DISCLOSED (structural)</strong></td>
+<td>framework supplies UV, not the IR certificate</td>
+<td>"the IR certificate is in reach"</td>
+<td>exported to UQF-11 ledger</td>
+</tr>
+<tr>
+<td>Shared-wall linkage</td>
+<td>R7 = UQF-4 coset-twist</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / WALL (exported, count once)</strong></td>
+<td>the wall is generic, shared</td>
+<td>"plugging it closes BG-10"</td>
+<td>attack B4 once, centrally</td>
+</tr>
+<tr>
+<td>Machine cert</td>
+<td>G04_chirality</td>
+<td>Record interface</td>
+<td>open-residual discipline</td>
+<td><strong>AUDIT ONLY</strong></td>
+<td>a consistency lint vs $-3$ / $(+3,0)$</td>
+<td>"a from-scratch re-derivation"</td>
+<td>optional repro hardening</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. The arithmetic / construction — the classical win, in full</h2>
+<h3>6.1 The Atiyah–Patodi–Singer index (one-sided boundary)</h3>
+<p>Because the active branch carries a boundary — the $S^1_Y/\mathbb{Z}_2$ fold — the relevant statement is an <strong>APS</strong> index with a one-sided spectral boundary condition, not a closed-manifold Atiyah–Singer index. For a Dirac operator $D$ on $X$ with boundary $\partial X$,
+$$
+\mathrm{ind}\, D = \int_X \hat{A}(X)\,\mathrm{ch}(E) \;-\; \frac{\eta(\partial X) + h(\partial X)}{2},
+$$
+with $\hat A$ the A-roof genus, $\mathrm{ch}(E)$ the Chern character of the twisting bundle, $\eta$ the boundary eta-invariant, $h$ its kernel dimension. On the frozen branch this returns
+$$
+(n_L,\,n_R) = (+3,\,0):
+$$
+three left-handed families, <strong>zero</strong> right-handed (mirror) zero-modes. The boundary term is what makes the index <em>one-sided</em>: the $\mathbb{Z}_2$ fold projects out the would-be mirror zero-modes, which is why $n_R=0$ rather than a mirror-symmetric $(+3,+3)$.</p>
+<h3>6.2 The independent BWB confirmation</h3>
+<p>A second route — a <strong>Bott–Weil–Borel</strong> bundle scan on the flag manifold $K_6=SU(3)/T^2$, computing the cohomology of homogeneous bundles over $G/T$ from Weyl-group and dominant-weight data — returns
+$$
+\chi(K_6,E)=-3 \quad\Rightarrow\quad |\mathrm{index}|=3 .
+$$</p>
+<h3>6.3 The classical obstruction map</h3>
+<p>Collect the classical pieces:
+$$
+O_{\rm UQF7,class}(E)=\big(O_{\rm APS}(E),\,O_{\rm BWB}(E),\,O_{\rm pert\text{-}mirror}(E)\big),\qquad O_{\rm UQF7,class}(E_{\rm frozen})=0 .
+$$
+The full gate obstruction additionally carries the <em>quantum</em> descent piece:
+$$
+O_{\rm UQF7}(E)=\big(O_{\rm quantum\text{-}desc}(E),\,O_{\rm APS}(E),\,O_{\rm BWB}(E),\,O_{\rm pert\text{-}mirror}(E)\big).
+$$
+We do <strong>not</strong> assert $O_{\rm UQF7}(E_{\rm frozen})=0$: the quantum-descent residual is not closed.</p>
+<h3>6.4 Specificity diagnostic — the cancellation is specific, not trivial</h3>
+<p>The chirality is not a mirror-symmetric, automatically-balanced count. A mirror-symmetric spectrum would give $(n_L,n_R)=(+3,+3)$ and a vanishing <em>net</em> chiral index; instead the one-sided fold yields
+$$
+n_L - n_R = 3 \neq 0,\qquad\text{while}\qquad n_R = 0 .
+$$
+That the <strong>net</strong> chiral index is non-zero <em>and</em> the mirror count is exactly zero is what makes the result a real arithmetic fact about $E_{\rm frozen}$ rather than an artifact of a symmetric construction. Equally, the two routes agree on the magnitude ($|{\rm index}|=3$ by APS and by BWB) — a reproduction-strength check, not a coincidence of two trivial zeros.</p>
+<hr />
+<h2>7. Declared-structure splits — "twice-derived" and the dynamical bridge, split honestly</h2>
+<p>Two phrases in the headline each hide more than one claim, with different statuses.</p>
+<p><strong>"Twice-derived classical index."</strong> This is <strong>not</strong> two structurally independent anchors:</p>
+<ol>
+<li><strong>APS one-sided index</strong> $(+3,0)$. <strong>Status: DERIVED-GIVEN-E</strong> (classical, zero-mode level).</li>
+<li><strong>BWB scan</strong> $\chi(K_6,E)=-3$. <strong>Status: DERIVED-GIVEN-E</strong> (classical, zero-mode level).</li>
+<li><strong>The relation between them.</strong> APS and BWB <strong>cross-reproduce the same single topological invariant</strong> — a <em>reproduction-strength</em> confirmation, <strong>not</strong> two independent legs. <strong>Status: DERIVED-GIVEN-E</strong>, honestly labeled reproduction, not independence.</li>
+</ol>
+<p><strong>"Chirality survives quantization."</strong> This single phrase is the open object, and it decomposes — at the <em>identity</em> level only (naming <em>which</em> object blocks, not a route to evaluate it) — into:</p>
+<ol>
+<li><strong>Object $Q^{\rm 4D}_{\rm desc}$</strong> — the quantized 4D effective descriptor from the KK + coset/quotient descent, built non-perturbatively and in-category. <strong>OPEN / WALL.</strong></li>
+<li><strong>Readout $R$</strong> — a <em>proven</em>-faithful map $Q^{\rm 4D}_{\rm desc}\to$ physical light-fermion spectrum. <strong>OPEN / unproven</strong> (the "faithful-bridge" trap: the classical index is currently being <em>assumed</em> to represent the full quantum spectrum).</li>
+<li><strong>Proof $P_{\text{IR-chiral}}=\text{true}$</strong>, target-blind. <strong>OPEN / WALL.</strong></li>
+</ol>
+<p>So the classical <em>count</em> is DERIVED-GIVEN-E, its second route is reproduction not independence, and the quantum <em>bridge</em> is an open wall — refused as an axiom, never assumed.</p>
+<hr />
+<h2>8. Open residuals — the quantum/global completion family (shared blocker B4)</h2>
+<p>The classical legs above are firewalled from the open object. The honest closure path is <strong>not</strong> "close UQF-7 directly": it is to attack shared blocker <strong>B4</strong> once, centrally; UQF-7 inherits closure <strong>only if/when</strong> B4 is marked <code>BUILT</code> with a target-blind, adversarially-verified certificate carrying no reverse-engineering from the measured value. The open residuals, each its own row:</p>
+<ul>
+<li><strong>R1 — quantum-chirality certificate / coset-twist quantization.</strong> <strong>OPEN / WALL.</strong> The gate-defining residual; $= A2 + A3$.</li>
+<li><strong>A2 — production obstruction.</strong> <strong>OPEN / WALL.</strong> Whether the boundary-lifted coset-twist class $[\omega]\in H^*_{SU(3)}(SU(3)/T^2)$, transported across the $S^1_Y/\mathbb{Z}_2$ wall by Hořava–Witten inflow into a $d{+}1=5$ relative problem, vanishes. A nonzero $[\omega]$ = a forced light mirror (a FINDING); a vanishing $[\omega]$ = production is safe. Same object as UQF-4's O5/O3 (shared blocker B2).</li>
+<li><strong>A3 — removal obstruction.</strong> <strong>OPEN / WALL.</strong> <em>If</em> a light mirror is produced, it pairs into a vectorlike (anomaly-trivial) combination; whether it acquires a symmetric mass and decouples is decided by strong-coupling <strong>symmetric mass generation (SMG)</strong>, pinned to a discrete <strong>mod-2 / mod-8 spin$^c$ / Pin sign bit</strong> — the same bit family as UQF-4 row-17 and BG-10's CP-phase residue.</li>
+<li><strong>The target predicate $P_{\text{IR-chiral}}$ (the failure-complete set).</strong> <strong>OPEN.</strong> The honest target is not "no light mirror" but the complete invalidating set: (1) no light vectorlike mirrors; (2) no gapless composites; (3) no boundary / domain-wall remnants; (4) no KK remnants; (5) no topological IR sectors (Wang–Wen anomaly matching as a completeness constraint); (6) no wrong relevant/marginal operators; (7) no damage to the desired chiral families (a selectivity failure). Any survivor ⇒ $P_{\text{IR-chiral}}=\text{false}$ ⇒ a <strong>FINDING</strong>.</li>
+<li><strong>R5 — UV/IR structural boundary.</strong> <strong>DISCLOSED (structural).</strong> Exported to the IR-certificate ledger shared with UQF-11.</li>
+<li><strong>R7 — shared-wall linkage to UQF-4.</strong> <strong>OPEN / WALL, EXPORTED.</strong> Counted once; plugging it does <strong>not</strong> by itself close BG-10's independent open residuals (Rules B/C, $M_R$).</li>
+<li><strong>Machine cert G04_chirality.</strong> <strong>AUDIT ONLY.</strong> A consistency lint against the declared $-3$ / $(+3,0)$; an optional from-scratch re-run is a reproducibility gain on a <em>closed</em> leg, not progress on R1.</li>
+</ul>
+<p>A2 and A3 are <strong>OPEN/wall, not axioms</strong> — shared-exported and counted once. The gate reduces to exactly <strong>one</strong> genuinely atomic measured-invariant anchor, <strong>A1: CHIRAL-CONTENT-IS-DATA</strong>, already in the SHAPE/$E$ floor, so there is <strong>no floor growth</strong>.</p>
+<hr />
+<h2>9. Anti-claims (what this page refuses to say)</h2>
+<ul>
+<li>UQF-7 does <strong>not</strong> derive $E$, and the classical index does <strong>not</strong> settle the quantum spectrum. Formally: $E_{\rm frozen}\in\ker O_{\rm UQF7,class}$, <strong>not</strong> $\ker O_{\rm UQF7}=\{E_{\rm SM}\}$.</li>
+<li><strong>Quantization is not proven to preserve the chiral spectrum</strong> with no light mirror partners. The non-perturbative coset-twist quantization has <strong>no known route</strong>; no quantum-chirality certificate is asserted.</li>
+<li><strong>The twice-confirmed classical index does not settle the quantum mirror question.</strong> APS $(+3,0)$ and BWB $|{\rm index}|=3$ are firewalled, zero-mode / perturbative scope only; promoting them onto the quantum question is refused. And they are <strong>not</strong> two independent anchors — they cross-reproduce one invariant.</li>
+<li><strong>The production obstruction is not assumed away.</strong> $[\omega]=0$ is exactly what is <strong>refused</strong>; A2 and A3 are left OPEN/wall, and no axiom is named for the un-routed calculation.</li>
+<li><strong>Topology cannot decide the mirror question.</strong> A light vectorlike mirror has net chiral index $n_L-n_R=0$, is null in every gauge/gravitational/global anomaly and in the spin$^c$/cobordism bordism group, so <strong>no 't Hooft / Witten / Dai–Freed / APS / spin$^c$ certificate can ever decide whether a light mirror is present</strong> — including a <em>future BUILT</em> B2. The deciding datum is dynamical.</li>
+<li><strong>"No light mirror" is not the target.</strong> Certifying "no named mirror" while a gapless composite, an emergent TQFT sector, or a wrong operator survives is a false win; the full seven-condition $P_{\text{IR-chiral}}$ is kept.</li>
+<li><strong>The perturbative check is not a non-perturbative certificate</strong>; the neutrino count is a consistency anchor, not a mirror-freedom proof.</li>
+<li>The frozen-branch hashes are audit anchors; they do <strong>not</strong> validate the physics. <strong>Local/classical closure is not whole-gate closure:</strong> $O_{\rm UQF7,class}=0$ does not imply $O_{\rm UQF7}=0$.</li>
+</ul>
+<hr />
+<h2>10. Specialist closure plan</h2>
+<p>The closure path is to build shared blocker <strong>B4</strong> once, target-blind, with three first-class outcomes — <strong>BUILT</strong> (decoupling proven), <strong>FINDING</strong> (an IR survivor, a real refutation of quantum chirality on this branch), or <strong>OPEN-wall</strong> (today's status). A false "B4 is built" would propagate a false anchor to all four dependent gates at once — the worst failure mode — so the bar is a target-blind, adversarially-verified certificate, <strong>not one second before.</strong></p>
+<ol>
+<li><strong>A2 / production — compute $[\omega]$.</strong> Construct the non-perturbative coset-twist quantization that <strong>computes</strong> whether $[\omega]$ vanishes across the boundary lift, rather than assuming it. Machinery: equivariant cohomology on the flag manifold $H^*_{SU(3)}(SU(3)/T^2)$ (BWB / Schubert-calculus); Hořava–Witten boundary inflow; Dai–Freed $\eta$-invariant / Pin$^c$ bordism; the spin$^c$-$G$ integrality equation $w_2(X)+f^*\zeta=0$. <strong>Falsifier:</strong> $[\omega]\neq 0$ ⇒ a forced light mirror ⇒ FINDING. <strong>Traps:</strong> do <strong>not</strong> bank A2 as a named computation-debt (it is either the anomaly object — which A3 proves is blind — or the full wall renamed); do <strong>not</strong> assume $[\omega]=0$; the $w_2+f^*\zeta=0$ data is itself blocked-on-data. A clean $[\omega]=0$ closes only the <em>production</em> half.</li>
+<li><strong>A3 / removal — the three-stage B4 program.</strong><ul>
+<li><strong>B4.1 — the assay/instrument (tractable, bankable, build first).</strong> Type the predicate $P_{\text{IR-chiral}}$ and build the failure-complete detector $\Pi_{\rm bad}$ + the readout $R$ + the light/heavy criterion. Validate with negative controls ($\Pi_{\rm bad}$ <strong>must FAIL</strong> on an explicit light mirror, a gapped desired sector, a boundary remnant, a gapless composite, and a topology-passes-but-dynamics-fails case), plus an UNKNOWN-failure-mode typed slot and an over-completeness negative control. This requires no non-perturbative dynamics — it is the instrument that catches a future classical→quantum over-promotion.</li>
+<li><strong>B4.2 — the regulated quantum descriptor (the frontier).</strong> Build a minimal target-blind regulated model $Q_\Lambda$ <em>capable of failing</em>, then take $Q_\Lambda\to Q^{\rm 4D}_{\rm desc}$ or return a named obstruction (a sharper wall).</li>
+<li><strong>B4.3 — selective dynamical mirror-decoupling (the core).</strong> Prove SMG-1 existence, SMG-2 selectivity (gaps the unwanted sector while preserving the desired families), and SMG-3 completeness (removes ALL unwanted IR residue per $\Pi_{\rm bad}$, using Wang–Wen anomaly matching as a completeness constraint).</li>
+<li><strong>Composition + mount.</strong> Prove $Q_\Lambda + R + \Pi_{\rm bad} + \text{SMG} + \text{consistency} \Rightarrow P_{\text{IR-chiral}}(Q)=\text{true}$ via <strong>two structurally-independent routes</strong> (same load-bearing input = one route), with a per-dependent typed mount/bridge contract. Machinery: lattice chiral gauge theory and SMG (Eichten–Preskill; Wen; Wang–Wen 3-4-5-0 and the 16-fold way; Ginsparg–Wilson); strong-coupling dynamics on the curved coset with boundary.</li>
+</ul>
+</li>
+<li><strong>R5 / UV/IR boundary</strong> — keep DISCLOSED and exported to the UQF-11 IR-certificate ledger.</li>
+<li><strong>R7 / shared-wall linkage</strong> — attack once with UQF-4; do not re-attack UQF-7 as an isolated gate; do not over-export (BG-10's Rules B/C, $M_R$ stay open).</li>
+<li><strong>G04_chirality cert</strong> — optionally mount the from-scratch Dirac-spectrum re-run to harden the <em>closed</em> classical leg; this is reproducibility, not R1 progress.</li>
+</ol>
+<p>Closing A2 and A3 (i.e. a BUILT B4) is what would advance UQF-7 from "classical leg closed, gate open" toward whole-gate closure — and even then, only <em>given</em> $E$. <strong>Scope guard:</strong> even a clean BUILT B4 is the fermion-sector facet only and <strong>cannot</strong> touch the Yang–Mills mass gap.</p>
+<hr />
+<h2>11. Completion tests for this page</h2>
+<p><strong>Required presence (all met):</strong> gate roll-up OPEN (AUDIT) · the closed classical leg $(n_L,n_R)=(+3,0)$, $O_{\rm UQF7,class}(E_{\rm frozen})=0$ · classical leg DERIVED-GIVEN-E · $E$ not derived · frozen hashes (AUDIT ONLY) · the APS index · the BWB cross-check (reproduction, not independence) · the $\mathbb{Z}_2$ chirality filter · the perturbative no-mirror check · the measured $N_\nu=2.984\pm0.008$ anchor · specificity diagnostic $n_L-n_R=3\neq0,\ n_R=0$ · the quantum certificate residual R1 · production obstruction A2 ($[\omega]$) · removal obstruction A3 (SMG sign bit) · the faithful-bridge residual · the seven-condition $P_{\text{IR-chiral}}$ · the atomic anchor A1 (no floor growth) · the anomaly-blindness anti-claim · the hashes-don't-validate anti-claim.</p>
+<p><strong>Required absence (all held):</strong> no claim that UQF-7 is fully closed · $E$ is derived · the classical index settles the quantum spectrum · APS and BWB are two independent anchors · $\ker O_{\rm UQF7}=\{E_{\rm SM}\}$ · $[\omega]=0$ assumed · a "no-mirrors" axiom named · topology decides A3 · "no perturbative mirrors" ⇒ "no light mirrors" · a partial result asserted as BUILT · hashes validate physics · classical/local closure = whole-gate completion · any reader-visible build-process vocabulary.</p>
+<hr />
+<p><em>This page follows the canonical eleven-part shape and the universal table of the <a href="./sg4-anchor-ledger.html">SG-4 ledger</a>. The classical chirality count is real, recovered, and twice-confirmed; the quantum certificate is a located, shared wall — open for the whole field, and shared here so a specialist can move it.</em></p>
+<p><strong>See also:</strong> <a href="./index.html">the anchoring method</a> · <a href="./layer-2-no-unpaid-labels.html">Layer 2 — no unpaid exact labels</a> · <a href="./layer-4-carrier-forcing.html">Layer 4 — carrier-forcing &amp; the given-E wall</a> (why a classical index does not promote to a quantum spectrum) · the <a href="./sg4-anchor-ledger.html">SG-4 ledger</a> (the template) · the <a href="./uqf3-anchor-ledger.html">UQF-3 ledger</a> (the companion UV/IR wall) · the full <a href="../articles/DOSSIER_UQF7_FULL.html">UQF-7 dossier</a>.</p>
+</main>
+</div>
+</body></html>

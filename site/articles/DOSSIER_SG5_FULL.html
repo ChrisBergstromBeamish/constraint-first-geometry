@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SG-5 — Electroweak embedding Q=T3+Y / EWSB to U(1)_em: full dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">SG-5 — Electroweak embedding Q=T3+Y / EWSB to U(1)_em: full dossier — rendered package. Rendered from <code>DOSSIER_SG5_FULL.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>SG-5 — Electroweak embedding Q=T3+Y / EWSB to U(1)_em: full dossier</h1>
+<blockquote>
+<p><strong>Audience: the specialist who will close the gaps (and the open-science public).</strong>
+<strong>Status (binding, matches the live popup): OPEN (gate roll-up) — with the charge/embedding leg at DERIVED-GIVEN-E and the ρ observable fully computed.</strong> Direction: held.
+<strong>STATUS-UPGRADES:0.</strong> Frozen branch <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code> READ-ONLY. given-E ≠ derivation of E; selection ≠ derivation; dissolved ≠ solved; ANCHORED ≠ DERIVED. Honest ceiling: serious candidate, NOT validated.
+<strong>Voice:</strong> lead with what is shown; keep every confident sentence true. The honest edge here is a <em>strength</em> — we built the W/Z mass machinery and read ρ target-blind, so the gate carries a falsifiable FINDING, not a hedge.</p>
+</blockquote>
+<hr />
+<h2>§0. Executive summary + honest status</h2>
+<h3>0.1 The headline</h3>
+<p>We embed electric charge exactly — <code>Q = T₃ + Y</code> on every Standard-Model multiplet — and break the electroweak group with a single geometric (Wilson-line / Hosotani) Higgs. Then we did the thing most unified frameworks skip: we <strong>actually built the electroweak gauge-boson mass matrix from the frozen geometry</strong> and read the custodial parameter ρ off it, target-blind. The result is sharp and honest: ρ is a <em>real, physical, gauge-invariant observable</em>, and the frozen charge law itself pins where the symmetry-breaking direction sits — which produces a <strong>target-blind FINDING that ρ_tree ≠ 1</strong>, a live precision-electroweak tension against the measured ρ₀ = 1.00038 ± 0.00020. That is not a value we tuned; ρ₀ was an input to nothing.</p>
+<h3>0.2 The honest grade (must match the live chip)</h3>
+<p>The gate is <strong>OPEN</strong> at the roll-up — and it is <em>governed by its least-closed residual</em>, so it cannot be graded higher while the hierarchy and the ρ-realization map stay open. But the components split cleanly, and several are genuinely strong:</p>
+<table>
+<thead>
+<tr>
+<th>Leg</th>
+<th>Disposition</th>
+<th>One-line basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Charge <code>Q = T₃ + Y</code></strong></td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>exact, componentwise, hand-checkable on every SM multiplet given the frozen ℤ₆ parity table</td>
+</tr>
+<tr>
+<td><strong>ℤ₆ consistency rule</strong> <code>t/3 + d/2 + Y ∈ ℤ</code></td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>non-conforming hypercharges are <em>inconsistent on the geometry</em>, not merely unobserved</td>
+</tr>
+<tr>
+<td><strong>EWSB <code>SU(2)_L×U(1)_Y → U(1)_em</code></strong></td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>one Wilson-line/Hosotani doublet <code>H∼(1,2,+½)</code>, integer winding <code>n_H=1</code>; photon masslessness forced (det of neutral block = 0)</td>
+</tr>
+<tr>
+<td><strong>Higgs-mass quadratic destabilization avoided</strong></td>
+<td><strong>banked sub-result (one-loop)</strong></td>
+<td><code>δm_H² ∼ M_*²</code> topologically forbidden (needs non-integer <code>n_H</code>); <code>V_Hos</code> finite/periodic/cutoff-independent</td>
+</tr>
+<tr>
+<td><strong>Minimal EW-breaking actor / <code>n_H=1</code> / ℤ₆ table</strong></td>
+<td><strong>AXIOM-CLOSED</strong></td>
+<td>named target-blind selections (minimality selector); ℤ₆ finest-ness OPEN</td>
+</tr>
+<tr>
+<td><strong>W/Z mass matrix + ρ observable</strong></td>
+<td><strong>COMPUTED → FINDING: ρ_tree ≠ 1</strong></td>
+<td><code>O_a = ½(|h|² − h_a²)</code>, <code>ρ_tree = ½ + h₃²/(h₁²+h₂²)</code>, machine-verified; charge law forces <code>T_H∥T₃</code> ⇒ <code>O₃=0</code> ⇒ ρ_tree ≠ 1</td>
+</tr>
+<tr>
+<td><strong><code>v_EW</code></strong></td>
+<td><strong>measured-but-irreducible</strong></td>
+<td>a second dimensionful anchor (alongside <code>M_Pl</code>); <em>realized</em> by <code>v = θ_H*/(2πR_γ)</code>, not derived</td>
+</tr>
+<tr>
+<td><strong>Hierarchy / lightness of <code>v</code></strong></td>
+<td><strong>OPEN / RELOCATION</strong></td>
+<td><code>θ_H*</code> read from the one-loop minimum (~85% of the hierarchy); SCALE firewall uncrossed</td>
+</tr>
+<tr>
+<td><strong>η_BK provenance (R5)</strong></td>
+<td><strong>SUSPECT (unaudited)</strong></td>
+<td>is <code>1/η_BK = 32π·e^{√3/24π}</code> written blind, or reverse-engineered to hit <code>|y_t/y_b|</code>?</td>
+</tr>
+<tr>
+<td><strong><code>v</code>/<code>m_h</code> reproducer (R6)</strong></td>
+<td><strong>AUDIT/BLOCKED</strong></td>
+<td>byte-equal regeneration referenced, not independently re-run</td>
+</tr>
+</tbody>
+</table>
+<h3>0.3 What this dossier establishes and what it does not</h3>
+<p>This dossier establishes, with full traceability to the frozen corpus: (i) the <strong>exact charge embedding</strong> and its ℤ₆ consistency rule; (ii) the <strong>single-doublet EWSB mechanism</strong> and forced photon masslessness; (iii) the <strong>structural avoidance of the Higgs quadratic destabilization</strong>; and (iv) the <strong>complete construction of the geometric W/Z mass matrix</strong>, machine-verified, which converts the previously-asserted custodial relation into a <em>computed, target-blind FINDING that ρ_tree ≠ 1</em>. It does <strong>not</strong> claim to derive the electroweak hierarchy (that is OPEN/RELOCATION), does <strong>not</strong> claim the geometry predicts ρ = 1 (the opposite — the bare-commutator readout disfavors it), does <strong>not</strong> treat <code>v_EW</code> as derived (it is a transparent second anchor), and does <strong>not</strong> prove the selected geometry unique. Every "not" is stated loudly; none is buried.</p>
+<p>A note on an internal reconciliation, carried honestly. An older deploy-doc framing (<code>SG5_ELECTROWEAK_CLOSURE_RESULT.md</code> §8) describes ρ as an <em>undetermined flat modulus</em> over <code>[½, ∞)</code>. The <strong>owner-binding</strong> disposition (files <code>11_R3_VERDICT_FINDING_STANDS</code> and <code>12_R3_READOUT_MAP_AUDIT</code>, both marked OWNER VERDICT, readout-map audit COMPLETE) supersedes that: the mounted charge law <code>Q=T₃+Y</code> <em>pins</em> the direction, so h₃ is <strong>not</strong> a free modulus and ρ_tree ≠ 1 is a <em>standing FINDING</em>, not "neither derived nor falsified." This dossier carries the FINDING as the binding disposition and §3.6 reconciles the two framings in full.</p>
+<hr />
+<h2>§1. The community gap</h2>
+<h3>1.1 The precise open problem</h3>
+<p>Any theory that claims to unify the Standard Model interactions inherits four obligations in the electroweak sector:</p>
+<ol>
+<li><strong>Charge quantization &amp; embedding.</strong> Reproduce electric charge <code>Q</code> on every fermion — including the famous <code>−⅓</code> of the down quark and the part-in-10²¹ neutrality of the hydrogen atom — as <code>Q = T₃ + Y</code>, with the hypercharge assignments not free but forced.</li>
+<li><strong>Electroweak symmetry breaking.</strong> Break <code>SU(2)_L × U(1)_Y → U(1)_em</code> and leave exactly one massless gauge boson (the photon), with the breaking sourced by a definite, ideally not-hand-inserted, scalar.</li>
+<li><strong>The custodial relation <code>ρ ≈ 1</code>.</strong> The tree-level relation <code>ρ = M_W² / (M_Z² cos²θ_W) = 1</code> is the hallmark of breaking by an <code>SU(2)_L</code> doublet. Experimentally <code>ρ₀ = 1.00038 ± 0.00020</code> (PDG electroweak fit). In the SM this is <em>protected</em> by an accidental custodial <code>SU(2)</code> and is treated as a structural input, not derived from a deeper geometry.</li>
+<li><strong>The hierarchy.</strong> Explain why the electroweak scale <code>v ≈ 246 GeV</code> is ~16 orders of magnitude below <code>M_Pl</code> — the gauge hierarchy problem — without fine-tuning the Higgs mass against quadratic UV sensitivity.</li>
+</ol>
+<h3>1.2 State of the art / best bounds across the community</h3>
+<ul>
+<li><strong>The hierarchy is unsolved.</strong> Across frameworks — technicolor, low-scale SUSY, large/warped extra dimensions, composite Higgs, the Hosotani / gauge-Higgs-unification (GHU) program — the lightness of <code>v</code> is either tuned, relocated to another scale, or pushed beyond reach of current data. No framework derives <code>v/M_Pl ∼ 10⁻¹⁶</code> from a parameter-free UV input. This is the canonical naturalness problem.</li>
+<li><strong>ρ = 1 is an input, not a derivation.</strong> In essentially every model <code>ρ = 1</code> is a <em>custodial-symmetry assumption</em> or an automatic consequence of choosing a single doublet by hand. The measured deviation <code>ρ₀ − 1 = (3.8 ± 2.0)×10⁻⁴</code> is fitted by the SM through known loop corrections (dominated by the <code>m_t</code>–<code>m_b</code> splitting); it is not predicted by a geometric first-principle in any unified candidate.</li>
+<li><strong>GHU / Hosotani context.</strong> In gauge-Higgs unification the Higgs is the extra-dimensional component of a gauge field (<code>A_y</code>), and its potential <code>V_Hos(θ_H)</code> is finite and calculable (Hosotani mechanism: the Higgs mass is protected by higher-dimensional gauge invariance — no quadratic divergence). This is the <em>good</em> feature our construction inherits. The hard, unsolved part everywhere is (a) why the minimum <code>θ_H*</code> is <em>tiny</em> (the hierarchy), and (b) whether the realized breaking is custodial-symmetric (<code>ρ = 1</code>) or not. Realistic GHU models on <code>S¹/ℤ₂</code> typically <em>engineer</em> custodial protection by enlarging the bulk gauge group to contain <code>SO(4) ≃ SU(2)_L × SU(2)_R</code> or by using an <code>SO(5)/SO(4)</code> coset (the Agashe–Contino–Pomarol composite-Higgs route). That custodial coset is exactly what our frozen object <strong>does not</strong> contain — and that is the crux of the SG-5 ρ FINDING below.</li>
+</ul>
+<h3>1.3 Why prior attempts fall short — and where ours stands relative to them</h3>
+<p>The community's two standard ρ = 1 mechanisms both <em>insert</em> the custodial structure: either by hand (choose one doublet, declare custodial <code>SU(2)</code>) or by enlarging the bulk group to a custodial coset. Neither is a <em>derivation from a fixed higher-dimensional geometry whose breaking direction is independently pinned</em>. Our construction is different in a way that is both a strength and the source of the FINDING: the breaking direction is <strong>not free</strong> — the same <code>Q = T₃ + Y</code> charge law that gives us exact charges <em>also pins</em> the electroweak-neutral axis. We do not get to choose the doublet's alignment to make ρ come out right; the geometry chooses it for us. When we do the computation honestly, that pinning forces ρ_tree ≠ 1 at the bare-commutator level. So our gap is <em>not</em> "we assumed ρ = 1 like everyone else" — it is "we computed ρ, found a tension, and named it as a live falsifiable finding." That is a more honest and more attackable position than the field's default.</p>
+<hr />
+<h2>§2. The construction — rigorous math</h2>
+<blockquote>
+<p>Full published derivation: GUT.html §6.3 (charge) + §6.8 (Higgs) + Appendices D / E′ / H, at <a href="https://physics.magflowmeters.com/articles/GUT.html">https://physics.magflowmeters.com/articles/GUT.html</a>. This section reproduces the load-bearing math at working-physicist depth so a reader can both check it and build on it.</p>
+</blockquote>
+<h3>2.1 The geometric backbone</h3>
+<p>The frozen SM-routing geometry is</p>
+<pre><code>K_gauge = K₆ × S² × S¹_Y/ℤ₂        (× M₄ spacetime)
+</code></pre>
+<p>with <code>K₆ = SU(3)/T²</code> the colour carrier, <code>S²</code> the weak-isospin carrier, and <code>S¹_Y/ℤ₂</code> the hypercharge carrier (a folded circle). The isometry group of <code>K_gauge</code> delivers <code>SU(3)_c × SU(2)_L × U(1)_Y</code> (this is the SG-2 result, taken as given here). Electromagnetism is then the unbroken combination after EWSB.</p>
+<p>The forward chain SG-5 rides:</p>
+<pre><code>isometries(K_gauge) → SU(3)_c × SU(2)_L × U(1)_Y           [SG-2, given]
+  --S¹_Y/ℤ₂ + ℤ₆ quotient--&gt;  Q = T₃ + Y on every multiplet  [charge leg]
+  --one Wilson-line/Hosotani doublet H (n_H=1)--&gt;  V_Hos(θ_H) minimum θ_H*
+  --SU(2)_L×U(1)_Y → U(1)_em--&gt;  v = θ_H*/(2πR_γ),  m_h² = V&#x27;&#x27;_Hos(θ_H*)/(2πR_γ)²
+  --same η_BK (finite determinant)--&gt;  { v=246.02, m_h=123.82, |y_t/y_b| }
+</code></pre>
+<h3>2.2 The charge embedding <code>Q = T₃ + Y</code> (DERIVED-GIVEN-E)</h3>
+<p>Hypercharge <code>U(1)_Y</code> is the rotation of the folded circle <code>S¹_Y/ℤ₂</code>. Electromagnetism is the unbroken combination <code>Q = T₃ + Y</code>. The charge claim is <strong>two exact predicates</strong> holding componentwise on each multiplet:</p>
+<ol>
+<li><strong><code>Q = T₃ + Y</code></strong> componentwise; and</li>
+<li>the <strong>ℤ₆ consistency rule</strong> <code>t/3 + d/2 + Y ∈ ℤ</code>, with <code>t = +1, −1, 0</code> for <code>3, 3̄, 1</code> of colour and <code>d = 1, 0</code> for <code>SU(2)</code> doublet / singlet.</li>
+</ol>
+<p>The second predicate is what makes the embedding <em>rigid</em>: it expresses that the global quotient is <code>[SU(3) × SU(2) × U(1)_Y]/ℤ₆</code> (realized by the frozen parity table, hash <code>ac4d2df3e708</code>), so a hypercharge that fails the congruence is <strong>inconsistent on the geometry</strong>, not merely "not observed."</p>
+<p><strong>Hand-checkable worked examples</strong> (every number here is arithmetic from the frozen <code>Y</code> table):</p>
+<table>
+<thead>
+<tr>
+<th>Multiplet</th>
+<th><code>T₃</code></th>
+<th><code>Y</code></th>
+<th><code>Q = T₃ + Y</code></th>
+<th>ℤ₆ check <code>t/3 + d/2 + Y</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Q_L = (u_L, d_L)</code></td>
+<td><code>±½</code></td>
+<td><code>+⅙</code></td>
+<td><code>{+⅔, −⅓}</code></td>
+<td><code>⅓ + ½ + ⅙ = 1 ∈ ℤ</code> ✓</td>
+</tr>
+<tr>
+<td><code>u_R</code></td>
+<td><code>0</code></td>
+<td><code>+⅔</code></td>
+<td><code>+⅔</code></td>
+<td><code>⅓ + 0 + ⅔ = 1 ∈ ℤ</code> ✓</td>
+</tr>
+<tr>
+<td><code>d_R</code></td>
+<td><code>0</code></td>
+<td><code>−⅓</code></td>
+<td><code>−⅓</code></td>
+<td><code>⅓ + 0 − ⅓ = 0 ∈ ℤ</code> ✓</td>
+</tr>
+<tr>
+<td><code>L = (ν_L, e_L)</code></td>
+<td><code>±½</code></td>
+<td><code>−½</code></td>
+<td><code>{0, −1}</code></td>
+<td><code>0 + ½ − ½ = 0 ∈ ℤ</code> ✓</td>
+</tr>
+<tr>
+<td><code>e_R</code></td>
+<td><code>0</code></td>
+<td><code>−1</code></td>
+<td><code>−1</code></td>
+<td><code>0 + 0 − 1 = −1 ∈ ℤ</code> ✓</td>
+</tr>
+<tr>
+<td><code>H</code></td>
+<td><code>±½</code></td>
+<td><code>+½</code></td>
+<td><code>{+1, 0}</code></td>
+<td><code>0 + ½ + ½ = 1 ∈ ℤ</code> ✓</td>
+</tr>
+</tbody>
+</table>
+<p>A <strong>killed</strong> counterexample, to show the rule has teeth: <code>Y(Q_L) = ⅕</code> (instead of <code>+⅙</code>) gives <code>⅓ + ½ + ⅕ = 31/30 ∉ ℤ</code> — barred. This is the corroborated A4-ℤ₆ "Tong congruence" <code>q = 3z₂ − 2z₃ mod 6</code>, satisfied field-by-field by the SM triples, with the <code>χ = −3</code> global-index constraint honored. The down quark lands at exactly <code>−⅓</code>, and atomic neutrality to ~1 part in 10²¹ is reproduced <em>structurally</em> (it is forced by the congruence, not fitted).</p>
+<p><strong>Honest scope.</strong> The parity/center table was <em>selected and frozen</em>, not searched: §5.2 of the manuscript states "searched no manifolds; selected the parity/center assignments on the fold; froze the parity table." So charge is forced <strong>given</strong> that table — DERIVED-GIVEN-E, with the table's selection (and the <code>=ℤ₆</code> finest-ness) carried as the residue (R9, §6.9). This is the gate's strongest, most defensible leg.</p>
+<h3>2.3 The single Wilson-line / Hosotani doublet (DERIVED-GIVEN-E)</h3>
+<p>The Higgs is identified with the holonomy (Wilson-line) mode of the gauge connection on the <code>SU(2)_L</code>-direction cycle <code>γ ⊂ K_gauge</code>:</p>
+<pre><code>W_γ = P exp( i ∮_γ A ),     E_Higgs = L_γ ⊗ V_{SU(2),doublet} ⊗ L_{Y=+½}
+</code></pre>
+<p>(bundle hash <code>2a0462b8aab9</code>, cycle hash <code>640e1d7f7773</code>). It is exactly <strong>one</strong> doublet <code>H ∈ (1, 2, +½)</code>, carrying <strong>integer winding <code>n_H = 1</code></strong> (hash <code>f65094fd8fd1</code>), which is topologically protected. The winding is the <em>minimal admissible non-zero integer</em>:</p>
+<ul>
+<li><code>n_H = 0</code> ⇒ <code>v = 0</code> (no breaking) — a clean structural kill;</li>
+<li><code>n_H ≥ 2</code> ⇒ <code>v ≈ 492 GeV</code> and breaks the one-input-two-outputs alignment (failure ledger L6368/L7650) — a data-dependent kill.</li>
+</ul>
+<p>So <code>n_H = 1</code> is AXIOM-CLOSED at the minimal-winding axiom (R10, §6.10): the <code>n_H=0</code> exclusion is target-blind; the <code>n_H≥2</code> exclusion is a disclosed data check.</p>
+<h3>2.4 The Hosotani phase, the potential, and the breaking</h3>
+<p>Writing the Wilson-line connection as <code>A_γ = (θ_H / 2πR_γ) T_H</code> with <code>θ_H ∈ [0, 2π)</code> and <code>T_H ∈ su(2)_L</code>, the VEV is <code>⟨H⟩ = θ_H / (2πR_γ)</code>, so</p>
+<pre><code>v_EW = θ_H* / (2π R_γ),      θ_H* = argmin V_Hos(θ_H).
+</code></pre>
+<p>The one-loop Coleman–Weinberg / Hosotani potential is</p>
+<pre><code>V_Hos(θ_H) = − (3 / 64π⁶R_γ⁴) Σ_{n=1}^∞ (1/n⁵) [ N_b cos(nθ_H) − N_f cos(nθ_H) ],
+</code></pre>
+<p>which is <strong>finite</strong> (the <code>n⁻⁵</code> sum converges absolutely), <strong>periodic</strong> (so <code>n_H</code> is a topological invariant), and <strong>cutoff-independent</strong>. The non-zero <code>θ_H*</code> <em>is</em> the EWSB; the unbroken direction is <code>U(1)_em</code> with <code>Q = T₃ + Y</code>. Note the <code>N_b − N_f</code> structure: if <code>N_b = N_f</code> the <code>θ_H</code>-dependence vanishes and there is no breaking (this is residual R8, §6.8 — the imbalance is a structural prerequisite).</p>
+<h3>2.5 The finite determinant η_BK and the near-hit numbers</h3>
+<p>The Higgs-mass scale and the between-sector Yukawa ratio are set simultaneously by one frozen finite (Berezin–Kontsevich) determinant <code>η_BK = 0.009721281516312024</code> (hash <code>84e94518d3f5</code>), via the structural identity</p>
+<pre><code>1/η_BK = e^{2β₁*} = 32π · exp(√3 / 24π) ≈ 102.87 = |y_t/y_b|   (raw determinant;
+                                                                 certified M_Z value ≈ 58, App J).
+</code></pre>
+<p><strong>Numerical check (recomputed for this dossier):</strong> <code>32π = 100.531</code>, <code>exp(√3/24π) = 1.023238</code>, product <code>= 102.867</code>, and <code>1/102.867 = 0.009721281516312</code> — exact to the frozen value. The post-RG outputs are</p>
+<pre><code>v   = 246.02 ± 3.5 GeV   (0.06σ_th vs PDG 246.22)
+m_h = 123.82 ± 1.8 GeV   (0.48σ_th vs PDG 125.10 ± 0.14)
+m_h² = V&#x27;&#x27;_Hos(θ_H*) / (2πR_γ)²
+</code></pre>
+<p>This is the genuine, non-trivial content: <strong>one geometric quantity (η_BK), two SM outputs (<code>v</code>, <code>m_h</code>) plus the Yukawa ratio</strong> — a one-input-two-outputs compression. (Whether the <em>form</em> of η_BK is target-blind is residual R5, §6.5; the value reproduces, the provenance is unaudited.)</p>
+<h3>2.6 The Higgs-mass quadratic destabilization is structurally avoided (banked, one-loop)</h3>
+<p>The would-be <code>δm_H² ∼ M_*²</code> tree counterterm is <strong>topologically forbidden</strong>: it would require a non-integer change in <code>n_H</code>, which is impossible for an integer winding. <code>V_Hos</code> is finite, periodic, and cutoff-independent, so there is no quadratic UV sensitivity at one loop. The mass is protected to <code>∼10¹⁴ GeV</code> (SCALE_HIERARCHY_FINAL_VERDICT "PROVEN sub-result"). This is a <em>proven, banked</em> result — but it is <strong>one-loop</strong>; all-orders protection is Diagnostic-only (R7, §6.7). And, crucially, protection from quadratic divergence is <strong>not</strong> the same as <em>delivering the smallness of <code>v</code></em> — the protection ratio <code>√η_BK/(2π) ∼ 10⁻²</code> is <strong>twelve orders of magnitude too large</strong> to be <code>v/M_Pl ∼ 10⁻¹⁶</code>. The hierarchy is a separate, open problem (§6.1/§6.2).</p>
+<h3>2.7 The W/Z mass matrix and ρ — the computation, in full</h3>
+<p>This is the load-bearing new construction. The frozen Higgs is a <strong>non-custodial Hosotani object</strong>: <code>A_y = (θ_H/2πR_γ)·T_H</code> with <code>T_H ∈ su(2)_L</code>, the doublet tensored in, and the custodial <code>SO(4)</code> coset <strong>eliminated</strong> from the frozen construction. Because there is no custodial symmetry tensored in, the gauge-boson mass term does <strong>not</strong> descend from the textbook linear-representation operator <code>|D_μ H|²</code>; it descends from the <strong>commutator</strong> operator characteristic of gauge-Higgs unification:</p>
+<pre><code>mass term ∝ Tr | [A_μ, A_y] |².
+</code></pre>
+<p>Define the VEV-weighted commutator overlaps, with <code>T_H = Σ_b h_b T_b</code> (and <code>T_a = σ_a/2</code> the <code>su(2)</code> generators):</p>
+<pre><code>O_a = ⟨ Tr |[T^a, T_H]|² ⟩.
+</code></pre>
+<p>A short <code>su(2)</code> computation (using <code>[T_a, T_b] = i ε_{abc} T_c</code>, <code>Tr(T_a T_b) = ½δ_{ab}</code>) gives the exact closed form</p>
+<pre><code>O_a = ½ ( |h|² − h_a² ),        |h|² = h₁² + h₂² + h₃².
+</code></pre>
+<p>The charged combinations <code>W^± = (W¹ ∓ iW²)/√2</code> get mass <code>∝ O₁ + O₂</code> (call the coefficient <code>C_W</code>), and the neutral <code>W³</code> gets mass <code>∝ O₃</code> (call it <code>C_3</code>); the photon stays massless (the <code>Q=T₃+Y</code>-preserving VEV gives det of the neutral <code>(W³,B)</code> block <code>= 0</code>, normalization-independent — DERIVED-GIVEN-E). The tree custodial parameter is then</p>
+<pre><code>ρ_tree = (O₁ + O₂) / (2 O₃) = ½ + h₃² / (h₁² + h₂²)   ∈  [½, ∞),
+ρ_tree = 1  ⟺  2h₃² = h₁² + h₂²    (a 54.74° cone about the 3-axis).
+</code></pre>
+<p><strong>Machine verification (reproducer <code>SG5_R3_RHO_REPRODUCER.py</code>, re-run for this dossier — all checks PASS):</strong></p>
+<pre><code>[1] O_a == (1/2)(|h|^2 - h_a^2)            max err 8.9e-16  -&gt; PASS
+[2] rho == 1/2 + h3^2/(h1^2+h2^2)          max err 4.5e-13  -&gt; PASS
+    rho range over directions: min=0.5000  (&gt;= 0.5), max=3866.8 (-&gt; inf)
+[3] doublet holonomy eigs == +-theta/2 (dir-independent) dev 3.9e-16 -&gt; PASS
+[4] rho invariant under U(1)_3 (Q-preserving)   max dev 2.2e-16 -&gt; PASS
+[5] body-diagonal (1,1,1): rho=1.0000 (cone), angle from 3-axis=54.74 deg
+</code></pre>
+<p>So the algebra is verified to machine precision by two independent routes, and ρ varies over the full <code>[½, ∞)</code> as <code>T_H</code>'s direction varies — confirming ρ is a <em>real observable</em>, not a constant tautology.</p>
+<h3>2.8 The decisive step — the charge law pins the direction, forcing ρ_tree ≠ 1</h3>
+<p>The remaining question is: <strong>what direction is <code>T_H</code>?</strong> Two facts settle it, and both are <em>mounted in the frozen corpus</em>:</p>
+<ol>
+<li>The frozen charge law <code>Q = T₃ + Y</code> with <code>T₃ = J₃/2</code> requires the <strong>unbroken photon to lie along <code>T₃</code></strong> (the EW-neutral 3-axis is <em>pinned</em> by the ℤ₆ fermion-charge table — it must reproduce the observed charges; check [4] above confirms ρ is invariant under exactly the residual <code>Q</code>-preserving <code>U(1)₃</code>, i.e. the 3-axis is the physical, frame-pinned axis).</li>
+<li>A Hosotani VEV along <code>T_H</code> leaves unbroken the <code>U(1)</code> along <code>T_H</code>.</li>
+</ol>
+<p>For the <em>unbroken</em> <code>U(1)</code> to be the electromagnetic <code>U(1)</code> along <code>T₃</code>, we therefore need <code>T_H ∥ T₃</code>. But then <code>[T₃, T_H] = 0</code>, so</p>
+<pre><code>(O₁, O₂, O₃) = (½, ½, 0)   ⇒   C_3 = O₃ = 0   ⇒   ρ_tree = C_W / C_3 = (½)/0 = NOT 1.
+</code></pre>
+<p>The neutral <code>W³</code> receives <strong>zero</strong> mass from the bare Hosotani commutator. This is a determinate, target-blind <strong>FINDING: ρ_tree ≠ 1</strong> (an ill-defined / <code>≫1</code> ratio whose neutral denominator vanishes). The body-diagonal <code>ρ = 1</code> cone (the <code>(1,1,1)/√3</code> direction at 54.74° from the 3-axis) is <strong>barred</strong>: it would put the surviving photon along <code>(1,1,1)/√3 ≠ T₃</code>, contradicting <code>Q = T₃ + Y</code>, and is additionally rejected as target-loading. The only mechanism that would force <code>ρ = 1</code> is a custodial <code>SO(4) ≃ SU(2)_L × SU(2)_R</code> (or <code>SO(5)/SO(4)</code>) coset selecting the linear operator <code>|D_μ H|²</code> — and that coset is <strong>recorded eliminated</strong> in the frozen object (<code>S²</code> and <code>S¹_Y</code> are distinct isometry factors; <code>S³/SO(4)</code> eliminated). The measured <code>ρ₀ = 1.00038 ± 0.00020</code> is used only as a <strong>post-hoc falsifier</strong> — an input to nothing in the computation above.</p>
+<p><strong>This is the owner-binding disposition</strong> (files <code>11_R3_VERDICT_FINDING_STANDS</code>, <code>12_R3_READOUT_MAP_AUDIT</code>, readout-map audit COMPLETE): SG-5/R3 is a <em>standing FINDING that ρ_tree ≠ 1</em>, a live precision-electroweak tension — not "undetermined." §3.6 reconciles this with the older "flat modulus" framing.</p>
+<hr />
+<h2>§3. The insights we used</h2>
+<h3>3.1 The charge law is the lever, not just the result</h3>
+<p>The deepest insight is that <code>Q = T₃ + Y</code> is doing <em>double duty</em>. It is the deliverable of the charge leg, but it is also the <strong>constraint that pins the EWSB direction</strong>. Most GHU/composite-Higgs constructions treat the Higgs alignment as engineerable (you enlarge the bulk group, or pick the doublet, to get custodial protection). Here you cannot: the requirement that the <em>fermion</em> charges come out right (via the frozen ℤ₆ table) fixes the unbroken <code>U(1)</code> axis to be <code>T₃</code>, which then <em>forces</em> <code>T_H ∥ T₃</code> for the photon to be electromagnetic. The ρ FINDING is the price of taking the charge law as load-bearing rather than decorative.</p>
+<h3>3.2 Non-custodial Hosotani ⇒ commutator, not <code>|D_μ H|²</code></h3>
+<p>The second insight is recognizing <em>which operator</em> sources the W/Z masses. Because the frozen object is a non-custodial Wilson-line connection (<code>A_y ∈ su(2)_L</code>, no <code>SO(4)</code> tensored in), the gauge-boson masses come from <code>Tr|[A_μ, A_y]|²</code>, not the fundamental-doublet <code>|D_μ H|²</code>. Three earlier passes were stuck on a red herring (the <code>S²</code>-vs-<code>S¹_Y</code> kinetic co-normalization, blocker #2). The algebraic insight that <strong><code>ρ_tree = C_W/C_3</code> exactly, with the off-diagonal co-normalization <code>a_B</code> cancelling out of ρ entirely</strong>, dissolved blocker #2 <em>for ρ</em> and located the real load-bearing object: the commutator overlaps <code>O_a</code>. (The co-normalization is still owed for the <em>absolute</em> masses — R-abs, §6.5.)</p>
+<h3>3.3 The flat-direction observation, and why it does NOT make ρ free</h3>
+<p>A genuinely surprising computed fact: the one-loop <code>V_Hos</code> is <strong>exactly flat in the Wilson-line tilt direction</strong>. The doublet holonomy eigenvalues are <code>±θ_H/2</code>, <em>independent of the direction of <code>T_H</code></em> (the KK weight-multiset is rotation-invariant; check [3] above, dev <code>3.9e-16</code>). So <code>V_Hos(θ_H, direction) = V_Hos(θ_H)</code> — the one-loop potential selects no direction, and <code>ρ = 1</code> is one <em>non-preferred level set</em>, not a minimum. The naive reading is "therefore <code>h₃</code>, hence ρ, is a free modulus, undetermined over <code>[½, ∞)</code>." <strong>The owner-binding correction is that this reading is wrong</strong>: the direction is <em>not</em> free, because it is fixed not by the potential but by the <strong>charge law</strong> (§2.8). <code>V_Hos</code> being flat means the <em>potential</em> does not pick the direction — but the <em>photon-along-<code>T₃</code> requirement</em> does. So h₃ is pinned, ρ_tree ≠ 1, and the honest statement is a FINDING, not an undetermined bet (§3.6).</p>
+<h3>3.4 ρ is a genuine gauge-invariant observable</h3>
+<p>It would be a fatal error to dismiss ρ_tree ≠ 1 as a gauge artifact. The reproducer settles this: ρ is <strong>invariant under the residual <code>Q</code>-preserving <code>U(1)₃</code></strong> (check [4], dev <code>2.2e-16</code>) — exactly the symmetry that survives EWSB — and <em>varies</em> under a generic <code>SU(2)_L</code> rotation (0.500..0.777 over the sampled arc). That is the signature of a physical observable whose value is fixed once the frame (the 3-axis) is pinned. The 3-axis is pinned by the frozen ℤ₆ charge table. So the FINDING is about a real observable, not a coordinate choice.</p>
+<h3>3.5 Target-blindness as the discipline that makes the FINDING credible</h3>
+<p>The entire ρ computation was run with <code>ρ₀ = 1.00038</code> as an <strong>input to nothing</strong> — no normalization, embedding, overlap, exclusion, or tolerance used it (the reproducer's target-blind audit confirms every such flag is <code>false</code>). This is why the result is a <em>finding</em> and not a fit: we did not arrange for ρ to land anywhere. A theory that tuned to <code>ρ = 1</code> would be unfalsifiable here; by refusing to, we earn a real falsifier.</p>
+<h3>3.6 Reconciling the two framings (carried in plain sight)</h3>
+<table>
+<thead>
+<tr>
+<th>Framing</th>
+<th>Source</th>
+<th>Claim</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>"undetermined flat modulus"</strong></td>
+<td><code>SG5_ELECTROWEAK_CLOSURE_RESULT.md</code> §8 (deploy-doc)</td>
+<td><code>V_Hos</code> flat ⇒ h₃ free ⇒ ρ undetermined over <code>[½, ∞)</code>, "neither derived nor falsified"</td>
+<td><strong>superseded</strong></td>
+</tr>
+<tr>
+<td><strong>"FINDING: ρ_tree ≠ 1"</strong></td>
+<td>files <code>11_R3</code> / <code>12_R3</code> (OWNER VERDICT, audit COMPLETE)</td>
+<td>charge law pins <code>T_H∥T₃</code> ⇒ <code>O₃=0</code> ⇒ ρ_tree ≠ 1, a live EW tension</td>
+<td><strong>binding</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The two agree on <em>every computed fact</em> (the closed form <code>O_a</code>, the range <code>[½,∞)</code>, the flatness of <code>V_Hos</code>, the eliminated custodial coset). They disagree only on <strong>disposition</strong>: is the breaking direction a free modulus, or is it pinned by the charge law? The owner verdict (and the referee audit of the draft popup) resolves this: the direction is pinned, because the photon must lie along <code>T₃</code> to reproduce the observed charges, and a mounted readout map could overturn the FINDING <em>only</em> by giving a <code>T_H</code> not parallel to <code>T₃</code> — which would contradict <code>Q = T₃ + Y</code> and is rejected as target-loading. <strong>This dossier carries the FINDING as binding.</strong> The §8 "undetermined" language is recorded here as the <em>older, unreconciled</em> framing so the specialist sees both, but it is not the disposition.</p>
+<hr />
+<h2>§4. Evidence &amp; reproducibility</h2>
+<h3>4.1 Frozen-object hash index (load-bearing; READ-ONLY)</h3>
+<table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Value / hash</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frozen branch</td>
+<td><code>dcc66f1b2685</code></td>
+</tr>
+<tr>
+<td>Manifest meta</td>
+<td><code>a5b1e6f9d951</code></td>
+</tr>
+<tr>
+<td>Parity table (realizes <code>/ℤ₆</code>)</td>
+<td><code>ac4d2df3e708</code></td>
+</tr>
+<tr>
+<td>Higgs Wilson-line bundle</td>
+<td><code>2a0462b8aab9</code></td>
+</tr>
+<tr>
+<td>Wilson-line cycle <code>γ</code></td>
+<td><code>640e1d7f7773</code></td>
+</tr>
+<tr>
+<td>Integer winding <code>n_H = 1</code></td>
+<td><code>f65094fd8fd1</code></td>
+</tr>
+<tr>
+<td>Finite determinant <code>η_BK = 0.009721281516312024</code></td>
+<td><code>84e94518d3f5</code></td>
+</tr>
+<tr>
+<td>Anchor <code>y_t</code></td>
+<td><code>548d7099ef18</code></td>
+</tr>
+<tr>
+<td>Anchor <code>|V_us|</code></td>
+<td><code>a1bc510bc7cd</code></td>
+</tr>
+<tr>
+<td>Comparison scale <code>M_Z</code></td>
+<td><code>a6852c7a6b00</code></td>
+</tr>
+<tr>
+<td>UV reference <code>M_* = 7.467×10¹⁶ GeV</code></td>
+<td>(A1.10)</td>
+</tr>
+<tr>
+<td><code>θ_H*</code></td>
+<td><strong>no first-principles value</strong> — read from the <code>V_Hos</code> minimum (H.9.7)</td>
+</tr>
+<tr>
+<td><code>m₀(p,q)</code> zero-weight multiplicity</td>
+<td><strong>present + verified</strong> (Kostant: <code>min(p,q)+1</code> triality-0 else 0)</td>
+</tr>
+<tr>
+<td><code>A₅</code> holonomy generator (R3 realization map)</td>
+<td><strong>MISSING / not source-hashed</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>4.2 The witness ledger (what reproduces, and at what grade)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Witness</th>
+<th>Grade</th>
+<th>Reproduces?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1</td>
+<td><code>Q = T₃ + Y</code> componentwise</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — table in §2.2 recomputes for every multiplet</td>
+</tr>
+<tr>
+<td>W2</td>
+<td>ℤ₆ rule <code>t/3 + d/2 + Y ∈ ℤ</code></td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — SM triples pass field-by-field; <code>Y=⅕</code> killed</td>
+</tr>
+<tr>
+<td>W3</td>
+<td>single doublet breaks → <code>U(1)_em</code></td>
+<td>symbolic</td>
+<td><strong>Yes</strong> — standard Hosotani algebra, <code>⟨H⟩</code> in <code>su(2)_L</code></td>
+</tr>
+<tr>
+<td>W4</td>
+<td><code>V_Hos</code> finite + cutoff-independent</td>
+<td>symbolic</td>
+<td><strong>Yes</strong> — <code>n⁻⁵</code> sum converges; periodicity protects <code>n_H</code></td>
+</tr>
+<tr>
+<td>W5</td>
+<td><code>v=246.02</code>, <code>m_h=123.82</code></td>
+<td>machine-lane</td>
+<td><strong>AUDIT</strong> — values present (H.4/A1.10); R0 reproducer referenced, not independently re-run (R6)</td>
+</tr>
+<tr>
+<td>W6</td>
+<td><code>1/η_BK = 32π e^{√3/24π} ≈ 102.87</code></td>
+<td>hand-checkable</td>
+<td><strong>Yes for the identity</strong> (recomputed = 102.867; <code>η_BK</code> exact); <em>provenance of the form</em> OPEN (R5)</td>
+</tr>
+<tr>
+<td>W7</td>
+<td><code>n_H=1</code> + lower-winding exclusion</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — <code>n_H=0⇒v=0</code>; <code>n_H≥2⇒v≈492</code></td>
+</tr>
+<tr>
+<td>W8</td>
+<td>Higgs-protection checklist</td>
+<td>symbolic/audit</td>
+<td><strong>Conditional</strong> — one-loop proven; higher loops Diagnostic-only (R7)</td>
+</tr>
+<tr>
+<td>W9</td>
+<td><code>√η_BK/(2π) ∼ 10⁻²</code> is 12 orders too large</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — <code>10⁻²</code> vs <code>10⁻¹⁶</code>; hierarchy is not η_BK</td>
+</tr>
+<tr>
+<td>W10</td>
+<td><code>θ_H* ≈ 2.46×10⁻¹⁴</code> read from min</td>
+<td>symbolic/audit</td>
+<td><strong>Reproduces as a read value, NOT as a derivation</strong> (R1)</td>
+</tr>
+<tr>
+<td><strong>W11</strong></td>
+<td><strong>ρ machinery + FINDING ρ_tree ≠ 1</strong></td>
+<td>machine-lane</td>
+<td><strong>Yes</strong> — <code>SG5_R3_RHO_REPRODUCER.py</code> all checks PASS (§2.7); FINDING from mounted charge law (§2.8)</td>
+</tr>
+</tbody>
+</table>
+<p>W11 is the upgrade over the prior status: the older popup ("M²_WZ is never built; tree ρ=1 is a rep-algebra tautology") is <strong>superseded</strong> — the mass matrix <em>was</em> built and ρ computed.</p>
+<h3>4.3 How to re-run / re-derive</h3>
+<ul>
+<li><strong>Charge leg:</strong> recompute the §2.2 table by hand from the frozen <code>Y</code> table; verify the ℤ₆ congruence per field. No software needed.</li>
+<li><strong>ρ machinery:</strong> run <code>…/PER_GATE_DOSSIERS/SG5_R3_RHO_REPRODUCER.py</code> (NumPy + SciPy). It verifies the closed form <code>O_a</code>, the range <code>[½,∞)</code>, the direction-independence of the holonomy eigenvalues (<code>V_Hos</code> flatness), the <code>U(1)₃</code>-invariance of ρ, and the 54.74° cone. (For this dossier the run reproduced all five checks to machine precision.)</li>
+<li><strong>η_BK identity:</strong> <code>1/η_BK = 32π·exp(√3/24π)</code>; recomputes to <code>0.009721281516312</code>. Provenance of the <em>form</em> is the open audit (R5).</li>
+<li><strong><code>v</code>/<code>m_h</code>:</strong> the R0 reproducer is referenced (H.4/A1.10); running it byte-equal end-to-end is the open owner-artifact task (R6).</li>
+<li><strong>Endpoint stack:</strong> <code>SG5_complete_endpoint_stack/</code> (23 files, manifest 22/22 intact) carries <code>validate_endpoint.py</code> → PASS (exit 0, fail-closed), <code>compute_textbook_rho.py</code> → ρ=1 (rep-algebra only, <em>correctly labeled</em> as the textbook label, not the geometric readout), <code>reproduce_eta_BK.py</code> → <code>η_BK = 0.009721281516312024</code> (exact). <code>verdict.json</code>: <code>status_upgrades:0</code>, <code>target_blind:true</code>, <code>original_SG5_rollup:OPEN</code>, all R3/R5/R6/R8 evidence flags <code>false</code>. The validator PASS is a <em>re-run certificate</em> and passes <em>because nothing is promoted</em>.</li>
+</ul>
+<hr />
+<h2>§5. Open gaps + closure path — the specialist work plan</h2>
+<blockquote>
+<p>This is the most load-bearing section. For <strong>each</strong> open hole: (a) precise statement, (b) why it's hard + traps to avoid (including the exact target-loadings the verifier caught), (c) exactly what closes it (target-blind, with success and refuting criteria), (d) machinery &amp; inputs (cite paths), (e) leverage. Physics only; the firewall on device engineering is absolute.</p>
+</blockquote>
+<p>Attack order by leverage: <strong>R3-realization</strong> (the bounded, highest-value physics hole) → <strong>R6</strong> (cheap machine-lane win) → <strong>R8/R-abs</strong> (blocked group-theory inputs) → <strong>R4</strong> (the KK Schur correction) → <strong>R5</strong> (η_BK provenance) → <strong>R1/R2</strong> (the hierarchy — RELOCATION, banked near-no-go) → <strong>R7/R9/R10</strong> (axiom floors).</p>
+<h3>5.1 R3-realization — the ρ FINDING's overturn-or-harden map (HIGHEST physics leverage)</h3>
+<p><strong>(a) Precise statement.</strong> The ρ_tree ≠ 1 FINDING follows from the <em>mounted charge law</em> via <code>T_H ∥ T₃ ⇒ O₃ = 0</code>. It can be <strong>overturned</strong> only by mounting the <em>real frozen Hosotani readout map</em> and showing the actual overlaps give a charge-law-consistent <code>T_H</code> <strong>not</strong> parallel to <code>T₃</code>. The four named, currently-unmounted artifacts are: (i) the Wilson-line <code>A_y</code> gauge-scalar <strong>zero-mode EW-representation table</strong>; (ii) the <code>A₅</code> <strong>holonomy generators</strong> (MISSING / not source-hashed); (iii) the <strong>γ-cycle Hosotani VEV profile/measure</strong>; (iv) the <code>M_{0n}</code> <strong>overlap integrals</strong> (<code>ℓ=0→1</code> on <code>S²</code>, <code>n=0→1</code> on <code>S¹_Y</code>).</p>
+<p><strong>(b) Why it's hard / traps.</strong> The FINDING is <em>strong</em> precisely because it rests on the mounted charge law, not on the missing data — so the specialist cannot overturn it merely by <em>supplying</em> the artifacts; the supplied <code>T_H</code> must come out non-parallel to <code>T₃</code> <em>while still reproducing <code>Q = T₃ + Y</code></em>. <strong>Traps the verifier caught (do not repeat):</strong> (1) <strong>Do not</strong> reframe ρ as an "undetermined free modulus" — files 11/12 reject this as target-loading; the charge law pins the direction (the draft popup that called ρ "free, not a value we can fake" was flagged OVERCLAIM). (2) <strong>Do not</strong> import the custodial <code>SO(4)</code>/<code>SO(5)</code> coset to rescue ρ = 1 — it is <em>recorded eliminated</em> in the frozen object; importing it back is rejected as target-loading. (3) <strong>Do not</strong> assert <code>C_W = C_3</code> from the SM doublet label — for a non-custodial Hosotani object it must be <em>earned</em> from the commutator overlaps (it is not). (4) <strong>Do not</strong> point R8's missing datum at <code>m₀(p,q)</code> — that table is <em>present and verified</em>; the true missing datum is one layer up at the <code>A₅</code> holonomy generators (see §5.3).</p>
+<p><strong>(c) What closes it (target-blind).</strong> Mount the four artifacts and run the one <strong>fail-closed</strong> decision rule (owner-authorized, one pass — <em>not</em> an open rescue campaign): (1) data exist <strong>and change</strong> the readout (charge-law-consistent <code>T_H ∦ T₃</code>) → REOPENED_BY_READOUT_MAP_CORRECTION; (2) data exist <strong>and confirm</strong> <code>O₁/O₃ ≠ 1</code> → FINDING HARDENS; (3) data <strong>do not exist</strong> → FINDING STANDS (the current outcome); (4) any rescue via asserted custodial symmetry / ordinary-doublet algebra / minimality → REJECT as target-loading. <strong>Refuting result is a valid close:</strong> if the mounted map yields a charge-law-consistent <code>T_H ∦ T₃</code> and ρ → 1, that <em>overturns</em> the FINDING and earns ρ = 1 = DERIVED-GIVEN-E. Either outcome closes R3.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> <code>SG5_R3_RHO_REPRODUCER.py</code> (the verified ρ machinery); files <code>10_R3_RHO_PASS_2026-06-25.md</code> (artifact ledger), <code>11_R3_VERDICT_FINDING_STANDS_2026-06-25.md</code>, <code>12_R3_READOUT_MAP_AUDIT_2026-06-25.md</code> (the owner decision rule); the frozen Higgs bundle <code>2a0462b8aab9</code>, cycle <code>γ</code> <code>640e1d7f7773</code>. The <code>A₅</code> holonomy generator must be <em>computed and source-hashed</em> (it is the literal missing object).</p>
+<p><strong>(e) Leverage.</strong> Closing R3 settles the gate's signature physics claim either way. It is the one residual that is a genuine <em>missing computation</em> (not a relocation) terminating on a <em>measured</em> invariant (<code>ρ₀</code>). Shared structure with the absolute-mass leg (§5.5) and the KK correction (§5.4).</p>
+<h3>5.2 The two-loop lift of the flat direction (alternative R3 route)</h3>
+<p><strong>(a) Precise statement.</strong> <code>V_Hos</code> is exactly flat in the tilt direction at one loop. The first term that can break the adjoint isotropy and <em>dynamically</em> select the direction appears beyond one loop — the two-loop potential with <code>y_t ≠ y_b</code> and <code>g&#x27; ≠ 0</code>. That lifting term is <strong>uncomputed</strong>.</p>
+<p><strong>(b) Why it's hard / traps.</strong> The custodial <code>SU(2)</code> is an <em>accidental</em> symmetry <strong>broken by <code>U(1)_Y</code> gauging and by Yukawa splitting</strong> (<code>y_t ≠ y_b</code>) — exactly the terms entering at two loops. So the two-loop potential is the natural place the direction gets selected, but the computation is genuinely heavy (two-loop CW on a curved internal manifold). Trap: do not assume the two-loop minimum sits on the <code>ρ = 1</code> cone — that would be target-loading; read it blind.</p>
+<p><strong>(c) What closes it.</strong> Compute the two-loop <code>y_t≠y_b</code>, <code>g&#x27;≠0</code> corrected <code>V_Hos</code>, find the selected direction, read ρ off <strong>blind</strong>. Success: ρ = 1 → DERIVED-GIVEN-E; ρ ≠ 1 → the FINDING hardens into a <em>dynamically-selected</em> falsifiable prediction vs <code>ρ₀ = 1.00038 ± 0.00020</code>. Both are valid closes.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The one-loop <code>V_Hos</code> (§2.4), the frozen KK spectrum (<code>N_b</code>, <code>N_f</code>), the frozen Yukawa anchors <code>y_t</code> (<code>548d7099ef18</code>); two-loop GHU effective-potential methods.</p>
+<p><strong>(e) Leverage.</strong> This is the route by which the FINDING could <em>flip to a derivation</em> — it directly tests whether the geometry's own dynamics select a custodial-symmetric direction.</p>
+<h3>5.3 R8 — no-second-VEV certificate (BLOCKED on the <code>A₅</code> table)</h3>
+<p><strong>(a) Precise statement.</strong> The claim that the protected zero-mode spectrum carries <strong>no second EW-breaking VEV source</strong> (extra doublet / triplet / charged scalar) is unproven. Needed both for the absolute W/Z masses and for the ρ assembly to be airtight (a triplet VEV <code>w</code> would give <code>ρ = 1 + 4w²/v²</code>).</p>
+<p><strong>(b) Why it's hard / traps.</strong> <strong>Trap (verifier-caught):</strong> the missing datum is <em>not</em> the <code>m₀(p,q)</code> zero-weight table — that is <strong>present and verified</strong> (Kostant: <code>m₀ = min(p,q)+1</code> for triality-0, else 0). The true un-generable datum is one layer up: the <strong>Wilson-line <code>A_y</code> (<code>A₅</code>) gauge-scalar zero-mode EW-representation table</strong> — the broken-generator / coset-scalar <code>SU(2)_L × U(1)_Y</code> content and the <code>Q=0</code> VEV-capability of every Wilson-line scalar zero mode. The corpus declares only <code>n_H=1</code>; it does not compute the EW-rep spectrum of the <code>A_y</code> sector.</p>
+<p><strong>(c) What closes it.</strong> Build the <code>A_y</code>/<code>A₅</code> zero-mode EW-representation table, inventory every Wilson-line scalar zero mode, and certify none can take a <code>Q=0</code> VEV alongside <code>H₀</code> (<code>unique_vev_source = H₀</code>). Success → VERIFIED (the ρ assembly is airtight, absolute masses unblocked on this axis). Refuting result → a <em>second</em> VEV source exists → the single-doublet picture is corrected (also a valid, informative close).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The verified <code>m₀(p,q)</code> Kostant table (present); the frozen <code>K_gauge</code> KK spectrum; the <code>A₅</code> holonomy generator (must be computed + source-hashed); file <code>10_R3_RHO_PASS</code> artifact-2 ledger; <code>EXTRACT_Q_SHAPE_DOUBLET_2026-06-23.md</code>.</p>
+<p><strong>(e) Leverage.</strong> Unblocks both R3-realization (airtight ρ) and R-abs (absolute masses). Shared <code>A₅</code>-table dependency with R3-realization (§5.1) — close them together.</p>
+<h3>5.4 R4 — EW KK gauge-boson mixing / Schur correction to ρ (BLOCKED on γ-profile)</h3>
+<p><strong>(a) Precise statement.</strong> The gauge-Higgs-unification <code>T</code>-parameter — the KK gauge-boson mixing correction <code>δρ_KK</code> — is uncomputed. Via Schur complement, <code>M_eff² = M_00² − M_0n²(M_nn²)⁻¹M_n0²</code> for the <code>ℓ=0→1</code> (<code>S²</code>) / <code>n=0→1</code> (<code>S¹_Y</code>) tower. It could shift ρ.</p>
+<p><strong>(b) Why it's hard / traps.</strong> The KK masses are present (<code>M_nn</code>: weak <code>ℓ=1 = √2/R₀ = 8.88×10¹⁶ GeV</code>; hyper <code>n=1 = 1/R₀ = 6.28×10¹⁶ GeV</code>). The off-diagonal <code>M_0n = g v I_0n</code> needs the <strong>γ-cycle overlap <code>I_0n</code></strong>, which is absent: a <em>constant</em> VEV profile gives <code>I_0n = 0</code> (selection rule), a <em>non-constant</em> profile gives <code>I_0n ≠ 0</code>, and the γ-cycle data deciding which is missing. <strong>Trap:</strong> do <strong>not</strong> use the dimensional scale ratio <code>(v/M_KK)² = 1.534×10⁻²⁹</code> as a Schur certificate — it presumes <code>|I_0n| = O(1)</code> over the full tower <em>and</em> a fixed custodial-cancellation structure, both unshown. It is a hint, not a bound.</p>
+<p><strong>(c) What closes it.</strong> Supply the γ-cycle Hosotani VEV profile + the concrete <code>T_H</code> direction, compute <code>I_0n</code> and <code>δρ_KK</code>, and show <code>|δρ_KK| ≤ 10⁻⁴</code> (or carry it as a rigorous bound). Success → the KK channel is bounded (ρ assembly complete to per-mille). Refuting → <code>δρ_KK</code> large → a second contribution to the ρ tension.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> <code>M_nn</code> (present, pure-geometry <code>S²</code>/<code>S¹_Y</code> spectra); the γ-cycle profile (absent — the artifact-3 blocker in <code>10_R3_RHO_PASS</code>); Schur-complement / KK-decoupling methods.</p>
+<p><strong>(e) Leverage.</strong> Completes the ρ readout (tree FINDING + KK correction → effective ρ). Note: even with <code>δρ_KK</code> bounded, the <em>tree</em> FINDING <code>ρ_tree ≠ 1</code> already settles <code>ρ_eff ≠ 1</code> per file 10 — so R4 refines magnitude, it does not rescue ρ = 1.</p>
+<h3>5.5 R-abs — absolute W/Z masses (S²-vs-S¹_Y co-normalization)</h3>
+<p><strong>(a) Precise statement.</strong> The absolute masses <code>M_W</code>, <code>M_Z</code> (not just ρ) still owe the <code>S²</code>-vs-<code>S¹_Y</code> kinetic <strong>co-normalization</strong> (overlaps <code>a_W</code>, <code>a_B</code> in a common normalization). The co-normalization <em>cancels in ρ</em> (the banked algebraic advance, §3.2) but <strong>not</strong> in the absolute masses, because the two gauge factors live on geometrically distinct sub-manifolds.</p>
+<p><strong>(b) Why it's hard / traps.</strong> Trap: this is the blocker three prior passes mis-cited as the ρ blocker — it is a <em>red herring for ρ</em>, but a <em>real</em> obstruction for absolute masses. Keep the two questions separate.</p>
+<p><strong>(c) What closes it.</strong> Form the <code>SU(2)_L</code> reduction integral over <code>S²</code> and the <code>U(1)_Y</code> reduction over <code>S¹_Y/ℤ₂</code> in <strong>one common normalization</strong>, then assemble <code>∫|D_μ⟨H⟩|² → {W±; W³,B}</code> with the common <code>v = θ_H*/(2πR_γ)</code>. Success → absolute <code>M_W</code>, <code>M_Z</code> from geometry; compare to PDG.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The <code>S²</code> and <code>S¹_Y/ℤ₂</code> reduction integrals; the frozen gauge couplings <code>g</code>, <code>g&#x27;</code> from SG-2/SG-7; <code>v</code> from the Hosotani VEV.</p>
+<p><strong>(e) Leverage.</strong> Promotes the EW sector from "ρ + near-hit <code>v</code>/<code>m_h</code>" to "absolute gauge-boson masses from geometry."</p>
+<h3>5.6 R5 — η_BK provenance (the one-input-two-outputs headline)</h3>
+<p><strong>(a) Precise statement.</strong> The headline "one geometric quantity, two SM outputs" rests on <code>1/η_BK = 32π·e^{√3/24π} ≈ 102.87 = |y_t/y_b|</code> (raw). Is the <strong>form</strong> <code>32π·e^{√3/24π}</code> written target-blind from the Wilson-line / Berezin–Kontsevich finite determinant, or reverse-engineered to land on <code>|y_t/y_b|</code>?</p>
+<p><strong>(b) Why it's hard / traps.</strong> <code>32π = 100.53</code> is suspiciously close to <code>102.87</code>, with the <code>e^{√3/24π} = 1.0233</code> factor doing the fine-adjust — exactly the pattern a reverse-engineered form would show. <strong>Trap (the κ³/π cautionary pattern):</strong> a constant reverse-engineered to hit a target makes the headline <em>true-by-construction</em>; the falsification test demands the form was written from geometry <em>before and independently of</em> knowing <code>|y_t/y_b|</code>. Same class as SG-8 Route A.</p>
+<p><strong>(c) What closes it.</strong> Recompute the Berezin–Kontsevich finite determinant on the active branch from scratch, <strong>target-blind</strong>, with <code>|y_t/y_b|</code> <em>absent</em> from the inputs, and check whether <code>1/η_BK</code> falls out as <code>32π·e^{√3/24π}</code>. Pass → VERIFIED (headline genuine). Fail → RELOCATES (headline true-by-construction; the over-determination claim folds — a valid, informative result).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> η_BK <code>84e94518d3f5</code>; the Gate-8 Wilson-line determinant construction; couple to <strong>SG-8 Route A</strong> (same constant — close them together). Falsification test discipline: the κ³/π rule.</p>
+<p><strong>(e) Leverage.</strong> Decides whether the gate's quantitative headline (<code>v</code>, <code>m_h</code>, <code>|y_t/y_b|</code> from one determinant) is genuine compression or construction.</p>
+<h3>5.7 R6 — <code>v</code>/<code>m_h</code> reproducer (AUDIT/BLOCKED; cheapest win)</h3>
+<p><strong>(a) Precise statement.</strong> "<code>v=246.02</code>, <code>m_h=123.82</code> regenerate byte-equal from frozen η_BK + geometry via the R0 reproducer" is referenced, not independently re-run.</p>
+<p><strong>(b) Why it's hard / traps.</strong> Not hard — it is an owner-artifact execution task. Trap: do not let a referenced-but-unrun harness stand in for a machine-checked certificate (same class as SG-7's absent δ-harness, SG-8's J.6/K.5 harness).</p>
+<p><strong>(c) What closes it.</strong> Run the R0 reproducer target-blind against the frozen inputs (η_BK <code>84e94518d3f5</code>, <code>n_H=1</code> <code>f65094fd8fd1</code>, cycle <code>γ</code>, <code>M_Z</code> <code>a6852c7a6b00</code>); confirm <code>v=246.02±3.5</code>, <code>m_h=123.82±1.8</code> to declared precision; re-hash to <code>a5b1e6f9d951</code>. Pass → VERIFIED. Fail-closed: any value missing → Gate-8 downgrade (a valid refuting close).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The R0 reproducer (referenced in H.4/A1.10); the frozen hash set above; <code>reproduce_eta_BK.py</code> (already verified, η_BK exact).</p>
+<p><strong>(e) Leverage.</strong> Highest value-per-effort — converts an asserted certificate pass into a machine-real one with zero new physics.</p>
+<h3>5.8 R1 / R2 — the hierarchy (OPEN / RELOCATION; banked near-no-go)</h3>
+<p><strong>(a) Precise statement.</strong> The lightness of <code>v</code> is UNDELIVERED. <code>θ_H* ≈ 2.46×10⁻¹⁴</code> (so that <code>v = θ_H*/(2πR_γ)</code> with <code>1/(2πR_γ) ≈ 10¹⁶ GeV</code>) is <strong>read from the one-loop <code>V_Hos</code> minimum</strong>, not derived. Equivalently the dimensionless exponent <code>I_EW = ln(M_Pl/v) ≈ 36.83</code> (reduced-Planck; recomputed for this dossier) is not produced blind. R2 is the SCALE firewall: can the scale cell <code>μ_cell</code> be anchored independently of <code>v</code>?</p>
+<p><strong>(b) Why it's hard / traps — and why this is NOT a bounded computation.</strong> The SCALE firewall (<code>FIREWALL_MUCELL_INDEPENDENCE</code>) is a 4-part conjunction; gates (2) and (4) <strong>FAIL</strong>: the only specified anchor <code>∂_σV = 0</code> <strong>is</strong> where <code>v</code> is set, and <code>μ_cell → v</code> is closed-form invertible. <strong>The two decisive traps:</strong> (i) any "blind <code>I_EW</code>" production currently re-logs the input <code>v</code> — <code>I_Hos − I_obs = ln(v_obs/v_corpus)</code> makes the "exponent PASS" bit-identical to comparing <code>v</code> vs <code>v</code> (auto-FAIL); (ii) <code>θ_H*</code> is a stationary point of a <strong>periodic</strong> potential, <strong>not a running coupling</strong>, so there is <strong>no transmutation exponent</strong> <code>t_⋆ = 2π/(bα)</code> to bound (Path B). A symmetry of the cycle would force <code>θ_H* ∈ {0, π}</code> (giving <code>v=0</code> or maximal), <em>not</em> <code>10⁻¹⁴</code> — so the strong "symmetry-fixed" upgrade is <strong>refuted in advance</strong>: the hierarchy <em>is</em> the smallness of a non-symmetric minimum. <strong>Verifier-caught trap:</strong> do <strong>not</strong> file "derive <code>I_EW ≈ 36.83</code> blind" as a <em>bounded plug-able hole</em> — the firewall has already shown it is a <strong>RELOCATION</strong>: introducing a UV-floor axiom (<code>AXIOM-UV-CELL-FLOOR</code> / <code>AXIOM-HIERARCHY-IS-UV-EXPONENT</code>) relocates the entire hierarchy into the log-sensitivity of <code>v</code> to <code>log(μ_cell/M_*)</code> — the κ³/π trap — and was <strong>campaign-DEMOTED to OPEN</strong>.</p>
+<p><strong>(c) What closes it (honestly).</strong> The honest endpoint is <strong>sharper-OPEN / RELOCATION</strong>, not closure: bank the <strong>near-no-go</strong> that explains <em>why</em> <code>v_EW</code> is irreducible here — a <em>dimensional</em> near-no-go (Path A: a second mass cannot be built from <code>{M_Pl, ℏ, dimensionless geometry}</code> without a <code>σ</code>-carrying length; Buckingham-π) plus the <em>mechanistic</em> near-no-go (Path B: periodic minimum supplies no exponent). A genuine DERIVED close would require a <code>v</code>-independent UV readout for <code>μ_cell</code> surviving all six firewall gates <em>blind</em> — judged unreachable in this geometry. A refuting result (someone exhibits such a blind readout) crosses the firewall — not expected.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> <code>FIREWALL_MUCELL_INDEPENDENCE_2026-06-23.md</code>; <code>SCALE_HIERARCHY_FINAL_VERDICT_2026-06-23.md</code>; <code>HANDOFF_T_HIERARCHY_RG_EXPONENT.md</code>; <code>CLOSURE_CAMPAIGN_RESULT_2026-06-24.md</code> (the demotion). <code>v_EW</code> is exported to <code>SG5B_EW_HIERARCHY_EXPORT_LEDGER.md</code> (status OPEN/RELOCATION), shared with SG-6.</p>
+<p><strong>(e) Leverage.</strong> This is the gate's loudest open problem, but it is <em>relocation, not a missing number</em>. Banking the near-no-go is the real (non-promoting) win: "here is the structural reason the hierarchy cannot be reduced <em>here</em> without relocating it." Shared with SG-6 (R4 below) and the SCALE frontier.</p>
+<h3>5.9 R4-θ / R7 / R9 / R10 — the axiom-floor residuals</h3>
+<ul>
+<li><strong>R4-θ (<code>θ_H*</code> read-from-min, SG-6 inheritance).</strong> AXIOM-CLOSED at the weak axiom <code>AXIOM-THETA-FROM-MIN</code> ("<code>θ_H*</code> is the global minimum of the frozen one-loop <code>V_Hos</code>" — true by construction, no target value). The strong upgrade <code>AXIOM-THETA-SYMMETRY</code> is <strong>refuted in advance</strong> (the minimum is not a symmetric point; §5.8). <em>Close by:</em> the clean group-theory falsification — confirm no symmetry of <code>γ</code>/<code>S¹_Y/ℤ₂</code> fixes <code>θ_H* ∼ 10⁻¹⁴</code>. Shared with SG-6.</li>
+<li><strong>R7 (higher-loop Higgs protection, Diagnostic-only).</strong> One-loop protection is proven (gauge invariance preserves <code>n_H</code>); all-orders is not. AXIOM-CLOSED at <code>AXIOM-WINDING-PROTECTION-ALL-LOOPS</code> ("an integer winding cannot deform continuously under perturbative gauge-invariant corrections"). <em>Close by:</em> a loop-resummation theorem bounding the cross-sector contributions H.9.6/H.10.1 flag as not-provably-zero. Hand to a GHU specialist. Trap: do not claim all-loop protection as <em>proven</em> — it is honestly scoped Diagnostic.</li>
+<li><strong>R9 (parity/ℤ₆ table selected-not-searched).</strong> AXIOM-CLOSED at <code>AXIOM-PARITY-Z6</code>; the charge leg is rigid <em>given</em> the table. <em>Honest standing (A4-ℤ₆):</em> the line-operator/maximality posit pins only <code>Γ ≤ ℤ₆</code> (<code>q | 6</code>), not <code>q = 6</code>; "finest" is pinnable only by already wanting ℤ₆, so <code>=ℤ₆</code> is OPEN. But the SM triples satisfy the Tong congruence field-by-field and <code>χ=−3</code> is honored, so the charge assignments are consistent. <em>Close by:</em> force <code>=ℤ₆</code> from the surviving spectrum + global well-definedness of <code>Q=T₃+Y</code> (expected: <code>≤ℤ₆</code> forced, <code>=ℤ₆</code> selected).</li>
+<li><strong>R10 (<code>n_H=1</code> minimality).</strong> AXIOM-CLOSED at <code>AXIOM-MINIMAL-WINDING</code>. The <code>n_H=0</code> exclusion is structural/target-blind; the <code>n_H≥2</code> exclusion leans on <code>v≈492</code> missing PDG (a disclosed data check). <em>Close by:</em> an a-priori reason to prefer 1 over 2 independent of <code>v</code> — none currently given; absent that, the named minimality axiom is the honest floor.</li>
+</ul>
+<h3>5.10 Specialist work-plan roll-up</h3>
+<table>
+<thead>
+<tr>
+<th>Residual</th>
+<th>Disposition</th>
+<th>Single most valuable next step</th>
+<th>Realistic endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R3-realization</strong></td>
+<td>FINDING ρ_tree ≠ 1 (binding)</td>
+<td>mount <code>A_y</code>/<code>A₅</code>/γ-profile/<code>M_0n</code>; run the fail-closed decision rule</td>
+<td>FINDING STANDS / HARDENS, or REOPENED if charge-law-consistent <code>T_H ∦ T₃</code></td>
+</tr>
+<tr>
+<td><strong>R3 two-loop</strong></td>
+<td>one-loop flat</td>
+<td>compute <code>y_t≠y_b</code>, <code>g&#x27;≠0</code> two-loop <code>V_Hos</code>; read ρ blind</td>
+<td>ρ=1 DERIVED-GIVEN-E <em>or</em> ρ≠1 dynamical prediction</td>
+</tr>
+<tr>
+<td><strong>R8 no-2nd-VEV</strong></td>
+<td>BLOCKED (<code>A₅</code> table)</td>
+<td>build the <code>A_y</code>/<code>A₅</code> zero-mode EW-rep table</td>
+<td>VERIFIED / second-source-found</td>
+</tr>
+<tr>
+<td><strong>R4 KK Schur</strong></td>
+<td>BLOCKED (γ-profile)</td>
+<td>compute <code>I_0n</code>, <code>δρ_KK</code>; bound <code>≤10⁻⁴</code></td>
+<td>bounded KK channel</td>
+</tr>
+<tr>
+<td><strong>R-abs masses</strong></td>
+<td>co-norm owed</td>
+<td>common-normalization <code>S²</code>/<code>S¹_Y</code> reduction integrals</td>
+<td>absolute <code>M_W</code>,<code>M_Z</code></td>
+</tr>
+<tr>
+<td><strong>R5 η_BK</strong></td>
+<td>SUSPECT</td>
+<td>recompute determinant blind (with SG-8 Route A)</td>
+<td>VERIFIED / RELOCATES</td>
+</tr>
+<tr>
+<td><strong>R6 <code>v</code>/<code>m_h</code></strong></td>
+<td>AUDIT/BLOCKED</td>
+<td>run R0 reproducer + re-hash</td>
+<td>VERIFIED (best value/effort)</td>
+</tr>
+<tr>
+<td><strong>R1/R2 hierarchy</strong></td>
+<td>OPEN/RELOCATION</td>
+<td>bank Path-A + Path-B near-no-go</td>
+<td>sharper-OPEN (<code>v_EW</code> = 2nd anchor)</td>
+</tr>
+<tr>
+<td><strong>R4-θ / R7 / R9 / R10</strong></td>
+<td>AXIOM-CLOSED</td>
+<td>name the target-blind axioms; the cheap group-theory falsifications</td>
+<td>axiom floors held</td>
+</tr>
+</tbody>
+</table>
+<p><strong>REDUCE-vs-RELOCATE verdict.</strong> The plan does not turn one hard problem into many — but it is brutally honest that <strong>R1/R2 RELOCATE</strong> (the hierarchy is a genuine second dimensionful anchor with a near-no-go, not a missing number). The one place <em>real physics progress</em> is available is <strong>R3</strong> (mount the realization map, or compute the two-loop lift), which can either harden the FINDING into a dynamical falsifiable prediction or overturn it into ρ = 1 = DERIVED-GIVEN-E. The cheap machine-lane win is <strong>R6</strong>. None of this is a promotion: the gate stays OPEN; the wins are honesty, reproducibility, and a <em>computed</em> ρ where the field assumes one.</p>
+<hr />
+<h2>§6. Honest ceiling &amp; scope</h2>
+<h3>6.1 What is explicitly NOT claimed</h3>
+<ul>
+<li><strong>NOT</strong> that the geometry predicts/derives ρ = 1. The opposite is the binding disposition: the bare-commutator readout, with the direction pinned by the charge law, gives a <strong>FINDING ρ_tree ≠ 1</strong> — a live precision-electroweak tension against <code>ρ₀ = 1.00038 ± 0.00020</code>. We make <strong>no</strong> claim the model predicts ρ = 1, and introduced <strong>no</strong> parameter tuned to the measured value.</li>
+<li><strong>NOT</strong> that the electroweak hierarchy is solved or that <code>v = 246</code> "emerges." The lightness of <code>v</code> is OPEN/RELOCATION: <code>θ_H*</code> is read from the one-loop minimum (~85% of the hierarchy undelivered), <code>√η_BK/(2π) ∼ 10⁻²</code> is 12 orders too large, and the SCALE firewall is uncrossed. "<code>v</code> emerges" would be a circular re-log of the standing input.</li>
+<li><strong>NOT</strong> that <code>v_EW</code> is derived. It is a transparent <strong>measured-but-irreducible second dimensionful anchor</strong> (alongside <code>M_Pl</code>), <em>realized</em> by the Wilson-line VEV, not derived. given-E ≠ derivation of E.</li>
+<li><strong>NOT</strong> that the selected <code>K₆</code>/parity geometry is <em>the</em> unique structure realizing <code>Q = T₃ + Y</code>. Charge is forced <strong>given</strong> the frozen, selected parity table; absolute uniqueness over all possible math is a unicorn (§6.2).</li>
+<li><strong>NOT</strong> all-orders Higgs protection. One-loop is proven; higher loops are Diagnostic-only.</li>
+</ul>
+<h3>6.2 Dissolved unicorns — framed as shared ceilings, never as proven, never as open weakness</h3>
+<p>These are universal negatives over <em>all possible mathematics</em> — unprovable for <em>everyone</em>, not gaps in our work. We dissolve them and state the bounded, plug-able version that remains:</p>
+<ul>
+<li><strong>"ρ = 1 is THE absolutely forced value under any possible completion of the geometry."</strong> A universal forcedness claim is unprovable in principle. The bounded, real hole: does the frozen γ-cycle/ℤ₆ embedding pin the 3-axis (it does — that is the FINDING), and does a two-loop term lift the flat direction to the cone (R3 two-loop, §5.2)?</li>
+<li><strong>"No future theory / no alternative geometry could derive the electroweak hierarchy more cheaply."</strong> An open-ended universal negative. The honest banked result is the SCALE-firewall <strong>near-no-go</strong> explaining <em>why</em> the hierarchy cannot be reduced <em>inside this structure</em> without relocating it.</li>
+<li><strong>"The selected geometry is THE unique structure realizing <code>Q = T₃ + Y</code>."</strong> Absolute uniqueness over all math is a unicorn; the bounded claim is that charge is forced <em>given</em> the frozen, selected parity table.</li>
+</ul>
+<h3>6.3 The anchors paid</h3>
+<p>SG-5 terminates on the two dimensionful anchors <strong><code>M_Pl</code> and <code>v_EW</code></strong>, and on no measured invariant beyond them. The charge leg carries <strong>no anchor of its own</strong> — it is structural / DERIVED-GIVEN-E once the observed content <code>E</code> (the SM hypercharge triples) is supplied. The breaking and the near-hit numbers ride the existing anchors (η_BK/spectrum-<code>E</code>, <code>y_t</code>, <code>α_i(M_Z)</code>); they are <em>frozen outputs given the anchors</em>, not a derived lightness. The single open dimensionful leg is the <strong>hierarchy-lightness of <code>v_EW</code></strong>, which rests on <code>θ_H*</code> read-from-min and terminates on no <code>v</code>-independent invariant — so <code>v_EW</code> stands as a genuine second anchor, OPEN. No scheme-anchor is load-bearing for the gate's target statement.</p>
+<h3>6.4 The honest one-line</h3>
+<blockquote>
+<p>SG-5's <strong>charge/embedding leg is DERIVED-GIVEN-E</strong> (<code>Q=T₃+Y</code>, EWSB to <code>U(1)_em</code>, single Wilson-line/Hosotani doublet, <code>v_EW</code> a measured anchor), with the Higgs quadratic destabilization structurally avoided at one loop. We <strong>built the geometric W/Z mass matrix</strong> and read ρ target-blind: the frozen charge law forces <code>T_H ∥ T₃</code>, so the neutral <code>W³</code> gets zero mass from the bare Hosotani commutator and <strong>ρ_tree ≠ 1</strong> — a live, falsifiable precision-electroweak FINDING (the custodial <code>SO(4)</code> rescue is recorded eliminated). The <strong>hierarchy is OPEN/RELOCATION</strong> (<code>v_EW</code> a second anchor with a near-no-go), η_BK provenance is SUSPECT, the <code>v</code>/<code>m_h</code> harness is AUDIT, and <strong>the gate is OPEN</strong> by its least-closed residual. NOT a hierarchy derivation; NOT a proof the geometry yields ρ = 1. <strong>Serious candidate, NOT validated. STATUS-UPGRADES:0.</strong></p>
+</blockquote>
+<hr />
+<h2>References &amp; source map</h2>
+<p><strong>Website source-of-truth (common material — link, don't duplicate):</strong>
+- Paper I, GUT.html — <a href="https://physics.magflowmeters.com/articles/GUT.html">https://physics.magflowmeters.com/articles/GUT.html</a> — §6.3 charge card; §6.8 Higgs card; §5.2/§5.7 narrative; Appendix D (charge tables); Appendix E′ (chirality/anomaly); Appendix H (H.1–H.11: Wilson-line formula + <code>V_Hos</code>, H.4 outputs, H.9.7 non-claims box, H.10 corrections); Appendices A1/A2/R0 (constants + freeze records).
+- Paper IV, TOE.html — <a href="https://physics.magflowmeters.com/articles/TOE.html">https://physics.magflowmeters.com/articles/TOE.html</a> — SCALE/hierarchy firewall conclusions; <code>v_EW</code> second-anchor irreducibility.
+- Gaps &amp; Walls Register — <a href="https://physics.magflowmeters.com/articles/GAPS_AND_WALLS_REGISTER.html">https://physics.magflowmeters.com/articles/GAPS_AND_WALLS_REGISTER.html</a> — disposition vocabulary.</p>
+<p><strong>Corpus files synthesized for this dossier (all read directly):</strong>
+- <code>…/rendered/TOE/PER_GATE_DOSSIERS/SG5_ELECTROWEAK_CLOSURE_RESULT.md</code> — §1–§8 closure result; ρ machinery; the §8 "undetermined" framing (superseded).
+- <code>…/rendered/TOE/PER_GATE_DOSSIERS/SG5_R3_RHO_REPRODUCER.py</code> — the verified ρ machinery (re-run for this dossier: all checks PASS).
+- <code>…/rendered/TOE/PER_GATE_DOSSIERS/SG5_COMPLETION_HANDOFF/10_R3_RHO_PASS_2026-06-25.md</code> — artifact ledger; FINDING_RHO_NOT_1; <code>m₀(p,q)</code> present, <code>A₅</code> blocker.
+- <code>…/rendered/TOE/PER_GATE_DOSSIERS/SG5_COMPLETION_HANDOFF/11_R3_VERDICT_FINDING_STANDS_2026-06-25.md</code> — OWNER VERDICT (binding): ρ_tree ≠ 1 FINDING STANDS.
+- <code>…/rendered/TOE/PER_GATE_DOSSIERS/SG5_COMPLETION_HANDOFF/12_R3_READOUT_MAP_AUDIT_2026-06-25.md</code> — readout-map audit COMPLETE → FINDING STANDS.
+- <code>…/rendered/TOE/PER_GATE_DOSSIERS/SG5_ROUTEB_MWZ_HANDOFF/01_DOSSIER_SG5_ELECTROWEAK.md</code> — full attack dossier; residual register R1–R10; firewall tables; anchoring map.
+- <code>…/rendered/TOE/PER_GATE_DOSSIERS/SG5_COMPLETION_HANDOFF/01_DOSSIER.md</code> — attack dossier (superseded-attack header).
+- <code>…/rendered/TOE/GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md</code> (SG-5 line) — the binding popup status + referee notes (the FINDING-vs-undetermined reconciliation).
+- <code>…/rendered/TOE/SPECIALIST_HOLE_QUEUE_2026-06-29.md</code> (SG-5, 9 holes) — the specialist hole framing folded into §5.</p>
+<p><strong>Frozen hashes (READ-ONLY):</strong> branch <code>dcc66f1b2685</code> · meta <code>a5b1e6f9d951</code> · parity table <code>ac4d2df3e708</code> · Higgs bundle <code>2a0462b8aab9</code> · cycle <code>γ</code> <code>640e1d7f7773</code> · <code>n_H=1</code> <code>f65094fd8fd1</code> · <code>η_BK=0.009721281516312024</code> <code>84e94518d3f5</code> · <code>y_t</code> <code>548d7099ef18</code> · <code>|V_us|</code> <code>a1bc510bc7cd</code> · <code>M_Z</code> <code>a6852c7a6b00</code> · <code>M_* = 7.467×10¹⁶ GeV</code>.</p>
+<p><em>Dossier built 2026-06-29 from the frozen 13D K₆ branch only. Common material referenced to the published website source-of-truth, not duplicated. STATUS-UPGRADES:0; frozen branch READ-ONLY; given-E ≠ derivation of E; selection ≠ derivation; dissolved ≠ solved; ANCHORED ≠ DERIVED. Serious candidate, NOT validated.</em></p>
+</body></html>

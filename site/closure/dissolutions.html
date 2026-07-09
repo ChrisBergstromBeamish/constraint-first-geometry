@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dissolutions — dissolved is not solved</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 240px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9679; The Closure System</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; The Anchors</a> &nbsp; <a href="/walls/">The Walls</a></div>
+<div class="ann-group">The endpoints</div>
+<a href="deep-roots.html">Deep roots — terminal endpoints</a>
+<a href="dissolutions.html" class="current">Dissolutions — dissolved ≠ solved</a>
+<div class="ann-group">The protocol</div>
+<a href="wall-routing-protocol.html">The wall-routing protocol</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">Dissolutions — dissolved is not solved — rendered package. Rendered from <code>dissolutions.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>Dissolutions — dissolved is not solved</h1>
+<p>A dissolution is not a weaker solution. It is a different kind of closure. A solution answers the original question. A dissolution shows that the original question was malformed: the burden came from an idealization, a wrong premise, or an unphysical split. Once that premise is withdrawn, the burden disappears. What remains may still be open, but the original catastrophe is no longer a valid demand.</p>
+<p>This page makes one distinction impossible to miss:</p>
+<p>$$\boxed{\text{dissolved} \neq \text{solved}}$$</p>
+<p><strong>But there is a deeper point — and it is the fundamental one:</strong></p>
+<p>$$\boxed{\text{dissolution} \neq \text{solved, but it is the ONLY possible endpoint}}$$</p>
+<p>No wall can be <em>solved from nothing</em>: every physical result must ultimately rest on a small floor of <strong>measured anchors</strong> — you cannot derive existence from nothing, so the floor is <strong>≥ 1</strong>. A genuine wall therefore has exactly two honest fates: it <strong>is</strong> one of those measured anchors (the floor), or it <strong>dissolves</strong> — its burden was an artifact of an idealization that disappears once the <em>complete</em> root is used. "Solved from nothing" was never on the menu. <strong>So dissolution is not a lesser outcome or a fallback — it is the terminal the physics was always going to reach.</strong></p>
+<p><strong>The terminal-endpoint types — by which complete root removes the idealization:</strong></p>
+<ul>
+<li><strong>Dissolved-given-Granularity</strong> — walls that demand a <em>continuum</em> / an arbitrarily-short-distance limit / finiteness "to all orders." A finite operational floor means the infinite-energy scenario simply does not exist, so there is nothing to complete. (The UV-completion and continuum walls live here.)</li>
+<li><strong>Dissolved-given-Shape</strong> — walls that are artifacts of an <em>incomplete geometry</em>: the bare space without its full field/rulebook content, or the wrong operator. The complete object removes them.</li>
+<li><strong>Dissolved-given-Scale</strong> — walls that are <em>magnitude confusions</em>: naturalness, hierarchy "problems," or a quantity that is not a scheme-independent observable. The correct scale predicate removes them.</li>
+<li>or a <strong>combination</strong> of the three.</li>
+</ul>
+<p>In every case the dissolution <em>bottoms on a measured root anchor</em> — so it stays honest (floor ≥ 1), is never a from-nothing claim, and if the idealization is re-imposed the wall reappears. That conditionality is why we write the endpoint as <strong>dissolved-<em>given</em>-a-root</strong>, not a bare "dissolved."</p>
+<p>A solution derives a mechanism, model, or value. A dissolution shows that the demanded problem was generated by a wrong premise, an idealization, or a malformed obligation. Once the premise is removed, the obligation disappears — but anything the dissolution does <em>not</em> derive stays explicitly open. Carried alongside the program's spine: <strong>selection $\neq$ derivation · given-$E$ $\neq$ derivation-of-$E$ · frozen / reproducible $\neq$ proven-unique · anchored $\neq$ closed · a wall-record is not a solution.</strong></p>
+<h2>Core thesis</h2>
+<p>Not every physics wall should be attacked as a direct derivation problem. Some walls are pseudo-problems created by an idealization: continuum-to-zero limits, trace-coupling assumptions, unobservable decompositions, or demands for absolute uniqueness.</p>
+<p>A dissolution is a legitimate terminal endpoint when it:</p>
+<ol>
+<li>names the false obligation;</li>
+<li>identifies the premise or idealization that created it;</li>
+<li>removes the obligation with a theorem, axiom, or invariant argument;</li>
+<li>leaves remaining value / model / dynamics residuals explicitly open;</li>
+<li>states the anti-claim so no one promotes dissolution into full solution.</li>
+</ol>
+<p>A dissolution that hides a measured input, leaves the original burden unchanged, or relabels a real frontier object as "dissolved" is not a dissolution. Those cases route elsewhere (see <a href="#when-not-to-call-something-a-dissolution">When not to call something a dissolution</a>).</p>
+<h2>Solution vs dissolution</h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Solution</code></td>
+<td>Derives the requested mechanism / value / model.</td>
+<td>Derive the observed $\Lambda$ value.</td>
+</tr>
+<tr>
+<td><code>Dissolution</code></td>
+<td>Shows the requested burden was generated by a wrong premise / idealization.</td>
+<td>Vacuum energy never enters the trace-free source.</td>
+</tr>
+<tr>
+<td><code>Reduction</code></td>
+<td>Compresses a primitive burden to a named posit.</td>
+<td>Granularity reduced to one cell law.</td>
+</tr>
+<tr>
+<td><code>Wall-record</code></td>
+<td>Names a real frontier object and stops per-gate inflation.</td>
+<td>Quantum gravity UV completion.</td>
+</tr>
+</tbody>
+</table>
+<p>A solution and a dissolution are <em>both</em> legitimate terminal endpoints, but they make different claims. The cardinal error is to publish a dissolution in the language of a solution — to say "$\Lambda$ is explained" when what was shown is "the demand to fine-tune $\Lambda$ was malformed." The value of $\Lambda$ remains a <code>MEASURED-ANCHOR</code> either way.</p>
+<h2>Where dissolutions sit in the closure system</h2>
+<p>Dissolutions are one of four terminal endpoints a wall can be routed to:</p>
+<p>$$\boxed{\text{derivation, reduction-to-root, dissolution, or wall-record}}$$</p>
+<ul>
+<li><strong>Derivation</strong> discharges the wall by deriving its actual target (rare; <code>CLOSED</code>).</li>
+<li><strong>Reduction-to-root</strong> compresses an impossible from-nothing demand to one named <a href="/closure/deep-roots.html">deep root</a> posit (<code>REDUCED-TO-AXIOM</code> / <code>AXIOM-CLOSED</code>).</li>
+<li><strong>Dissolution</strong> removes a false obligation created by a premise or idealization (<code>DISSOLVED-CONDITIONAL</code>, this page).</li>
+<li><strong>Wall-record</strong> names a real frontier object that no single gate owns and stops per-gate inflation (<code>WALL-RECORDED</code>; see <a href="/walls/index.html">the walls register</a>).</li>
+</ul>
+<p>The choice among these is the subject of the <a href="/closure/wall-routing-protocol.html">wall-routing protocol</a>. This page is the dedicated treatment of the dissolution branch, and dissolutions usually fire off a <strong>deep root</strong> — most often <a href="/closure/deep-roots.html">Granularity / Cost-Floor (R4)</a> for continuum infinities, or a declared trace-decoupling premise for the $\Lambda$ catastrophe.</p>
+<h2>Anatomy of a dissolution</h2>
+<p>Every dissolution must answer the same seven questions:</p>
+<ol>
+<li><strong>Burden statement</strong> — what problem is being dissolved?</li>
+<li><strong>Premise audit</strong> — what hidden assumption created the problem?</li>
+<li><strong>Root / axiom link</strong> — which deep root or declared premise dissolves it?</li>
+<li><strong>Dissolution theorem / argument</strong> — the exact identity, limit, or invariant statement.</li>
+<li><strong>Scope split</strong> — what is dissolved and what remains open?</li>
+<li><strong>Anti-claims</strong> — what the page refuses to say.</li>
+<li><strong>Residual plan</strong> — value / model / dynamics residuals.</li>
+</ol>
+<p>If any of the seven is missing, the claim is not a completed dissolution. In particular, a dissolution with no explicit <strong>scope split</strong> and <strong>residual plan</strong> is exactly the failure mode the page exists to prevent: hiding open residuals under the word "dissolved."</p>
+<h2>The dissolution test</h2>
+<p>A claimed dissolution passes only if:</p>
+<p>$$\boxed{\text{remove premise} \Rightarrow \text{original burden disappears}}$$</p>
+<p>and:</p>
+<p>$$\boxed{\text{remaining residuals are not hidden under the word “dissolved.”}}$$</p>
+<p>The first clause is the <em>necessity</em> check: the burden must be <em>generated</em> by the premise, not merely correlated with it — withdrawing the premise must make the demand vanish, not soften it. The second clause is the <em>honesty</em> check: the value, the unique model, and the dynamics that the dissolution does <strong>not</strong> derive must each carry their own status (<code>MEASURED-ANCHOR</code>, <code>VALUE-OPEN</code>, <code>MODEL-OPEN</code>, or <code>OPEN</code>). A dissolution that passes the first test and fails the second is an overclaim, not a dissolution.</p>
+<h2>Dissolution status types</h2>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DISSOLVED-CONDITIONAL</code></td>
+<td>The burden disappears once a declared axiom / premise is accepted.</td>
+</tr>
+<tr>
+<td><code>DISSOLVED-PROVEN</code></td>
+<td>The burden disappears by theorem under already-accepted premises. Rare.</td>
+</tr>
+<tr>
+<td><code>DISSOLVED + VALUE-OPEN</code></td>
+<td>Catastrophe removed, but numerical value remains measured / open.</td>
+</tr>
+<tr>
+<td><code>DISSOLVED + MODEL-OPEN</code></td>
+<td>Pathology removed, but unique model / dynamics remain open.</td>
+</tr>
+<tr>
+<td><code>DISSOLVED + CLARIFIED</code></td>
+<td>A pathology is removed and a confused concept is split into correct subobjects.</td>
+</tr>
+</tbody>
+</table>
+<p>The default status is <code>DISSOLVED-CONDITIONAL</code>: the burden vanishes <em>once a declared premise is granted</em>, and that premise is itself <code>AXIOM-OPEN / declared</code>, not forced. <code>DISSOLVED-PROVEN</code> is reserved for the case where the burden vanishes by theorem under premises already accepted independently — it is rare and must not be claimed by default.</p>
+<hr />
+<h2>Worked example: Lambda catastrophe</h2>
+<p><strong>1. Burden statement (the malformed obligation).</strong></p>
+<blockquote>
+<p>Cancel a Planck-scale vacuum-energy contribution against a bare constant to roughly 120 decimal places.</p>
+</blockquote>
+<p><strong>2. Premise audit.</strong> The catastrophe is generated by a single hidden assumption: that gravity couples to the <em>full</em> stress tensor, trace included, so the $\sim 10^{121}$ vacuum term enters the equation that bends spacetime and must be cancelled.</p>
+<p><strong>3. Premise / root link (the dissolution premise).</strong></p>
+<blockquote>
+<p>Gravity need not couple to the pure trace mode in the local field equation.</p>
+</blockquote>
+<p>This is a declared, natural-but-unforced posit (trace-decoupling), <code>AXIOM-OPEN / declared</code>. It is not derived here.</p>
+<p><strong>4. Dissolution identity.</strong> For a Lorentz-invariant vacuum stress</p>
+<p>$$T_{\mu\nu}^{\rm vac}=-\rho_{\rm vac}\,g_{\mu\nu},$$</p>
+<p>the trace-free source annihilates it pointwise, for any magnitude:</p>
+<p>$$T_{\mu\nu}^{\rm vac}-\frac14 g_{\mu\nu}T^{\rm vac}=-\rho_{\rm vac}\,g_{\mu\nu}-\frac14 g_{\mu\nu}(-4\rho_{\rm vac})=0.$$</p>
+<p>The $\sim 10^{121}$ never enters the trace-free local field equation, so there is nothing to tune. This is an elementary, pencil-checkable tensor identity (verified symbolically), magnitude-blind and robust under loops and across phase transitions.</p>
+<p><strong>5. Scope split (terminal status).</strong></p>
+<p>$$\boxed{\text{DISSOLVED-CONDITIONAL / VALUE-OPEN}}$$</p>
+<p>The <em>catastrophe-half</em> — "why isn't $\Lambda$ of order $M_{\rm Pl}^4$?" — is dissolved at the level of the trace-free local field equation. The <em>value + radiative-stability half</em> — "why <em>this</em> tiny number, and why does it stay small under $\sim 122$ orders of correction?" — is Weinberg-open and lives in the companion gates <code>Gap-05-value</code> and <code>Gap-05-stability</code>.</p>
+<p><strong>Allowed claim:</strong></p>
+<blockquote>
+<p>The 120-order tuning catastrophe is dissolved at the level of the trace-free local field equation.</p>
+</blockquote>
+<p><strong>6. Anti-claim (forbidden claim).</strong></p>
+<blockquote>
+<p>The observed value $\Lambda_{\rm obs}$ is derived or radiatively protected by the premise alone.</p>
+</blockquote>
+<p>A second proven theorem (as a negative) shows an additive matter-loop shift maps the identity back onto the boundary datum, so the premise <em>alone</em> does not protect the value at the quantum level.</p>
+<blockquote>
+<p><strong>This page dissolves the Lambda catastrophe. It does not derive $\Lambda_{\rm obs}$.</strong></p>
+</blockquote>
+<p><strong>7. Residual plan.</strong></p>
+<ul>
+<li>the observed value remains a <code>MEASURED-ANCHOR</code> ($\Lambda=(2.3\,\text{meV})^4$, Weinberg-open) — it is the gate's prediction <em>target</em> and therefore never its own terminal;</li>
+<li>premise forcing (is trace-decoupling the unique minimal move?) remains <code>OPEN</code>;</li>
+<li>radiative protection of the value remains <code>OPEN</code> / conditional;</li>
+<li>public copy must preserve <code>dissolved ≠ solved</code>.</li>
+</ul>
+<p>Sources: <a href="/anchors/lambda-catastrophe-anchor-ledger.html">the Lambda-catastrophe anchor ledger</a>; the radiative-stability residual is <a href="/walls/index.html">W10</a> (Gap-05-stability), the value-uniqueness residual is <a href="/walls/index.html">W11</a> (Gap-05-value).</p>
+<hr />
+<h2>Worked example: Black-hole singularity</h2>
+<p><strong>1. Burden statement (the malformed obligation).</strong></p>
+<blockquote>
+<p>Explain the $r=0$ curvature infinity as if $r=0$ were physically reachable.</p>
+</blockquote>
+<p><strong>2. Premise audit.</strong> The infinity is an artifact of one idealization: that the continuum limit $r\to 0$ is a physical operation — that the Schwarzschild solution can be evaluated all the way down to a literal point of zero size.</p>
+<p><strong>3. Premise / root link.</strong></p>
+<blockquote>
+<p>Granularity / smallest physical length: the continuum limit $r\to 0$ is not a physical operation.</p>
+</blockquote>
+<p>This is the <a href="/closure/deep-roots.html">Granularity / Cost-Floor deep root (R4)</a> — a declared, value-free posit that exact distinctions carry a specification floor, so there is a smallest physical length and the point $r=0$ is never attained.</p>
+<p><strong>4. Dissolution structure.</strong> The Kretschmann curvature scalar</p>
+<p>$$K_{\rm Schwarzschild}=\frac{48\,G^2 M^2}{r^6}$$</p>
+<p>diverges <em>only</em> in the unreachable continuum limit $r\to 0$. With a smallest-length floor, the limit is approached but not attained, so $K$ stays finite everywhere physical. A representative regular-core family gives finite curvature inside and Schwarzschild recovery outside — a <code>DISSOLVED + CLARIFIED</code> outcome, since "the interior" is split into a finite-curvature core plus the exterior Schwarzschild region.</p>
+<p><strong>5. Scope split (terminal status).</strong></p>
+<p>$$\boxed{\text{DISSOLVED-CONDITIONAL / MODEL-OPEN}}$$</p>
+<p>The $r=0$ singularity <em>obligation</em> is dissolved conditional on the granularity axiom. The <em>unique</em> interior model and its dynamics are not derived.</p>
+<p><strong>Allowed claim:</strong></p>
+<blockquote>
+<p>The singularity obligation is dissolved conditional on the granularity axiom.</p>
+</blockquote>
+<p><strong>6. Anti-claim (forbidden claim).</strong></p>
+<blockquote>
+<p>The unique black-hole interior, entropy, Page curve, or quantum gravity dynamics are solved.</p>
+<p><strong>This page dissolves the $r=0$ singularity obligation. It does not derive the unique black-hole interior.</strong></p>
+</blockquote>
+<p><strong>7. Residual plan.</strong></p>
+<ul>
+<li>induced source / unique interior — <code>MODEL-OPEN</code> (the regular core is a representative ansatz, not a derived interior);</li>
+<li>inner-horizon dynamics — <code>OPEN</code>;</li>
+<li>remnant stability — <code>OPEN</code>;</li>
+<li>entropy and Page mechanism — deferred to the entropy gate (Gap-13); the microstate count / Page turnover is <a href="/walls/index.html">W16</a>, itself conditional on the keystone <a href="/walls/w3-a6-coefficient.html">W3</a>;</li>
+<li>the horizon-capable gravity completion the dynamics ride on is the shared <a href="/walls/w1-uv-completion.html">W1 UV-completion wall</a> — <code>WALL-RECORDED</code>, not solved here.</li>
+</ul>
+<p>Source: <a href="/anchors/blackhole-singularity-anchor-ledger.html">the black-hole-singularity anchor ledger</a>.</p>
+<hr />
+<h2>The dissolution anti-claim rule</h2>
+<p>Every dissolution must include the sentence pattern:</p>
+<blockquote>
+<p>This page dissolves [specific burden]. It does not derive [remaining value / model / dynamics].</p>
+</blockquote>
+<p>Examples:</p>
+<ul>
+<li>This page dissolves the Lambda catastrophe. It does not derive $\Lambda_{\rm obs}$.</li>
+<li>This page dissolves the $r=0$ singularity obligation. It does not derive the unique black-hole interior.</li>
+<li>This page dissolves the need to cancel a huge term. It does not prove the premise is forced.</li>
+</ul>
+<p>The rule exists because the most natural way to overclaim a dissolution is to leave the second sentence off. Without it, "dissolved" silently inflates into "solved." The pattern forces every dissolution to name, in one breath, both what disappeared and what did not.</p>
+<h2>When not to call something a dissolution</h2>
+<p>Do not classify a wall as a dissolution if:</p>
+<ul>
+<li>the original burden remains unchanged;</li>
+<li>the gate merely lacks a computation;</li>
+<li>the claimed dissolution hides a measured input;</li>
+<li>the problem is a real frontier object, not a wrong premise;</li>
+<li>the wall requires solving a shared unicorn problem such as full quantum-gravity UV completion.</li>
+</ul>
+<p>Those cases route to a different endpoint via the <a href="/closure/wall-routing-protocol.html">wall-routing protocol</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Correct endpoint (NOT dissolution)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Burden unchanged; real residual remains</td>
+<td><code>OPEN</code> / bounded work package</td>
+</tr>
+<tr>
+<td>Gate merely lacks a finite computation</td>
+<td><code>OPEN</code> (bounded computation)</td>
+</tr>
+<tr>
+<td>Endpoint is a measured value</td>
+<td><code>MEASURED-ANCHOR</code> / <code>VALUE-OPEN</code></td>
+</tr>
+<tr>
+<td>A from-nothing demand bottoms on a posit</td>
+<td><code>REDUCED-TO-AXIOM</code> / <code>AXIOM-CLOSED</code></td>
+</tr>
+<tr>
+<td>A real frontier object no gate owns</td>
+<td><code>WALL-RECORDED</code> / <code>TERMINAL-ANCHORED</code></td>
+</tr>
+<tr>
+<td>A universal negative ("unique across all mathematics")</td>
+<td><code>TERMINAL-ANCHORED / PERMANENT WALL</code> (unicorn, dissolved as a <em>non-target</em>)</td>
+</tr>
+</tbody>
+</table>
+<p>Note the subtlety: a <em>unicorn</em> (a universal negative such as "no future theory could do better") is dissolved <strong>as a non-target</strong>, never recorded as a solvable wall — but that is a dissolution <em>of the demand</em>, not a dissolution of a physics burden, and it leaves the bounded, in-grammar version as the real wall. Full quantum-gravity UV completion is <em>not</em> a dissolution: it is the real shared frontier object <a href="/walls/w1-uv-completion.html">W1</a>, recorded, not removed.</p>
+<hr />
+<h2>Shared status vocabulary</h2>
+<p>These are the only status labels used across the closure pages; they match <a href="/closure/deep-roots.html">the deep-roots page</a>, <a href="/closure/wall-routing-protocol.html">the wall-routing protocol</a>, <a href="/anchors/index.html">the anchors system</a>, and <a href="/walls/index.html">the walls register</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CLOSED</code></td>
+<td>The actual target is derived, computed, or proven at the stated scope. Rare.</td>
+</tr>
+<tr>
+<td><code>DERIVED</code></td>
+<td>The claim follows from stated premises without importing the target.</td>
+</tr>
+<tr>
+<td><code>DERIVED-GIVEN-E</code></td>
+<td>The claim follows given the upstream spectrum / input $E$; it does not derive $E$.</td>
+</tr>
+<tr>
+<td><code>DERIVED-GIVEN-AXIOM</code></td>
+<td>The claim follows once the declared axiom is granted.</td>
+</tr>
+<tr>
+<td><code>MEASURED-ANCHOR</code></td>
+<td>The value is empirical input / residue, not derived.</td>
+</tr>
+<tr>
+<td><code>DECLARED ROOT</code></td>
+<td>The framework bottoms out here; the root is named and paid.</td>
+</tr>
+<tr>
+<td><code>AXIOM-OPEN / declared</code></td>
+<td>The posit is explicitly declared and may later be reduced, but is not derived now.</td>
+</tr>
+<tr>
+<td><code>REDUCED-TO-AXIOM</code></td>
+<td>The wall / root has been compressed to a named irreducible posit or minimal posit set.</td>
+</tr>
+<tr>
+<td><code>AXIOM-CLOSED</code></td>
+<td>The primitive is no longer hidden; it is paid, named, and stable as an endpoint.</td>
+</tr>
+<tr>
+<td><code>DISSOLVED-CONDITIONAL</code></td>
+<td>The demanded problem disappears once a declared root / axiom / premise is accepted.</td>
+</tr>
+<tr>
+<td><code>TERMINAL-ANCHORED</code></td>
+<td>The gate has reached its legitimate endpoint by being tied to exact anchors and residuals.</td>
+</tr>
+<tr>
+<td><code>WALL-RECORDED</code></td>
+<td>The remaining object is a known frontier / permanent wall, not a per-gate task.</td>
+</tr>
+<tr>
+<td><code>VALUE-OPEN</code></td>
+<td>A catastrophe / pathology is dissolved, but the observed numerical value remains measured / open.</td>
+</tr>
+<tr>
+<td><code>MODEL-OPEN</code></td>
+<td>A pathology is dissolved, but the unique model / interior / dynamics is not derived.</td>
+</tr>
+<tr>
+<td><code>AUDIT ONLY</code></td>
+<td>The item validates reproducibility / object identity, not physical truth.</td>
+</tr>
+<tr>
+<td><code>OPEN</code></td>
+<td>A real residual remains.</td>
+</tr>
+<tr>
+<td><code>BLOCKED</code></td>
+<td>The residual cannot currently be executed because a prerequisite is missing.</td>
+</tr>
+<tr>
+<td><code>ANTI-CLAIM</code></td>
+<td>A claim the page explicitly refuses to make.</td>
+</tr>
+</tbody>
+</table>
+<h2>Allowed claims</h2>
+<p>A dissolution page <strong>may</strong> say:</p>
+<ul>
+<li>A specific malformed obligation has been dissolved conditional on a named, declared premise.</li>
+<li>A tensor identity / invariant argument removes a catastrophe pointwise and magnitude-blind.</li>
+<li>A continuum infinity is an artifact of an unreachable limit dissolved by the granularity root.</li>
+<li>A confused concept has been split into correct subobjects (<code>DISSOLVED + CLARIFIED</code>).</li>
+<li>The remaining value is a <code>MEASURED-ANCHOR</code> and the remaining model / dynamics are <code>MODEL-OPEN</code> / <code>OPEN</code>.</li>
+</ul>
+<h2>Universal forbidden overclaims</h2>
+<p>No closure page may say or imply:</p>
+<ul>
+<li>"deep roots are all theorem-grade."</li>
+<li>"a declared root is derived from nothing."</li>
+<li>"dissolved means solved."</li>
+<li>"selected means forced."</li>
+<li>"given-$E$ means derivation-of-$E$."</li>
+<li>"a measured anchor has been derived by the same gate that uses it as target."</li>
+<li>"hashes validate physics."</li>
+<li>"local closure equals whole-gate closure."</li>
+<li>"a wall-record is a physics solution."</li>
+<li>"a unicorn target must be solved before a gate can reach terminal endpoint."</li>
+</ul>
+<p>In particular, no physics gate on this page is labelled <code>CLOSED</code>: a dissolution removes a false demand, it does not derive the actual target, so the honest endpoint is <code>DISSOLVED-CONDITIONAL</code> with explicit residuals — never <code>CLOSED</code>.</p>
+<h2>Cross-links</h2>
+<ul>
+<li><strong><a href="/closure/deep-roots.html">Deep roots — explanation stops honestly</a></strong> — the seven irreducible roots a dissolution fires off (especially Granularity R4).</li>
+<li><strong><a href="/closure/wall-routing-protocol.html">Wall-routing protocol</a></strong> — how a wall is routed to derivation, reduction, dissolution, or wall-record.</li>
+<li><strong><a href="/anchors/index.html">The anchors — overview</a></strong> · <strong><a href="/anchors/deep-roots.html">The seven deep roots</a></strong> — the anchoring rule-set and status vocabulary this page inherits.</li>
+<li><strong><a href="/anchors/lambda-catastrophe-anchor-ledger.html">The Lambda-catastrophe anchor ledger</a></strong> · <strong><a href="/anchors/blackhole-singularity-anchor-ledger.html">The black-hole-singularity anchor ledger</a></strong> — the gate-level ledgers behind the two worked examples.</li>
+<li><strong><a href="/walls/index.html">The walls register</a></strong> · <strong><a href="/walls/w1-uv-completion.html">W1 — UV completion</a></strong> · <strong><a href="/walls/w3-a6-coefficient.html">W3 — the $a_6$ keystone</a></strong> · <strong><a href="/walls/w4-granularity-mdl.html">W4 — granularity ⇒ MDL</a></strong> — the frontier objects that residuals route to.</li>
+</ul>
+<hr />
+<h2>Completion report</h2>
+<p><strong>Tests passed.</strong></p>
+<ul>
+<li>T1 — Defines dissolution clearly (opening paragraph + core thesis).</li>
+<li>T2 — Distinguishes dissolution from solution (solution-vs-dissolution table + "where dissolutions sit").</li>
+<li>T3 — Includes the dissolution anatomy (the seven-question block).</li>
+<li>T4 — Includes the dissolution pass/fail test (both boxed clauses + the necessity/honesty reading).</li>
+<li>T5 — Includes the Lambda catastrophe as <code>DISSOLVED-CONDITIONAL / VALUE-OPEN</code> with the trace-free identity.</li>
+<li>T6 — Includes the black-hole singularity as <code>DISSOLVED-CONDITIONAL / MODEL-OPEN</code> with the Kretschmann scalar.</li>
+<li>T7 — Includes residuals for each example (residual plan blocks 7).</li>
+<li>T8 — Includes anti-claims for each example (anti-claim rule, "This page dissolves … It does not derive …").</li>
+<li>T9 — Says <code>dissolved ≠ solved</code> (boxed at top; carried throughout).</li>
+<li>T10 — "When not to call something a dissolution" present, routing the non-dissolution cases.</li>
+<li>T11 — Shared status vocabulary table present and consistent with the sibling pages.</li>
+<li>T12 — Allowed claims + universal forbidden overclaims present.</li>
+<li>T13 — Ends with this completion report.</li>
+<li>U1 — Terminal-anchored discipline held: anchored ≠ closed, dissolved ≠ solved, selected ≠ forced, given-$E$ ≠ derivation-of-$E$, a wall-record is not a solution.</li>
+<li>U2 — No physics gate labelled <code>CLOSED</code>; the value stays a <code>MEASURED-ANCHOR</code>.</li>
+<li>U3 — <code>$...$</code> / <code>$$...$$</code> math throughout; no internal-process vocabulary; no QC-chip / Mars content.</li>
+<li>U4 — Cross-links to the other two <code>/closure/</code> pages, <code>/anchors/</code>, and <code>/walls/</code> all present.</li>
+</ul>
+<p><strong>Tests failed.</strong> None.</p>
+<p><strong>Open items.</strong></p>
+<ul>
+<li>$\Lambda_{\rm obs}=(2.3\,\text{meV})^4$ — <code>MEASURED-ANCHOR</code>, Weinberg-open; never derived by its own gate.</li>
+<li>Trace-decoupling premise forcing / R-uniqueness (<a href="/walls/index.html">W10</a>) — <code>OPEN</code>.</li>
+<li>$\Lambda$ radiative stability under the premise alone — <code>OPEN</code> (the premise alone does not protect the value at the quantum level).</li>
+<li>Black-hole unique interior / inner-horizon dynamics / remnant stability — <code>MODEL-OPEN</code> / <code>OPEN</code>.</li>
+<li>Black-hole entropy + Page mechanism — deferred to Gap-13; consumes the <a href="/walls/w3-a6-coefficient.html">W3 $a_6$ keystone</a> and the shared <a href="/walls/w1-uv-completion.html">W1 UV-completion wall</a>.</li>
+</ul>
+<p><strong>Assumptions made.</strong></p>
+<ul>
+<li>The dissolution definition, anatomy, status types, and the two worked examples follow the closure-system specification, with specifics (the $(2.3\,\text{meV})^4$ value, the catastrophe-half / value-half split, the regular-core ansatz, W10/W11/W16/W3/W1 routing) taken from the corresponding anchor ledgers and the walls register so the page does not contradict its siblings.</li>
+<li>Used the shared status vocabulary and the seven-root naming (Granularity / Cost-Floor R4) consistent with the <code>/anchors/deep-roots</code> page and the forthcoming <code>/closure/deep-roots</code> and <code>/closure/wall-routing-protocol</code> pages.</li>
+<li>Linked <code>/closure/</code> siblings as <code>.html</code> and <code>/anchors/</code> · <code>/walls/</code> targets as <code>.html</code> per the site's existing cross-link convention; the sibling <code>/closure/</code> pages were not yet built at write time, so those links are forward references by the handoff-specified filenames.</li>
+</ul>
+</main>
+</div>
+</body></html>

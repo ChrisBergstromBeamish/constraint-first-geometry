@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relativistic Optics Lab — Deep-Space Optical Link and GR Correction Calculators</title>
+  <meta name="description" content="Public calculators for deep-space optical links, Shapiro delay, Sagnac correction, light deflection, clock shifts, point-ahead angle, and relativistic correction budgets. Built for transparent physics and reproducible certificates.">
+  <link rel="stylesheet" href="shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script type="module">
+    import { bootstrap } from "./shared/shared.js";
+    bootstrap({ activeKey: "home", root: true });
+  </script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="container">
+    <h1>Useful calculators. Visible physics. Checkable math. Reproducible certificates.</h1>
+    <div class="subtitle">Public calculators for deep-space optical links, light-time, pointing, clocks, phase, and relativistic correction budgets.</div>
+    <p class="pitch">Enter a scenario geometry. See the optical and relativistic correction terms. Rank what matters. Check the formulas. Export a reproducible certificate.</p>
+    <p class="pitch"><strong>Two tiers below.</strong> The <em>simple calculators</em> are deliberately small — one formula, one unit, one assumption per page — designed to make our geometry and physics checkable term by term. The three <em>Advanced calculators</em> at the bottom (Dominance Map, Reliability Emulator, Wave/AO Surrogate) compose those same formulas into systems-engineering triage: dominant constraint, closure probability, atmosphere + AO penalty distribution.</p>
+
+    <div id="validation-badge-row" class="cta-row" style="margin-top:10px;align-items:center;gap:10px;flex-wrap:wrap">
+      <span id="validation-badge" class="badge mvp" style="font-size:14px">Validation: LOADING…</span>
+      <a class="btn btn-outline" href="reproducibility/">Reproducibility bundle</a>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn" href="correction-ranker/">Start with Correction Ranker</a>
+      <a class="btn btn-outline" href="shapiro-delay/">Open Shapiro Delay Calculator</a>
+      <a class="btn btn-outline" href="deep-space-link/">Build an Optical Link Budget</a>
+      <a class="btn btn-outline" href="validation/">View Validation Cases</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Validation badge: fetch validation/validation_badge.json if available.
+  (function loadValidationBadge() {
+    const badge = document.getElementById("validation-badge");
+    if (!badge) return;
+    fetch("validation/validation_badge.json", { cache: "no-store" })
+      .then(r => {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      })
+      .then(j => {
+        const status   = (j.status || "UNKNOWN").toString().toUpperCase();
+        const passed   = j.checks_passed != null ? j.checks_passed : (j.passed != null ? j.passed : null);
+        const total    = j.checks_total  != null ? j.checks_total  : (j.total  != null ? j.total  : null);
+        const receipt  = j.receipt_hash_short || j.receipt_short || j.receipt || "";
+        const parts    = ["Validation: " + status];
+        if (passed != null && total != null) parts.push(passed + "/" + total + " checks");
+        if (receipt) parts.push("receipt " + receipt);
+        badge.textContent = parts.join(" · ");
+        if (status === "PASS") badge.classList.remove("mvp"), badge.classList.add("keep");
+        else if (status === "FAIL") badge.classList.remove("mvp"), badge.classList.add("ignore");
+      })
+      .catch(() => {
+        badge.textContent = "Validation: UNKNOWN";
+      });
+  })();
+</script>
+
+<main class="container">
+
+  <h2>Why this exists</h2>
+  <p>
+    Deep-space optical links are sensitive to small effects. A term that looks negligible in one geometry can matter in another:
+    Shapiro delay near solar conjunction, Sagnac timing from rotating frames, point-ahead angle from transverse velocity,
+    diffraction loss from aperture and wavelength, gravitational redshift in precision clock comparisons, and phase accumulation
+    over long integration times.
+  </p>
+  <p>
+    The purpose of this lab is not to hide those effects inside a black box. The purpose is to make them visible. Each calculator
+    shows the formula, units, assumptions, approximation order, tolerance test, and an exportable certificate.
+  </p>
+  <div class="callout good">
+    <strong>Operating rule.</strong> No black-box relativity. Every correction gets a formula, a magnitude, a unit, a tolerance test, and a certificate.
+  </div>
+
+  <h2>Calculators <span class="small mute" style="font-weight:normal">— simple, single-term physics checks</span></h2>
+  <div class="callout">
+    <strong>What these are.</strong> The seven calculators below each isolate one effect — Shapiro delay, Sagnac correction, light deflection, frequency shift, optical link budget, point-ahead — and expose its formula, units, sign convention, approximation order, and tolerance test on a single page. They exist to make the lab's geometry and physics checkable one term at a time. They are <em>not</em> meant to answer systems-level questions like "how often does the link close?" — those live in the <a href="#more-advanced-calculators">More Advanced Calculators</a> section at the bottom.
+  </div>
+  <div class="card-grid">
+
+    <div class="card">
+      <h3><a href="correction-ranker/">Correction Budget Ranker</a> <span class="badge mvp">MVP</span></h3>
+      <p><strong>Purpose.</strong> Compare timing, pointing, frequency, phase, and optical-link terms against user tolerances.</p>
+      <p><strong>Inputs.</strong> scenario geometry, range, velocity, frequency, tolerances.</p>
+      <p><strong>Outputs.</strong> ranked table: <span class="badge keep">KEEP</span> <span class="badge watch">WATCH</span> <span class="badge ignore">IGNORE</span>.</p>
+      <p><strong>Best for.</strong> "Can I safely ignore this correction?"</p>
+      <p><a class="btn btn-outline" href="correction-ranker/">Open Ranker</a></p>
+    </div>
+
+    <div class="card">
+      <h3><a href="shapiro-delay/">Shapiro Delay</a> <span class="badge mvp">MVP</span></h3>
+      <p><strong>Purpose.</strong> Compute weak-field gravitational light-time delay near a massive body.</p>
+      <p><strong>Inputs.</strong> central body, $GM$, $r_1$, $r_2$, $R$, PPN $\gamma$.</p>
+      <p><strong>Outputs.</strong> delay in seconds and range-equivalent meters.</p>
+      <p><strong>Best for.</strong> solar-conjunction / light-time correction checks.</p>
+      <p><a class="btn btn-outline" href="shapiro-delay/">Calculate Shapiro Delay</a></p>
+    </div>
+
+    <div class="card">
+      <h3><a href="deep-space-link/">Deep-Space Optical Link Budget</a> <span class="badge mvp">MVP</span></h3>
+      <p><strong>Purpose.</strong> Estimate beam divergence, received power, photon rate, photons per bit, point-ahead angle, and link margin.</p>
+      <p><strong>Inputs.</strong> wavelength, aperture, power, range, data rate, losses.</p>
+      <p><strong>Outputs.</strong> photon budget and link margin.</p>
+      <p><strong>Best for.</strong> optical communications sanity checks.</p>
+      <p><a class="btn btn-outline" href="deep-space-link/">Build Link Budget</a></p>
+    </div>
+
+    <div class="card">
+      <h3><a href="sagnac/">Sagnac Correction</a> <span class="badge mvp">MVP</span></h3>
+      <p><strong>Purpose.</strong> Estimate rotating-frame timing corrections for Earth-based or rotating-body links.</p>
+      <p><strong>Inputs.</strong> emitter/receiver vectors, rotation vector, frame convention.</p>
+      <p><strong>Outputs.</strong> time correction and range equivalent.</p>
+      <p><strong>Best for.</strong> ground station / rotating-frame timing checks.</p>
+      <p><a class="btn btn-outline" href="sagnac/">Calculate Sagnac</a></p>
+    </div>
+
+    <div class="card">
+      <h3><a href="frequency-clock-shift/">Frequency / Clock Shift</a> <span class="badge mvp">MVP</span></h3>
+      <p><strong>Purpose.</strong> Estimate gravitational redshift, Doppler, and transverse-Doppler terms.</p>
+      <p><strong>Inputs.</strong> potential difference, velocities, carrier frequency.</p>
+      <p><strong>Outputs.</strong> fractional frequency shift, Hz shift, accumulated cycles.</p>
+      <p><strong>Best for.</strong> clock, phase, and precision frequency checks.</p>
+      <p><a class="btn btn-outline" href="frequency-clock-shift/">Open Clock Shift</a></p>
+    </div>
+
+    <div class="card">
+      <h3><a href="light-deflection/">Light Deflection / Pointing</a> <span class="badge mvp">MVP</span></h3>
+      <p><strong>Purpose.</strong> Estimate first-order angular light deflection near massive bodies.</p>
+      <p><strong>Inputs.</strong> $GM$, impact parameter $b$, PPN $\gamma$, pointing tolerance.</p>
+      <p><strong>Outputs.</strong> deflection in radians, arcsec, mas, tolerance status.</p>
+      <p><strong>Best for.</strong> pointing correction near solar limb or planets.</p>
+      <p><a class="btn btn-outline" href="light-deflection/">Calculate Deflection</a></p>
+    </div>
+
+    <div class="card">
+      <h3><a href="validation/">Validation Cases</a> <span class="badge mvp">MVP</span></h3>
+      <p><strong>Purpose.</strong> Reproduce public or textbook benchmark calculations.</p>
+      <p><strong>Inputs.</strong> preloaded cases.</p>
+      <p><strong>Outputs.</strong> expected value vs calculator output.</p>
+      <p><strong>Best for.</strong> checking implementation correctness.</p>
+      <p><a class="btn btn-outline" href="validation/">View Validation</a></p>
+    </div>
+
+    <div class="card">
+      <h3>Certificate Generator <span class="badge planned">In every tool</span></h3>
+      <p><strong>Purpose.</strong> Export calculator inputs, constants, formulas, assumptions, outputs, warnings, and SHA-256 hash.</p>
+      <p><strong>Inputs.</strong> live calculator result.</p>
+      <p><strong>Outputs.</strong> JSON / Markdown certificate.</p>
+      <p><strong>Best for.</strong> reproducible engineering notes and review packets.</p>
+      <p class="small mute">Every calculator above includes an "Export Certificate" action.</p>
+    </div>
+
+    <div class="card">
+      <h3>PPN Sensitivity Explorer <span class="badge adv">Phase 3</span></h3>
+      <p><strong>Purpose.</strong> Vary PPN $\gamma, \beta$ and see which observables move.</p>
+      <p><strong>Status.</strong> planned. The MVP calculators already expose $\gamma$ as an input so a manual sweep is possible.</p>
+    </div>
+  </div>
+
+  <h2>How the calculators are built</h2>
+  <p>Each calculator is built as a visible chain:</p>
+  <ol>
+    <li>User inputs</li>
+    <li>Physical constants (CODATA / IAU; see <a href="validation/">Validation</a>)</li>
+    <li>Formula set (visible on every tool page)</li>
+    <li>Unit conversions</li>
+    <li>Correction terms</li>
+    <li>Tolerance tests (<span class="badge keep">KEEP</span> / <span class="badge watch">WATCH</span> / <span class="badge ignore">IGNORE</span>)</li>
+    <li>Warnings and assumptions</li>
+    <li>Certificate export (JSON + Markdown, SHA-256 hashed)</li>
+  </ol>
+  <pre class="formula-block">Geometry + link inputs
+        ↓
+Standard formulas + constants
+        ↓
+Term-by-term correction budget
+        ↓
+Tolerance ranking
+        ↓
+Validation check
+        ↓
+Exportable certificate</pre>
+  <div class="callout">
+    <strong>Engineering principle.</strong> If the user cannot see the formula, unit, assumption, and tolerance test, the calculator is not finished.
+  </div>
+
+  <h2>Physics and math checking</h2>
+  <p>
+    The lab is designed as a calculator suite <em>and</em> as a physics-check workbench. Each result is broken into named terms,
+    and each term is tied to a formula, unit, assumption, and validation case where possible. This makes the tools useful for
+    engineering estimates and also for finding mistakes: wrong units, wrong signs, invalid approximations, hidden frame
+    assumptions, and terms that exceed tolerance.
+  </p>
+
+  <table>
+    <thead>
+      <tr><th>Check</th><th>What every page exposes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Formula check</td><td>The equation used for each correction</td></tr>
+      <tr><td>Unit check</td><td>Input units, output units, conversion notes</td></tr>
+      <tr><td>Sign-convention check</td><td>Direction and frame assumptions</td></tr>
+      <tr><td>Approximation check</td><td>Weak-field, first-order, static-body, or low-velocity assumptions</td></tr>
+      <tr><td>Magnitude check</td><td>Order-of-magnitude comparison</td></tr>
+      <tr><td>Tolerance check</td><td>Whether a term is keep / watch / ignore</td></tr>
+      <tr><td>Validation check</td><td>Known benchmark or public example</td></tr>
+      <tr><td>Reproduction check</td><td>Exportable JSON / Markdown certificate with SHA-256 hash</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <strong>Not mission-certified.</strong> These tools are public, auditable calculators for first-pass estimates, sanity checks,
+    education, and review. Public engineering surrogate work for actual missions requires full ephemerides, frame handling, instrument models, pointing-control
+    models, atmosphere models, and mission-specific calibration. They do not reproduce JPL internal pipelines.
+  </div>
+
+  <h2>Suggested workflow</h2>
+  <ol>
+    <li><strong>Choose a scenario.</strong> Select range, body geometry, velocity, optical-link parameters.</li>
+    <li><strong>Run the correction ranker.</strong> See which timing, pointing, frequency, and optical-link terms matter.</li>
+    <li><strong>Open the dominant terms.</strong> Use dedicated calculators for Shapiro delay, point-ahead angle, Sagnac, frequency shift, etc.</li>
+    <li><strong>Check formulas and assumptions.</strong> Inspect equations, units, signs, and approximation warnings on each tool page.</li>
+    <li><strong>Export a certificate.</strong> Save inputs, outputs, formulas, constants, assumptions, and SHA-256 hash.</li>
+  </ol>
+  <p class="small mute">Motto: <em>start broad, rank terms, drill down, export proof.</em></p>
+
+  <h2>Validation</h2>
+  <p>
+    The <a href="validation/">validation page</a> contains public or textbook-level cases the calculators reproduce. These are
+    implementation checks, not proprietary mission validations.
+  </p>
+  <table>
+    <thead><tr><th>Validation case</th><th>Calculator</th><th>What it checks</th></tr></thead>
+    <tbody>
+      <tr><td>Solar-limb light deflection</td><td>Light deflection</td><td>$4GM_\odot / (c^2 R_\odot) \approx 1.75\,\text{arcsec}$</td></tr>
+      <tr><td>Solar conjunction Shapiro delay</td><td>Shapiro delay</td><td>logarithmic light-time correction</td></tr>
+      <tr><td>1550 nm photon energy</td><td>Link budget</td><td>$E_\gamma = hc/\lambda$</td></tr>
+      <tr><td>Airy divergence</td><td>Link budget</td><td>$\theta_{\rm div} = 1.22\lambda/D$</td></tr>
+      <tr><td>Simple Sagnac geometry</td><td>Sagnac</td><td>$\vec\Omega\cdot(\vec r_1\times\vec r_2)/c^2$</td></tr>
+      <tr><td>Point-ahead scaling</td><td>Link budget</td><td>$v_\perp/c$</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Certificate / reproducibility</h2>
+  <p>
+    Every calculator can export a certificate. The certificate records the tool version, timestamp, inputs, constants, formulas,
+    assumptions, outputs, warnings, tolerance tests, and a SHA-256 hash of the canonical JSON. This makes a result easy to share,
+    reproduce, and audit.
+  </p>
+  <pre>{
+  "tool": "shapiro-delay",
+  "version": "0.1.0",
+  "inputs":  { "central_body": "Sun", "r1_AU": 1.0, "r2_AU": 1.5, "gamma": 1.0 },
+  "outputs": { "delay_seconds": 0.000123, "range_equivalent_m": 36874 },
+  "warnings": [ "one-body weak-field approximation" ],
+  "hash": { "sha256": "…", "short": "abc123" }
+}</pre>
+
+  <h2>Assumptions and limits</h2>
+  <table>
+    <thead><tr><th>Area</th><th>MVP includes</th><th>MVP does not include</th></tr></thead>
+    <tbody>
+      <tr><td>GR light-time</td><td>one-body weak-field Shapiro</td><td>full multi-body relativistic ephemeris</td></tr>
+      <tr><td>Timing frames</td><td>simple convention notes</td><td>full TDB / TCB / TT / UTC transformation stack</td></tr>
+      <tr><td>Rotation</td><td>simple Sagnac</td><td>full station-motion / Earth-orientation pipeline</td></tr>
+      <tr><td>Optical link</td><td>diffraction, photon rate, point-ahead</td><td>turbulence, adaptive optics, detector internals</td></tr>
+      <tr><td>Pointing</td><td>first-order light deflection</td><td>full pointing-control simulation</td></tr>
+      <tr><td>Validation</td><td>public / textbook cases</td><td>proprietary mission validation</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Suggested first use cases</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h4>"Can I ignore Shapiro delay?"</h4>
+      <p>Sun as central body, Earth-spacecraft geometry, tolerance in nanoseconds or meters → keep/watch/ignore decision.</p>
+      <p><a href="shapiro-delay/">→ Shapiro Delay</a></p>
+    </div>
+    <div class="card">
+      <h4>"How hard is this optical link?"</h4>
+      <p>Wavelength, apertures, range, power, data rate → photon rate, photons-per-bit, link margin.</p>
+      <p><a href="deep-space-link/">→ Optical Link Budget</a></p>
+    </div>
+    <div class="card">
+      <h4>"What pointing angle matters?"</h4>
+      <p>Transverse velocity, range, aperture, wavelength, impact parameter near Sun → ranked pointing terms.</p>
+      <p><a href="light-deflection/">→ Light Deflection</a> · <a href="deep-space-link/">→ Link Budget (point-ahead)</a></p>
+    </div>
+    <div class="card">
+      <h4>"Which correction dominates?"</h4>
+      <p>Saved scenario → full ranked correction budget across timing, pointing, frequency, and optical-link terms.</p>
+      <p><a href="correction-ranker/">→ Correction Ranker</a></p>
+    </div>
+  </div>
+
+  <h2>Registries</h2>
+  <p class="small mute">Authoritative sources for every formula, constant, and validation case used by the calculators above.</p>
+  <ul>
+    <li><a href="formulas/">Formula registry</a> — every equation by <code>formula_id</code></li>
+    <li><a href="constants/">Constants registry</a> — every numerical constant by <code>constant_id</code> (CODATA / IAU / IERS / WGS-84)</li>
+    <li><a href="sources/">Source registry</a> — every textbook, standards body, and public mission fact by <code>source_id</code></li>
+    <li><a href="reproducibility/">Reproducibility bundle</a> — downloadable bundle for re-running the lab</li>
+    <li><a href="validation/">Validation cases</a> — public / textbook benchmark reproductions</li>
+  </ul>
+
+  <h2 id="more-advanced-calculators" style="margin-top:36px">More Advanced Calculators</h2>
+  <div class="callout">
+    <strong>Why these are separate.</strong> The calculators above are deliberately simple — they exist to check the lab's geometry and physics one term at a time, with every formula, unit, assumption, and tolerance visible. The three calculators below are more complex and could be useful for systems-engineering triage: <em>which</em> design region you're in, <em>how often</em> the link will close under uncertainty, and <em>where</em> high-fidelity simulation is worth the compute. They share the same claim discipline (public engineering surrogate, not mission-certified, not a replacement for full wave-optics / atmospheric / AO pipelines), but they answer larger reliability and design-space questions instead of single-term physics checks.
+  </div>
+
+  <div class="card-grid">
+    <div class="card featured-card">
+      <h3><a href="design-space-dominance-map/">Design-Space Dominance Map</a> <span class="badge adv">Advanced</span></h3>
+      <p><strong>Purpose.</strong> Find the active optical-link constraint across a high-dimensional design space — before spending compute on full wave-optics or high-fidelity Monte Carlo.</p>
+      <p><strong>Inputs.</strong> design vector (range, wavelength, aperture, power, etc.) and sweep ranges.</p>
+      <p><strong>Outputs.</strong> dominant-limiter map, closure margin $G(z)$, regime classification, boundary-case list, high-fidelity recommendations.</p>
+      <p><strong>Best for.</strong> "Which constraint dominates in this region of design space?"</p>
+      <p><a class="btn btn-outline" href="design-space-dominance-map/">Open Dominance Map →</a></p>
+      <p class="small mute" style="margin-top:8px">
+        <a href="design-space-dominance-map/USER_GUIDE.md">📖 User Guide</a>
+        &nbsp;·&nbsp;
+        <a href="design-space-dominance-map/SAMPLE_NASA_SPEC.md">📋 Sample NASA Spec</a>
+      </p>
+    </div>
+
+    <div class="card featured-card">
+      <h3><a href="optical-link-reliability-emulator/">Optical Link Reliability Emulator</a> <span class="badge adv">Advanced</span></h3>
+      <p><strong>Purpose.</strong> Estimate deep-space optical-link closure probability under declared assumptions and uncertainties — fast triage before high-fidelity simulation.</p>
+      <p><strong>Inputs.</strong> nominal scenario + per-input uncertainty distributions.</p>
+      <p><strong>Outputs.</strong> $P_\text{close}$, margin percentiles $M_{05}/M_{50}/M_{95}$, dominant failure mode, high-fidelity escalation list.</p>
+      <p><strong>Best for.</strong> "Will this link close reliably under uncertainty?"</p>
+      <p><a class="btn btn-outline" href="optical-link-reliability-emulator/">Open Reliability Emulator →</a></p>
+      <p class="small mute" style="margin-top:8px">
+        <a href="optical-link-reliability-emulator/USER_GUIDE.md">📖 User Guide</a>
+        &nbsp;·&nbsp;
+        <a href="optical-link-reliability-emulator/SAMPLE_NASA_SPEC.md">📋 Sample NASA Spec</a>
+      </p>
+    </div>
+
+    <div class="card featured-card">
+      <h3><a href="wave-optics-atmosphere-ao-surrogate/">Wave-Optics / Atmosphere / AO Surrogate</a> <span class="badge adv">Advanced</span></h3>
+      <p><strong>Purpose.</strong> Estimate atmospheric turbulence, adaptive-optics residual, pointing, and coupling penalties — fast surrogate triage before high-fidelity wave-optics simulation.</p>
+      <p><strong>Inputs.</strong> optical scenario + atmosphere ($r_0$, zenith, $T_\text{atm}$) + AO model + receiver coupling.</p>
+      <p><strong>Outputs.</strong> Strehl ratio, coupling efficiency, penalty distribution, fade probability, dominant impairment, high-fidelity recommendation.</p>
+      <p><strong>Best for.</strong> "How much penalty does the atmosphere + AO actually cost on this site?"</p>
+      <p><a class="btn btn-outline" href="wave-optics-atmosphere-ao-surrogate/">Open Wave/AO Surrogate →</a></p>
+      <p class="small mute" style="margin-top:8px">
+        <a href="wave-optics-atmosphere-ao-surrogate/USER_GUIDE.md">📖 User Guide</a>
+        &nbsp;·&nbsp;
+        <a href="wave-optics-atmosphere-ao-surrogate/SAMPLE_NASA_SPEC.md">📋 Sample NASA Spec</a>
+      </p>
+    </div>
+  </div>
+
+  <details style="margin-top:24px">
+    <summary class="small">Research context</summary>
+    <p class="small">This lab was developed alongside a broader geometric-physics manuscript. The calculators themselves use standard public formulas, public constants, and public validation cases.</p>
+  </details>
+
+</main>
+
+</body>
+</html>

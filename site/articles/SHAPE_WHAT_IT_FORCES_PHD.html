@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHAPE WHAT IT FORCES PHD</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">The 13D Shape: What It Is and What It Forces — rendered package. Rendered from <code>SHAPE_WHAT_IT_FORCES_PHD.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The 13D Shape: What It Is and What It Forces</h1>
+<p><em>A graduate-level explainer of the frozen 13-dimensional active branch, the gauge group and family
+count it recovers, and — stated honestly — exactly how much of that is forced.</em></p>
+<blockquote>
+<p><strong>Honest ceiling, up front.</strong> This is a <strong>serious candidate for partial unification — it is NOT a
+validated theory.</strong> Read the central claim precisely: the 13D shape is an <strong>anchor (an axiom)</strong>. The
+gauge group, the three generations, and the charge assignments are <strong>not derived from nothing</strong> —
+they are <strong>DERIVED-GIVEN-E</strong>: consequences that follow <em>given the shape</em> <strong>and</strong> <em>given the observed
+Standard-Model spectrum E</em>. "Given-E" is load-bearing everywhere below. <strong>Selection is not
+derivation; given-E is not a derivation of E; a frozen, reproducible construction is not a uniqueness
+theorem.</strong> Where a claim is open, it is marked open.</p>
+</blockquote>
+<hr />
+<h2>1. The object: the frozen 13D active branch</h2>
+<p>The construction fixes one specific 13-dimensional geometry, frozen byte-for-byte before any physics
+gate is evaluated (content hash <code>dcc66f1b2685</code>, manifest meta-hash <code>a5b1e6f9d951</code>). Its metric
+"stage" — the part that actually carries dimension — is the product</p>
+<p>$$
+\mathfrak{B}_{\rm active}\ \supset\ \mathcal{M}_4 \times K_6 \times S^2 \times S^1_Y/\mathbb{Z}_2,
+\qquad D = 4 + 6 + 2 + 1 = 13,
+$$</p>
+<p>with the <strong>color factor</strong> the six-dimensional <strong>flag manifold of $SU(3)$</strong>,</p>
+<p>$$
+K_6 = SU(3)/T^2 .
+$$</p>
+<p>The full object carries two further, <strong>zero-dimensional</strong> layers that do not add metric dimension but
+constrain what is admissible: a finite "rulebook" layer (a flavor chamber $F^+_{\rm finite}$ with
+modulus $\tau=\omega$, projectors, and an anti-fitting/admissibility firewall $C_{\rm admiss}$) and a
+bundle/operator "actors" layer ($E_{\rm matter}\oplus E_{\rm gauge}\oplus E_{\rm Higgs}\oplus
+E_{\rm proton}$). For this explainer the metric stage and the bundle data on it carry the physics we
+discuss; the discrete layers enter through the admissibility conditions and the centre quotient.</p>
+<p>The organizing principle is the oldest one in Kaluza–Klein theory, stated as the program's category
+definition:</p>
+<blockquote>
+<p><strong>Gauge forces are the isometries of the internal factors.</strong></p>
+</blockquote>
+<p>Each compact factor sources exactly one simple summand of the low-energy gauge algebra. The remainder
+of this document works out (i) what that principle recovers, (ii) what is genuinely <em>forced</em> about the
+choice of factors, and (iii) where each claim bottoms out honestly.</p>
+<h3>1.1 Why a flag manifold for color</h3>
+<p>$K_6 = SU(3)/T^2$ is the complete flag manifold of $\mathbb{C}^3$: a compact homogeneous Kähler
+manifold of real dimension $\dim SU(3) - \dim T^2 = 8 - 2 = 6$, with isometry group $SU(3)$ and Euler
+characteristic</p>
+<p>$$
+\chi(K_6) = |W(SU(3))| = |S_3| = 6 .
+$$</p>
+<p>Two facts about it do the heavy lifting later: its isometry algebra is exactly $\mathfrak{su}(3)$
+(color), and — because it is a homogeneous Kähler space $G/T$ — the cohomology of line/spinor bundles
+over it is computable in <strong>closed form</strong> by Borel–Weil–Bott. That closed-form computability is what
+turns "count the chiral zero modes" into an exact integer rather than a numerical estimate.</p>
+<h3>1.2 The honest cost: four anchors, not zero inputs</h3>
+<p>The construction declares <strong>four irreducible measured anchors</strong> as its only headline free inputs:</p>
+<p>$$
+\{\, M_{\rm Pl},\ \alpha_i(M_Z),\ y_t,\ |V_{us}| \,\}.
+$$</p>
+<p>"Why <em>these four values</em>?" is treated as a stated scope boundary, not a solved problem. <strong>An important
+honesty correction the corpus carries internally:</strong> the often-quoted "4 inputs → 22 outputs" headline
+is overstated. Beyond the four anchors, the full pipeline injects on the order of <strong>9–10 additional
+fitted reals</strong> (sector normalizations $N_d,N_e,N_\nu$; a threshold triple $\delta$; a Wilson-line
+angle $\theta_H^\star$). The honest charged cost is therefore <strong>roughly 13–14 reals</strong>, and the economy
+of the construction is <strong>real but modest</strong>, not the advertised factor. We state this plainly because
+the whole value of the program rests on not overclaiming it.</p>
+<hr />
+<h2>2. Gate SG-1: the shape is anchored, not derived</h2>
+<p>The first gate (SG-1) does not derive the geometry. It <strong>declares and freezes</strong> it, and certifies
+three — and only three — things, all <em>under a declared search category</em>:</p>
+<ol>
+<li><strong>Specificity</strong> — the branch is fully, unambiguously specified (a 33-row content-addressed
+   manifest, reconstructible to $\geq 16$ significant figures).</li>
+<li><strong>Layer-completeness / no-smuggling</strong> — no downstream gate is closed by content that was not
+   declared in its proper layer (the $\times/\oplus/\otimes$ discipline).</li>
+<li><strong>Reproducibility</strong> — every primitive and derived object is SHA-256 content-addressed, and a
+   reproducer regenerates each hash, so the object a reviewer attacks is byte-identical to the object
+   the gates ran on.</li>
+</ol>
+<p>This is a <strong>freeze-and-reproduce certificate, not a derivation and not a uniqueness theorem.</strong> The
+status label is <strong>DECLARED-FROZEN</strong>. The corpus is explicit about what SG-1 does <em>not</em> establish:</p>
+<ul>
+<li><strong>"13D is minimal" is category-relative, not absolute.</strong> Minimality is <em>selector-minimal inside a
+  pre-declared grammar</em> (forces = isometries; compact; classified structures; admissible bundles). The
+  universal negative "no competitor anywhere is shorter" is uncomputable (it is the Kolmogorov
+  complexity of the target set), and the construction declines to claim it.</li>
+<li><strong>The dimension-ladder survey is a survey, not a certified classification.</strong> Under a
+  minimal-description-length (MDL) metric the 13D branch wins every <em>considered</em> rung, but turning that
+  survey into a theorem (a role-mechanism normal-form / exhaustion result) is <strong>open</strong>.</li>
+<li><strong>The metric itself is contested.</strong> Under an MDL metric, anchor-burden dominates dimension-burden and
+  13D can win; under a <em>dimension-first</em> metric a clean 4D effective field theory wins
+  ($k_{\rm dim}=4<13$) and the whole ladder folds. Which metric is the right one — whether granularity
+  implies MDL — is an <strong>open</strong> theorem. This is the single most decisive open seam in the whole
+  forcedness story.</li>
+<li><strong>$\mathcal{M}_4$ is a declared axiom</strong>, an observational primitive, not an output of any funnel.</li>
+</ul>
+<p>So the correct reading of SG-1 is: <em>here is one fully specified, frozen, reproducible 13D object; it is
+the shortest survivor inside the declared grammar; it is </em><em>not</em><em> proven unique, forced, or derived.</em>
+Everything downstream is conditional on this anchor.</p>
+<hr />
+<h2>3. Gate SG-2: recovering $SU(3)_c \times SU(2)_L \times U(1)_Y$</h2>
+<p>Given the frozen branch, the low-energy gauge algebra is read off the isometries of the compact
+factors. The pipeline is a single architectural read — <strong>it consults no coupling value and no UV
+number</strong> (the couplings $\alpha_i(M_Z)$ are declared anchors handled at a later gate, not outputs
+here):</p>
+<p>$$
+K_6 \times S^2 \times S^1_Y
+\ \xrightarrow{\ \text{isometry algebra}\ }\
+\mathfrak{su}(3) \oplus \mathfrak{su}(2) \oplus \mathfrak{u}(1)
+\ \xrightarrow{\ \text{quotients/parities/bundle}\ }\
+\mathfrak{su}(3)_c \oplus \mathfrak{su}(2)_L \oplus \mathfrak{u}(1)_Y .
+$$</p>
+<p>The carrier-to-summand map:</p>
+<table>
+<thead>
+<tr>
+<th>Internal factor</th>
+<th>Isometry</th>
+<th>Gauge summand</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$K_6 = SU(3)/T^2$</td>
+<td>$\mathrm{Isom} = SU(3)$</td>
+<td>$SU(3)_c$ color</td>
+</tr>
+<tr>
+<td>$S^2 = SU(2)/U(1)$</td>
+<td>$\mathrm{Isom} = SU(2)$ (mod discrete)</td>
+<td>$SU(2)_L$ weak</td>
+</tr>
+<tr>
+<td>$S^1_Y/\mathbb{Z}_2$</td>
+<td>$\mathrm{Isom} = U(1)$</td>
+<td>$U(1)_Y$ hypercharge</td>
+</tr>
+</tbody>
+</table>
+<p>The gauge bosons are the Kaluza–Klein modes of these isometries. The certified statement is
+<strong>equality, not containment</strong>: the surviving 4D algebra is <em>exactly</em> the multiset
+$\{\mathfrak{su}(3),\mathfrak{su}(2),\mathfrak{u}(1)\}$, with $8+3+1=12$ generators and rank 4 — <strong>no
+extra unbroken factor and no missing Standard-Model factor</strong>. Over-production (an unwanted surviving
+gauge factor) is the gate's principal failure mode, and it is exactly where the cheaper competitors
+die.</p>
+<p>The status label is <strong>DERIVED-GIVEN-E</strong>: a rigid algebra-equality recovery, conditional on the
+selected geometry and on E.</p>
+<h3>3.1 The crucial honesty point: the gauge-group outcome is a <em>tie</em></h3>
+<p>Recovering $SU(3)\times SU(2)\times U(1)$ is <strong>not</strong> a discriminating success. String, M-, and
+F-theory, noncommutative geometry, and lattice constructions all reproduce the Standard-Model gauge
+group by their own routes. Reproducing it is a <strong>filter every serious framework passes</strong> — so on the
+<em>outcome</em>, this construction ties. Banking "we recover the SM gauge group" as a unique win would be the
+cardinal overclaim. The genuine, framework-specific content of SG-2 is not the outcome but the
+<strong>forcedness of the carriers</strong>, to which we now turn.</p>
+<h3>3.2 What <em>is</em> genuinely forced: carrier forcedness</h3>
+<p>Three results are the framework's actual internal contribution. They are theorems <strong>inside</strong> the
+"forces = isometries" category (a reviewer who sources gauge from bundles/branes is outside their
+scope — this category-relativity is declared, not hidden).</p>
+<p><strong>(C1) $K_6 = SU(3)/T^2$ is the unique <em>clean</em> $SU(3)$ carrier — abelian-isotropy uniqueness.</strong>
+Under coset dimensional reduction (CSDR), a homogeneous carrier $G/H$ gauges $G$ only if the isotropy
+$H$ does not itself act as gauge; the surviving 4D gauge group is governed by the centralizer $C_G(H)$.
+The maximal torus $T^2$ is the <strong>unique purely-abelian</strong> $SU(3)$ isotropy, with</p>
+<p>$$
+C_{SU(3)}(T^2) = T^2 \quad (\text{Cartan only}),
+$$</p>
+<p>so it injects <strong>no spurious non-abelian gauge</strong> — the carrier is <em>clean</em>. Any non-abelian isotropy is
+gauge-active. The concrete cheaper rival, $\mathbb{CP}^2 = SU(3)/U(2)$, has the non-abelian isotropy
+$U(2) = (SU(2)\times U(1))/\mathbb{Z}_2$, which is gauge-active under the centralizer rule and forces a
+lose–lose fork: either keep $S^2, S^1_Y$ and <strong>over-produce</strong> an unwanted $SU(2)\times U(1)$ (Gate-2
+fails), or drop them and isotropy-lock $SU(2)_L/U(1)_Y$ inside color (violating the matter-routing
+rule). This is an <strong>architecture-neutral exclusion from representation theory + the centralizer rule</strong>
+— not a tunable hand-wave — and the $\mathbb{CP}^2$ route was built end-to-end and confirmed to break.
+It is the part of SG-2 that is genuinely <em>not</em> a tie.</p>
+<p><strong>(C2) $S^2$ is forced for the weak force (fact F1).</strong> The isometry group of any torus $T^n$ is
+$U(1)^n$, which is abelian and contains no $SU(2)$. Hence <strong>no torus or torus-orbifold of any
+dimension</strong> can carry the non-abelian weak force; a genuinely non-abelian-isometry carrier is required,
+and $S^2 = SU(2)/U(1)$ is the minimal one.</p>
+<p><strong>(C3) The folded circle $S^1_Y/\mathbb{Z}_2$ is forced for hypercharge (fact F2).</strong> The chiral index
+of a Dirac operator on a <em>closed</em> odd-dimensional manifold vanishes identically, so a bare $S^1_Y$
+mirrors every fermion. A mirror sector would have shown in the LEP/SLD measurement of the $Z$ width,
+which counts $N_\nu = 2.984 \pm 0.008$ light species with no mirrors. The repair is the $\mathbb{Z}_2$
+fold: $S^1_Y/\mathbb{Z}_2$ has fixed-point boundaries, and boundaries re-open a one-sided chirality
+channel (Atiyah–Patodi–Singer index). The hypercharge $U(1)_Y$ is the translation generator along the
+parent circle.</p>
+<h3>3.3 Open residuals at SG-2</h3>
+<ul>
+<li><strong>(R-tie)</strong> The gauge-group <em>outcome</em> is a tie — correctly disclosed, nothing to close.</li>
+<li><strong>(R-neutrality)</strong> The architecture-neutrality of the CSDR-centralizer uniqueness (C1) is asserted,
+  not yet proven against a reviewer who rejects the isometry category. Hardening it via a
+  CSDR-centralizer uniqueness theorem over the (small, finite) subgroup lattice of $SU(3)$ is the
+  highest-value closeable target; it is <strong>open</strong> but bounded.</li>
+<li><strong>(R-completeness)</strong> C1 establishes uniqueness within the <em>purely-abelian-isotropy</em> class and kills
+  $\mathbb{CP}^2$ explicitly, but a full enumeration over <strong>all</strong> $SU(3)$ carriers (homogeneous and
+  non-homogeneous) is an audit-grade promise, not a delivered theorem. <strong>Open.</strong></li>
+<li><strong>(R-given-E)</strong> SG-2 certifies <em>this geometry yields this algebra</em>, not that the algebra is unique
+  across all geometries. That cross-geometry uniqueness is <strong>not claimed</strong>.</li>
+</ul>
+<hr />
+<h2>4. Gate SG-3: three generations as a topological index</h2>
+<p>This is the gate where geometry does something an EFT does not: the number of fermion generations comes
+out as a <strong>rigid, deformation-proof integer</strong> rather than a tunable parameter. Two complementary
+index computations run on the frozen geometry — "$K_6$ counts the families; $S^1_Y/\mathbb{Z}_2$ makes
+them chiral by projecting out the mirror copy":</p>
+<p>$$
+\boxed{\ \chi(K_6,\mathcal{E}) = -3\ } \qquad |\mathrm{Index}| = 3 \text{ families},
+$$
+$$
+(n_L, n_R) = (+3,\, 0) \quad \text{on } S^1_Y/\mathbb{Z}_2 \quad (\text{mirrors removed}).
+$$</p>
+<ul>
+<li>The <strong>Borel–Weil–Bott index</strong> of the frozen bundle on the flag manifold returns $-3$. The
+  <strong>magnitude</strong> $|{-3}| = 3$ is the number of generations; the <strong>sign</strong> records chirality.</li>
+<li>The <strong>Atiyah–Patodi–Singer boundary index</strong> on the folded circle returns $(+3, 0)$: one-sided, no
+  surviving mirror. The control case — a <em>bare</em> $S^1_Y$ — returns $(+3,+3)$, confirming the fold is
+  load-bearing. The one-sided count is impossible on any closed factor.</li>
+</ul>
+<p>The rep-theory engine underneath is independently reproducible: the zero-weight multiplicity rule on
+$SU(3)/T^2$,
+$$
+m_0(p,q) = \min(p,q) + 1 \quad \text{if } (p-q)\equiv 0 \bmod 3, \quad \text{else } 0,
+$$
+re-derives from Freudenthal's recursion, and the count is a closed-form computation, not a numerical
+fit. <strong>This is the strongest leg of the entire program</strong> — an integer index is more rigid than any
+ratio of fitted parameters, because no continuous modulus can move it.</p>
+<p>The status label is <strong>DERIVED-GIVEN-E</strong>.</p>
+<h3>4.1 The charge operator, hypercharge quantization, and the $\mathbb{Z}_6$ centre</h3>
+<p>Representation-level recovery assigns each surviving multiplet its $(SU(3), SU(2), Y, Q)$ quantum
+numbers, with the electric charge the standard
+$$
+Q = T_3 + Y,
+$$
+verified component-by-component. <strong>Hypercharge quantization</strong> — the empirical fact that all SM
+hypercharges are integer multiples of $1/6$, $Y \in \tfrac{1}{6}\mathbb{Z}$ — is enforced by a global
+$\mathbb{Z}_6$ identification that glues the centres of $SU(3)$, $SU(2)$, and $U(1)$. Concretely, the
+subgroup of the centre acting trivially on the SM content is exactly $\mathbb{Z}_6$, fixed by the Tong
+congruence
+$$
+q \equiv 3 z_2 - 2 z_3 \ (\mathrm{mod}\ 6),
+$$
+which the corpus verifies field-by-field against the actual SM hypercharges
+($Q_L, u_R, d_R, L_L, e_R, H$). The $\mathbb{Z}_6$ is invisible to the gauge Lie algebra (so SG-2 is
+blind to it) and binds only the representations — it is genuinely SG-3/charge-sector content.</p>
+<h3>4.2 A sharp technical correction: it is <em>not</em> a spin-$\mathbb{C}$ index</h3>
+<p>The naive description "spin-$\mathbb{C}$ index" is <strong>refuted</strong> for pure Standard-Model content. Davighi,
+Gripaios, and Lohitsiri (arXiv:1910.11277) show that no $U(1)\subset G_{\rm SM}$ assigns all-odd Weyl
+charges, so pure SM matter admits <strong>no spin-$\mathbb{C}$ structure</strong> without an extra gauged $U(1)$
+(e.g. $B-L$). The genuine global object forced by the charges of E is the <strong>twisted structure</strong>
+$$
+(\mathrm{Spin} \times G_{\rm SM})/\mathbb{Z}_6 ,
+$$
+with twist order $n=2$ and $(-1)^F$ identified with the $SU(2)$ $2\pi$ rotation inside the centre. This
+object is <strong>FORCED-GIVEN-E</strong> by E's charges mod 2. Importantly, the <em>value</em> $|\chi| = 3$ survives this
+correction — it is a count, not a structure label — but the precise structure is twisted-spin, not
+spin-$\mathbb{C}$. We flag this because asserting the obstructed structure literally would itself be a
+form of overclaiming.</p>
+<h3>4.3 Where the family count bottoms out honestly</h3>
+<p>This is the part most easily misread, so it is stated carefully. The index $\chi(K_6,\mathcal{E})=-3$
+is a function of the bundle $\mathcal{E}$ — and <strong>$\mathcal{E}$ is the SM chiral content itself</strong> (its
+first Chern class / weight). Therefore:</p>
+<ul>
+<li><strong>given-E.</strong> The index <strong>certifies</strong> "this geometry + this bundle yields three generations." It does
+  <strong>not</strong> force E, and it does <strong>not</strong> prove three is unique across all geometries. Using $\chi=-3$ to
+  "derive" E would be circular, because E is the input. The corpus is explicit: the claim that E is
+  forced by anomaly-freedom plus minimality is <strong>refuted</strong> — anomaly cancellation is a <em>filter</em>, not a
+  <em>determiner</em> (there are infinitely many anomaly-free chiral $U(1)$ extensions, and the generation
+  number is not fixed by anomaly arithmetic alone). <strong>E remains a primitive input.</strong></li>
+<li><strong>The count is bundle-selected, not bare-carrier-forced.</strong> "Three" is read off a <em>chosen</em> weight. On
+  the cheaper $\mathbb{CP}^2$ carrier the family count is a <em>continuous bundle modulus</em> ("three by
+  dial"). $K_6$'s rigid integer count is preferred, but that preference is purchased by paying two
+  extra dimensions ($\mathbb{CP}^2$ is 4D, $K_6$ is 6D) under an anti-fitting tie-break. The corpus
+  itself names this the program's <strong>live smuggling surface</strong> and watches it: the tie-break is honest
+  <em>only</em> as a <strong>type</strong> predicate — "an admissible family count must be a deformation-proof integer, not
+  a continuous modulus" — which rejects $\mathbb{CP}^2$ for being a <em>dial</em>, regardless of whether the
+  dial reads three or four. Whether the +2-dimension payment goes through on "rigid-integer" alone,
+  with the target value masked, is an <strong>open</strong> check.</li>
+<li><strong>The 2-or-4 deformation is excluded partly by data.</strong> The integer is deformation-proof <em>within</em> the
+  declared admissibility class; the exclusion of neighboring index values that an index-changing bundle
+  deformation would produce leans on the LEP $N_\nu$ bound. So "no dial" is <em>topological inside the
+  class</em> and <em>empirical at the class boundary</em>.</li>
+</ul>
+<h3>4.4 The one path that could remove the conditioning</h3>
+<p>The only residual that could in principle lift the given-E qualifier is a <strong>bundle-uniqueness theorem</strong>:
+that, given $K_6$, the $\mathbb{Z}_6$ centre, and the hypercharge ledger — <strong>and no 3-generation
+criterion</strong> — the minimal-weight admissible twisted-spin lift is unique and its index has magnitude 3.
+This is a concrete, bounded computation (enumerate the Tong-congruence weight lattice, apply
+Borel–Weil–Bott to each, ask whether minimality singles out a unique weight whose index is 3 without
+ever invoking "three"). But proving <em>uniqueness</em> requires ruling out <strong>all</strong> admissible weights — a
+universal negative — so the realistic ceiling is "rigid integer <strong>given a selected bundle</strong>," with the
+selection openly conceded. DERIVED-CLOSED here is unlikely; the honest expected outcome is that three
+stays a rigid index read off a bundle that is selected, not forced.</p>
+<hr />
+<h2>5. What follows, and what does not — the ledger</h2>
+<p>Reading the three gates together, with the honest qualifiers attached:</p>
+<table>
+<thead>
+<tr>
+<th>Result</th>
+<th>Status</th>
+<th>What it means precisely</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The 13D branch $\mathcal{M}_4\times K_6\times S^2\times S^1_Y/\mathbb{Z}_2$</td>
+<td><strong>DECLARED-FROZEN (anchor)</strong></td>
+<td>Fully specified, reproducible, selector-minimal <em>in the declared grammar</em>; <strong>not</strong> proven unique or forced</td>
+</tr>
+<tr>
+<td>$SU(3)_c\times SU(2)_L\times U(1)_Y$ from isometries</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>Rigid algebra <em>equality</em> given the shape; but the <em>outcome</em> is a tie every framework passes</td>
+</tr>
+<tr>
+<td>Carrier forcedness (clean $SU(3)$ via $T^2$; $S^2$ by F1; fold by F2)</td>
+<td><strong>forced within the grammar</strong></td>
+<td>The genuine framework-specific content; architecture-neutrality of C1 is open</td>
+</tr>
+<tr>
+<td>Three generations, $\chi(K_6,\mathcal{E})=-3$</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>A rigid deformation-proof integer — but computed <em>with</em> E (the bundle) as input</td>
+</tr>
+<tr>
+<td>Chirality / no mirror, APS $(+3,0)$</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>One-sided count forced by the fold; the cleaner half of the family gate</td>
+</tr>
+<tr>
+<td>$Q = T_3 + Y$; $Y\in\tfrac16\mathbb{Z}$ from $\mathbb{Z}_6$</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>Charge assignment + hypercharge quantization from the centre congruence</td>
+</tr>
+<tr>
+<td>Twisted $(\mathrm{Spin}\times G_{\rm SM})/\mathbb{Z}_6$ structure</td>
+<td><strong>FORCED-GIVEN-E</strong></td>
+<td>The correct global structure; "spin-$\mathbb{C}$" is <em>refuted</em> for pure SM</td>
+</tr>
+<tr>
+<td>The SM spectrum E itself</td>
+<td><strong>primitive input</strong></td>
+<td><strong>Not derived.</strong> Anomaly-freedom is a filter, not a determiner</td>
+</tr>
+<tr>
+<td>Absolute minimality of 13D</td>
+<td><strong>open / uncomputable</strong></td>
+<td>The universal negative is Kolmogorov-uncomputable; only grammar-relative forcing is reachable</td>
+</tr>
+<tr>
+<td>MDL-vs-dimension-first metric</td>
+<td><strong>open</strong></td>
+<td>The decisive seam: under one metric 13D wins, under the other a 4D EFT wins</td>
+</tr>
+</tbody>
+</table>
+<h3>The single sentence</h3>
+<blockquote>
+<p><strong>Given the frozen 13D shape and given the observed Standard-Model spectrum E, the construction
+recovers the SM gauge group as a rigid algebra equality, the three chiral generations as a
+deformation-proof topological index $\chi(K_6,\mathcal{E})=-3$, and the charges via $Q=T_3+Y$ with
+$Y\in\tfrac16\mathbb{Z}$ enforced by a $\mathbb{Z}_6$ centre — but the shape is an <em>anchor</em>, not a
+derivation; the gauge-group outcome is a <em>tie</em> every framework passes; the family index is computed
+<em>with E as input</em>; and E itself, the absolute minimality of the shape, and the choice of simplicity
+metric all remain open.</strong></p>
+</blockquote>
+<hr />
+<h2>6. Open questions, stated as open</h2>
+<ol>
+<li><strong>Is the shape forced, or only selected?</strong> Absolute minimality is uncomputable; only <em>grammar-relative</em>
+   forcing is reachable, and even that awaits a role-mechanism exhaustion theorem. <strong>Open.</strong></li>
+<li><strong>Which simplicity metric is correct?</strong> MDL favors the 13D branch; dimension-first favors a 4D EFT.
+   This single question can flip the entire forcedness ladder, and the metric-selection theorem
+   (does granularity imply MDL?) is unproven. <strong>Open — the most decisive seam.</strong></li>
+<li><strong>Is the color bundle unique?</strong> A target-blind bundle-uniqueness theorem is the only route that
+   could turn "three generations given E" into "three generations forced." It requires a universal
+   negative over all admissible weights. <strong>Open; likely caps at rigid-index-given-a-selected-bundle.</strong></li>
+<li><strong>Is the carrier-forcedness architecture-neutral?</strong> C1/F1/F2 are theorems <em>inside</em> the "forces =
+   isometries" category. Hardening C1 to a category-free CSDR-centralizer uniqueness theorem over the
+   $SU(3)$ subgroup lattice is bounded and is the highest-value closeable target. <strong>Open.</strong></li>
+<li><strong>Can E be derived?</strong> No. Anomaly-freedom is a filter, not a determiner; E is a primitive input and
+   deriving it is out of scope. <strong>Open by design.</strong></li>
+</ol>
+<p>These are not rhetorical hedges; they are the boundary of what the construction supports. The value of
+the program is precisely that it states this boundary honestly: it shows how far a single frozen
+geometric anchor can reach <strong>given</strong> the measured spectrum, and it does not pretend to reach further.</p>
+<hr />
+<p><em>Construction details, the worked algebra and index computations, the candidate-elimination funnel, and
+the freeze records are in the published papers at physics.magflowmeters.com (GUT.html §§2–6 and
+Appendices A–E, GS, GP; TOE.html for the downstream cross-references). This document is an explainer; the
+papers control all common material.</em></p>
+</body></html>

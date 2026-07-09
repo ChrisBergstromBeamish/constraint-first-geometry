@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SG-5 Electroweak Closure Result</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">SG-5 — Electroweak Embedding / EWSB (GUT Gate 5): CLOSURE RESULT — rendered package. Rendered from <code>SG5_ELECTROWEAK_CLOSURE_RESULT.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>SG-5 — Electroweak Embedding / EWSB (GUT Gate 5): CLOSURE RESULT</h1>
+<blockquote>
+<p><strong>Status — binding header.</strong>
+<strong>Gate-level roll-up: OPEN</strong> (any open piece ⇒ OPEN, per the grading rubric).
+<strong>Charge/embedding leg: AXIOM-CLOSED + DERIVED-GIVEN-E.</strong> Q=T₃+Y and SU(2)_L×U(1)_Y→U(1)_em are
+DERIVED-GIVEN-E; the minimal-actor selector + n_H=1 + Z₆ table are AXIOM-CLOSED; v_EW is accepted as a
+measured-but-irreducible second dimensionful anchor (alongside M_Pl), realized — not derived — by the Wilson-line VEV.
+<strong>Custodial ρ_tree=1: OPEN — BLOCKED / computation-debt</strong> (the headline correction). The tree-level ρ=1 is
+only the textbook single-doublet rep-algebra tautology; it is <strong>not</strong> a geometric readout, because the
+electroweak gauge-boson mass matrix M²_WZ is verifiably <strong>absent</strong> from the corpus.
+<strong>Hierarchy / lightness of v: OPEN / RELOCATION</strong> (SCALE firewall uncrossed — not a hierarchy derivation).
+<strong>Open audits:</strong> R5 η_BK provenance SUSPECT; R6 v/m_h reproducer AUDIT/BLOCKED; R8 N_b=N_f BLOCKED.
+<strong>No status was ever upgraded.</strong> Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> READ-ONLY. Honest ceiling: serious candidate, NOT validated.
+<strong>Provenance:</strong> specialist result → refute-before-upgrade verification (<code>wh3rfp8ow</code>) → <strong>Route B</strong> blind
+mass-matrix computation (<code>wi00pp5t0</code>; physics + disposition both SOUND/HONEST). Verified 2026-06-25.</p>
+</blockquote>
+<hr />
+<h2>§1. What closes — the charge/embedding leg</h2>
+<table>
+<thead>
+<tr>
+<th>Leg</th>
+<th>Disposition</th>
+<th>Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Charge Q=T₃+Y</strong></td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>Componentwise on the SM multiplets, given the frozen Z₆ parity table; the gate's strongest leg.</td>
+</tr>
+<tr>
+<td><strong>EWSB SU(2)_L×U(1)_Y → U(1)_em</strong></td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>The single Wilson-line/Hosotani doublet H∼(1,2,+½) with a neutral SU(2)_L-direction VEV (Q-preserving, T₃=−Y).</td>
+</tr>
+<tr>
+<td><strong>Minimal EW-breaking actor (uniqueness)</strong></td>
+<td><strong>AXIOM-CLOSED</strong> (minimality selector)</td>
+<td>Elimination inventory correct (singlet no-break; real triplet ρ=2; complex triplet ρ=½; higher fail/non-minimal). Uniqueness is <strong>genuinely conditional on minimality</strong> — exotic multiplets <em>can</em> give ρ=1, so minimality travels as the named axiom. <strong>"Custodial" must be stripped from the axiom name</strong> — bundling it RELABEL_FAILs (custodial ≈ "gives ρ=1"). <code>AXIOM-CUSTODIAL-FROM-DOUBLET</code> stays <em>named-but-not-banked</em>.</td>
+</tr>
+<tr>
+<td><strong>n_H=1 winding · Z₆ table</strong></td>
+<td><strong>AXIOM-CLOSED</strong></td>
+<td>Minimal admissible winding; selected center-locking table (=Z₆ finest-ness OPEN).</td>
+</tr>
+<tr>
+<td><strong>v_EW</strong></td>
+<td><strong>measured-but-irreducible</strong></td>
+<td>The second dimensionful anchor; realized by <code>v_EW = θ_H*/(2πR_γ)</code>, <strong>not</strong> derived.</td>
+</tr>
+</tbody>
+</table>
+<h2>§2. The headline correction — custodial ρ=1 is BLOCKED, not DERIVED</h2>
+<p><strong>Route B (target-blind) result: ρ=1 = OPEN / BLOCKED-computation-debt.</strong> The tree algebra
+<code>M_W²=g²v²/4, M_Z²=(g²+g′²)v²/4, M_γ=0 ⇒ ρ_tree=1</code> is correct <strong>only as SM rep-algebra on the doublet label</strong>.
+It is <strong>not</strong> a readout from the frozen geometry, because:</p>
+<ul>
+<li><strong>The EW gauge-boson mass matrix M²_WZ is never built on the frozen branch.</strong> The corpus has only
+  coupling-level normalization (<code>1/g_em² = 1/g₁² + 1/g₂²</code>; <code>e = gg′/√(g²+g′²)</code>) and <code>M_W ← v</code> via Fermi — it
+  <strong>never</strong> computes M_Z from <code>|D_μH|²</code>, never the (W³,B) block, never ρ. The SM θ_W mixing is <strong>written by hand</strong>, not derived. (The dossier's W11 records the custodial object as "DOES NOT EXIST.")</li>
+<li><strong>Three un-discharged premises</strong> block DERIVED-GIVEN-E: (1) no certificate the protected zero-mode spectrum
+  carries <strong>no second VEV source</strong> (triplet/extra doublet); (2) the <strong>S²-vs-S¹_Y kinetic co-normalization</strong> of
+  the off-diagonal <code>−gg′v²/4</code> term is never formed (the two gauge factors live on geometrically distinct
+  sub-manifolds); (3) no <strong>EW KK gauge-boson mixing</strong> (the gauge-Higgs-unification T-parameter) computation.</li>
+</ul>
+<p>Each is a real geometric channel that could break custodial SU(2). So <strong>neither ρ=1 (case a) nor ρ≠1 (case b)
+is earned</strong> — custodial breaking is <em>possible-but-undemonstrated</em>. Naming ρ=1 a closure would be tuning to the known answer.</p>
+<h3>To unblock (the concrete computation-debt)</h3>
+<p>Freeze (i) the SU(2)_L reduction integral over S² and the U(1)_Y reduction over S¹_Y/ℤ₂ in a <strong>common
+normalization</strong>; (ii) <code>|D_μ⟨H⟩|²</code> assembled into <code>{W±; W³,B}</code> with the common <code>v=θ_H*/(2πR_γ)</code>; (iii) a
+zero-mode-spectrum certificate (no 2nd VEV source); (iv) the EW KK mixing correction to M_Z/M_W. Then ρ reads
+off <strong>blind</strong> — and either earns ρ=1 = DERIVED-GIVEN-E or finds it breaks vs the measured ρ₀=1.00038±0.00020
+(a falsifiable prediction). Until then: <strong>do not bank ρ=1 as closure.</strong></p>
+<h2>§3. What stays OPEN (gate roll-up)</h2>
+<ul>
+<li><strong>R1/R2 — hierarchy / lightness of v:</strong> OPEN / RELOCATION. θ_H<em> is read from the one-loop minimum (~85% of
+  the hierarchy undelivered); the SCALE firewall returned RELOCATION (μ_cell has no v-independent readout) and
+  that verdict is carried, not overturned. v_EW is a genuine second anchor; its </em><em>lightness is undelivered</em>*.</li>
+<li><strong>R3 — custodial ρ=1:</strong> OPEN (BLOCKED/computation-debt, §2).</li>
+<li><strong>R5 — η_BK provenance:</strong> SUSPECT. <strong>R6 — v/m_h reproducer:</strong> AUDIT/BLOCKED. <strong>R8 — N_b=N_f:</strong> BLOCKED_INPUTS.</li>
+</ul>
+<p>The re-scoping (close SG-5 as the EW embedding/actor gate, v_EW a transparent measured anchor, hierarchy out)
+is <strong>HONEST</strong> — it buries no 246 GeV and keeps the hierarchy loudly OPEN. But the <strong>gate is governed by its
+least-closed residual</strong>, so it stays <strong>OPEN</strong>. The charge/embedding leg is the closest-to-closed; ρ=1 is the
+weakest (BLOCKED).</p>
+<h2>§4. Honest one-line</h2>
+<blockquote>
+<p>SG-5's <strong>charge/embedding leg is AXIOM-CLOSED + DERIVED-GIVEN-E</strong> (Q=T₃+Y, EWSB to U(1)_em, minimal Wilson-line
+doublet, v_EW a measured anchor). <strong>Custodial ρ=1 is OPEN/BLOCKED</strong> — the geometry never builds the W/Z mass
+matrix, so tree ρ=1 is a rep-algebra tautology, not a derivation. The <strong>hierarchy is OPEN/RELOCATION</strong>, and
+the <strong>gate is OPEN</strong>. NOT a hierarchy derivation; NOT a proof that the geometry yields ρ=1. Serious candidate, NOT validated.</p>
+</blockquote>
+<hr />
+<h2>§5. The completion endpoint — SG-5A / SG-5B split (formalized 2026-06-25)</h2>
+<p>A specialist "completion-stack" pass froze SG-5's <strong>strongest honest endpoint</strong>, and an independent
+refute-before-upgrade audit (<code>wmtzxcmts</code>) found it <strong>PROMOTION-SAFE</strong> (all five falsification tests pass; it closes
+nothing new — it <em>confirms</em> the disposition above). The endpoint formalizes SG-5 as two sub-objects, with the
+<strong>gate itself OPEN</strong>:</p>
+<ul>
+<li><strong>SG-5A — Electroweak embedding / actor / mass matrix.</strong> Status: <strong>OPEN</strong>, with one open computation-debt leg.
+  <em>Closed legs:</em> Q=T₃+Y, EWSB→U(1)_em (DERIVED-GIVEN-E); minimal actor / n_H=1 / Z₆ (AXIOM-CLOSED); v_EW
+  (measured-but-irreducible anchor). <em>Open leg (R3):</em> the geometric W/Z mass matrix + no-second-VEV + KK Schur
+  correction — i.e. ρ=1 must still be <strong>earned</strong>, not asserted. (Avoid "near-terminal" — it is OPEN with one
+  named computation-debt leg.)</li>
+<li><strong>SG-5B — Electroweak hierarchy / θ_H* / v-lightness.</strong> Status: <strong>OPEN / RELOCATION</strong>, <strong>exported</strong> to the
+  tracked <strong><code>SG5B_EW_HIERARCHY_EXPORT_LEDGER.md</code></strong> (SCALE / SG-6). v_EW is <em>not</em> derived inside SG-5A; the
+  lightness of v is a separate transmutation problem.</li>
+</ul>
+<p><strong>The R3 upgrade path (frozen recipe to earn ρ=1 = DERIVED-GIVEN-E).</strong> Build, target-blind: (i) the SU(2)_L (S²)
++ U(1)_Y (S¹_Y/ℤ₂) reduction integrals in <strong>one common normalization</strong>; (ii) the assembled <code>∫|D_μ⟨H⟩|²</code> →
+<code>{W±; W³,B}</code> mass matrix with the common v; (iii) a <strong>no-second-VEV</strong> zero-mode certificate; (iv) the EW KK
+<strong>Schur-complement</strong> correction <code>M_eff² = M_00² − M_0n²(M_nn²)⁻¹ M_n0²</code> (or a bound). Then ρ reads off blind:
+ρ=1 → DERIVED-GIVEN-E · ρ≠1 → FINDING (vs ρ₀=1.00038±0.00020) · data absent → still BLOCKED.</p>
+<p><strong>Audit flags — resolved 2026-06-25:</strong> (a) the SG-5B export now has a <strong>tracked destination ledger</strong>,
+<code>SG5B_EW_HIERARCHY_EXPORT_LEDGER.md</code> (status OPEN/RELOCATION) — tracked, not merely asserted; (b) the
+completion-stack artifacts are now <strong>archived + re-run-verified</strong> (<code>SG5_complete_endpoint_stack/</code>, 23 files,
+manifest <strong>22/22 intact</strong>): <code>validate_endpoint.py</code> → <strong>PASS (exit 0, fail-closed)</strong>; <code>compute_textbook_rho.py</code>
+→ ρ=1 (rep-algebra only, correctly labeled); <code>reproduce_eta_BK.py</code> → η_BK = 0.009721281516312024 (exact, 0
+error; provenance still BLOCKED_AUDIT). The validator's PASS is now a <strong>re-run certificate</strong>, not self-reported —
+and it passes <em>because nothing is promoted</em> (<code>verdict.json</code>: status_upgrades:0, target_blind:true,
+original_SG5_rollup:OPEN, all R3/R5/R6/R8 evidence flags false).</p>
+<p><strong>Net:</strong> SG-5 stays <strong>OPEN</strong>. The endpoint is the cleanest frozen disposition <strong>plus</strong> the precise recipe to
+close ρ=1 — it does <strong>not</strong> close it. No status was ever upgraded.</p>
+<hr />
+<h2>§6. Completion routes + axiom reduction (all-paths stack — re-verified 2026-06-25)</h2>
+<p>A follow-on specialist pass produced <strong><code>SG5_all_paths_to_completion_stack/</code></strong> (archived in the corpus;
+<strong>re-run-verified</strong> by direct examination: <code>validate_all_paths.py</code> → <strong>PASS</strong> (fail-closed; status_upgrades:0; status
+OPEN); <code>reproduce_eta_BK.py</code> → η_BK = 0.009721281516312023; missing certificates honestly marked <code>.MISSING.md</code>).
+It lays out <strong>all four completion routes</strong> + the <strong>axiom floor</strong> and — like the endpoint — <strong>closes nothing new</strong>
+(R3 BLOCKED, gate OPEN).</p>
+<p><strong>The four routes</strong> (pick per residual, by the evidence):
+- <strong>Path A — DERIVED-GIVEN-E:</strong> supply the R3 certificates (common-normalization integrals · no-second-VEV ·
+  KK-Schur bound) → read ρ blind → DERIVED-GIVEN-E iff the geometry yields C_W=C_3=C_Y=C_3Y=1, Δ_KK=0/bounded.
+- <strong>Path B — Reduced to Axiom:</strong> <strong>only for walls, NOT for missing computations</strong> (explicit guard against
+  relabeling computation-debt).
+- <strong>Path C — FINDING:</strong> record ρ≠1 / custodial breaking as a falsifiable finding.
+- <strong>Path D — BLOCKED:</strong> name the exact missing owner artifacts (the current state of R3/R6/R8).</p>
+<p><strong>Axiom-reduction ledger (banked vs candidate):</strong>
+- <strong>BANKED:</strong> <code>AXIOM-FROZEN-ADMISSIBILITY-GRAMMAR</code> (governing rule) · <code>AXIOM-MINIMAL-EW-BREAKING-ACTOR</code>
+  (AXIOM-CLOSED, stripped of any custodial/ρ claim) · <code>AXIOM-EW-SCALE-ANCHOR-SEPARATION</code> (export discipline) ·
+  <code>AXIOM-BLIND-STRUCTURAL-PROVENANCE</code> (method axiom).
+- <strong>CANDIDATE / computation-debt (NOT banked):</strong> <code>AXIOM-SINGLE-EW-VEV-SOURCE</code>, <code>AXIOM-COMMON-EW-KINETIC-DESCENT</code>,
+  <code>AXIOM-EW-KK-SCHUR-DECOUPLING</code> — each terminalizes <strong>only</strong> when its R3 certificate is supplied (Path A), never
+  by being named. <strong><code>AXIOM-CUSTODIAL-FROM-DOUBLET</code> is explicitly NOT banked</strong> (it would relabel ρ=1).
+- <strong>Three-root compression (conditional — only <em>if</em> the certificates succeed):</strong> frozen admissibility · minimal
+  single EW actor · metric-consistent descent with KK control.</p>
+<p>The discipline holds throughout: genuine structural axioms banked; the R3 pieces kept as <strong>computation-debt</strong>
+(candidate axioms, not relabeled closures); the hierarchy exported; ρ=1 BLOCKED until <em>earned</em> by the geometry.
+<strong>Net unchanged: SG-5 OPEN. No status was ever upgraded.</strong></p>
+<hr />
+<h2>§7. Path A executed — BLOCKED (conditional-DERIVED); the co-normalization blocker dissolved <em>for ρ</em> (2026-06-25)</h2>
+<p>Path A (assemble the geometric W/Z mass matrix from the frozen geometry, read ρ blind) was executed and
+adversarially verified (workflow <code>wex5xj2ae</code>; physics + disposition passes both <strong>HONEST</strong>; target-blind;
+No status was ever upgraded). Outcome: <strong>BLOCKED (conditional-DERIVED)</strong> — <em>not</em> a legitimate upgrade to DERIVED-GIVEN-E — but
+with a real banked advance and a sharply-narrowed remaining blocker.</p>
+<p><strong>Banked advances (UPHELD — genuine, not promotions):</strong>
+1. <strong>The co-normalization blocker is <em>void for ρ</em>.</strong> With independent overlaps a_W (S²), a_B (S¹_Y), the assembled
+   matrix gives <strong>ρ_tree = C_W/C_3 exactly</strong> — C_Y and C_3Y cancel, so the S²-vs-S¹_Y co-normalization <strong>a_B
+   drops out of ρ entirely</strong> (explicit algebra, not assertion). The thing three prior passes were stuck on
+   (blocker #2) is a <strong>red herring for ρ</strong>. (It is still owed for the <em>absolute</em> masses M_W, M_Z.)
+2. <strong>The prior pass-condition was over-strong:</strong> ρ=1 needs only <strong>C_W=C_3 and C_3Y²=C_3·C_Y</strong>, not all four C's=1.
+3. <strong>Photon-masslessness (det of the neutral block = 0): DERIVED-GIVEN-E</strong>, normalization-independent — forced
+   by the Q=T₃+Y-preserving VEV (U(1)_em unbroken).</p>
+<p><strong>Why it stays BLOCKED (the adversary's catch):</strong> the headline "C_W=C_3 because one su(2) field / one S²
+wavefunction" is an identity of an <em>assumed fundamental-doublet</em> covariant derivative. The frozen object is a
+<strong>non-custodial Hosotani</strong> Higgs (A_y = θ_H/(2πR_γ)·T_H, T_H∈su(2)_L, the doublet tensored in by hand, <strong>SO(4)
+eliminated</strong>), so the W/Z mass term descends from the <strong>commutator</strong> <code>Tr|[A_μ, A_y]|²</code> — and C_W=C_3 is <strong>not</strong>
+read out of the frozen data: with no custodial symmetry to protect it, it must be earned from the VEV-weighted
+commutator overlaps <code>Tr|[T^a, T_H]|²</code> (a=1,2,3 weighting equally).</p>
+<p><strong>ρ_tree=1 is therefore CONDITIONAL-DERIVED on three un-discharged premises:</strong> (i) <strong>C_W=C_3</strong> via the Hosotani
+commutator overlaps — a <strong>newly-named owner-artifact</strong> <code>R3_hosotani_commutator_overlap</code> (the prior passes
+mis-cited the co-normalization; <em>this</em> is the real load-bearing blocker); (ii) <strong>no-second-VEV</strong> (R8-gated,
+needs the m₀(p,q) zero-weight table); (iii) <strong>KK-Schur ≤ 10⁻⁴</strong> (dimensional hint ~10⁻²⁹; the l=0→1 / n=0→1
+overlap not computed).</p>
+<p><strong>R3: BLOCKED. GATE: SG-5 OPEN (unchanged). No status was ever upgraded.</strong> The net is precision, not closure: blocker #2
+dissolved for ρ, the det=0 leg DERIVED-GIVEN-E, and the remaining blocker sharpened from "the whole
+co-normalization" to one specific commutator-overlap certificate. ρ₀=1.00038±0.00020 used as a post-hoc
+falsifier only — input to nothing.</p>
+<h2>§8. The commutator overlap COMPUTED — ρ is physical but UNDETERMINED (BLOCKED, sharper); 2026-06-25</h2>
+<p>§7's load-bearing artifact <code>R3_hosotani_commutator_overlap</code> has now been <strong>computed</strong> and adversarially verified
+(two independent routes + an independent re-derivation; reproducer <code>SG5_R3_RHO_REPRODUCER.py</code>, all checks PASS to
+machine precision). The result sharpens the blocker one level deeper and is the <strong>resolved</strong> R3 disposition.</p>
+<p><strong>What was computed.</strong> The VEV-weighted commutator overlaps are, exactly,
+$$O_a=\big\langle \mathrm{Tr}\,|[T^a,T_H]|^2\big\rangle = \tfrac12\big(|h|^2-h_a^2\big),\qquad T_H=\textstyle\sum_b h_b T_b,$$
+so the tree W/Z mass matrix gives
+$$\rho_{\rm tree}=\frac{O_1+O_2}{2\,O_3}=\frac12+\frac{h_3^2}{h_1^2+h_2^2}\ \in\ \big[\tfrac12,\infty\big),
+\qquad \rho=1\iff 2h_3^2=h_1^2+h_2^2\ \text{(a 54.74° cone)}.$$</p>
+<p><strong>The decisive new fact — V_Hos is exactly FLAT in the Wilson-line direction.</strong> The doublet holonomy eigenvalues
+are $\pm\theta_H/2$ <strong>independent of the direction</strong> of $T_H$ (the KK weight-multiset is rotation-invariant), so
+$V_{\rm Hos}(\theta_H,\text{direction})=V_{\rm Hos}(\theta_H)$: the one-loop potential <strong>selects no direction.</strong>
+ρ=1 (the cone) is one ordinary, <strong>non-preferred</strong> level set, not a minimum.</p>
+<p><strong>ρ is physical, but its value is undetermined.</strong> The EW-neutral 3-axis (T₃) is <strong>pinned</strong> by the frozen Z₆
+fermion-charge table (Q=T₃+Y must reproduce the observed charges), so ρ is a genuine gauge-invariant observable
+(invariant under the residual Q-preserving U(1)₃) — <strong>not</strong> a gauge artifact. But because $V_{\rm Hos}$ is flat in
+the tilt of $T_H$ relative to that pinned axis, the value of $h_3$ — hence ρ — is a <strong>flat modulus</strong>, undetermined
+over $[\tfrac12,\infty)$. The custodial SO(4)/SO(5) coset that would force the cone was <strong>eliminated</strong>; there is
+<strong>no tree-level su(2)_L-anisotropic term</strong> in the frozen data to lift the flat direction.</p>
+<p><strong>Two routes, one missing datum.</strong> Route A (numerical V_Hos) → BLOCKED (tilt physical, value flat). Route B
+(structural) → leans ρ=1 by the lone-doublet accidental custodial, but only <strong>conditional</strong> on two embedding
+facts (P1∧P2) <em>not present in the frozen corpus</em>. They agree on every computed fact and disagree only on
+disposition, and the disagreement reduces to a single owner-artifact: <strong>whether the frozen γ-cycle / Z₆ embedding
+pins the EW-neutral 3-axis independently of $T_H$.</strong> Per the reconciliation rule (material disagreement →
+BLOCKED) and the core principle (<strong>ANCHORED ≠ DERIVED</strong>; a conditional gauge-equivalence lean is not a
+derivation), the disposition is <strong>BLOCKED</strong>.</p>
+<p><strong>Status — resolved: R3 BLOCKED (sharper). ρ=1 is neither derived nor falsified — it is UNDETERMINED.</strong> The
+frozen geometry, as given, <strong>does not fix ρ.</strong> Closing it requires one of: the γ-cycle/Z₆ orthogonality
+certificate (does the 3-axis pin independently of $T_H$?), or the two-loop Yukawa/g′-corrected $V_{\rm Hos}$
+(where $y_t\neq y_b$ and $g'\neq0$ first break the adjoint isotropy). <strong>GATE: SG-5 OPEN. No status was ever upgraded.</strong> We make
+<strong>no</strong> claim the model predicts ρ=1, and introduced <strong>no</strong> parameter tuned to the measured value;
+ρ₀=1.00038±0.00020 was an input to nothing.</p>
+</body></html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SG-7 — Threshold unification: full dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">SG-7 — Threshold unification: full dossier — rendered package. Rendered from <code>DOSSIER_SG7_FULL.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>SG-7 — Threshold unification: full dossier</h1>
+<blockquote>
+<p><strong>Honest status (binding — must match the live popup):</strong> <strong>Diagnostic only (signs derived; magnitudes demonstrated-fitted)</strong> — direction held. <strong>STATUS-UPGRADES:0.</strong> Frozen branch <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code> is READ-ONLY. This dossier is the deep version of the 30-second gate popup; it expands, it does not upgrade. Every number is traceable to a corpus source cited in §5; nothing is back-solved to a known answer.</p>
+</blockquote>
+<hr />
+<h2>1. Executive summary + honest status</h2>
+<p><strong>Headline.</strong> <em>We caught our own threshold ledger cheating — and proved it with a machine that is forbidden from ever seeing the answer.</em></p>
+<p>Grand unification's most famous near-miss is that the three Standard-Model gauge couplings, run up from the electroweak scale, <em>almost</em> meet at a single high energy — and whether they truly meet hinges on small "threshold" corrections from heavy particles crossing the unification scale. SG-7 is the gate where the Fable 13D K₆ program asks its own frozen Kaluza–Klein spectrum to supply exactly those corrections. The honest test is brutal and it is the same test every unification scheme in the literature faces: are the corrections <em>computed from the geometry</em>, or are they quietly reverse-fitted to force the lines to cross?</p>
+<p>This dossier establishes three things and is careful about what it does <strong>not</strong> establish:</p>
+<ul>
+<li><strong>What is real physics (banked).</strong> The <em>signs</em> of the threshold corrections are recovered from the geometry given the observed Standard-Model content and the measured couplings: the gauge+ghost contributions are negative (the asymptotic-freedom sign), the matter and hypercharge contributions are positive. This is the structural direction of the closing corrections, and it is genuine. The Higgs winding number $n_H=1$ is verified load-bearing.</li>
+<li><strong>What we proved about our own weakness (the demonstrated finding).</strong> We <em>conceded</em> that the published 8-row threshold ledger was fitted-to-target. We then built a <strong>target-blind compiler</strong> that mechanically rejects any input column whose name even hints at the answer, ran it on a real 150-mode frozen mode table, and compared only <em>after</em> the freeze. The blind values disagree with the printed ledger on <strong>all three</strong> components — every sign flips, and the third is off by <strong>~10⁵</strong>. We turned a conceded weakness into a <em>demonstrated</em> one and shipped the runnable proof.</li>
+<li><strong>What is honestly open (the magnitudes).</strong> The three printed threshold values are injected reals; the published per-row formulas, applied literally, miss the printed rows by <strong>~2× to ~18×</strong>. The magnitudes are <em>scheme-anchored</em>, not derived. The gate stays <strong>OPEN / Diagnostic-only</strong>.</li>
+</ul>
+<p><strong>The honest grade, stated once and held throughout.</strong> SG-7 is a <strong>serious candidate / a diagnostic that recovers threshold signs — NOT a validated unification</strong>. It is OPEN. The signs are the genuine win; the magnitudes hinge on a single unfixed heat-kernel scheme object. The gate does not move on the strength of this dossier, and this dossier never says it does. <em>Diagnostic only.</em> <code>[DIAGNOSTIC]</code></p>
+<p><strong>What this dossier establishes and does not.</strong> It establishes the precise structure of the threshold problem, the exact arithmetic of where the published ledger reproduces (trivially) and where it fails (the deep regeneration), the target-blind machine that demonstrates the failure, and a concrete specialist work plan for each open hole. It does <strong>not</strong> establish that the threshold magnitudes are derived, that $M_U$ is a prediction, that the spectrum is the unique unifier, or that "no row is a free parameter." Those are explicitly withdrawn or open, and §7 names every one.</p>
+<hr />
+<h2>2. The community gap</h2>
+<h3>2.1 The precise open problem</h3>
+<p>In a four-dimensional grand unified theory, the three running inverse couplings $\alpha_i^{-1}(\mu)$ obey one-loop renormalization-group equations
+$$
+\alpha_i^{-1}(\mu) = \alpha_i^{-1}(M_Z) - \frac{b_i}{2\pi}\ln\frac{\mu}{M_Z} + (\text{two-loop}) ,
+$$
+with Standard-Model beta coefficients (GUT-normalized $\alpha_1 = \tfrac{5}{3}\alpha_Y$)
+$$
+b_1^{\rm SM} = \frac{41}{10},\qquad b_2^{\rm SM} = -\frac{19}{6},\qquad b_3^{\rm SM} = -7 ,
+$$
+fixed entirely by the Standard-Model field content (3 generations + 1 Higgs + the gauge sector). [Source: <code>01_DOSSIER.md</code> §1.1 item 1; <code>00_HANDOFF_README.md</code> §0.] In the plain Standard Model these three lines do <strong>not</strong> meet at a single point; the famous near-miss is closed in the MSSM by superpartner thresholds, and in any non-supersymmetric or higher-dimensional scheme by the finite threshold corrections of whatever heavy spectrum the model carries.</p>
+<p>The open problem — shared across the entire field, not unique to this program — is that <strong>the closing threshold corrections are model-dependent inputs in every scheme</strong>. Nobody has a first-principles derivation that fixes them from geometry alone with nothing adjustable. Whoever's spectrum is doing the closing, the question "are these corrections computed, or fitted?" is the honest discriminator, and it is rarely answered cleanly.</p>
+<h3>2.2 The Fable framing of the test</h3>
+<p>SG-7 sets up the test in the cleanest possible form. The threshold correction enters as a finite vector $\delta = (\delta_1, \delta_2, \delta_3)$ added to the RG transport, and the geometry's heavy KK spectrum is supposed to produce it. With the compactification scale identified with the unification scale ($m_c = M_U$), the logarithmic KK-running term cancels and only the <em>finite</em> Seeley–DeWitt $a_2$ remainder survives:
+$$
+\delta_i = \frac{1}{2\pi}\,\Delta_i^{\rm finite}\!\left(K_6,\; S^2,\; S^1_Y/\mathbb{Z}_2,\; \text{Wilson-line}\right) .
+$$
+[Source: <code>01_DOSSIER.md</code> §1.1 item 3.] The structural claim is that thresholds are a <em>finite topological number</em>, not a tuned logarithm. The witness is the <strong>8-row heat-kernel ledger</strong> (G.3.2), whose three column sums are the printed threshold triple
+$$
+\delta = (+4.8424,\ -3.1112,\ -1.7313)\ \pm\ 1.6\times10^{-3} .
+$$
+[Source: <code>01_DOSSIER.md</code> §0.1, §1.1 item 4; <code>07_CLOSURE_RESULT_AND_FINDING.md</code> §6 table.]</p>
+<h3>2.3 State of the art and why prior attempts fall short</h3>
+<ul>
+<li><strong>The MSSM threshold-fit tradition.</strong> Supersymmetric unification famously improves the crossing, but the superpartner spectrum is itself a fit; the thresholds are inputs parameterized by an effective SUSY scale. This is exactly the "model-dependent input" failure mode in a respectable disguise.</li>
+<li><strong>String / M / F-theory, NCG, lattice.</strong> Each can in principle generate threshold corrections, but on threshold unification the rival frameworks <strong>tie</strong> with this program: none exhibits a target-blind first-principles derivation of the closing corrections that survives an answer-hiding audit. This is recorded as the SHARED-OPEN status of residual R9 (§7). [Source: <code>01_DOSSIER.md</code> §4.9, §A.1 R9.]</li>
+<li><strong>The Fable program's own first effort.</strong> The published ledger printed the $\delta$-triple to five significant figures as the geometric output and asserted "no row is a free parameter." A blind reviewer-reproduction (independently verified) found the rows are fitted-to-target, not reproduced by the cited heat-kernel formula — the unambiguous $S^2$ gauge row is ~18× off — and the strong claim was <strong>withdrawn</strong> on the 2026-06-24 downgrade. [Source: <code>01_DOSSIER.md</code> top downgrade note.] That downgrade is <em>the reason this gate is Diagnostic-only</em>, and this dossier treats the program's own ledger with exactly the skepticism it would apply to a rival's.</li>
+</ul>
+<p>The honest position: the field does not have a clean first-principles threshold derivation; neither do we; but we have built and run a machine that <em>tests whether anyone's claim is real</em>, and we ran it against ourselves.</p>
+<hr />
+<h2>3. The construction — rigorous math</h2>
+<h3>3.1 The forward chain</h3>
+<p>SG-7 is a <strong>consistency / pruning gate evaluated on the already-selected survivor</strong> — no new geometry is searched. The pipeline is one forward chain [Source: <code>01_DOSSIER.md</code> §1.1]:</p>
+<pre><code> α_i⁻¹(M_Z) [3 measured]  --two-loop MS-bar RG--&gt;  α_i⁻¹ near M_U  (almost meet)
+        +  KK spectrum of K_gauge  --heat-kernel a_2 ledger (G.3.2)--&gt;  δ = (δ_1,δ_2,δ_3)
+        --insert into RG--&gt;  α_1(M_U) = α_2(M_U) = α_3(M_U)  at  M_U ~ 1e16 GeV,  residual 9.6e-11
+</code></pre>
+<p>The residual at $M_U$ is quoted at $9.6\times10^{-11}$ — far inside the propagated PDG band $\sim10^{-3}$ — but this is the residual of the <em>printed</em> ledger re-summed and inserted, i.e. it measures self-consistency of the fitted numbers, not derivation. [Source: <code>01_DOSSIER.md</code> §0.1, W5.]</p>
+<h3>3.2 The load-bearing factors</h3>
+<ol>
+<li>
+<p><strong>Running couplings + SM beta functions.</strong> $b = (41/10, -19/6, -7)$, fixed by SM content. RG transport frozen at two-loop $\overline{\rm MS}$ (hash <code>f531205a9159</code>). These are <strong>inputs</strong> (given-E): SG-7 inherits the SM content E from SG-2/SG-3 and does not derive it.</p>
+</li>
+<li>
+<p><strong>The KK spectrum on each compact factor.</strong> The gauge sector lives on $K_{\rm gauge} = K_6 \times S^2 \times S^1_Y/\mathbb{Z}_2$:
+   - $K_6 = SU(3)/T^2$ carries $SU(3)_c$ with Laplacian tower $m_n^2 = n(n+2)/R_{K_6}^2$ (radius hash <code>634438ce0776</code>);
+   - $S^2$ carries $SU(2)_L$ with $m_n^2 = n(n+1)/R_{S^2}^2$ (radius hash <code>2381d472c62e</code>);
+   - $S^1_Y/\mathbb{Z}_2$ carries $U(1)_Y$ with the orbifold-projected tower (radius hash <code>0e8b8dba2cf0</code>).
+   The chiral families are zero modes (no KK chiral copies above $m_c$), so $n_q^{\rm KK} = 0$ for matter while the gauge KK towers contribute fully. [Source: <code>01_DOSSIER.md</code> §1.1 item 2, §5.3 hash index.]</p>
+</li>
+<li>
+<p><strong>The finite heat-kernel remainder.</strong> With $m_c = M_U$ the logarithmic term vanishes and only the finite Seeley–DeWitt $a_2$ remainder survives, giving the $\delta_i = (1/2\pi)\,\Delta_i^{\rm finite}$ relation of §2.2. The identification $m_c = M_U$ "up to an $\mathcal{O}(1)$ factor" is the soft seam — that $\mathcal{O}(1)$ is exactly where an undeclared normalization could hide (this is residual R5).</p>
+</li>
+<li>
+<p><strong>The 8-row G.3.2 ledger.</strong> Each row is a (compact factor × field class) contribution to one column $(\Delta_1, \Delta_2, \Delta_3)$. The eight rows are: K₆ gauge/ghost $SU(3)$; K₆ matter $SU(3)$; $S^2$ gauge/ghost $SU(2)$; $S^2$ matter $SU(2)$; $S^1_Y$ hypercharge zero-packet; $S^1_Y$ hypercharge heavy-packet; Higgs Wilson-line at $n_H=1$; orbifold/boundary fixed points (plus an <code>inert</code> bin). [Source: <code>07_CLOSURE_RESULT_AND_FINDING.md</code> §2.] The three column sums are the $\delta$-triple.</p>
+</li>
+<li>
+<p><strong>The discipline layer.</strong> G.10 No-Hidden-Knob audit (a 10-row knob table, every knob frozen and listed before comparison); G.5 fail-closed rules; the G.9 certificate checklist; and three structural cross-checks (gauge–ghost identity per factor; family-count load-bearing-ness; Wilson-line load-bearing-ness).</p>
+</li>
+</ol>
+<h3>3.3 The trivial check (passes) — column sums reproduce</h3>
+<p>Summing the printed rows reproduces the printed $\delta$ to four decimals [Source: <code>01_DOSSIER.md</code> §2.3(a)]:
+- $\delta_1$ column $\{-0.84,\ +3.2140,\ +1.0470,\ +1.4214\} \to +4.8424$;
+- $\delta_2$ column $\{-4.02,\ +0.92,\ -0.2110,\ +0.1998\} \to -3.1112$;
+- $\delta_3$ column $\{-2.49,\ +0.79,\ -0.0313\} \to -1.7313$.</p>
+<p>All three reproduce to four decimals. <strong>This is a tautology</strong>: it checks that the <em>injected rows</em> add up, not that the rows come from anywhere. It is exactly — and only — what the captured <code>reproduce_all.py</code> terminal log verifies.</p>
+<h3>3.4 The deep check (FAILS — off ~2×–18×) — the load-bearing arithmetic</h3>
+<p>Applying the G.3.2a coefficient formulas <strong>literally</strong> to regenerate the rows from invariants, with
+$$
+c^{\rm gauge}+c^{\rm ghost} = -\frac{1}{3}\,\frac{T_{\rm adj}}{24\pi}\int R\sqrt{g},\qquad
+c^{\rm matter} = +\frac{1}{3}\,\frac{T(R)}{24\pi}\int R\sqrt{g}\cdot n_{\rm gen},
+$$
+and the geometric integrals $\int_{K_6} R\sqrt g = 12\pi^3$, $\int_{S^2} R\sqrt g = 8\pi$ (both from G.3.2a), gives [Source: <code>01_DOSSIER.md</code> §2.3(b)]:</p>
+<table>
+<thead>
+<tr>
+<th>Row</th>
+<th style="text-align: right;">Printed value</th>
+<th style="text-align: right;">Literal-formula value</th>
+<th style="text-align: right;">printed / formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 — $SU(3)$ gauge+ghost net ($\to\delta_3$)</td>
+<td style="text-align: right;">$-2.4900$</td>
+<td style="text-align: right;">$-4.9348$</td>
+<td style="text-align: right;"><strong>0.505</strong> (~2× off)</td>
+</tr>
+<tr>
+<td>2 — quark matter on $K_6$ ($\to\delta_3$)</td>
+<td style="text-align: right;">$+0.7900$</td>
+<td style="text-align: right;">$+2.4674$</td>
+<td style="text-align: right;"><strong>0.320</strong> (~3× off)</td>
+</tr>
+<tr>
+<td>3 — $SU(2)$ gauge+ghost net ($\to\delta_2$)</td>
+<td style="text-align: right;">$-4.0200$</td>
+<td style="text-align: right;">$-0.2222$</td>
+<td style="text-align: right;"><strong>18.090</strong> (~18× off)</td>
+</tr>
+<tr>
+<td>4 — doublet matter on $S^2$ ($\to\delta_2$)</td>
+<td style="text-align: right;">$+0.9200$</td>
+<td style="text-align: right;">$+0.1667$</td>
+<td style="text-align: right;"><strong>5.520</strong> (~5.5× off)</td>
+</tr>
+</tbody>
+</table>
+<p>This is the decisive verification. The chain <em>invariant → row → column-sum</em> is <strong>broken at the middle link</strong>: the column sums are right because the rows are <em>injected to make them right</em>, but the rows themselves do not fall out of the stated formulas. The literal formulas are under-specified — they omit at least the per-factor normalization that converts the Seeley–DeWitt $a_2$ on each factor into the running-coupling correction (the "$\mathcal{O}(1)$ factor" in $m_c = M_U$, and the projector/overlap weights $c_{a,b,i}$ named-but-not-valued in G.3.2). The ~18× on the $SU(2)/S^2$ row versus ~2× on the $SU(3)/K_6$ row is suggestive: $S^2$ and $K_6$ have very different volumes and KK degeneracies, so a volume/degeneracy normalization is a natural origin of a factor that is large for $S^2$ and small for $K_6$.</p>
+<h3>3.5 The target-blind compiler and the executed run</h3>
+<p>To convert the "fitted-to-target" concession from an assertion into a <em>demonstration</em>, the program built the <strong><code>AXIOM-CANONICAL-ROW-TRACE-COMPILER</code></strong> [Source: <code>07_CLOSURE_RESULT_AND_FINDING.md</code> §2–§3]:</p>
+<blockquote>
+<p>For the frozen admissible SG-7 spectral domain there is a unique target-blind row-label compiler $\ell:\ \Omega_{\rm adm} \to \{1,\dots,8,\ \text{inert}\}$, induced <strong>only</strong> by compact support, actor type, gauge-charge insertion, orbifold/boundary status, chirality, bundle descent, Wilson/Hosotani data, and the frozen admissibility predicate. With row projectors $P_a = \mathbb{1}_{\ell^{-1}(a)}$, the threshold rows are the finite parts
+$$ R_{a,i} = \mathrm{FP}_{s=0}\ \mathrm{Tr}_{H_{\rm KK}}\!\left[P_a\, Q_i^2\, \mu^{2s}\, D_{\rm KK}^{-s}\right], \qquad \delta_i = \frac{1}{2\pi}\sum_{a=1}^{8} R_{a,i}. $$</p>
+</blockquote>
+<p>The axiom is value-free <em>only if</em> the row-label compiler and the finite-part scheme are frozen before any comparison with the printed ledger. That freeze-before-compare discipline is what the tool mechanically enforces:</p>
+<ul>
+<li><strong>Runs end-to-end + reproducible</strong>, 3/3 tests pass (<code>tests/test_compiler.py</code>).</li>
+<li><strong>Anti-target-loading genuinely works:</strong> a well-formed mode table carrying a forbidden <code>delta</code> column is rejected with <code>TargetLoadingError</code>. The guard forbids any column whose name contains <code>delta, target, printed, expected, fit, fitted, ledger_value, row_value, answer, observed_output</code> — in both the mode table <strong>and</strong> <code>projectors.json</code>. So the compiler <strong>cannot</strong> be fed the answer; it can only compile rows from frozen primitives (eigenvalues, degeneracies, charge insertions, actor/factor/boundary/Wilson/admissibility labels). [Source: <code>07_CLOSURE_RESULT_AND_FINDING.md</code> §3.]</li>
+</ul>
+<p><strong>The executed run (2026-06-25).</strong> A real frozen mode table <code>real_frozen_modes.csv</code> (150 modes) was built target-blind — eigenvalues and degeneracies from the fixed K₆/S²/S¹_Y KK spectra, gauge-charge insertions from the actual SM rep Dynkin indices, scheme freedoms set by canonical, declared, un-tuned rules ($Z_X = 1$, $\mu = 1$, cutoff $(p,q) \le 12$ inherited from the frozen K₆ table). The compiler ran clean, then the result was compared to the printed triple <strong>post-hoc</strong> [Source: <code>07_CLOSURE_RESULT_AND_FINDING.md</code> §6 table; <code>00_HANDOFF_README.md</code> STATUS UPDATE]:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: right;">$\delta_1$ (U(1)_Y)</th>
+<th style="text-align: right;">$\delta_2$ (SU(2)_L)</th>
+<th style="text-align: right;">$\delta_3$ (SU(3)_c)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Target-blind (this run)</strong></td>
+<td style="text-align: right;">$-63.897$</td>
+<td style="text-align: right;">$+70.627$</td>
+<td style="text-align: right;">$+227172.5$</td>
+</tr>
+<tr>
+<td><strong>Printed (fitted) ledger</strong></td>
+<td style="text-align: right;">$+4.8424$</td>
+<td style="text-align: right;">$-3.1112$</td>
+<td style="text-align: right;">$-1.7313$</td>
+</tr>
+<tr>
+<td><strong>Match?</strong></td>
+<td style="text-align: right;">✗ sign+mag (13×)</td>
+<td style="text-align: right;">✗ sign+mag (23×)</td>
+<td style="text-align: right;">✗ sign+mag ($1.3\times10^5$)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>No match on any component</strong> — signs flip on all three, and $\delta_3$ is off by five orders of magnitude.</p>
+<h3>3.6 The structural $\delta_3$ non-cancellation</h3>
+<p>The $\delta_3$ blow-up is <strong>structural, not a bug</strong> (independently confirmed): K₆ gauge-ghost and K₆ matter ride the <em>identical</em> KK tower, differing only by the fixed charge×coefficient ratio
+$$
+q_3 \cdot \text{coef} = (3 \cdot -1)\ \text{vs}\ (1.5 \cdot +1) = -2:1 ,
+$$
+which can never cancel — so the canonical insertion cannot produce the small printed $\delta_3$. [Source: <code>07_CLOSURE_RESULT_AND_FINDING.md</code> §6; <code>00_HANDOFF_README.md</code> STATUS UPDATE item 4.]</p>
+<h3>3.7 The two honest caveats on the finding</h3>
+<p>This is a demonstration that the <em>obvious reconstruction fails</em>, <strong>NOT</strong> a clean falsification of the geometry [Source: <code>07_CLOSURE_RESULT_AND_FINDING.md</code> §6 caveats 1–2]:</p>
+<ol>
+<li>The <code>log_mu</code> finite-part in the compiler is a <strong>self-admitted placeholder</strong> (<code>finite_part.py</code>: <em>"runnable finite-part placeholder … should replace or freeze before comparison"</em>) — <strong>not</strong> the actual ζ-regularized KK finite part. The wild magnitudes (especially $\delta_3$) are partly placeholder-scheme artifacts of the missing subtraction.</li>
+<li>The frozen <code>spectrum_K6.csv</code> was not co-located in the run package, so its tower was internal-consistency-checked but not byte-traced to source (a flagged UNKNOWN; it does not change the disposition — even granting the towers, the triple fails on sign).</li>
+</ol>
+<p>So the structural <em>direction</em> of the miss is real, but the precise $\delta_3$ magnitude is partly a placeholder artifact, and we say so wherever the finding appears.</p>
+<h3>3.8 The cross-checks: what is and is not verified load-bearing</h3>
+<p>Three internal cross-checks bear on the structural claims. The honest split [Source: <code>01_DOSSIER.md</code> §2.1 W6/W7, §2.2]:</p>
+<ul>
+<li><strong>Higgs winding $n_H=1$ is verified load-bearing.</strong> Cross-check 3: $n_H = 0$ misses $\delta$ by $(+1.047,\ -0.211,\ 0)$, and printed row 7 equals exactly that miss — internally consistent (W7). <strong>Verified.</strong></li>
+<li><strong>Family count $-3$: load-bearing is asserted, NOT re-run.</strong> Cross-check 2 scales the matter row by $n_{\rm gen}$ and claims $-2/-4$ would miss, but the recomputation was <strong>not performed</strong> in the audit (W6: "Plausible but not re-run"). This dossier does <strong>not</strong> call the family count "demonstrably load-bearing" — only $n_H=1$ is verified.</li>
+<li><strong>Gauge–ghost identity</strong> $c^{\rm gauge} + c^{\rm ghost} = c^{\rm gauge}/2$ is algebraically structural; the catastrophic-under-modulus-shift sensitivity (G.9.8) is the right shape for a non-tuned packet. These make the <em>structure</em> credible even where the <em>numbers</em> are injected.</li>
+</ul>
+<hr />
+<h2>4. The insights we used</h2>
+<p>These are the reasoning moves that produced the progress, now shareable at working-physicist depth.</p>
+<p><strong>(1) Weaponize the concession, don't paper over it.</strong> The instinct under a downgrade is to defend the published numbers. The productive move was the opposite: <em>concede</em> the ledger was fitted, then build the apparatus that would either vindicate it cleanly or demonstrate the failure beyond dispute. A demonstrated weakness is worth more to a reader than a defended one, because it ships with a runnable proof.</p>
+<p><strong>(2) Target-blindness as a mechanical predicate, not a promise.</strong> The κ³/π discipline (the program's standing falsification test: an axiom or normalization counts only if it would be written <em>without</em> knowing the target value) is usually a methodological pledge. Here it was made <em>mechanical</em>: the compiler raises <code>TargetLoadingError</code> on any column whose name hints at the answer. A reviewer does not have to trust that we were blind; the machine cannot be fed the answer. This is the difference between "we did not look" and "we could not look."</p>
+<p><strong>(3) Separate the two checks that everyone conflates.</strong> The single most important diagnostic distinction in this gate is between the <strong>trivial check</strong> ("do the printed rows sum to the printed $\delta$?" — always yes, a tautology) and the <strong>deep check</strong> ("do the rows regenerate from the invariants?" — no, off ~2×–18×). The published <code>reproduce_all.py</code> log verifies only the trivial check. Mistaking it for a closure is the gate's signature mis-close. The whole §3.3 vs §3.4 structure exists to keep these apart.</p>
+<p><strong>(4) Signs survive without the geometry; magnitudes do not.</strong> The sign structure (gauge+ghost negative, matter/hypercharge positive) is generic heat-kernel / asymptotic-freedom physics — it follows from the field content E and the measured couplings, and would survive even if the specific compactification were wrong. That is <em>why</em> it is bankable. The magnitudes, by contrast, require the specific zeta-regularized KK-tower sum on the specific factors, which is exactly the unfixed object. Recognizing this split is what lets us bank the signs honestly while leaving the magnitudes open.</p>
+<p><strong>(5) The $-2:1$ ratio is a real structural reading, with a caveat.</strong> That K₆ gauge-ghost and matter ride the identical tower with a fixed $-2:1$ charge×coef ratio is a genuine non-cancellation observation — it explains why a naive canonical insertion cannot produce a <em>small</em> $\delta_3$. But the load-bearing physics question is whether this is a <em>real</em> obstruction or an artifact of the placeholder subtraction. We carry the caveat with the reading.</p>
+<p><strong>(6) The scheme object is shared across three gates.</strong> The missing per-factor normalization $Z_{\mathcal X}$ + overlap $c_{a,b,i}$ is the <em>same</em> single geometry-unfixed Seeley–DeWitt finite object that Gap-01's $a_6$ graviton coefficient and SG-6's $c_{\rm loop}$ ride. This is not a coincidence to be glossed — it is leverage: reconcile the object once and the fix propagates to all three gates (§6, §7).</p>
+<hr />
+<h2>5. Evidence &amp; reproducibility</h2>
+<h3>5.1 Frozen-object hash index (load-bearing; READ-ONLY)</h3>
+<p>Branch <code>dcc66f1b2685</code> · manifest meta <code>a5b1e6f9d951</code> · $R_{K_6}$ <code>634438ce0776</code> · $R_{S^2}$ <code>2381d472c62e</code> · $R_Y$ <code>0e8b8dba2cf0</code> · RG transport (two-loop $\overline{\rm MS}$) <code>f531205a9159</code> · $M_Z$ <code>a6852c7a6b00</code> · uncertainty rule <code>61b0d93507e7</code> · $M_{\rm Pl}$ <code>df5976a365c3</code> · $\alpha_i^{-1}(M_Z)$ <code>6a3b6ef06697</code> · $\mathbb{Z}_2$ on $S^1_Y$ <code>ac4d2df3e708</code> · $\mathbb{Z}_6$ identification <code>a68ee92a75be</code> · Wilson-line cycle $\gamma$ <code>640e1d7f7773</code> · winding $n_H$ <code>f65094fd8fd1</code> · $\eta_{BK}$ <code>84e94518d3f5</code>. Bundle files (REFERENCED, not independently re-run in the dossier audit): <code>reproduce_all.py</code> <code>30d4d3049051</code> · <code>appendix_F_threshold_outputs.csv</code> <code>a9b61c5f8049</code> · <code>appendix_F_heat_kernel_ledger.csv</code> <code>9a6c7c08dc3c</code>. <strong>$\delta$-triple $(+4.8424,-3.1112,-1.7313)\pm1.6\times10^{-3}$: no per-row first-principles hash — injected reals.</strong> [Source: <code>01_DOSSIER.md</code> §0 / §5.3.]</p>
+<h3>5.2 The witness ledger with honest reproduces-flags</h3>
+<p>[Source: <code>01_DOSSIER.md</code> §2.1.]</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Witness</th>
+<th>Grade</th>
+<th>Reproduces?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1</td>
+<td>SM beta functions $b=(41/10,-19/6,-7)$</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — standard, recompute by hand from the SM spectrum</td>
+</tr>
+<tr>
+<td>W2</td>
+<td>Two couplings almost meet under SM running</td>
+<td>machine-lane</td>
+<td><strong>Yes in principle</strong>; not re-run here</td>
+</tr>
+<tr>
+<td>W3</td>
+<td>8-row ledger column sums = $\delta$</td>
+<td>hand-checkable</td>
+<td><strong>Yes (trivially)</strong> — summing the printed rows; a tautology</td>
+</tr>
+<tr>
+<td>W4</td>
+<td>G.3.2a row formulas → row values</td>
+<td>symbolic</td>
+<td><strong>NO</strong> — literal formulas miss by ~2×–18× (§3.4)</td>
+</tr>
+<tr>
+<td>W5</td>
+<td>$\delta$ inserted → unification at $M_U$, residual $9.6\times10^{-11}$</td>
+<td>machine-lane</td>
+<td><strong>AUDIT</strong> — asserted from <code>appendix_F_threshold_outputs.csv</code>; not independently re-run</td>
+</tr>
+<tr>
+<td>W6</td>
+<td>Family-count load-bearing (cross-check 2)</td>
+<td>hand-checkable</td>
+<td><strong>Plausible but NOT re-run</strong> — row scaling asserted</td>
+</tr>
+<tr>
+<td>W7</td>
+<td>Higgs $n_H=1$ load-bearing (cross-check 3)</td>
+<td>hand-checkable</td>
+<td><strong>Yes (consistent)</strong> — row 7 = the $n_H=0$ miss $(+1.047,-0.211,0)$</td>
+</tr>
+<tr>
+<td>W8</td>
+<td>G.10 No-Hidden-Knob audit</td>
+<td>symbolic/audit</td>
+<td><strong>Conditional</strong> — an auditable claim, not a theorem</td>
+</tr>
+<tr>
+<td>W9</td>
+<td><code>reproduce_all.py</code> captured terminal output</td>
+<td>machine-lane</td>
+<td><strong>AUDIT</strong> — a pasted log; verifies only the trivial re-sum (W3), not W4</td>
+</tr>
+<tr>
+<td>W10</td>
+<td>Freeze hashes + meta <code>a5b1e6f9d951</code></td>
+<td>machine-lane</td>
+<td><strong>Yes in principle</strong>; not re-run here</td>
+</tr>
+</tbody>
+</table>
+<h3>5.3 The executed blind-run artifacts (independently verified)</h3>
+<p>The runnable package was executed independently — <em>not</em> a captured log. Published artifacts inside the package: <code>real_frozen_modes.csv</code> (150 modes), <code>outputs/real_run.csv</code>, the <code>build_real_modes.py</code> generator, <code>FINDING.md</code>, the compiler, and <code>tests/test_compiler.py</code> (3/3). On the bundled <em>example</em> table the compiler reproduces stored values to printed digits (e.g. <code>Delta1_sum = −6.86021259463</code>) — <strong>TOY numbers from the example table, NOT SG-7 thresholds</strong>, and must not be read as such. The real-table result is the §3.5 table. The finding was verified SAFE by an independent adversarial pass plus an independent re-run of the column sums. [Source: <code>07_CLOSURE_RESULT_AND_FINDING.md</code> §3, §6.]</p>
+<h3>5.4 How a reader re-runs / re-derives</h3>
+<ol>
+<li><strong>Reproduce the deep-check arithmetic by hand</strong> from §3.4: with $\int_{K_6}R\sqrt g = 12\pi^3$, $\int_{S^2}R\sqrt g = 8\pi$ and the G.3.2a coefficient formulas, confirm the literal-formula values $\{-4.9348, +2.4674, -0.2222, +0.1667\}$ and the printed/formula ratios $\{0.505, 0.320, 18.090, 5.520\}$. This is fully hand-checkable.</li>
+<li><strong>Re-run the target-blind compiler</strong> on <code>real_frozen_modes.csv</code> and confirm the blind triple $(-63.897, +70.627, +227172.5)$ and that the anti-target-loading guard fires on a planted <code>delta</code> column.</li>
+<li><strong>Re-sum the printed rows</strong> to confirm the trivial check passes ($+4.8424, -3.1112, -1.7313$) — and note that this is <em>all</em> the published <code>reproduce_all.py</code> log demonstrates.</li>
+</ol>
+<hr />
+<h2>6. Open gaps + closure path (the specialist work plan)</h2>
+<p>The whole gate reduces to two real targets — <strong>R1</strong> (a mechanical owner artifact) and <strong>R2</strong> (one bounded heat-kernel computation) — with R3/R4/R5/R8 dependent on or folding into those two, and R6/R7/R9 being given-E / inherited / scope statements. Each open hole below is a work-package a specialist can act on immediately. <strong>Standing falsification test for every item: a normalization or axiom reverse-engineered to hit the already-known $\delta$ is true-by-construction (the κ³/π pattern) and RELOCATES the residual; it does not close it.</strong></p>
+<hr />
+<h3>6.1 R2 — The threshold magnitudes are not derived (the gate-defining residual)</h3>
+<p><strong>(a) Precise statement.</strong> The G.3.2a per-row formulas, applied literally, miss the printed rows by ~2× to ~18× (§3.4); the chain invariant → row → column-sum is broken at the middle link. The missing object is the <strong>per-factor normalization $Z_{\mathcal X}$ and representation-overlap weight $c_{a,b,i}$</strong> that convert the bare Seeley–DeWitt $a_2$ on each factor into the running-coupling correction. The exact quantity to compute is the <strong>zeta-regularized KK-tower finite part</strong> of the one-loop gauge-coupling correction per factor ($K_6$, $S^2$, $S^1_Y/\mathbb{Z}_2$) under the declared regulator, target-blind.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> The first-pass blind run (§3.5) used a <strong>self-admitted placeholder</strong> for the finite part (<code>log_mu</code> in <code>finite_part.py</code>), so its wild magnitudes — especially the $\delta_3$ blow-up — are <em>partly placeholder artifacts of the missing subtraction</em>, not a clean falsification. Traps to avoid, named so they are not repeated: (i) <strong>Do not report the trivial re-sum (§3.3) as a closure</strong> — it verifies a tautology. (ii) <strong>Do not reverse-engineer $Z_{\mathcal X}$ to hit $(+4.8424,-3.1112,-1.7313)$</strong> — that is the κ³/π pattern and relocates the fit from three numbers to one normalization. (iii) <strong>Surface the shared-scheme coupling:</strong> this normalization is the <em>same</em> unfixed Seeley–DeWitt object shared with Gap-01's $a_6$ and SG-6's $c_{\rm loop}$, and the 2026-06-28/29 audit found the two computation routes for that object <strong>DISAGREE</strong> (route-inconsistent, not merely uncomputed) — the specific obstruction is the <strong>SU(3) Gelfand–Tsetlin off-diagonal matrix elements</strong> that gate the 5-class Levi-Civita Lichnerowicz graviton hopping on $K_6$, <em>plus a ghost-sector discrepancy</em>. So R2 cannot resolve even at fixed scheme until that upstream route-inconsistency is reconciled. [Source: <code>01_DOSSIER.md</code> cross-gate propagation note 2026-06-29; <code>GATE_REGRADE_…</code> HIDDEN HOLE line 427.]</p>
+<p><strong>(c) Exactly what closes it.</strong> Compute the zeta-regularized KK-tower sum per factor target-blind and check whether rows 1–4 move from the literal-formula values $\{-4.9348, +2.4674, -0.2222, +0.1667\}$ to the printed $\{-2.4900, +0.7900, -4.0200, +0.9200\}$ — i.e. whether the geometry supplies exactly the ratios $\{0.505, 0.320, 18.090, 5.520\}$ from <em>structure</em>. <strong>Success criterion:</strong> rows fall out within the pre-declared tolerance with no per-row fudge → magnitudes DERIVED-GIVEN-E (R3/R4 dissolve with it). <strong>A refuting result is a valid close:</strong> if the target-blind zeta-sum gives definite rows that <em>miss</em> the printed $\delta$ in a new direction beyond the band → the printed ledger is wrong, and the gate is <em>definitively</em> Diagnostic-only (a confirmed FINDING). <strong>Fallback (honest, not a closure):</strong> name <code>AXIOM-THRESHOLD-NORMALIZATION</code> — <em>"the running-coupling correction from each compact factor is the bare $a_2$ times the factor's KK zeta-normalization $Z_{\mathcal X}$ (a function of its volume, curvature integral, and KK degeneracy only) and the overlap $c_{a,b,i}$, both fixed by the geometry, independent of any coupling value."</em> This is writable with no $\delta$ in sight (κ³/π-clean as a <em>statement</em>), but it is only AXIOM-CLOSED <em>if verified to yield</em> the rows — otherwise it is AXIOM-CLOSED-pending-verification, which is still OPEN.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Start from the runnable package <code>08_row_trace_compiler_runnable/</code> (the compiler, <code>row_trace_compiler/finite_part.py</code> to be replaced, <code>build_real_modes.py</code>, <code>real_frozen_modes.csv</code>). Replace the <code>log_mu</code> placeholder with the actual ζ-regularized KK heat-kernel finite part; freeze it before any comparison. The geometric inputs are the frozen radii (<code>634438ce0776</code>, <code>2381d472c62e</code>, <code>0e8b8dba2cf0</code>), the curvature integrals $\int_{K_6}R\sqrt g = 12\pi^3$, $\int_{S^2}R\sqrt g = 8\pi$, the SM Dynkin indices, and $n_H=1$. The negative theorem SG7-R2 (scalar/separable no-go) tells you the missing object is a <em>non-separable</em> target-blind trace — do not attempt a scalar/separable normalization repair, it is proven to fail. [Source: <code>00_HANDOFF_README.md</code> §3 R2, post-atomicity re-grade.]</p>
+<p><strong>(e) Leverage.</strong> This is the single highest-leverage move in the gate: closing R2 converts $\delta$ from injected to derived and dissolves R3 and R4 in one move. And because the scheme object is shared, the same GT-off-diagonal + ghost reconciliation is load-bearing for <strong>Gap-01 R1</strong> ($a_6$ value/sign) and <strong>SG-6 R5</strong> (the modulus / $\mu_{\rm cell}$). Reconcile the routes ONCE — fix the SU(3) GT off-diagonal matrix elements (5-class LC Lichnerowicz hopping) and the ghost discrepancy, target-blind — and the fix propagates to all three gates. Caveat: SG-7 is an $a_2$-class ledger while Gap-01 is the $a_6$ graviton coefficient; the <em>shared</em> object is the scheme/normalization decision and its GT/ghost machinery, not the coefficient order — reconciling the routes fixes the normalization R2 needs, but Route A's zeta-sum still must land target-blind. [Source: <code>GATE_REGRADE_…</code> line 1172; <code>01_DOSSIER.md</code> propagation note.]</p>
+<hr />
+<h3>6.2 R1 — Deep check not yet run on a real, byte-traced spectrum</h3>
+<p><strong>(a) Precise statement.</strong> The frozen <code>spectrum_K6.csv</code> was not co-located in the run package, so the KK tower in <code>real_frozen_modes.csv</code> was internal-consistency-checked but <strong>not byte-traced to source</strong> (a flagged UNKNOWN). Separately, the load-bearing <code>reproduce_all.py</code> + the two CSVs were referenced (and a terminal log pasted) but not independently re-run in the dossier audit.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> The trap is the gate's signature mis-close: <strong>accepting the pasted terminal log (or the trivial re-sum) as a closure of the harness.</strong> The pasted log verifies only that the printed rows re-sum to the printed $\delta$ (W3/W9) — <em>not</em> that the rows regenerate from invariants (W4). The §3.4 deep-check failure predicts the rows in <code>reproduce_all.py</code> are hard-coded, not computed; the single most important diagnostic is to open the script and check.</p>
+<p><strong>(c) Exactly what closes it.</strong> Co-package the byte-anchored frozen spectra (<code>spectrum_K6.csv</code> / <code>spectrum_S2.md</code> / <code>spectrum_S1.md</code>) with the compiler and verify them against the eigenvalue/degeneracy towers in <code>real_frozen_modes.csv</code>; re-run the deep check so each row is provably regenerated from frozen primitives (eigenvalues, degeneracies, charge insertions), not hard-coded; confirm the meta-hash recomputes to <code>a5b1e6f9d951</code>. <strong>Success criterion:</strong> (3a) trivial check — CSV column sums equal $(+4.8424,-3.1112,-1.7313)$ to tolerance $5\times10^{-4}$ and the VERIFY row reads <code>True,True,True,True</code> → harness VERIFIED (sum-level); this upgrades the harness from AUDIT to machine-verified <strong>but does not close R2</strong>. (3b) deep check — rows computed from G.3.2a primitives inside the script → VERIFIED (derivation-level), which would simultaneously close R2 (unlikely given §3.4). A value failing to regenerate at the declared tolerance is a valid REFUTING close → Diagnostic-only confirmed.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> <code>reproduce_all.py</code> (<code>30d4d3049051</code>), <code>appendix_F_heat_kernel_ledger.csv</code> (<code>9a6c7c08dc3c</code>), <code>appendix_F_threshold_outputs.csv</code> (<code>a9b61c5f8049</code>), run target-blind against the frozen radii / RG transport / $M_Z$ / the three PDG couplings. The <code>08_row_trace_compiler_runnable/</code> package is the cleaner modern substrate.</p>
+<p><strong>(e) Leverage.</strong> This is the cheapest win and it is the prerequisite enabling step for R2's deep check. It also exposes which $\sum Y^2$ convention the code uses, folding in R8. It does not by itself derive the magnitudes.</p>
+<hr />
+<h3>6.3 R3 — The three $\delta$ are injected reals (dependent on R2)</h3>
+<p><strong>(a) Precise statement.</strong> $(+4.8424,-3.1112,-1.7313)$ are hand-entered to five sig figs with no per-row first-principles hash; the entire numerical unification claim rests on three injected numbers (equivalently, eight injected rows whose three sums are derived-from-them).</p>
+<p><strong>(b) Why it's hard.</strong> There is no <em>independent</em> closure of R3 — the $\delta$ become non-injected exactly when R2's row-derivation runs forward. The trap: naming <code>AXIOM-DELTA-IS-COLUMN-SUM</code> ("the threshold vector is by definition the column sum of the ledger") only <em>relocates</em> the injection from three numbers to eight rows. It is essentially already the manuscript's position and pays no debt until the rows are earned.</p>
+<p><strong>(c) Exactly what closes it.</strong> R3's attack plan <strong>is</strong> R2's (§6.1). DERIVED-GIVEN-E if R2 derives the rows; otherwise R3 stays OPEN, honestly labeled.</p>
+<p><strong>(d/e) Machinery &amp; leverage.</strong> Same as R2. This is the only place a <em>quantitative fit</em> lives in SG-7 (the $b_i$, $M_Z$, $M_U$ being SM/declared, not tunable). Closing R2 removes all three as inputs.</p>
+<hr />
+<h3>6.4 R5 — $M_U$ is a declared closure-target convention, not a prediction</h3>
+<p><strong>(a) Precise statement.</strong> A1.10 labels $M_U = 1.0\times10^{16}$ GeV "a declared closure-target convention (not a 16-sig-fig prediction)." The live risk is the "$m_c = M_U$ up to an $\mathcal{O}(1)$ factor" seam (G.3.1 Step 3), where an undeclared normalization could hide.</p>
+<p><strong>(b) Why it's hard / traps.</strong> The headline "couplings unify at $M_U \sim 10^{16}$ GeV" can be misread as a <em>prediction</em> of $M_U$. The bright-line: <strong>do not claim couplings are PREDICTED to unify at $M_U$</strong> — the honest verb is "couplings CROSS at $M_U$." [Source: <code>GATE_REGRADE_…</code> line 423; <code>01_DOSSIER.md</code> §4.5.]</p>
+<p><strong>(c) Exactly what closes it.</strong> Trace the $m_c/M_U$ ratio in the harness and confirm the $\mathcal{O}(1)$ is a fixed geometric number (e.g. $1/2\pi$ from $R_0 = (2\pi M_U)^{-1}$), not a tuned constant. If geometric → AXIOM-CLOSED (<code>AXIOM-MU-IS-CROSSING</code>: "$M_U$ is the scale at which the three RG-transported inverse couplings with the frozen thresholds coincide; it is an output of the crossing condition, not an independent input"). If found free → it is a hidden knob and the gate downgrades (a valid refuting close via G.10).</p>
+<p><strong>(d) Machinery.</strong> Folds into the R1 deep-check — trace the $m_c = M_U$ identification in <code>reproduce_all.py</code>.</p>
+<p><strong>(e) Leverage.</strong> The $\mathcal{O}(1)$ seam is exactly where R2's missing weight may partly hide; resolving it sharpens R2.</p>
+<hr />
+<h3>6.5 R7 — KK spectrum read at the SG-6 chamber-center witness (inherited)</h3>
+<p><strong>(a) Precise statement.</strong> The KK tower masses (hence the heat-kernel contributions) are fixed by the moduli read at the SG-6 Weyl-rigid witness $\vec u = (1,1,1)$, not independently derived.</p>
+<p><strong>(b) Why it's hard / traps.</strong> This is inherited from SG-6 and <em>understated</em> if phrased only as "not independently derived": the live SG-6 status records the positive-definite Hessian is diagnostic-only and "the chamber center may be a saddle rather than a minimum." So the witness point's <em>minimum-status is itself open at SG-6</em>. Do not present $\vec u=(1,1,1)$ as a proven minimum. [Source: <code>GATE_REGRADE_…</code> HIDDEN HOLE line 427.]</p>
+<p><strong>(c) Exactly what closes it.</strong> Prove $\vec u=(1,1,1)$ is the <strong>unique Weyl-rigid center</strong> of the $K_6$ Cartan moduli, independent of the threshold output — a clean group-theory theorem. Success → DERIVED (symmetry-protected, not tuned); naming <code>AXIOM-CHAMBER-CENTER-SPECTRUM</code> is the realistic AXIOM-CLOSED endpoint. A non-unique center is a refuting result.</p>
+<p><strong>(d) Machinery.</strong> Group theory on the $K_6 = SU(3)/T^2$ Cartan moduli; hand to the SG-6/moduli specialist.</p>
+<p><strong>(e) Leverage.</strong> Shared with SG-6 — closing it there closes it here.</p>
+<hr />
+<h3>6.6 R8 — G.3.2a label inconsistency ($\sum Y^2 = 10/3$ vs $= 10$)</h3>
+<p><strong>(a) Precise statement.</strong> G.3.2a states $\sum_f Y_f^2 = 10/3$ <em>per generation</em> while the G.3.2 row-6 index column reads "$\sum Y^2 = 10$" ($\times 3$ generations).</p>
+<p><strong>(b) Why it's hard.</strong> It isn't — it is cosmetic. A reviewer running G.10.3 step 1 trips on it and may flag a phantom hidden knob.</p>
+<p><strong>(c) Exactly what closes it.</strong> One-line relabel making per-gen vs all-gen consistent ($10/3$ per gen $\times 3$ gens $= 10$). DISCLOSED-CORRECTED. No physics.</p>
+<p><strong>(d/e) Machinery &amp; leverage.</strong> Folds into R1 — the published CSV exposes which convention the code uses.</p>
+<hr />
+<h3>6.7 Disclosed-but-not-closeable-within-SG-7 (R6, R9) — for completeness</h3>
+<ul>
+<li><strong>R6 — SM $b_i$ + comparison scale $M_Z$ are inputs (given-E).</strong> Terminal as <strong>measured-but-irreducible within SG-7 / DISCLOSED (given-E)</strong>: deriving the $b_i$ means deriving E (the SG-2/SG-3 program). Not closeable inside this gate; do not count $b_i$/$M_Z$ as SG-7 outputs. The gate is a consistency pass <em>on</em> E, not a derivation <em>of</em> E.</li>
+<li><strong>R9 — spectrum uniqueness not claimed.</strong> A universal negative ("no other admissible spectrum unifies") over an open-ended domain is <strong>unprovable in principle for any framework</strong>, and rivals tie here. Terminal as <strong>OPEN (scoped) / DISCLOSED</strong> — the scoped claim ("a consistency pass on the selected survivor, not a determination of THE unification spectrum") IS the ceiling, not a hedge. Export the rival-tie to <code>BATTLE_GATES/</code>. Do <strong>not</strong> send this for plugging.</li>
+</ul>
+<hr />
+<h3>6.8 Attack-plan roll-up</h3>
+<table>
+<thead>
+<tr>
+<th>Residual</th>
+<th>Technique</th>
+<th>Named axiom (κ³/π-clean)</th>
+<th>Specialist target / owner artifact</th>
+<th>Realistic endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R2 row-formula non-reproduction</td>
+<td>T1 / T5-guard</td>
+<td>AXIOM-THRESHOLD-NORMALIZATION</td>
+<td>zeta-regularized KK-tower sum per factor, target-blind; reconcile shared $a_6$ GT/ghost routes once</td>
+<td>OPEN → AXIOM-CLOSED if verified to yield rows; DERIVED if zeta-sum lands clean; REFUTED if it misses</td>
+</tr>
+<tr>
+<td>R1 deep check / byte-trace</td>
+<td>machine-lane</td>
+<td>(none)</td>
+<td>byte-anchor spectra + run DEEP check (3b), not just re-sum (3a)</td>
+<td>BLOCKED → VERIFIED (sum-level); R2 stays open</td>
+</tr>
+<tr>
+<td>R3 injected $\delta$</td>
+<td>T6 (dependent)</td>
+<td>AXIOM-DELTA-IS-COLUMN-SUM</td>
+<td>(= R2)</td>
+<td>OPEN, dissolves when R2 closes</td>
+</tr>
+<tr>
+<td>R4 forcedness declared-not-proven</td>
+<td>T5</td>
+<td>AXIOM-ROW-FORCEDNESS (= R2)</td>
+<td>state "enumeration not forcedness" at headline</td>
+<td>DISCLOSED-CORRECTED; AXIOM-CLOSED at R2</td>
+</tr>
+<tr>
+<td>R5 $M_U$ convention</td>
+<td>T2 + T5</td>
+<td>AXIOM-MU-IS-CROSSING</td>
+<td>$\mathcal{O}(1)$-seam firewall (folds into R1)</td>
+<td>DISCLOSED → AXIOM-CLOSED if $\mathcal{O}(1)$ geometric</td>
+</tr>
+<tr>
+<td>R6 $b_i$/$M_Z$ inputs</td>
+<td>— (given-E)</td>
+<td>(none)</td>
+<td>—</td>
+<td>DISCLOSED (given-E); not closeable in SG-7</td>
+</tr>
+<tr>
+<td>R7 chamber-center spectrum</td>
+<td>T1</td>
+<td>AXIOM-CHAMBER-CENTER-SPECTRUM</td>
+<td>Weyl-center uniqueness (shared w/ SG-6)</td>
+<td>AXIOM-CLOSED; DERIVED if uniqueness proven</td>
+</tr>
+<tr>
+<td>R8 $\sum Y^2$ label</td>
+<td>owner edit</td>
+<td>(none)</td>
+<td>one-line relabel (folds into R1)</td>
+<td>DISCLOSED-CORRECTED</td>
+</tr>
+<tr>
+<td>R9 spectrum uniqueness</td>
+<td>scoped</td>
+<td>(none)</td>
+<td>keep scope explicit; export rival-tie</td>
+<td>OPEN (scoped) / DISCLOSED</td>
+</tr>
+</tbody>
+</table>
+<p><strong>REDUCE-vs-RELOCATE verdict.</strong> The plan does not turn one hard problem into three harder ones: the gate reduces to two real targets (R1 mechanical, R2 one bounded computation), with the rest dependent or scope. R2 is <em>smaller</em> than the original gate (one zeta-regularized sum per factor, four checkable rows) and carries an explicit κ³/π falsification test so a tuned normalization cannot be banked. The one genuine danger is misclosing R1 by accepting the pasted log; the §3.3-vs-§3.4 split is the firewall. Honest expected outcome of a full campaign: R1 VERIFIED (sum-level); R2 OPEN → AXIOM-CLOSED-pending-verification or sharper-OPEN; R3 dissolved-with-R2 or OPEN; R4/R5/R8 DISCLOSED-CORRECTED; R7 AXIOM-CLOSED (shared with SG-6); R6/R9 DISCLOSED. <strong>No DERIVED-CLOSED is promised.</strong> [Source: <code>01_DOSSIER.md</code> §4.10.]</p>
+<hr />
+<h2>7. Honest ceiling &amp; scope</h2>
+<p><strong>The grade, held.</strong> SG-7 is <strong>OPEN / Diagnostic-only</strong>. The live chip is <em>Diagnostic only (signs derived; magnitudes demonstrated-fitted)</em>, direction held. <strong>STATUS-UPGRADES:0.</strong> This dossier expands the spine; it does not upgrade it.</p>
+<p><strong>What is explicitly NOT claimed.</strong> Three bright lines, denied by the frozen docs, are never printed as proven here [Source: <code>00_HANDOFF_README.md</code> bright-line block; <code>GATE_REGRADE_…</code> lines 418–423]:</p>
+<ol>
+<li><strong>NOT claimed:</strong> "No row is a free parameter / each threshold row is forced by the named invariants." This was <strong>withdrawn</strong> on the 2026-06-24 downgrade; G.9.6's own caveat concedes it is "a freeze-and-derive claim, not an independent per-row proof of forcedness." The No-Hidden-Knob audit (G.10) proves <em>enumeration</em>, not <em>forcedness</em>. It is only true if R2 closes. (This is residual R4: terminal as DISCLOSED-CORRECTED — state plainly that the discipline proves enumeration, not forcedness.)</li>
+<li><strong>NOT claimed:</strong> "The threshold magnitudes / the $\delta$-triple are derived from first principles." The executed target-blind run <em>demonstrates</em> they are injected/fitted reals — wrong sign on all three, ~10⁵ miss on $\delta_3$. The magnitudes are SCHEME-ANCHORED, not derived.</li>
+<li><strong>NOT claimed:</strong> "Couplings are PREDICTED to unify at $M_U \sim 10^{16}$ GeV." $M_U$ is a declared closure-target convention; the honest verb is "couplings CROSS at $M_U$."</li>
+</ol>
+<p><strong>What IS genuine (the win, stated as strength).</strong> The <em>sign structure</em> of the finite thresholds — gauge+ghost negative (asymptotic-freedom sign), matter/hypercharge positive, the hypercharge-matter $\sum Y^2$ term driving $\delta_1 > 0$ — is real recovered physics, terminating on the observed SM content E and the measured $\alpha_i(M_Z)$. It is generic heat-kernel / asymptotic-freedom physics that survives without the specific geometry, which is exactly why it is bankable. The Higgs winding $n_H=1$ is verified load-bearing (row 7 equals the $n_H=0$ miss $(+1.047,-0.211,0)$). And the program shipped a <em>target-blind machine</em> that mechanically demonstrates its own ledger is fitted — turning a conceded weakness into a runnable, reproducible finding.</p>
+<p><strong>Dissolved ≠ solved; selection ≠ derivation; given-E ≠ derivation-of-E.</strong> SG-7 is a consistency/pruning pass on the selected survivor, not a determination that this spectrum is the unique unifier (R9, correctly scoped). The signs are derived <em>given E</em>; E itself is imported, not produced here (R6). The chamber-center spectrum is <em>read at a witness</em> whose minimum-status is open upstream at SG-6 (R7).</p>
+<p><strong>The anchors paid.</strong> SG-7 rests on <strong>one ATOMIC measured anchor</strong> — <code>ANCHOR-SG7-MEASURED-WORLD-FACTS</code> ($E_{\rm SM}$, $\alpha_i(M_Z)$, $M_Z$; terminal as measured invariants, given-E) — <strong>plus two AXIOM-OPEN, not-atomic legs</strong>: the spectral-domain posit (<code>AXIOM-FROZEN-ADMISSIBLE-SPECTRAL-DOMAIN</code>, blocked on the unproven $\vec u=(1,1,1)$ Weyl-rigid uniqueness) and the threshold-trace functional (<code>AXIOM-CANONICAL-ADMISSIBLE-MODE-TRACE</code>, normal-form PROVEN via Thm SG7-R2B but magnitudes OPEN / computation-debt). The threshold magnitudes terminate on <strong>no measured invariant</strong> today — only on one named heat-kernel SCHEME-anchor (the per-factor KK zeta-normalization $Z_{\mathcal X}$ + overlap $c_{a,b,i}$, the scheme decision shared with $c_{\rm loop}$ and $a_6$). AXIOM-CLOSED ≠ atomic; ANCHORED ≠ DERIVED. [Source: <code>00_HANDOFF_README.md</code> post-atomicity re-grade.]</p>
+<p><strong>The strongest honest one-sentence endpoint.</strong> <em>SG-7 reduces to a clean floor of exactly one ATOMIC measured anchor ($E_{\rm SM}$, $\alpha_i(M_Z)$, $M_Z$ — terminal, given-E) plus two AXIOM-OPEN legs — the spectral-domain posit (blocked on an unproven $\vec u=(1,1,1)$ Weyl-rigid-uniqueness theorem) and the threshold-trace functional (normal-form proven, magnitudes open / computation-debt) — where the genuine, non-promoting wins are the recovered threshold SIGNS, the negative theorem SG7-R2 that kills every scalar/separable normalization repair, and the executed target-blind FINDING blind δ ≠ printed demonstrating the printed δ-triple is fitted/injected; so the gate stays OPEN / Diagnostic-only at the honest ceiling "serious candidate / recovers threshold signs, NOT a validated unification," with the only path to DERIVED-GIVEN-E being a real (non-placeholder) ζ-regularized KK row-regeneration on byte-anchored spectra that lands on the printed rows target-blind; STATUS-UPGRADES:0; the printed δ-triple is a post-hoc falsifier, an input to nothing.</em> [Source: <code>00_HANDOFF_README.md</code> §3A candidate endpoint.]</p>
+<hr />
+<p><em>Dossier built from the SG-7 completion handoff package, the executed closure result + FINDING, the attack dossier (residuals R1–R9, witness ledger W1–W10, the §2.3 deep-check arithmetic), and the 2026-06-29 gate-regrade. Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> READ-ONLY. Common construction material is the published manuscript (Paper I, GUT.html §6.7 / §5.6 / Appendix G / A1.10–A1.11 / R0) — referenced, not duplicated. STATUS-UPGRADES:0.</em></p>
+</body></html>

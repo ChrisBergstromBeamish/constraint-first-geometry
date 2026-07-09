@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Λ-catastrophe (dissolution)</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 252px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 10px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:14px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9670; The Anchors</a></div>
+<div class="ann-group">Start</div>
+<a href="index.html">Overview — how we judge</a>
+<a href="anchor-hierarchy-overview.html">Anchor hierarchy — map</a>
+<div class="ann-group">The method</div>
+<a href="a0-master-anchor.html">A0 — the master anchor</a>
+<a href="layer-1-metric.html">Layer 1 — MDL metric</a>
+<a href="layer-2-no-unpaid-labels.html">Layer 2 — no unpaid labels</a>
+<a href="layer-3-search-grammars.html">Layer 3 — search grammars</a>
+<a href="layer-4-carrier-forcing.html">Layer 4 — carrier-forcing</a>
+<a href="shape-minimality-challenge.html">Shape minimality challenge</a>
+<div class="ann-group">The hierarchy</div>
+<a href="deep-roots.html">The seven deep roots</a>
+<a href="master-anchors.html">Master anchors</a>
+<a href="logical-endpoint-proof.html">Logical endpoint proof</a>
+<a href="gate-traceability-template.html">Gate traceability template</a>
+<a href="blind-spots.html">Blind spots</a>
+<a href="ai-agent-completion-protocol.html">AI completion protocol</a>
+<div class="ann-group">Gate ledgers · GUT spine</div>
+<a href="sg1-anchor-ledger.html">SG-1 geometry</a>
+<a href="sg2-anchor-ledger.html">SG-2 gauge recovery</a>
+<a href="sg3-anchor-ledger.html">SG-3 generations</a>
+<a href="sg4-anchor-ledger.html">SG-4 hypercharge &amp; anomaly</a>
+<a href="sg5-anchor-ledger.html">SG-5 electroweak</a>
+<a href="sg6-anchor-ledger.html">SG-6 moduli stabilization</a>
+<a href="sg7-anchor-ledger.html">SG-7 threshold unification</a>
+<a href="sg8-anchor-ledger.html">SG-8 flavor closure</a>
+<a href="sg9-anchor-ledger.html">SG-9 proton safety</a>
+<a href="sg10-anchor-ledger.html">SG-10 claim boundary</a>
+<div class="ann-group">Gate ledgers · quantum/gravity/UV</div>
+<a href="uqf3-anchor-ledger.html">UQF-3 reflection positivity</a>
+<a href="uqf4-anchor-ledger.html">UQF-4 BRST / descent</a>
+<a href="uqf5a-5b-anchor-ledger.html">UQF-5A/5B linearized graviton</a>
+<a href="uqf5c-anchor-ledger.html">UQF-5C interacting graviton</a>
+<a href="uqf7-anchor-ledger.html">UQF-7 fermion chirality</a>
+<a href="uqf9-anchor-ledger.html">UQF-9 UV completion</a>
+<a href="uqf10-anchor-ledger.html">UQF-10 compactification</a>
+<a href="uqf14-anchor-ledger.html">UQF-14 unitarity / causality</a>
+<div class="ann-group">Gate ledgers · cosmology/BH/foundations</div>
+<a href="gap01-anchor-ledger.html">Gap-01 a6 Seeley-DeWitt</a>
+<a href="gap02-anchor-ledger.html">Gap-02 Yang-Mills mass gap</a>
+<a href="gap05-value-anchor-ledger.html">Gap-05 Lambda value</a>
+<a href="gap05-stability-anchor-ledger.html">Gap-05 Lambda stability</a>
+<a href="gap08-anchor-ledger.html">Gap-08 inflation</a>
+<a href="gap10-bg10-anchor-ledger.html">Gap-10/BG-10 baryogenesis</a>
+<a href="gap11-anchor-ledger.html">Gap-11 dark matter</a>
+<a href="gap13-anchor-ledger.html">Gap-13 BH entropy / Page</a>
+<a href="born-anchor-ledger.html">Born rule</a>
+<div class="ann-group">Gate ledgers · deep roots &amp; dissolutions</div>
+<a href="deeproot-granularity-anchor-ledger.html">Deep root — granularity</a>
+<a href="deeproot-shape-anchor-ledger.html">Deep root — structural form</a>
+<a href="lambda-catastrophe-anchor-ledger.html" class="current">Lambda-catastrophe (dissolved)</a>
+<a href="blackhole-singularity-anchor-ledger.html">Black-hole singularity (dissolved)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">Gap-05-catastrophe — Cosmological-constant fine-tuning catastrophe (dissolution): the gate — rendered package. Rendered from <code>lambda-catastrophe-anchor-ledger.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>Gap-05-catastrophe — Cosmological-constant fine-tuning catastrophe (dissolution): the gate anchor ledger</h1>
+<p><strong>The honest one-line: the cosmological-constant <em>catastrophe</em> — the demand to cancel a Planck-scale vacuum energy against a bare constant to ~120 decimal places — has a real, checkable <em>win</em>: a one-line elementary theorem (L1, verified symbolically) shows the trace-free field equation annihilates any Lorentz-invariant vacuum energy <em>pointwise, for any magnitude</em>, so the ~$10^{121}$ never enters the equation that bends spacetime and there is nothing to tune. But the gate as a whole carries a sharp scope: the dissolution is <em>conditional</em> on one natural-but-unforced posit, the <em>value</em> $\Lambda=(2.3\,\text{meV})^4$ stays a measured anchor, and a second proven theorem (L2) shows the premise <em>alone</em> does not protect that value at the quantum level.</strong></p>
+<p>This page is the gate-specific instantiation of the <a href="./index.html">anchoring method</a>: it takes the master anchor and the four bridges and applies them, object by object, to one gate. Every exact thing this gate touches gets its own row — its status, what it is <em>allowed</em> to claim, and what it is <em>forbidden</em> to claim. It follows the same eleven-part shape and the same universal table as the <a href="./sg4-anchor-ledger.html">canonical SG-4 ledger</a>.</p>
+<p>This gate is <em>not</em> shaped like an anomaly-ledger gate. There is no exact rational obstruction that vanishes on the frozen spectrum; the genuine win is a <em>proven tensor identity</em> that dissolves a pseudo-problem, plus an honest split of "radiative stability" into one positive sliver and two corrections. The page adapts honestly to that nature: the closed leg is a <strong>dissolution</strong> (dissolved $\neq$ solved), not a derivation.</p>
+<hr />
+<h2>1. Gate status header</h2>
+<ul>
+<li><strong>Gate-level Gap-05-catastrophe roll-up:</strong> <strong>CATASTROPHE DISSOLVED (conditional; tree-level theorem PROVEN) — value &amp; radiative stability OPEN.</strong></li>
+<li><strong>Taxonomy reconciliation (2026-07-05):</strong> under the current two-axis taxonomy the gate-level grading is <strong>RESOLVED</strong>, read as <strong>TERMINAL + RESIDUALS-SHOWN</strong> (catastrophe-half = proven tree-level dissolution; value = legitimate measured anchor). The residual family listed in this ledger (value &amp; radiative stability) remains carried unchanged; the facts are unchanged &mdash; the earlier OPEN roll-up above reflects the superseded least-closed-residual rule, not different facts.</li>
+<li><strong>The two faces, kept rigorously apart:</strong><ul>
+<li><strong>The catastrophe-half</strong> ("why isn't $\Lambda$ of order $M_{\rm Pl}^4$?") — the ~122-order discrepancy between the naive QFT estimate and the observed value. <strong>This is what the gate dissolves.</strong></li>
+<li><strong>The value + radiative-stability half</strong> ("why <em>this</em> specific tiny number, and why does it stay small under ~122 orders of correction?"). <strong>OPEN — Weinberg-open</strong> — the subject of the companion gates <code>Gap-05-value</code> and <code>Gap-05-stability</code>.</li>
+</ul>
+</li>
+<li><strong>The closed <em>local</em> leg (a proven dissolution, not a derivation of $\Lambda$).</strong> For a Lorentz-invariant vacuum stress $T^{\rm vac}_{\mu\nu}=-V g_{\mu\nu}$, the trace-free source vanishes identically:
+$$ S_{\mu\nu}\;\equiv\;T^{\rm vac}_{\mu\nu}-\tfrac14 g_{\mu\nu}T^{\rm vac}\;=\;-V g_{\mu\nu}+V g_{\mu\nu}\;=\;0 . $$
+This is <strong>L1 — DERIVED (PROVEN, verified symbolically)</strong>, magnitude-blind, pointwise, robust under loops and across phase transitions. It is the gate's real win. It does <strong>not</strong> close the value-leg; it removes the <em>catastrophe</em>.</li>
+</ul>
+<p><strong>Status, split so it cannot be misread:</strong>
+- <strong>L1 — tree-level trace-drop:</strong> <strong>DERIVED (PROVEN)</strong> — an elementary, pencil-checkable tensor identity; the catastrophe-half is genuinely dissolved at the level of the local field equations.
+- <strong>The separating premise (trace-decoupling):</strong> <strong>AXIOM-OPEN / declared</strong> — a natural-but-unforced posit; <em>not</em> atomic, <em>not</em> forced.
+- <strong>L2 — premise alone is insufficient for the value:</strong> <strong>DERIVED (PROVEN as a negative)</strong> — an additive matter-loop shift maps identity onto the boundary datum; the value is radiatively shifted.
+- <strong>The value $\Lambda=(2.3\,\text{meV})^4$:</strong> <strong>MEASURED-ANCHOR</strong> — Tier-1, Weinberg-open, theory-laden; the gate's own prediction <em>target</em> and therefore never its own terminal.</p>
+<blockquote>
+<p><strong>selection ≠ derivation · given-E ≠ derivation-of-E · frozen/reproducible ≠ proven-unique.</strong></p>
+<p>And, carried for this gate: <strong>dissolved ≠ solved · given-$\Lambda$ ≠ derivation-of-$\Lambda$.</strong></p>
+</blockquote>
+<hr />
+<h2>2. Frozen inputs (what the gate stands on, not what it produces)</h2>
+<ul>
+<li><strong>Frozen branch hashes</strong> <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>. The branch is <strong>READ-ONLY</strong> and unmutated. <strong>These hashes are audit anchors — they certify <em>which object</em> was tested and that it cannot be quietly retuned. They do not validate the physics.</strong> The frozen 13D geometry <strong>produces no $\Lambda$</strong>, so no structure-side quantity is ever compared to $(2.3\,\text{meV})^4$ — the no-reverse-engineering from the measured value guarantee.</li>
+<li><strong>The measured value</strong> $\Lambda=(2.3\,\text{meV})^4\approx 5\times10^{-10}\,\text{J/m}^3\approx 1\times10^{-122}\,M_{\rm Pl}^4$ is <strong>MEASURED-ANCHOR / charged</strong> — it enters as the observed total, extracted within $\Lambda$CDM. <strong>The gate does not derive it.</strong> Every "dissolves" below is a statement <em>about the catastrophe</em>, not a derivation <em>of</em> the value.</li>
+<li><strong>Weinberg's 1989 no-go</strong> (<em>Rev. Mod. Phys.</em> <strong>61</strong>, 1): no local, Poincaré-invariant field self-adjusts to cancel $\Lambda$ without fine-tuning, <em>provided</em> gravity couples to the <strong>full</strong> stress tensor (trace included). <strong>GIVEN / state-of-the-art bound</strong> — the gate evades it by <em>declining its premise</em>, not by violating it.</li>
+</ul>
+<hr />
+<h2>3. The object anchors (given / upstream)</h2>
+<p>The objects the gate acts on, tracked apart and never conflated:</p>
+<table>
+<thead>
+<tr>
+<th>Object</th>
+<th>What it is</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\Lambda_{\rm eff}=\Lambda_{\rm bare}+8\pi G\,\rho_{\rm vac}$</td>
+<td>the effective constant; GR sees <strong>only the sum</strong></td>
+<td>GIVEN — one observable, not two</td>
+</tr>
+<tr>
+<td>$\rho_{\rm vac}\sim k_{\rm cut}^4$</td>
+<td>the QFT zero-point density (Planck cutoff $\sim 3\times10^{11}\,\text{J/m}^3$)</td>
+<td>GIVEN / charged</td>
+</tr>
+<tr>
+<td>$T^{\rm vac}_{\mu\nu}=-\rho\,g_{\mu\nu}$</td>
+<td>the <em>forced</em> Lorentz-invariant vacuum stress (only $g_{\mu\nu}$ available at a point)</td>
+<td>DERIVED-GIVEN structure</td>
+</tr>
+<tr>
+<td>$\Lambda_{\rm int}$</td>
+<td>the single global integration constant fixed by boundary data (UG)</td>
+<td>DERIVED-GIVEN-premise</td>
+</tr>
+<tr>
+<td>QCD / EW condensate shifts</td>
+<td>$\Delta\rho_{\rm QCD}\sim\Lambda_{\rm QCD}^4\sim3\times10^{34}\,\text{J/m}^3$; EW $\sim v^4\sim10^{45}\,\text{J/m}^3$</td>
+<td>GIVEN — the stress-test inputs</td>
+</tr>
+</tbody>
+</table>
+<p>The propagating degree of freedom is the same massless spin-2 graviton as GR; same null cones, same causal structure (GW170817: $c_{\rm GW}=c$ to $1$ part in $10^{15}$, automatically respected). <strong>Status: GIVEN / upstream-inherited</strong> — not gate-derived.</p>
+<hr />
+<h2>4. Root and master-anchor traceability</h2>
+<p><strong>Deep roots that are load-bearing for this gate:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Deep root</th>
+<th>Role in Gap-05-catastrophe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Invariance / physical equivalence</strong></td>
+<td>forces $T^{\rm vac}_{\mu\nu}\propto g_{\mu\nu}$ (the only Lorentz-invariant rank-2 tensor at a point) — the entire reason L1 is <em>structural</em>, not numerical</td>
+</tr>
+<tr>
+<td><strong>Record interface</strong></td>
+<td>makes L1 hand-checkable and the four dissolution builds blindly reproducible</td>
+</tr>
+<tr>
+<td><strong>Nonseparability</strong></td>
+<td>explains <em>why</em> the catastrophe-half dissolution does <strong>not</strong> equal value-closure — the L1↔value scope seam</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td>the burden is a <em>cross-scale</em> object (~122 orders, re-broken at every threshold); the dissolution is scale-blind because it is tensor-structural</td>
+</tr>
+<tr>
+<td><strong>Granularity</strong></td>
+<td>enforces <em>no unpaid posit</em> — the trace-decoupling premise is charged on the record, never smuggled</td>
+</tr>
+</tbody>
+</table>
+<p><em>Shape</em> and <em>causal order</em> are not primary load-bearing anchors here; the granularity / cost-floor lever is explicitly recorded <strong>wrong-shape</strong> (UV structure supplies <em>contributions</em> $\sim M_*^4$, the disease, not an IR cure) — an honest negative, not a hidden key.</p>
+<p><strong>Master anchors in play:</strong> the measured anchor (the $\geq 1$ floor — $\Lambda$ as boundary curvature) · no unpaid posit · the frozen branch (produces no $\Lambda$) · given-$\Lambda$ · the <em>declared</em> trace-decoupling premise · open-residual discipline · the no-reverse-engineering from the measured value firewall (the chamber route is a banked computed FAIL).</p>
+<hr />
+<h2>5. The Gap-05-catastrophe anchor ledger (the universal table)</h2>
+<table>
+<thead>
+<tr>
+<th>Gate anchor</th>
+<th>Exact object</th>
+<th>Deep-root link</th>
+<th>Master-anchor link</th>
+<th>Status</th>
+<th>Allowed claim</th>
+<th>Forbidden claim</th>
+<th>Open residual / closure task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gate roll-up</td>
+<td>Gap-05-catastrophe</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>DISSOLVED (conditional) — value OPEN</strong></td>
+<td>a proven tree-level dissolution + open value/stability</td>
+<td>"the cosmological-constant problem is solved"</td>
+<td>close §10 residuals</td>
+</tr>
+<tr>
+<td>Frozen branch</td>
+<td>hashes <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code></td>
+<td>Record interface</td>
+<td>frozen branch</td>
+<td><strong>AUDIT ONLY</strong></td>
+<td>the tested object is frozen/read-only; produces no $\Lambda$</td>
+<td>"hashes validate the physics"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Measured value</td>
+<td>$\Lambda=(2.3\,\text{meV})^4\approx10^{-122}M_{\rm Pl}^4$</td>
+<td>Invariance</td>
+<td>measured anchor ($\geq1$)</td>
+<td><strong>MEASURED-ANCHOR</strong></td>
+<td>a measured Tier-1 anchor, Weinberg-open</td>
+<td>"the gate derives / closes $\Lambda$"</td>
+<td>— (the legitimate floor; target-blind)</td>
+</tr>
+<tr>
+<td>The sum</td>
+<td>$\Lambda_{\rm eff}=\Lambda_{\rm bare}+8\pi G\rho_{\rm vac}$</td>
+<td>Invariance</td>
+<td>no unpaid posit</td>
+<td><strong>GIVEN</strong></td>
+<td>GR fixes only the sum; the split is interpretation</td>
+<td>"GR observes the split"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Vacuum stress</td>
+<td>$T^{\rm vac}_{\mu\nu}=-\rho\,g_{\mu\nu}$</td>
+<td>Invariance</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED-GIVEN structure</strong></td>
+<td>Lorentz invariance forces $\propto g_{\mu\nu}$</td>
+<td>"$\rho$ enters the cancellation"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Trace-free equation</td>
+<td>$R_{\mu\nu}-\tfrac14 g_{\mu\nu}R=8\pi G(T_{\mu\nu}-\tfrac14 g_{\mu\nu}T)$</td>
+<td>Invariance</td>
+<td>declared premise</td>
+<td><strong>DERIVED-GIVEN-premise</strong></td>
+<td>the UG field equation, given trace-decoupling</td>
+<td>"the trace-free form is forced"</td>
+<td>R-uniqueness (Hole 1)</td>
+</tr>
+<tr>
+<td><strong>L1 trace-drop</strong></td>
+<td>$T^{\rm vac}_{\mu\nu}-\tfrac14 g_{\mu\nu}T^{\rm vac}=0$ identically</td>
+<td>Invariance, Record</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED (PROVEN)</strong></td>
+<td>the catastrophe-half is dissolved at tree level, any magnitude</td>
+<td>"L1 derives / protects the value"</td>
+<td>— (terminal as a dissolution)</td>
+</tr>
+<tr>
+<td>Separating premise</td>
+<td>gravity decouples the trace mode</td>
+<td>Granularity, Nonseparability</td>
+<td>declared posit</td>
+<td><strong>AXIOM-OPEN / declared</strong></td>
+<td>natural, charged on the record, selected &amp; frozen</td>
+<td>"trace-decoupling is forced"</td>
+<td>derive or keep declared (Holes 1, 4)</td>
+</tr>
+<tr>
+<td>$\Lambda$ recovery</td>
+<td>$\Lambda_{\rm int}$ = global integration constant</td>
+<td>Scale</td>
+<td>given / boundary data</td>
+<td><strong>DERIVED-GIVEN-premise</strong></td>
+<td>$\Lambda$ becomes boundary data, not vacuum energy</td>
+<td>"$\Lambda_{\rm int}$ is the derived value"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Loop stability (catastrophe-half)</td>
+<td>tensor-structure annihilation under loops</td>
+<td>Scale</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED-GIVEN-premise</strong></td>
+<td>survives loops <em>because</em> it is magnitude-blind</td>
+<td>"the value survives all loop orders"</td>
+<td>re-derive static all-orders (Hole 3)</td>
+</tr>
+<tr>
+<td>Phase-transition survival</td>
+<td>traceless part of $\rho(t)g_{\mu\nu}=0$ $\forall t$</td>
+<td>Scale, Invariance</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED-GIVEN-premise</strong></td>
+<td>pointwise zero instant-by-instant; latent heat gravitates</td>
+<td>"the finite shift is auto-sequestered"</td>
+<td>sequester residual (Hole 2)</td>
+</tr>
+<tr>
+<td><strong>L2 value insufficiency</strong></td>
+<td>$\Lambda_0\to\Lambda_0+\delta V$ (identity map)</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>DERIVED (PROVEN, negative)</strong></td>
+<td>the premise <em>alone</em> does not protect the value</td>
+<td>"the premise protects the value"</td>
+<td>— (terminal as a negative)</td>
+</tr>
+<tr>
+<td><strong>L3 all-orders sequestering</strong></td>
+<td>Kaloper–Padilla augmented construction</td>
+<td>Scale</td>
+<td>open-residual discipline</td>
+<td><strong>CERTIFICATE-CONDITIONAL</strong></td>
+<td>all-orders cure exists, conditional on assumption $S$</td>
+<td>"L3 derives the premise"</td>
+<td>BPHZ + prove $S$ (Hole 3)</td>
+</tr>
+<tr>
+<td>Condensate residual (R5)</td>
+<td>finite EW/QCD shifts</td>
+<td>Granularity</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN</strong></td>
+<td>must be shown sequestering-clean, not dropped</td>
+<td>"L1 kills the finite shift"</td>
+<td>finite sequestering calc (Hole 2)</td>
+</tr>
+<tr>
+<td>Quantization route</td>
+<td>obstruction on the gauged trace mode</td>
+<td>Invariance</td>
+<td>open-residual discipline</td>
+<td><strong>AUDIT / NO-FORCING (banked)</strong></td>
+<td>investigated; returns no forcing</td>
+<td>"trace-decoupling is a consistency requirement"</td>
+<td>new obstruction surviving cures (Hole 4)</td>
+</tr>
+<tr>
+<td>Burden predicates (R6)</td>
+<td>R1–R4 harness vs ~122-order burden</td>
+<td>Record interface</td>
+<td>open-residual discipline</td>
+<td><strong>AUDIT / BLOCKED</strong></td>
+<td>applied consistently</td>
+<td>"the predicates are proven sound/complete"</td>
+<td>run soundness/completeness (Hole 5)</td>
+</tr>
+<tr>
+<td>Non-perturbative tie (R7)</td>
+<td>$\Delta V_{\rm NP}$ condensate dependence</td>
+<td>Granularity</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN (upstream)</strong></td>
+<td>a named cascade to the Gap-02 / UQF-11 family</td>
+<td>"the condensate shift is well-defined here"</td>
+<td>resolve in UQF-11 (Hole 6)</td>
+</tr>
+<tr>
+<td>Chamber-cancellation route</td>
+<td>sign-graded inventory over chamber labels</td>
+<td>Granularity</td>
+<td>no-reverse-engineering from the measured value firewall</td>
+<td><strong>REFUTED (banked)</strong></td>
+<td>the $\Lambda$ operator is the identity/unit operator, label-blind</td>
+<td>"the chamber route derives $\Lambda$"</td>
+<td>— (computed negative, corroborates)</td>
+</tr>
+<tr>
+<td>Public-copy scope (R7-editorial)</td>
+<td>the phrase "survives all loop orders"</td>
+<td>Record interface</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / editorial</strong></td>
+<td>correct as a catastrophe-half claim</td>
+<td>"the value is radiatively protected"</td>
+<td>scope the wording (Hole 7)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. The arithmetic / construction — the dissolution, in full</h2>
+<h3>6.1 The hidden premise, and why gravity cannot test it</h3>
+<p>The catastrophe turns on three words: <em>if it gravitates</em>. To convert a QFT vacuum energy into a <em>gravitational</em> disaster you must feed $\rho_{\rm vac}$ into Einstein's equations as a source. Write the sources of the effective constant:
+$$ \Lambda_{\rm eff}=\Lambda_{\rm bare}+8\pi G\,\rho_{\rm vac}. $$
+$\Lambda_{\rm bare}$ is a free geometric integration constant; $\rho_{\rm vac}$ is the zero-point hum. <strong>GR sees only their sum</strong> — both multiply exactly the same tensor $g_{\mu\nu}$ in exactly the same place. Two numbers that appear only ever added together, in identical positions, are one observable wearing a hand-imposed decomposition. The 1998 acceleration pinned $\Lambda_{\rm eff}\approx(2.3\,\text{meV})^4$; it said nothing — <em>could</em> say nothing — about the split. A universe with $\Lambda_{\rm bare}=(2.3\,\text{meV})^4$ and a non-gravitating $\rho_{\rm vac}$ is <strong>observationally identical</strong> to one with a gravitating $\rho_{\rm vac}$ delicately cancelled.</p>
+<p>The precedent: <em>everywhere outside gravity, only energy differences are physical.</em> In QM this is exact — shift $H\to H+cI$ and the state picks up a global phase $|\psi(t)\rangle\to e^{-ict}|\psi(t)\rangle$; the Born squaring is phase-blind. The same phase-blindness that defines the Born rule makes absolute energy unobservable. Standard gravity is the lone law that breaks this blindness — <em>and that single exception is the entire catastrophe.</em></p>
+<h3>6.2 The mechanism: unimodular gravity and the pointwise cancellation (L1)</h3>
+<p>The mechanism is not new physics — it is <strong>unimodular gravity</strong> (Einstein, 1919; flagged by Weinberg 1989 as a distinct CC-escape). Fix the determinant $\sqrt{-g}=$ fixed background volume form, so metric variations are traceless ($g_{\mu\nu}\delta g^{\mu\nu}=0$). This costs gravity one degree of freedom — the <em>trace</em> mode that rescales local volume, precisely the channel through which a constant vacuum energy talks to geometry. The ten Einstein equations are replaced by their trace-free part (nine independent equations):
+$$ R_{\mu\nu}-\tfrac14 g_{\mu\nu}R=8\pi G\big(T_{\mu\nu}-\tfrac14 g_{\mu\nu}T\big). $$</p>
+<p><strong>The load-bearing algebra (L1).</strong> A Lorentz-invariant vacuum energy can only enter as a term $\propto g_{\mu\nu}$ — forced, since $g_{\mu\nu}$ is the only Lorentz-invariant rank-two tensor at a point: $T^{\rm vac}_{\mu\nu}=-\rho\,g_{\mu\nu}$. Its 4D trace is $T^{\rm vac}=g^{\mu\nu}(-\rho g_{\mu\nu})=-4\rho$. Feed it into the trace-free source:
+$$ (-\rho g_{\mu\nu})-\tfrac14 g_{\mu\nu}(-4\rho)=-\rho g_{\mu\nu}+\rho g_{\mu\nu}=\mathbf{0,\ identically.} $$</p>
+<blockquote>
+<p><strong>(L1) PROVEN — tree-level trace-drop.</strong> For a vacuum stress $T^{\rm vac}_{\mu\nu}=-V g_{\mu\nu}$, the trace-free combination $T^{\rm vac}_{\mu\nu}-\tfrac14 g_{\mu\nu}T^{\rm vac}=0$ <strong>identically</strong>, for vacuum energy of <em>any</em> magnitude. The catastrophe-half is genuinely dissolved at the level of the local field equations — a real, elementary theorem, verified symbolically.</p>
+</blockquote>
+<p>Three properties make L1 robust, each load-bearing for §6.4:
+1. <strong>Magnitude-blind.</strong> $\rho$ never enters; it factors out and subtracts against itself. Whether $\rho=(2.3\,\text{meV})^4$ or the full Planck $3\times10^{11}\,\text{J/m}^3$, the result is the same zero. The size — the <em>whole problem</em> in standard GR — is irrelevant.
+2. <strong>Pointwise.</strong> An algebraic identity at each event independently. No integral, no averaging over history, no boundary to reach.
+3. <strong>Insensitive to time-dependence.</strong> If $\rho\to\rho(t)$ the source is still $\rho(t)g_{\mu\nu}$, still $\propto g_{\mu\nu}$, so its trace-free part is <em>still identically zero, instant by instant.</em></p>
+<p><strong>Where $\Lambda$ comes back.</strong> The trace-free equations discard the one equation that fixed the absolute scale. Taking the covariant divergence and using conservation + the Bianchi identity integrates them once, recovering $G_{\mu\nu}+\Lambda_{\rm int}g_{\mu\nu}=8\pi G\,T_{\mu\nu}$, where $\Lambda_{\rm int}$ is a single global integration constant fixed by boundary data — <em>not</em> the vacuum energy. There is no 120-digit sum to cancel because the large term was never added.</p>
+<p><strong>Diagnostic — the result is specific, not vacuous.</strong> L1 is not the trivial statement "any tensor has zero trace-free part." The cancellation is specific to the <em>pure-trace</em> structure: a non-pure-trace source survives. Radiation ($w=1/3$) is <strong>not</strong> $\propto g_{\mu\nu}$, so its trace-free part is non-zero and it gravitates normally — which is exactly why the latent heat released at a phase transition (§6.4, Test 2) <em>correctly</em> gravitates and standard cosmology (BBN) is untouched. That the projector annihilates the vacuum's pure-trace stress while passing radiation's non-trace stress is what makes L1 a real structural fact rather than an artifact.</p>
+<h3>6.3 Radiative stability: the honest three-layer split (L1 / L2 / L3)</h3>
+<p>A first instinct is to declare the value protected too. <strong>This is an over-reach, and the corpus caught its own slogan.</strong> The verified theorem is a three-layer split. L1 (above) is the positive sliver. L2 and L3 are the honest corrections.</p>
+<blockquote>
+<p><strong>(L2) PROVEN — the premise ALONE is INSUFFICIENT at the quantum level.</strong> Under the premise the field equations recover standard GR with $\Lambda$ entering as a globally-fixed integration constant $\Lambda_0$. But an additive matter-loop vacuum shift $\mathcal L_m\to\mathcal L_m+\delta V$ passes <strong>straight through</strong> to that boundary datum: $\Lambda_0\to\Lambda_0+\delta V$ (the map is the identity). The slogan "an integration constant has no beta function, so there is nothing to renormalize" is <strong>true but irrelevant</strong> — there is no running coupling, yet the boundary <em>value</em> is shifted additively (Padilla–Saltas arXiv:1409.3573). The requested all-orders cancellation is <strong>FALSE for the separating premise alone.</strong></p>
+<p><strong>(L3) CONDITIONAL — all-orders sequestering holds only for a strictly heavier construction, and only given an unproven assumption.</strong> The Kaloper–Padilla mechanism (arXiv:1606.04958) — gravity augmented with rigid global scalars, a Gauss–Bonnet term, and global flux / 4-volume constraints — <em>does</em> deliver an all-orders cancellation including virtual gravitons, but only <strong>conditional</strong> on a smoothness/non-degeneracy assumption $S$, established "in the action" rather than order-by-order, with background-curvature corrections asserted (not proven) harmless. It is <strong>strictly stronger</strong> than the separating premise, so it <em>relocates</em> the premise to a heavier conditional posit — it does not derive it.</p>
+</blockquote>
+<p><strong>The crucial scope distinction, stated once so it is never blurred:</strong> <em>"survives all loop orders"</em> is TRUE for the catastrophe-half (L1's tensor identity is loop-stable) and FALSE if read as "the value is radiatively protected by the premise alone" (L2 refutes that). This exact phrasing risk is logged as Hole 7.</p>
+<h3>6.4 The two physical stress tests, and the mechanism comparison</h3>
+<p><strong>Test 1 — radiative (loop) stability of the catastrophe-half.</strong> The cancellation is <em>algebraic in the tensor structure</em>, not arithmetic in the magnitude. A loop correction changes the <em>magnitude</em> of the vacuum energy; it does not change its <em>tensor character</em>. Whatever the electron, the QCD condensate, or the electroweak sector contributes is still Lorentz-invariant, hence $\propto g_{\mu\nu}$, hence pure trace, hence annihilated pointwise — at one loop, two loops, every loop, at every threshold from $m_e$ up. There is no number in it to destabilize. Moreover UG's <em>quantum effective action is itself unimodular</em> (Padilla–Saltas arXiv:1712.09903; Smolin arXiv:0904.4841). <strong>Caveat (logged):</strong> the all-orders claim is inherited from the static-case literature; time-dependence was verified to introduce no new failure channel, but the static all-orders result was not independently re-derived (Hole 3). Verdict: <em>DISSOLVES-CATASTROPHE, SURVIVES-LOOPS</em> — no value smuggled; matter/light intact; Weinberg evaded; value unexplained.</p>
+<p><strong>Test 2 — the phase transitions (the make-or-break).</strong> Across the QCD ($\sim150\,\text{MeV}$) and electroweak ($\sim100\,\text{GeV}$) transitions the condensate changes in time; a leak of order $\Lambda_{\rm QCD}^4$ ($\sim10^{44}\times\Lambda_{\rm obs}$) or $v^4$ ($\sim10^{55}\times\Lambda_{\rm obs}$) would kill the reframe:
+- A time-varying $\rho_{\rm vac}(t)g_{\mu\nu}$ is <em>still</em> $\propto g_{\mu\nu}$ at each instant, so its traceless part is <strong>identically zero at every $t$</strong> (verified over a $t$-sweep; max residual $0$).
+- The condensate is not separately conserved while changing ($\nabla^\mu T^{\rm vac}_{\mu\nu}=-\partial_\nu\rho_{\rm vac}\neq0$); by total conservation the released latent heat flows into radiation/particles, which <strong>gravitates correctly</strong> ($w=1/3$ is non-pure-trace) — the <em>wanted</em> kind of leak; BBN safe.
+- Wrongly-gravitating residual $\approx0$; largest surviving non-trace leftover today $\sim10^{-13}\,\text{J/m}^3\approx10^{-4}\,\Lambda_{\rm obs}$ — too small to <em>be</em> $\Lambda$.
+- The integration constant $\Lambda_{\rm int}$ is <strong>uncontaminated</strong> by the epoch jumps (the jump lives in the dynamical $(R,T_{\rm tot})$ pair, not the constant).</p>
+<p>The "necessary-conditions ledger" makes explicit that four of five conditions are <em>automatic</em> (Lorentz+translation invariance; Bianchi; UG structure; the algebraic identity), and <strong>everything collapses onto condition #5: gravity decouples the trace pointwise/locally — the load-bearing posit.</strong> That single posit is the entire conditionality of the result.</p>
+<p><strong>Mechanism comparison — the clean survival is unimodular-specific:</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Unimodular gravity</strong></th>
+<th><strong>Global sequestering</strong></th>
+<th><strong>Local/monodromy sequestering</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline removal</td>
+<td>pointwise algebra (traceless projector each event)</td>
+<td>4-volume average $\langle T\rangle/4$ over all spacetime</td>
+<td>dynamical $p$-form fields reproducing the average locally</td>
+</tr>
+<tr>
+<td>History-dependent?</td>
+<td><strong>No</strong> (future-blind)</td>
+<td><strong>Yes</strong> — today's $\Lambda$ depends on the whole future 4-volume</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Residual from QCD/EW jump</td>
+<td><strong>0</strong> (exact)</td>
+<td>$\sim10^{-23}\,\text{J/m}^3$ today (harmless), but $\sim0.5\times\rho_{\rm rad}$ at QCD onset (eternal limit)</td>
+<td>$\sim0$</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>one integration constant</td>
+<td>requires a <strong>finite/collapsing universe</strong> ($\sim23$ e-folds to suppress the QCD jump)</td>
+<td><strong>extra $p$-form field structure</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Across all three: latent heat gravitates correctly, BBN safe, <strong>no value-smuggling</strong> — none predicts the dark-energy density. The special ingredient is the <em>pointwise/local</em> trace-decoupling; UG is its minimal carrier.</p>
+<p><strong>Weinberg evaded, legitimately.</strong> UG contains no self-adjusting field at all; it changes the <em>coupling</em> (gravity sees $T_{\mu\nu}-\tfrac14 g_{\mu\nu}T$, not $T_{\mu\nu}$), so the central hypothesis of the no-go — gravity sees the full trace — is simply false here. <em>You cannot violate a theorem whose premise you decline.</em> And this is not a loophole — Weinberg himself flagged trace-decoupling as a distinct, legitimate route.</p>
+<hr />
+<h2>7. Declared-structure splits — why "radiative stability" is three objects, not one</h2>
+<p>The single phrase "radiatively stable" hides <strong>three distinct claims</strong> with three statuses, and the proposal to collapse them was corrected:</p>
+<ol>
+<li><strong>Catastrophe-half loop-stability</strong> — the absolute-level non-gravitation survives loops because L1 is about tensor structure, not magnitude. <strong>Status: DERIVED-GIVEN-premise (true).</strong></li>
+<li><strong>Value radiative-protection by the premise alone</strong> — that $\Lambda_0$ is shielded from matter loops. <strong>Status: REFUTED by L2</strong> — $\delta V\to\Lambda_0$ is the identity map.</li>
+<li><strong>All-orders value-protection including virtual gravitons</strong> — exists only in the strictly heavier L3 construction, conditional on assumption $S$. <strong>Status: CERTIFICATE-CONDITIONAL.</strong></li>
+</ol>
+<p>A second split, inside the premise: the trace-decoupling <em>posit</em> (declared, <strong>AXIOM-OPEN</strong>) is distinct from its <em>uniqueness/minimality</em> (R-uniqueness, <strong>OPEN</strong>, Hole 1) and from any <em>consistency-forcing</em> (the quantization route, <strong>AUDIT / NO-FORCING</strong>, Hole 4). Naming the posit does <strong>not</strong> reduce the axiom count; only Hole 1 or Hole 4 could upgrade "natural choice" to "forced."</p>
+<hr />
+<h2>8. The no-reverse-engineering from the measured value firewall — guard against true-by-construction</h2>
+<p>A dissolution counts only if no structure-side quantity was ever tuned to the answer. The frozen 13D geometry <strong>produces no $\Lambda$</strong>; all four dissolution builds were hunted for $(2.3\,\text{meV})^4$ and it is never back-solved. Two adversarial reduce-attacks were run and <strong>failed</strong> (the honest outcome): (1) <em>granularity</em> — a finite supertrace $\sim M_{\rm cut}^4$ at $M_{\rm cut}=1/R_0$ is off by $\sim113$ orders and predicts no value; (2) <em>implicit-assumption audit</em> — no known assumption-drop predicts it.</p>
+<p>Most tellingly, the corpus's <strong>own</strong> sign-graded chamber-cancellation route is a <strong>computed FAIL</strong>: the $\Lambda$ operator is the <strong>unit/identity operator</strong> — grading-even, label-blind — so no chamber-label grading can act on it (quantitative witness: $0.58$ residual at $k=0$). Reported as a loss — and that loss is <em>consistent with</em> the dissolution: cancellation was never needed, because once the trace decouples there is no $10^{121}$ to cancel. A theory that needed the chamber route would be in trouble; this one predicts it should fail, and it does. (The two seductive coincidences $\kappa^3/\pi$ and $5+3=8$ are <strong>RETIRED</strong> cautionary examples; they belong to BG-10, never banked here.)</p>
+<hr />
+<h2>9. Open residuals — the families, each its own row</h2>
+<p>Grouped, never collapsed. None is closed by the L1 dissolution.</p>
+<p><strong>Forcing the premise (the highest-leverage family):</strong>
+- <strong>Hole 1 — R-uniqueness (highest value).</strong> Is freezing the metric volume/trace mode the <strong>unique minimal</strong> structural change that decouples the trace while leaving local GR intact? <strong>OPEN</strong> — the only path that could upgrade the premise from "natural conjecture" to "forced (but still unmeasured)."
+- <strong>Hole 4 — quantization obstruction on the gauged trace mode.</strong> The named "most credible undeveloped route" to upgrade "need not exist" to "cannot exist." <strong>AUDIT / NO-FORCING (banked):</strong> the first pass returned a clean negative (the conformal-factor problem is curable within full GR).</p>
+<p><strong>Radiative stability of the value:</strong>
+- <strong>Hole 2 — sequestering condensate residual (R5).</strong> The finite EW/QCD shifts must be shown <em>genuinely sequestered</em>, not merely dropped. <strong>OPEN.</strong> L1 kills the pure-trace part, <em>not</em> the finite history-dependent remainder (the exact L1↔value scope error L2 guards against).
+- <strong>Hole 3 — all-orders graviton-loop / sequestering (R5′).</strong> An order-by-order replacement for L3's "in-the-action" argument, plus a proof of assumption $S$. <strong>OPEN / certificate-conditional.</strong> Does <strong>not</strong> touch the value (L2: $\delta V\to\Lambda_0$ is the identity).
+- <strong>Hole 5 — burden-predicate soundness/completeness (R6).</strong> The soundness/completeness check of the R1–R4 harness against the ~122-order burden is owed. <strong>AUDIT / BLOCKED.</strong></p>
+<p><strong>Cascade + editorial:</strong>
+- <strong>Hole 6 — non-perturbative-QCD condensate tie (R7).</strong> An R4/R5 evaluation may depend on non-perturbative QCD, cascading to the Gap-02 / UQF-11 family. <strong>OPEN (upstream)</strong> — <em>not closeable inside Gap-05.</em>
+- <strong>Hole 7 — public-copy scoping risk (editorial).</strong> The phrase "survives all loop orders" is correct as a catastrophe-half claim but read loosely could imply value-protection (which L2 refutes). <strong>OPEN / editorial</strong> — a wording fix, not a derivation.</p>
+<hr />
+<h2>10. Anti-claims (what this page refuses to say)</h2>
+<ul>
+<li>The gate does <strong>not</strong> derive $\Lambda$. $\Lambda=(2.3\,\text{meV})^4\approx10^{-122}M_{\rm Pl}^4$ remains a <strong>MEASURED-ANCHOR</strong>, theory-laden, Weinberg-open. Because $\Lambda$ is also the gate's own prediction <em>target</em>, by the anchor-vs-target rule it can <strong>never</strong> be the terminal that closes its own value-leg. <strong>ANCHORED ≠ DERIVED; given-$\Lambda$ ≠ derivation-of-$\Lambda$.</strong></li>
+<li><strong>Dissolved ≠ solved.</strong> The "new" cosmological-constant problem — <em>why this specific small value, and why now</em> — is <strong>untouched</strong> and stays <strong>OPEN.</strong></li>
+<li><strong>The premise alone does not protect the value.</strong> L2 is PROVEN: $\Lambda_0\to\Lambda_0+\delta V$ is the identity map. "The value survives all loop orders / is radiatively protected by the premise" is the over-claim a frozen doc denies.</li>
+<li><strong>The dissolution is not forced.</strong> Trace-decoupling is <strong>AXIOM-OPEN / declared.</strong> Standard GR with a tuned bare $\Lambda$ is perfectly consistent and observationally identical — its only flaw is being infinitely unnatural, and "unnatural" is not a law of physics. The result is <strong>terminal at elegance.</strong></li>
+<li><strong>L1 does not kill the finite condensate shift</strong> — only the pure-trace part; the finite history-dependent remainder is the open R5 work (conflating them is exactly the L1↔value scope error).</li>
+<li><strong>L3 does not derive the premise</strong> — it is <em>strictly stronger</em> and relocates it to a heavier conditional posit given assumption $S$.</li>
+<li><strong>The chamber-cancellation route does not derive $\Lambda$</strong> — it is a banked computed FAIL ($\Lambda$ is the identity operator); the failure corroborates the dissolution, it does not undermine it.</li>
+<li>The frozen-branch hashes are audit anchors; they do <strong>not</strong> validate the physics, and the frozen geometry produces no $\Lambda$.</li>
+</ul>
+<hr />
+<h2>11. Specialist closure plan</h2>
+<p>Each open residual is a concrete, finite, target-blind work-package; each carries the no-reverse-engineering from the measured value falsification test (a regulator or measure reverse-engineered to make $\Lambda$ appear is true-by-construction and <em>relocates</em> rather than closes).</p>
+<ol>
+<li><strong>Hole 1 (R-uniqueness)</strong> — classify local, generally-covariant modifications preserving local Einstein dynamics and show trace-decoupling is the <strong>unique minimal</strong> survivor under a <em>pre-declared, architecture-neutral</em> minimality metric. Machinery: Lovelock-type uniqueness theorems; Henneaux–Teitelboim / Ellis UG formulations; the three carriers (UG, global sequestering, local sequestering) as a partial enumeration. <strong>Trap:</strong> do not define minimality so volume-mode-freezing wins by construction; do not chase the <em>absolute</em> unicorn. <strong>Refuting outcome (equally valid):</strong> a second inequivalent minimal modification that also decouples the trace — shows the premise is "one of many." Closing this is the single biggest available move, and it is the <em>same</em> R-uniqueness object shared by <code>Gap-05-value</code> and <code>Gap-05-stability</code>.</li>
+<li><strong>Hole 2 (R5 condensate residual)</strong> — explicit finite computation that the EW/QCD shifts are sequestered by the volume-constraint mechanism with latent heat gravitating correctly. <strong>Success:</strong> wrongly-gravitating residual bounded $\leq\Lambda_{\rm obs}$ across the real thermal history. Machinery: Kaloper–Padilla global sequestering (arXiv:1309.6562, 1406.0711); the App. B/C phase-transition numbers. <strong>Trap:</strong> do not appeal to L1 alone — it kills the pure-trace part, not the finite remainder.</li>
+<li><strong>Hole 3 (all-orders / R5′)</strong> — a <strong>BPHZ-type order-by-order proof</strong> replacing the "in-the-action" argument, <strong>plus</strong> a proof of assumption $S$, <strong>plus</strong> a proof that background-curvature corrections are harmless. Machinery: BPHZ renormalization; the Kaloper–Padilla augmented action (arXiv:1606.04958). <strong>Trap:</strong> do not let a regulator do the cancellation; do not present L3 as deriving the premise. <strong>Refuting outcome:</strong> a finite uncancelled graviton-loop contribution — narrows the all-orders claim, a valid close.</li>
+<li><strong>Hole 4 (quantization obstruction)</strong> — find a genuinely <em>new</em> obstruction (a non-perturbative anomaly or measure pathology specific to gauging the trace) that <strong>survives the three known cures</strong> (Gibbons–Hawking–Perry contour rotation; Mazur–Mottola covariant measure; Marolf–Santos real-time construction) <strong>and</strong> the ADM-absence observation. <strong>Success:</strong> a demonstrated quantum pathology with no in-theory cure → trace-decoupling promoted from posit to consistency requirement (the upgrade to "cannot exist"). <strong>Trap:</strong> do not re-run the conformal-factor version (closed); do not slide to the universal-negative unicorn. <strong>Refuting outcome (current best evidence):</strong> confirmation that every candidate obstruction is curable → the route stays closed and the result stays "terminal at elegance."</li>
+<li><strong>Hole 5 (R6 burden predicates)</strong> — run the soundness/completeness check on R1–R4 against the ~122-order burden ($(\Lambda/M_{\rm Pl})^4\approx1.26\times10^{-123}\to{\sim}122.90$ orders with the full Planck mass; $\approx7.96\times10^{-121}\to{\sim}120.07$ orders reduced) and report it. <strong>Trap:</strong> the harness checks bookkeeping, not the world; do not fabricate a verdict.</li>
+<li><strong>Hole 6 (R7 non-perturbative tie)</strong> — resolve the exported condensate-shift dependence <em>inside the UQF-11 family</em>; <strong>not closeable inside Gap-05.</strong> Bounded by that gate's progress; cross-links to Gap-02 mass-gap.</li>
+<li><strong>Hole 7 (editorial scope)</strong> — tighten every public surface carrying "survives all loop orders" to the <em>absolute-level non-gravitation</em> (catastrophe-half) and explicitly disclaim value-protection by the premise alone. An editorial fix, not a derivation.</li>
+</ol>
+<p>Closing Hole 1 <strong>or</strong> Hole 4 upgrades the catastrophe-half from "DISSOLVED (conditional)" toward "DISSOLVED (forced premise, still unmeasured)" — and even then, the value stays a measured anchor.</p>
+<hr />
+<h2>12. Completion tests for this page</h2>
+<p><strong>Required presence (all met):</strong> gate roll-up CATASTROPHE DISSOLVED (conditional) — value OPEN · the closed local leg $T^{\rm vac}_{\mu\nu}-\tfrac14 g_{\mu\nu}T^{\rm vac}=0$ · L1 DERIVED (PROVEN) with the magnitude-blind/pointwise/time-insensitive properties · the radiation diagnostic (non-pure-trace stress survives) · $\Lambda$ not derived (MEASURED-ANCHOR, Weinberg-open) · frozen hashes AUDIT ONLY (produce no $\Lambda$) · $\Lambda_{\rm eff}=\Lambda_{\rm bare}+8\pi G\rho_{\rm vac}$ (sum-only) · the trace-free field equation · L2 PROVEN-negative · L3 CERTIFICATE-CONDITIONAL on assumption $S$ · the two stress tests (loops; phase transitions) · the mechanism comparison · Weinberg evasion · the chamber-route banked FAIL · the no-reverse-engineering from the measured value firewall · every Hole 1–7 as its own residual · the gate's anti-claims · dissolved-unicorn ceilings (in §11 traps / anti-claims).</p>
+<p><strong>Required absence (all held):</strong> no claim that the cosmological-constant problem is solved · $\Lambda$ derived/closed · the value radiatively protected by the premise alone · trace-decoupling forced · L1 kills the finite condensate shift · L3 derives the premise · the chamber route derives $\Lambda$ · any open residual asserted proven/computed/closed · hashes validate physics · dissolved = solved · any reader-visible build-process vocabulary.</p>
+<p><strong>Completion report.</strong> Tests passed: all required-presence and required-absence items above. Tests failed: none. Open items: Holes 1–7 (the gate's named residuals) + the two dissolved unicorns (shared ceilings, not work). Assumptions made: none beyond the frozen branch and the single declared trace-decoupling premise; nothing here upgrades the gate's grade.</p>
+<hr />
+<blockquote>
+<p><strong>Binding closing statement.</strong> Gap-05-catastrophe is <strong>CATASTROPHE DISSOLVED (conditional; tree-level theorem PROVEN) — value &amp; radiative stability OPEN.</strong> The genuine, non-promoting win is L1: the trace-free part of any pure-trace vacuum stress is identically zero, for any magnitude, pointwise, robust under loops and across phase transitions — so the $\sim10^{121}$ never bends a single ray of light and there is no 120-digit tuning to perform. The premise (trace-decoupling) is a natural-but-unforced declared posit; the value $\Lambda=(2.3\,\text{meV})^4$ stays a measured Tier-1 anchor (Weinberg-open); and L2 proves the premise alone does not protect that value. Ceiling: <strong>a serious, defensible candidate — terminal at elegance, NOT validated.</strong> Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> READ-ONLY and unmutated; <strong>selection ≠ derivation · given-E ≠ derivation-of-E · frozen/reproducible ≠ proven-unique · dissolved ≠ solved · given-$\Lambda$ ≠ derivation-of-$\Lambda$.</strong></p>
+</blockquote>
+<hr />
+<p><em>This gate anchor ledger follows the canonical eleven-part shape and universal table of the <a href="./sg4-anchor-ledger.html">SG-4 ledger</a>.</em></p>
+<p><strong>See also:</strong> <a href="./index.html">the anchoring method</a> · <a href="./a0-master-anchor.html">A0 — the master anchor</a> · <a href="./layer-2-no-unpaid-labels.html">Layer 2 — no unpaid exact labels</a> (why anomaly cancellation — and a tuned bare $\Lambda$ — is a filter, not a selector) · <a href="./born-anchor-ledger.html">the Born rule ledger</a> (the same phase-blindness that makes absolute energy unobservable) · <a href="./sg4-anchor-ledger.html">SG-4 — Hypercharge &amp; anomaly</a> (the canonical gate ledger) · the full <a href="../articles/DOSSIER_GAP05_CATASTROPHE_FULL.html">Gap-05-catastrophe dossier</a>.</p>
+</main>
+</div>
+</body></html>

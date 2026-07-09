@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SG-9 — Proton Safety (GUT Gate 10): Per-Gate Closure-Attack Dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">SG-9 — Proton Safety (GUT Gate 10): Per-Gate Closure-Attack Dossier — rendered package. Rendered from <code>DOSSIER_SG9_PROTON_SAFETY_CLOSURE_ATTACK.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>SG-9 — Proton Safety (GUT Gate 10): Per-Gate Closure-Attack Dossier</h1>
+<blockquote>
+<p><strong>What this is.</strong> The closure-attack packet for <strong>SG-9 (Proton safety / the $\mathcal{E}_{\rm proton}$ no-mediator
+layer)</strong> on the <strong>frozen 13D K₆ branch ONLY</strong>. It recaps how our geometry sidesteps the proton-decay wall
+(concise; the full derivation lives on the published site), verifies where the status actually stands, names
+every open residual, and lays out the attack plan to push the gate further. It is <strong>not</strong> a rival comparison
+(that is <code>BATTLE_GATES/</code>), <strong>not</strong> the one-line status ledger, <strong>not</strong> a reprint of the manuscript.</p>
+<p><strong>Binding discipline (carry verbatim).</strong> No status was ever upgraded. Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>
+READ-ONLY. Honest throughout: the operator-level pass ($\Pi_q M \Pi_\ell = 0$) is <strong>CANDIDATE-grade safety
+against the <em>declared</em> operator class, not a delivered absolute lifetime bound and not a theorem of all
+baryon physics</strong>; the result is an operator-level <strong>selection-rule pass evaluated GIVEN the selected product
+geometry + frozen labeling</strong>, NOT a cross-geometry determination; dim-6 $B/L$-violating proton decay is a
+pressure <strong>SHARED by all GUT-class geometries</strong> (Battle-of-the-Geometries verdict: <strong>SHARED-OPEN</strong> — no
+Fable win, rivals neither cleared nor killed); in the SM, proton longevity is <strong>partly an accidental
+symmetry</strong>; the seesaw Majorana scale <strong>$M_R$ is UNKNOWN/open</strong> (the Weinberg/dim-5 leg has no frozen
+$\Lambda$); the numerical lifetime is <strong>Diagnostic only</strong> and excluded from the closure claim. Closure paths
+must be <strong>non-target-loaded</strong> (the κ³/π falsification test: a proposed axiom counts only if it would be written
+WITHOUT knowing the target). <strong>given-E ≠ derivation of E.</strong> AXIOM-CLOSED ≠ proven; selection ≠ derivation;
+dissolved ≠ solved; a <em>selection-rule pass on the declared class</em> ≠ a <em>proof of absolute proton safety</em>.</p>
+</blockquote>
+<hr />
+<h2>0. Header &amp; Verdict</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gate id</strong></td>
+<td>SG-9 — Proton safety (the $\mathcal{E}_{\rm proton}$ no-mediator layer)</td>
+</tr>
+<tr>
+<td><strong>GUT manuscript gate</strong></td>
+<td>Gate 10 (§6.10; narrative §5.9; certificate <code>certificates/G10_proton_safety/</code>)</td>
+</tr>
+<tr>
+<td><strong>Status label (binding)</strong></td>
+<td><strong>PARTIAL</strong></td>
+</tr>
+<tr>
+<td><strong>Manuscript card status</strong></td>
+<td><em>Claimed certificate pass</em> (operator level, 10a) / <em>Diagnostic only</em> (lifetime, 10b) — the manuscript's own two-label split; PARTIAL is the honest scoped-GUT roll-up of it</td>
+</tr>
+<tr>
+<td><strong>Frozen hashes it rides</strong></td>
+<td>Branch <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code>. Sector projectors $\Pi_u,\Pi_d,\Pi_e,\Pi_\nu$ <code>3b8d68559f5e</code> (R1.4); FCNC / mediator no-go theorem (full) <code>fff4b433b7b3</code> (R1.6); operator-class declaration hash <code>551488d06011</code> (R1.6); Cartan-torus modulus $\tau=\omega$ <code>03b30a9c931a</code> (chamber substrate for the sector split); global $\mathbb{Z}_6$ centre identification <code>a68ee92a75be</code> (drives macro-orthogonality via the gauge-rep factor); $\mathbb{Z}_2$ orbifold on $S^1_Y$ <code>ac4d2df3e708</code> (chirality / hypercharge routing in $\Pi_q,\Pi_\ell$); hypercharge bundle (no coloured-Higgs partner) <code>44516f6400ae</code>; proton-operator ledger CSV <code>bc1e4e84840a</code>. <strong>Macro-projectors $\Pi_q,\Pi_\ell$, $Q_{\rm BRST}$, the no-mediator identity, empty-cohomology statement: derived / standard — no separate R1 hash.</strong> <strong>$M_R$ (seesaw Majorana scale): no hash — UNKNOWN/open</strong> (<code>BG10-FROZEN-MR</code> in the axiom ledger).</td>
+</tr>
+<tr>
+<td><strong>Target anchor(s)</strong></td>
+<td>The <strong>observed spectrum E</strong> (the product backbone $K_{\rm gauge}=K_6\times S^2\times S^1_Y/\mathbb{Z}_2$ — <strong>no GUT mediator</strong> — plus the $\mathcal{E}_{\rm proton}$ projector; <strong>DERIVED-GIVEN-E</strong>) <strong>+</strong> the <strong>measured Super-K proton-lifetime bound</strong> ($\tau_p\gtrsim10^{34}$ yr, the observable the dim-6 suppression must clear). <strong>Candidate-grade — no lifetime predicted.</strong> Status: <strong>OPEN</strong> (declared-class completeness has no measured-invariant witness; the dim-6/7 census is the hardening move). See §A "🎯 Target anchor(s) for this gate."</td>
+</tr>
+</tbody>
+</table>
+<h3>0.1 Abstract — established / open / what would close it</h3>
+<p><strong>Established (given-E, given the selected product geometry, given the frozen labeling).</strong> The Standard-Model-routing
+backbone is a <strong>product</strong> of compact factors, $K_{\rm gauge}=K_6\times S^2\times S^1_Y/\mathbb{Z}_2$ — <strong>not</strong> an
+embedding into a single simple GUT group. Therefore there is <strong>no off-diagonal $X/Y$ heavy gauge boson</strong> connecting
+quarks to leptons through one multiplet and <strong>no coloured-Higgs triplet</strong> (the Higgs is a Wilson-line $SU(2)_L$
+doublet on $K_{\rm gauge}$, hypercharge bundle <code>44516f6400ae</code> carries no coloured partner). This is the structural
+move that dissolves the failure mode that <em>executed</em> minimal $SU(5)$ ($\tau_p\sim10^{30}$ yr vs Super-K's $\sim10^{34}$ yr).
+On top of the absence-of-mediator fact, the tenth load-bearing term $\mathcal{E}_{\rm proton}$ — frozen sector
+projectors with macro-orthogonality $\Pi_q\Pi_\ell=0$ — delivers the <strong>exact algebraic identity</strong>
+$\Pi_q M \Pi_\ell = 0$ for every sector-respecting $M$, so every Wilson coefficient in the <strong>declared</strong> dangerous
+class ($QQQL$, $u^c u^c d^c e^c$, $QLu^c d^c$, $QQu^c e^c$, the dim-7 relatives, the $\bar d^c\bar d^c\bar u^c$
+$n$-side channel) <strong>vanishes identically</strong> — a zero, not a tuned-small number. The spectator side doors are closed by
+a two-channel decoupling: gauge-redundant KK components are BRST-exact (Channel A); physical transverse KK modes are
+killed by KK-number conservation at tree level and by projector orthogonality at loop level (Channel B). The
+machine certificate <code>G10_proton_safety/</code> checks $\Pi_q M \Pi_\ell = 0$ exactly on <strong>25 randomized class members</strong> and
+confirms the falsifier fires (an $X$-like off-block entry → nonzero → FAIL).</p>
+<p><strong>Open (the honest deductions).</strong> (1) The pass is <strong>operator-level only</strong>, against a <strong>declared</strong> class
+$\mathcal{O}_{\rm danger}^{\rm declared}$ — the certificate's own named falsifier is whether the projector identity
+kills the <strong>physically relevant</strong> operator class or <strong>only the declared one</strong> (the "narrowed subclass" attack;
+L.2a/L.2b). (2) It is a <strong>selection-rule pass evaluated GIVEN the selected product geometry</strong>, not a cross-geometry
+determination: dim-6 $B/L$-violation is a pressure <strong>SHARED</strong> by every GUT-class geometry (Battle verdict
+<strong>SHARED-OPEN</strong>; no Fable win). (3) The numerical lifetime is <strong>Diagnostic only</strong> (L.4) — it depends on hadronic
+matrix elements, residual Wilson coefficients, and RG running that are <strong>not frozen</strong> to certificate standard; the
+closure claim does <strong>not</strong> rest on it, and a reviewer who promotes it commits a status violation. (4) The dim-5
+<strong>Weinberg operator $(LH)(LH)/\Lambda$</strong> is <em>Bounded</em>, but its scale $\Lambda$ is "the chamber's declared Majorana
+scale" — and that scale is <strong>$M_R$, which is UNKNOWN/open</strong> (no value, no formula, no hash; it is the same floating
+object that blocks SG-8's absolute neutrino scale). (5) The no-mediator identity is a <strong>theorem</strong> <em>given</em> the
+projectors' orthogonality, but the orthogonality of $\Pi_q,\Pi_\ell$ on the actual active-branch matter bundle is
+<em>asserted</em> at A2.6/A2.8 — its reproduction sits in the same AUDIT class as other certificate harnesses (the
+<code>G10_proton_safety/</code> folder checks the identity on the frozen labeling but <code>reproduce_all.py</code> regeneration of the
+full pipeline is province-of-the-bundle, not re-run here). (6) The Cartan-torus modulus $\tau=\omega$ that the sector
+split rides is inherited from SG-6, where it is <strong>read from a stabilization minimum</strong> (the same soft spot SG-8
+inherits).</p>
+<p><strong>What would close it (the ladder).</strong> DERIVED-CLOSED would require either (a) a <strong>coverage theorem</strong> proving the
+declared class $\mathcal{O}_{\rm danger}^{\rm declared}$ is <em>physically complete</em> — i.e. every operator the Super-K
+bound constrains is captured — turning the L.2b coverage table from an audited assertion into a closed statement; or
+(b) a <strong>computed $M_R$</strong> from chamber data (discharging the dim-5 $\Lambda$ and the seesaw scale) so the Weinberg
+leg becomes a prediction. The realistic ceiling per residual is <strong>AXIOM-CLOSED</strong>: name one explicit, target-blind
+posit (e.g. "the dangerous class is exactly the sector-crossing four-fermion operators, and product-geometry
+admissibility forbids all others"; or "the Majorana scale is the SG-7 unification scale $M_U$") that pays the debt
+in plain sight. The most likely honest outcome on the central residual (declared-vs-physical class) is
+<strong>sharper-OPEN</strong>, with the Battle verdict held at <strong>SHARED-OPEN</strong>.</p>
+<h3>0.2 Website source-of-truth (link, don't duplicate)</h3>
+<p>The full construction, the operator ledger, the three-ingredient no-go proof, the explicit BRST/KK algebra, and the
+freeze records are the <strong>published manuscript</strong>, Paper I:</p>
+<ul>
+<li><strong>GUT.html §6.10</strong> (Gate-10 card, binding status) — <a href="https://physics.magflowmeters.com/articles/GUT.html">https://physics.magflowmeters.com/articles/GUT.html</a></li>
+<li><strong>§5.9</strong> narrative module; <strong>§6.12</strong> falsification map (Gate 10 row); <strong>§6.13</strong> certificate-status summary;
+  <strong>Appendix CR, module CR10</strong> ("Proton Safety as a Worked Constraint", CR10.1–CR10.14) — reader companion.</li>
+<li><strong>Appendix L</strong> (Proton Safety certificate): L.0 authority + status/falsifier table; L.1 operator basis; L.2
+  full operator ledger; <strong>L.2a</strong> declaration-before-elimination; <strong>L.2b</strong> coverage table; <strong>L.3</strong> FCNC / mediator
+  no-go theorem (L.3.1 three-ingredient proof; L.3.2 explicit BRST/projector/Wilson algebra); L.4 lifetime
+  diagnostic; L.5 safety-vs-prediction; L.6 experimental comparison; L.7 certificate JSON; L.9/L.9a failure
+  conditions + migration.</li>
+<li><strong>Appendix C10</strong> ($\mathcal{E}_{\rm proton}$ term authority card) — formal object, layer assignment, failure-if-removed,
+  freeze-authority path, claim boundary.</li>
+<li><strong>Appendix A2</strong> §A2.6 / §A2.8 / §A2.9 (sector projectors, macro-projectors $\Pi_q,\Pi_\ell$, $Q_{\rm BRST}$).</li>
+<li><strong>Appendix R0 / R1</strong> freeze records + frozen parameter manifest (all hashes in §0 above).</li>
+<li>Downstream neutrino cross-reference: <strong>Appendix K</strong> (the Weinberg/Majorana-scale leg, $M_R$ UNKNOWN box);
+  Paper IV, TOE.html — <a href="https://physics.magflowmeters.com/articles/TOE.html">https://physics.magflowmeters.com/articles/TOE.html</a> (boundary cross-ref only).</li>
+</ul>
+<p>This dossier recaps only what is needed to attack; the site controls all common material.</p>
+<hr />
+<h2>1. How OUR geometry closes proton safety — the closure claim (concise)</h2>
+<blockquote>
+<p>Full derivation: <strong>GUT.html §6.10 + §5.9 + Appendix L + Appendix C10 + CR10</strong>. This section is the attack-grade
+recap, not the derivation.</p>
+</blockquote>
+<h3>1.1 The mechanism end-to-end</h3>
+<p>Proton safety on the active branch is <strong>not</strong> secured by making a mediator heavy, and <strong>not</strong> by a global $U(1)_B$
+symmetry. It is secured at two levels, one structural (the absence of a mediator) and one algebraic (an exact
+selection rule). The implication chain (CR10.2 spine):</p>
+<pre><code> product geometry  K_gauge = K_6 × S² × S¹_Y/Z₂   (NOT a simple-group embedding)
+        ↓   no off-diagonal X/Y generator; no coloured-Higgs triplet
+ sector projectors  Π_q , Π_ℓ   on  E_matter
+        ↓   sector orthogonality of the chamber decomposition
+ Π_q Π_ℓ = 0
+        ↓   lift to the matter bundle; act with any sector-respecting mediator M
+ Π_q M Π_ℓ = 0          (no-mediator identity — a THEOREM given orthogonality)
+        ↓
+ C_dangerous = 0   identically,  for every operator in the DECLARED class
+        ↓
+ operator-level proton safety   (Claimed certificate pass, 10a)
+</code></pre>
+<p>The load-bearing factors, named so a reader can attack each:</p>
+<ol>
+<li><strong>Product-factor structure of $K_{\rm gauge}$ ($\times$-layer; C2/C3/C4; A1.4–A1.6).</strong> The SM gauge algebra is the
+   surviving <strong>direct-sum</strong> isometry $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak{u}(1)$ of a <em>product</em> of
+   compact factors, not the residual of breaking a larger simple group. <strong>Ingredient 1 of the no-go theorem is a
+   $\times$-layer fact</strong>: there is no off-diagonal generator connecting quarks to leptons through a single multiplet,
+   and no $\mathbf{5}_H$-style coloured-Higgs triplet. (Attack handle: this is <strong>why</strong> there is no $X/Y$ — but
+   "product not simple" is a <em>property of the selected geometry</em>, not a proof that a product geometry is <em>forced</em>;
+   SG-1/SG-2 conditionality is inherited.)</li>
+<li><strong>Sector projectors $\Pi_u,\Pi_d,\Pi_e,\Pi_\nu$ (<code>3b8d68559f5e</code>, R1.4).</strong> Four rank-3 self-adjoint orthogonal
+   idempotents on the generation module $\mathcal{G}_{\rm gen}=\mathrm{span}\{g_1,g_2,g_3\}$: $\Pi_i^\dagger=\Pi_i$,
+   $\Pi_i^2=\Pi_i$, $\Pi_i\Pi_j=\delta_{ij}\Pi_i$, $\sum_i\Pi_i=\mathbb 1$. These are the <strong>same</strong> projectors that
+   give SG-8's chamber operators their domain — proton safety and flavor share the sector decomposition. (Attack
+   handle: orthogonality is <em>asserted</em> on the active-branch matter bundle at A2.6/A2.8 — see R5/R7 below.)</li>
+<li><strong>Macro-projectors $\Pi_q=\Pi_u+\Pi_d+\Pi_{Q_L}$, $\Pi_\ell=\Pi_e+\Pi_\nu+\Pi_{L_L}$ on $\mathcal{E}_{\rm matter}$.</strong>
+   Derived (no separate hash); the doublet-component projectors $\Pi_{Q_L},\Pi_{L_L}$ come from the A2.3
+   matter-bundle factorisation (orthogonal via gauge-bundle orthogonality $V_{\mathbf 3}\otimes V_{\mathbf 1}=0$).
+   Macro-orthogonality $\Pi_q\Pi_\ell=0$ follows because the index sets $\{u,d,Q_L\}$ and $\{e,\nu,L_L\}$ are
+   disjoint.</li>
+<li><strong>The no-mediator identity $\Pi_q M \Pi_\ell = 0$ (theorem; R1.6 operator-class <code>551488d06011</code>).</strong> One-line proof
+   for any sector-respecting $M=\sum_i\Pi_i M_i\Pi_i$:
+   $$\Pi_q M \Pi_\ell=\sum_i(\Pi_q\Pi_i)M_i(\Pi_i\Pi_\ell)=\sum_i\delta_{qi}\delta_{i\ell}\,\Pi_i M_i\Pi_i=0\quad(q\neq\ell).$$
+   This is a <strong>theorem given the projectors</strong>, not an axiom — the manuscript is emphatic that asserting it without
+   proof would collapse the certificate to a postulate (C10 §5; L.3.2 failure condition).</li>
+<li><strong>The FCNC / mediator no-go theorem (full hash <code>fff4b433b7b3</code>, R1.6), closing the side doors.</strong> Three ingredients:
+   (1) mediator inventory — every candidate ($X/Y$, coloured Higgs, scalar leptoquark, spurious KK mediator,
+   chamber-induced cross-sector mode) is absent or handled; (2) <strong>Channel A</strong> — gauge-redundant spectator components
+   (longitudinal $A_\mu$, scalar $A_5$) are BRST-exact, decouple by Slavnov–Taylor; (3) <strong>Channel B</strong> — physical
+   transverse KK modes (which are <strong>not</strong> BRST-exact — the manuscript explicitly refuses the blanket claim) are
+   killed by KK-number conservation $\sum n_{\rm ext}=0$ at tree level and by projector orthogonality at loop level.
+   Empty cross-sector cohomology $\Pi_i\mathcal{G}_{\rm gen}\cap\Pi_j\mathcal{G}_{\rm gen}=\{0\}$ for $i\neq j$.</li>
+<li><strong>Declaration-before-elimination (L.2a) + coverage table (L.2b).</strong> The certificate <strong>declares</strong>
+   $\mathcal{O}_{\rm danger}^{\rm declared}$ = sector-respecting Wilson operators with one quark-sector leg and one
+   lepton-sector leg, <strong>before</strong> the identity acts. L.2b then walks each familiar dangerous type and confirms it is
+   "Covered," honestly marking sphalerons/Planck operators as <strong>outside</strong> the operator-class framework. (Attack
+   handle: this two-part structure is the whole defence against the "you only killed a narrowed subclass" attack —
+   and it is also exactly where the residual lives.)</li>
+</ol>
+<h3>1.2 What "closed" means here, and its conditionality</h3>
+<p>"Closed" for SG-9 is an <strong>operator-level selection-rule pass on a declared dangerous class, given the selected
+product geometry + frozen labeling</strong> — strictly <strong>not</strong> a delivered absolute proton-lifetime bound, <strong>not</strong> a proof
+that all conceivable baryon physics is safe, <strong>not</strong> a cross-geometry determination that <em>only</em> this branch is safe.
+It is conditional on:</p>
+<ul>
+<li><strong>given-E</strong> — the SM chiral content (and the family index $-3$) supplied from SG-2/SG-3; SG-9 acts on that
+  content, it does not derive it.</li>
+<li><strong>given-the-selected-geometry</strong> — the frozen 13D K₆ branch and, decisively, the <strong>product</strong> structure of
+  $K_{\rm gauge}$ (Ingredient 1). The safety is a consequence of the product structure being <em>selected</em>, not of it
+  being <em>forced over a simple-group rival</em> (the gauge-group outcome is itself a rival TIE per the SHAPE audit).</li>
+<li><strong>given-the-frozen-labeling</strong> — the sector projectors' orthogonality on the matter bundle, asserted at A2.6/A2.8;
+  the <code>G10_proton_safety/</code> certificate checks the identity <em>on that labeling</em>.</li>
+<li><strong>given-the-declared-class</strong> — the pass is for $\mathcal{O}_{\rm danger}^{\rm declared}$; physical completeness of
+  that class is an <strong>audited claim</strong> (L.2b), not a theorem.</li>
+</ul>
+<p><strong>The genuine, defensible content</strong> (the part that survives the honest accounting):</p>
+<table>
+<thead>
+<tr>
+<th>Genuine output (frozen-structure / frozen-identity result)</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>No simple-group $X/Y$ mediator; no coloured-Higgs triplet</strong> on the active branch</td>
+<td>product-factor $K_{\rm gauge}$ + Wilson-line doublet Higgs (Ingredient 1)</td>
+</tr>
+<tr>
+<td><strong>Exact zero</strong> Wilson coefficient for every declared dim-6 proton-decay operator</td>
+<td>$\Pi_q M \Pi_\ell = 0$ (theorem given orthogonality)</td>
+</tr>
+<tr>
+<td><strong>Side doors closed</strong>: gauge-redundant KK BRST-exact; physical KK killed by KK-number + orthogonality</td>
+<td>two-channel decoupling (L.3.2 Identity 1)</td>
+</tr>
+<tr>
+<td><strong>Sphaleron-compatibility</strong> (no global $U(1)_B$ invoked)</td>
+<td>safety is operator-algebra, not symmetry</td>
+</tr>
+<tr>
+<td>Machine check: identity exact on <strong>25 randomized class members</strong>; falsifier fires on $X$-like off-block entry</td>
+<td><code>certificates/G10_proton_safety/</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>The conditional / non-genuine content</strong> (CANDIDATE-grade or Diagnostic, per the ledger):</p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Honest reality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"the <strong>physically relevant</strong> dangerous class is eliminated"</td>
+<td><strong>CANDIDATE-grade</strong> — only the <em>declared</em> class is proven killed; physical completeness is an audited assertion (L.2b), the certificate's own named falsifier</td>
+</tr>
+<tr>
+<td>absolute <strong>proton lifetime</strong></td>
+<td><strong>Diagnostic only</strong> (L.4) — not frozen to certificate standard; excluded from the closure claim</td>
+</tr>
+<tr>
+<td>dim-5 <strong>Weinberg $\Lambda$</strong> scale (and the seesaw scale)</td>
+<td><strong>UNKNOWN/open</strong> — $\Lambda = M_R$ has no value/formula/hash (<code>BG10-FROZEN-MR</code>)</td>
+</tr>
+<tr>
+<td>"<strong>this branch is uniquely safe</strong>"</td>
+<td><strong>not claimed</strong> — dim-6 $B/L$-violation is SHARED-OPEN across all GUT-class geometries; this is a <em>filter</em>, not a <em>determiner</em></td>
+</tr>
+</tbody>
+</table>
+<p>So the precise statement of closure: <strong>the product geometry removes the $X/Y$ failure mode and the projector
+identity makes the declared dangerous coefficients exactly zero — a genuine, non-trivial selection-rule pass — but
+this is CANDIDATE-grade safety against a declared class, evaluated given the selected geometry, with the numerical
+lifetime Diagnostic, the dim-5 Majorana scale unknown, and no claim that the safety is unique to this branch.</strong></p>
+<hr />
+<h2>2. Verify the status — is PARTIAL real?</h2>
+<p>This is the verification a skeptic would run. Each witness gets a grade — <strong>hand-checkable</strong> / <strong>symbolic</strong> /
+<strong>machine-lane</strong> — and an honest <strong>reproduces?</strong> flag.</p>
+<h3>2.1 The witness ledger</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Witness</th>
+<th>What it asserts</th>
+<th>Grade</th>
+<th>Reproduces?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1</td>
+<td><strong>Product-factor $K_{\rm gauge}=K_6\times S^2\times S^1_Y/\mathbb{Z}_2$ → no $X/Y$, no coloured Higgs</strong></td>
+<td>Ingredient 1: the simple-group mediators that killed $SU(5)$ are structurally <strong>absent</strong></td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — a product of compact factors has direct-sum isometry; no off-diagonal generator exists by inspection (given the geometry is the selected product)</td>
+</tr>
+<tr>
+<td>W2</td>
+<td><strong>No-mediator identity $\Pi_q M \Pi_\ell = 0$</strong></td>
+<td>every sector-respecting cross-block Wilson coefficient is <strong>identically zero</strong></td>
+<td>hand-checkable (one-line proof)</td>
+<td><strong>Yes given orthogonality</strong> — the proof recomputes by hand: $\sum_i\delta_{qi}\delta_{i\ell}\Pi_iM_i\Pi_i=0$</td>
+</tr>
+<tr>
+<td>W3</td>
+<td><strong>Projector orthogonality $\Pi_i\Pi_j=\delta_{ij}\Pi_i$ on the matter bundle</strong> (A2.6/A2.8, <code>3b8d68559f5e</code>)</td>
+<td>the macro-orthogonality $\Pi_q\Pi_\ell=0$ that the identity needs holds on the <em>active-branch</em> bundle</td>
+<td>symbolic / audit</td>
+<td><strong>AUDIT</strong> — asserted at A2.6/A2.8; a reviewer must reproduce the matter bundle and find zero overlap. The <code>G10</code> folder checks the identity on the <strong>frozen labeling</strong>, not a from-scratch bundle reconstruction</td>
+</tr>
+<tr>
+<td>W4</td>
+<td><strong>Machine certificate <code>G10_proton_safety/</code></strong></td>
+<td>$\Pi_q M \Pi_\ell = 0$ exact on <strong>25 randomized class members</strong>; $X$-like off-block → nonzero → FAIL confirmed</td>
+<td>machine-lane</td>
+<td><strong>PASS (on the frozen labeling)</strong> — the folder verifies the frozen claim in exact arithmetic and the falsifier fires; full-pipeline <code>reproduce_all.py</code> not re-run here</td>
+</tr>
+<tr>
+<td>W5</td>
+<td><strong>Two-channel decoupling</strong> (L.3.2 Identity 1)</td>
+<td>Channel A gauge-redundant = BRST-exact; Channel B physical KK = KK-number + projector-killed</td>
+<td>symbolic</td>
+<td><strong>Yes (structurally)</strong> — Channel A is the standard Slavnov–Taylor result; Channel B's KK-number selection ($\sum n_{\rm ext}=0$, $n_{\rm mediator}\geq1$) is hand-checkable; the manuscript correctly refuses "all KK are BRST-exact"</td>
+</tr>
+<tr>
+<td>W6</td>
+<td><strong>L.2b coverage table</strong></td>
+<td>the declared class covers the standard physically dangerous types ($QQQL$, RH channel, mixed, coloured-Higgs, leptoquark, dim-7)</td>
+<td>symbolic / audit</td>
+<td><strong>AUDIT (conditional)</strong> — each row is a <em>claim</em> the table asserts "Covered"; physical completeness is the named falsifier, not a theorem</td>
+</tr>
+<tr>
+<td>W7</td>
+<td><strong>Operator ledger <code>appendix_K_proton_operator_ledger.csv</code></strong> (<code>bc1e4e84840a</code>)</td>
+<td>11-row per-operator ledger up to dim 7 with $(\Delta B,\Delta L)$, status, rule, falsifier</td>
+<td>machine-lane</td>
+<td><strong>AUDIT</strong> — CSV referenced + L.2-byte-equal claim; not independently re-run here</td>
+</tr>
+<tr>
+<td>W8</td>
+<td><strong>Sphaleron-compatibility</strong> (no global $U(1)_B$)</td>
+<td>safety is operator-algebra; SM electroweak sphalerons ($\Delta B=\Delta L=\pm3$) remain allowed</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — sphalerons act intra-sector ($Q_L\leftrightarrow L_L$ inside the same algebra), not as a cross-sector $\Pi_q M\Pi_\ell$ amplitude</td>
+</tr>
+<tr>
+<td>W9</td>
+<td><strong>Lifetime diagnostic</strong> (L.4)</td>
+<td>a numerical $\tau_p$ above Super-K bounds, reported for context only</td>
+<td>machine-lane</td>
+<td><strong>Diagnostic only</strong> — explicitly <em>not frozen</em> to certificate standard (depends on hadronic ME + residual $C_i$ + RG); cannot be reproduced as a hard claim <em>by design</em></td>
+</tr>
+<tr>
+<td>W10</td>
+<td><strong>Freeze hashes</strong> + meta <code>a5b1e6f9d951</code></td>
+<td>every load-bearing object content-addressed before comparison</td>
+<td>machine-lane</td>
+<td><strong>Yes in principle</strong> (re-hash R1.4/R1.6 rows + recompute meta); not re-run here</td>
+</tr>
+</tbody>
+</table>
+<h3>2.2 What reproduces, plainly</h3>
+<ul>
+<li><strong>The structural absence of $X/Y$ reproduces by inspection.</strong> A product of compact factors has a direct-sum
+  isometry algebra; there is no off-diagonal generator. This is the single strongest, most defensible leg — and it
+  is exactly the move that the proton-decay precedent ($SU(5)$) makes load-bearing.</li>
+<li><strong>The identity reproduces by hand.</strong> Given orthogonal sector projectors, $\Pi_q M \Pi_\ell = 0$ is a one-line
+  algebraic fact; nothing is tuned. The dangerous coefficients are <strong>exact zeros</strong>, not suppressed numbers.</li>
+<li><strong>The machine check passes on the frozen labeling.</strong> <code>G10_proton_safety/</code> runs the identity on 25 randomized class
+  members and confirms the falsifier ($X$-like off-block → nonzero). This is a genuine, non-vacuous executable check
+  — <em>conditioned on the frozen labeling being the right bundle</em> (W3).</li>
+<li><strong>The sphaleron-compatibility leg reproduces.</strong> The manuscript does the harder, more honest thing: it <em>refuses</em> a
+  global $U(1)_B$ (which would forbid observed SM physics) and secures safety by operator algebra instead.</li>
+</ul>
+<h3>2.3 What does NOT yet reproduce (honest gaps in the status)</h3>
+<ul>
+<li><strong>W3 projector orthogonality is AUDIT on the active-branch bundle.</strong> The identity is a theorem <em>given</em>
+  orthogonality, but orthogonality is <em>asserted</em> at A2.6/A2.8 and only checked on the frozen labeling by the <code>G10</code>
+  folder. A from-scratch matter-bundle reconstruction confirming zero overlap is the same "absent reproduction
+  harness" class flagged for SG-7's δ-triple and SG-8's J.6/K.5 tables.</li>
+<li><strong>W6 physical completeness of the declared class does NOT reproduce — it is a claim, not a theorem.</strong> The L.2b
+  coverage table <em>asserts</em> every familiar type is covered; the certificate's own named falsifier (L.2a.4/L.2b.3) is
+  precisely an admissible, physically relevant, Super-K-constrained operator <strong>outside</strong> the declared class. Until a
+  coverage theorem exists, "the physically dangerous class is eliminated" is <strong>CANDIDATE-grade</strong>, not certified.</li>
+<li><strong>The dim-5 Weinberg scale does not reproduce — $\Lambda=M_R$ does not exist.</strong> L.1/L.2 set the Weinberg
+  coefficient by "the chamber's declared Majorana scale," but that scale is <strong>uncomputed</strong> (no value, no formula, no
+  hash; <code>BG10-FROZEN-MR</code>). The "Bounded" status of the dim-5 leg therefore rests on an unspecified scale.</li>
+<li><strong>The lifetime does not reproduce as a hard claim — by design.</strong> L.4/L.5 declare it <em>Diagnostic only</em>; promoting
+  it to closure is a status violation (the forbidden CR10-C inference). This is correct discipline, but it means the
+  most intuitive experimental quantity (the proton lifetime) is <strong>not</strong> a frozen output of the gate.</li>
+<li><strong>No cross-geometry determination reproduces.</strong> The pass is evaluated <em>given the selected product geometry</em>. dim-6
+  $B/L$-violation is a pressure SHARED by all GUT-class geometries; the Battle verdict is <strong>SHARED-OPEN</strong> — the
+  rivals are neither cleared nor killed, and there is no Fable win.</li>
+</ul>
+<h3>2.4 Why PARTIAL (not higher, not lower)</h3>
+<ul>
+<li><strong>Not DERIVED-GIVEN-E</strong> (the SG-2/SG-3 tier): SG-9 is not a rigid integer/representation recovery. It is an
+  operator-level selection-rule pass against a <em>declared</em> class, with a CANDIDATE-grade physical-completeness
+  residual, an UNKNOWN dim-5 scale, an AUDIT bundle-orthogonality leg, and a Diagnostic-only lifetime — too many
+  open residuals for the DERIVED tier.</li>
+<li><strong>Not OPEN/DECLARED-FROZEN:</strong> the genuine content is real and strong — the product-geometry removal of $X/Y$ is
+  the exact thing that killed $SU(5)$, the identity gives <strong>exact zeros</strong> (not tuned-small), the side doors are
+  honestly closed with a two-channel argument, and the certificate passes on 25 randomized members with a live
+  falsifier. This is well clear of "no theory" or "asserted without witness."</li>
+<li><strong>PARTIAL is exactly right:</strong> a genuine operator-level selection-rule pass given the selected geometry, with named
+  CANDIDATE-grade and Diagnostic-only qualifiers and an unknown dim-5 scale, plus a binding downgrade rule with
+  teeth. This matches the SCOPED_GUT ledger SG-9 line verbatim (operator-level pass; CANDIDATE-grade safety against
+  the declared class; SHARED-OPEN; lifetime Diagnostic).</li>
+</ul>
+<hr />
+<h2>3. The attack surface — what to attack (ranked by leverage)</h2>
+<p>Every open residual as a named object with its precise obstruction. <strong>Leverage</strong> = how much closing it moves the
+gate (and how much it converts CANDIDATE/AUDIT/Diagnostic into certified).</p>
+<h3>3.1 The residual register</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Residual (named object)</th>
+<th>Precise obstruction</th>
+<th>Status</th>
+<th>Leverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R1</strong></td>
+<td><strong>Declared-vs-physical operator class (the "narrowed subclass" attack)</strong></td>
+<td>The gate's own named falsifier (L.2a.4 / L.2b.3 / §6.12 Gate-10 row). The pass kills $\mathcal{O}_{\rm danger}^{\rm declared}$ exactly, but physical completeness — every Super-K-constrained operator is captured — is an <strong>audited assertion</strong>, not a theorem. If a physically relevant BV operator lives <em>outside</em> the declared class, Gate 10 → <em>Open</em>.</td>
+<td>OPEN (the meta-residual; CANDIDATE-grade)</td>
+<td><strong>HIGHEST</strong> — it conditions whether the operator-level pass means "proton-safe"</td>
+</tr>
+<tr>
+<td><strong>R2</strong></td>
+<td><strong>SHARED-OPEN: dim-6 BV is not a Fable win</strong></td>
+<td>dim-6 $B/L$-violation is a pressure shared by all GUT-class geometries; the pass is a <em>selection-rule filter given the selected geometry</em>, not a cross-geometry determination. Battle verdict: SHARED-OPEN — rivals neither cleared nor killed.</td>
+<td>DISCLOSED (Battle verdict)</td>
+<td><strong>HIGH (claim-boundary)</strong> — keeps "we passed proton safety" from inflating into "we uniquely solved it"</td>
+</tr>
+<tr>
+<td><strong>R3</strong></td>
+<td><strong>$M_R$ / dim-5 Weinberg scale UNKNOWN</strong></td>
+<td>The dim-5 Weinberg $(LH)(LH)/\Lambda$ is <em>Bounded</em> with $\Lambda$ = "chamber's declared Majorana scale," but $M_R$ is <strong>never computed</strong> (no value, formula, or hash; <code>BG10-FROZEN-MR</code>). Shared with SG-8's absolute-ν-scale residual.</td>
+<td>OPEN</td>
+<td><strong>HIGH</strong> — closes the dim-5 leg + removes a hidden scale shared with SG-8</td>
+</tr>
+<tr>
+<td><strong>R4</strong></td>
+<td><strong>Projector orthogonality AUDIT on the active-branch matter bundle</strong></td>
+<td>$\Pi_q M\Pi_\ell=0$ is a theorem <em>given</em> $\Pi_q\Pi_\ell=0$; the orthogonality is asserted at A2.6/A2.8 and checked only on the <strong>frozen labeling</strong> by <code>G10</code>. A from-scratch bundle reconstruction confirming zero overlap is not re-run.</td>
+<td>AUDIT</td>
+<td><strong>MEDIUM</strong> — required for the identity's premise to be machine-real, not assumed</td>
+</tr>
+<tr>
+<td><strong>R5</strong></td>
+<td><strong>Operator ledger / coverage harness AUDIT</strong></td>
+<td><code>appendix_K_proton_operator_ledger.csv</code> (<code>bc1e4e84840a</code>) + the L.2b coverage rows referenced but not independently re-run; same class as SG-7/SG-8 absent-harness flags.</td>
+<td>AUDIT</td>
+<td><strong>MEDIUM</strong> — converts "ledger byte-equal" + "coverage Covered" into machine-checked</td>
+</tr>
+<tr>
+<td><strong>R6</strong></td>
+<td><strong>Lifetime is Diagnostic only (not a frozen output)</strong></td>
+<td>The numerical $\tau_p$ depends on hadronic ME + residual $C_i$ + RG, none frozen to certificate standard (L.4/L.5). The most intuitive experimental quantity is not a gate output; promoting it is a status violation.</td>
+<td>DISCLOSED (Diagnostic only)</td>
+<td><strong>LOW-MEDIUM</strong> — a genuine prediction would <em>add</em> content, but is heavy and outside the operator-level closure</td>
+</tr>
+<tr>
+<td><strong>R7</strong></td>
+<td><strong>Product-geometry is selected, not forced</strong></td>
+<td>Ingredient 1 ("no $X/Y$") follows from $K_{\rm gauge}$ being a <em>product</em>; but product-vs-simple-group is a <em>selected</em> geometry feature (gauge-group outcome is a rival TIE per the SHAPE audit), inherited from SG-1/SG-2.</td>
+<td>OPEN (inherited)</td>
+<td><strong>LOW-MEDIUM</strong> — shared with SG-1/SG-2; selection ≠ forcing</td>
+</tr>
+<tr>
+<td><strong>R8</strong></td>
+<td><strong>$\tau=\omega$ Cartan substrate read from a minimum</strong></td>
+<td>The sector split rides the Cartan-torus modulus $\tau=\omega$ (<code>03b30a9c931a</code>), inherited from SG-6 where it is read from a one-loop $V$-minimum, not independently derived.</td>
+<td>OPEN (inherited from SG-6)</td>
+<td><strong>LOW</strong> — shared with SG-6/SG-8; not unique to proton safety</td>
+</tr>
+<tr>
+<td><strong>R9</strong></td>
+<td><strong>Non-perturbative / Planck channels outside the framework</strong></td>
+<td>Sphalerons/instantons (non-perturbative $B+L$) and Planck-suppressed gravitational BV are <em>outside the operator-class framework</em> (L.2b) — honestly named and scoped, but not addressed.</td>
+<td>DISCLOSED (Outside scope)</td>
+<td><strong>LOW</strong> — experiment/scope-gated; sphaleron low-$T$ rates exponentially suppressed</td>
+</tr>
+</tbody>
+</table>
+<h3>3.2 Leverage ranking (attack order)</h3>
+<ol>
+<li><strong>R1</strong> (declared-vs-physical class) — conditions whether the operator pass <em>means</em> proton-safe; the single
+   highest-value target and the gate's own named falsifier.</li>
+<li><strong>R3</strong> ($M_R$ / dim-5 scale) — removes a hidden scale, closes the dim-5 leg, shared with SG-8 (double value).</li>
+<li><strong>R4</strong> (bundle-orthogonality AUDIT) — makes the identity's <em>premise</em> machine-real, not assumed.</li>
+<li><strong>R5</strong> (ledger/coverage harness) — cheapest to close (owner artifact); makes "Covered" + "byte-equal"
+   machine-checked.</li>
+<li><strong>R2 / R7</strong> (SHARED-OPEN + selected-not-forced) — claim-boundary honesty; already substantially disclosed.</li>
+<li><strong>R6 / R8 / R9</strong> — Diagnostic-only / inherited / outside-scope.</li>
+</ol>
+<blockquote>
+<p><strong>The cardinal honest point.</strong> R1 is where the whole gate lives. The operator-level pass is <em>real and exact</em> —
+but it is a pass on a <strong>declared</strong> class. If a closure path <em>enlarges the declared class to match physical
+completeness by hand-fitting</em> it to whatever vanishes, it has <strong>relocated</strong> the residual (the L.2a
+"declare-then-prove-on-whatever-vanishes" failure mode), not closed it — the κ³/π falsification test applies in full
+force. R3 ($M_R$) is the one genuine <em>missing number</em>. R2/R6/R7/R8/R9 are claim-boundary / inherited / scope
+residuals; closing them improves honesty and machine-reality but does not, on its own, upgrade the gate past
+PARTIAL.</p>
+</blockquote>
+<hr />
+<h2>4. THE ATTACK PLAN — closure paths (the core)</h2>
+<p>For each residual: the <strong>technique</strong> (closure playbook T1 axiom-floor / T4 no-go / T5 firewall / T6
+all-operator-conditional / T7 eliminative / T10 selector), the <strong>named axiom it could reduce to</strong> (stated so it
+would be written WITHOUT the target value — the κ³/π falsification test), the <strong>specialist target</strong> (theorem to hand off) or
+the <strong>owner artifact</strong> (CSV/ruling/computation) needed, the <strong>math to attempt</strong>, and the <strong>success ladder</strong>
+(DERIVED-CLOSED rare → AXIOM-CLOSED likely → sharper-OPEN → REFUTED).</p>
+<hr />
+<h3>4.1 R1 — Declared-vs-physical operator class (the gate's own falsifier)</h3>
+<p><strong>Why first.</strong> The operator-level pass is exact, but it is a pass on $\mathcal{O}_{\rm danger}^{\rm declared}$. The
+entire force of "Gate 10 = proton-safe" rests on the <strong>declared class being physically complete</strong> — i.e. that every
+operator the Super-K bound constrains has the one-quark-leg + one-lepton-leg structure that $\Pi_q,\Pi_\ell$ catch.
+If a physically relevant operator lives outside the declared class, the gate goes to <em>Open</em>, not merely <em>Diagnostic</em>.</p>
+<p><strong>Technique: T6 (all-operator-conditional) + T4 (no-go on the escapees).</strong> R1 is exactly the question L.2a/L.2b are
+built to answer, but L.2b is an <em>auditable assertion</em> (a row-by-row "Covered"), not a coverage theorem. The honest
+attack is to <em>try to escape the declared class</em> and prove the escape impossible.</p>
+<p><strong>The escape-hunt, structured (this is the falsifier, run as an attack):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Candidate escapee</th>
+<th>Structure</th>
+<th>Caught by $\Pi_q M \Pi_\ell=0$?</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dim-6 $QQQL$, $u^c u^c d^c e^c$, $QLu^c d^c$, $QQu^c e^c$</td>
+<td>one quark leg + one lepton leg</td>
+<td><strong>Yes</strong> — declared class</td>
+<td>covered</td>
+</tr>
+<tr>
+<td>coloured-Higgs-like $\bar Q L H_c$</td>
+<td>needs coloured scalar mediator</td>
+<td><strong>Yes (vacuous)</strong> — $H_c$ absent on the active branch (bundle <code>44516f6400ae</code>)</td>
+<td>covered (by Ingredient 1, not the identity)</td>
+</tr>
+<tr>
+<td>leptoquark-like $\bar q M_{\rm LQ}\ell$</td>
+<td>colour + isospin + lepton number on one mode</td>
+<td><strong>Yes</strong> — KK tower of $\mathcal{E}_{\rm gauge}$ produces no such joint-quantum-number mode</td>
+<td>covered (claim; needs KK-tower theorem)</td>
+</tr>
+<tr>
+<td>$\bar d^c\bar d^c\bar u^c$ ($n$–$\bar n$, no lepton)</td>
+<td>quark-only $\Delta B=1$</td>
+<td><strong>No</strong> (no lepton leg) — killed by <strong>Ingredient 1</strong> (coloured-triplet absent), not by the identity</td>
+<td>covered by a <em>different</em> mechanism</td>
+</tr>
+<tr>
+<td><strong>quark-only or lepton-only BV outside the one-leg-each structure</strong></td>
+<td>$\Delta B\neq1$ or no sector-crossing</td>
+<td><strong>NOT by the identity</strong></td>
+<td><strong>the escape route — must be ruled out</strong></td>
+</tr>
+<tr>
+<td>non-perturbative (sphaleron/instanton)</td>
+<td>$B+L$, gauge-config</td>
+<td>outside framework</td>
+<td>scoped out (R9)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Named axiom it could reduce to (κ³/π-clean).</strong> The honest reduction is a <em>target-blind</em> statement of what the
+declared class must be:</p>
+<blockquote>
+<p><strong>AXIOM-DANGEROUS-CLASS-COMPLETENESS</strong> (target-blind form): <em>"On a product-factor compactification with the SM
+chiral content and no simple-group embedding, every gauge-invariant, admissible (per the C6 / B1 rulebook)
+baryon-or-lepton-number-violating operator that can drive nucleon decay is sector-crossing — i.e. carries one
+fermion leg in the quark sector and one in the lepton sector — and is therefore in
+$\mathcal{O}_{\rm danger}^{\rm declared}$; the residual quark-only $\Delta B$ operators require a coloured-triplet
+mediator absent on the product geometry."</em></p>
+</blockquote>
+<p>This is writable with <strong>no proton-lifetime number in sight</strong> — it is a statement about <em>operator structure under
+admissibility</em>, not about a rate. It PASSES the κ³/π falsification test. <strong>But it is not yet proven</strong> — the quark-only /
+lepton-only escape route and the leptoquark-KK-tower row are <em>claims</em>, not theorems.</p>
+<p><strong>Specialist target (to hand off).</strong> A <strong>coverage theorem</strong>: "Under the active-branch admissibility rulebook (C6 /
+B1) and the product-factor gauge structure, the set of admissible nucleon-destabilizing operators up to the relevant
+dimension is exactly $\mathcal{O}_{\rm danger}^{\rm declared}\cup\{$coloured-triplet-mediated quark-only channels,
+absent by Ingredient 1$\}$." If proven, L.2b upgrades from an audited table to a closed statement and R1 closes.</p>
+<p><strong>Math to attempt.</strong> (1) Enumerate, target-blind, the admissible gauge-invariant $\Delta B\neq0$ and $\Delta L\neq0$
+operators up to dim 7 on the active-branch field content (this is a finite, bounded representation-theory exercise).
+(2) For each, classify: sector-crossing (caught by identity) / coloured-triplet-mediated quark-only (caught by
+Ingredient 1) / <strong>other</strong>. (3) Prove the "other" bin is empty, OR exhibit a member of it (a falsifier). (4) Separately,
+prove the leptoquark-KK-tower claim: that no level of the $\mathcal{E}_{\rm gauge}$ KK tower carries simultaneous
+colour-$\mathbf3$, nonzero $T_3$, and nonzero $Y_\ell$.</p>
+<p><strong>Success ladder.</strong>
+- DERIVED-CLOSED: coverage theorem proven → declared class is physically complete → operator-level pass <em>means</em>
+  proton-safe (given geometry). <strong>Possible but real work</strong> (a bounded enumeration + two no-go lemmas).
+- <strong>AXIOM-CLOSED (likely):</strong> AXIOM-DANGEROUS-CLASS-COMPLETENESS named; the enumeration confirms the standard types
+  but the universal "no other admissible escapee" is left as a target-blind posit. Honest ceiling and roughly where
+  the corrected manuscript stands (L.2b as audited assertion).
+- sharper-OPEN: the leptoquark-KK-tower or quark-only no-go cannot be discharged → the CANDIDATE-grade label stands,
+  explicitly.
+- REFUTED: an admissible, physically relevant, Super-K-constrained operator is exhibited outside the declared class →
+  Gate 10 → <em>Open / not claimed</em> (operator leg). <strong>This is the good kind of negative — a structure-first falsifier.</strong></p>
+<p><strong>Honest disposition: CANDIDATE-grade, reducible to AXIOM-DANGEROUS-CLASS-COMPLETENESS; physical completeness as a
+theorem stays OPEN.</strong> The gate is a derivation <strong>of the declared-class zeros</strong> and a CANDIDATE claim <strong>of physical
+completeness</strong> — and saying so precisely is the closure, not a higher claim.</p>
+<hr />
+<h3>4.2 R2 — SHARED-OPEN: dim-6 BV is not a Fable win</h3>
+<p><strong>This is a claim-boundary residual, not physics.</strong> No closure path "solves" it; the task is to <strong>state the correct
+scope</strong> and bind it.</p>
+<p><strong>Technique: T2-guarded restatement (no relocation), with a rival imported only inside the closure path.</strong> dim-6
+$B/L$-violation is a pressure on <em>every</em> GUT-class geometry. Conventional simple-group GUTs suppress it with a heavy
+$M_{X/Y}$ (a tuned-small coefficient); the Fable product geometry makes it an <strong>exact zero</strong>. The <em>mechanism</em> differs
+and is genuinely stronger (zero, not tuned-small), but the <em>outcome</em> — "the proton has not decayed" — is achieved by
+all viable geometries; none is cleared or killed <em>by this gate</em>. The Battle-of-the-Geometries verdict is therefore
+<strong>SHARED-OPEN</strong>.</p>
+<p><strong>The honest framing to bind (countersign-gated; nothing applied here, No status was ever upgraded):</strong></p>
+<blockquote>
+<p>Gate 10 is a <strong>filter</strong> that prunes mediator-bearing variants, <strong>not a determiner</strong> that proves longevity unique
+to this branch. The Fable distinction is <em>mechanism</em> (exact-zero by projector identity vs tuned-small by heavy
+mediator), not <em>outcome</em>. "We passed proton safety" must never be read as "we uniquely solved proton stability."</p>
+</blockquote>
+<p><strong>κ³/π falsification test.</strong> N/A (no axiom, no target value). The danger here is <em>overclaim</em>, not tuning to the known answer: the
+specific failure is letting the genuine exact-zero mechanism inflate into a uniqueness claim.</p>
+<p><strong>Success ladder.</strong> AXIOM-CLOSED not applicable. The endpoint is <strong>DISCLOSED-CORRECTED</strong>: the SHARED-OPEN verdict
+and the filter-not-determiner framing stated wherever the proton-safety pass is summarized. <strong>This is the cleanest,
+lowest-risk honesty win in the gate</strong> and requires only an owner countersign.</p>
+<hr />
+<h3>4.3 R3 — $M_R$ / dim-5 Weinberg scale UNKNOWN</h3>
+<p><strong>The obstruction.</strong> The dim-5 Weinberg operator $(LH)(LH)/\Lambda$ is <em>Bounded</em> with $\Lambda$ = "the chamber's
+declared Majorana scale." That scale is $M_R$, which is <strong>asserted-derived but never computed</strong> — no value, no
+closed form, no hash (<code>BG10-FROZEN-MR</code>; the identical object that blocks SG-8's absolute neutrino scale). The dim-5
+leg of the proton-safety ledger therefore rests on an unspecified number.</p>
+<p><strong>Technique: T1 (axiom-floor) — name the scale; or T7 (eliminative) — rule out the candidates.</strong> This is the <strong>same
+$M_R$</strong> as SG-8 §4.3; the proton-safety dossier inherits that attack and adds nothing new — closing it once closes
+both gates' dim-5/seesaw legs.</p>
+<p><strong>Candidate identifications (each writable target-blind):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Candidate axiom</th>
+<th>Statement (κ³/π-clean)</th>
+<th>Test it must pass without a new knob</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AXIOM-MR-IS-MU</strong></td>
+<td>$M_R = M_U \approx 10^{16}$ GeV (the SG-7 threshold-unification scale)</td>
+<td>yield the measured $\Delta m^2$ via $N_\nu^2/M_R$ with $N_\nu$ fixed by the ratio; keep the Weinberg coefficient consistent with $m_\nu\sim0.05$ eV</td>
+</tr>
+<tr>
+<td><strong>AXIOM-MR-IS-R0INV</strong></td>
+<td>$M_R = R_0^{-1}$ (compactification scale, $R_0=1.592\times10^{-17}\,\mathrm{GeV}^{-1}$)</td>
+<td>same</td>
+</tr>
+<tr>
+<td><strong>AXIOM-MR-FLUX</strong></td>
+<td>$M_R = M_U\cdot f(N{=}1,\tau{=}\omega)$ (chamber flux + modulus)</td>
+<td>same, with $f$ computed not fit</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The decisive check (do this first; shared with SG-8 R3).</strong> Invert for the <em>required</em> $M_R^{\rm req}=N_\nu^2/(\text{abs }\Delta m^2)$
+using $N_\nu$ from the frozen ratio + the measured splitting, then ask whether $M_R^{\rm req}$ coincides (within an
+order of magnitude) with $M_U$, $R_0^{-1}$, or a clean chamber-flux scale. <strong>κ³/π pivot:</strong> if $M_R^{\rm req}$ lands
+on a frozen scale the geometry <em>already</em> committed (e.g. $M_U$ from SG-7), AXIOM-MR-IS-MU is a genuine target-blind
+closure; if it lands nowhere clean, every candidate RELOCATES a new tuned scale.</p>
+<blockquote>
+<p><strong>Caution from the corpus.</strong> MEMORY records a parallel candidate $M_R=\kappa M_U$ that is <strong>~231× off the corpus
+κ⁰</strong> — flagged candidate-in-tension. The inversion must run <strong>before</strong> adopting any $M_R$ identity, precisely to
+avoid banking a tuned κ-power.</p>
+</blockquote>
+<p><strong>Specialist target.</strong> Hand the neutrino specialist: "Compute $M_R$ from the chamber Cartan-torus modulus + $N=1$
+flux as asserted in K.4, target-blind, and report whether it matches $M_R^{\rm req}$." Either it discharges the
+assertion (DERIVED) or it shows the assertion is empty (confirming R3 OPEN). The proton-safety relevance: a computed
+$M_R$ pins the dim-5 Weinberg $\Lambda$, upgrading the dim-5 row from "Bounded by an unspecified scale" to a frozen
+bound.</p>
+<p><strong>Success ladder.</strong>
+- DERIVED-CLOSED: chamber computation yields $M_R$ parameter-free → dim-5 $\Lambda$ pinned; absolute-ν leg becomes a
+  prediction (closes SG-8 R3 too).
+- AXIOM-CLOSED: $M_R^{\rm req}$ lands on $M_U$ (or $R_0^{-1}$) cleanly → AXIOM-MR-IS-MU named. <strong>Promising and cheap.</strong>
+- sharper-OPEN: $M_R^{\rm req}$ lands nowhere clean → R3 stays UNKNOWN; dim-5 row stays unspecified-scale.
+- REFUTED: chamber computation gives a definite $M_R$ that <em>misses</em> $M_R^{\rm req}$ → the K.4 assertion is false.</p>
+<p><strong>Honest disposition: OPEN, most tractable of the genuine-physics residuals</strong> — the inversion is a half-day
+computation and could reach AXIOM-CLOSED. <strong>Run the inversion before adopting any identity.</strong> (Note: $M_R$ is the
+shared SG-8/SG-9 hidden scale; resolving it pays two debts.)</p>
+<hr />
+<h3>4.4 R4 — Projector orthogonality AUDIT on the active-branch matter bundle</h3>
+<p><strong>The obstruction.</strong> $\Pi_q M \Pi_\ell = 0$ is a <strong>theorem given</strong> $\Pi_q\Pi_\ell=0$; the macro-orthogonality in turn
+needs the sector projectors orthogonal on the <em>active-branch matter bundle</em> $\mathcal{E}_{\rm matter}$. That
+orthogonality is <strong>asserted</strong> at A2.6/A2.8 and verified by <code>G10_proton_safety/</code> <strong>on the frozen labeling</strong> — not by a
+from-scratch reconstruction of the matter bundle that independently confirms zero overlap. A reviewer who reproduces
+the matter bundle and finds a non-zero overlap $\langle\Pi_q\cdot\Pi_\ell\rangle$ falsifies the identity (L.2a.4(2)).</p>
+<p><strong>Technique: owner artifact (machine-lane) + T1 reduction of the premise.</strong> Two parts:</p>
+<ol>
+<li><strong>Owner artifact (reproduction).</strong> Reconstruct $\mathcal{E}_{\rm matter}$ from the A2.3 matter-bundle
+   factorisation + the R1.4 sector projectors + the $\mathbb{Z}_6$ centre (<code>a68ee92a75be</code>) + $\mathbb{Z}_2$ orbifold
+   (<code>ac4d2df3e708</code>), <strong>target-blind</strong>, and confirm $\Pi_i\Pi_j=\delta_{ij}\Pi_i$ and $\Pi_q\Pi_\ell=0$ to machine
+   precision — independently of the frozen labeling. Re-hash and confirm <code>3b8d68559f5e</code> regenerates from the
+   canonical description.</li>
+<li><strong>Named axiom for the premise (κ³/π-clean), if the reconstruction is deferred:</strong></li>
+</ol>
+<blockquote>
+<p><strong>AXIOM-SECTOR-ORTHOGONALITY</strong> (target-blind form): <em>"The sector projectors of the $F^+$ chamber are mutually
+orthogonal idempotents on the matter bundle, with the quark index set $\{u,d,Q_L\}$ disjoint from the lepton index
+set $\{e,\nu,L_L\}$ under the $\mathbb{Z}_6$ centre + $\mathbb{Z}_2$ orbifold assignment."</em></p>
+</blockquote>
+<p>This carries no proton number; it is a statement about the bundle decomposition. It PASSES the falsification test. But it is
+<em>better</em> discharged by reconstruction than axiomatized — orthogonality of group-theoretically defined projectors is a
+<em>computation</em>, not a brute fact.</p>
+<p><strong>Specialist target.</strong> Hand the geometry/bundle specialist: "Reconstruct $\mathcal{E}_{\rm matter}$ and prove
+$\Pi_q\Pi_\ell=0$ from the $\mathbb{Z}_6$/$\mathbb{Z}_2$ assignments alone, target-blind." A clean, bounded
+linear-algebra-over-representations task.</p>
+<p><strong>Success ladder.</strong> <strong>BLOCKED_INPUTS until the bundle is reconstructed</strong> → then <strong>VERIFIED</strong> (orthogonality
+confirmed from scratch → the identity's premise is machine-real, R4 closes) or <strong>REFUTED</strong> (a non-zero overlap →
+Gate 10 downgrades). <strong>AXIOM-CLOSED</strong> (AXIOM-SECTOR-ORTHOGONALITY named) is the fallback if reconstruction is
+deferred. <strong>Honest disposition: AUDIT → VERIFIED is the target; the orthogonality is almost certainly true (it is
+group theory) but is currently asserted, not independently reconstructed.</strong></p>
+<hr />
+<h3>4.5 R5 — Operator ledger / coverage harness AUDIT</h3>
+<p><strong>The obstruction.</strong> "The 11-row operator ledger is byte-equal to <code>appendix_K_proton_operator_ledger.csv</code>
+(<code>bc1e4e84840a</code>)" and "every L.2b row is Covered" are load-bearing reproducibility/coverage claims, but the CSV is
+<em>referenced</em>, not independently re-run here — the same class as SG-7's absent δ-harness and SG-8's J.6/K.5 tables.</p>
+<p><strong>Technique: owner artifact (machine-lane), not an axiom.</strong> A <strong>fail-closed reproducibility task</strong>, not a physics
+closure.</p>
+<p><strong>Owner artifact needed.</strong> (1) Mount the CSV. (2) Regenerate the L.2 ledger from the frozen objects, target-blind,
+and confirm byte-equality (hash <code>bc1e4e84840a</code>). (3) For each L.2b coverage row, attach the explicit mechanism
+witness (sector-crossing → identity; coloured-triplet → Ingredient 1; KK tower → no-joint-quantum-number lemma) and
+confirm none is left "expected" or "should be safe." (4) Re-hash the R1.4/R1.6 rows and confirm the meta-hash
+recomputes to <code>a5b1e6f9d951</code>.</p>
+<p><strong>Math to attempt.</strong> None new — execution + verification. Fail-closed: if any ledger row cannot be regenerated, or
+any L.2b mechanism cannot be witnessed, Gate 10 downgrades (L.9 / front-matter Downgrade Rules).</p>
+<p><strong>Success ladder.</strong> <strong>BLOCKED_INPUTS until the CSV/script are mounted</strong> → then <strong>VERIFIED</strong> (ledger reproduces +
+coverage witnessed; "Claimed certificate pass" becomes machine-real) or <strong>REFUTED</strong> (a row fails → downgrade).
+<strong>Highest value-per-effort closeable item</strong> because it converts an asserted status into machine-checked with no new
+physics.</p>
+<hr />
+<h3>4.6 R6 — The lifetime is Diagnostic only (not a frozen output)</h3>
+<p><strong>The obstruction.</strong> The numerical proton lifetime — the most intuitive experimental quantity — is <strong>not</strong> a gate
+output. L.4/L.5 declare it <em>Diagnostic only</em> because it depends on hadronic matrix elements, residual higher-dim
+Wilson coefficients, and RG running that are <strong>not frozen</strong> to certificate standard. Promoting it to closure is the
+forbidden CR10-C inference (a status violation).</p>
+<p><strong>Technique: T7 (eliminative) — is the Diagnostic-only label necessary, or can a <em>bound</em> be frozen?</strong> The honest
+question is not "predict $\tau_p$" (heavy, and not the closure) but "can a target-blind <strong>lower bound</strong> on $\tau_p$
+be frozen from the structure alone?"</p>
+<ul>
+<li><strong>What is genuinely available without new freezing:</strong> since the <em>dominant</em> declared-class coefficients are <strong>exact
+  zeros</strong>, $\tau_p$ is set by the <em>suppressed</em> residual operators — dim-7 ($(v/M_U)^2\sim10^{-28}$ suppression) and
+  higher. A <em>structural lower bound</em> $\tau_p\gtrsim$ (suppression) $\times$ (dimensional estimate) could be stated
+  target-blind, as a <strong>floor</strong>, distinct from a prediction.</li>
+<li><strong>Named principle (κ³/π-clean):</strong> <strong>AXIOM-LIFETIME-FLOOR-FROM-SUPPRESSION</strong> — <em>"with all dim-6 declared
+  coefficients exactly zero, the proton lifetime is bounded below by the dim-7-and-higher suppression scale; the
+  bound carries no fitted coefficient."</em> Writable with no measured $\tau_p$. PASSES the falsification test. But it requires
+  freezing the hadronic ME convention and the residual-coefficient bound — which the manuscript declines to do, on
+  purpose.</li>
+</ul>
+<p><strong>Specialist target.</strong> Hand the lattice/hadronic specialist: "Given the dim-6 exact zeros, compute a <em>floor</em> on
+$\tau_p$ from the dim-7 suppression + standard hadronic ME, and report whether it is robustly above Super-K — as a
+<strong>bound</strong>, not a prediction." If robust, the lifetime leg could be upgraded from <em>Diagnostic only</em> to a <em>frozen
+lower bound</em> — strictly weaker than a prediction but stronger than "consistent with bounds."</p>
+<p><strong>Success ladder.</strong> sharper-OPEN (the floor requires freezing conventions the manuscript declines → stays
+Diagnostic, correctly) is most likely; <strong>VERIFIED-FLOOR</strong> (a robust target-blind lower bound is frozen) would <em>add</em>
+content without overclaiming. There is no operator-level closure here — R6 is downstream of the operator pass.
+<strong>Honest disposition: keep Diagnostic only; the operator pass is the closure. A target-blind <em>floor</em> is the only
+upgrade that does not violate the discipline, and it is optional.</strong></p>
+<hr />
+<h3>4.7 R7 — Product-geometry is selected, not forced</h3>
+<p><strong>The obstruction.</strong> Ingredient 1 ("no $X/Y$ mediator") is a <em>consequence</em> of $K_{\rm gauge}$ being a <strong>product</strong>.
+But product-vs-simple-group is a <strong>selected</strong> feature of the geometry — the SHAPE audit records the gauge-group
+outcome as a <strong>rival TIE</strong>, and SG-1/SG-2 do not <em>force</em> the product structure over a simple-group competitor. So
+"there is no $X/Y$" is true <em>given the selected geometry</em>, not forced.</p>
+<p><strong>Technique: T1 (axiom-floor), shared with SG-1/SG-2.</strong> Name the inheritance:</p>
+<blockquote>
+<p><strong>AXIOM-PRODUCT-BACKBONE</strong> (κ³/π-clean): <em>"the SM-routing backbone is the product compactification
+$K_6\times S^2\times S^1_Y/\mathbb{Z}_2$ (no simple-group embedding); the proton-safety Ingredient 1 is the
+$\times$-layer consequence of this selected structure."</em></p>
+</blockquote>
+<p>Writable with no proton number. It PASSES the falsification test. The attack: this is <em>exactly</em> the SG-1 geometry-selection
+residual seen from the proton-safety side — it does not get closed <em>here</em>; it is <em>inherited</em>. The honest move is to
+name the dependency (a $\times$-layer freeze hash, not a silent inheritance — the C10 anti-smuggling table already
+does this).</p>
+<p><strong>Specialist target.</strong> None new — this folds into the SG-1/SG-2 "is the product backbone forced?" question. The
+proton-safety-specific note: <em>even if</em> a simple-group rival were admitted, Gate 10 would <em>fail on its mediator-inventory
+leg</em> ($X/Y$ present → $C_{QQQL}\sim1/M_{X/Y}^2\neq0$); so the product structure is <em>necessary for</em> the operator-level
+pass, which means the pass is <strong>conditional on</strong> the selected geometry — exactly the honest framing.</p>
+<p><strong>Success ladder.</strong> AXIOM-CLOSED (AXIOM-PRODUCT-BACKBONE named, inherited) is the realistic endpoint; DERIVED-CLOSED
+requires SG-1/SG-2 to <em>force</em> the product backbone (not done; rival TIE). sharper-OPEN otherwise. <strong>Honest
+disposition: AXIOM-CLOSED at the inherited axiom; the product structure is selected-not-forced, and the proton-safety
+pass is conditional on it.</strong></p>
+<hr />
+<h3>4.8 R8 — $\tau=\omega$ Cartan substrate read from a minimum</h3>
+<p><strong>The obstruction.</strong> The sector split that defines $\Pi_u,\Pi_d,\Pi_e,\Pi_\nu$ rides the Cartan-torus modulus
+$\tau=\omega$ (<code>03b30a9c931a</code>), inherited from SG-6, where it is the chamber-center witness <strong>read from a one-loop
+$V$-minimum</strong>, not independently derived. SG-6's soft spot propagates here (and into SG-8).</p>
+<p><strong>Technique: T1 (axiom-floor), shared with SG-6/SG-8.</strong> Name the inheritance:</p>
+<blockquote>
+<p><strong>AXIOM-MODULAR-FIXED-POINT</strong> (κ³/π-clean): <em>"the chamber modulus sits at the order-three modular fixed point
+$\tau=\omega$, the unique Weyl-rigid / modular-symmetric point of the $F^+$ Cartan torus."</em></p>
+</blockquote>
+<p>This is writable with no proton number — a symmetry statement. It is <strong>stronger than "read from a minimum"</strong> because
+an order-three modular fixed point is <em>symmetry-protected</em>, not tuned. The attack: prove $\tau=\omega$ is the
+<em>unique</em> modular-symmetric point (so it is forced by symmetry, not selected by a minimum). If proven, R8 strengthens
+from "read from a minimum" to "symmetry-fixed" for <em>both</em> the flavor and proton sector decompositions.</p>
+<p><strong>Specialist target.</strong> Identical to SG-8 R8: hand the moduli/SG-6 specialist "show $\tau=\omega$ is the unique fixed
+point of the $F^+$ Cartan-torus modular group, independent of the one-loop potential." Clean group theory.</p>
+<p><strong>Success ladder.</strong> AXIOM-CLOSED (named; symmetry-protected) realistic; DERIVED-CLOSED (uniqueness proven) closes
+R8; sharper-OPEN if non-unique. <strong>Honest disposition: AXIOM-CLOSED likely; shared with SG-6/SG-8 — not unique to
+proton safety, and a genuine improvement over the SG-6 read-from-minimum framing.</strong></p>
+<hr />
+<h3>4.9 R9 — Non-perturbative / Planck channels outside the framework</h3>
+<p><strong>The obstruction.</strong> Sphalerons/instantons (non-perturbative $B+L$ violation, $B-L$ conserved) and
+Planck-suppressed gravitational BV ($\frac{1}{M_{\rm Pl}^2}\mathcal{O}_{QQQL}$) are <strong>outside the operator-class
+framework</strong> (L.2b). They are <em>named and scoped</em>, not addressed — sphalerons because they are gauge-field
+configurations not perturbative Wilson coefficients (low-$T$ rates exponentially suppressed, well below proton
+sensitivity), Planck operators because they are Gate-11 excluded.</p>
+<p><strong>Technique: none internal for the gate — scope + experiment.</strong> The sphaleron leg is <em>positively</em> good news: the
+manuscript's refusal of a global $U(1)_B$ is <em>because</em> sphalerons must remain allowed (a global $U(1)_B$ would forbid
+observed SM physics). The honest action is to <strong>keep them scoped-out</strong>, with the sphaleron low-$T$ suppression as the
+diagnostic statement, and let the Planck leg sit under Gate-11 exclusion.</p>
+<p><strong>Named axiom?</strong> None for the gate. The only relevant posit is the <strong>claim-boundary</strong> one (Gate 11): Planck-scale BV
+is <em>Outside scoped-GUT claim</em>.</p>
+<p><strong>Success ladder.</strong> Not applicable (scope/experiment-gated). <strong>Honest disposition: DISCLOSED; the gate's behavior is
+correct — non-perturbative and Planck channels named and scoped out, sphaleron-compatibility secured by operator
+algebra rather than a symmetry that would break the SM.</strong></p>
+<hr />
+<h3>4.10 Attack-plan roll-up</h3>
+<table>
+<thead>
+<tr>
+<th>Residual</th>
+<th>Technique</th>
+<th>Named axiom (κ³/π-clean)</th>
+<th>Specialist target / owner artifact</th>
+<th>Realistic endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1 declared-vs-physical class</td>
+<td>T6 + T4</td>
+<td>AXIOM-DANGEROUS-CLASS-COMPLETENESS</td>
+<td>coverage theorem (admissible-operator enumeration + 2 no-go lemmas)</td>
+<td>CANDIDATE → AXIOM-CLOSED; physical completeness OPEN</td>
+</tr>
+<tr>
+<td>R2 SHARED-OPEN</td>
+<td>T2 restatement</td>
+<td>(none)</td>
+<td>owner countersign (filter-not-determiner framing)</td>
+<td>DISCLOSED-CORRECTED (cleanest win)</td>
+</tr>
+<tr>
+<td>R3 $M_R$ / dim-5 scale</td>
+<td>T1 / T7</td>
+<td>AXIOM-MR-IS-MU</td>
+<td>invert for $M_R^{\rm req}$; compute $M_R$ from chamber (shared w/ SG-8)</td>
+<td>OPEN → AXIOM-CLOSED if scales coincide (most tractable physics)</td>
+</tr>
+<tr>
+<td>R4 bundle orthogonality</td>
+<td>owner artifact + T1</td>
+<td>AXIOM-SECTOR-ORTHOGONALITY</td>
+<td>reconstruct $\mathcal{E}_{\rm matter}$, prove $\Pi_q\Pi_\ell=0$ from scratch</td>
+<td>AUDIT → VERIFIED (premise machine-real)</td>
+</tr>
+<tr>
+<td>R5 ledger/coverage harness</td>
+<td>machine-lane</td>
+<td>(none)</td>
+<td>mount CSV + regenerate L.2/L.2b target-blind</td>
+<td>BLOCKED_INPUTS → VERIFIED (best value/effort)</td>
+</tr>
+<tr>
+<td>R6 lifetime Diagnostic</td>
+<td>T7</td>
+<td>AXIOM-LIFETIME-FLOOR-FROM-SUPPRESSION</td>
+<td>floor on $\tau_p$ from dim-7 suppression (optional)</td>
+<td>sharper-OPEN (or VERIFIED-FLOOR; stays Diagnostic)</td>
+</tr>
+<tr>
+<td>R7 product selected-not-forced</td>
+<td>T1</td>
+<td>AXIOM-PRODUCT-BACKBONE</td>
+<td>folds into SG-1/SG-2 forcing question</td>
+<td>AXIOM-CLOSED (inherited)</td>
+</tr>
+<tr>
+<td>R8 $\tau=\omega$ substrate</td>
+<td>T1</td>
+<td>AXIOM-MODULAR-FIXED-POINT</td>
+<td>modular-fixed-point uniqueness (shared w/ SG-6/SG-8)</td>
+<td>AXIOM-CLOSED (improves SG-6 framing)</td>
+</tr>
+<tr>
+<td>R9 non-perturbative / Planck</td>
+<td>scope</td>
+<td>(Gate-11 exclusion)</td>
+<td>DUNE/Hyper-K (sphaleron scoped)</td>
+<td>DISCLOSED (scope-gated)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>REDUCE-vs-RELOCATE verdict on the plan.</strong> The plan does <strong>not</strong> turn one hard problem into three harder ones. Each
+path either (a) names a single target-blind axiom that pays a debt in plain sight (R1-completeness as the bounded
+ceiling, R4-orthogonality, R7, R8), (b) attempts a bounded, falsifiable computation that <em>could</em> convert
+CANDIDATE/AUDIT into certified (R1 coverage enumeration; R3 $M_R$ inversion; R4 bundle reconstruction; R5 ledger
+regen), or (c) is a mechanical owner/scope task (R2, R6-floor, R9). The harder-subproblem check: R1's coverage
+theorem is a <em>bounded</em> enumeration of admissible operators up to dim 7 (finite), not an open-ended search; R3 is one
+scalar's provenance (shared with SG-8, so it is <em>not</em> a new problem); R4 is linear-algebra-over-representations. None
+is harder than the original gate, and the two that touch numbers (R1 enumeration, R3 $M_R$) carry explicit κ³/π
+falsification tests so a hand-fit class-enlargement or a tuned $M_R$ cannot be banked. The honest expected outcome of a full
+campaign: <strong>~3 AXIOM-CLOSED (R7, R8, R1-completeness-as-posit), 1 likely AXIOM-CLOSED (R3 if scales coincide), 1
+DISCLOSED-CORRECTED (R2), 2 VERIFIED (R4, R5), 1 sharper-OPEN (R6), 1 DISCLOSED (R9).</strong> No DERIVED-CLOSED is
+promised; the gate would move from PARTIAL-with-CANDIDATE-grade-asserted-status to <strong>PARTIAL-with-machine-verified-premises
++ a named axiom floor + an honest SHARED-OPEN scope</strong> — a real honesty/reproducibility gain, <strong>not</strong> a promotion.</p>
+<hr />
+<h2>A. Anchoring &amp; Hardening Map</h2>
+<p>This is SG-9 run through <strong>our internal honesty methodology</strong>: classify each residual as a <strong>gap</strong> (the route is known; what is
+missing is a finished computation/certificate/measured input) or a <strong>wall</strong> (the route itself is the problem); hunt
+the implicit assumption it smuggles; then ask the decisive question — <strong>what measured invariant must this residual
+ultimately terminate on?</strong> — and assign the most conservative honest disposition. The disposition vocabulary is the
+same one defined inline in the live <strong>Gaps &amp; Walls Register</strong> (<code>/articles/GAPS_AND_WALLS_REGISTER.html</code>): <strong>DERIVED</strong>
+(reduces to an already-measured fact, floor doesn't grow) · <strong>DERIVED-GIVEN-E</strong> (rigid once the observed spectrum E
+is supplied) · <strong>AXIOM-CLOSED</strong> (reduced to exactly one named, value-free posit; gap stays open) · <strong>DISSOLVED</strong>
+(rested on a false/unmeasured premise) · <strong>SCHEME-ANCHORED</strong> (a number reachable only after one named convention
+choice) · <strong>OPEN</strong> (genuinely unsolved, or the only escape assumes the answer) · <strong>BLOCKED</strong> (a route exists but a
+required file/input is missing — refuse to fabricate) · <strong>measured-but-irreducible</strong> (known from experiment, no
+derivation anywhere). The frozen anchor set the framework actually terminates on is <strong>{ℏ, M_Pl, spectrum-E, α_i(M_Z),
+y_t, |V_us|}</strong>. The key discipline (carried from the Register): <em>no theorem breaks a wall</em>, and a residual that has
+<strong>no clean measured invariant to terminate on — or whose only anchor would be the answer itself — is OPEN, not
+closed.</strong> This map is consistent with the live SG-9 Register line (PARTIAL → conservatively OPEN; candidate-grade
+safety against a <em>declared</em> class) and with the SG-7 finding (Diagnostic-only; threshold rows fitted-not-derived;
+magnitude SCHEME-ANCHORED), which SG-9 inherits only through the shared $M_R$ / $\tau=\omega$ scales.</p>
+<h3>A.1 Per-residual anchoring &amp; hardening table</h3>
+<table>
+<thead>
+<tr>
+<th>Residual</th>
+<th>GAP or WALL (+kind)</th>
+<th>Measured invariant it must terminate on</th>
+<th>Honest disposition</th>
+<th>What would HARDEN it (concrete next step)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R1</strong> declared-vs-physical operator class</td>
+<td><strong>WALL</strong> (the route is the problem: physical <em>completeness</em> of the declared class is a universal-negative — "no admissible escapee exists")</td>
+<td><strong>spectrum-E + the Super-K bound</strong> ($\tau_p\gtrsim10^{34}$ yr is the measured fact the declared class must provably capture); it does <strong>not</strong> reduce to a single frozen anchor — it needs a <strong>NEW named invariant</strong> (AXIOM-DANGEROUS-CLASS-COMPLETENESS), a structure statement, not a number</td>
+<td><strong>OPEN</strong> (operator-level pass on the declared class is exact and real; physical completeness is candidate-grade, un-proven) — ceiling <strong>AXIOM-CLOSED</strong> at the completeness posit</td>
+<td>Bounded target-blind enumeration of admissible $\Delta B,\Delta L\neq0$ operators to dim 7 on the active-branch content, classify each (sector-crossing / coloured-triplet-mediated / <strong>other</strong>), then prove the "other" bin empty or exhibit a falsifier — and prove the leptoquark-KK-tower no-go. κ³/π falsification test binds: enlarging the class to fit whatever vanishes is a <em>relocation</em>, not a close</td>
+</tr>
+<tr>
+<td><strong>R2</strong> SHARED-OPEN: dim-6 BV is not a Fable win</td>
+<td><strong>GAP</strong> (claim-boundary / disclosure, not physics)</td>
+<td>none — there is <strong>no witness</strong> that would make this branch <em>uniquely</em> safe; dim-6 BV is a pressure on <strong>every</strong> GUT-class geometry (cross-geometry determination has no measured anchor)</td>
+<td><strong>OPEN</strong> (correctly DISCLOSED as SHARED-OPEN; honestly <em>not</em> a Fable win)</td>
+<td>Owner countersign of the <strong>filter-not-determiner</strong> framing wherever the pass is summarized: "exact-zero by projector identity" is a stronger <em>mechanism</em> than "tuned-small by heavy mediator", but the <em>outcome</em> (proton longevity) is shared. Lowest-risk honesty win in the gate</td>
+</tr>
+<tr>
+<td><strong>R3</strong> $M_R$ / dim-5 Weinberg scale UNKNOWN</td>
+<td><strong>WALL</strong> (the only apparent anchor — the seesaw scale — is itself unmeasured; the candidate $M_R=\kappa M_U$ is the κ³/π trap, ~231× off corpus κ⁰)</td>
+<td>the <strong>measured neutrino splitting $\Delta m^2$ via $N_\nu^2/M_R$</strong>, with $N_\nu$ from the frozen ratio — i.e. it must terminate on <strong>spectrum-E</strong> through the inversion, OR on the <strong>existing $M_U$ anchor</strong> if $M_R^{\rm req}$ lands there</td>
+<td><strong>OPEN</strong> (no value, formula, or hash; <code>BG10-FROZEN-MR</code>) — most tractable of the genuine-physics residuals; ceiling <strong>AXIOM-CLOSED</strong> (AXIOM-MR-IS-MU) if scales coincide</td>
+<td><strong>Run the inversion FIRST:</strong> $M_R^{\rm req}=N_\nu^2/(\text{abs }\Delta m^2)$; check whether it lands (within ~1 order) on $M_U$ or $R_0^{-1}$ <em>before</em> adopting any identity. A clean coincidence → AXIOM-CLOSED; no clean landing → every candidate RELOCATES a tuned scale. Shared with SG-8 — closing it once pays both debts</td>
+</tr>
+<tr>
+<td><strong>R4</strong> projector orthogonality AUDIT on the active-branch matter bundle</td>
+<td><strong>GAP</strong> (the route is fully known — it is linear-algebra-over-representations; only the from-scratch reconstruction is unfinished)</td>
+<td><strong>none new</strong> — terminates on the frozen geometry's own group theory (the $\mathbb{Z}_6$ centre + $\mathbb{Z}_2$ orbifold assignment), which is anchored at <strong>M_Pl-scale UV data</strong> already in the manifest, not on a measured number; orthogonality is a <em>computation</em>, not a brute fact</td>
+<td><strong>BLOCKED</strong> (route exists; the from-scratch $\mathcal{E}_{\rm matter}$ reconstruction is not re-run) → <strong>VERIFIED</strong> is the target; <strong>AXIOM-CLOSED</strong> (AXIOM-SECTOR-ORTHOGONALITY) is the fallback if deferred</td>
+<td>Reconstruct $\mathcal{E}_{\rm matter}$ target-blind from the A2.3 factorisation + R1.4 projectors + $\mathbb{Z}_6$/$\mathbb{Z}_2$ assignments; confirm $\Pi_i\Pi_j=\delta_{ij}\Pi_i$ and $\Pi_q\Pi_\ell=0$ to machine precision, and that hash <code>3b8d68559f5e</code> regenerates. Makes the identity's <em>premise</em> machine-real, not assumed</td>
+</tr>
+<tr>
+<td><strong>R5</strong> operator ledger / coverage harness AUDIT</td>
+<td><strong>GAP</strong> (reproducibility debt; no new physics — execution + verification only)</td>
+<td><strong>none</strong> — a content-addressed reproducibility fact (byte-equality to hash <code>bc1e4e84840a</code> + per-row mechanism witnesses), not a physical invariant</td>
+<td><strong>BLOCKED</strong> (CSV/script referenced, not mounted + re-run here) → <strong>VERIFIED</strong></td>
+<td>Mount the CSV; regenerate the L.2 ledger target-blind and confirm byte-equality; attach an explicit mechanism witness to every L.2b "Covered" row (sector-crossing→identity / coloured-triplet→Ingredient 1 / KK→no-joint-quantum-number lemma); re-hash to <code>a5b1e6f9d951</code>. <strong>Highest value-per-effort</strong> closeable item; fail-closed</td>
+</tr>
+<tr>
+<td><strong>R6</strong> lifetime is Diagnostic only</td>
+<td><strong>GAP</strong> (downstream of the operator pass; deliberately not frozen)</td>
+<td>the <strong>measured Super-K lifetime bound</strong> — but the predicted $\tau_p$ depends on un-frozen hadronic ME + residual $C_i$ + RG, so it is <strong>COMPUTATION-DEBT against spectrum-E</strong>, not a frozen output</td>
+<td><strong>measured-but-irreducible</strong> on the experiment side / Diagnostic-only on the theory side (correct discipline; promoting it is a status violation)</td>
+<td>Keep Diagnostic. The <em>only</em> non-violating upgrade is a target-blind <strong>lower bound</strong>: with all dim-6 declared coefficients exact-zero, floor $\tau_p$ from the dim-7 suppression ($\sim(v/M_U)^2$) + standard hadronic ME, reported as a <strong>floor</strong>, not a prediction (AXIOM-LIFETIME-FLOOR-FROM-SUPPRESSION). Optional</td>
+</tr>
+<tr>
+<td><strong>R7</strong> product-geometry is selected, not forced</td>
+<td><strong>WALL</strong> (inherited from SG-1/SG-2; the minimality-of-shape question rests on an undischarged universal-negative — "no simpler admissible competitor")</td>
+<td><strong>none</strong> — the product-vs-simple-group choice is a <strong>SHAPE-root</strong> question with no measured anchor (the gauge-group outcome is a rival TIE; cross-category minimality is uncomputable)</td>
+<td><strong>OPEN</strong> (inherited) — ceiling <strong>AXIOM-CLOSED</strong> (AXIOM-PRODUCT-BACKBONE, named as a $\times$-layer dependency, not silently smuggled)</td>
+<td>Fold into the SG-1/SG-2 "is the product backbone forced?" question; nothing closes <em>here</em>. Proton-safety-specific honest note: Ingredient 1 is <em>necessary for</em> the operator-level pass, so the pass is explicitly <strong>conditional on</strong> the selected geometry — name the dependency with a $\times$-layer freeze hash</td>
+</tr>
+<tr>
+<td><strong>R8</strong> $\tau=\omega$ Cartan substrate read from a minimum</td>
+<td><strong>WALL</strong> (inherited from SG-6; "read from a one-loop $V$-minimum" is the same soft spot SG-7's Diagnostic-only finding flags — a magnitude/object read, not derived)</td>
+<td><strong>none new</strong> — terminates on a <strong>symmetry fact</strong> (order-three modular fixed point of the $F^+$ Cartan torus), not a measured number; if proven unique it is symmetry-protected, not tuned</td>
+<td><strong>OPEN</strong> (inherited from SG-6) — ceiling <strong>AXIOM-CLOSED</strong> (AXIOM-MODULAR-FIXED-POINT), a genuine improvement over "read from a minimum"</td>
+<td>Prove $\tau=\omega$ is the <em>unique</em> modular-symmetric point of the $F^+$ Cartan-torus modular group, independent of the one-loop potential (clean group theory; shared with SG-6/SG-8). Upgrades both the flavor and proton sector decompositions from "read" to "symmetry-fixed"</td>
+</tr>
+<tr>
+<td><strong>R9</strong> non-perturbative / Planck channels outside the framework</td>
+<td><strong>WALL</strong> (no in-framework route: sphalerons/instantons are gauge-field configurations, not Wilson coefficients; Planck BV is Gate-11 excluded)</td>
+<td>the <strong>measured proton-decay null result</strong> (sphaleron low-$T$ rates are exponentially suppressed, well below sensitivity); Planck leg has <strong>no witness</strong> at scoped-GUT level</td>
+<td><strong>OPEN</strong> / DISCLOSED (correctly scoped out; behaviour is <em>good</em> — the refusal of a global $U(1)_B$ is <em>because</em> sphalerons must stay allowed, or observed SM physics breaks)</td>
+<td>None internal — scope + experiment (DUNE / Hyper-K ~2035). Keep the sphaleron low-$T$ suppression as the diagnostic statement; let the Planck leg sit under the Gate-11 exclusion lint</td>
+</tr>
+</tbody>
+</table>
+<h3>A.2 Gate-level rollup</h3>
+<p><strong>Overall disposition: PARTIAL → conservatively OPEN</strong> (matching the live Register SG-9 line). SG-9 carries <strong>one genuine,
+defensible, frozen-structure output</strong> — the product-factor $K_{\rm gauge}$ removes the simple-group $X/Y$ mediator and
+the coloured-Higgs triplet (the exact failure mode that executed minimal $SU(5)$), and the sector-projector identity
+$\Pi_q M\Pi_\ell=0$ makes every Wilson coefficient in the <strong>declared</strong> dangerous class an <strong>exact zero</strong> (not
+tuned-small). But run through the hardening method, the gate has <strong>no residual that terminates DERIVED on a single
+measured anchor</strong>: its central object (R1) is a <strong>WALL</strong> whose only honest anchor is a <em>new structure axiom</em>
+(physical-completeness), and its one genuine missing number (R3, $M_R$) is a <strong>WALL</strong> with no measured anchor unless
+the inversion lands $M_R^{\rm req}$ on an <em>existing</em> scale. The two cheap wins (R4, R5) are <strong>BLOCKED→VERIFIED</strong>
+reproducibility gaps, not promotions.</p>
+<p><strong>Anchors this gate depends on.</strong> Indirectly and <em>given-E</em>: <strong>spectrum-E</strong> (the SM chiral content from SG-2/SG-3, on
+which the projectors act; the Super-K lifetime bound R1/R6 must capture; the $\Delta m^2$ that R3's inversion uses) and
+<strong>M_Pl-scale UV data</strong> (the $\mathbb{Z}_6$/$\mathbb{Z}_2$ assignments and $M_U$ that R3/R4/R7 terminate on). The gate
+produces <strong>no new from-nothing anchor</strong>; it derives the declared-class zeros <em>given</em> the frozen labeling. It does
+<strong>not</strong> depend on α_i, y_t, or |V_us| directly. It inherits the $\tau=\omega$ substrate (R8) and $M_R$ scale (R3) that
+SG-6/SG-7/SG-8 also ride — the same un-derived-magnitude soft spot the SG-7 SCHEME-ANCHORED finding names.</p>
+<p><strong>Single highest-leverage hardening move.</strong> <strong>R1's coverage theorem</strong> — the bounded, target-blind enumeration of
+admissible BV operators to dim 7, classifying each and proving the "other" bin empty (or exhibiting a falsifier). It
+is the gate's own named falsifier and conditions whether the <em>exact operator-level pass</em> actually <em>means</em> proton-safe.
+DERIVED-CLOSED on R1 would upgrade L.2b from an audited table to a closed statement; the realistic ceiling is
+<strong>AXIOM-CLOSED</strong> at AXIOM-DANGEROUS-CLASS-COMPLETENESS — and saying so precisely <em>is</em> the closure, not a higher claim.
+(The cheapest <em>separate</em> win is R5, a pure reproducibility mount; the most tractable <em>physics</em> win is the R3 $M_R$
+inversion, shared with SG-8. None promotes the gate past PARTIAL.) <strong>Ceiling: serious candidate, NOT validated.</strong></p>
+<h3>🎯 Target anchor(s) for this gate</h3>
+<p>In the terminate-on (anchoring) sense, SG-9 terminates on <strong>two measured objects, and it is candidate-grade — no
+proton lifetime is predicted.</strong> (1) The <strong>observed spectrum E</strong> — the product backbone $K_{\rm gauge}=K_6\times S^2\times
+S^1_Y/\mathbb{Z}_2$ with **no GUT mediator** ($X/Y$ generator absent, no coloured-Higgs triplet) and the
+$\mathcal{E}_{\rm proton}$ sector projectors — supplied as input (<strong>DERIVED-GIVEN-E</strong>, never producing E). (2) The
+<strong>measured Super-K proton-lifetime bound</strong> ($\tau_p\gtrsim10^{34}$ yr) — the observable the dim-6 suppression must
+clear, and the fact the <em>declared</em> dangerous class must provably capture. <strong>Status: OPEN.</strong> The operator-level pass
+$\Pi_q M\Pi_\ell=0$ on the <em>declared</em> class is exact and real, but it has <strong>no measured-invariant witness</strong> that the
+declared class is physically complete (R1 is a WALL needing a NEW structure posit, AXIOM-DANGEROUS-CLASS-COMPLETENESS),
+and the dim-5 Weinberg leg's scale $M_R$ is <strong>UNKNOWN/open</strong> with no measured anchor unless its inversion lands on an
+existing scale (R3). The hardening move is a <strong>bounded, target-blind dim-6/dim-7 BV-operator census</strong> on the
+active-branch content (the R1 coverage theorem) reported as a <strong>floor</strong>, not a lifetime — enlarging the class to fit
+whatever vanishes is a relocation, not a close (κ³/π falsification test). NOT a measured-invariant termination today; NOT promoted.</p>
+<hr />
+
+<section id="sg9-pressure-test">
+  <h2>What this gate reduces to &mdash; and its honest status</h2>
+
+  <p style="border-left:4px solid #0b5;background:#f7fdf9;border-radius:4px;padding:.55rem .9rem"><strong>Status: OPEN (hardened).</strong> A serious candidate, not a validated
+  result. Two legs are machine-certified derivations <em>given the observed
+  Standard-Model content and the frozen geometry</em>, but the gate as a whole remains open on its
+  hardest residual. We have not proven absolute proton stability, predicted a lifetime, or shown this
+  geometry is uniquely safe.</p>
+
+  <h3>What it reduces to</h3>
+    <p>Proton safety on this branch ultimately rests on:</p>
+    <ul>
+      <li>The observed Standard-Model spectrum and the measured Super-Kamiokande
+      proton-lifetime bound (&tau;<sub>p</sub> &gtrsim; 10<sup>34</sup> yr). The lifetime bound is a
+      measured boundary the theory must respect; it is never used as an <em>input</em> to the
+      construction.</li>
+      <li>Safety is an algebraic <em>selection rule</em>: the matter content is split into a quark sector and a
+      lepton sector by orthogonal projectors, giving
+      &Pi;<sub>q</sub> M &Pi;<sub>&ell;</sub> = 0 for any sector-respecting interaction &mdash; not a heavy
+      mediator made heavy by hand.</li>
+      <li>Because the routing geometry is a <em>product</em> of compact
+      factors rather than a single unified group, there is no off-diagonal X/Y gauge boson and no
+      coloured-Higgs triplet &mdash; the exact failure mode of minimal SU(5). Kaluza-Klein tower side channels are
+      closed all-order by a colour-triality selection rule.</li>
+    </ul>
+
+  <h3>Honest endpoint</h3>
+    <p><strong>Established (given the observed spectrum and the frozen geometry):</strong> the product routing
+    structurally removes the X/Y and coloured-Higgs mediators that drive fast proton decay; the sector-orthogonality
+    identity forces every <em>declared</em> dangerous Wilson coefficient to be an exact zero; the
+    dimension &le; 7 operator census is machine-certified with an empty escapee bin and an active check that
+    rejects any dangerous operator; and
+    Kaluza-Klein leptoquark mediators are excluded to all orders by colour triality.</p>
+    <p><strong>The precisely-named open piece:</strong> all-order (dimension &gt; 7) operator-class completeness is
+    an unbounded universal-negative that no finite computation can close; the from-scratch sector-projector
+    reconstruction and the whole-object composition theorem remain to be built; cross-geometry uniqueness is
+    shared-open; the seesaw Majorana scale is unknown (no value, formula, or frozen record, and kept strictly
+    separate from the proton-decay claim); and the absolute proton lifetime is a measured-but-irreducible
+    boundary, never a derived prediction. The gate therefore stands at <strong>OPEN (hardened)</strong> by the
+    least-closed-residual rule.</p>
+</section>
+
+<h2>5. References &amp; source map</h2>
+<h3>5.1 Website source-of-truth (common material — link, don't duplicate)</h3>
+<ul>
+<li><strong>Paper I, GUT.html</strong> — <a href="https://physics.magflowmeters.com/articles/GUT.html">https://physics.magflowmeters.com/articles/GUT.html</a></li>
+<li><strong>§6.10</strong> Gate-10 card (binding status: 10a <em>Claimed certificate pass</em> operator / 10b <em>Diagnostic only</em>
+    lifetime); <strong>§6.12</strong> falsification map (Gate-10 row); <strong>§6.13</strong> certificate-status summary.</li>
+<li><strong>§5.9</strong> narrative module; <strong>Appendix CR, module CR10</strong> ("Proton Safety as a Worked Constraint",
+    CR10.1–CR10.14: the operator-vs-lifetime split, the implication-chain spine, the selector-elimination table, the
+    remove-one-term tests, the freeze table, the shows/does-not-show ledger, the audit questions).</li>
+<li><strong>Appendix L</strong> (Gate-10 certificate): L.0 authority + status/falsifier table; L.1 operator basis; L.2 11-row
+    operator ledger; <strong>L.2a</strong> declaration-before-elimination (the $\mathcal{O}_{\rm danger}^{\rm declared}$ box +
+    "what this does NOT claim" + falsification paths + the binding operator-vs-lifetime sentence); <strong>L.2b</strong> coverage
+    table + binding scope statement + reviewer falsification path; <strong>L.3</strong> FCNC / mediator no-go theorem (L.3.1
+    three-ingredient proof: mediator inventory + two-channel decoupling + projector orthogonality; L.3.2 explicit
+    BRST commutator, projector identities, Wilson-coefficient zeros, failure condition); L.4 lifetime diagnostic;
+    L.5 safety-vs-prediction; L.6 experimental comparison; L.7 certificate JSON; L.8 outputs; L.9 / L.9a failure
+    conditions + migration note (BRST clarity statement).</li>
+<li><strong>Appendix C10</strong> ($\mathcal{E}_{\rm proton}$ term authority card): formal object box; layer assignment +
+    anti-smuggling table; first gate required; gates served + operator-vs-lifetime split; failure-if-removed table;
+    freeze/certificate authority path; claim boundary; minimality.</li>
+<li><strong>Appendix A2</strong> §A2.6 (sector projectors), <strong>§A2.8</strong> (macro-projectors $\Pi_q,\Pi_\ell$ + the proton-safety
+    identity $\Pi_q M \Pi_\ell = 0$), §A2.9 (BRST/KK support); <strong>A1.13a</strong> (operator-class hash); <strong>A1.14</strong>
+    (projector domain-codomain table).</li>
+<li><strong>Appendix R0 / R1</strong> freeze records + frozen parameter manifest (all hashes in §0 above); R1.4 (sector
+    projectors), R1.6 (FCNC no-go + operator-class), R1.3 ($\mathbb{Z}_6$ / $\mathbb{Z}_2$), R1.11 (meta-hash);
+    <code>certificates/G10_proton_safety/</code> (25 randomized class members; $X$-like off-block FAIL); <code>appendix_K_proton_operator_ledger.csv</code>.</li>
+<li><strong>Appendix K</strong> (neutrino certificate) — the dim-5 Weinberg / Majorana-scale leg; <strong>K.4</strong> $M_R$ UNKNOWN box.</li>
+<li><strong>Paper IV, TOE.html</strong> — <a href="https://physics.magflowmeters.com/articles/TOE.html">https://physics.magflowmeters.com/articles/TOE.html</a> (claim-boundary / excluded-sector
+  cross-reference only; does not touch the operator-level closure).</li>
+</ul>
+<h3>5.2 Corpus locations (authoritative inputs to this dossier)</h3>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Path</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Per-gate dossier spec</td>
+<td><code>…/rendered/TOE/PER_GATE_DOSSIER_SPEC.md</code></td>
+<td>structure (sections 0–5)</td>
+</tr>
+<tr>
+<td>SG-9 status line</td>
+<td><code>…/rendered/TOE/SCOPED_GUT_PER_GATE_STATUS_LEDGER.md</code></td>
+<td>the <strong>PARTIAL</strong> label + the CANDIDATE-grade / SHARED-OPEN / filter-not-determiner caveats (carried verbatim)</td>
+</tr>
+<tr>
+<td>SG-8 exemplar (shape/depth match)</td>
+<td><code>…/rendered/TOE/PER_GATE_DOSSIERS/DOSSIER_SG8_FLAVOR_CLOSURE_ATTACK.md</code></td>
+<td>format reference; shared $M_R$ / $\tau=\omega$ residuals</td>
+</tr>
+<tr>
+<td>Gate-9 input-ledger finding (shared $M_R$)</td>
+<td><code>…/rendered/TOE/GATE9_FLAVOR_INPUT_LEDGER_FINDING_2026-06-24.md</code></td>
+<td>$M_R$ UNKNOWN (the dim-5/seesaw scale this gate inherits)</td>
+</tr>
+<tr>
+<td>Closure campaign result + round 2</td>
+<td><code>…/rendered/TOE/CLOSURE_CAMPAIGN_RESULT_2026-06-24.md</code> (+ <code>…_ROUND2_…</code>)</td>
+<td>κ³/π falsification test discipline; AXIOM-CLOSED ≠ proven; demotion-on-verify norm; <code>BG10-FROZEN-MR</code> is recipe-absent</td>
+</tr>
+<tr>
+<td>Axiom ledger</td>
+<td><code>…/rendered/TOE/AXIOM_LEDGER.md</code></td>
+<td><code>BG10-FROZEN-MR</code> = DECLARED-OPEN brute fact (the unknown Majorana scale)</td>
+</tr>
+<tr>
+<td>GUT manuscript</td>
+<td><code>…/rendered/GUT/GUT.md</code></td>
+<td>§6.10 (Gate-10 card); §5.9 (narrative); App L (proton-safety certificate); App C10 (E_proton dossier); CR10 (worked module); A2.6/A2.8/A2.9 (projectors/BRST)</td>
+</tr>
+<tr>
+<td>Exact-geometry anchor</td>
+<td><code>…/rendered/TOE/00_EXACT_GEOMETRY_ANCHOR.md</code> + <code>…/FROZEN_13D_BOUNDARY_DATA_PACKAGE.md</code></td>
+<td>frozen 13D K₆ branch (anti-drift)</td>
+</tr>
+</tbody>
+</table>
+<h3>5.3 Frozen-object hash index (load-bearing; READ-ONLY)</h3>
+<p>Branch <code>dcc66f1b2685</code> · manifest meta <code>a5b1e6f9d951</code> · sector projectors $\Pi_u,\Pi_d,\Pi_e,\Pi_\nu$
+<code>3b8d68559f5e</code> (R1.4) · FCNC / mediator no-go theorem (full) <code>fff4b433b7b3</code> (R1.6) · operator-class declaration
+<code>551488d06011</code> (R1.6) · Cartan-torus modulus $\tau=\omega$ <code>03b30a9c931a</code> · global $\mathbb{Z}_6$ centre
+<code>a68ee92a75be</code> · $\mathbb{Z}_2$ orbifold on $S^1_Y$ <code>ac4d2df3e708</code> · hypercharge bundle (no coloured-Higgs partner)
+<code>44516f6400ae</code> · proton-operator ledger CSV <code>bc1e4e84840a</code>. <strong>Macro-projectors $\Pi_q,\Pi_\ell$, $Q_{\rm BRST}$, the
+no-mediator identity $\Pi_q M \Pi_\ell=0$, empty-cohomology statement: derived / standard — no separate R1 hash.</strong>
+<strong>$M_R$ (dim-5 Weinberg / seesaw Majorana scale): no hash — UNKNOWN/open (<code>BG10-FROZEN-MR</code>).</strong> Machine certificate:
+<code>certificates/G10_proton_safety/</code> (25 randomized class members; $X$-like off-block → FAIL confirmed).</p>
+<hr />
+<h3>Closing honest statement</h3>
+<p>SG-9 is <strong>PARTIAL</strong>. Its genuine, defensible content is real and strong: the <strong>product-factor</strong> structure of
+$K_{\rm gauge}$ removes the simple-group $X/Y$ mediator and the coloured-Higgs triplet — the exact failure mode that
+executed minimal $SU(5)$ — and the sector-projector identity $\Pi_q M \Pi_\ell = 0$ makes every Wilson coefficient
+in the <strong>declared</strong> dangerous class an <strong>exact zero</strong> (not a tuned-small number), with the spectator side doors
+honestly closed by a two-channel BRST/KK-number argument that <em>refuses</em> the false "all KK modes are BRST-exact"
+claim, and with sphaleron-compatibility secured by operator algebra rather than a global $U(1)_B$ that would break
+the SM; the machine certificate passes on 25 randomized class members with a falsifiable prediction. Its honest open surface
+is equally clear: the pass is <strong>CANDIDATE-grade safety against the <em>declared</em> operator class</strong> — the gate's own named
+falsifier is whether the identity kills the <em>physically relevant</em> class or only the declared one; dim-6 BV is
+<strong>SHARED-OPEN</strong> across all GUT-class geometries (no Fable win; a <em>filter</em>, not a <em>determiner</em>); the dim-5 Weinberg /
+seesaw scale <strong>$M_R$ is UNKNOWN/open</strong> (shared with SG-8); the projector-orthogonality premise and the operator
+ledger are <strong>AUDIT</strong>; the numerical lifetime is <strong>Diagnostic only</strong>; and the product geometry it rests on is
+<strong>selected, not forced</strong>. The attack plan reduces these to named, target-blind axioms and bounded, falsifiable
+computations — with the κ³/π falsification test guarding R1 (so a hand-fit class-enlargement cannot be banked) and R3 (so a
+tuned $M_R$ cannot be dressed as a derivation). The realistic ceiling is machine-verified premises over a named
+axiom floor, with an honest SHARED-OPEN scope — <strong>not</strong> a promotion. <strong>No status was ever upgraded; frozen branch <code>dcc66f1b2685</code> /
+<code>a5b1e6f9d951</code> READ-ONLY; given-E ≠ derivation of E; a selection-rule pass on a declared class ≠ a proof of absolute
+proton safety; nothing applied, nothing deployed.</strong></p>
+<p><em>Dossier built 2026-06-24. Our geometry (13D K₆ branch) only. Common material referenced to the published website
+source-of-truth, not duplicated.</em></p>
+</body></html>

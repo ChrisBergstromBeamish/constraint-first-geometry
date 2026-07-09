@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SG-3 — Three generations &amp;chi;=&amp;minus;3: full dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">SG-3 — Three generations χ=−3: full dossier — rendered package. Rendered from <code>DOSSIER_SG3_FULL.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>SG-3 — Three generations χ=−3: full dossier</h1>
+<blockquote>
+<p><strong>Status (binding): DERIVED-GIVEN-E.</strong> STATUS-UPGRADES:0. Frozen 13D branch <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code> READ-ONLY; spin/twisted-spin bundle data <code>0fd19c9ae0c1</code>; orbifold parity ledger <code>ac4d2df3e708</code>. Nothing in this dossier is mutated, applied, or deployed.</p>
+<p><strong>The one sentence to carry.</strong> The number of matter generations — a brute fact the Standard Model has <em>input</em> by hand for fifty years — comes out of this geometry as a <strong>rigid whole number with no dial: |χ(K₆,E)| = 3</strong> — computed <em>with the observed Standard-Model content E as input</em> (given-E ≠ derivation of E). The magnitude is genuine and convention-independent; the chirality <em>sign</em> is not pinned by the frozen record.</p>
+</blockquote>
+<hr />
+<h2>Table of contents</h2>
+<ol>
+<li>Executive summary + honest status</li>
+<li>The community gap</li>
+<li>The construction — rigorous math</li>
+<li>The insights we used</li>
+<li>Evidence &amp; reproducibility</li>
+<li>Open gaps + closure path — the specialist work plan</li>
+<li>Honest ceiling &amp; scope</li>
+</ol>
+<hr />
+<h2>1. Executive summary + honest status</h2>
+<h3>1.1 Headline</h3>
+<p>Why are there exactly <strong>three</strong> generations of matter — three copies of the same quark-and-lepton pattern, no more and no fewer? It is one of the oldest unanswered questions in particle physics. The Standard Model does not derive the number 3; it <em>inputs</em> it. Experiment pins the count of light neutrino species to <strong>N_ν = 2.984 ± 0.008</strong> (LEP/SLD), but that is a <em>measurement</em>, not a <em>mechanism</em>. No accepted theory closes this.</p>
+<p>On the frozen 13D K₆ branch, the family count is <strong>not a fitted parameter — it is a topological index</strong>. Two complementary counting theorems agree:</p>
+<ul>
+<li>The <strong>Borel–Weil–Bott (BWB) index</strong> of the frozen bundle on the flag manifold <strong>K₆ = SU(3)/T²</strong> returns <strong>χ(K₆,E) = −3</strong>. The magnitude |−3| = 3 is the generation count.</li>
+<li>The <strong>Atiyah–Patodi–Singer (APS) boundary index</strong> on the orbifold fold <strong>S¹_Y/ℤ₂</strong> returns <strong>(n_L, n_R) = (+3, 0)</strong> — three families of one surviving handedness, zero surviving mirror (the count is chiral; <em>which</em> handedness is a convention sign, not pinned — see §1.3 and R7).</li>
+</ul>
+<p>This is a <strong>rigid, deformation-proof integer</strong>: no continuous modulus can move it inside the declared search category (Atiyah–Singer rigidity). It is exactly the <em>kind</em> of object a family count <em>should</em> be — a winding number, not a volume knob. The engine underneath it (the zero-weight multiplicity rule m₀(p,q) and the ℤ₆ centre congruence) regenerates from scratch, <strong>target-blind</strong>, from the actual SM hypercharges. On the program's own grading this gate <strong>ties SG-2 as the strongest in the corpus</strong>, because an integer index is more rigid than a coupling-power ratio.</p>
+<h3>1.2 The honest grade</h3>
+<p><strong>DERIVED-GIVEN-E</strong> (direction: held; no promotion).</p>
+<p>The qualifier <strong>given-E</strong> is load-bearing and travels with every statement in this dossier. The index χ(K₆,E) = −3 is the index <em>of a bundle E that is the SM chiral content itself</em> (its first Chern class / weight is read off the observed particle charges). So the result <strong>certifies that this geometry+bundle yields three families, given the particles we observe</strong>. It does <strong>not</strong> claim three is forced across every conceivable geometry (that is a universal negative, unprovable for <em>any</em> theory — see §7), and it emphatically does <strong>not</strong> derive E. Using χ = −3 to "force" E would be circular, because E is the input.</p>
+<h3>1.3 What this dossier establishes and what it does not</h3>
+<p><strong>Establishes (given-E, given the selected &amp; frozen geometry+bundle):</strong> that the family count on this branch is a rigid integer index = 3, left-handed, no surviving mirror; that the rep-theory engine producing it reproduces target-blind; that the carrier K₆ is the same SU(3) flag used for colour at SG-2 (the strongest reuse point in the program); and that the genuine <em>magnitude</em> claim is a confident, falsifiable bet.</p>
+<p><strong>Does not establish:</strong> that 3 is unique across geometries (OPEN, no witness); that the bundle/weight returning −3 is the <em>unique admissible</em> one (OPEN — hole R3, highest leverage); that the +2-dimension preference of K₆ over the cheaper CP² carrier is target-blind (OPEN — hole R2, the SHAPE suite's named live smuggle); that the structure is literally "spin-ℂ" (REFUTED on-disk — hole R4; the genuine object is the twisted (Spin × G_SM)/ℤ₆); that the machine certificate independently re-derives the index (it is a consistency lint — hole R6); or that the chirality <em>sign</em> (left- vs right-handed) is pinned (it rides an unpinned Pin⁺/Pin⁻ convention bit whose <strong>default value comes out the <em>wrong</em> sign</strong> in the sister gate — hole R7).</p>
+<p><strong>given-E ≠ derivation of E. AXIOM-CLOSED ≠ proven. selection ≠ derivation. dissolved ≠ solved.</strong></p>
+<hr />
+<h2>2. The community gap</h2>
+<h3>2.1 The precise open problem</h3>
+<p>The Standard Model gauge group G_SM = SU(3)_c × SU(2)_L × U(1)_Y comes with a matter sector that repeats: each generation is one copy of</p>
+<blockquote>
+<p>Q_L = (3, 2, +1/6), u_R = (3̄, 1, −2/3), d_R = (3̄, 1, +1/3), L_L = (1, 2, −1/2), e_R = (1, 1, +1) — 15 Weyl fermions per generation (16 with a right-handed neutrino).</p>
+</blockquote>
+<p>The pattern occurs <strong>three times</strong>, with identical gauge charges and differing only in mass. The SM Lagrangian contains the number 3 as a multiplicity input; nothing in the SM explains why it is 3 rather than 1, 2, or 4. This is the <strong>family (generation) replication problem</strong>.</p>
+<h3>2.2 The state of the art / best bound</h3>
+<p>The strongest <em>empirical</em> statement is the LEP/SLD measurement of the invisible Z width, which counts light, weakly-interacting neutrino species: <strong>N_ν = 2.984 ± 0.008</strong> (cited in the corpus as the admissibility-boundary anchor; see DOSSIER_SG3 §0 and Objection 4). This is a measurement of the number of light active neutrinos — a <em>constraint</em>, not a derivation. It excludes a fourth <em>light</em> generation but does not explain why the count is 3.</p>
+<p>On the theory side there is no accepted derivation. Past program-level attempts to <em>force</em> the count fall into recognizable classes, each with a known obstruction:</p>
+<ul>
+<li><strong>Anomaly-freedom as a determiner.</strong> Tempting, because each SM generation is separately anomaly-free, but this is a <strong>filter, not a determiner</strong>. There are infinitely many anomaly-free chiral U(1) extensions of the SM (Allanach et al., arXiv:2111.04148; anomaly-free atlas JHEP 02 (2019) 082), the hypercharge assignment sits in a one-parameter family, and the generation <em>number</em> is left unfixed. The corpus records this as the refutation of its own internal claim "T3" (E forced by anomaly-freedom + minimality) — explicitly <strong>REFUTED</strong> (REDUCTION_SPINTWIST_C §3(iii)).</li>
+<li><strong>String/F-theory family counts.</strong> Family number appears as an intersection/Euler-characteristic number on a Calabi–Yau or its bundle, but the count is a <em>choice of compactification + bundle</em>, with a vast landscape; "three" is selectable, not forced.</li>
+<li><strong>Topological-index proposals (the class this gate belongs to).</strong> A family count <em>should</em> be an index (a winding number), and several frameworks observe this. The honest residual that defeats all of them is the same one this gate confronts squarely: the index is computed <em>with the matter bundle as input</em>, so it certifies a count <em>for that bundle</em>, not a forcing of the bundle.</li>
+</ul>
+<h3>2.3 Why each prior attempt falls short — and where this gate stands relative to them</h3>
+<p>The community gap is not "find a number that equals 3." Almost any framework can be <em>arranged</em> to give 3. The real gap is <strong>derive 3 without feeding in the answer</strong> — target-blind, with the matter content not assumed. Measured against that bar:</p>
+<ul>
+<li>This gate's <strong>magnitude</strong> result is genuinely strong: 3 is a rigid integer index (BWB closed-form), deformation-proof in-category, and the rep-theory engine under it (§3.5, §3.6) regenerates target-blind from the SM hypercharges, passing the κ³/π anti-smuggle test. This is <em>more</em> than "arranged to give 3."</li>
+<li>But the gate does <strong>not</strong> clear the full bar, and says so: the <em>bundle/weight</em> read on K₆ is <strong>selected inside a declared admissibility class</strong>, not proven unique (R3), and the carrier preference over the cheaper CP² is bought with a tie-break that is 3-generation-aligned (R2). So the honest position is: the count is a rigid index <em>given a selected bundle</em>, the strongest such statement currently on offer, with the selection openly conceded.</li>
+</ul>
+<hr />
+<h2>3. The construction — rigorous math</h2>
+<blockquote>
+<p>Full published derivation: GUT.html §6.4 (Gate-4 card), §5.3 (narrative), §3.4 (topological-count machinery), Appendix E (E.1 mechanism / E.2 three generations / E.3 mirror ledger / E.6 certificate), Appendix GP.3 (the counting theorems), Appendix C2 (K₆ dossier), C4 (S¹_Y/ℤ₂ dossier), A2.2 (bundle ledger). This section is the attack-grade reconstruction of that material, not a reprint; every number is cited to a corpus file read for this dossier.</p>
+</blockquote>
+<h3>3.1 The end-to-end pipeline</h3>
+<p>The family count is generated by <strong>two index computations on the frozen geometry</strong>, summarized in the corpus as "K₆ counts the families; S¹_Y/ℤ₂ makes them chiral by projecting out the mirror copy" (CR4.6). The forward chain (§5.3, Appendix E.1; DOSSIER_SG3 §1.1):</p>
+<pre><code> K₆ = SU(3)/T²  +  frozen (twisted-)spin bundle  --BWB index--&gt;  χ(K₆,E) = −3   --&gt;  |Index| = 3 families
+ S¹_Y/ℤ₂ fold   +  frozen boundary parity ledger  --APS index--&gt;  (n_L, n_R) = (+3, 0)  --&gt;  mirrors removed
+ E_matter (chiral actors) + P_χ projector          --zero modes--&gt; three left-handed SM generations
+</code></pre>
+<p>The load-bearing factors, named so each can be attacked independently:</p>
+<h3>3.2 The carrier K₆ = SU(3)/T²</h3>
+<p>K₆ is the <strong>complete flag manifold of ℂ³</strong> — the space of full flags (line ⊂ plane ⊂ ℂ³). As a homogeneous space it is SU(3) modulo its maximal torus T² = U(1) × U(1):</p>
+<ul>
+<li><strong>Dimension.</strong> dim K₆ = dim SU(3) − dim T² = 8 − 2 = <strong>6</strong> (W3; DOSSIER_SG3 §1.1, W3 row). Hand-checkable.</li>
+<li><strong>Euler characteristic.</strong> χ(K₆) = |W(SU(3))| = |S₃| = <strong>6</strong>, where W(SU(3)) is the Weyl group (the symmetric group S₃ on the three eigenvalues). For a compact homogeneous space G/T the Euler characteristic equals the order of the Weyl group — a standard fact (Hopf–Samelson). So χ(K₆) = 6 (W3). Hand-checkable.</li>
+<li><strong>Structure.</strong> K₆ is a compact homogeneous <strong>Kähler</strong> manifold with isometry group SU(3). Line bundles on K₆ are classified by weights of T² (equivalently, integer pairs in the weight lattice), and the cohomology of those line bundles — hence the particle content they induce — is computable in <strong>closed form</strong> by Borel–Weil–Bott (§3.4).</li>
+</ul>
+<p><strong>The reuse point (strongest in the program).</strong> K₆ = SU(3)/T² is the <strong>same</strong> factor SG-2 uses to recover colour SU(3). The carrier that carries colour is the carrier that counts families — no new geometric term is introduced for the family count (DOSSIER_SG3 §1.1, factor 1; W3). The <em>carrier's</em> selection is itself defended at SG-2 by <strong>abelian-isotropy uniqueness</strong>: T² is the unique purely-abelian SU(3) isotropy subgroup that gives a clean SU(3) gauge sector, and the cheaper CP² = SU(3)/U(2) over-produces gauge content at Gate 2 (DOSSIER_SG3 §4.3 firewall table, row 1: PASS — K₆ is the unique clean carrier <em>for gauge</em>, data-independently). <strong>Attack handle:</strong> the <em>carrier</em> is forced <em>for gauge</em>; the <em>bundle/weight</em> read on it for the family count is <strong>selected</strong> (residuals R2/R3).</p>
+<h3>3.3 The matter bundle and the projector</h3>
+<p>The chiral actors live in the matter bundle <strong>E_matter</strong>, the ⊗-layer object on which the chirality projector</p>
+<blockquote>
+<p><strong>P_χ = ½(1 + γ₅ Γ₈)</strong></p>
+</blockquote>
+<p>and the index operator act (Appendix C7; P_χ derived from the frozen hashes <code>ac4d2df3e708</code> + <code>0fd19c9ae0c1</code>; DOSSIER_SG3 §1.1 factor 4). Without E_matter neither the projector nor the index has a domain. The surviving content is exactly the SM set: the right-handed singlets (u_R, d_R, e_R and the neutrino-sector mode) arise from the conjugate sector through the chamber projectors with the <strong>same generation count</strong>. The generation module is</p>
+<blockquote>
+<p><strong>𝒢_gen = span{g₁, g₂, g₃}, dim = 3</strong>,</p>
+</blockquote>
+<p>matched to the family index −3 (A1.13), and consumed downstream by the F⁺ flavor chamber (SG-8 inherits this dimension; DOSSIER_SG3 §1.1 factor 5).</p>
+<h3>3.4 Borel–Weil–Bott on K₆ and the index χ = −3</h3>
+<p>On a homogeneous Kähler space G/T, Borel–Weil–Bott computes the cohomology of a line bundle L_λ associated to a weight λ in closed form: H<em>(G/T, L_λ) is either zero (when λ + ρ is singular, ρ = half-sum of positive roots) or carries a single irreducible G-representation in a degree fixed by the length of the Weyl element making λ + ρ dominant. The </em><em>holomorphic Euler characteristic</em>*</p>
+<blockquote>
+<p>χ(K₆, L_λ) = Σ_i (−1)^i dim H^i(K₆, L_λ)</p>
+</blockquote>
+<p>is therefore a closed-form, integer-valued, representation-theoretic quantity — <em>not a numerical fit</em>. For the frozen bundle E on K₆, this Euler characteristic returns</p>
+<blockquote>
+<p><strong>χ(K₆, E) = −3</strong>  (Appendix E.1; bundle ledger A2.2; GP.3; frozen R1.4 datum, hash <code>0fd19c9ae0c1</code>).</p>
+</blockquote>
+<p>The interpretation (DOSSIER_SG3 §1.1, factor 2; §1.2 genuine-content table):</p>
+<ul>
+<li>The <strong>magnitude</strong> |χ| = 3 is the number of generations.</li>
+<li>The <strong>sign</strong> −3 records chirality (left-handed orientation) — <em>convention-stated</em>, see §3.7 and R7.</li>
+<li><strong>No additional family</strong> appears: under the same bundle the index returns no further zero mode (no count above 3).</li>
+<li><strong>No fewer:</strong> the integer is robust against continuous deformation <strong>within the declared admissibility category</strong> (Atiyah–Singer rigidity — an index cannot change under continuous deformation of the operator/bundle, only across discrete category boundaries). This is what "no dial" means.</li>
+</ul>
+<p><strong>Honest structural caveat (R4).</strong> Kähler manifolds are canonically spin-ℂ, and the manuscript currently calls this object the "spin-ℂ Borel–Weil–Bott index." For <strong>pure SM content that wording is REFUTED</strong> (§3.8). The numerical value |χ| = 3 survives the correction unchanged — a count is not a structure label — but the genuine forced object is the <strong>twisted (Spin × G_SM)/ℤ₆</strong> bundle, and the BWB-on-line-bundle computation is the symbolically re-derivable leg of it.</p>
+<h3>3.5 The zero-weight multiplicity rule m₀(p,q) (the engine, target-blind)</h3>
+<p>Under the BWB machinery the relevant T²-invariant (zero-weight) subspace of an SU(3) irrep with Dynkin labels (p,q) has multiplicity given by</p>
+<blockquote>
+<p><strong>m₀(p,q) = min(p,q) + 1   if (p − q) ≡ 0 (mod 3),  else 0</strong></p>
+</blockquote>
+<p>(W4; SHAPE_M0_DELTASPINC §1.1; verified target-blind via Freudenthal's recursion in the closure campaign — "m₀(p,q) re-derived from scratch via Freudenthal"). All eight tabulated values regenerate. The worked table (SHAPE_M0_DELTASPINC §1.1):</p>
+<table>
+<thead>
+<tr>
+<th>(p,q)</th>
+<th>Casimir C₂</th>
+<th>m₀</th>
+<th>dim</th>
+<th>deg = dim·m₀</th>
+<th>contrib = deg·C₂</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(0,0) singlet</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>(1,1) adjoint</td>
+<td>3</td>
+<td>2</td>
+<td>8</td>
+<td>16</td>
+<td>48</td>
+</tr>
+<tr>
+<td>(3,0)</td>
+<td>—</td>
+<td>1</td>
+<td>10</td>
+<td>10</td>
+<td>(UV tower)</td>
+</tr>
+<tr>
+<td>(2,2)</td>
+<td>—</td>
+<td>3</td>
+<td>27</td>
+<td>81</td>
+<td>(UV tower)</td>
+</tr>
+<tr>
+<td>(3,3)</td>
+<td>—</td>
+<td>4</td>
+<td>64</td>
+<td>256</td>
+<td>3840 (UV)</td>
+</tr>
+</tbody>
+</table>
+<p>The key target-blind output: the dominant low-lying triality-0 boson is the adjoint (1,1) with contribution 16·3 = <strong>48</strong>; the singlet contributes 0. (The full unregulated tower sums to 4596, but that figure is a UV artifact — (3,3) alone is 3840 — removed by the heat-kernel regulator; it is discarded for the sign read. SHAPE_M0_DELTASPINC §1.1.) The point for SG-3 is <strong>not</strong> these specific weights but that the rule m₀(p,q) = min(p,q)+1 is <strong>regenerated from scratch, not reverse-engineered to any target</strong> — it passes the κ³/π anti-smuggle test (W4).</p>
+<h3>3.6 The ℤ₆ centre via the Tong congruence (target-blind, field-by-field)</h3>
+<p>The subgroup of the centre of G_SM that acts <strong>trivially</strong> on the SM matter content is computed directly from the actual SM hypercharges (REDUCTION_SPINTWIST_C §2; W5). Writing a centre element as (z₃, z₂, phase) in (ℤ₃ of SU(3)_c) × (ℤ₂ of SU(2)_L) × U(1)_Y, the kernel is exactly six elements,</p>
+<blockquote>
+<p><strong>ℤ₆ = {(0,0,0), (0,1,3), (1,0,4), (1,1,1), (2,0,2), (2,1,5)}</strong>,</p>
+</blockquote>
+<p>generated by ξ = ω(x) η(x) e^{2πi/6}. Equivalently, the <strong>Tong congruence</strong></p>
+<blockquote>
+<p><strong>q = 6Y ≡ 3z₂ − 2z₃  (mod 6)</strong></p>
+</blockquote>
+<p>holds <strong>field-by-field</strong> for Q_L, u_R, d_R, L_L, e_R, and the Higgs (REDUCTION_SPINTWIST_C §2(B); Tong arXiv:1705.01853). This was <strong>computed from the SM charges, not reverse-engineered to a target</strong> (W5; passes the κ³/π anti-smuggle test).</p>
+<h3>3.7 The no-mirror fold S¹_Y/ℤ₂ and its APS index</h3>
+<p>A <em>closed</em> internal factor is handedness-neutral. This is corpus fact <strong>F2</strong>: on a closed manifold, left- and right-handed zero modes come in matched pairs, so the net handed count is zero — a bare circle S¹_Y mirrors every fermion, and the APS index reads <strong>(n_L, n_R) = (+3, +3)</strong> (DOSSIER_SG3 §1.1 factor 3). That is the wrong physics: the SM is chiral.</p>
+<p>The repair is an <strong>edge (boundary)</strong>. The orbifold S¹_Y/ℤ₂ folds the circle by the reflection θ ↦ −θ, with two fixed points {0, π} (freeze R1.3, hash <code>ac4d2df3e708</code>). The boundary parities admit one handedness and refuse its mirror. Under the frozen parity ledger the <strong>Atiyah–Patodi–Singer</strong> boundary index returns</p>
+<blockquote>
+<p><strong>(n_L, n_R) = (+3, 0)</strong>  (Appendix E.1/E.3; A1.8; GP.3) —</p>
+</blockquote>
+<p>three families with one surviving handedness, zero surviving mirror — i.e. <strong>chiral</strong> rather than mirror-symmetric. (Which handedness — "left" vs "right" — is the <em>sign</em> of the index, and that sign rides an unpinned Pin⁺/Pin⁻ convention bit whose default comes out the <em>wrong</em> way downstream; see §3.7-caveat and R7. The settled, convention-independent facts here are the <strong>magnitude 3</strong> and the <strong>one-sidedness n_R = 0</strong>, not the left/right label.) A one-sided count of this kind is <strong>impossible on any closed factor</strong> — it requires the boundary. The contrast with the bare-S¹_Y control (+3, +3) proves the fold is <strong>load-bearing</strong> (W2; this is the cleanest no-go leg of the gate, and it is hand-checkable, see §5.3).</p>
+<h3>3.8 The spin-ℂ obstruction and the forced twisted-spin structure (R4)</h3>
+<p>The manuscript wording "spin-ℂ Borel–Weil–Bott index" is <strong>provably wrong for pure SM content</strong>. The computation (REDUCTION_SPINTWIST_C §2; reproduced target-blind in C:/tmp scripts cited there; SHAPE_M0_DELTASPINC §2):</p>
+<ul>
+<li><strong>(A) spin-ℂ OBSTRUCTED.</strong> A spin-ℂ structure for the SM matter exists iff some U(1) ⊂ G_SM assigns <strong>all-odd</strong> charges to the 15 Weyl fermions of a generation. An all-odd-U(1) scan over a wide rational range returns <strong>EMPTY</strong> for pure SM — reproducing <strong>Davighi–Gripaios–Lohitsiri (arXiv:1910.11277, Sec. 7)</strong>. <em>Test-the-test:</em> inserting a gauged B−L direction makes the all-odd search <em>succeed</em>, proving the scanner discriminates and the obstruction is genuine, not a bug (W6).</li>
+<li><strong>(B) ℤ₆ kernel</strong> = ker(centre → Aut(E)), exactly the six elements of §3.6.</li>
+<li><strong>(C) (−1)^F is a gauge-centre element.</strong> The fermion-parity operator (−1)^F acts as the SU(2) 2π rotation R = (−1)^{dual} on every fermion, so it is identified with the internal centre. Consequently the global structure <strong>must</strong> be the twisted <strong>(Spin × G_SM)/ℤ₆</strong>, with twist order <strong>n = 2</strong> (REDUCTION_SPINTWIST_C §2(C), §3).</li>
+</ul>
+<p><strong>Result.</strong> The global spin form forced by E's charges is <strong>spin-G_SM = (Spin × [SU(3)_c × SU(2)_L × U(1)_Y])/ℤ₆</strong>, with twist order n = 2 — <em>not</em> a product Spin × (gauge bundle), and <em>not</em> spin-ℂ. This is <strong>FORCED-GIVEN-E</strong> (it lands on E + the anomaly rulebook C_admiss + a Dai–Freed single-valuedness principle; all three falsifier conditions PASS — spin-from-E, lands-on-E, E-stays-primitive; REDUCTION_SPINTWIST_C §4). <strong>Crucially the value |χ| = 3 is unchanged by this correction</strong> — and the corpus is explicit that this is FORCED-GIVEN-E, <strong>not</strong> a forcing of E itself (T3 stays REFUTED).</p>
+<h3>3.9 What "closed" means here, and its three conditions</h3>
+<p>"Closed" for SG-3 is <strong>a rigid integer family-count mechanism under declared assumptions</strong> — strictly <em>not</em> a from-nothing inevitability of three, <em>not</em> a proof that three is unique across geometries, <em>not</em> a derivation of E. It is conditional on (DOSSIER_SG3 §1.2):</p>
+<ol>
+<li><strong>given-E</strong> — the SM chiral content E (the bundle whose Chern class returns −3, and the hypercharge ledger fixing admissibility) is supplied as input. SG-3 does not derive E; using χ = −3 to force E is circular.</li>
+<li><strong>given-the-selected-geometry+bundle</strong> — the carrier K₆ is forced <em>for gauge</em> (abelian-isotropy uniqueness), but the <strong>bundle/weight is selected</strong> inside a declared admissibility class, not proven unique.</li>
+<li><strong>given-the-data-exclusion</strong> — the deformation that would change the index to 2 or 4 is excluded by the <strong>LEP N_ν bound</strong> (2.984 ± 0.008), i.e. by <em>data</em>. So the count's robustness against a fourth-family rescue is partly a data input at the class boundary, not a pure internal forcing.</li>
+</ol>
+<p>The genuine, defensible content that survives this accounting:</p>
+<table>
+<thead>
+<tr>
+<th>Genuine output</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Family count = 3, a <strong>deformation-proof integer</strong> (no dial)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>No surviving mirror</strong> (n_R = 0)</td>
+<td>APS one-sided boundary index on S¹_Y/ℤ₂ (F2 + the fold)</td>
+</tr>
+<tr>
+<td>The integer is the <strong>right kind of number</strong></td>
+<td>topology, not a tuned bundle modulus ("three by dial" fails even at 3)</td>
+</tr>
+</tbody>
+</table>
+<p>The conditional / selection-in-disguise content:</p>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Honest reality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Three families are <strong>derived</strong>"</td>
+<td>given-E — the bundle returning −3 <strong>is</strong> E; not a from-nothing derivation</td>
+</tr>
+<tr>
+<td>"Three is <strong>unique across geometries</strong>"</td>
+<td>NOT claimed — only this geometry+bundle is certified</td>
+</tr>
+<tr>
+<td>"K₆ is <strong>forced</strong> to carry exactly −3"</td>
+<td>the carrier is forced <em>for gauge</em>; the bundle/weight is selected (R2, R3)</td>
+</tr>
+<tr>
+<td>"the <strong>spin-ℂ</strong> index"</td>
+<td>REFUTED wording for pure SM — the forced object is twisted (Spin × G_SM)/ℤ₆ (R4)</td>
+</tr>
+<tr>
+<td>"no fourth family, by topology"</td>
+<td>robustness in-category is topological; exclusion of the 2/4 deformation leans on LEP N_ν</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>4. The insights we used</h2>
+<p>These are the moves that made the progress believable and reproducible — now shared at working-physicist depth.</p>
+<h3>4.1 A family count must be the right <em>kind</em> of number — an index, not a volume</h3>
+<p>The deepest insight is a <em>type</em> constraint, not a value. A continuous bundle modulus can be tuned to any real number; a count tuned that way is meaningless. The right object for "how many copies" is a <strong>topological index</strong> — an integer that is <em>deformation-proof</em>, that <em>cannot</em> slide under a continuous knob (Atiyah–Singer rigidity). The corpus encodes this as the candidate target-blind axiom <strong>AXIOM-COUNT-MUST-BE-INDEX</strong>: "an admissible family count must be a deformation-proof topological integer (an index), not a continuous bundle modulus." Stated this way, the criterion rejects "three by dial" <em>because it is a dial</em>, not <em>because it is three</em> — value-blind. This is what makes the gate's central claim more than "arranged to give 3."</p>
+<h3>4.2 Reuse the carrier — the colour flag <em>is</em> the family flag</h3>
+<p>K₆ = SU(3)/T² is not introduced for the family count; it is already present as the colour carrier at SG-2, selected there by <strong>abelian-isotropy uniqueness</strong> (T² the unique purely-abelian SU(3) isotropy giving a clean gauge sector; CP² over-produces gauge). Counting families on the <em>same</em> manifold, with <em>no new geometric term</em>, is the strongest economy in the program (DOSSIER_SG3 §1.1, W3; §4.3). It also localizes the open surface: the <em>carrier</em> debt is paid at SG-2; what remains genuinely open at SG-3 is only the <em>bundle/weight</em> on it.</p>
+<h3>4.3 Split the gate into "count" and "chirality," and use a boundary for the chirality</h3>
+<p>The two halves are physically distinct and the corpus keeps them apart: K₆ + BWB <em>counts</em> (magnitude), S¹_Y/ℤ₂ + APS makes them <em>chiral</em> (removes the mirror). The chirality half is a clean <strong>no-go</strong>: a closed factor <em>cannot</em> produce a one-sided count (F2), so the (+3, 0) result <em>requires</em> the orbifold edge — the bare-circle control (+3, +3) is the proof that the fold is load-bearing. Separating the halves means a soft spot in one (the convention sign, R7) does not contaminate the other (the rigid magnitude).</p>
+<h3>4.4 Compute the engine from the charges, not from the answer (the κ³/π discipline)</h3>
+<p>The rep-theory machinery underneath — the m₀(p,q) multiplicity rule (§3.5) and the ℤ₆ centre congruence (§3.6) — was <strong>regenerated from scratch</strong>: m₀ via Freudenthal's recursion, the ℤ₆ kernel field-by-field from the actual SM hypercharges. Neither was reverse-engineered to a target. This is the κ³/π falsification test in action: <em>a proposed axiom or computation counts only if it would be written without knowing the answer.</em> Passing it is what separates a genuine reproduction from a fit dressed as a derivation.</p>
+<h3>4.5 When a label is wrong, say so — and check the value survives</h3>
+<p>The "spin-ℂ" wording is technically false for pure SM (Davighi–Gripaios–Lohitsiri). Rather than defend it, the corpus <em>computed the obstruction</em> (empty all-odd-U(1) scan, with a B−L test-the-test confirming the scanner discriminates) and identified the genuine forced object (twisted (Spin × G_SM)/ℤ₆ via the Tong ℤ₆ and (−1)^F = SU(2) 2π rotation). The discipline: a refuted <em>label</em> is a correctness gain, not a downgrade — provided you confirm the <em>value</em> (|χ| = 3) is a count, not a structure label, and so survives. It does.</p>
+<h3>4.6 Name the smuggle out loud — the +2-dimension payment</h3>
+<p>The most honest move in the suite is to <em>flag its own live smuggling surface</em>. K₆ (6D) beats the cheaper CP² (4D) on the family count only by <strong>paying +2 dimensions</strong> under an anti-fitting tie-break ("adjustable counts as fail") that is <strong>aligned with the 3-generation target</strong> (REVIEW_SHAPE_SUITE defect 4). The carrier-over-CP² choice is legitimately forced <em>for gauge</em> (SG-2), but the <em>family-count</em> preference leans on a target-aligned tie-break. Naming it as the suite's named live smuggle — rather than hiding it — is what keeps the gate's strong magnitude claim credible.</p>
+<hr />
+<h2>5. Evidence &amp; reproducibility</h2>
+<h3>5.1 The witness ledger</h3>
+<p>Each witness is graded <strong>hand-checkable</strong> / <strong>symbolic</strong> / <strong>machine-lane</strong>, with an honest <em>reproduces?</em> flag (DOSSIER_SG3 §2.1):</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Witness</th>
+<th>What it asserts</th>
+<th>Grade</th>
+<th>Reproduces?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1</td>
+<td>BWB index χ(K₆,E) = −3 (App E.1; A2.2; GP.3)</td>
+<td>family count =</td>
+<td>−3</td>
+<td>= 3, a rigid integer</td>
+</tr>
+<tr>
+<td>W2</td>
+<td>APS index (n_L, n_R) = (+3, 0) on S¹_Y/ℤ₂</td>
+<td>mirror sector removed; one-sided count</td>
+<td>hand-checkable (toy) / symbolic (full)</td>
+<td><strong>Yes.</strong> One-line interval toy is hand-checkable (§5.3); full count reads the frozen parity table <code>ac4d2df3e708</code>. Bare-S¹_Y control returns (+3, +3) — fold is load-bearing.</td>
+</tr>
+<tr>
+<td>W3</td>
+<td>χ(K₆) = 6 =</td>
+<td>W(SU(3))</td>
+<td>=</td>
+<td>S₃</td>
+</tr>
+<tr>
+<td>W4</td>
+<td>m₀(p,q) = min(p,q) + 1 (if (p−q)≡0 mod 3, else 0)</td>
+<td>rep-theory engine reproducible</td>
+<td>machine-lane</td>
+<td><strong>Yes — reproduced target-blind</strong> via Freudenthal; all 8 table values regenerate (SHAPE_M0_DELTASPINC §1.1).</td>
+</tr>
+<tr>
+<td>W5</td>
+<td>ℤ₆ centre via Tong congruence q ≡ 3z₂ − 2z₃ (mod 6)</td>
+<td>trivially-acting centre is exactly ℤ₆</td>
+<td>machine-lane</td>
+<td><strong>Yes — computed field-by-field</strong> from actual SM hypercharges (REDUCTION_SPINTWIST_C §2); not reverse-engineered (passes κ³/π).</td>
+</tr>
+<tr>
+<td>W6</td>
+<td>spin-ℂ obstruction for pure SM (DGL arXiv:1910.11277 Sec. 7)</td>
+<td>no U(1) ⊂ G_SM gives all-odd Weyl charges ⇒ no spin-ℂ</td>
+<td>machine-lane</td>
+<td><strong>Yes — reproduced</strong> (empty all-odd-U(1) scan; B−L test-the-test makes it succeed ⇒ non-vacuous). Refutes the literal "spin-ℂ" label;</td>
+</tr>
+<tr>
+<td>W7</td>
+<td>selector elimination of CP² ("three by dial")</td>
+<td>cheaper 4D carrier fails: its count is a continuous modulus</td>
+<td>symbolic/audit</td>
+<td><strong>Conditional.</strong> Elimination reproduces, but relies on the anti-fitting tie-break aligned with the 3-target (R2). Honest only if anti-fitting is a genuine prior pass/fail.</td>
+</tr>
+<tr>
+<td>W8</td>
+<td>freeze hashes <code>0fd19c9ae0c1</code>, <code>ac4d2df3e708</code>, meta <code>a5b1e6f9d951</code></td>
+<td>every Gate-4 object content-addressed before comparison</td>
+<td>machine-lane</td>
+<td><strong>Yes in principle</strong> (re-hash R1.3/R1.4; recompute meta); not re-run here.</td>
+</tr>
+<tr>
+<td>W9</td>
+<td>machine certificate <code>certificates/G04_chirality/</code></td>
+<td>parity-table lint + index-consistency against declared values</td>
+<td>machine-lane</td>
+<td><strong>AUDIT</strong> — checks consistency <em>against the declared</em> −3 and (+3, 0) (CR4.11); a lint, <strong>not</strong> a from-scratch re-derivation (this is hole R6).</td>
+</tr>
+</tbody>
+</table>
+<h3>5.2 What reproduces, plainly</h3>
+<ul>
+<li><strong>The integer reproduces, and its rigidity is real.</strong> |χ(K₆,E)| = 3 is a closed-form BWB output, not a fit. The APS (+3, 0) is hand-checkable via the one-line interval toy. The bare-S¹_Y control (+3, +3) confirms the fold is load-bearing. This is the strongest, most defensible leg of the gate.</li>
+<li><strong>The rep-theory engine reproduces target-blind.</strong> m₀(p,q) and the ℤ₆ Tong congruence both regenerate from scratch, computed from the actual SM charges (W4/W5).</li>
+<li><strong>The deformation-proof claim reproduces <em>in-category</em>.</strong> No continuous modulus moves the index inside the declared search category — that is what "topological" means here (CR4.4).</li>
+</ul>
+<h3>5.3 How a reader re-runs / re-derives</h3>
+<ul>
+<li><strong>χ(K₆) = 6, dim K₆ = 6 (W3):</strong> by hand. |W(SU(3))| = |S₃| = 6; dim SU(3) − dim T² = 8 − 2 = 6.</li>
+<li><strong>APS (+3, 0) (W2):</strong> the one-line interval toy (Appendix T.3) — on the interval with the frozen boundary parities, the even left-mode survives both walls, the odd right-mode vanishes ⇒ one-sided count. Hand-checkable. The full count reads three rows of the parity table <code>ac4d2df3e708</code>; the bare-S¹_Y control (+3, +3) is the load-bearing contrast.</li>
+<li><strong>m₀(p,q) (W4):</strong> re-derive via Freudenthal's multiplicity recursion for SU(3) irreps; check all eight tabulated values (§3.5).</li>
+<li><strong>ℤ₆ Tong congruence (W5):</strong> compute q = 6Y for each SM field and verify q ≡ 3z₂ − 2z₃ (mod 6) field-by-field (Q_L, u_R, d_R, L_L, e_R, Higgs). Scripts cited: C:/tmp/spintwist_check.py, spintwist_B.py, spintwist_twist.py; independent verification verify_spintwist_indep.py, verify_spinc_obstruction.py (REDUCTION_SPINTWIST_C §2, §7).</li>
+<li><strong>spin-ℂ obstruction (W6):</strong> run the all-odd-U(1) charge scan over a wide rational range — it returns EMPTY for pure SM (reproducing DGL Sec. 7); add a gauged B−L direction and the scan succeeds (test-the-test).</li>
+</ul>
+<h3>5.4 Frozen-object hash index (load-bearing; READ-ONLY)</h3>
+<p>Branch <code>dcc66f1b2685</code> · manifest meta <code>a5b1e6f9d951</code> · (twisted-)spin bundle data on K₆ (R1.4) <code>0fd19c9ae0c1</code> · ℤ₂ orbifold + boundary parity ledger (R1.3) <code>ac4d2df3e708</code>. Carrier K₆ = SU(3)/T², χ(K₆) = 6, and the index value χ(K₆,E) = −3 / APS (+3, 0) are frozen R1.3/R1.4 outputs. <strong>No new hash is introduced by this dossier; nothing is mutated.</strong></p>
+<p><strong>Missing artifact (blocks R4/R6 from-scratch re-index):</strong> <code>k6_dirac_spectrum.csv</code> — <strong>ABSENT</strong> (closure-campaign batch1; the twisted-Dirac spectrum is not on disk). Do not fabricate it.</p>
+<hr />
+<h2>6. Open gaps + closure path — the specialist work plan</h2>
+<blockquote>
+<p>The most load-bearing section. Each open hole is a work-package a specialist can act on. Closure paths must be <strong>non-target-loaded</strong>: a proposed axiom or computation counts only if it would be written <em>without knowing the answer</em> (the κ³/π falsification test). The realistic ceiling per residual is <strong>AXIOM-CLOSED</strong> (name one explicit target-blind posit) or <strong>sharper-OPEN</strong>; DERIVED-CLOSED is rare and, where it depends on a universal negative, unreachable. <strong>Dispositions stay conservative. STATUS-UPGRADES:0.</strong></p>
+</blockquote>
+<p><strong>Leverage ranking (attack order):</strong> R3 → (R1 via R3) → R2 → R4 → R6 → R5 / R7. The cardinal honest point: R1/R2/R3 are where the given-E conditioning lives. If a closure path <em>introduces a new target-aligned criterion</em> to force 3 (e.g. "pick the weight that gives three"), it has <strong>relocated</strong> the input, not removed it — the κ³/π falsification test applies in full force, and the SHAPE suite already flags the +2-dimension forcedness override as the live smuggle.</p>
+<hr />
+<h3>6.1 R3 — Bundle admissibility / uniqueness (HIGHEST LEVERAGE)</h3>
+<p><strong>(a) Precise statement.</strong> The bundle/weight on K₆ returning χ = −3 is <strong>selected inside a declared admissibility class</strong>, not proven the unique admissible one. There is no internal theorem saying "the admissible weight is unique." This is the <strong>only</strong> path that could lift the given-E conditioning (R1): if the admissible bundle is <em>forced</em> by carrier + ℤ₆ centre + hypercharge ledger (no 3-aligned tie-break, no LEP input), then "3" is forced by geometry+admissibility <em>alone</em>, moving the gate toward FORCED.</p>
+<p><strong>(b) Why it's hard / traps to avoid.</strong> A bundle-uniqueness theorem requires ruling out <em>all</em> admissible weights — an <strong>undischarged universal negative</strong>. This mirrors the program's already-<strong>DEMOTED</strong> A5-actor / SHAPE Lemma 3 attempt ("is E_matter the minimal actor realization?"), demoted to OPEN because its success criterion was exactly such a universal negative, left UNMET (competitor matrix all "Unknown"). <strong>Trap:</strong> any "minimality" claim that secretly uses "it gives three" as the selector is the κ³/π failure mode and must be <strong>killed, not banked</strong> — it is the SHAPE-suite live smuggle in disguise. <strong>Trap 2:</strong> do not conflate the bounded, plug-able part (the finite weight-enumeration + index map) with the unprovable absolute-uniqueness phrasing; only the former is a real hole, the latter is a dissolved unicorn (§7).</p>
+<p><strong>(c) Exactly what closes it.</strong> A bounded, target-blind computation:
+1. Enumerate the K₆ weights compatible with the ℤ₆ centre (the Tong-congruence lattice q ≡ 3z₂ − 2z₃ mod 6).
+2. Apply the BWB index to each; build the map weight ↦ χ.
+3. Test whether <strong>minimality</strong> (lowest weight) singles out a <strong>unique</strong> weight giving |χ| = 3 — <em>without</em> invoking "three" and <em>without</em> the LEP input.
+4. Sensitivity: does any neighboring admissible weight also give 3 (degenerate), or give 2/4 (excluded only by LEP)? If 2/4 are excluded only by LEP, R3 stays open and R5 is confirmed.</p>
+<p><em>Success criterion (DERIVED-CLOSED, unlikely):</em> minimal admissible weight proven unique <strong>and</strong> its index forced to 3 with no 3-aligned tie-break and no LEP input. <em>Realistic ceiling (AXIOM-CLOSED):</em> name <strong>AXIOM-MIN-WEIGHT-LIFT</strong> — "the admissible bundle on K₆ is the minimal-weight twisted-spin ((Spin × G_SM)/ℤ₆) lift compatible with the ℤ₆ centre and the hypercharge ledger; the family count is its Borel–Weil–Bott index" — and <em>check</em> it yields 3. This is writable with no generation number in sight, so it passes the κ³/π falsification test <em>as a statement</em>. <em>Expected outcome (sharper-OPEN):</em> minimality does not single out a unique weight, or excludes 2/4 only via LEP ⇒ "3" stays <em>rigid-given-a-selected-bundle</em>, selection conceded. <em>A REFUTING result is a valid close:</em> a strictly-lower-cost admissible weight giving χ ≠ −3 ⇒ the minimal-weight axiom is false and the bundle was 3-selected — a structure-first datum departing from the target (the good kind of negative).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Borel–Weil–Bott on SU(3)/T² (closed-form, GP.3); the ℤ₆ Tong-congruence lattice (REDUCTION_SPINTWIST_C §2); the hypercharge ledger (A2.2). Start from: DOSSIER_SG3 §4.1; the m₀/Freudenthal machinery (SHAPE_M0_DELTASPINC §1.1). Frozen reference value: χ = −3 (<code>0fd19c9ae0c1</code>).</p>
+<p><strong>(e) Leverage.</strong> If R3 closes, R2's tie-break dependence falls, R1's given-E conditioning lifts, and R5 becomes boundary-rigid. It is the busiest node's single highest-value move.</p>
+<hr />
+<h3>6.2 R2 — Bundle-selected vs bare-carrier-forced (the SHAPE suite's named LIVE SMUGGLE)</h3>
+<p><strong>(a) Precise statement.</strong> "3" is read off a <strong>chosen weight</strong>. On the cheaper carrier CP² = SU(3)/U(2) (4D) the family count is a <strong>continuous bundle modulus</strong> — "three by dial." K₆ (6D) is preferred because its count is a rigid integer, but that preference is <strong>purchased by paying +2 dimensions</strong> under an anti-fitting tie-break ("adjustable counts as fail") that is <strong>aligned with the 3-generation target</strong>, overriding the declared lower-dimension Occam rule (REVIEW_SHAPE_SUITE defect 4 — the suite's named live smuggling surface).</p>
+<p><strong>(b) Why it's hard / traps to avoid.</strong> The firewall question is whether the anti-fitting tie-break is a genuine <em>prior</em> pass/fail (written before, and independently of, the 3-generation target) or was inserted to make K₆ beat CP² (i.e. to reach 3). The firewall, datum by datum (DOSSIER_SG3 §4.3):</p>
+<table>
+<thead>
+<tr>
+<th>Selection datum</th>
+<th>Record</th>
+<th>Target-blind?</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Carrier K₆ over CP²</td>
+<td>abelian-isotropy uniqueness (CP² over-produces gauge at Gate 2)</td>
+<td><strong>yes</strong> at Gate 2 (gauge over-production is data-independent)</td>
+<td><strong>PASS</strong> — K₆ is the unique clean carrier <em>for gauge</em></td>
+</tr>
+<tr>
+<td>The +2-dimension payment "for forcedness" at Gate 4</td>
+<td>§4.6: "selector pays two extra dimensions for K₆'s forced count"</td>
+<td><strong>SUSPECT</strong> — overrides lower-dimension Occam with anti-fitting</td>
+<td><strong>FLAGGED</strong> — the live smuggle</td>
+</tr>
+<tr>
+<td>Anti-fitting firewall ("adjustable counts as fail")</td>
+<td>a declared prior pass/fail predicate (count must be a deformation-proof integer)</td>
+<td><strong>borderline</strong> — a <em>type</em> predicate, not a value predicate</td>
+<td><strong>PASS-as-type / SUSPECT-as-tiebreak</strong></td>
+</tr>
+<tr>
+<td>The bundle/weight returning −3</td>
+<td>selected in the admissibility class</td>
+<td><strong>NO</strong> at the weight level</td>
+<td><strong>FAIL — the weight is selected</strong> (this is R3)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Trap:</strong> do not bank the elimination of CP² as a clean win — it leans on the target-aligned tie-break. <strong>Trap 2:</strong> the carrier-over-CP² choice <em>is</em> legitimately forced <strong>for gauge</strong> (SG-2); do not let that legitimate result launder the <em>family-count</em> tie-break, which is separate.</p>
+<p><strong>(c) Exactly what closes it.</strong> Re-run the selector with the <strong>3-generation target MASKED</strong>:
+1. Compute the family-count map on CP² = SU(3)/U(2) explicitly; confirm it is a continuous bundle modulus (not an index).
+2. Verify the type-axiom <strong>AXIOM-COUNT-MUST-BE-INDEX</strong> — "an admissible family count must be a deformation-proof topological integer, not a continuous bundle modulus" — rejects CP² <em>for being a dial</em>, value held abstract (a CP² tuned to <em>four</em> fails it just as a CP² tuned to three does).
+3. Survey the sub-6D SU(3) carrier list for any rigid-integer-count survivor; confirm K₆ is the minimal one, <strong>value-blind</strong>.
+4. Falsification test: does the +2-dimension payment still go through on "rigid-integer-count" alone, with the 3-target masked?</p>
+<p><em>Success (AXIOM-CLOSED, likely if the masked run passes):</em> the +2-dimension payment is justified by <em>type</em> (rigid-integer-count), not <em>target</em> (the value 3); the smuggle is <strong>defused</strong>. <em>DERIVED-CLOSED (possible, bounded):</em> K₆ proven the unique minimal-dim rigid-integer-count SU(3) carrier, value-blind. <em>sharper-OPEN:</em> the masked run shows the payment only goes through <em>because</em> it yields 3 ⇒ smuggle <strong>confirmed</strong> (the honest negative the suite warns about). <em>REFUTING result:</em> a sub-6D carrier has a rigid-integer count ≠ 3 the selector should have preferred ⇒ the carrier choice was 3-selected.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The selector / category-relativity layer (Appendix B1/B2, B2.0.3.4); the CP² = SU(3)/U(2) bundle-count computation; the sub-6D SU(3) homogeneous-space list. Start from: DOSSIER_SG3 §4.3; REVIEW_SHAPE_SUITE defect 4.</p>
+<p><strong>(e) Leverage.</strong> Closing R2 at the type level removes the gate's reliance on a target-shaped criterion; it is the credibility anchor for the strong magnitude claim. Partially shared with the SHAPE shape-minimality dossier.</p>
+<hr />
+<h3>6.3 R4 — "spin-ℂ" wording REFUTED for pure SM (cleanest correctness win)</h3>
+<p><strong>(a) Precise statement.</strong> The manuscript (§6.4, Appendix E.1, CR4.5, GP.3) calls the object the "spin-ℂ Borel–Weil–Bott index," but pure SM content <strong>provably forbids</strong> a spin-ℂ structure (DGL arXiv:1910.11277 Sec. 7). The value 3 is intact; the <em>structure label</em> is wrong. The genuine forced object is the twisted <strong>(Spin × G_SM)/ℤ₆</strong> (n = 2).</p>
+<p><strong>(b) Why it's hard / traps to avoid.</strong> Not hard — the refutation is already computed on-disk (REDUCTION_SPINTWIST_C; SHAPE_M0_DELTASPINC §2). <strong>Trap:</strong> do <strong>not</strong> present this as a value downgrade — |χ| = 3 is a count, not a structure label, and survives. <strong>Trap 2:</strong> do not assert "twisted-spin index = 3" as a <em>re-derived</em> value yet — the from-scratch twisted-Dirac re-index is BLOCKED (see below); the corrected wording is reachable now, the re-derived value is not.</p>
+<p><strong>(c) Exactly what closes it.</strong> Two tiers:
+- <strong>DISCLOSED-CORRECTED (reachable now, owner wording patch):</strong> replace "spin-ℂ index" with "twisted-spin ((Spin × G_SM)/ℤ₆) index" in §6.4 / Appendix E.1 / CR4.5 / GP.3, citing DGL 1910.11277 + Tong 1705.01853 (+ Hsieh–Tachikawa–Yonekura; García-Etxebarria–Montero 1808.00009). Named axiom: <strong>AXIOM-TWISTED-SPIN-GIVEN-E</strong> — "the global spin structure on the active branch is the twisted (Spin × G_SM)/ℤ₆ forced by E's charges mod 2; the family count is the index of the associated twisted-Dirac operator on K₆, |Index| = 3; spin-ℂ is OBSTRUCTED for pure SM." This is FORCED-GIVEN-E (it references only the SM charges, the centre, and Dai–Freed single-valuedness; carries no generation number).
+- <strong>DERIVED-CLOSED of the value-under-corrected-structure (BLOCKED_INPUTS):</strong> mount the absent twisted-Dirac spectrum file <code>k6_dirac_spectrum.csv</code> and confirm the twisted-Dirac index on K₆ = 3, matching the BWB-on-line-bundle value. <em>A REFUTING result</em> (twisted-Dirac index ≠ 3) would be a genuine downgrade — but the structure-and-value consistency is expected.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The spin-ℂ obstruction scan + ℤ₆ kernel + (−1)^F identification (REDUCTION_SPINTWIST_C §2; scripts cited there). The twisted-Dirac index computation requires <code>k6_dirac_spectrum.csv</code> (ABSENT — must be generated, not fabricated). Start from: DOSSIER_SG3 §4.4.</p>
+<p><strong>(e) Leverage.</strong> Pure correctness/honesty gain; no value change. It also clarifies R6 and R7, which both reference the twisted structure.</p>
+<hr />
+<h3>6.4 R6 — The G04_chirality certificate is a consistency lint, not a from-scratch re-derivation</h3>
+<p><strong>(a) Precise statement.</strong> <code>certificates/G04_chirality/</code> lints the parity table (survivors = SM set, mirrors projected, counts consistent) <strong>against the declared index values</strong> −3 and (+3, 0) — <em>under those declared values</em> (CR4.11). It does <strong>not</strong> independently regenerate the index from the bundle data target-blind. The §6.4 card's "Claimed certificate pass" is therefore a lint pass, not an independent proof.</p>
+<p><strong>(b) Why it's hard / traps to avoid.</strong> <strong>Trap:</strong> do not print the certificate as an <em>independent proof of the index</em> — that would overclaim until the from-scratch re-index runs. The re-index is <strong>BLOCKED</strong> on the same missing <code>k6_dirac_spectrum.csv</code> as R4. The BWB-on-line-bundle symbolic leg and the APS parity-table leg are re-derivable now; the full twisted-Dirac re-index is not.</p>
+<p><strong>(c) Exactly what closes it.</strong> A fail-closed reproducibility task:
+1. Mount the K₆ bundle data + the twisted-Dirac / BWB computation.
+2. Re-derive the index <strong>from the bundle data target-blind</strong> (do not read the declared −3).
+3. Confirm it equals the frozen −3 and that the APS boundary count re-derives (+3, 0) from the parity ledger <code>ac4d2df3e708</code>.
+4. Re-hash R1.3/R1.4 and confirm the meta-hash recomputes to <code>a5b1e6f9d951</code>.</p>
+<p><em>Success:</em> VERIFIED — "Claimed certificate pass" becomes machine-real beyond a lint. <em>REFUTING result (valid close):</em> the index fails to regenerate ⇒ Gate-4 downgrades per the §5.3.7 falsifier (count ≠ 3 / count moduli-dependent / mirror survives) — and the downgrade cascades (R8).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The G04_chirality certificate harness; the parity ledger <code>ac4d2df3e708</code>; the bundle data <code>0fd19c9ae0c1</code>; the (absent) <code>k6_dirac_spectrum.csv</code>. Start from: DOSSIER_SG3 §4.6, W9.</p>
+<p><strong>(e) Leverage.</strong> Converts an asserted index into a machine-checked one with no new physics — high value-per-effort, but gated on the same missing twisted-Dirac artifact as R4. Closing R4's CSV unblocks both R6 and R4's DERIVED-CLOSED tier.</p>
+<hr />
+<h3>6.5 R7 — The chirality SIGN convention bit is unpinned (and its default is on-disk WRONG-sign)</h3>
+<p><strong>(a) Precise statement.</strong> The <strong>magnitude</strong> 3 is robust and convention-independent. The <strong>sign</strong> −3 (chirality orientation — "left-handed, not right-handed") rides an <strong>unpinned Pin⁺/Pin⁻ convention bit</strong>, the same bit that leaves BG-10's e^{±iπ/4} unfixed (SHAPE_M0_DELTASPINC §4; HANDOFF_SPECIALIST_3). The family-count magnitude is independent of it; the chirality <em>label</em> is convention-stated, not pinned by the frozen record.</p>
+<p><strong>The honest, structure-first datum that must not be glossed:</strong> the geometry's <strong>default</strong> setting of this bit comes out the <strong>WRONG sign</strong> in the sister gate. CLOSURE_CAMPAIGN_RESULT_2026-06-24 (line 33) records that the default χ = −3 (= 5 mod 8) gives <strong>arg = −135°</strong> = e^{−3iπ/4} — the wrong sign for the BG-10 leptogenesis target (which needs σ_ν = +1 → e^{+iπ/4}). "The axiom DEPARTS from the target rather than wearing it." So "left-handed, no surviving mirror" is <em>convention-stated</em>, and the default convention currently points the <em>wrong</em> way downstream — a concrete, falsifiable, on-disk finding, not a bland "convention bit." (Do not launder this into a generic "unpinned bit" — that is the exact failure the re-grade referee caught.)</p>
+<p><strong>(b) Why it's hard / traps to avoid.</strong> It is a single discrete bit, but it is shared across three threads (SG-3 chirality, BG-10 phase, SHAPE q-sign) — <em>three threads landing on one wall</em> (convergence, evidence the wall is real and singular, <strong>not</strong> evidence it has been crossed). <strong>Trap:</strong> do not assert the chirality label "left-handed" as an established output; per the frozen record only the magnitude is settled. <strong>Trap 2:</strong> do not hide the wrong-sign default — surface it as the real datum.</p>
+<p><strong>(c) Exactly what closes it.</strong> Hand the spin-bordism specialist (same handoff as BG-10 Rule A / HANDOFF_SPECIALIST_3) the question: <strong>is the orientation Pin bit on S¹_Y/ℤ₂ fixed by Dai–Freed single-valuedness of the chiral-fermion measure, or is it a free convention?</strong> Named axiom: <strong>AXIOM-CHIRALITY-ORIENTATION</strong> — "the orientation/Pin bit fixing the sign of the index as left-handed is a single discrete convention choice on the S¹_Y/ℤ₂ reflection; the family-count magnitude is independent of it." <em>AXIOM-CLOSED</em> (bit named/isolated) is the realistic endpoint. <em>DERIVED-CLOSED</em> if the bit is shown Dai–Freed-forced. <em>Structure-first outcome:</em> if the twisted-structure default is the correct (left-handed) sign, R7 strengthens; if the default is the <em>wrong</em> sign (as the on-disk datum currently shows for BG-10), that is a structure-first datum worth recording — possibly a real obstruction for the downstream leptogenesis leg, not a free pass.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Dai–Freed / spin-bordism single-valuedness of the chiral-fermion measure (García-Etxebarria–Montero arXiv:1808.00009); the twisted (Spin × G_SM)/ℤ₆ structure (R4); the mod-8 ledger (CLOSURE_CAMPAIGN_RESULT_2026-06-24 line 33). Start from: DOSSIER_SG3 §4.7; SHAPE_M0_DELTASPINC §4.</p>
+<p><strong>(e) Leverage.</strong> The count is unaffected, so this is a chirality-<em>label</em> residual, not a count residual. But it is shared with BG-10 (η_B / leptogenesis sign), so resolving the bit downstream-correctly closes a wall common to three gates.</p>
+<hr />
+<h3>6.6 R5 — The index-changing deformation is excluded by data, not topology</h3>
+<p><strong>(a) Precise statement.</strong> The index −3 is deformation-proof <strong>inside</strong> the declared admissibility class. The neighboring values (2, 4) that an <strong>index-changing</strong> bundle deformation would produce are excluded by the <strong>LEP N_ν bound</strong> (2.984 ± 0.008), i.e. by <em>data</em>. So "no dial" is <strong>topological in-category + empirical at the class boundary</strong> — two distinct robustnesses that must not be conflated.</p>
+<p><strong>(b) Why it's hard / traps to avoid.</strong> No closure path "solves" this; the task is to state the two robustnesses distinctly. <strong>Trap:</strong> do not present "no fourth family by topology" without the qualifier — the in-category rigidity is topological, but the exclusion of the 2/4 deformation leans on LEP.</p>
+<p><strong>(c) Exactly what closes it.</strong> A consistency sweep (DISCLOSED-CONSISTENT, already substantially in place via Objection 4): keep the topological-vs-empirical split explicit wherever "topologically forced / no fourth family" appears. Named axiom: <strong>AXIOM-INDEX-RIGID-IN-CATEGORY</strong> — "the family count is invariant under every continuous deformation <em>within</em> the declared admissibility class; index-changing deformations across the class boundary are excluded by the LEP N_ν bound, an external datum." This becomes <em>boundary-rigid</em> (i.e. fully topological) only if R3 closes — R5 is the dependent of R3.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Appendix C2/C4/E; the Objection 4 answer; the LEP N_ν = 2.984 ± 0.008 datum. Start from: DOSSIER_SG3 §4.5.</p>
+<p><strong>(e) Leverage.</strong> Keeps the "no dial" claim correctly scoped; closing R3 would absorb it.</p>
+<hr />
+<h3>6.7 R8 (dependency record) — the blast radius of "3"</h3>
+<p>Not a closure target, but recorded so a reviewer sees SG-3 is the dependency graph's busiest node. SG-8's generation module dim 𝒢_gen = 3 is <strong>inherited</strong> from this index (A1.13). The SG-7 threshold δ-vector is <strong>load-bearing on the count −3</strong> (Appendix E / G.3.2: "if the count were −2 or −4 the column sums would not reproduce (+4.8424, −3.1112, −1.7313)"). A revision of "3" cascades to Gates 5/7/9/10 (CR4.7; CR4.11 downgrade rule). <strong>Action:</strong> keep the cascade wired and the given-E qualifier travelling with "3" everywhere it is consumed (SG-8 already carries it; SG-7 is diagnostic-only and so cannot <em>certify</em> "3" downstream).</p>
+<hr />
+<h3>6.8 Attack-plan roll-up</h3>
+<table>
+<thead>
+<tr>
+<th>Residual</th>
+<th>Technique</th>
+<th>Named axiom (κ³/π-clean)</th>
+<th>Specialist target / owner artifact</th>
+<th>Realistic endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R3 bundle uniqueness</td>
+<td>selector + no-go</td>
+<td>AXIOM-MIN-WEIGHT-LIFT</td>
+<td>weight-enumeration + index map; bundle-uniqueness theorem</td>
+<td>sharper-OPEN → AXIOM-CLOSED if minimality yields 3 value-blind</td>
+</tr>
+<tr>
+<td>R1 given-E</td>
+<td>axiom-floor</td>
+<td>AXIOM-CONTENT-GIVEN</td>
+<td>(closeable only via R3)</td>
+<td>AXIOM-CLOSED (where it sits); gate stays DERIVED-GIVEN-E</td>
+</tr>
+<tr>
+<td>R2 bundle-selected (live smuggle)</td>
+<td>firewall + selector</td>
+<td>AXIOM-COUNT-MUST-BE-INDEX</td>
+<td>masked-target selector re-run; minimal-dim rigid-count carrier proof</td>
+<td>OPEN → AXIOM-CLOSED if masked run passes</td>
+</tr>
+<tr>
+<td>R4 spin-ℂ wording</td>
+<td>computed no-go</td>
+<td>AXIOM-TWISTED-SPIN-GIVEN-E</td>
+<td>owner wording patch; twisted-Dirac re-index (CSV absent)</td>
+<td>DISCLOSED-CORRECTED now; DERIVED-CLOSED BLOCKED_INPUTS</td>
+</tr>
+<tr>
+<td>R6 certificate lint</td>
+<td>machine-lane</td>
+<td>(none)</td>
+<td>re-derive index target-blind from bundle data (CSV absent)</td>
+<td>BLOCKED_INPUTS → VERIFIED</td>
+</tr>
+<tr>
+<td>R7 chirality Pin bit</td>
+<td>axiom-floor</td>
+<td>AXIOM-CHIRALITY-ORIENTATION</td>
+<td>Dai–Freed bit-forcing (HANDOFF_SPECIALIST_3)</td>
+<td>AXIOM-CLOSED (count unaffected; default currently wrong-sign)</td>
+</tr>
+<tr>
+<td>R5 data-excluded deformation</td>
+<td>scope-the-claim</td>
+<td>AXIOM-INDEX-RIGID-IN-CATEGORY</td>
+<td>consistency sweep</td>
+<td>DISCLOSED-CONSISTENT (dependent on R3)</td>
+</tr>
+<tr>
+<td>R8 inheritance</td>
+<td>dependency record</td>
+<td>(none)</td>
+<td>keep cascade wired</td>
+<td>DISCLOSED</td>
+</tr>
+</tbody>
+</table>
+<p><strong>REDUCE-vs-RELOCATE verdict.</strong> The plan does <strong>not</strong> turn one hard problem into three harder ones. Each path either (a) names a single target-blind axiom paying a debt in plain sight (R1, R2-type-axiom, R5, R7), (b) attempts a bounded falsifiable computation that <em>could</em> remove conditioning (R3 weight-enumeration; R2 masked-target selector), (c) is a pure correctness fix already on-disk (R4), or (d) is a mechanical owner/CSV task (R6) or a dependency record (R8). The two genuine count-moving attempts (R3, R2) are <em>smaller</em> than the original gate (one enumeration / one selector run each) and both carry the explicit κ³/π falsification test. <strong>No DERIVED-CLOSED is promised.</strong> The honest expected outcome of a full campaign: R4 DISCLOSED-CORRECTED (cleanest win), R1 AXIOM-CLOSED (already there), R5 DISCLOSED-CONSISTENT, R7 + R2-type-axiom AXIOM-CLOSED, R3 sharper-OPEN (universal negative unmet), R6 BLOCKED_INPUTS → VERIFIED if the CSV is mounted, R8 DISCLOSED. The given-E qualifier is <strong>not removable</strong> short of R3 closing, and R3's own ceiling is AXIOM-CLOSED.</p>
+<hr />
+<h2>7. Honest ceiling &amp; scope</h2>
+<h3>7.1 What is genuinely shown</h3>
+<p>The strong, genuine content is real and reproduces: a <strong>rigid, deformation-proof integer</strong> |χ(K₆,E)| = 3 (closed-form Borel–Weil–Bott), plus a clean <strong>no-go</strong> for the mirror half (APS (n_L, n_R) = (+3, 0) on the S¹_Y/ℤ₂ fold, with the bare-circle control (+3, +3) proving the fold load-bearing). The rep-theory engine under it (m₀(p,q), the ℤ₆ Tong congruence) regenerates target-blind from the actual SM charges. On the program's grading this <strong>ties SG-2 as the strongest gate</strong>, because an integer index is more rigid than a coupling-power ratio. The <em>magnitude</em> claim is a confident, falsifiable bet: re-derive the index from the bundle data alone and it must come back −3; a strictly-simpler admissible bundle on K₆ returning a different integer would break it. So far nothing moves the magnitude.</p>
+<h3>7.2 Dissolved unicorns — shared ceilings, never open weakness, never claimed as proven</h3>
+<ul>
+<li><strong>"Three is forced across ALL possible geometries / no future theory could yield a different count."</strong> A universal negative over an open-ended domain of geometries — unprovable <em>in principle for any theory</em>, in any field, forever. The bounded claim ("this geometry+bundle yields three, given the observed spectrum") <strong>IS the ceiling, not a hedge</strong>. This is a limit on all knowledge, not a gap in ours.</li>
+<li><strong>"The SM chiral content E is itself forced (by anomaly-freedom + minimality)."</strong> Corpus T3 is explicitly <strong>REFUTED</strong>: anomaly-freedom is only a filter, there are infinitely many anomaly-free chiral U(1) extensions (Allanach et al. arXiv:2111.04148), and using χ = −3 to force E is circular since E is its input. E remains a <strong>measured-but-irreducible SHAPE primitive</strong>; deriving it is out of scope (GAP-class, Gate 11).</li>
+<li><strong>R3's DERIVED-CLOSED form ("the minimal admissible weight is UNIQUE among ALL admissible weights").</strong> Demands ruling out every admissible competitor — an undischarged universal negative mirroring the already-DEMOTED A5-actor / SHAPE Lemma 3. Only the <em>absolute-uniqueness phrasing</em> is the unicorn; the bounded finite weight-enumeration + index map (ceiling AXIOM-CLOSED) is a real hole that stays in the queue.</li>
+</ul>
+<h3>7.3 Bright-line claims the frozen docs DENY — never printed as proven</h3>
+<ul>
+<li><strong>NOT</strong> "the spin-ℂ Borel–Weil–Bott index." Pure-SM content provably forbids spin-ℂ (DGL 1910.11277); the forced object is the twisted (Spin × G_SM)/ℤ₆. The wording is REFUTED on-disk while still live in the manuscript; |χ| = 3 survives.</li>
+<li><strong>NOT</strong> "the G04_chirality certificate establishes the index." It is a consistency <em>lint</em> against the declared values −3 and (+3, 0) (CR4.11), not a from-scratch re-derivation (R6; BLOCKED on the absent k6_dirac_spectrum.csv).</li>
+<li><strong>NOT</strong> "three families are DERIVED (from-nothing)." The index is computed WITH E as input; "derived" without the given-E qualifier is forbidden overclaim. The honest hook is "given the particles we observe."</li>
+<li><strong>NOT</strong> "left-handed, no surviving mirror" as a <em>settled chirality output</em>. Only the magnitude is convention-independent; the chirality <strong>sign</strong> rides an unpinned Pin bit whose <strong>default value is on-disk WRONG-sign</strong> for the BG-10 target (R7).</li>
+</ul>
+<h3>7.4 The anchors paid</h3>
+<p>In the terminate-on sense (every residual must reduce to a <em>measured</em> invariant or a single named, target-blind posit — never to "it gives three"), this gate's target anchor is <strong>the observed spectrum E itself</strong>: the family count "3" — and the rigid integer χ(K₆,E) = −3 carrying it — is a <strong>facet of E</strong> (χ is read <em>with</em> E as input), reinforced at the admissibility-class boundary by the external measured invariant <strong>LEP/SLD N_ν = 2.984 ± 0.008</strong> (which excludes the index-changing deformation to 2/4). spectrum-E is <strong>measured-but-irreducible</strong>: the index reads it, it cannot derive it (given-E ≠ derivation of E). The would-be deeper target — <em>"3 across all geometries / bare-carrier-forced"</em> — has <strong>no independent witness</strong> and stays OPEN (R1/R2/R3); the in-category "no-dial" rigidity is SCHEME-ANCHORED to the declared category (AXIOM-INDEX-RIGID-IN-CATEGORY); the orientation/chirality bit awaits a <strong>new</strong> named invariant (Dai–Freed, AXIOM-CHIRALITY-ORIENTATION). The count's <em>magnitude</em> is genuine and reproduces; its <em>forcedness across geometries</em> is not anchored.</p>
+<p>The gate does <strong>not</strong> depend on ℏ, M_Pl, α_i(M_Z), y_t, or |V_us| for the count itself (those enter downstream gates that <em>consume</em> "3"). It depends primarily on spectrum-E, with LEP N_ν at the boundary.</p>
+<h3>7.5 The single load-bearing sentence</h3>
+<p><strong>The geometry genuinely makes the family count a rigid deformation-proof integer of the correct kind (3, no mirror) — but it does so by reading a bundle whose data is E itself; it certifies this geometry+bundle yields three given the particles we observe, not that three is forced across geometries, and not that the bundle is unique. given-E is the load-bearing qualifier of the whole gate.</strong></p>
+<p>STATUS-UPGRADES:0. Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> READ-ONLY. given-E ≠ derivation of E; selection ≠ derivation; AXIOM-CLOSED ≠ proven; dissolved ≠ solved. Nothing applied, nothing deployed.</p>
+<hr />
+<h2>References &amp; source map</h2>
+<p><strong>Website source-of-truth (common material — link, don't duplicate):</strong>
+- Paper I, GUT.html — https://physics.magflowmeters.com/articles/GUT.html — §6.4 (Gate-4 card), §5.3 (narrative), §3.4 (topological-count machinery), §4.6/§4.9 (selector dimension-payment / anti-fitting firewall), Strongest-Objections block (Objection 4), Appendix E (E.1/E.2/E.3/E.6), CR4 (CR4.1–CR4.13), GP.3 (counting theorems), B1/B2 (selector / category-relativity), C2 (K₆ dossier), C4 (S¹_Y/ℤ₂ dossier), A2.2 (bundle ledger), A1.8 (parity table), A1.13 (generation module), R0 (freeze records).
+- Paper IV, TOE.html — https://physics.magflowmeters.com/articles/TOE.html (downstream cross-references only).
+- Gaps &amp; Walls Register — https://physics.magflowmeters.com/articles/GAPS_AND_WALLS_REGISTER.html (disposition vocabulary).</p>
+<p><strong>Corpus inputs (read for this dossier; all under …/Fable_Version/rendered/):</strong>
+- TOE/PER_GATE_DOSSIERS/DOSSIER_SG3_THREE_GENERATIONS_CLOSURE_ATTACK.md — the closure-attack dossier this expands (§0–§5, R1–R8, witness ledger, attack plan).
+- TOE/PER_GATE_DOSSIERS/SG3_COMPLETION_HANDOFF/01_DOSSIER.md — same content, completion-handoff copy.
+- TOE/REDUCTION_SPINTWIST_C_2026-06-23.md — spin-ℂ obstruction (DGL); ℤ₆ Tong kernel; (−1)^F; twisted (Spin × G_SM)/ℤ₆; T3 REFUTED; FORCED-GIVEN-E.
+- TOE/SHAPE_M0_DELTASPINC_QSIGN_2026-06-23.md — m₀(p,q) = min(p,q)+1 table; ×2 spinor-weight; Δ_spin-c fail-closed; Pin⁺/Pin⁻ convention bit unpinned.
+- TOE/GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md — SG-3 regrade (held DERIVED-GIVEN-E); referee flags; the on-disk WRONG-sign default datum (line 209; CLOSURE_CAMPAIGN_RESULT line 33: default χ=−3 = 5 mod 8 ⇒ arg = −135°).
+- TOE/SPECIALIST_HOLE_QUEUE_2026-06-29.md — the six SG-3 holes as work-packages.</p>
+<p><strong>External literature (cited at the corpus's own level):</strong>
+- Davighi, Gripaios, Lohitsiri, "Global anomalies in the Standard Model(s) and Beyond," JHEP 07 (2020) 232, arXiv:1910.11277, Sec. 7 — no U(1) ⊂ G_SM gives all-odd Weyl charges ⇒ SM has no spin-ℂ.
+- Tong, "Line Operators in the Standard Model," JHEP 07 (2017) 104, arXiv:1705.01853 — ℤ₆ = maximal trivially-acting centre; q ≡ 3z₂ − 2z₃ mod 6.
+- Hsieh, Tachikawa, Yonekura, "Anomaly of the Standard Model" — twisted Spin × G_SM /ℤ_q; (−1)^F in the gauge centre.
+- García-Etxebarria &amp; Montero, "Dai–Freed anomalies in particle physics," JHEP 08 (2019) 003, arXiv:1808.00009 — Dai–Freed / spin-bordism fermion-measure.
+- Allanach et al., arXiv:2111.04148 + anomaly-free atlas JHEP 02 (2019) 082 — infinitely many anomaly-free chiral U(1) extensions ⇒ anomaly-freedom fixes neither content nor generation number.</p>
+<p><em>Dossier built 2026-06-29. Our geometry (13D K₆ branch) only. Common material referenced to the published website source-of-truth, not duplicated. STATUS-UPGRADES:0; nothing applied, nothing deployed.</em></p>
+</body></html>

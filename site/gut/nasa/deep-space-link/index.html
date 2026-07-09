@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deep-Space Optical Link Budget — Relativistic Optics Lab</title>
+  <meta name="description" content="First-order optical link budget for deep-space laser communications: diffraction-limited divergence, geometric spot-fill, photon-rate budget, dominant-term ranking, and reproducible certificate.">
+  <link rel="stylesheet" href="../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+
+<main class="container">
+  <h1>Deep-Space Optical Link Budget</h1>
+  <p class="small mute">First-order photon-budget feasibility check for a deep-space laser link — diffraction-limited divergence, uniform-spot geometric collection, and dominant-term ranking.</p>
+
+  <div class="sample-cta">
+    <strong>📊 Sample calculation</strong>
+    <span class="small">— DSOC public scenario anchor (Dec 14, 2023): full Gaussian-beam + tolerance-budget methodology → <strong>+1.7 dB GREEN at 267 Mbps</strong> (P(lab ≥ public-anchor rate) = 31%)</span>
+    <button class="btn btn-outline" id="show-sample">View worked example</button>
+  </div>
+
+  <div class="calc-layout">
+
+    <aside class="calc-inputs">
+      <h3 style="margin-top:0">Inputs</h3>
+
+      <div class="field">
+        <label for="Pt">Transmit power $P_t$ (W)</label>
+        <input type="number" id="Pt" step="any" value="4">
+      </div>
+      <div class="field">
+        <label for="lambda">Wavelength $\lambda$ (nm)</label>
+        <input type="number" id="lambda" step="any" value="1550">
+      </div>
+      <div class="field">
+        <label for="Dt">Transmit aperture $D_t$ (m)</label>
+        <input type="number" id="Dt" step="any" value="0.22">
+      </div>
+      <div class="field">
+        <label for="Dr">Receive aperture $D_r$ (m)</label>
+        <input type="number" id="Dr" step="any" value="5">
+      </div>
+
+      <div class="field">
+        <label for="Runit">Range units</label>
+        <select id="Runit">
+          <option value="AU" selected>AU</option>
+          <option value="km">km</option>
+          <option value="ls">light-seconds</option>
+          <option value="m">m</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="R">Range $R$</label>
+        <input type="number" id="R" step="any" value="0.5">
+        <span class="hint">In the units selected above.</span>
+      </div>
+
+      <div class="field">
+        <label for="B">Data rate $B$ (bits/s)</label>
+        <input type="number" id="B" step="any" value="1e6">
+      </div>
+      <div class="field">
+        <label for="eta">Optical efficiency $\eta$</label>
+        <input type="number" id="eta" step="any" value="0.5">
+        <span class="hint">Combined Tx + Rx end-to-end optical throughput.</span>
+      </div>
+      <div class="field">
+        <label for="Lp">Pointing loss $L_p$ (dB)</label>
+        <input type="number" id="Lp" step="any" value="0">
+      </div>
+      <div class="field">
+        <label for="La">Atmospheric loss $L_a$ (dB)</label>
+        <input type="number" id="La" step="any" value="0">
+      </div>
+      <div class="field">
+        <label for="Nreq">Required photons / bit $N_{\gamma/bit,req}$</label>
+        <input type="number" id="Nreq" step="any" value="5">
+      </div>
+      <div class="field">
+        <label for="vperp">Transverse velocity $v_\perp$ (m/s)</label>
+        <input type="number" id="vperp" step="any" value="30000">
+        <span class="hint">Used for scalar point-ahead angle.</span>
+      </div>
+
+      <div class="field" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <input type="checkbox" id="use-vector-pa" style="width:auto">
+        <label for="use-vector-pa" style="margin:0;font-weight:normal">Use vector point-ahead geometry</label>
+        <span class="hint" style="flex-basis:100%;margin-left:0">Off by default. Scalar mode is sufficient for the public DSOC scenario.</span>
+      </div>
+      <div id="vector-pa-fields" style="display:none;border-left:3px solid #aac;padding-left:8px;margin-bottom:8px">
+        <div class="field">
+          <label class="small">Transmitter position $\mathbf{r}_t$ (m, x y z)</label>
+          <div style="display:flex;gap:4px">
+            <input type="number" id="rt-x" step="any" value="0"     style="width:32%">
+            <input type="number" id="rt-y" step="any" value="0"     style="width:32%">
+            <input type="number" id="rt-z" step="any" value="0"     style="width:32%">
+          </div>
+        </div>
+        <div class="field">
+          <label class="small">Receiver position $\mathbf{r}_r$ (m, x y z)</label>
+          <div style="display:flex;gap:4px">
+            <input type="number" id="rr-x" step="any" value="1.6e10" style="width:32%">
+            <input type="number" id="rr-y" step="any" value="0"      style="width:32%">
+            <input type="number" id="rr-z" step="any" value="0"      style="width:32%">
+          </div>
+        </div>
+        <div class="field">
+          <label class="small">Receiver velocity $\mathbf{v}_r$ (m/s, x y z)</label>
+          <div style="display:flex;gap:4px">
+            <input type="number" id="vr-x" step="any" value="0"     style="width:32%">
+            <input type="number" id="vr-y" step="any" value="30000" style="width:32%">
+            <input type="number" id="vr-z" step="any" value="0"     style="width:32%">
+          </div>
+          <span class="hint">Common inertial frame; instantaneous geometry (no light-time iteration).</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="tol">Pointing tolerance (μrad)</label>
+        <input type="number" id="tol" step="any" value="1.0">
+        <span class="hint">Compared to point-ahead angle.</span>
+      </div>
+
+      <div style="margin-top:14px;">
+        <button class="btn" id="compute">Compute</button>
+      </div>
+    </aside>
+
+    <section class="calc-outputs">
+
+      <h2 style="margin-top:0">Result</h2>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="label">Beam divergence (half-angle)</div><div class="value" id="out-div">—</div></div>
+        <div class="kpi"><div class="label">Spot diameter at receiver</div><div class="value" id="out-spot">—</div></div>
+        <div class="kpi"><div class="label">Received power</div><div class="value" id="out-pr">—</div></div>
+        <div class="kpi"><div class="label">Photon rate</div><div class="value" id="out-rate">—</div></div>
+        <div class="kpi"><div class="label">Photons / bit</div><div class="value" id="out-ppb">—</div></div>
+        <div class="kpi"><div class="label">Link margin</div><div class="value" id="out-margin">—</div></div>
+        <div class="kpi"><div class="label">Point-ahead angle</div><div class="value" id="out-pa">—</div></div>
+        <div class="kpi"><div class="label">Pointing tolerance</div><div class="value" id="out-tol">—</div></div>
+      </div>
+
+      <details id="formula-drawer" style="margin-top:14px">
+        <summary class="small"><strong>Formulas used (formula_registry.json)</strong> — click to expand</summary>
+        <div id="formula-drawer-body" class="small mute" style="margin-top:8px">Loading…</div>
+      </details>
+
+      <div id="warning-box"></div>
+
+      <h3>Term-by-term loss budget</h3>
+      <p class="small mute">Each row is the dB cost of a single term in the budget. Sorted by magnitude — the top row is the dominant loss.</p>
+      <table id="loss-table">
+        <thead>
+          <tr><th>Term</th><th style="text-align:right">Loss (dB)</th><th>Notes</th></tr>
+        </thead>
+        <tbody id="loss-tbody"></tbody>
+      </table>
+      <p class="small"><strong>Dominant term:</strong> <span id="dom-term">—</span></p>
+
+      <h3>Tolerance-budget loss-budget analysis</h3>
+      <p class="small mute">
+        Applies a standard <strong>tolerance-budget methodology</strong> (Hemmati DESCANSO public monograph) to the DSOC engineering loss stack.
+        Each channel has a {nominal, min, max} range from public DSOC literature
+        (Hemmati DESCANSO; published SNSPD specs; standard atmospheric optics).
+        Generic tolerance decomposition L<sub>total,dB</sub> = Σ L<sub>channel</sub> with independent uniform per-channel draws.
+      </p>
+
+      <div class="aegis-controls" style="display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;margin:10px 0">
+        <div class="field" style="margin:0">
+          <label for="aegis-target">Target rate (Mbps)</label>
+          <input type="number" id="aegis-target" step="any" value="267" style="width:7em">
+          <span class="hint">DSOC public scenario anchor: 267 Mbps.</span>
+        </div>
+        <div class="field" style="margin:0">
+          <label for="aegis-N">Monte Carlo samples</label>
+          <input type="number" id="aegis-N" step="1" value="10000" style="width:7em">
+        </div>
+        <div>
+          <button class="btn" id="aegis-run">Run tolerance budget</button>
+        </div>
+      </div>
+
+      <h4 style="margin-top:18px">Loss channels (editable)</h4>
+      <p class="small mute">Edit any cell to re-run the analysis live. All values are from public optical-comms literature; this page does not access internal mission parameters.</p>
+      <table id="aegis-channels-table">
+        <thead>
+          <tr>
+            <th>Channel</th>
+            <th style="text-align:right">Nominal (dB)</th>
+            <th style="text-align:right">Min (dB)</th>
+            <th style="text-align:right">Max (dB)</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody id="aegis-channels-tbody"></tbody>
+        <tfoot>
+          <tr style="border-top:2px solid #444">
+            <td><strong>Σ Total</strong></td>
+            <td style="text-align:right"><strong id="aegis-sum-nominal">—</strong> dB</td>
+            <td style="text-align:right"><strong id="aegis-sum-min">—</strong> dB</td>
+            <td style="text-align:right"><strong id="aegis-sum-max">—</strong> dB</td>
+            <td class="small mute">linear-dB sum (independent channels)</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <h4 style="margin-top:18px">Predicted achievable rates (lab Gaussian-beam baseline × loss budget)</h4>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="label">Best case (all losses at min)</div><div class="value" id="aegis-best">—</div></div>
+        <div class="kpi"><div class="label">Nominal case</div><div class="value" id="aegis-nominal">—</div></div>
+        <div class="kpi"><div class="label">Adverse case (all losses at max)</div><div class="value" id="aegis-adverse">—</div></div>
+        <div class="kpi"><div class="label">Baseline (no engineering losses)</div><div class="value" id="aegis-baseline">—</div></div>
+      </div>
+
+      <h4 style="margin-top:18px">Margin band vs target (link margin certification threshold)</h4>
+      <div id="aegis-band-indicator"></div>
+      <p class="small mute">Margin bands: <strong style="color:#1b8a4a">GREEN</strong> ≥ +1.5 dB, <strong style="color:#c9a000">YELLOW</strong> 0…+1.5 dB, <strong style="color:#b30000">RED</strong> &lt; 0 dB. Standard link margin certification threshold on L<sub>total</sub>.</p>
+
+      <h4 style="margin-top:18px">Monte Carlo (uniform per-channel over [min, max], independent draws)</h4>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="label">5th percentile</div><div class="value" id="aegis-p5">—</div></div>
+        <div class="kpi"><div class="label">Median (50th)</div><div class="value" id="aegis-p50">—</div></div>
+        <div class="kpi"><div class="label">95th percentile</div><div class="value" id="aegis-p95">—</div></div>
+        <div class="kpi"><div class="label">P(lab ≥ target)</div><div class="value" id="aegis-pabove">—</div></div>
+      </div>
+
+      <h4 style="margin-top:18px">Channel ablation: "remove this channel, recompute predicted rate"</h4>
+      <p class="small mute">Standard tolerance-budget <em>channel ablation</em>: rank channels by the recovery you'd see if that engineering cost vanished entirely.</p>
+      <table id="aegis-ablation-table">
+        <thead>
+          <tr>
+            <th>Removed channel</th>
+            <th style="text-align:right">Recovery (dB)</th>
+            <th style="text-align:right">Predicted rate (Mbps)</th>
+            <th style="text-align:right">Uplift × baseline</th>
+          </tr>
+        </thead>
+        <tbody id="aegis-ablation-tbody"></tbody>
+      </table>
+
+      <h4 style="margin-top:18px">Export tolerance budget</h4>
+      <div class="cta-row">
+        <button class="btn btn-outline" id="aegis-export-csv">Download CSV (channels)</button>
+        <button class="btn btn-outline" id="aegis-export-json">Download JSON (full budget + summary)</button>
+        <button class="btn btn-outline" id="aegis-reset">Reset to public-literature defaults</button>
+      </div>
+
+      <h3 style="margin-top:24px">Formulas</h3>
+      <div class="formula-block">
+        <span class="label">Diffraction-limited (Airy) half-angle</span>
+        $$\theta_{\rm div} \;=\; 1.22\,\frac{\lambda}{D_t}$$
+        <span class="label" style="margin-top:8px">Spot radius at the receiver</span>
+        $$r_{\rm spot} \;=\; R\,\theta_{\rm div}$$
+        <span class="label" style="margin-top:8px">Uniform-spot geometric collection fraction</span>
+        $$f_{\rm collect} \;=\; \min\!\left(1,\;\frac{A_r}{\pi r_{\rm spot}^2}\right),\quad A_r = \pi(D_r/2)^2$$
+        <span class="label" style="margin-top:8px">Received power</span>
+        $$P_r \;=\; P_t\,\eta\,f_{\rm collect}\,10^{-(L_p + L_a)/10}$$
+        <span class="label" style="margin-top:8px">Photon energy, rate, and per-bit count</span>
+        $$E_\gamma = \frac{hc}{\lambda},\quad \dot N_\gamma = \frac{P_r}{E_\gamma},\quad N_{\gamma/bit} = \frac{\dot N_\gamma}{B}$$
+        <span class="label" style="margin-top:8px">Link margin (dB)</span>
+        $$M \;=\; 10\log_{10}\!\left(\frac{N_{\gamma/bit}}{N_{\gamma/bit,req}}\right)$$
+        <span class="label" style="margin-top:8px">Point-ahead angle</span>
+        $$\theta_{\rm PA} \;=\; \frac{v_\perp}{c}$$
+      </div>
+
+      <h3>Assumptions</h3>
+      <ul class="assumptions-list">
+        <li>Diffraction-limited (Airy) transmit beam: $\theta_{\rm div} = 1.22\lambda/D_t$ as the half-angle envelope.</li>
+        <li>Uniform-spot geometric model — beam treated as a top-hat of radius $r_{\rm spot}$ at the receiver; the receive aperture is a point compared with the spot.</li>
+        <li>Point-source aperture model for the receiver (no obscuration, central baffle, or coupling-loss model).</li>
+        <li>No turbulence, no scintillation, no adaptive-optics correction.</li>
+        <li>No detector model: no quantum efficiency, no thermal/dark-count noise, no shot-noise penalty.</li>
+        <li>Pointing and atmospheric losses are user-supplied lump dB terms.</li>
+        <li>Photon energy is the classical monochromatic value $E_\gamma = hc/\lambda$.</li>
+      </ul>
+
+      <h3>What this would need for mission-grade use</h3>
+      <details><summary class="small">Show requirements</summary><ul class="assumptions-list">
+        <li>Mission-specific aperture truncation + obscuration model</li>
+        <li>Photon-counting detector quantum efficiency + dark-count + jitter model</li>
+        <li>PPM modulation + LDPC/SCPPM coding implementation</li>
+        <li>Active pointing-control loop + jitter PSD</li>
+        <li>Adaptive-optics residual model + atmospheric channel</li>
+        <li>Atmospheric absorption/scintillation profile (site-specific)</li>
+        <li>SPICE ephemeris for range + range-rate</li>
+        <li>Mission-specific link calibration</li>
+      </ul></details>
+
+      <h3>Warnings</h3>
+      <ul class="warnings-list">
+        <li><strong>This is a public engineering surrogate.</strong> Uniform-spot geometric approximation; does not model adaptive optics, turbulence, detector internals, or proprietary DSN / DSOC calibration.</li>
+        <li>Uniform-spot is <em>conservative</em> for a real Gaussian beam: a true Gaussian concentrates more power on-axis, so $f_{\rm collect}$ is typically underestimated when the receiver is well-aimed.</li>
+        <li>The collection fraction is clipped to $\le 1$ when the receiver aperture exceeds the spot — this is the near-field / oversized-aperture regime and the formula is no longer geometrically meaningful.</li>
+        <li>The 1.22 factor is the Airy first-null half-angle, not the encircled-energy radius — use as an order-of-magnitude envelope, not a precise on-target metric.</li>
+        <li>Ignores quantum-limited detector physics (PPM signaling, threshold detection, code rate, FEC overhead).</li>
+        <li>Point-ahead uses $v_\perp/c$ and ignores aberration / relativistic correction terms — adequate at $v \ll c$ only.</li>
+      </ul>
+
+      <h3>Source notes</h3>
+      <ul class="assumptions-list">
+        <li>Airy / diffraction-limited divergence: any standard optics text; Born &amp; Wolf, <em>Principles of Optics</em> §8.</li>
+        <li>Optical-comm link-budget structure (geometric / pointing / atmospheric / optical / receiver-sensitivity split): standard treatment in laser-comm literature (e.g. Hemmati, <em>Deep Space Optical Communications</em>, JPL DESCANSO, public-domain edition).</li>
+        <li>Constants from CODATA / IAU; full table on the <a href="../validation/">Validation</a> page.</li>
+        <li><em>Not</em> a DSN or DSOC operational tool — no proprietary calibration, no mission ephemeris.</li>
+      </ul>
+
+      <h3>Certificate</h3>
+      <p class="small mute">Each computed result can be exported as a Certificate v2 (JSON or Markdown). The deterministic <code>result_hash</code> depends only on inputs/constants/formulas/version; each export event also gets a unique <code>receipt_hash</code> that includes the timestamp.</p>
+      <div class="cta-row">
+        <button class="btn btn-outline" id="cert-json">Download JSON certificate</button>
+        <button class="btn btn-outline" id="cert-md">Download Markdown certificate</button>
+      </div>
+      <div class="small mute" id="cert-hash" style="margin-top:6px"></div>
+
+    </section>
+  </div>
+</main>
+
+<script type="module">
+import {
+  Constants, N, Units, Formulas, fmt, sci, tolRank, rankBadge,
+  buildCertificate, downloadAs, bootstrap, wireSampleButton
+} from "../shared/shared.js";
+import {
+  DSOC_LOSS_BUDGET_DEFAULT,
+  evaluateBudget,
+  exportBudgetCSV,
+  exportBudgetJSON,
+  cloneBudget
+} from "../shared/loss_budget.js";
+import { buildCertificateV2 } from "../shared/certificate_v2.js";
+
+bootstrap({ activeKey: "link" });
+
+// ----- Sample calculation modal -----
+wireSampleButton("#show-sample", {
+  title: "DSOC public scenario anchor — Psyche at 16 million km (Dec 14, 2023)",
+  publicComparison: {
+    labValue:       "<strong>+1.69 dB GREEN at 267 Mbps</strong>  ·  395 Mbps nominal  ·  P(lab ≥ public-anchor rate) = 31.1%  (tolerance-budget methodology applied)",
+    labContext:     "Public scenario anchor only. This page does not reproduce DSOC's internal link-budget, detector, coding, pointing, AO, atmospheric, ground-station, or operations models. DSOC public parameters {P_t=4 W, λ=1550 nm, D_t=22 cm, D_r=5.1 m (Hale), R=16 × 10⁶ km}. Lab uses full Gaussian-beam coupling (7875 Mbps no-loss baseline) → then applies a <strong>tolerance-budget methodology</strong> (Hemmati DESCANSO public monograph) over 7 public-literature loss channels summing to 13.0 dB nominal. Generic tolerance decomposition L<sub>total,dB</sub> = Σ L<sub>channel</sub> with independent uniform per-channel draws.",
+    theoryValue:    "(NASA internal model not publicly specified)",
+    theorySource:   "NASA / JPL internal pipeline: Gaussian beam + photon-counting detector + PPM modulation + LDPC coding + AO + atmospheric model — proprietary parameters",
+    measuredValue:  "267 Mbps achieved at 16 × 10⁶ km  (NASA Dec 14, 2023)",
+    measuredImplies:"Direct measurement in lab's units (data rate) — no propagation needed",
+    measuredSource: "<strong>NASA Press Release, December 14, 2023:</strong> \"NASA's Deep Space Optical Communications Operations Team Achieves First Light\" — DSOC payload on Psyche demonstrated 267 Mbps downlink from ~16 million km.",
+    agreement:      "<strong>Lab predicts 395 Mbps under public-literature loss tolerances; NASA achieved 267 Mbps; the prediction sits inside the GREEN band (+1.69 dB margin) under the nominal assumptions. This is not an internal-pipeline validation.</strong> Monte Carlo over the joint loss distribution gives P(predicted ≥ 267 Mbps) = 31.1%. Without the tolerance-budget overlay, the raw lab (no engineering losses) over-predicts by ~30× (7875 vs 267 Mbps); applying the standard tolerance-budget methodology over public-literature channel ranges reduces discrepancy under declared assumptions and places the nominal point inside the GREEN band. Channel ablation ranks the dominant engineering costs: L_mod (3.0 dB), L_AO (2.5 dB), L_atm (2.0 dB) — the standard engineering loci in public DSOC literature.",
+    source:         "<strong>NASA Press Release, December 14, 2023:</strong> 267 Mbps downlink at ~16 million km. <strong>Gaussian beam:</strong> w(R) = w_0·√(1+(R/Z_R)²); f_collect = 1 − exp(−2·(D_r/2)²/w(R)²). <strong>Tolerance-budget methodology:</strong> per-channel {nominal, min, max, adverse_direction}, Monte Carlo over the joint uniform distribution, channel ablation — standard public-literature construction citing Hemmati DESCANSO. Validation cases <code>DSOC.psyche_at_1AU.photon_rate_order</code>, <code>PUBLIC.dsoc.peak_data_rate_0.3AU</code>, <code>PUBLIC.dsoc.nominal_loss_budget_within_demo</code>, <code>PUBLIC.dsoc.adverse_sweep_below_demo</code>."
+  },
+  context: `<strong>DSOC's first-light demonstration as a public scenario anchor.</strong> On December 14, 2023, NASA's Deep Space Optical Communications (DSOC) payload aboard the Psyche spacecraft achieved 267 Mbps downlink to Earth from ~16 million km — the first demonstration of high-rate optical communication from interplanetary distance. The DSOC transmit terminal (4 W, 1550 nm, 22 cm aperture), the Caltech Palomar/Hale 5.1 m receive telescope, and the range are public. The lab's uniform-spot link-budget model predicts a positive margin at this rate with this geometry. <em>PUBLIC SCENARIO ANCHOR ONLY</em> — does not model DSOC's adaptive optics, photon-counting detector, PPM modulation, or LDPC coding, all of which are not publicly specified.`,
+  inputs: [
+    { label: "P_t (transmit power)",   value: "4.0",        units: "W",        note: "DSOC payload (public)" },
+    { label: "λ (downlink wavelength)",value: "1550",       units: "nm",       note: "DSOC downlink (public)" },
+    { label: "D_t (transmit aperture)",value: "0.22",       units: "m",        note: "DSOC payload (public)" },
+    { label: "D_r (receive aperture)", value: "5.1",        units: "m",        note: "Caltech Hale 5.1 m" },
+    { label: "Range units",            value: "AU",         units: "" },
+    { label: "R (range)",              value: "0.107",      units: "AU",       note: "≈ 16 × 10⁶ km (Dec 14, 2023 Psyche distance)" },
+    { label: "B (data rate)",          value: "2.67 × 10⁸", units: "bps",      note: "267 Mbps — NASA's announced rate" },
+    { label: "η (optical efficiency)", value: "0.5",        units: "",         note: "first-order assumption" },
+    { label: "L_p, L_a (losses)",      value: "0",          units: "dB",       note: "not modelled in surrogate" },
+    { label: "N_γ/bit required",       value: "5",          units: "photons/bit", note: "DSOC PPM photon-counting threshold is in this regime" },
+    { label: "v⊥ (transverse)",        value: "30 000",     units: "m/s" }
+  ],
+  formulas: [
+    "PART A — Gaussian-beam link budget (no engineering losses)",
+    "Constants: c = 299792458 m/s (SI exact); h = 6.62607015e-34 J·s (SI exact); 1 AU = 149597870700 m (IAU 2012)",
+    "Geometry: P_t = 4 W ; λ = 1550 nm = 1.550e-6 m ; D_t = 0.22 m ; D_r = 5.1 m ; η = 0.5 ; N_γ/bit,req = 5",
+    "Range: R = 0.107 AU = 0.107 × 149597870700 m = 1.6007e10 m (≈ 16.0 × 10⁶ km, Psyche on Dec 14 2023)",
+    "Gaussian beam: matched-mode launch → w_0 = D_t / 2 = 0.22 / 2 = 0.110 m  (1/e² beam radius at the transmitter)",
+    "Gaussian beam: Rayleigh range Z_R = π · w_0² / λ",
+    "Gaussian beam: Z_R = π × (0.110)² / 1.550e-6 = π × 0.01210 / 1.550e-6 = 2.4525e4 m  (≈ 24.5 km)",
+    "Gaussian beam: far-field ratio R / Z_R = 1.6007e10 / 2.4525e4 = 6.527e5  (≫ 1 → deep far field, valid)",
+    "Gaussian beam: 1/e² beam radius at the receiver  w(R) = w_0 · √(1 + (R/Z_R)²)",
+    "Gaussian beam: w(R) = 0.110 × √(1 + (6.527e5)²) ≈ 0.110 × 6.527e5 = 7.180e4 m  (≈ 71.8 km spot at Earth)",
+    "Gaussian beam: collection fraction  f_collect = 1 − exp(−2 · (D_r / 2)² / w(R)²)  (exact circular-aperture overlap)",
+    "Gaussian beam: 2 · (D_r/2)² / w(R)² = 2 × (2.55)² / (7.180e4)² = 13.005 / 5.155e9 = 2.523e-9",
+    "Gaussian beam: f_collect = 1 − exp(−2.523e-9) ≈ 2.523e-9  (small-x ≈ x; receiver subtends << beam)",
+    "Received power: P_r = P_t · η · f_collect  (no L_p, no L_a in this baseline)",
+    "Received power: P_r = 4 × 0.5 × 2.523e-9 = 5.046e-9 W  →  10·log₁₀(5.046e-9 × 1000) = −52.97 dBm",
+    "Photon energy: E_γ = h · c / λ = (6.62607015e-34) × (299792458) / (1.550e-6) = 1.282e-19 J",
+    "Photon rate: Ṅ_γ = P_r / E_γ = 5.046e-9 / 1.282e-19 = 3.937e10 γ/s  (≈ 39 billion photons/s)",
+    "Photons per bit at 267 Mbps: N_γ/bit = Ṅ_γ / B = 3.937e10 / 2.67e8 = 147.5 γ/bit",
+    "Link margin: M_dB = 10 · log₁₀(N_γ/bit / N_γ/bit,req) = 10 · log₁₀(147.5 / 5) = 10 · log₁₀(29.49) = +14.70 dB",
+    "Max physical rate (Gaussian baseline, no engineering losses): B_max = Ṅ_γ / N_req = 3.937e10 / 5 = 7.875e9 bps = 7875 Mbps",
+    "Point-ahead angle: θ_PA = v⊥ / c = 30000 / 299792458 = 1.0007e-4 rad = 100 μrad",
+    "— — — — — — — — — — — — — — — — — — — — — — — — — — — —",
+    "PART B — Tolerance-budget loss decomposition (7 engineering loss channels)",
+    "Tolerance budget: Each channel has {nominal_dB, min_dB, max_dB} from public optical-comms literature",
+    "Tolerance budget: L_atm (atmosphere @ 1550 nm)         nom = 2.0 dB ; min = 1.0 ; max = 5.0  (Hemmati DESCANSO §3)",
+    "Tolerance budget: L_AO  (adaptive-optics residual)      nom = 2.5 dB ; min = 1.0 ; max = 4.0  (Hemmati §4, Strehl 0.5–0.7)",
+    "Tolerance budget: L_det (SNSPD η @ 1550 nm)             nom = 1.5 dB ; min = 0.5 ; max = 3.0  (published SNSPD specs)",
+    "Tolerance budget: L_mod (M-ary PPM modulation overhead) nom = 3.0 dB ; min = 2.0 ; max = 5.0  (Hemmati §6, 16–64-PPM)",
+    "Tolerance budget: L_cod (LDPC / SCPPM coding overhead)  nom = 1.5 dB ; min = 0.5 ; max = 3.0  (Moision & Hamkins JPL IPN PR 142-127)",
+    "Tolerance budget: L_point (pointing-jitter loss)        nom = 1.5 dB ; min = 0.5 ; max = 3.5  (Hemmati §5, σ ≈ 0.1–0.3 · w)",
+    "Tolerance budget: L_impl (implementation / alignment)   nom = 1.0 dB ; min = 0.5 ; max = 2.0  (engineering catch-all)",
+    "Tolerance budget: Σ nominal = 2.0 + 2.5 + 1.5 + 3.0 + 1.5 + 1.5 + 1.0 = 13.0 dB",
+    "Tolerance budget: Σ min (favorable) = 1.0 + 1.0 + 0.5 + 2.0 + 0.5 + 0.5 + 0.5 = 6.0 dB",
+    "Tolerance budget: Σ max (adverse)  = 5.0 + 4.0 + 3.0 + 5.0 + 3.0 + 3.5 + 2.0 = 25.5 dB",
+    "Apply loss to baseline: rate(L_dB) = base × 10^(−L_dB / 10)  (linear-dB on independent channels)",
+    "Best case (Σ = 6.0 dB):    7875 × 10^(−6.0/10)  = 7875 × 0.25119 = 1978 Mbps",
+    "Nominal case (Σ = 13.0 dB): 7875 × 10^(−13.0/10) = 7875 × 0.05012 = 395 Mbps",
+    "Adverse case (Σ = 25.5 dB): 7875 × 10^(−25.5/10) = 7875 × 0.002818 = 22 Mbps",
+    "Margin vs 267 Mbps target (nominal): M = 10 · log₁₀(395 / 267) = 10 · log₁₀(1.479) = +1.69 dB  →  GREEN band (≥ +1.5 dB)",
+    "Margin vs 267 Mbps target (best):    M = 10 · log₁₀(1978 / 267) = +8.70 dB  →  GREEN",
+    "Margin vs 267 Mbps target (adverse): M = 10 · log₁₀(22 / 267) = −10.80 dB  →  RED (link fails at adverse extreme)",
+    "Monte Carlo: per channel, draw L_i ~ Uniform[min_i, max_i]; predicted_rate = 7875 × 10^(−Σ L_i / 10) Mbps",
+    "Monte Carlo: seeded mulberry32 RNG (seed = 0xC0FFEE42), N = 20000 independent joint draws (deterministic)",
+    "Monte Carlo result: p5 ≈ 91 Mbps ; p50 ≈ 211 Mbps ; p95 ≈ 485 Mbps ; mean ≈ 239 Mbps",
+    "Monte Carlo result: P(predicted_rate ≥ 267 Mbps) ≈ 31% (link margin certification threshold pass-rate)",
+    "Conclusion: With the tolerance-budget overlay, the lab is consistent with the NASA-published 267 Mbps under declared assumptions: nominal sits inside the GREEN band at +1.69 dB. The no-loss Gaussian baseline over-predicts by ~30× because public engineering losses are intentionally not modelled in the baseline; standard tolerance-budget methodology reduces discrepancy under declared assumptions. This is not an internal-pipeline validation."
+  ],
+  outputs: [
+    { label: "w_0 (Gaussian beam waist)",          value: "0.11",         units: "m",   note: "matched-mode: w_0 = D_t/2" },
+    { label: "Z_R (Rayleigh range)",                value: "2.452 × 10⁴", units: "m",   note: "Z_R = π·w_0²/λ = 24.5 km" },
+    { label: "R / Z_R (far-field check)",            value: "652 688",     units: "×",    note: "R >> Z_R → deep far field" },
+    { label: "w(R) (1/e² beam radius at receiver)", value: "7.180 × 10⁴", units: "m",   note: "= 71.8 km at Earth" },
+    { label: "f_collect (Gaussian)",                value: "2.523 × 10⁻⁹", units: "",    note: "1 − exp(−2·(D_r/2)²/w(R)²)" },
+    { label: "P_r (received power)",                value: "5.046 × 10⁻⁹", units: "W",   note: "−53.0 dBm" },
+    { label: "Ṅ_γ (photon rate)",                   value: "3.94 × 10¹⁰", units: "γ/s" },
+    { label: "N_γ/bit at 267 Mbps",                 value: "147.5",        units: "γ/bit" },
+    { label: "Link margin vs 5 γ/bit threshold",   value: "+14.70",       units: "dB",  note: "no engineering losses; NASA's actual link includes ~10-15 dB more" },
+    { label: "Max data rate at Nreq = 5 γ/bit",     value: "7875",         units: "Mbps", note: "physical limit before engineering losses" },
+    { label: "θ_PA (point-ahead)",                   value: "100",         units: "μrad" }
+  ],
+  publicReference: `<strong>NASA Press Release, December 14, 2023:</strong> "NASA's Deep Space Optical Communications Operations Team Achieves First Light" — 267 Mbps downlink achieved at ~16 million km. Validation cases <code>DSOC.psyche_at_1AU.photon_rate_order</code> and <code>PUBLIC.dsoc.peak_data_rate_0.3AU</code> in receipt <code>10eaef0bf31f</code>. Note: the lab's uniform-spot model is conservative compared to a Gaussian beam (over-counts photons by 3–10×); DSOC's actual photon-counting detector achieves single-photon-class sensitivity per PPM slot.`,
+  sources: ["NASA Dec 14 2023 press release", "DSOC public mission pages", "Caltech Hale 5.1m", "Born & Wolf §8"],
+  onLoad: () => {
+    document.getElementById("Pt").value     = "4";
+    document.getElementById("lambda").value = "1550";
+    document.getElementById("Dt").value     = "0.22";
+    document.getElementById("Dr").value     = "5.1";
+    document.getElementById("Runit").value  = "AU";
+    document.getElementById("R").value      = "0.107";
+    document.getElementById("B").value      = "2.67e8";
+    document.getElementById("eta").value    = "0.5";
+    document.getElementById("Lp").value     = "0";
+    document.getElementById("La").value     = "0";
+    document.getElementById("Nreq").value   = "5";
+    document.getElementById("vperp").value  = "30000";
+    document.getElementById("tol").value    = "10";
+    document.getElementById("compute").click();
+  }
+});
+
+const $ = id => document.getElementById(id);
+
+// ----- Formula registry cache (loaded once; used for the drawer + cert) -----
+let FORMULA_REGISTRY = null;
+async function loadFormulaRegistry() {
+  if (FORMULA_REGISTRY) return FORMULA_REGISTRY;
+  try {
+    const r = await fetch("../shared/formula_registry.json");
+    FORMULA_REGISTRY = await r.json();
+  } catch (e) {
+    console.warn("Could not load formula_registry.json:", e);
+    FORMULA_REGISTRY = { formulas: [] };
+  }
+  return FORMULA_REGISTRY;
+}
+function findFormula(id) {
+  if (!FORMULA_REGISTRY) return null;
+  return (FORMULA_REGISTRY.formulas || []).find(f => f.formula_id === id) || null;
+}
+
+// ----- Vector point-ahead (formula_id: point_ahead_angle_vector_v1) -----
+function pointAheadAngleVector(r_t, r_r, v_r) {
+  const dx = r_r[0] - r_t[0], dy = r_r[1] - r_t[1], dz = r_r[2] - r_t[2];
+  const L  = Math.sqrt(dx*dx + dy*dy + dz*dz);
+  if (!(L > 0)) return { theta: NaN, v_perp_mag: NaN, los_velocity: NaN };
+  const nx = dx / L, ny = dy / L, nz = dz / L;
+  const v_los = v_r[0]*nx + v_r[1]*ny + v_r[2]*nz;
+  const vpx   = v_r[0] - v_los * nx;
+  const vpy   = v_r[1] - v_los * ny;
+  const vpz   = v_r[2] - v_los * nz;
+  const vp    = Math.sqrt(vpx*vpx + vpy*vpy + vpz*vpz);
+  return { theta: vp / N.c, v_perp_mag: vp, los_velocity: v_los };
+}
+
+function readInputs() {
+  const unit = $("Runit").value;
+  const Rraw = parseFloat($("R").value);
+  const conv = unit === "AU" ? N.AU
+             : unit === "km" ? 1e3
+             : unit === "ls" ? N.c
+             : unit === "m"  ? 1
+             : 1;
+  const useVector = !!($("use-vector-pa") && $("use-vector-pa").checked);
+  const v3 = (xId, yId, zId) => [
+    parseFloat($(xId).value) || 0,
+    parseFloat($(yId).value) || 0,
+    parseFloat($(zId).value) || 0
+  ];
+  return {
+    Pt: parseFloat($("Pt").value),
+    lambda_nm: parseFloat($("lambda").value),
+    Dt: parseFloat($("Dt").value),
+    Dr: parseFloat($("Dr").value),
+    Runit: unit,
+    Rraw,
+    R: Rraw * conv,
+    B: parseFloat($("B").value),
+    eta: parseFloat($("eta").value),
+    Lp: parseFloat($("Lp").value),
+    La: parseFloat($("La").value),
+    Nreq: parseFloat($("Nreq").value),
+    vperp: parseFloat($("vperp").value),
+    tol_urad: parseFloat($("tol").value),
+    useVectorPA: useVector,
+    r_t: useVector ? v3("rt-x", "rt-y", "rt-z") : null,
+    r_r: useVector ? v3("rr-x", "rr-y", "rr-z") : null,
+    v_r: useVector ? v3("vr-x", "vr-y", "vr-z") : null
+  };
+}
+
+let lastCert = null;
+
+async function compute() {
+  const inp = readInputs();
+  const warnings = [];
+
+  // Basic input sanity
+  if (!(inp.Pt > 0))    warnings.push("Transmit power must be positive.");
+  if (!(inp.Dt > 0))    warnings.push("Transmit aperture must be positive.");
+  if (!(inp.Dr > 0))    warnings.push("Receive aperture must be positive.");
+  if (!(inp.R  > 0))    warnings.push("Range must be positive.");
+  if (!(inp.B  > 0))    warnings.push("Data rate must be positive.");
+  if (!(inp.lambda_nm > 0)) warnings.push("Wavelength must be positive.");
+  if (inp.eta <= 0 || inp.eta > 1) warnings.push("Optical efficiency η should be in (0, 1].");
+
+  const lambda = Units.nm_to_m(inp.lambda_nm);
+  // ── Full-precision Gaussian beam model (matched-mode launch: w_0 = D_t/2) ──
+  const beam   = Formulas.gaussianBeamCollection({ lambda, D_t: inp.Dt, D_r: inp.Dr, R: inp.R });
+  const w_R    = beam.w_R;                                   // 1/e² beam radius at receiver (m)
+  const Z_R    = beam.Z_R;                                   // Rayleigh range (m)
+  const f_collect = beam.f_collect;                          // fraction of P_t collected (≤ 1)
+  // Equivalent far-field half-angle (asymptotic): θ_eq = w_R/R for R >> Z_R
+  const theta  = (inp.R > 0) ? w_R / inp.R : Formulas.gaussianBeamDivergence(lambda, inp.Dt);
+  const r_spot = w_R;                                        // 1/e² beam radius — physical "spot"
+  const A_r    = Math.PI * Math.pow(inp.Dr / 2, 2);
+  if (inp.R < Z_R / 10) warnings.push(`Range R = ${sci(inp.R,3)} m is inside ~Z_R/10 = ${sci(Z_R/10,3)} m — near-field regime, far-field approximations weak.`);
+
+  const L_total_dB = inp.Lp + inp.La;
+  const lossFactor = Math.pow(10, -L_total_dB / 10);
+  const P_r = inp.Pt * inp.eta * f_collect * lossFactor;
+
+  const E_gamma = Formulas.photonEnergy(lambda);
+  const Ndot    = P_r / E_gamma;          // photons / s
+  const Nbit    = Ndot / inp.B;            // photons / bit
+  const margin_dB = 10 * Math.log10(Nbit / inp.Nreq);
+
+  // ---- Point-ahead angle: scalar (default) or vector geometry ----
+  let theta_PA, paMode, paExtra = {};
+  if (inp.useVectorPA && inp.r_t && inp.r_r && inp.v_r) {
+    const vec = pointAheadAngleVector(inp.r_t, inp.r_r, inp.v_r);
+    theta_PA  = vec.theta;
+    paMode    = "vector";
+    paExtra   = { v_perp_mag_m_per_s: vec.v_perp_mag, los_velocity_m_per_s: vec.los_velocity };
+  } else {
+    theta_PA  = Formulas.pointAheadAngle(inp.vperp); // rad
+    paMode    = "scalar";
+  }
+
+  // ---- Term-by-term loss budget (dB, positive = loss) ----
+  const L_geo  = -10 * Math.log10(f_collect);                 // diffraction / coupling loss
+  const L_eta  = -10 * Math.log10(inp.eta);                   // optical efficiency
+  const L_p    = inp.Lp;
+  const L_a    = inp.La;
+  const rows = [
+    { name: "Diffraction / Gaussian-beam coupling", dB: L_geo,
+      note: `f_collect = ${sci(f_collect,3)} = 1 − exp(−2·(D_r/2)²/w(R)²)` },
+    { name: "Optical efficiency η",                    dB: L_eta,
+      note: `η = ${inp.eta}` },
+    { name: "Pointing loss",                           dB: L_p,
+      note: "user-supplied dB" },
+    { name: "Atmospheric loss",                        dB: L_a,
+      note: "user-supplied dB" }
+  ].sort((a, b) => b.dB - a.dB);
+  const dom = rows[0];
+
+  // ---- Tolerance: point-ahead angle vs pointing tolerance ----
+  const tol_rad = inp.tol_urad * 1e-6;
+  const { rank, ratio } = tolRank(theta_PA, tol_rad);
+
+  // ---- Render KPIs ----
+  $("out-div").innerHTML  = `${fmt(theta * 1e6, "μrad")} <span class="unit">(${(theta*1e6).toPrecision(4)} μrad half-angle)</span>`;
+  $("out-spot").innerHTML = `${fmt(2 * r_spot, "m")}`;
+  $("out-pr").innerHTML   = `${fmt(P_r, "W")} <span class="unit">(${Units.W_to_dBm(P_r).toFixed(2)} dBm)</span>`;
+  $("out-rate").innerHTML = `${fmt(Ndot, "γ/s")}`;
+  $("out-ppb").innerHTML  = `${fmt(Nbit, "γ/bit")} <span class="unit">/ req ${inp.Nreq}</span>`;
+  $("out-margin").innerHTML = isFinite(margin_dB) ? `${margin_dB.toFixed(2)} <span class="unit">dB</span>` : "—";
+  $("out-pa").innerHTML   = `${fmt(theta_PA * 1e6, "μrad")} <span class="unit">(${Units.rad_to_arcsec(theta_PA).toPrecision(3)} arcsec)</span>`;
+  $("out-tol").innerHTML  = `${rankBadge(rank)} <span class="unit">ratio ${isFinite(ratio) ? ratio.toPrecision(3) : "—"}</span>`;
+
+  // ---- Loss table ----
+  $("loss-tbody").innerHTML = rows.map(r =>
+    `<tr><td>${r.name}</td><td style="text-align:right">${r.dB.toFixed(2)}</td><td class="mute small">${r.note}</td></tr>`
+  ).join("");
+  $("dom-term").textContent = `${dom.name} (${dom.dB.toFixed(2)} dB)`;
+
+  // ---- Warning box (good / warn / bad) ----
+  let calloutCls, calloutMsg;
+  if (!isFinite(margin_dB)) {
+    calloutCls = "bad";
+    calloutMsg = `<strong>Link unavailable.</strong> Received power is zero or invalid.`;
+  } else if (margin_dB < 0) {
+    calloutCls = "bad";
+    calloutMsg = `<strong>Link FAIL.</strong> Margin ${margin_dB.toFixed(2)} dB < 0; photons/bit (${sci(Nbit,3)}) below required (${inp.Nreq}). Increase $P_t$, $D_t$, or $D_r$; reduce $B$ or losses.`;
+  } else if (margin_dB < 3) {
+    calloutCls = "warn";
+    calloutMsg = `<strong>Marginal link.</strong> ${margin_dB.toFixed(2)} dB of headroom — below typical 3 dB engineering margin.`;
+  } else {
+    calloutCls = "good";
+    calloutMsg = `<strong>Link OK (first-order).</strong> Margin ${margin_dB.toFixed(2)} dB; dominant cost = ${dom.name.toLowerCase()} at ${dom.dB.toFixed(2)} dB.`;
+  }
+  const warnHtml = warnings.length
+    ? `<div class="callout warn"><strong>Warnings.</strong><ul style="margin:6px 0">${warnings.map(w=>`<li>${w}</li>`).join("")}</ul></div>`
+    : "";
+  $("warning-box").innerHTML = `<div class="callout ${calloutCls}">${calloutMsg}</div>${warnHtml}`;
+
+  // ---- Build Certificate v2 ----
+  await loadFormulaRegistry();
+  const formula_ids = [
+    "gaussian_beam_collection_v1",
+    "airy_divergence_v1",
+    "photon_energy_v1",
+    "loss_apply_db_v1",
+    "tolerance_budget_monte_carlo_v1",
+    (paMode === "vector" ? "point_ahead_angle_vector_v1" : "point_ahead_angle_scalar_v1")
+  ];
+
+  // Pull assumptions / approximation_limits / not_included from formula registry
+  const certAssumptions       = [];
+  const certApproximationLims = [];
+  const certNotIncluded       = [];
+  for (const fid of formula_ids) {
+    const f = findFormula(fid);
+    if (!f) continue;
+    for (const a of (f.assumptions   || [])) if (!certAssumptions.includes(a))       certAssumptions.push(a);
+    for (const a of (f.not_included  || [])) if (!certNotIncluded.includes(a))       certNotIncluded.push(a);
+  }
+  certApproximationLims.push("Far-field / paraxial / scalar-field Gaussian-beam regime");
+  certApproximationLims.push("First-order PPN / aberration-free point-ahead (v << c)");
+  certApproximationLims.push("Independent uniform per-channel tolerances in the Monte Carlo");
+
+  // Validity from warnings
+  const linkBad = !isFinite(margin_dB) || margin_dB < 0;
+  const validity = warnings.length === 0 && !linkBad ? "valid"
+                 : linkBad                          ? "fail"
+                 :                                    "valid-with-warnings";
+
+  const certInputs = {
+    Pt_W: inp.Pt,
+    lambda_nm: inp.lambda_nm,
+    Dt_m: inp.Dt,
+    Dr_m: inp.Dr,
+    range_unit: inp.Runit,
+    range_raw: inp.Rraw,
+    range_m: inp.R,
+    B_bps: inp.B,
+    eta: inp.eta,
+    Lp_dB: inp.Lp,
+    La_dB: inp.La,
+    photons_per_bit_required: inp.Nreq,
+    pointing_tol_urad: inp.tol_urad,
+    point_ahead_mode: paMode
+  };
+  if (paMode === "scalar") {
+    certInputs.v_perp_m_per_s = inp.vperp;
+  } else {
+    certInputs.r_t_m = inp.r_t;
+    certInputs.r_r_m = inp.r_r;
+    certInputs.v_r_m_per_s = inp.v_r;
+  }
+
+  const certConstants = {
+    c:  { value: Constants.c.value,  units: Constants.c.units,  note: Constants.c.note },
+    h:  { value: Constants.h.value,  units: Constants.h.units,  note: Constants.h.note },
+    AU: { value: Constants.AU.value, units: Constants.AU.units, note: Constants.AU.note }
+  };
+
+  const certOutputs = {
+    beam_divergence_rad:   { value: theta,      units: "rad (half-angle)" },
+    spot_diameter_m:       { value: 2 * r_spot, units: "m" },
+    collection_fraction:   { value: f_collect,  units: "" },
+    received_power_W:      { value: P_r,        units: "W" },
+    received_power_dBm:    { value: Units.W_to_dBm(P_r), units: "dBm" },
+    photon_rate_per_s:     { value: Ndot,       units: "γ/s" },
+    photons_per_bit:       { value: Nbit,       units: "γ/bit" },
+    link_margin_dB:        { value: margin_dB,  units: "dB" },
+    point_ahead_angle_rad: { value: theta_PA,   units: "rad", note: paMode },
+    point_ahead_mode:      { value: paMode,     units: "" },
+    loss_terms_dB:         rows.reduce((o, r) => (o[r.name] = r.dB, o), {}),
+    dominant_term:         { value: dom.name,   units: `${dom.dB.toFixed(2)} dB` },
+    ...paExtra
+  };
+
+  const built = await buildCertificateV2({
+    tool_id:      "deep-space-link",
+    tool_version: "0.2.0",
+    inputs:       certInputs,
+    constants:    certConstants,
+    constant_ids: ["speed_of_light", "planck", "astronomical_unit"],
+    formula_ids,
+    source_ids: ["born_wolf", "hemmati_descanso", "nasa_dsoc_public", "caltech_hale", "moision_hamkins_jpl"],
+    assumptions:  certAssumptions,
+    outputs:      certOutputs,
+    approximation_limits: certApproximationLims,
+    not_included: certNotIncluded,
+    validity,
+    warnings: [
+      ...warnings,
+      "Public engineering surrogate — does not reproduce mission-specific internal pipelines.",
+      "Uniform-spot / Gaussian-beam first-order optics; ignores adaptive optics, turbulence, detector internals."
+    ],
+    tolerance_tests: [
+      { term: "Point-ahead angle vs pointing tolerance",
+        value: theta_PA, tolerance: tol_rad, ratio, rank },
+      { term: "Photons/bit vs required",
+        value: Nbit, tolerance: inp.Nreq,
+        ratio: Nbit / inp.Nreq,
+        rank: Nbit >= inp.Nreq ? "KEEP" : "IGNORE" }
+    ],
+    generator: "Relativistic Optics Lab — deep-space-link"
+  });
+  lastCert = built;
+
+  $("cert-hash").innerHTML =
+    `result_hash <code>${built.resultHashShort}</code> &nbsp;·&nbsp; ` +
+    `receipt_hash <code>${built.receiptHashShort}</code>`;
+}
+
+document.getElementById("compute").addEventListener("click", compute);
+
+document.getElementById("cert-json").addEventListener("click", () => {
+  if (!lastCert) return alert("Compute a result first.");
+  downloadAs(`deep-space-link-${lastCert.resultHashShort}.json`, lastCert.json, "application/json");
+});
+document.getElementById("cert-md").addEventListener("click", () => {
+  if (!lastCert) return alert("Compute a result first.");
+  downloadAs(`deep-space-link-${lastCert.resultHashShort}.md`, lastCert.markdown, "text/markdown");
+});
+
+// ----- Vector point-ahead toggle: show/hide fields, recompute -----
+document.getElementById("use-vector-pa").addEventListener("change", e => {
+  document.getElementById("vector-pa-fields").style.display = e.target.checked ? "block" : "none";
+  compute();
+});
+
+// ----- Formula drawer: load registry and render the relevant rows -----
+async function renderFormulaDrawer() {
+  await loadFormulaRegistry();
+  const ids = [
+    "gaussian_beam_collection_v1",
+    "photon_energy_v1",
+    "airy_divergence_v1",
+    "point_ahead_angle_scalar_v1",
+    "loss_apply_db_v1",
+    "tolerance_budget_monte_carlo_v1"
+  ];
+  const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const blocks = ids.map(id => {
+    const f = findFormula(id);
+    if (!f) return `<div class="formula-row"><strong>${id}</strong>: <em>(not found in formula_registry.json)</em></div>`;
+    const inputs   = (f.inputs   || []).join(", ");
+    const outputs  = (f.outputs  || []).join(", ");
+    const assump   = (f.assumptions  || []).map(a => `<li>${esc(a)}</li>`).join("");
+    const notinc   = (f.not_included || []).map(a => `<li>${esc(a)}</li>`).join("");
+    const sources  = (f.source_ids   || []).map(s => `<code>${esc(s)}</code>`).join(" · ");
+    return `
+      <div style="margin:10px 0;padding:8px 10px;border-left:3px solid #aac;background:rgba(0,0,0,0.02)">
+        <div><strong>${esc(f.name)}</strong> &nbsp;<code class="small">${esc(f.formula_id)}</code></div>
+        <div style="margin:6px 0;font-family:ui-monospace,Menlo,Consolas,monospace">$$${f.equation_latex}$$</div>
+        <div class="small mute"><strong>inputs:</strong> ${esc(inputs)} &nbsp;·&nbsp; <strong>outputs:</strong> ${esc(outputs)}</div>
+        ${assump  ? `<div class="small" style="margin-top:4px"><strong>Assumptions:</strong><ul style="margin:2px 0 4px 18px">${assump}</ul></div>` : ""}
+        ${notinc  ? `<div class="small" style="margin-top:4px"><strong>Not included:</strong><ul style="margin:2px 0 4px 18px">${notinc}</ul></div>` : ""}
+        ${sources ? `<div class="small mute" style="margin-top:4px"><strong>Sources:</strong> ${sources}</div>` : ""}
+      </div>`;
+  }).join("");
+  const drawer = document.getElementById("formula-drawer-body");
+  drawer.innerHTML = blocks;
+  if (window.renderMathInElement) {
+    try {
+      window.renderMathInElement(drawer, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true  },
+          { left: "$",  right: "$",  display: false }
+        ]
+      });
+    } catch (e) { /* katex may not be loaded yet */ }
+  }
+}
+// Render once when the drawer is opened (lazy) OR on initial load
+document.getElementById("formula-drawer").addEventListener("toggle", e => {
+  if (e.target.open) renderFormulaDrawer();
+});
+
+// Initial compute
+window.addEventListener("load", compute);
+
+// ============================================================
+// Tolerance-budget loss-budget analysis
+// ============================================================
+let aegisBudget = cloneBudget();
+let lastAegisSummary = null;
+
+function aegisBaselineRateBps() {
+  // Use the calculator's CURRENT geometry as the "no-engineering-losses" baseline.
+  const inp     = readInputs();
+  const lambda  = Units.nm_to_m(inp.lambda_nm);
+  const beam    = Formulas.gaussianBeamCollection({ lambda, D_t: inp.Dt, D_r: inp.Dr, R: inp.R });
+  const P_r0    = inp.Pt * inp.eta * beam.f_collect;   // no L_p, L_a, no tolerance-budget losses
+  const E_gamma = Formulas.photonEnergy(lambda);
+  const Ndot0   = P_r0 / E_gamma;
+  return Ndot0 / inp.Nreq;                              // bps at Nreq photons/bit
+}
+
+function renderAegisChannels() {
+  const tbody = document.getElementById("aegis-channels-tbody");
+  tbody.innerHTML = aegisBudget.channels.map((c, i) => `
+    <tr>
+      <td>
+        <strong>${c.id}</strong>
+        <div class="small mute">${c.label}</div>
+      </td>
+      <td style="text-align:right">
+        <input type="number" step="0.1" data-ch="${i}" data-fld="nominal_dB"
+               value="${c.nominal_dB}" style="width:5em;text-align:right">
+      </td>
+      <td style="text-align:right">
+        <input type="number" step="0.1" data-ch="${i}" data-fld="min_dB"
+               value="${c.min_dB}" style="width:5em;text-align:right">
+      </td>
+      <td style="text-align:right">
+        <input type="number" step="0.1" data-ch="${i}" data-fld="max_dB"
+               value="${c.max_dB}" style="width:5em;text-align:right">
+      </td>
+      <td class="small mute">${c.source}</td>
+    </tr>
+  `).join("");
+  tbody.querySelectorAll("input").forEach(inp => {
+    inp.addEventListener("change", e => {
+      const idx = parseInt(e.target.dataset.ch, 10);
+      const fld = e.target.dataset.fld;
+      const v   = parseFloat(e.target.value);
+      if (isFinite(v)) {
+        aegisBudget.channels[idx][fld] = v;
+        runAegis();
+      }
+    });
+  });
+}
+
+function runAegis() {
+  const base_rate_bps = aegisBaselineRateBps();
+  const target_Mbps   = parseFloat(document.getElementById("aegis-target").value);
+  const target_bps    = (target_Mbps > 0 ? target_Mbps : 1) * 1e6;
+  const N_mc          = Math.max(100, Math.min(100000, parseInt(document.getElementById("aegis-N").value, 10) || 10000));
+
+  const t0 = performance.now();
+  const summary = evaluateBudget({
+    channels: aegisBudget.channels,
+    base_rate_bps,
+    target_bps,
+    N_mc
+  });
+  const elapsed = performance.now() - t0;
+  lastAegisSummary = summary;
+
+  // Channel-sum footer
+  document.getElementById("aegis-sum-nominal").textContent = summary.nominal_loss_dB.toFixed(1);
+  document.getElementById("aegis-sum-min").textContent     = summary.favorable_loss_dB.toFixed(1);
+  document.getElementById("aegis-sum-max").textContent     = summary.adverse_loss_dB.toFixed(1);
+
+  // KPI rates
+  const baseMbps = base_rate_bps / 1e6;
+  document.getElementById("aegis-baseline").innerHTML = `${baseMbps.toFixed(0)} <span class="unit">Mbps</span>`;
+  document.getElementById("aegis-best").innerHTML     = `${summary.rate_favorable_Mbps.toFixed(0)} <span class="unit">Mbps</span> <span class="unit">(${summary.margin_favorable.margin_dB >= 0 ? "+" : ""}${summary.margin_favorable.margin_dB.toFixed(1)} dB)</span>`;
+  document.getElementById("aegis-nominal").innerHTML  = `${summary.rate_nominal_Mbps.toFixed(0)} <span class="unit">Mbps</span> <span class="unit">(${summary.margin_nominal.margin_dB >= 0 ? "+" : ""}${summary.margin_nominal.margin_dB.toFixed(1)} dB)</span>`;
+  document.getElementById("aegis-adverse").innerHTML  = `${summary.rate_adverse_Mbps.toFixed(0)} <span class="unit">Mbps</span> <span class="unit">(${summary.margin_adverse.margin_dB >= 0 ? "+" : ""}${summary.margin_adverse.margin_dB.toFixed(1)} dB)</span>`;
+
+  // Margin band indicator
+  const band      = summary.margin_nominal.band;
+  const bandColor = band === "GREEN" ? "#1b8a4a" : band === "YELLOW" ? "#c9a000" : "#b30000";
+  const bandIcon  = band === "GREEN" ? "✓" : band === "YELLOW" ? "⚠" : "✗";
+  const bandText  = band === "GREEN"  ? "Link closes with positive engineering margin at nominal tolerance."
+                  : band === "YELLOW" ? "Link closes at nominal but with sub-1.5-dB margin — fragile to adverse tolerances."
+                  :                     "Link fails at nominal tolerance — predicted rate is below target.";
+  document.getElementById("aegis-band-indicator").innerHTML = `
+    <div class="callout" style="border-left:6px solid ${bandColor};padding:14px 18px;margin:10px 0;background:rgba(255,255,255,0.03)">
+      <div style="font-size:1.35em;color:${bandColor}"><strong>${bandIcon} ${band}</strong>
+        <span class="unit" style="font-size:0.7em;color:inherit">at ${target_Mbps} Mbps target</span>
+      </div>
+      <div style="margin-top:4px">Nominal margin: <strong>${summary.margin_nominal.margin_dB >= 0 ? "+" : ""}${summary.margin_nominal.margin_dB.toFixed(2)} dB</strong>.
+        Best case: <strong>${summary.margin_favorable.band}</strong>; Adverse case: <strong>${summary.margin_adverse.band}</strong>.</div>
+      <div class="small mute" style="margin-top:4px">${bandText}</div>
+    </div>
+  `;
+
+  // Monte Carlo
+  document.getElementById("aegis-p5").innerHTML     = `${summary.monte_carlo.p5_Mbps.toFixed(0)} <span class="unit">Mbps</span>`;
+  document.getElementById("aegis-p50").innerHTML    = `${summary.monte_carlo.p50_Mbps.toFixed(0)} <span class="unit">Mbps</span>`;
+  document.getElementById("aegis-p95").innerHTML    = `${summary.monte_carlo.p95_Mbps.toFixed(0)} <span class="unit">Mbps</span>`;
+  document.getElementById("aegis-pabove").innerHTML = `${(summary.monte_carlo.p_above_target * 100).toFixed(1)} <span class="unit">%</span> <span class="unit">(N=${summary.monte_carlo.N}, ${elapsed.toFixed(0)} ms)</span>`;
+
+  // Ablation
+  document.getElementById("aegis-ablation-tbody").innerHTML = summary.ablation.map(a => `
+    <tr>
+      <td><strong>${a.id}</strong><div class="small mute">${a.label}</div></td>
+      <td style="text-align:right">+${a.recovery_dB.toFixed(1)}</td>
+      <td style="text-align:right">${a.rate_sans_this_Mbps.toFixed(0)}</td>
+      <td style="text-align:right">${a.uplift_factor.toFixed(2)}×</td>
+    </tr>
+  `).join("");
+}
+
+document.getElementById("aegis-run").addEventListener("click", runAegis);
+document.getElementById("aegis-target").addEventListener("change", runAegis);
+document.getElementById("aegis-N").addEventListener("change", runAegis);
+document.getElementById("aegis-reset").addEventListener("click", () => {
+  aegisBudget = cloneBudget();
+  renderAegisChannels();
+  runAegis();
+});
+document.getElementById("aegis-export-csv").addEventListener("click", () => {
+  const csv = exportBudgetCSV(aegisBudget.channels);
+  downloadAs(`dsoc-loss-budget-channels.csv`, csv, "text/csv");
+});
+document.getElementById("aegis-export-json").addEventListener("click", () => {
+  const json = exportBudgetJSON(aegisBudget.channels, lastAegisSummary);
+  downloadAs(`dsoc-loss-budget-with-summary.json`, json, "application/json");
+});
+
+// Re-run tolerance-budget analysis whenever the user changes the calculator geometry
+document.getElementById("compute").addEventListener("click", () => setTimeout(runAegis, 0));
+
+// Initial render + run after the first compute()
+window.addEventListener("load", () => {
+  renderAegisChannels();
+  setTimeout(runAegis, 50);
+});
+</script>
+
+</body>
+</html>

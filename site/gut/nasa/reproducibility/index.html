@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reproducibility — Relativistic Optics Lab</title>
+  <meta name="description" content="Bundle version, validation receipt, file manifest with SHA-256 hashes, and a downloadable reproducibility bundle for the Relativistic Optics Lab.">
+  <link rel="stylesheet" href="../shared/style.css">
+  <style>
+    .repro-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin: 14px 0 22px;
+    }
+    .repro-card {
+      background: var(--bg-card);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 12px 14px;
+    }
+    .repro-card .label {
+      font-size: 0.78em;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 600;
+    }
+    .repro-card .value {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.95em;
+      color: var(--ink);
+      margin-top: 4px;
+      word-break: break-all;
+    }
+    .repro-card .value.big {
+      font-size: 1.3em;
+      font-weight: 700;
+    }
+    .receipt-box {
+      background: var(--bg-soft);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 14px 0;
+    }
+    .receipt-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 6px 14px;
+      font-size: 0.92em;
+      margin: 4px 0;
+    }
+    .receipt-row .k { color: var(--ink-soft); font-weight: 600; }
+    .receipt-row .v { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; word-break: break-all; }
+    .files-table { font-size: 0.88em; }
+    .files-table th { background: var(--bg-soft); }
+    .files-table td.path { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .files-table td.hash { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--ink-soft); font-size: 0.82em; word-break: break-all; }
+    .files-table td.size { text-align: right; font-variant-numeric: tabular-nums; }
+    .files-table tr.error td { color: var(--bad); }
+    .download-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 16px 0;
+      align-items: center;
+    }
+    .progress-bar {
+      flex: 1;
+      min-width: 240px;
+      height: 8px;
+      background: var(--bg-soft);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress-fill { height: 100%; background: var(--accent); width: 0%; transition: width 200ms ease; }
+    .limitation-badge {
+      display: inline-block;
+      background: var(--warn-bg);
+      color: var(--warn);
+      border: 1px solid #fed7aa;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.78em;
+      font-weight: 600;
+    }
+    .ok-badge {
+      display: inline-block;
+      background: var(--good-bg);
+      color: var(--good);
+      border: 1px solid #bbf7d0;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.78em;
+      font-weight: 600;
+    }
+    pre.reproduce-md {
+      background: var(--code-bg);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 12px 14px;
+      overflow-x: auto;
+      font-size: 0.88em;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+<main class="container">
+  <h1>Reproducibility</h1>
+  <p>
+    Every calculator output ships with a v2 certificate that splits a deterministic
+    <code>result_hash</code> (same inputs → same hash) from a timestamped
+    <code>receipt_hash</code> (different at every export). This page collects the
+    site-level reproducibility artefacts: bundle version, validation receipt, file
+    manifest with SHA-256 of every key file, and a downloadable bundle.
+  </p>
+
+  <h2>Bundle metadata</h2>
+  <div class="repro-grid" id="meta-grid"></div>
+
+  <h2>Last validation receipt</h2>
+  <div id="receipt-box" class="receipt-box">
+    <em class="small mute">Loading…</em>
+  </div>
+
+  <h2>Download reproducibility bundle</h2>
+  <div class="download-row">
+    <button class="btn" id="dl-bundle">Download reproducibility bundle (.zip)</button>
+    <span id="bundle-mode-badge"></span>
+    <div class="progress-bar" id="progress" style="display:none"><div class="progress-fill"></div></div>
+  </div>
+  <p class="small mute" id="bundle-note">
+    The bundle is built in your browser: it fetches every registry, validation report, calc page, and shared script
+    listed in the manifest, computes SHA-256 of each, and emits a single archive plus a <code>manifest.json</code>.
+  </p>
+
+  <h2>How to reproduce</h2>
+  <pre class="reproduce-md">## How to reproduce
+1. Unzip
+2. Open index.html in any browser
+3. Open validation/index.html — receipt should match validation_badge.json
+4. Open any calc page — export a certificate; result_hash should be deterministic for the same inputs</pre>
+
+  <h2>File manifest</h2>
+  <p class="small">
+    Live SHA-256 of every key file in the bundle. Reviewers can re-fetch any file and verify the hash.
+  </p>
+  <table class="files-table">
+    <thead>
+      <tr>
+        <th>Path</th>
+        <th>Bytes</th>
+        <th>SHA-256</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="manifest-tbody"><tr><td colspan="4"><em>Loading…</em></td></tr></tbody>
+  </table>
+
+  <div class="callout" style="margin-top:28px">
+    <strong>Limitations.</strong>
+    <span id="limitations-list"></span>
+  </div>
+</main>
+
+<script type="module">
+import { bootstrap, downloadAs } from "../shared/shared.js";
+import { buildZipStore } from "../shared/review_packet.js";
+
+bootstrap({ activeKey: "" });
+
+const BUNDLE_VERSION = "1.0";
+const COMMIT_HASH_PLACEHOLDER = "live-build";  // a downstream build step can stamp the real commit here
+
+// Files included in the reproducibility bundle.
+// Paths are relative to the lab root; the fetch URL is relative to this page (../).
+const BUNDLE_FILES = [
+  // Registries
+  { path: "shared/banned_phrases.json"     },
+  { path: "shared/constants_registry.json" },
+  { path: "shared/formula_registry.json"   },
+  { path: "shared/source_registry.json"    },
+  // Shared scripts
+  { path: "shared/shared.js"               },
+  { path: "shared/certificate_v2.js"       },
+  { path: "shared/validation.js",           optional: true },
+  { path: "shared/loss_budget.js",          optional: true },
+  { path: "shared/lint_claims.mjs",         optional: true },
+  { path: "shared/review_packet.js"        },
+  { path: "shared/saved_scenarios.js"      },
+  { path: "shared/style.css"               },
+  // Validation
+  { path: "validation/index.html"          },
+  { path: "validation/validation_report.json" },
+  { path: "validation/validation_badge.json", optional: true },
+  // Landing page
+  { path: "index.html"                     },
+  // Calculator pages
+  { path: "correction-ranker/index.html",   optional: true },
+  { path: "deep-space-link/index.html",     optional: true },
+  { path: "frequency-clock-shift/index.html", optional: true },
+  { path: "light-deflection/index.html",    optional: true },
+  { path: "sagnac/index.html",              optional: true },
+  { path: "shapiro-delay/index.html",       optional: true },
+  // Registry-display pages
+  { path: "formulas/index.html"            },
+  { path: "constants/index.html"           },
+  { path: "sources/index.html"             },
+  { path: "reproducibility/index.html"     },
+  // Sibling tools added by parallel agents — present in deployed bundle, optional here
+  { path: "horizons-scenario-builder/index.html",   optional: true },
+  { path: "horizons-scenario-builder/cached_scenarios.json", optional: true },
+  { path: "sensitivity/index.html",                 optional: true },
+  { path: "uncertainty/index.html",                 optional: true },
+  { path: "BUILD_AND_DEPLOY.md",                    optional: true }
+];
+
+function escapeHtml(s) {
+  return String(s ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[ch]));
+}
+
+async function sha256Hex(bytes) {
+  const buf = await crypto.subtle.digest("SHA-256", bytes);
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
+}
+
+// Fetch a file from the lab root (this page is one level deep).
+async function fetchFile(path) {
+  const url = `../${path}`;
+  const res = await fetch(url, { cache: "no-store" });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const buf = await res.arrayBuffer();
+  return new Uint8Array(buf);
+}
+
+// Determine whether the browser can ship a real binary download.
+function canBlobDownload() {
+  return typeof Blob !== "undefined" && typeof URL !== "undefined" && typeof URL.createObjectURL === "function";
+}
+
+// CompressionStream is available in modern browsers — we still ship STORE-method
+// zips for maximum portability, but we report DEFLATE availability for transparency.
+function canCompressionStream() {
+  return typeof CompressionStream !== "undefined";
+}
+
+const LIMITATIONS = [];
+
+let MANIFEST_RESULTS = null;     // Map of path → { bytes, sha256, error? }
+
+async function buildManifest() {
+  const tbody = document.getElementById("manifest-tbody");
+  tbody.innerHTML = "";
+  const results = {};
+  for (const entry of BUNDLE_FILES) {
+    const row = document.createElement("tr");
+    const pathCell = document.createElement("td"); pathCell.className = "path"; pathCell.textContent = entry.path;
+    const sizeCell = document.createElement("td"); sizeCell.className = "size"; sizeCell.textContent = "…";
+    const hashCell = document.createElement("td"); hashCell.className = "hash"; hashCell.textContent = "…";
+    const statCell = document.createElement("td"); statCell.textContent = "fetching…";
+    row.append(pathCell, sizeCell, hashCell, statCell);
+    tbody.appendChild(row);
+
+    try {
+      const bytes = await fetchFile(entry.path);
+      const hex = await sha256Hex(bytes);
+      results[entry.path] = { bytes_array: bytes, bytes: bytes.length, sha256: hex };
+      sizeCell.textContent = bytes.length.toLocaleString();
+      hashCell.innerHTML = `<span title="${hex}">${hex.slice(0, 16)}…</span>`;
+      statCell.innerHTML = `<span class="ok-badge">OK</span>`;
+    } catch (e) {
+      results[entry.path] = { error: String(e), optional: !!entry.optional };
+      row.classList.add("error");
+      sizeCell.textContent = "—";
+      hashCell.textContent = "—";
+      statCell.innerHTML = entry.optional
+        ? `<span class="limitation-badge">optional missing</span>`
+        : `<span class="limitation-badge">missing</span>`;
+    }
+  }
+  MANIFEST_RESULTS = results;
+  return results;
+}
+
+async function loadBadge() {
+  const box = document.getElementById("receipt-box");
+  try {
+    const res = await fetch("../validation/validation_badge.json", { cache: "no-store" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const badge = await res.json();
+    box.innerHTML = `
+      <div class="receipt-row"><div class="k">Validity</div><div class="v">${escapeHtml(badge.validity || badge.deployment_gate || badge.status || "—")}</div></div>
+      <div class="receipt-row"><div class="k">Receipt SHA-256</div><div class="v">${escapeHtml(badge.receipt?.sha256 || badge.receipt_sha256 || "—")}</div></div>
+      <div class="receipt-row"><div class="k">Short</div><div class="v">${escapeHtml(badge.receipt?.short || badge.receipt_short || "—")}</div></div>
+      <div class="receipt-row"><div class="k">Generated</div><div class="v">${escapeHtml(badge.timestamp_utc || badge.generated_utc || "—")}</div></div>
+      <div class="receipt-row"><div class="k">Cases passed</div><div class="v">${escapeHtml(badge.summary?.passed ?? badge.passed ?? "—")} / ${escapeHtml(badge.summary?.total ?? badge.total ?? "—")}</div></div>`;
+    return badge;
+  } catch (e) {
+    // Fall back to validation_report.json — it has the same receipt structure
+    try {
+      const res = await fetch("../validation/validation_report.json", { cache: "no-store" });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const rep = await res.json();
+      box.innerHTML = `
+        <div class="callout">
+          <strong>validation_badge.json not found</strong> — using the validation_report.json receipt instead.
+          Generating a slim badge from a future deploy step is non-blocking.
+        </div>
+        <div class="receipt-row"><div class="k">Generator</div><div class="v">${escapeHtml(rep.generator || "—")}</div></div>
+        <div class="receipt-row"><div class="k">Generated</div><div class="v">${escapeHtml(rep.timestamp_utc || "—")}</div></div>
+        <div class="receipt-row"><div class="k">Receipt SHA-256</div><div class="v">${escapeHtml(rep.receipt?.sha256 || "—")}</div></div>
+        <div class="receipt-row"><div class="k">Short</div><div class="v">${escapeHtml(rep.receipt?.short || "—")}</div></div>
+        <div class="receipt-row"><div class="k">Cases</div><div class="v">${escapeHtml(rep.summary?.passed ?? "?")} / ${escapeHtml(rep.summary?.total ?? "?")} passing · gate ${escapeHtml(rep.deploymentGate || "?")}</div></div>`;
+      LIMITATIONS.push("validation_badge.json is not yet emitted by the deploy pipeline; the receipt above is read from validation/validation_report.json directly.");
+      return rep;
+    } catch (e2) {
+      box.innerHTML = `<div class="callout warn"><strong>Could not load validation receipt.</strong> ${escapeHtml(String(e))} / ${escapeHtml(String(e2))}</div>`;
+      LIMITATIONS.push("No validation receipt could be loaded; downloaded bundle will not include a verified receipt.");
+      return null;
+    }
+  }
+}
+
+function renderMeta(badge) {
+  const grid = document.getElementById("meta-grid");
+  const validity = badge?.validity || badge?.deploymentGate || badge?.deployment_gate || "—";
+  const ts       = badge?.timestamp_utc || badge?.generated_utc || "—";
+  grid.innerHTML = `
+    <div class="repro-card">
+      <div class="label">bundle_version</div>
+      <div class="value big">${escapeHtml(BUNDLE_VERSION)}</div>
+    </div>
+    <div class="repro-card">
+      <div class="label">commit_hash</div>
+      <div class="value">${escapeHtml(COMMIT_HASH_PLACEHOLDER)}</div>
+    </div>
+    <div class="repro-card">
+      <div class="label">validation validity</div>
+      <div class="value big">${escapeHtml(validity)}</div>
+    </div>
+    <div class="repro-card">
+      <div class="label">validation timestamp</div>
+      <div class="value">${escapeHtml(ts)}</div>
+    </div>
+  `;
+}
+
+function renderLimitations() {
+  const host = document.getElementById("limitations-list");
+  if (LIMITATIONS.length === 0) {
+    host.innerHTML = "None — all artefacts loaded.";
+    return;
+  }
+  host.innerHTML = "<ul>" + LIMITATIONS.map(l => `<li>${escapeHtml(l)}</li>`).join("") + "</ul>";
+}
+
+function updateBundleModeBadge() {
+  const host = document.getElementById("bundle-mode-badge");
+  if (canBlobDownload()) {
+    host.innerHTML = `<span class="ok-badge">ZIP (STORE) ready</span>` +
+                     (canCompressionStream() ? "" : ` <span class="limitation-badge">no CompressionStream</span>`);
+    if (!canCompressionStream()) {
+      LIMITATIONS.push("CompressionStream is not available; bundle is built with STORE method (no compression) — file is larger but universally readable.");
+    }
+  } else {
+    host.innerHTML = `<span class="limitation-badge">browser missing Blob/URL — inline-JSON fallback</span>`;
+    LIMITATIONS.push("Browser lacks Blob/URL — bundle will be emitted as a single concatenated JSON instead of a real .zip.");
+  }
+  renderLimitations();
+}
+
+async function downloadBundle() {
+  if (!MANIFEST_RESULTS) {
+    alert("Manifest not ready yet. Please wait for the file list to finish loading.");
+    return;
+  }
+  const progress = document.getElementById("progress");
+  const fill = progress.querySelector(".progress-fill");
+  progress.style.display = "";
+  fill.style.width = "0%";
+
+  // Re-fetch any missing required files (skip optional missing ones)
+  const successes = {};
+  const fallbacks = [];
+  const total = Object.entries(MANIFEST_RESULTS).length;
+  let done = 0;
+  for (const [path, info] of Object.entries(MANIFEST_RESULTS)) {
+    done++;
+    fill.style.width = `${(done / total) * 100}%`;
+    if (info.error) {
+      if (!info.optional) fallbacks.push(`required file missing: ${path} (${info.error})`);
+      continue;
+    }
+    successes[path] = info.bytes_array;
+  }
+
+  // Compose the manifest.json from MANIFEST_RESULTS (excluding the raw bytes)
+  const manifest = {
+    bundle_version: BUNDLE_VERSION,
+    generated_utc:  new Date().toISOString(),
+    commit_hash:    COMMIT_HASH_PLACEHOLDER,
+    files:          {}
+  };
+  for (const [path, info] of Object.entries(MANIFEST_RESULTS)) {
+    if (info.error) {
+      manifest.files[path] = { status: info.optional ? "optional-missing" : "missing", error: info.error };
+    } else {
+      manifest.files[path] = { status: "ok", bytes: info.bytes, sha256: info.sha256 };
+    }
+  }
+  // Include README_REPRODUCE.md inline
+  const readme = `# How to reproduce — Relativistic Optics Lab
+
+bundle_version: ${BUNDLE_VERSION}
+commit_hash:   ${COMMIT_HASH_PLACEHOLDER}
+generated_utc: ${manifest.generated_utc}
+
+1. Unzip this archive.
+2. Open \`index.html\` in any browser.
+3. Open \`validation/index.html\` — the recomputed receipt should match the one in \`validation/validation_badge.json\` (or \`validation_report.json\` if no badge was generated).
+4. Open any calc page and export a certificate. The \`result_hash\` is deterministic over the inputs; two reviewers running the same calc with the same inputs obtain the same \`result_hash\`.
+
+## Manifest
+
+See \`manifest.json\` for byte size and SHA-256 of every file.
+
+## Limitations
+
+${LIMITATIONS.length ? LIMITATIONS.map(l => "- " + l).join("\n") : "- None recorded at build time."}
+`;
+  const encoder = new TextEncoder();
+  successes["manifest.json"]        = encoder.encode(JSON.stringify(manifest, null, 2));
+  successes["README_REPRODUCE.md"]  = encoder.encode(readme);
+
+  fill.style.width = "100%";
+
+  if (!canBlobDownload()) {
+    // Fallback: concatenated JSON of every file (text files decoded to UTF-8)
+    const inline = {
+      mode: "fallback-inline-json",
+      note: "Browser lacks Blob/URL — every bundle file is inlined here. Reviewers must extract manually.",
+      bundle_version: BUNDLE_VERSION,
+      generated_utc: manifest.generated_utc,
+      files: {}
+    };
+    const decoder = new TextDecoder("utf-8");
+    for (const [path, bytes] of Object.entries(successes)) {
+      try { inline.files[path] = decoder.decode(bytes); }
+      catch { inline.files[path] = "(binary content omitted)"; }
+    }
+    const json = JSON.stringify(inline, null, 2);
+    downloadAs(`relativistic-optics-lab-bundle-${BUNDLE_VERSION}.json`, json, "application/json");
+    progress.style.display = "none";
+    alert("Bundle emitted as a single inline JSON (browser lacked Blob/URL). Reviewers must split the files manually.");
+    return;
+  }
+
+  const zipBytes = buildZipStore(successes);
+  const blob = new Blob([zipBytes], { type: "application/zip" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `relativistic-optics-lab-bundle-${BUNDLE_VERSION}.zip`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 1500);
+  progress.style.display = "none";
+}
+
+async function main() {
+  updateBundleModeBadge();
+  // Run manifest build and badge load in parallel
+  const [, badge] = await Promise.all([
+    buildManifest().catch(e => console.warn("manifest build failed:", e)),
+    loadBadge().catch(e => { console.warn("badge load failed:", e); return null; })
+  ]);
+  renderMeta(badge);
+  renderLimitations();
+  document.getElementById("dl-bundle").addEventListener("click", () => {
+    downloadBundle().catch(e => {
+      console.error("bundle download failed:", e);
+      alert(`Bundle download failed: ${e}`);
+    });
+  });
+}
+
+main();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Layer 3 — The allowed search grammars</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 252px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 10px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:14px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9670; The Anchors</a></div>
+<div class="ann-group">Start</div>
+<a href="index.html">Overview — how we judge</a>
+<a href="anchor-hierarchy-overview.html">Anchor hierarchy — map</a>
+<div class="ann-group">The method</div>
+<a href="a0-master-anchor.html">A0 — the master anchor</a>
+<a href="layer-1-metric.html">Layer 1 — MDL metric</a>
+<a href="layer-2-no-unpaid-labels.html">Layer 2 — no unpaid labels</a>
+<a href="layer-3-search-grammars.html" class="current">Layer 3 — search grammars</a>
+<a href="layer-4-carrier-forcing.html">Layer 4 — carrier-forcing</a>
+<a href="shape-minimality-challenge.html">Shape minimality challenge</a>
+<div class="ann-group">The hierarchy</div>
+<a href="deep-roots.html">The seven deep roots</a>
+<a href="master-anchors.html">Master anchors</a>
+<a href="logical-endpoint-proof.html">Logical endpoint proof</a>
+<a href="gate-traceability-template.html">Gate traceability template</a>
+<a href="blind-spots.html">Blind spots</a>
+<a href="ai-agent-completion-protocol.html">AI completion protocol</a>
+<div class="ann-group">Gate ledgers · GUT spine</div>
+<a href="sg1-anchor-ledger.html">SG-1 geometry</a>
+<a href="sg2-anchor-ledger.html">SG-2 gauge recovery</a>
+<a href="sg3-anchor-ledger.html">SG-3 generations</a>
+<a href="sg4-anchor-ledger.html">SG-4 hypercharge &amp; anomaly</a>
+<a href="sg5-anchor-ledger.html">SG-5 electroweak</a>
+<a href="sg6-anchor-ledger.html">SG-6 moduli stabilization</a>
+<a href="sg7-anchor-ledger.html">SG-7 threshold unification</a>
+<a href="sg8-anchor-ledger.html">SG-8 flavor closure</a>
+<a href="sg9-anchor-ledger.html">SG-9 proton safety</a>
+<a href="sg10-anchor-ledger.html">SG-10 claim boundary</a>
+<div class="ann-group">Gate ledgers · quantum/gravity/UV</div>
+<a href="uqf3-anchor-ledger.html">UQF-3 reflection positivity</a>
+<a href="uqf4-anchor-ledger.html">UQF-4 BRST / descent</a>
+<a href="uqf5a-5b-anchor-ledger.html">UQF-5A/5B linearized graviton</a>
+<a href="uqf5c-anchor-ledger.html">UQF-5C interacting graviton</a>
+<a href="uqf7-anchor-ledger.html">UQF-7 fermion chirality</a>
+<a href="uqf9-anchor-ledger.html">UQF-9 UV completion</a>
+<a href="uqf10-anchor-ledger.html">UQF-10 compactification</a>
+<a href="uqf14-anchor-ledger.html">UQF-14 unitarity / causality</a>
+<div class="ann-group">Gate ledgers · cosmology/BH/foundations</div>
+<a href="gap01-anchor-ledger.html">Gap-01 a6 Seeley-DeWitt</a>
+<a href="gap02-anchor-ledger.html">Gap-02 Yang-Mills mass gap</a>
+<a href="gap05-value-anchor-ledger.html">Gap-05 Lambda value</a>
+<a href="gap05-stability-anchor-ledger.html">Gap-05 Lambda stability</a>
+<a href="gap08-anchor-ledger.html">Gap-08 inflation</a>
+<a href="gap10-bg10-anchor-ledger.html">Gap-10/BG-10 baryogenesis</a>
+<a href="gap11-anchor-ledger.html">Gap-11 dark matter</a>
+<a href="gap13-anchor-ledger.html">Gap-13 BH entropy / Page</a>
+<a href="born-anchor-ledger.html">Born rule</a>
+<div class="ann-group">Gate ledgers · deep roots &amp; dissolutions</div>
+<a href="deeproot-granularity-anchor-ledger.html">Deep root — granularity</a>
+<a href="deeproot-shape-anchor-ledger.html">Deep root — structural form</a>
+<a href="lambda-catastrophe-anchor-ledger.html">Lambda-catastrophe (dissolved)</a>
+<a href="blackhole-singularity-anchor-ledger.html">Black-hole singularity (dissolved)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">Layer 3 — The allowed search grammars — rendered package. Rendered from <code>layer-3-search-grammars.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>Layer 3 — The allowed search grammars</h1>
+<p><strong>You can only call a theory "simpler" inside a declared game. Here are the four games — and the one rule you may never break: you may not compare across them without an explicit bridge.</strong></p>
+<p>This is the third bridge in the anchoring stack. Layer 1 fixed <em>how</em> we measure simplicity (description-length, not dimension-count). Layer 2 fixed the <em>honesty rule</em> (no exact Standard-Model label may be used unless it is generated, charged, or marked open). Layer 3 fixes the thing both of those quietly assume: <strong>a search space.</strong> A minimality claim is only meaningful relative to a declared set of <em>moves</em> — the grammar of constructions you are allowed to write down. Name the grammar, and "simplest" becomes a sharp, checkable statement. Refuse to name it, and "simplest" silently means "simplest among the things I happened to think of," which is no claim at all.</p>
+<hr />
+<h2>The question this layer answers</h2>
+<p>When the program says <em>"within the internal-isometry picture, the 13D shape is the strongest known survivor,"</em> a fair skeptic should immediately ask: <strong>survivor of what search?</strong> Over the space of <em>all imaginable theories of everything</em>? That space is not even enumerable — it is the space of all finite programs that reproduce the data, which is the home of every uncomputability theorem in the book. Over four cosets you sketched on a napkin? Then the claim is true but empty.</p>
+<p>Layer 3 is the move that makes the claim neither empty nor impossible. It declares the <strong>grammar register</strong>: a small, explicit family of construction-languages, each with its own legal moves, its own cost ledger, and its own failure modes. Inside any one grammar the search space is finite and the comparison is decidable. Across grammars, comparison is <em>forbidden by default</em> — it requires a separately-proven bridge with a common cost metric. The result is a contest you can actually referee.</p>
+<hr />
+<h2>Why a grammar is mandatory: the universal-negative wall</h2>
+<p>The naive target — <em>"no simpler theory exists anywhere"</em> — is a <strong>universal negative over all conceivable architectures.</strong> Make it precise and it becomes: is there any finite program $P$, of any kind, that outputs the observed physics to the relevant resolution $\Delta_0$ with fewer bits than our generator? That is the question of the Kolmogorov complexity $K(T)$ of the target data $T$, and $K(T)$ is <strong>uncomputable.</strong> There is provably no procedure that surveys all programs and certifies a minimum. The programmatic-generator schema</p>
+<p>$$B_P \;=\; \{\,P : P \text{ is a finite program outputting } T \text{ to resolution } \Delta_0\,\}$$</p>
+<p>contains <em>infinitely many</em> generators, and exact minimization over it cannot terminate. So "the shape is absolutely simplest" is not a hard claim we have failed to prove — it is a claim no one, for any theory, can ever prove. Chasing it is chasing a unicorn.</p>
+<p>The Layer-3 move is to <em>replace the impossible target with a reachable one.</em> Declare a <strong>finite mechanism grammar</strong> $\mathcal G$. Now the question "is the 13D branch shortest?" becomes a finite lower-bound problem over finitely many construction classes — <strong>decidable in principle, a checklist rather than a universal negative.</strong> That conversion is the achievement. It does not, by itself, fill in the checklist — but it turns a question that cannot be asked into one that can.</p>
+<p>Three discipline lines stay attached to everything below — they are the spine of the whole program, and Layer 3 is where the third one is enforced most literally:</p>
+<ul>
+<li><strong>selection $\neq$ derivation</strong> — choosing the shape is not the same as forcing it;</li>
+<li><strong>given-$E$ $\neq$ derivation-of-$E$</strong> — reading structure off the shape <em>given the observed spectrum</em> $E$ is not deriving $E$;</li>
+<li><strong>frozen / reproducible $\neq$ proven-unique</strong> — a hash-frozen, blind-reproducible candidate is still not a uniqueness theorem.</li>
+</ul>
+<p>Layer 3 makes the third line operational: "proven-unique" is only ever <em>grammar-relative-unique</em>, and saying so out loud is the honesty.</p>
+<hr />
+<h2>The grammar register</h2>
+<p>A candidate theory of gauge structure lives in one of (at least) four construction-languages. Each is a legitimate way to ask "where does the Standard Model come from?" — and each charges a different currency.</p>
+<h3>Grammar A — internal-isometry geometry</h3>
+<p><strong>Moves.</strong> Gauge forces <em>are</em> the isometries of compact internal factors. You build space as $M_4 \times (\text{internal})$, where the internal manifold is assembled from cosets $G/H$, folds (quotients by a finite group), and bundles; the gauge group is the isometry group, chirality and family number come from index theorems on declared bundles, and center quotients fix the charge lattice. This is the Kaluza–Klein lineage.</p>
+<p><strong>What it is charged.</strong> The internal geometry, the quotients, the bundle data, the measured anchors, and the rulebook that maps geometry to observables — all of it, under the Layer-1 full-generator metric.</p>
+<p><strong>Where the program stands.</strong> This is the program's home grammar, and its <strong>carrier-forcing</strong> results live here (the subject of Layer 4): inside "forces = isometries," cheaper carriers for the weak and hypercharge factors are eliminated by general theorems, and the one cheaper <em>color</em> rival was built end-to-end and breaks. The 13D branch is the strongest known survivor <strong>inside Grammar A, given $E$.</strong></p>
+<h3>Grammar B — bundle / brane / singularity</h3>
+<p><strong>Moves.</strong> Gauge structure comes from bundle structure-groups, branes, singularities, fluxes, and choices of vacuum — the string / M-theory / F-theory lineage. Gauge groups arise on stacks of branes or at geometric singularities; chiral matter localizes on intersections or matter curves; family number is an intersection or index count; the scales come from flux and moduli stabilization.</p>
+<p><strong>What it is charged.</strong> The compactification choice, the flux choice, the brane / localization data, moduli-stabilization machinery, exotics removal, and — critically — the <strong>selector / vacuum cost</strong>: which of the enormous landscape of vacua is the one we live in.</p>
+<p><strong>Where the program stands.</strong> Grammar B is <em>not refuted</em> by anything in Grammar A. These frameworks can host the Standard Model gauge content; on the bare gauge-recovery outcome they <strong>tie.</strong> What the program's in-grammar results do <em>not</em> do is reach into Grammar B and beat it — a different game has different legal moves. The honest standing is: Grammar B can carry the gauge content but, in every reviewed case, has not supplied a <em>frozen, fully-charged, selected vacuum</em> that reproduces the full target with fewer effective primitives. It remains a serious class to beat, not a beaten one.</p>
+<h3>Grammar C — 4D effective field theory</h3>
+<p><strong>Moves.</strong> Write the gauge group $su(3)\oplus su(2)\oplus u(1)$, the representation table, the family count, the hypercharges, the masses and mixings <em>directly</em>, as low-energy postulates of a renormalizable 4D quantum field theory. This is the Standard Model as usually taught.</p>
+<p><strong>What it is charged.</strong> Everything it writes down. Under Layer 2, each exact label that is <em>postulated rather than generated</em> is a primitive input and costs bits. A plain 4D EFT pays roughly $I(B_{\rm EFT})\approx 25b$ in injected structural bits — it inserts the full ledger directly — versus the 13D branch's honestly-charged $I(B_{13})\approx (4 + 9\text{–}10)\,b \approx 13b\text{–}14b$ (four measured anchors plus nine-or-ten injected reals).</p>
+<p><strong>Where the program stands.</strong> Grammar C is <strong>cheaper under a dimension-first metric</strong> — $4 < 13$, full stop, and that is a real win on that ruler. It is <em>not</em> cheaper under description-length, because there it pays its postulates in full and generates none of them. And it is, by construction, <em>not a geometric-origin solution</em> — it answers "what are the rules?" but declines to answer "why these rules?" The honest one-liner: <strong>lower metric dimension; higher primitive-label cost; no geometric origin.</strong> Which of those matters is exactly the Layer-1 metric question — still open.</p>
+<h3>Grammar D — algebraic / noncommutative / lattice / discrete</h3>
+<p><strong>Moves.</strong> Structure comes from a finite algebra, a spectral triple, a lattice, a cellular automaton, or a category. The gauge group is the unitaries / automorphisms of a finite noncommutative algebra $A_F$ (the Connes–Chamseddine almost-commutative route); chirality is an index on a finite Dirac operator; family number is built into the algebra's module structure; the rulebook is the spectral action or the categorical / functorial constraints.</p>
+<p><strong>What it is charged.</strong> The finite Dirac operator (which in the noncommutative-geometry route <em>carries the Yukawa couplings</em> — so flavor is paid there), the algebra, the axioms, and a <strong>cost-translation bridge</strong> to make its bits comparable with geometric bits at all.</p>
+<p><strong>Where the program stands.</strong> Grammar D is a <em>separate class.</em> Its primitives are not geometric primitives, so a fair comparison requires translating its cost ledger into a common currency — a bridge that does not yet exist in closed form. It is among the most serious architecture-neutral rivals precisely because it naturally unfolds into the same three functional roles (a stage, a rulebook, and actors) as a geometric construction. It is not refuted; it is <em>not yet commensurable.</em></p>
+<h3>The register at a glance</h3>
+<table>
+<thead>
+<tr>
+<th>Grammar</th>
+<th>Gauge origin</th>
+<th>What it pays for</th>
+<th>Standing vs. the 13D branch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong> — internal-isometry geometry</td>
+<td>isometries of cosets / folds / bundles</td>
+<td>geometry, quotients, bundle, anchors, rulebook</td>
+<td>home grammar; 13D is strongest known survivor <em>in A, given $E$</em></td>
+</tr>
+<tr>
+<td><strong>B</strong> — bundle / brane / singularity</td>
+<td>brane stacks, singularities, flux</td>
+<td>compactification, flux, branes, moduli, <strong>vacuum selector</strong></td>
+<td>gauge-outcome <strong>tie</strong>; not refuted by A; lacks a supplied selected vacuum</td>
+</tr>
+<tr>
+<td><strong>C</strong> — 4D EFT</td>
+<td>postulated by hand</td>
+<td>every label it writes down (Layer 2)</td>
+<td><strong>cheaper dimension-first only</strong>; higher label cost; no geometric origin</td>
+</tr>
+<tr>
+<td><strong>D</strong> — algebraic / NCG / lattice / discrete</td>
+<td>automorphisms of a finite algebra, spectral data</td>
+<td>finite Dirac op (carries flavor), axioms, <strong>cost-translation bridge</strong></td>
+<td>separate class; serious rival; not yet commensurable</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>The universal target constraints</h2>
+<p>A grammar tells you the legal moves; it does <em>not</em> tell you when a candidate has actually won. For that we need a fixed, architecture-neutral specification of the target — otherwise a competitor can "win" a <em>weaker game</em> by reproducing a watered-down version of the Standard Model. Every serious candidate, in any grammar, must meet <strong>all</strong> of:</p>
+<ul>
+<li>exact gauge algebra $su(3)\oplus su(2)\oplus u(1)$ — no missing factor, no extra unbroken factor;</li>
+<li>exactly <strong>three</strong> chiral generations;</li>
+<li><strong>no light mirror sector</strong> (a bare doubling of handedness is excluded by the measured LEP $Z$-width);</li>
+<li>the electric charge relation $Q = T_3 + Y$ with hypercharge quantized, $Y \in \tfrac{1}{6}\mathbb{Z}$;</li>
+<li>local anomaly admissibility (the spectrum <em>passes</em> the anomaly filter — see the caveat below);</li>
+<li><strong>frozen-before-compare</strong>: the generator is hash-frozen before it sees the comparison data;</li>
+<li><strong>no retuning and no layer-smuggling</strong>: a missing function may not be hidden inside an unexpanded phrase like "natural flux choice" or "the spectral action does it";</li>
+<li><strong>all</strong> real anchors and all sector normalizations charged in the ledger;</li>
+<li>a <strong>declared failure mode</strong> per mechanism — each mechanism states, in advance, what would break it.</li>
+</ul>
+<p>Two of these deserve emphasis because they are where weaker games quietly cheat.</p>
+<p>First, <strong>anomaly cancellation is a filter, not a selector.</strong> That the observed spectrum satisfies $A(E_{\rm SM}) = 0$ means $E_{\rm SM}$ <em>passes</em> a consistency filter; it does not mean the filter <em>picks out</em> $E_{\rm SM}$. Upgrading filter to selector would require proving the singleton statement</p>
+<p>$$\ker A \;\cap\; \mathcal{C}_{\rm admissible} \;=\; \{E_{\rm SM}\},$$</p>
+<p>i.e. that the Standard-Model spectrum is the <em>only</em> anomaly-free admissible spectrum. That theorem is <strong>not proven</strong> — the anomaly-free set is, as far as anyone has shown, infinite. So $E$ stays a primitive input across all grammars, and the claim "anomaly cancellation selects the Standard Model" is false. (This is the Layer-2 result, carried forward unchanged; the full accounting lives in the hypercharge / anomaly dossier.)</p>
+<p>Second, <strong>frozen-before-compare and no-smuggling are what keep the contest honest.</strong> The most common way a competitor looks cheaper than it is: it states a single elegant top-line object — a unified representation, a generic compactification, a finite algebra — and leaves the breaking chains, the flux choices, the flavor structure, and the proton-safety machinery folded into a phrase. When those functions are <em>unfolded</em> into explicit Stage / Rulebook / Actor data, the apparent economy usually reappears as rulebook and hidden-sector cost. Elegance at the headline is not economy in the ledger.</p>
+<hr />
+<h2>The no-cross-grammar rule</h2>
+<p>Here is the rule that does the real work of Layer 3:</p>
+<blockquote>
+<p><strong>You may not compare a candidate in one grammar to a candidate in another without an explicit bridge theorem and a common cost metric.</strong></p>
+</blockquote>
+<p>This is not bureaucratic caution; it dissolves a whole class of false paradoxes. Consider three "contradictions" a careless comparison would generate:</p>
+<ul>
+<li><em>Grammar C beats the 13D branch</em> — true, under dimension-first ($4 < 13$).</li>
+<li><em>The 13D branch beats Grammar C</em> — true, under description-length (C injects $\sim 25b$; the branch $\sim 13$–$14b$).</li>
+<li><em>Grammar B ties the 13D branch on gauge recovery while failing to supply a selected vacuum</em> — also true.</li>
+</ul>
+<p>These are not contradictions. They are <strong>different games scored on different rulers.</strong> The dimension-first ruler and the description-length ruler genuinely disagree about which architecture is "simpler," and <em>which ruler is correct is the Layer-1 question, still open.</em> Until that bridge is built, "13D is minimal" is an honest statement only when stamped with its grammar and its metric: <em>minimal inside Grammar A, under description-length, given $E$.</em> Strip any of those qualifiers and the statement becomes either false or unprovable.</p>
+<p>A-versus-A comparison is legitimate and is where the program's sharpest results live (carrier economy: which isometry construction is cheapest). A-versus-C, A-versus-B, A-versus-D are <em>not</em> legitimate without a bridge. Saying so is not a weakness of the program — it is the program refusing to claim a win it has not earned.</p>
+<hr />
+<h2>The closure target: a role-mechanism normal-form / exhaustion theorem</h2>
+<p>The grammar register turns an infinite survey into a finite one <em>inside each grammar.</em> The remaining ambition — the named, finite, reachable target that would upgrade the whole picture from a <em>survey</em> to a <em>classification</em> — is a <strong>role-mechanism normal-form / exhaustion theorem.</strong></p>
+<p>The idea: every admissible explanation of the Standard Model, in any grammar, must supply a mechanism for each of finitely many <strong>functional roles.</strong> Declare the roles as axes, and declare, for each axis, the finite list of <em>known mechanisms</em> that can fill it. A "normal-form class" is then one chosen mechanism per axis — a tuple. The five declared axes are:</p>
+<table>
+<thead>
+<tr>
+<th>Role (axis)</th>
+<th>Known mechanisms (the declared posits)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>gauge-origin</strong> — how $SU(3)\times SU(2)\times U(1)$ arises</td>
+<td>posited-4D · isometry of internal space (KK / coset) · holonomy / Wilson-line · algebraic (NCG spectral triple)</td>
+</tr>
+<tr>
+<td><strong>chirality-origin</strong> — how $L\neq R$ arises</td>
+<td>posited · index theorem on internal space · domain-wall / overlap</td>
+</tr>
+<tr>
+<td><strong>family-count</strong> — why three generations</td>
+<td>posited integer · topological index</td>
+</tr>
+<tr>
+<td><strong>flavor-origin</strong> — where the Yukawa structure comes from</td>
+<td>posited Yukawas · geometric wavefunction overlap · fitted normalization</td>
+</tr>
+<tr>
+<td><strong>scale-origin</strong> — how the dimensionful scales are set</td>
+<td>posited anchors · dynamical</td>
+</tr>
+</tbody>
+</table>
+<p>Because each axis is a finite list, the set of normal-form classes is a <strong>finite product</strong> — and that finiteness is exactly what makes the exhaustion question <em>checkable</em> rather than a search over arbitrary programs. The 13D branch is itself just one tuple in this scheme (gauge = isometry/coset; chirality = index; family = index; flavor = geometric overlap <em>plus</em> a fitted normalization; scale = posited anchors). It gets <strong>no privileged row</strong> — it is charged by the same codebook as every competitor, and it occupies the "fitted normalization" flavor cell honestly, because the branch does tune normalization constants $N_d, N_e, N_\nu$ to hit target masses, and a fitted normalization is a charged injection, not a derivation.</p>
+<p>The theorem to prove has two parts:</p>
+<ol>
+<li><strong>Reduction (exhaustion):</strong> every admissible architecture reduces — <em>cost-non-increasingly</em>, so no smuggling rescues it — to one of these finitely many tuples. The finite-taxonomy half of this is <strong>proved</strong>: inside the declared grammar, with dimension $D \in \{4,\dots,13\}$ crossed with the finite mechanism axes, the competitor space is finite and classifiable, and the no-smuggling rule preserves cost. This is the rigorous upgrade of the older informal "selector-minimal" claim.</li>
+<li><strong>Lower bound:</strong> for each tuple, bound its minimal cost from below, and show the 13D tuple is no worse than the cheapest. This is the <strong>open</strong> half — a finite lower-bound matrix that has not been completed. It is a checklist, not a universal negative; that is the whole point of having done Layer 3.</li>
+</ol>
+<p>The honest boundary condition is essential: the taxonomy is a <strong>declared posit</strong>, and it is <strong>living.</strong> The claim is exhaustion <em>relative to this list of mechanisms</em> — never an absolute negative. A competitor that uses a mechanism <em>not on any axis</em> is the <strong>unconsidered competitor</strong>: it does not refute the theorem, it <em>forces the taxonomy to be extended</em> and the matrix re-run. Broadening the axes strengthens the result. That is the legitimate way to attack the program — and inviting it is the honesty.</p>
+<hr />
+<h2>Status — reached vs open</h2>
+<p><strong>Reached.</strong></p>
+<ul>
+<li>The grammar register is declared, with four explicit construction-languages and their cost currencies. "Simpler" now always carries a grammar and a metric.</li>
+<li>The no-cross-grammar rule is in force, which dissolves the apparent dimension-first-vs-description-length contradictions into "different games, different rulers."</li>
+<li>The conversion of the impossible universal-negative ("simplest anywhere") into a finite, decidable, grammar-relative problem is <strong>done</strong> — that is the central Layer-3 achievement.</li>
+<li>The finite-normal-form half of the exhaustion theorem is <strong>proved</strong>: inside the declared grammar the competitor space is finite and classifiable, and the no-smuggling rule keeps the cost honest.</li>
+<li>Inside Grammar A, the 13D branch is the strongest known survivor <em>given $E$</em>; inside the broad competitor audit, <strong>no reviewed class — and no Tier-1 class</strong> (noncommutative geometry, Kaluza–Klein alternatives, string / F-theory, finite-state / discrete geometry, SO(10) / exceptional GUTs) — is currently a <em>preferred</em> competitor that both meets the full target and is cheaper after unfolding.</li>
+</ul>
+<p><strong>Open — the named bridge-theorem.</strong></p>
+<ul>
+<li>The <strong>lower-bound matrix</strong> (the second half of the exhaustion theorem): bound every normal-form class from below and show the 13D tuple is no worse than the cheapest. This is a finite checklist, not a universal negative, but it is not yet filled in.</li>
+<li><strong>Cross-grammar minimality</strong> as a whole: it depends on the lower-bound matrix <em>and</em> on the Layer-1 metric bridge (which ruler is correct) <em>and</em> on cost-translation bridges into Grammar D. Each is a named, finite target — not a unicorn.</li>
+<li>The <strong>architecture-neutral</strong> claim ("no simpler competitor across <em>all</em> grammars, full stop") remains open and is <em>likely unprovable in full</em>, because it reaches back into the uncomputable universal negative. That is the honest ceiling, and it is the same ceiling every theory of everything hits.</li>
+</ul>
+<p>So the Layer-3 standing is exactly symmetric and exactly honest: <strong>the 13D branch is unrefuted but not certified.</strong> No shorter full-target competitor has been exhibited in any reviewed class; and no procedure can certify global minimality. A blind, hostile reviewer should conclude <em>serious candidate, not validated</em> — which is precisely the conclusion the methodology is built to license. The honesty is the methodology: we say exactly which game the shape is winning (Grammar A, given $E$), which it merely ties (Grammar B's gauge outcome), which beats it on a different ruler (Grammar C, dimension-first), which is not yet commensurable (Grammar D), and what one finite theorem — the completed lower-bound matrix — would let us compare all of them fairly.</p>
+<hr />
+<h2>Cross-links</h2>
+<p><strong>Sibling anchor pages</strong></p>
+<ul>
+<li><a href="./index.html">The Anchors — overview</a> — how the whole stack fits together.</li>
+<li><a href="./a0-master-anchor.html">A0 — The Master Anchor</a> — the audit rule that grades every grammar by the same codebook.</li>
+<li><a href="./layer-1-metric.html">Layer 1 — Why "simplest" means description-length</a> — the metric a cross-grammar comparison must agree on first.</li>
+<li><a href="./layer-2-no-unpaid-labels.html">Layer 2 — No unpaid exact labels</a> — the anti-smuggling rule each grammar's cost ledger must obey.</li>
+<li><a href="./layer-4-carrier-forcing.html">Layer 4 — Carrier-forcing and the given-$E$ wall</a> — where Grammar A's in-grammar dominance is actually argued.</li>
+<li><a href="./shape-minimality-challenge.html">The Shape Minimality Challenge</a> — the synthesis: the three claim levels and the competitor ledger.</li>
+</ul>
+<p><strong>Gate dossiers</strong></p>
+<ul>
+<li><a href="../articles/DOSSIER_DEEPROOT_SHAPE_FULL.html">The shape, in full</a> — the frozen 13D construction and its honest standing.</li>
+<li><a href="../articles/DOSSIER_SG2_FULL.html">Gauge recovery (SG2)</a> — the gauge-outcome tie that motivates the no-cross-grammar rule.</li>
+<li><a href="../articles/DOSSIER_SG4_FULL.html">Hypercharge &amp; anomaly (SG4)</a> — why anomaly cancellation is a filter, not a selector.</li>
+</ul>
+</main>
+</div>
+</body></html>

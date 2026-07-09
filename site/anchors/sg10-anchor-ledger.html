@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SG-10 — Claim boundary &amp; scope</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 252px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 10px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:14px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9670; The Anchors</a></div>
+<div class="ann-group">Start</div>
+<a href="index.html">Overview — how we judge</a>
+<a href="anchor-hierarchy-overview.html">Anchor hierarchy — map</a>
+<div class="ann-group">The method</div>
+<a href="a0-master-anchor.html">A0 — the master anchor</a>
+<a href="layer-1-metric.html">Layer 1 — MDL metric</a>
+<a href="layer-2-no-unpaid-labels.html">Layer 2 — no unpaid labels</a>
+<a href="layer-3-search-grammars.html">Layer 3 — search grammars</a>
+<a href="layer-4-carrier-forcing.html">Layer 4 — carrier-forcing</a>
+<a href="shape-minimality-challenge.html">Shape minimality challenge</a>
+<div class="ann-group">The hierarchy</div>
+<a href="deep-roots.html">The seven deep roots</a>
+<a href="master-anchors.html">Master anchors</a>
+<a href="logical-endpoint-proof.html">Logical endpoint proof</a>
+<a href="gate-traceability-template.html">Gate traceability template</a>
+<a href="blind-spots.html">Blind spots</a>
+<a href="ai-agent-completion-protocol.html">AI completion protocol</a>
+<div class="ann-group">Gate ledgers · GUT spine</div>
+<a href="sg1-anchor-ledger.html">SG-1 geometry</a>
+<a href="sg2-anchor-ledger.html">SG-2 gauge recovery</a>
+<a href="sg3-anchor-ledger.html">SG-3 generations</a>
+<a href="sg4-anchor-ledger.html">SG-4 hypercharge &amp; anomaly</a>
+<a href="sg5-anchor-ledger.html">SG-5 electroweak</a>
+<a href="sg6-anchor-ledger.html">SG-6 moduli stabilization</a>
+<a href="sg7-anchor-ledger.html">SG-7 threshold unification</a>
+<a href="sg8-anchor-ledger.html">SG-8 flavor closure</a>
+<a href="sg9-anchor-ledger.html">SG-9 proton safety</a>
+<a href="sg10-anchor-ledger.html" class="current">SG-10 claim boundary</a>
+<div class="ann-group">Gate ledgers · quantum/gravity/UV</div>
+<a href="uqf3-anchor-ledger.html">UQF-3 reflection positivity</a>
+<a href="uqf4-anchor-ledger.html">UQF-4 BRST / descent</a>
+<a href="uqf5a-5b-anchor-ledger.html">UQF-5A/5B linearized graviton</a>
+<a href="uqf5c-anchor-ledger.html">UQF-5C interacting graviton</a>
+<a href="uqf7-anchor-ledger.html">UQF-7 fermion chirality</a>
+<a href="uqf9-anchor-ledger.html">UQF-9 UV completion</a>
+<a href="uqf10-anchor-ledger.html">UQF-10 compactification</a>
+<a href="uqf14-anchor-ledger.html">UQF-14 unitarity / causality</a>
+<div class="ann-group">Gate ledgers · cosmology/BH/foundations</div>
+<a href="gap01-anchor-ledger.html">Gap-01 a6 Seeley-DeWitt</a>
+<a href="gap02-anchor-ledger.html">Gap-02 Yang-Mills mass gap</a>
+<a href="gap05-value-anchor-ledger.html">Gap-05 Lambda value</a>
+<a href="gap05-stability-anchor-ledger.html">Gap-05 Lambda stability</a>
+<a href="gap08-anchor-ledger.html">Gap-08 inflation</a>
+<a href="gap10-bg10-anchor-ledger.html">Gap-10/BG-10 baryogenesis</a>
+<a href="gap11-anchor-ledger.html">Gap-11 dark matter</a>
+<a href="gap13-anchor-ledger.html">Gap-13 BH entropy / Page</a>
+<a href="born-anchor-ledger.html">Born rule</a>
+<div class="ann-group">Gate ledgers · deep roots &amp; dissolutions</div>
+<a href="deeproot-granularity-anchor-ledger.html">Deep root — granularity</a>
+<a href="deeproot-shape-anchor-ledger.html">Deep root — structural form</a>
+<a href="lambda-catastrophe-anchor-ledger.html">Lambda-catastrophe (dissolved)</a>
+<a href="blackhole-singularity-anchor-ledger.html">Black-hole singularity (dissolved)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">SG-10 — Claim boundary + scope walls: the gate anchor ledger — rendered package. Rendered from <code>sg10-anchor-ledger.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>SG-10 — Claim boundary + scope walls: the gate anchor ledger</h1>
+<p><strong>The honest one-line: SG-10 is the <em>disclosure</em> gate — it closes no physics, derives no number, and rides no new hash. Its single job is to name, in public, every sector the scoped theory does <em>not</em> claim, and to bind — by a checkable rule, not by authorial restraint — that no required gate is rescued by narrowing scope and no excluded sector is leaned on to close a required gate. Its honest grade is DISCLOSED, and that grade upgrades nothing.</strong></p>
+<p>This page is the gate-specific instantiation of the <a href="./index.html">anchoring method</a>, applied to a gate unlike any other: SG-1…SG-9 each claim the <em>geometry</em> does something; SG-10 claims the <em>manuscript</em> does something — it states its own boundary out loud and binds itself to honor it. Every exact thing SG-10 touches gets its own row — its status, what it is <em>allowed</em> to claim, and what it is <em>forbidden</em> to claim. It follows the same eleven-part shape and universal table as the <a href="./sg4-anchor-ledger.html">SG-4 ledger</a>; only the gate's nature differs.</p>
+<blockquote>
+<p><strong>selection ≠ derivation · given-E ≠ derivation-of-E · frozen/reproducible ≠ proven-unique.</strong></p>
+</blockquote>
+<hr />
+<h2>1. Gate status header</h2>
+<p style="font-size:.92rem;margin:.6rem 0;padding:.5rem .8rem;background:#f0f6ff;border-left:3px solid #2563c9;border-radius:4px"><strong>Taxonomy reconciliation (2026-07-05).</strong> Under the two-axis taxonomy SG-10 is resolved at a terminal &mdash; the disclosure mechanism is real, present, and falsifiable (DISCLOSED) &mdash; with its scope-lint audit shown as a pending residual (flagged, not silently merged). Read as terminal reached + residual shown; counted among the resolved-with-residual gates, not physics-closed.</p>
+<ul>
+<li><strong>Gate-level SG-10 roll-up:</strong> <strong>DISCLOSED.</strong> Not DERIVED, not PARTIAL (there is no physics in a scope gate to derive or partly close); not OPEN / not-claimed (the disclosure mechanism is real, present, and falsifiable). DISCLOSED is exactly right.</li>
+<li><strong>The closed <em>local</em> leg</strong> for a disclosure gate is not a physics obstruction $O(E)=0$ but a <strong>disclosure-consistency predicate</strong> over the manuscript text. Writing it as the gate's analog of the local-leg formula:
+$$
+C_{\rm SG10}(\text{text}) \;=\; \big(\,\forall\, s\in S_{\rm excl}:\ s\in\S 9.4\,\big)\ \wedge\ \big(\,\forall\, g\in G_{1..10}:\ \mathrm{support}(g)\cap S_{\rm excl}=\varnothing\,\big),
+$$
+i.e. clause (i) <em>excluded ↛ required</em> AND clause (ii) <em>required ↛ excluded</em>, quantified over every gate certificate and every exclusion row.</li>
+<li><strong>Status of the predicate:</strong> <strong>VERIFIED-BY-READING / AUDIT</strong> — the boundary holds by careful reading, but the lint that would make $C_{\rm SG10}$ machine-real is <strong>AUDIT</strong> (referenced, not independently re-run). The honest phrasing is <em>"verified by reading, pending the lint,"</em> never <em>"machine-enforced."</em></li>
+</ul>
+<p>A disclosure gate has a <em>different ceiling</em> from a physics gate: there is no DERIVED-CLOSED to reach. The achievable top is <strong>DISCLOSED-VERIFIED</strong> — machine-checked completeness plus machine-checked honesty. What stays open is everything that converts <em>asserted</em> into <em>machine-verified</em>: the lint run, the completeness witness, the per-wall conservatism map, and the cross-paper coherence scan.</p>
+<hr />
+<h2>2. Frozen inputs (what SG-10 stands on, not what it produces)</h2>
+<ul>
+<li><strong>Frozen branch hashes</strong> <code>dcc66f1b2685</code> (branch) / <code>a5b1e6f9d951</code> (manifest meta). READ-ONLY. <strong>SG-10 introduces <em>no geometric object and no new hash</em></strong> — it is a meta-constraint on the <em>text</em>. <strong>These hashes are audit anchors — they certify <em>which object</em> the gates were tested against; they do not validate any physics.</strong></li>
+<li><strong>The status outputs of Gates 1–10</strong> are <strong>given / charged / inherited</strong> — SG-10 consumes them. If a required gate's status is itself wrong, SG-10 cannot detect it: <strong>it checks <em>scope hygiene</em>, not <em>physics correctness</em>.</strong> SG-10 derives nothing about $E$ and inherits, never repairs, the given-$E$ character of every upstream gate.</li>
+</ul>
+<hr />
+<h2>3. Object anchors — the sectors and structures SG-10 acts on</h2>
+<p>SG-10 acts on <strong>text objects</strong> (a boundary ledger, two clauses, a lint, a downgrade rule, three fences) and <strong>references</strong> the walls owned by other campaigns. The seven excluded sectors (§9.4) are: quantum-gravity UV completion; full cosmology (inflation, reheating, CMB, structure); dark matter; dark energy / $\Lambda$; baryogenesis / $\eta_B$; strong CP / $\bar\theta$; Theory of Everything (all-sector, incl. the thermodynamic arrow). Each excluded row carries a <em>missing-certificate reason</em> and the status <em>Outside scoped-GUT claim</em>. <strong>Status of every wall: GIVEN / owned-elsewhere / entirely OPEN</strong> — SG-10 only <em>names and fences</em> them.</p>
+<hr />
+<h2>4. Root and master-anchor traceability</h2>
+<p><strong>Deep roots that are load-bearing for SG-10:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Deep root</th>
+<th>Role in SG-10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Record interface</strong></td>
+<td>makes the boundary ledger, the two clauses, and the lint <em>reproducible and reviewable</em> — the heart of a disclosure gate</td>
+</tr>
+<tr>
+<td><strong>Granularity</strong></td>
+<td>enforces <em>no unpaid exact labels</em>: every excluded row carries a named reason; no "closes" wording survives unpaid on a live path</td>
+</tr>
+<tr>
+<td><strong>Nonseparability</strong></td>
+<td>the program's honesty is a <em>graph property</em>, not a per-statement property — why a both-direction lint over the whole dependency graph is needed, not careful per-line prose</td>
+</tr>
+<tr>
+<td><strong>Shape</strong></td>
+<td>supplies the gate inventory (which gates are <em>required</em> vs which sectors are <em>excluded</em>) the boundary partitions</td>
+</tr>
+</tbody>
+</table>
+<p><em>Invariance, Scale,</em> and <em>Causal order</em> are not primary load-bearing anchors for SG-10 — it makes no metric, scale, or ordering claim.</p>
+<p><strong>Master anchors in play:</strong> the frozen branch (AUDIT ONLY) · no unpaid labels (every excluded reason charged) · finite invariant ledgers (the 16-row table) · the <em>declared</em> seven-sector scope-universe · open-residual discipline (every wall stays OPEN, owned elsewhere).</p>
+<hr />
+<h2>5. The SG-10 anchor ledger (the universal table)</h2>
+<table>
+<thead>
+<tr>
+<th>Gate anchor</th>
+<th>Exact object</th>
+<th>Deep-root link</th>
+<th>Master-anchor link</th>
+<th>Status</th>
+<th>Allowed claim</th>
+<th>Forbidden claim</th>
+<th>Open residual / closure task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gate roll-up</td>
+<td>SG-10</td>
+<td>Record interface, Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>DISCLOSED</strong></td>
+<td>a complete-as-asserted, both-direction, machine-enforceable boundary</td>
+<td>"SG-10 closes / derives / certifies any physics"</td>
+<td>upgrade <em>asserted</em> → <em>machine-verified</em> (R1–R8)</td>
+</tr>
+<tr>
+<td>Frozen branch</td>
+<td>hashes <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code></td>
+<td>Record interface</td>
+<td>frozen branch</td>
+<td><strong>AUDIT ONLY</strong></td>
+<td>the tested object is frozen / read-only</td>
+<td>"hashes validate the physics"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Upstream gate statuses</td>
+<td>status outputs of Gates 1–10</td>
+<td>Shape</td>
+<td>given (charged)</td>
+<td><strong>GIVEN / inherited</strong></td>
+<td>SG-10 checks <em>scope hygiene</em> of these</td>
+<td>"SG-10 repairs or verifies their physics"</td>
+<td>(owned by SG-1…SG-9)</td>
+</tr>
+<tr>
+<td>Boundary ledger</td>
+<td>§9.4 16-row table (9 required + 7 excluded + Reason column)</td>
+<td>Record interface</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED-GIVEN (text)</strong></td>
+<td>every named non-GUT sector excluded with a reason; reproduces by hand (W1)</td>
+<td>"the list is complete over <em>all</em> physics"</td>
+<td>publish completeness witness (R1)</td>
+</tr>
+<tr>
+<td>Clause (i)</td>
+<td><em>excluded ↛ required</em></td>
+<td>Nonseparability</td>
+<td>no unpaid labels</td>
+<td><strong>DERIVED-GIVEN (text)</strong></td>
+<td>stated verbatim; falsified by one counterexample (W2)</td>
+<td>"the clause is machine-proven across the text"</td>
+<td>lint clause (i) (R3)</td>
+</tr>
+<tr>
+<td>Clause (ii)</td>
+<td><em>required ↛ excluded</em></td>
+<td>Nonseparability</td>
+<td>no unpaid labels</td>
+<td><strong>DERIVED-GIVEN (text)</strong></td>
+<td>stated verbatim; blocks the re-filing move (W2)</td>
+<td>"the clause is machine-proven across the text"</td>
+<td>lint clause (ii) (R3)</td>
+</tr>
+<tr>
+<td>Downgrade asymmetry</td>
+<td>Gate-11 falsifier → offending gate $\to$ <em>Open / not claimed</em></td>
+<td>Record interface</td>
+<td>open-residual discipline</td>
+<td><strong>DERIVED-GIVEN (text)</strong></td>
+<td>the penalty falls <em>inward</em>, giving teeth on Gates 1–10 (W3)</td>
+<td>"SG-10 itself is downgraded" / "this is a physics claim"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Scope-consistency lint</td>
+<td><code>certificates/G11_claim_boundary/</code></td>
+<td>Record interface</td>
+<td>finite invariant ledger</td>
+<td><strong>AUDIT</strong></td>
+<td>"verified by reading, pending the lint" (W4)</td>
+<td>"the boundary is machine-enforced" (stated as proven)</td>
+<td>mount + run target-blind (R3)</td>
+</tr>
+<tr>
+<td>Fence 1</td>
+<td>Diagnostic-only dark-sector modes (§9.3.3/§9.3.4)</td>
+<td>Nonseparability</td>
+<td>no unpaid labels</td>
+<td><strong>CONDITIONAL</strong> (PASS by reading)</td>
+<td>modes owned by F/I/K as <em>Diagnostic only</em>, never gate support (W7)</td>
+<td>"the fence is lint-proven"</td>
+<td>lint emits per-gate support sets (R2)</td>
+</tr>
+<tr>
+<td>Fence 2</td>
+<td>$\Lambda$ ↔ Paper IV downstream pointer (§9.3.4)</td>
+<td>Record interface</td>
+<td>open-residual discipline</td>
+<td><strong>CONDITIONAL</strong> (PASS by reading)</td>
+<td>a <em>negative</em> cannot be leaned on to close; "adds no closure claim here" (W6)</td>
+<td>"the $\Lambda$ pointer advances or lifts the exclusion"</td>
+<td>lint inertness check (R2)</td>
+</tr>
+<tr>
+<td>Fence 3</td>
+<td>§11 engineering-coda bridge (firewall §4.9)</td>
+<td>Record interface</td>
+<td>open-residual discipline</td>
+<td><strong>CONDITIONAL</strong> (PASS by reading)</td>
+<td>"zero gate statuses changed" verbatim (W9)</td>
+<td>"the bridge does load-bearing gate work"</td>
+<td>lint external-object scan (R2)</td>
+</tr>
+<tr>
+<td>Historical firewall</td>
+<td>§9.4a + A3 migration (§A3.18/§A3.19)</td>
+<td>Granularity</td>
+<td>no unpaid labels</td>
+<td><strong>CONDITIONAL</strong> (asserted)</td>
+<td>no stale "strong CP closes" / "reservoir critical" wording supports a live gate (W8)</td>
+<td>"no cross-paper resurrection is possible"</td>
+<td>cross-paper grep (R6)</td>
+</tr>
+<tr>
+<td>§9.6 "why four values" remark</td>
+<td>anthropic / deeper-principle / brute-fact trichotomy</td>
+<td>Record interface</td>
+<td>open-residual discipline</td>
+<td><strong>OUTSIDE-SCOPE / fenced</strong></td>
+<td>a <em>reduction</em> (19+ → 4), self-labeled Outside scope (W5)</td>
+<td>"the four-values framing is an <em>answer</em>" / cited by a gate</td>
+<td>confirm no gate cites it (R7)</td>
+</tr>
+<tr>
+<td>Battle-WIN framing</td>
+<td>SG-10 ledger line ("one of two Fable-WIN gates")</td>
+<td>Record interface</td>
+<td>open-residual discipline</td>
+<td><strong>INTERPRETATION</strong></td>
+<td>a disclosure-<em>practice</em> observation (W10)</td>
+<td>"a physics / certificate-grade win"</td>
+<td>keep at interpretation strength (R8)</td>
+</tr>
+<tr>
+<td>Silent-narrowing rule</td>
+<td>§1.2.1 + Downgrade Rules table</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>AXIOM-OPEN / declared</strong></td>
+<td>sector-relocation fenced explicitly; target-narrowing fenced via the table</td>
+<td>"all scope-narrowing is one stated rule"</td>
+<td>generalize to one rule (R5)</td>
+</tr>
+<tr>
+<td>Wall: $\Lambda$</td>
+<td>measured $(2.3~\mathrm{meV})^4$ residue</td>
+<td>Granularity</td>
+<td>open-residual discipline</td>
+<td><strong>Weinberg-OPEN</strong> (catastrophe-half DISSOLVED)</td>
+<td>named; downstream-negative reinforces exclusion</td>
+<td>"$\Lambda$ solved / progressed"</td>
+<td>owned by $\Lambda$ campaign</td>
+</tr>
+<tr>
+<td>Wall: Yang–Mills gap</td>
+<td>continuum mass gap (pure-glue projection, 13D branch)</td>
+<td>Granularity</td>
+<td>open-residual discipline</td>
+<td><strong>Precisely-OPEN [X]</strong></td>
+<td>named; $D\le 0$ is a <em>proxy</em>, not the boxed target</td>
+<td>"$D\le0$ is a target-negative" / "gap floored"</td>
+<td>owned by Gap-02 campaign</td>
+</tr>
+<tr>
+<td>Wall: strong CP</td>
+<td>$\bar\theta$ alignment ($n$EDM bound)</td>
+<td>Granularity</td>
+<td>no unpaid labels</td>
+<td><strong>OPEN / observation-blocked</strong></td>
+<td>named; no $\bar\theta$ alignment certificate</td>
+<td>"strong CP closes" (historical wording)</td>
+<td>owned by strong-CP campaign</td>
+</tr>
+<tr>
+<td>Wall: baryogenesis</td>
+<td>measured $\eta_B\approx 6.1\times 10^{-10}$</td>
+<td>Granularity</td>
+<td>open-residual discipline</td>
+<td><strong>0/4</strong> (Rule A AXIOM-CLOSED ≠ proven)</td>
+<td>named; $M_R$ no witness → OPEN/UNKNOWN</td>
+<td>"Rule A reduced ⇒ BG-10 advanced"</td>
+<td>owned by BG-10 campaign</td>
+</tr>
+<tr>
+<td>Wall: quantum-gravity UV</td>
+<td>$a_6$ heat-kernel coefficient</td>
+<td>Granularity</td>
+<td>no unpaid labels</td>
+<td><strong>Precisely-OPEN</strong></td>
+<td>bulk $\mathrm{tr}[a_6]$ is a <em>labeled consistency coefficient</em></td>
+<td>"$a_6$ total emitted" / "UV completion"</td>
+<td>owned by Gap-01 campaign</td>
+</tr>
+<tr>
+<td>$M_R$ (firewall case)</td>
+<td>seesaw scale, <strong>no hash</strong></td>
+<td>Granularity</td>
+<td>no unpaid labels</td>
+<td><strong>OPEN — SG-8 residual</strong></td>
+<td>correctly NOT relocated into §9.4 exclusions</td>
+<td>"$M_R$ is an SG-10 exclusion" (clause-(ii) violation)</td>
+<td>owned by SG-8</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. The construction — the disclosure mechanism, in full</h2>
+<p>A disclosure gate's "arithmetic" is the <strong>predicate logic of the boundary</strong>, not a number. The five operative objects:</p>
+<p><strong>(1) The boundary ledger (§9.4).</strong> A 16-row table: nine <em>Required Gate</em> rows (status Yes / Claimed) and seven <em>Excluded</em> rows (status No / <em>Outside scoped-GUT claim</em>), each excluded row carrying a missing-certificate Reason. The attack handle is <strong>completeness</strong> relative to the declared non-GUT universe.</p>
+<p><strong>(2) The two binding clauses (§9.1; §1.2.1).</strong> Each is a <em>universal over the manuscript text</em>:
+$$
+\text{clause (i):}\ \forall\, s\in S_{\rm excl}:\ s\in\S 9.4,\qquad
+\text{clause (ii):}\ \forall\, g\in G_{1..10}:\ \mathrm{support}(g)\cap S_{\rm excl}=\varnothing .
+$$
+A single counterexample falsifies either clause — that is precisely what makes the boundary <em>falsifiable</em>, not a vibe.</p>
+<p><strong>(3) The scope-consistency lint (<code>certificates/G11_claim_boundary/</code>).</strong> The mechanical implementation of the two clauses as two text checks: clause (i) — every excluded sector appears in §9.4; clause (ii) — no Gate 1–10 certificate cites an excluded sector for closure or carries <em>Excluded from scope</em>. <strong>Status: AUDIT</strong> (referenced, not re-run; folder absent from the rendered tree).</p>
+<p><strong>(4) The downgrade asymmetry (§6.12; Downgrade Rules).</strong> When the Gate-11 falsifier fires — <em>any excluded sector invoked to support a required gate</em> — the penalty falls <strong>inward</strong>: it downgrades <strong>the offending required gate</strong> to <em>Open / not claimed</em>, <strong>not</strong> SG-10. SG-10 makes no physics claim, so there is nothing in <em>it</em> to downgrade; pointing the penalty at the offender is what gives a disclosure gate real teeth on the other ten.</p>
+<p><strong>(5) The three fences</strong> (Fence 1 Diagnostic-only modes; Fence 2 $\Lambda$ downstream pointer; Fence 3 §11 bridge) plus the §9.4a historical firewall — the most attackable surface, all PASS by reading, <em>conditional on the lint</em>.</p>
+<p><strong>Diagnostic — the disclosure is specific, not trivial.</strong> A disclosure layer naïvely has <em>no teeth</em> (it makes no claim, so there is nothing to falsify). The construction is non-trivial exactly because it carries a <em>concrete refuting witness</em>: a <em>single</em> improper citation falsifies a quantified clause, and the inward-falling penalty makes that falsification land on a real, named gate. The firewall test discriminates sharply — it keeps the unknown seesaw scale $M_R$ as an <strong>SG-8 required-gate residual</strong>, <em>not</em> relocated into the SG-10 exclusion list (a relocation clause (ii) forbids). A boundary that mechanically refuses that relocation, and names a refuting witness, is doing real work, not bookkeeping.</p>
+<hr />
+<h2>7. Declared-structure splits — one phrase, several honest objects</h2>
+<p>The single phrase <strong>"the claim boundary is machine-enforced"</strong> hides several different claims with different statuses:</p>
+<ol>
+<li><strong>The boundary ledger exists and reproduces by hand</strong> — <strong>DERIVED-GIVEN (text)</strong> (W1).</li>
+<li><strong>Both clauses are stated and bind both directions</strong> — <strong>DERIVED-GIVEN (text)</strong> (W2).</li>
+<li><strong>The clauses are <em>machine-checked</em> across the whole text</strong> — <strong>AUDIT</strong> (W4): the lint is referenced, not re-run.</li>
+<li><strong>The three fences are <em>proven</em> (not merely read)</strong> — <strong>CONDITIONAL</strong> (W6/W7/W8): airtight by reading, not lint-proven.</li>
+</ol>
+<p>So the <em>ledger</em> and the <em>clauses</em> are present-and-reproducible, the <em>machine enforcement</em> is AUDIT, and the <em>fences</em> are conditional. <strong>Bright line:</strong> the public popup/ledger present the lint as <em>active enforcement</em>; this page is more careful — "verified by reading, pending the lint," never "machine-enforced" stated as proven.</p>
+<p>The single phrase <strong>"the scope is narrowed honestly"</strong> likewise splits: <strong>sector-relocation</strong> (moving a required gate into exclusions) is fenced <em>explicitly</em> by §1.2.1, while <strong>target-narrowing</strong> (redefining a required gate to a weaker target — SG-6, SG-8, SG-9) is fenced only <em>implicitly</em>, via the separate Downgrade Rules table. R5 is the open task of generalizing these into one stated rule.</p>
+<hr />
+<h2>8. Open residuals — converting <em>asserted</em> into <em>machine-verified</em></h2>
+<p>For a disclosure gate, "open" means a step that strengthens the <em>honesty / machine-reality</em> of the boundary — <strong>never</strong> physics. Eight residuals (R1–R8), grouped by family. Attack order by leverage: R1 → R2 → R3 → R4 → R5/R6 → R7/R8.</p>
+<p><strong>Family A — completeness &amp; enforcement (the machine-reality core):</strong>
+- <strong>R1 — Completeness of the exclusion list. OPEN (HIGHEST leverage).</strong> Publish a <em>completeness witness</em> mapping every standard non-GUT sector to a ledger row, a defensible subsumption, or a flagged gap; issue the "name one missing sector" challenge. The internal sweep finds <strong>no true gap</strong> and <strong>no required-gate-in-exclusions</strong>.
+- <strong>R2 — The three fences. OPEN (HIGH; most attackable surface).</strong> Emit, via the lint, a per-gate support-set report proving no Diagnostic / downstream / external object appears in any required gate's support set.
+- <strong>R3 — The scope-consistency lint is AUDIT. OPEN (HIGH; cheapest physics-free win).</strong> Mount + run <code>certificates/G11_claim_boundary/</code> target-blind over the frozen text. <strong>One run discharges R3 (AUDIT → VERIFIED), proves R2's three fences machine-real, and supplies R1's no-required-gate-in-exclusions cross-check.</strong></p>
+<p><strong>Family B — conservatism &amp; rule-completeness:</strong>
+- <strong>R4 — Each wall at its campaign-verified conservatism. OPEN (MEDIUM-HIGH).</strong> A consistency sweep confirming no boundary row over-states any wall (the §6.4-style per-wall map <em>is</em> the artifact). This is the SG-10-specific deflation-honesty check.
+- <strong>R5 — Does the rule fence <em>all</em> scope-narrowing? OPEN (MEDIUM).</strong> Confirm §1.2.1 + the Downgrade Rules table together cover the three target-narrowings (SG-6, SG-8, SG-9), then adopt one stated rule.
+- <strong>R6 — Cross-paper boundary coherence. OPEN (MEDIUM).</strong> Cross-paper grep for each excluded sector; one conditional row remains (strong-CP historical wording).</p>
+<p><strong>Family C — keep-fenced (already correct):</strong>
+- <strong>R7 — The §9.6 "why four values" remark. OPEN / keep-fenced (LOW-MEDIUM).</strong> Confirm cited by no gate; keep at <em>reduction</em> strength.
+- <strong>R8 — Battle-WIN framing. OPEN / keep-fenced (LOW).</strong> Keep at interpretation strength, never certificate-grade.</p>
+<p>None of R1–R8 closes, advances, or claims any excluded-sector physics. The expected full outcome is 1 VERIFIED (R3), 4 AXIOM-CLOSED (R1, R2, R5, R6), 3 DISCLOSED-CONSISTENT (R4, R7, R8) — moving SG-10 from <em>DISCLOSED-with-asserted-lint</em> to <em>DISCLOSED-with-machine-verified-lint</em>. <strong>No wall moves; no physics is claimed.</strong></p>
+<hr />
+<h2>9. Anti-claims (what this page refuses to say)</h2>
+<ul>
+<li>SG-10 does <strong>not</strong> close, derive, or certify any physics. Every wall it names — $\Lambda$, the Yang–Mills mass gap, baryogenesis, strong CP, quantum-gravity UV completion — stays <strong>entirely OPEN</strong>, owned elsewhere.</li>
+<li><strong>The boundary is not (yet) machine-enforced.</strong> The lint (<code>certificates/G11_claim_boundary/</code>) is <strong>AUDIT</strong> — referenced, not re-run, absent from the rendered tree. The honest phrasing is "verified by reading, pending the lint."</li>
+<li><strong>The three fences are not proven</strong> — they are <em>Conditional</em> (airtight by reading; the un-run lint is what would prove them).</li>
+<li><strong>Completeness is not a theorem.</strong> "Every relevant non-GUT sector is named" is a universal over an open-ended sector space; the honest ceiling is <em>complete relative to the declared seven-sector universe</em>, with a witness and an open challenge — not exhaustive over all conceivable physics.</li>
+<li><strong>An attractive partial result is never wall progress.</strong> The bulk $a_6$ is a <em>consistency coefficient</em> (not a UV completion; total NOT emitted); the Gap-02 $D\le0$ is a <em>proxy</em> (not a target-negative); BG-10 Rule A AXIOM-CLOSED is <em>one reduced posit</em> (BG-10 stays <strong>0/4</strong>). Stating any wall as more closed than its owner verified is the SG-10-specific deflation violation.</li>
+<li><strong>$\Lambda$'s catastrophe-half is DISSOLVED, not solved.</strong> It was a <em>fake wall</em> built on the unmeasured <em>absolute</em> vacuum energy; the <em>observed</em> small $\Lambda$ is a separate Weinberg-irreducible residue. Dissolved ≠ solved.</li>
+<li><strong>The frozen-branch hashes are audit anchors; they do not validate the physics.</strong> And the "Battle-WIN" framing is a disclosure-<em>practice</em> observation, never a physics certificate.</li>
+</ul>
+<hr />
+<h2>10. Specialist closure plan</h2>
+<p>Each open residual is a concrete, finite, target-blind work-package. <strong>The cardinal point: the win on this gate is <em>machine-reality + honesty</em>, never a status change — no path may quietly promote a wall or claim any excluded-sector physics.</strong></p>
+<ol>
+<li><strong>R1 — completeness witness.</strong> Build/publish the witness table; assert <strong>AXIOM-SCOPE-UNIVERSE</strong> (the closed seven-sector list, every other sector a required gate or a subsumed sub-sector); issue the "name a missing sector" challenge. <em>Falsifier (a valid close):</em> a candidate that is genuinely a <em>required</em> gate hiding in exclusions → clause-(ii) violation → that gate downgrades. Endpoint: <strong>AXIOM-CLOSED at AXIOM-SCOPE-UNIVERSE</strong>.</li>
+<li><strong>R2 — three fences.</strong> Run the lint so it emits each Gate 1–10 support set with status labels; assert <strong>AXIOM-NO-DIAGNOSTIC-SUPPORT</strong>. <em>Falsifier:</em> a required certificate cites a fenced object → Gate-11 falsified → offender downgrades.</li>
+<li><strong>R3 — the lint.</strong> Mount the script + rule set; run target-blind over the frozen text; confirm both clauses PASS; emit the support-set report. Machine-lane, fail-closed, <strong>no axiom, no new physics</strong>. <strong>BLOCKED_INPUTS until mounted → then VERIFIED or REFUTED.</strong> <em>Highest value-per-effort; do this first among the machine tasks.</em></li>
+<li><strong>R4 — per-wall conservatism.</strong> Run the consistency sweep against the campaign floors ($\Lambda$ Weinberg-OPEN; Gap-02 Precisely-OPEN [X]; strong-CP observation-blocked; BG-10 0/4; Gap-01 $a_6$ Precisely-OPEN); assert <strong>AXIOM-WALL-CONSERVATISM</strong>. SG-10 never leads — a dependent of the owning campaigns. Endpoint: <strong>DISCLOSED-CONSISTENT</strong>.</li>
+<li><strong>R5 — silent-narrowing.</strong> Confirm §1.2.1 + Downgrade Rules cover the three target-narrowings (each card-declared, remainder labeled Diagnostic/Open); adopt <strong>AXIOM-NO-SILENT-NARROWING</strong> as one rule; widen the lint's clause (ii). Endpoint: <strong>AXIOM-CLOSED</strong> (a genuine strengthening).</li>
+<li><strong>R6 — cross-paper coherence.</strong> Cross-paper grep for each excluded sector + status-label scan; assert <strong>AXIOM-CORPUS-BOUNDARY-COHERENCE</strong>. Endpoint: <strong>AXIOM-CLOSED</strong>, one conditional row (strong-CP) pending the grep.</li>
+<li><strong>R7 — §9.6 remark.</strong> Confirm cited by no gate certificate; keep the four-values framing at <em>reduction</em> strength (<strong>AXIOM-UNFALSIFIABLE-REMARK-FENCED</strong>). Endpoint: <strong>DISCLOSED-CONSISTENT</strong>.</li>
+<li><strong>R8 — Battle-WIN framing.</strong> Keep at interpretation strength; keep the rival comparison out of this gate's certificate (<strong>AXIOM-DISCLOSURE-WIN-IS-META</strong>). Endpoint: <strong>DISCLOSED-CONSISTENT</strong>.</li>
+</ol>
+<p>Closing all eight upgrades SG-10 from <em>DISCLOSED-with-asserted-lint</em> toward <strong>DISCLOSED-VERIFIED</strong> — and even then, only a machine-verified, conservatism-mapped <em>boundary</em>, not a closure of any wall.</p>
+<hr />
+<h2>11. Completion tests for this page</h2>
+<p><strong>Required presence (all met):</strong> gate roll-up <strong>DISCLOSED</strong> · the disclosure-consistency predicate $C_{\rm SG10}(\text{text})$ with its two clauses · its VERIFIED-BY-READING / AUDIT label · "SG-10 derives / closes no physics" · frozen hashes (AUDIT ONLY) · the §9.4 16-row ledger · both binding clauses · the inward downgrade asymmetry · the lint (AUDIT) · the three fences (Conditional) + historical firewall · §9.6 remark fenced · Battle-WIN at interpretation · every wall at its campaign floor ($\Lambda$ Weinberg-OPEN; Gap-02 Precisely-OPEN [X]; strong-CP observation-blocked; BG-10 0/4; Gap-01 $a_6$ Precisely-OPEN) · $M_R$ kept as an SG-8 residual · specificity diagnostic (single-counterexample falsifier + inward penalty + $M_R$ firewall) · all eight residuals as their own rows · the gate's anti-claims.</p>
+<p><strong>Required absence (all held):</strong> no claim that SG-10 closes / derives / certifies any physics · no wall stated as solved, small, or progressed · no "machine-enforced" stated as proven (lint is AUDIT) · no fence stated as proven (they are Conditional) · no completeness-theorem over all physics · $a_6$ total not emitted · $D\le0$ not sold as a target-negative · "Rule A reduced" not read as "BG-10 advanced" · $M_R$ not relocated into exclusions · hashes do not validate physics · Battle-WIN not stated as a certificate.</p>
+<p><strong>Completion report.</strong>
+- <strong>Tests passed:</strong> all required-presence and required-absence items above.
+- <strong>Tests failed:</strong> none.
+- <strong>Open items:</strong> R1–R8 (the <em>asserted → machine-verified</em> upgrade path); the gate stays <strong>DISCLOSED</strong> until the lint is run target-blind.
+- <strong>Assumptions made:</strong> none beyond the dossier — every status, wall disposition, hash, and number is carried from <code>DOSSIER_SG10_FULL</code> at its campaign-conservative floor; nothing was upgraded.</p>
+<hr />
+<p><em>This gate anchor ledger follows the canonical eleven-part shape and universal table of the <a href="./sg4-anchor-ledger.html">SG-4 ledger</a>; SG-10 is the disclosure gate, so its closed leg is a text-consistency predicate, not a physics obstruction.</em></p>
+<p><strong>See also:</strong> <a href="./index.html">the anchoring method</a> · <a href="./a0-master-anchor.html">A0 — the master anchor</a> (the rule for what counts as physics, which the boundary partitions) · <a href="./layer-2-no-unpaid-labels.html">Layer 2 — no unpaid exact labels</a> (why every excluded reason must be charged) · <a href="./sg4-anchor-ledger.html">SG-4 anchor ledger</a> (the canonical worked example) · the full <a href="../articles/DOSSIER_SG10_FULL.html">SG-10 dossier</a>.</p>
+</main>
+</div>
+</body></html>

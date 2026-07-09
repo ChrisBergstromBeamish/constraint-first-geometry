@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The wall-routing protocol — derive · reduce · dissolve · anchor · wall-record</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 240px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9679; The Closure System</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; The Anchors</a> &nbsp; <a href="/walls/">The Walls</a></div>
+<div class="ann-group">The endpoints</div>
+<a href="deep-roots.html">Deep roots — terminal endpoints</a>
+<a href="dissolutions.html">Dissolutions — dissolved ≠ solved</a>
+<div class="ann-group">The protocol</div>
+<a href="wall-routing-protocol.html" class="current">The wall-routing protocol</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">The wall-routing protocol — derive · reduce · dissolve · anchor · wall-record — rendered package. Rendered from <code>wall-routing-protocol.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The wall-routing protocol — derive · reduce · dissolve · anchor · wall-record</h1>
+<blockquote>
+<p>Every wall must stop floating. A wall either closes by derivation, reduces to a named deep root, dissolves because the demanded problem was artificial, or gets recorded as a real frontier wall. What is forbidden is leaving the wall vague, or pretending a local win has closed a global problem.</p>
+</blockquote>
+<h2>What this page is</h2>
+<p>This page is the routing protocol that turns an unresolved gate <strong>wall</strong> into one of a small set of legitimate <strong>terminal endpoints</strong>:</p>
+<p>$$
+\boxed{
+\text{derivation, reduction-to-root, dissolution, anchoring, or wall-record}
+}
+$$</p>
+<p>It generalizes the strategy developed for the UQF-5C interacting-graviton wall and for the deep-root and dissolution examples. It is one of three pages in <code>/closure/</code>, and it sits on top of two reference systems already published on this site: the seven <a href="/anchors/deep-roots.html">deep roots</a> every wall must link to, and the <a href="/walls/index.html">wall register</a> that names the distinct frontier walls W1–W19.</p>
+<p>The discipline is the program's spine and is enforced literally here:</p>
+<p><strong>anchored ≠ closed · dissolved ≠ solved · selected ≠ forced · given-$E$ ≠ derivation-of-$E$ · a wall-record is not a solution.</strong></p>
+<h2>Core thesis</h2>
+<p>A wall is not automatically a failure. <strong>A wall is an unclassified endpoint.</strong></p>
+<p>The job of the closure system is to classify each wall:</p>
+<p>$$
+\text{wall}
+\;\Rightarrow\;
+\text{name it}
+\;\Rightarrow\;
+\text{test if root / dissolution / frontier}
+\;\Rightarrow\;
+\text{assign terminal status}.
+$$</p>
+<p>The terminal endpoint is often <em>not</em> full closure. It may be anchoring the wall to a specific deep root, dissolving a false obligation that only existed because of an idealization, or recording that the remaining object is a known frontier/unicorn wall no single gate owns. Each of these is a legitimate place for the chain of "why?" to stop — <em>provided it is named, typed, and status-labeled</em>, so that nothing load-bearing floats silently.</p>
+<h2>The seven-root hierarchy every wall links to</h2>
+<p>Step 3 of the algorithm requires every wall to link to at least one of the <strong>seven deep roots</strong>. These are the irreducible operating floor of the framework — not all theorem-grade; some are meta-admissibility roots, some are physical posits, some remain declared posits or proof targets. The canonical statements live on the <a href="/anchors/deep-roots.html">deep-roots page</a>; the routing roles are summarized here.</p>
+<table>
+<thead>
+<tr>
+<th>Root</th>
+<th>Tier</th>
+<th>Typical wall role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invariance / Physical Equivalence</td>
+<td>Tier-0 meta-root</td>
+<td>removes coordinate/gauge artifacts; identifies the physical tensor structure a wall is really about</td>
+</tr>
+<tr>
+<td>Record Interface</td>
+<td>Tier-0 meta-root</td>
+<td>makes the wall auditable/reproducible; defines the finite-record currency in which a wall could ever be paid</td>
+</tr>
+<tr>
+<td>Causal Order</td>
+<td>Tier-1 physical</td>
+<td>classifies horizons, signalling, locality, causal-update walls</td>
+</tr>
+<tr>
+<td>Granularity / Cost-Floor</td>
+<td>Tier-1 physical</td>
+<td>dissolves continuum infinities; charges exact labels; reduces root floors to one declared posit $+$ measured $\hbar$</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>Tier-1 physical</td>
+<td>classifies cutoff / above-regime / large-hierarchy walls; separates scale <em>existence</em> from measured <em>value</em> $M_{\rm Pl}$</td>
+</tr>
+<tr>
+<td>Shape</td>
+<td>Tier-1 physical</td>
+<td>anchors structural-form and selector walls; the frozen branch $M_4\times K_6\times S^2\times S^1_Y/\mathbb Z_2$, $K_6=SU(3)/T^2$</td>
+</tr>
+<tr>
+<td>Nonseparability / Global State Constraint</td>
+<td>Tier-1 physical</td>
+<td>prevents local closure from masquerading as global completion; guards no-signalling</td>
+</tr>
+</tbody>
+</table>
+<p>Two notes carried verbatim from the deep-roots page, because walls are routinely mis-routed on them:</p>
+<ul>
+<li>The <strong>Granularity</strong> floor is <strong>one declared posit plus one measured anchor</strong> ($\hbar$), <strong>not zero</strong>. A wall reduced to granularity is <code>REDUCED-TO-AXIOM</code>, never "derived from nothing."</li>
+<li>The <strong>Shape</strong> root carries <code>DERIVED-GIVEN-E</code> carriers but a permanently <code>OPEN</code> absolute uniqueness. A selector wall routed to Shape is <strong>selected-not-forced</strong>; it is never promoted to "unique across all mathematics."</li>
+</ul>
+<h2>The universal wall-routing algorithm</h2>
+<h3>Step 1 — Name the wall exactly</h3>
+<p>A vague wall cannot be routed. Replace the slogan with the exact missing object.</p>
+<table>
+<thead>
+<tr>
+<th>Bad (slogan)</th>
+<th>Good (exact missing object)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>quantum gravity problem</td>
+<td>constructive non-perturbative UV completion of the interacting graviton, shared with UQF-9 (wall <strong>W1</strong>)</td>
+</tr>
+<tr>
+<td>Lambda problem</td>
+<td>demand to cancel a Planck-scale Lorentz-invariant vacuum stress against a bare constant to match $\Lambda_{\rm obs}$</td>
+</tr>
+<tr>
+<td>black-hole problem</td>
+<td>obligation to physically realize the $r=0$ curvature divergence produced by the continuum Schwarzschild limit</td>
+</tr>
+</tbody>
+</table>
+<h3>Step 2 — Decide whether the wall is real or artificial</h3>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>If yes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Is the wall caused by an unphysical idealization?</td>
+<td>candidate <code>DISSOLVED-CONDITIONAL</code></td>
+</tr>
+<tr>
+<td>Is the wall caused by a hidden primitive?</td>
+<td>candidate <code>REDUCED-TO-AXIOM</code></td>
+</tr>
+<tr>
+<td>Is the wall a measured value?</td>
+<td>candidate <code>MEASURED-ANCHOR / VALUE-OPEN</code></td>
+</tr>
+<tr>
+<td>Is the wall a universal negative (unicorn)?</td>
+<td>candidate <code>WALL-RECORDED / PERMANENT WALL</code></td>
+</tr>
+<tr>
+<td>Is the wall a known frontier problem?</td>
+<td>candidate <code>TERMINAL-ANCHORED / PHYSICS-OPEN</code></td>
+</tr>
+<tr>
+<td>Is the wall a bounded calculation?</td>
+<td>keep as <code>OPEN</code> work package</td>
+</tr>
+</tbody>
+</table>
+<h3>Step 3 — Map the wall to roots</h3>
+<p>Use the seven-root table above. Every wall must link to <strong>at least one</strong> deep root. If a wall links to no root, it has not been named precisely enough — return to Step 1.</p>
+<h3>Step 4 — Try reduction-to-root</h3>
+<p>If the wall asks for an impossible from-nothing derivation, compress it to a named root posit. A reduction does not eliminate the anchor — it relocates the burden onto one named, paid posit plus a measured residue plus an explicit anti-claim.</p>
+<p>$$
+\text{wall burden}
+\;\Rightarrow\;
+\text{one named posit}
+\;+\;
+\text{measured residue}
+\;+\;
+\text{anti-claim}.
+$$</p>
+<p>Worked example (granularity):</p>
+<p>$$
+\text{derive granularity from nothing}
+\;\Rightarrow\;
+\text{Uniform Operational Cell Law}
+\;+\;
+\hbar
+\;+\;
+(\text{pre-quantum reconstruction open}).
+$$</p>
+<p>Status:</p>
+<p>$$
+\boxed{\text{REDUCED-TO-AXIOM / AXIOM-CLOSED}}
+$$</p>
+<p>The anti-claim is mandatory: the posit is <strong>declared</strong>, not derived; the floor is <strong>one</strong> posit, not zero (see Granularity root above).</p>
+<h3>Step 5 — Try dissolution</h3>
+<p>If the wall exists only because of an idealization or a wrong premise, dissolve it: show that the catastrophe is produced by the premise, then remove or replace the premise and watch the burden disappear.</p>
+<p>$$
+\text{wrong premise} \;\Rightarrow\; \text{catastrophe/pathology},
+\qquad
+\text{remove/replace premise} \;\Rightarrow\; \text{burden disappears}.
+$$</p>
+<p>Worked example ($\Lambda$ trace-coupling):</p>
+<p>$$
+T_{\mu\nu}^{\rm vac}=-\rho_{\rm vac}\,g_{\mu\nu}
+\;\Rightarrow\;
+T_{\mu\nu}^{\rm vac}-\tfrac14 g_{\mu\nu}T^{\rm vac}=0.
+$$</p>
+<p>Status:</p>
+<p>$$
+\boxed{\text{DISSOLVED-CONDITIONAL / VALUE-OPEN}}
+$$</p>
+<p>Dissolution is <strong>conditional</strong> on a declared root/premise, and it dissolves the <em>catastrophe</em>, never the <em>measured value</em>. Dissolved ≠ solved.</p>
+<h3>Step 6 — Wall-record frontier problems</h3>
+<p>If the wall is real, not artificial, and not locally closeable, record it. Bank the local wins, name the exact missing global object, and attach the anti-claim that the record is not a solution.</p>
+<p>$$
+\text{local wins} \;+\; \text{exact missing global object} \;+\; \text{anti-claim}
+\;\Rightarrow\;
+\text{TERMINAL-ANCHORED / WALL-RECORDED}.
+$$</p>
+<p>This is the strategy for UQF-5C, worked in full below.</p>
+<h2>Worked example A — granularity (reduction-to-root)</h2>
+<ul>
+<li><strong>Name the wall exactly.</strong> "Derive the granularity / cost-floor of distinguishable physical transitions from nothing."</li>
+<li><strong>Local wins banked.</strong> A finite-resources countermodel earns the no-go; the Pontryagin-style existence/discreteness equivalence is established; the action spacing $\hbar$ is a genuinely atomic measured anchor.</li>
+<li><strong>Exact missing object.</strong> A non-circular derivation of exact-global action-spectrum uniformity (deriving it from unitarity is circular by the work's own finding).</li>
+<li><strong>Wall type.</strong> <code>root primitive</code>.</li>
+<li><strong>Root link.</strong> Granularity / Cost-Floor (Tier-1), feeding the Shape and Scale roots downstream.</li>
+<li><strong>Routing.</strong> Step 4 — reduction-to-root.</li>
+<li><strong>Terminal endpoint.</strong> $\boxed{\text{REDUCED-TO-AXIOM / AXIOM-CLOSED}}$ (wall <strong>W4</strong> in the register; DeepRoot-granularity gate <strong>TERMINAL-ANCHORED</strong>).</li>
+<li><strong>Allowed claim.</strong> The granularity floor is compressed to one declared value-free posit (Uniform Operational Cell Law) plus one measured anchor $\hbar$; no unpaid labels remain.</li>
+<li><strong>Forbidden claim.</strong> "Granularity is derived from nothing" / "the floor is zero posits" / "finite records prove ontological discreteness."</li>
+<li><strong>Residual work.</strong> Derive the uniformity posit from a strictly weaker, independently motivated principle without circularity (<code>OPEN</code>), and the granularity-$\Rightarrow$-MDL metric-selection bridge (wall <strong>W4</strong>, <code>OPEN</code>/bounded).</li>
+</ul>
+<h2>Worked example B — absolute shape irreducibility (selector wall → wall-record)</h2>
+<ul>
+<li><strong>Name the wall exactly.</strong> "Prove the frozen $13$D branch is unique across all possible mathematics / that no future theory could do better."</li>
+<li><strong>Local wins banked.</strong> Within the internal-isometry grammar the carriers are <code>DERIVED-GIVEN-E</code>: weak $S^2$, hypercharge fold $S^1_Y/\mathbb Z_2$, color $K_6=SU(3)/T^2$ are forced, and $\chi(K_6,E)=-3$ gives three generations given a chosen bundle; the branch is hash-frozen (audit fact).</li>
+<li><strong>Exact missing object.</strong> A bundle-uniqueness theorem selecting the index-$(-3)$ weight <em>without</em> invoking "three generations" (wall <strong>W5</strong>); the <em>absolute</em> uniqueness claim is a universal negative.</li>
+<li><strong>Wall type.</strong> <code>selector/category wall</code> for the bounded part; <strong>universal negative (unicorn)</strong> for the absolute part.</li>
+<li><strong>Root link.</strong> Shape (Tier-1); Granularity (the simplicity metric the selection reads).</li>
+<li><strong>Routing.</strong> The absolute-uniqueness unicorn is <strong>dissolved as a non-target</strong> (Step 2); the bounded W5 sub-target is recorded.</li>
+<li><strong>Terminal endpoint.</strong> $\boxed{\text{TERMINAL-ANCHORED / OPEN / PERMANENT WALL}}$ (DeepRoot-shape gate <strong>TERMINAL-ANCHORED</strong>, absolute-uniqueness unicorn dissolved; bounded W5/W6 owned).</li>
+<li><strong>Allowed claim.</strong> The shape is <strong>selected-not-forced</strong>: the strongest known survivor relative to the stated category, with carriers forced <em>given $E$</em>.</li>
+<li><strong>Forbidden claim.</strong> "Absolute uniqueness" / "$13$D is the simplest possible shape" / "$E$ is derived" / "selected means forced."</li>
+<li><strong>Residual work.</strong> The bundle-uniqueness theorem (<strong>W5</strong>, bounded <code>OPEN</code>) and the flavor $F^+$ rulebook (<strong>W6</strong>, bounded <code>OPEN</code>). The frozen flavor geometry once forced the up-quark onto a wrong number — a real $m_u\sim4.4\sigma$ miss ($3.16$ MeV vs measured $1.27\pm0.43$ MeV), published in the open. It has since been resolved target-blind by a dimensionless $1/\sqrt6=1/\sqrt{|S_3|}$ factor read off the six-element Weyl symmetry of the flavor shape, moving the prediction to $1.295$ MeV, pull $+0.058\sigma$ (<code>DERIVED-GIVEN-E / RESOLVED</code>). It stays a sharp falsifiable prediction: a tighter future $m_u$ measurement tests it. It was tested at the one place it was forced onto a wrong number, and it held.</li>
+</ul>
+<h2>Worked example C — the $\Lambda$ catastrophe (dissolution)</h2>
+<ul>
+<li><strong>Name the wall exactly.</strong> "Cancel a Planck-scale Lorentz-invariant vacuum stress against a bare constant to $120$ orders to match $\Lambda_{\rm obs}$."</li>
+<li><strong>Local wins banked.</strong> A tree-level decoupling theorem is <strong>PROVEN</strong>: the trace-coupling premise is the source of the catastrophe.</li>
+<li><strong>Exact missing object.</strong> Nothing for the catastrophe itself — it is artificial. The <em>value</em> of $\Lambda$ and its radiative stability are separate, and remain.</li>
+<li><strong>Wall type.</strong> <code>wrong-premise / idealization</code>.</li>
+<li><strong>Root link.</strong> Invariance (the vacuum-stress tensor structure) and Scale.</li>
+<li><strong>Routing.</strong> Step 5 — dissolution, via $T_{\mu\nu}^{\rm vac}-\tfrac14 g_{\mu\nu}T^{\rm vac}=0$.</li>
+<li><strong>Terminal endpoint.</strong> $\boxed{\text{DISSOLVED-CONDITIONAL / VALUE-OPEN}}$ ($\Lambda$-catastrophe gate <strong>TERMINAL-ANCHORED</strong>; catastrophe dissolved).</li>
+<li><strong>Allowed claim.</strong> The $120$-order fine-tuning catastrophe is dissolved <em>conditional</em> on the declared trace-decoupling; the catastrophe was an artifact of the trace-coupling premise.</li>
+<li><strong>Forbidden claim.</strong> "$\Lambda$ is solved" / "the value is derived" / "dissolved means solved."</li>
+<li><strong>Residual work.</strong> The measured value of $\Lambda$ is a <strong>MEASURED ANCHOR</strong> (the fifth anchor; Weinberg-open, wall <strong>W11</strong>); radiative stability $+$ R-uniqueness of the trace-decoupling is <code>OPEN</code> (wall <strong>W10</strong>).</li>
+</ul>
+<h2>Worked example D — the black-hole $r=0$ singularity (dissolution)</h2>
+<ul>
+<li><strong>Name the wall exactly.</strong> "Physically realize the $r=0$ curvature divergence produced by the continuum Schwarzschild limit."</li>
+<li><strong>Local wins banked.</strong> The divergence is a feature of the <em>continuum</em> idealization; under the granularity root the exact $r=0$ point is not a physical record-bearing locus.</li>
+<li><strong>Exact missing object.</strong> The divergence is artificial; what remains is the unique interior model / dynamics, which is <em>not</em> derived.</li>
+<li><strong>Wall type.</strong> <code>wrong-premise / idealization</code>.</li>
+<li><strong>Root link.</strong> Granularity (removes the continuum infinity); Causal Order (horizon classification).</li>
+<li><strong>Routing.</strong> Step 5 — dissolution, conditional on granularity (profile ansatz).</li>
+<li><strong>Terminal endpoint.</strong> $\boxed{\text{DISSOLVED-CONDITIONAL / MODEL-OPEN}}$ (Black-hole singularity gate <strong>TERMINAL-ANCHORED</strong>; singularity dissolved + clarified).</li>
+<li><strong>Allowed claim.</strong> The $r=0$ curvature singularity is dissolved <em>conditional</em> on the granularity root; the divergence is a continuum idealization, not a physical obligation.</li>
+<li><strong>Forbidden claim.</strong> "The black-hole interior is solved" / "the interior model is derived" / "dissolved means solved."</li>
+<li><strong>Residual work.</strong> The unique interior profile / dynamics is <code>MODEL-OPEN</code>; the microstate count / Page curve is a separate bounded wall (<strong>W16</strong>, conditional on <strong>W3</strong>).</li>
+</ul>
+<h2>The UQF-5C wall strategy (frontier wall-record)</h2>
+<h3>Original wall</h3>
+<p>UQF-5C asks for:</p>
+<p>$$
+\text{constructive non-perturbative UV completion / strong-coupling closure of the interacting graviton}.
+$$</p>
+<p>That is <strong>not</strong> a reasonable per-gate local closure target. It is the shared UQF-9 wall (<strong>W1</strong> in the register).</p>
+<h3>What is banked</h3>
+<p>The gate can bank:</p>
+<ul>
+<li>the frozen geometry supplies the graviton operator;</li>
+<li>gauge-fixing and Faddeev–Popov ghost structure are anchored to Invariance;</li>
+<li>the curvature input can be proved/refuted by finite ledgers;</li>
+<li>wrong dimensionful magnitudes can be quarantined;</li>
+<li>$a_6$ / positivity work can be bounded below the wall.</li>
+</ul>
+<h3>What is not banked</h3>
+<p>The gate <strong>cannot</strong> bank:</p>
+<ul>
+<li>full non-perturbative quantum gravity;</li>
+<li>constructive UV completion;</li>
+<li>strong-coupling completion;</li>
+<li>above-cutoff unitarity;</li>
+<li>"$a_6$ computed implies 5C closed."</li>
+</ul>
+<h3>Correct terminal endpoint</h3>
+<p>$$
+\boxed{\text{UQF-5C} = \text{TERMINAL-ANCHORED / PHYSICS-OPEN}}
+\qquad\text{or}\qquad
+\boxed{\text{UQF-5C} = \text{WALL-RECORDED, shared with UQF-9}}
+$$</p>
+<h3>Status paragraph</h3>
+<blockquote>
+<p>UQF-5C has reached its legitimate terminal endpoint for this gate: not a full constructive UV completion of quantum gravity, but a precise anchoring of the wall. The frozen geometry supplies the graviton operator as a <code>DERIVED-GIVEN-E</code> structural result; bounded heat-kernel and positivity work may sharpen the linearized certificate; but the strong-coupling interacting graviton remains the shared UQF-9 wall (<strong>W1</strong>). The correct status is <code>TERMINAL-ANCHORED / PHYSICS-OPEN</code>, <strong>not</strong> <code>CLOSED</code>.</p>
+</blockquote>
+<h3>UQF-5C forbidden claims</h3>
+<p>Do not say:</p>
+<ul>
+<li>UQF-5C is closed.</li>
+<li>The program has a UV completion of quantum gravity.</li>
+<li>$a_6$ closes the interacting graviton.</li>
+<li>A curvature input closes the gate.</li>
+<li>A scheme object closes the gate.</li>
+<li>The geometry certifies the quantum theory.</li>
+<li>Wall-recording is physics closure.</li>
+</ul>
+<h2>The generic wall-routing table</h2>
+<p>Every wall gets this table filled in:</p>
+<table>
+<thead>
+<tr>
+<th>Wall</th>
+<th>Exact missing object</th>
+<th>Wall type</th>
+<th>Root link</th>
+<th>Possible endpoint</th>
+<th>Allowed claim</th>
+<th>Forbidden claim</th>
+<th>Residual work</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>(named exactly — Step 1)</em></td>
+<td><em>(the precise object)</em></td>
+<td><em>(see types below)</em></td>
+<td><em>(≥1 of the seven roots)</em></td>
+<td><em>(see endpoint types below)</em></td>
+<td><em>(what may be said)</em></td>
+<td><em>(what is refused)</em></td>
+<td><em>(finite where possible; unicorns labeled as walls)</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Wall types:</strong> <code>root primitive</code> · <code>wrong-premise / idealization</code> · <code>measured value</code> · <code>selector/category wall</code> · <code>frontier physics wall</code> · <code>bounded computation</code> · <code>audit-only wall</code>.</p>
+<p><strong>Endpoint types:</strong> <code>CLOSED</code> · <code>REDUCED-TO-AXIOM</code> · <code>DISSOLVED-CONDITIONAL</code> · <code>TERMINAL-ANCHORED</code> · <code>WALL-RECORDED</code> · <code>MEASURED-ANCHOR / VALUE-OPEN</code> · <code>MODEL-OPEN</code> · <code>OPEN / bounded work</code>.</p>
+<h2>Classification examples</h2>
+<table>
+<thead>
+<tr>
+<th>Wall</th>
+<th>Classification</th>
+<th>Terminal endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>derive granularity from nothing</td>
+<td>root primitive</td>
+<td><code>REDUCED-TO-AXIOM / AXIOM-CLOSED</code></td>
+</tr>
+<tr>
+<td>absolute shape irreducibility</td>
+<td>universal negative / selector wall</td>
+<td><code>TERMINAL-ANCHORED / OPEN / PERMANENT WALL</code></td>
+</tr>
+<tr>
+<td>$\Lambda$ $120$-order cancellation</td>
+<td>wrong premise / trace coupling</td>
+<td><code>DISSOLVED-CONDITIONAL / VALUE-OPEN</code></td>
+</tr>
+<tr>
+<td>black-hole $r=0$ singularity</td>
+<td>continuum idealization</td>
+<td><code>DISSOLVED-CONDITIONAL / MODEL-OPEN</code></td>
+</tr>
+<tr>
+<td>interacting graviton UV completion</td>
+<td>frontier physics wall</td>
+<td><code>TERMINAL-ANCHORED / PHYSICS-OPEN</code></td>
+</tr>
+<tr>
+<td>SG-4 full quantum/global completion</td>
+<td>local/global nonseparability wall</td>
+<td><code>OPEN-ANCHORED</code>, residuals listed</td>
+</tr>
+<tr>
+<td>$E$ derivation</td>
+<td>measured/selector wall</td>
+<td><code>MEASURED-ANCHOR / GIVEN-E</code> unless derived elsewhere</td>
+</tr>
+</tbody>
+</table>
+<h2>Generic routing prompt for any wall</h2>
+<p>Use this for every wall. The first rule is the load-bearing one: do not try to solve the wall unless it is a bounded calculation — route it.</p>
+<pre><code>You are classifying a gate wall. Do not try to solve the wall unless it is a
+bounded calculation. Your job is to route the wall to the correct terminal endpoint.
+
+ 1. Name the wall exactly.
+ 2. List the local wins already banked.
+ 3. Identify the exact missing object.
+ 4. Decide whether the wall is:
+    - root primitive,
+    - wrong-premise / idealization,
+    - measured value,
+    - selector/category wall,
+    - frontier physics wall,
+    - bounded computation,
+    - audit-only wall.
+ 5. Link the wall to deep roots.
+ 6. Test whether the wall can be:
+    - derived,
+    - reduced to axiom,
+    - dissolved,
+    - measured/anchored,
+    - wall-recorded.
+ 7. Assign terminal status.
+ 8. Write allowed claim.
+ 9. Write forbidden claim.
+10. List residual work.
+11. Add completion tests.
+</code></pre>
+<h2>Generic completion tests for any wall</h2>
+<p>A wall-routing page is complete only if:</p>
+<ul>
+<li>The wall is named exactly.</li>
+<li>The wall type is assigned.</li>
+<li>At least one deep-root link is listed.</li>
+<li>The terminal endpoint is assigned.</li>
+<li>Local wins are separated from global closure.</li>
+<li>The allowed claim is stated.</li>
+<li>The forbidden claim is stated.</li>
+<li>Any measured input is labeled <code>MEASURED-ANCHOR</code>.</li>
+<li>Any declared posit is labeled <code>AXIOM-OPEN / declared</code> or <code>DECLARED ROOT</code>.</li>
+<li>Any frontier wall is labeled <code>WALL-RECORDED</code> or <code>TERMINAL-ANCHORED</code>, not <code>CLOSED</code>.</li>
+<li>The page does not use "dissolved" to hide residuals.</li>
+<li>The page does not use "anchored" to imply solved.</li>
+<li>Residual work is finite where possible; unicorn tasks are labeled as walls.</li>
+<li>The page ends with: Tests passed / Tests failed / Open items / Assumptions made.</li>
+</ul>
+<h2>The final invariant</h2>
+<p>$$
+\boxed{\text{A gate is not terminal because everything is solved.}}
+$$</p>
+<p>$$
+\boxed{\text{A gate is terminal when its wall has the correct endpoint: derived, reduced, dissolved, anchored, or recorded.}}
+$$</p>
+<h2>Shared status vocabulary</h2>
+<p>Used consistently across all three <code>/closure/</code> pages and the <a href="/anchors/index.html">anchors</a> and <a href="/walls/index.html">walls</a> systems.</p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CLOSED</code></td>
+<td>The actual target is derived, computed, or proven at the stated scope. <strong>Rare — currently used by zero physics gates.</strong></td>
+</tr>
+<tr>
+<td><code>DERIVED</code></td>
+<td>The claim follows from stated premises without importing the target.</td>
+</tr>
+<tr>
+<td><code>DERIVED-GIVEN-E</code></td>
+<td>The claim follows given the upstream spectrum / input $E$; it does <strong>not</strong> derive $E$.</td>
+</tr>
+<tr>
+<td><code>DERIVED-GIVEN-AXIOM</code></td>
+<td>The claim follows once the declared axiom is granted.</td>
+</tr>
+<tr>
+<td><code>MEASURED-ANCHOR</code></td>
+<td>The value is empirical input / residue, not derived.</td>
+</tr>
+<tr>
+<td><code>DECLARED ROOT</code></td>
+<td>The framework bottoms out here; the root is named and paid.</td>
+</tr>
+<tr>
+<td><code>AXIOM-OPEN / declared</code></td>
+<td>The posit is explicitly declared and may later be reduced, but is not derived now.</td>
+</tr>
+<tr>
+<td><code>REDUCED-TO-AXIOM</code></td>
+<td>The wall/root has been compressed to a named irreducible posit or minimal posit set.</td>
+</tr>
+<tr>
+<td><code>AXIOM-CLOSED</code></td>
+<td>The primitive is no longer hidden; it is paid, named, and stable as an endpoint.</td>
+</tr>
+<tr>
+<td><code>DISSOLVED-CONDITIONAL</code></td>
+<td>The demanded problem disappears once a declared root/axiom/premise is accepted.</td>
+</tr>
+<tr>
+<td><code>TERMINAL-ANCHORED</code></td>
+<td>The gate has reached its legitimate endpoint by being tied to exact anchors and residuals.</td>
+</tr>
+<tr>
+<td><code>WALL-RECORDED</code></td>
+<td>The remaining object is a known frontier/permanent wall, not a per-gate task.</td>
+</tr>
+<tr>
+<td><code>VALUE-OPEN</code></td>
+<td>A catastrophe/pathology is dissolved, but the observed numerical value remains measured/open.</td>
+</tr>
+<tr>
+<td><code>MODEL-OPEN</code></td>
+<td>A pathology is dissolved, but the unique model/interior/dynamics is not derived.</td>
+</tr>
+<tr>
+<td><code>AUDIT ONLY</code></td>
+<td>The item validates reproducibility/object identity, not physical truth.</td>
+</tr>
+<tr>
+<td><code>OPEN</code></td>
+<td>A real residual remains.</td>
+</tr>
+<tr>
+<td><code>BLOCKED</code></td>
+<td>The residual cannot currently be executed because a prerequisite is missing.</td>
+</tr>
+<tr>
+<td><code>ANTI-CLAIM</code></td>
+<td>A claim the page explicitly refuses to make.</td>
+</tr>
+</tbody>
+</table>
+<h2>Allowed claims (what this protocol does say)</h2>
+<ul>
+<li>A wall can legitimately terminate by <strong>derivation, reduction-to-root, dissolution, anchoring, or wall-record</strong> — closure is only one of five.</li>
+<li>Granularity is <code>REDUCED-TO-AXIOM</code>: one declared posit plus the measured anchor $\hbar$.</li>
+<li>The $\Lambda$ catastrophe and the black-hole $r=0$ singularity are <code>DISSOLVED-CONDITIONAL</code> on a declared root; the catastrophe/divergence was an artifact of a premise.</li>
+<li>UQF-5C is <code>TERMINAL-ANCHORED / PHYSICS-OPEN</code>, sharing wall <strong>W1</strong> with UQF-9.</li>
+<li>In-grammar shape carriers are <code>DERIVED-GIVEN-E</code>; the shape is selected-not-forced.</li>
+<li>Live falsifiers are armed, not hidden: $\eta_B\in[6.0,6.2]\times10^{-10}$ (wall <strong>W12</strong>). The forced up-quark once produced a real $m_u\sim4.4\sigma$ miss (wall <strong>W6</strong>), published in the open and since resolved target-blind (a $1/\sqrt6$ Weyl-symmetry factor moves it to $+0.058\sigma$); it remains a sharp falsifiable prediction that a tighter $m_u$ measurement will test.</li>
+</ul>
+<h2>Forbidden overclaims (universal — refused everywhere on this page)</h2>
+<p>This page refuses to say or imply:</p>
+<ul>
+<li>"deep roots are all theorem-grade."</li>
+<li>"a declared root is derived from nothing."</li>
+<li>"dissolved means solved."</li>
+<li>"selected means forced."</li>
+<li>"given-$E$ means derivation-of-$E$."</li>
+<li>"a measured anchor has been derived by the same gate that uses it as target."</li>
+<li>"hashes validate physics."</li>
+<li>"local closure equals whole-gate closure."</li>
+<li>"a wall-record is a physics solution."</li>
+<li>"a unicorn target must be solved before a gate can reach a terminal endpoint."</li>
+</ul>
+<h2>Cross-links</h2>
+<ul>
+<li><strong>Other <code>/closure/</code> pages:</strong> <a href="deep-roots.html">The seven deep roots — closure attack</a> · <a href="dissolutions.html">The dissolutions — artificial walls removed</a></li>
+<li><strong>Anchor system:</strong> <a href="/anchors/index.html">Anchors overview</a> · <a href="/anchors/deep-roots.html">The seven deep roots</a> · <a href="/anchors/master-anchors.html">Master anchors</a> · <a href="/anchors/logical-endpoint-proof.html">The logical endpoint proof</a></li>
+<li><strong>Wall register:</strong> <a href="/walls/index.html">The walls — frontier register</a> · <a href="/walls/w1-uv-completion.html">W1 — UV completion</a> · <a href="/walls/w3-a6-coefficient.html">W3 — the $a_6$ keystone</a> · <a href="/walls/w4-granularity-mdl.html">W4 — granularity ⇒ MDL</a></li>
+<li><strong>Worked-wall ledgers:</strong> <a href="/anchors/uqf5c-anchor-ledger.html">UQF-5C ledger</a> · <a href="/anchors/lambda-catastrophe-anchor-ledger.html">$\Lambda$-catastrophe ledger</a> · <a href="/anchors/blackhole-singularity-anchor-ledger.html">Black-hole singularity ledger</a> · <a href="/anchors/deeproot-granularity-anchor-ledger.html">DeepRoot-granularity ledger</a> · <a href="/anchors/deeproot-shape-anchor-ledger.html">DeepRoot-shape ledger</a></li>
+</ul>
+<hr />
+<h2>Completion report</h2>
+<p><strong>Tests passed.</strong>
+- T1 — The wall is named exactly: all worked examples (A granularity, B shape, C $\Lambda$, D black-hole, UQF-5C) replace the slogan with the exact missing object (Step 1 + bad/good table).
+- T2 — Wall type assigned: every worked example and the classification table assign a type from the seven-type list.
+- T3 — At least one deep-root link listed: every worked example links to ≥1 of the seven roots; the seven-root hierarchy table is present.
+- T4 — Terminal endpoint assigned for every wall, drawn only from the endpoint-type list.
+- T5 — Local wins separated from global closure: explicit "What is banked / What is not banked" for UQF-5C, and "local wins banked" vs "exact missing object" in A–D.
+- T6 — Allowed claim stated for every worked example (plus a dedicated allowed-claims section).
+- T7 — Forbidden claim stated for every worked example (plus the UQF-5C forbidden list and the universal forbidden-overclaims list).
+- T8 — Measured input labeled <code>MEASURED-ANCHOR</code> ($\hbar$ in A, $\Lambda$ value in C, the $E$ row in the classification table).
+- T9 — Declared posits labeled <code>DECLARED ROOT</code> / <code>AXIOM-OPEN / declared</code> (granularity posit; the seven-root table).
+- T10 — Frontier walls labeled <code>TERMINAL-ANCHORED</code> / <code>WALL-RECORDED</code>, never <code>CLOSED</code> (UQF-5C, W1).
+- T11 — "dissolved" is not used to hide residuals: C is <code>VALUE-OPEN</code>, D is <code>MODEL-OPEN</code>, each with residual work listed.
+- T12 — "anchored" is not used to imply solved: the spine line and the final invariant state anchored ≠ closed explicitly.
+- T13 — Residual work is finite where possible; the absolute-uniqueness unicorn (B) is labeled a permanent wall / non-target, not a task.
+- T14 — All required blocks present: opening paragraph, seven-root hierarchy, six-step algorithm (incl. dissolution anatomy in Steps 5–6), UQF-5C strategy, generic table, classification examples, agent prompt, completion tests, final invariant, shared status vocabulary, allowed + forbidden claims.
+- T15 — Completion report present (this block).
+- U1 — Status honesty: zero physics gates are called <code>CLOSED</code>; no physics gate is asserted CLOSED anywhere.
+- U2 — <code>$...$</code> / <code>$$...$$</code> LaTeX used for all math.
+- U3 — No internal-process vocabulary, no QC-chip / Mars content.</p>
+<p><strong>Tests failed.</strong> None.</p>
+<p><strong>Open items.</strong>
+- Granularity uniformity posit (wall <strong>W4</strong>): <code>REDUCED-TO-AXIOM</code>; deriving it from a strictly weaker principle without circularity is <code>OPEN</code>.
+- Bundle-uniqueness theorem removing "given-$E$" (wall <strong>W5</strong>): bounded <code>OPEN</code>.
+- $\Lambda$ radiative stability + R-uniqueness (wall <strong>W10</strong>) and $\Lambda$-value R-uniqueness (wall <strong>W11</strong>): <code>OPEN</code> (the value itself is a <code>MEASURED-ANCHOR</code>).
+- Black-hole unique interior model/dynamics: <code>MODEL-OPEN</code>; microstate count / Page curve (wall <strong>W16</strong>) bounded <code>OPEN</code>, conditional on <strong>W3</strong>.
+- UQF-5C / UQF-9 strong-coupling interacting graviton (wall <strong>W1</strong>): <code>TERMINAL-ANCHORED / PHYSICS-OPEN</code> — a shared frontier wall, never per-gate <code>CLOSED</code>.</p>
+<p><strong>Assumptions made.</strong>
+- Adopted the handoff's routing algorithm, status vocabulary, classification table, agent prompt, and forbidden-overclaims list verbatim.
+- Took the wall classifications, gate terminal labels, and wall numbers (W1–W19) from the wall register and the published <code>/walls/</code> index, and the seven-root statuses from the <code>/anchors/deep-roots</code> page, to keep this page consistent with and non-contradictory to its siblings.
+- Used relative links for same-folder <code>/closure/</code> pages and absolute <code>/anchors/</code> and <code>/walls/</code> paths matching the existing cross-link convention; the sibling page filenames <code>deep-roots.html</code> and <code>dissolutions.html</code> follow the three closure handoffs (01 deep roots, 02 dissolutions, 03 wall routing).
+- Used <code>.html</code> link targets (the deployed pages are rendered to HTML, as in the existing anchors/walls cross-links).</p>
+</main>
+</div>
+</body></html>

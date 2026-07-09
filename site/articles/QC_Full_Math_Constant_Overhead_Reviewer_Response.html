@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Constant-Overhead QEC &mdash; reviewer attack-response</title><style>
+:root{--ink:#1a1c20;--muted:#5a6068;--line:#dfe2e7;--bg:#fbfcfd;--accent:#2b4a6f;--accent-soft:#eef3f8;--code-bg:#f4f6f8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.64 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+header.hero{background:linear-gradient(180deg,#0f1b2b 0%,#1d3350 100%);color:#eef3f8;padding:36px 0 28px;border-bottom:3px solid #0a1320}
+header.hero .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:#9fb6d2;margin:0 0 12px}
+header.hero h1{font-size:27px;line-height:1.22;margin:0 0 8px;font-weight:700;color:#fff}
+header.hero .sub{font-size:16px;color:#cdd9ea;margin:0}
+header.hero .back{font-size:14px;color:#9fb6d2;margin-top:16px}header.hero a{color:#d7e2f0;border-bottom:1px solid #41597a}
+main{padding:24px 0 46px}h1{font-size:23px;color:var(--accent);line-height:1.26;margin:28px 0 12px}
+h2{font-size:20px;color:var(--accent);margin:26px 0 10px}h3{font-size:17px;color:var(--accent);margin:20px 0 8px}
+p{margin:0 0 14px}img{max-width:100%;height:auto;vertical-align:middle}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid #b9cbe0}a:hover{border-bottom-color:var(--accent)}
+ul,ol{margin:0 0 14px;padding-left:24px}li{margin:0 0 7px}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left}th{background:var(--accent-soft);color:var(--accent)}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em;background:var(--code-bg);padding:1px 4px;border-radius:3px}
+blockquote{margin:14px 0;padding:6px 16px;border-left:3px solid var(--line);color:var(--muted)}
+</style></head><body><header class="hero"><div class="wrap"><p class="eyebrow">Quantum-computer stress test &middot; supporting note</p><h1>Constant-Overhead QEC &mdash; reviewer attack-response</h1><p class="sub">Short answers to the objections a quantum-information reader raises. The full math with every resource counted &mdash; honest verdict: complete, pending an independent simulation replay.</p><p class="back"><a href="/#test-it">&larr; back to &ldquo;Test it&rdquo;</a></p></div></header><main><div class="wrap"><p>The full-math version does not change the honest verdict; it makes the concessions formal. Short answers to the objections a quantum-information reader raises.</p>
+<p><strong>Independent check status:</strong> the theorem and its finite-size correction are derived in full with every resource counted; the surface-code data are real and reproducible (Stim + PyMatching, included); the equivalence theorem is stated conditionally with <code>UNIVERSAL_OPTIMALITY_NOT_CLAIMED</code>; and every architecture-specific number is a <code>BLOCKED</code> token. No specific physical-to-logical ratio is claimed — the constant is <code>R_star</code>.</p>
+<h3>Attack 1 — "The whole theorem is trivial counting."</h3>
+<p>Conceded, and made precise. The limit R → n(z)/k(z) is elementary even with the full resource count n(z) = n_data + … + n_spare and the exact finite-size correction O(M^α−1). The note states this as the <em>easy</em> half; the noise-stability rider is the content.</p>
+<h3>Attack 2 — "Constant rate is not scalability."</h3>
+<p>Exactly the point of Section 5, now with the explicit stability test: fit p_L(N) = β₀ + β₁N and require |β₁| ≤ δ_β, else classify <code>CONSTANT_RATIO_WITH_BOUNDED_ERROR_ONLY</code>, never <code>FULL_NOISE_INDEPENDENCE</code>. The real surface-code union-bound figure shows fixed tiles failing this unless the distance grows.</p>
+<h3>Attack 3 — "Your equivalence assumes the geometry covers all good codes."</h3>
+<p>No — that is the boundary the note refuses to cross. F₁₃D = F_std ∩ Im(T) is a <em>subset</em>; absent a proof that the image is onto the feasible set, the note records <code>UNIVERSAL_OPTIMALITY_NOT_CLAIMED</code>.</p>
+<h3>Attack 4 — "You report no actual overhead, no replay."</h3>
+<p>Correct, and that is the blocked-value ledger's job. R_star is <code>BLOCKED_BY_MISSING_FROZEN_VALUE</code>; the architecture-specific p_L(N) curve, the collapse factor, and the second-simulator replay are <code>PENDING</code>/<code>BLOCKED</code>; correlated noise is <code>CORRELATED_NOISE_NOT_SIMULATED</code>. The honest verdict is <code>QC_FULL_MATH_COMPLETE_PENDING_REPLAY</code>.</p>
+<h3>Attack 5 — "Hidden hardware in the qubit count."</h3>
+<p>Addressed by A2 and the fully-counted n(z): data, syndrome, measurement, reset, routing, coupler-proxy, and spare resources are all in the count by construction; omitting any is a hard-fail of the handoff.</p>
+<h3>Net status</h3>
+<p><strong>QC_FULL_MATH_COMPLETE_PENDING_REPLAY</strong> — full derivation both ways with every count, boundary term, and finite-size correction explicit; real surface-code simulation establishing the methodology and the decisive subtlety; equivalence theorem with optimality not over-claimed; and a blocked-value ledger committing to no specific ratio. Not fault tolerance, not hardware, not a number a frozen log does not support.</p></div></main></body></html>

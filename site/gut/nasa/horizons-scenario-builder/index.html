@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Horizons Scenario Builder — Relativistic Optics Lab</title>
+  <meta name="description" content="Public Horizons-style scenario builder. Construct a deep-space geometry from cached public examples or pasted JPL Horizons output, then dispatch to the Shapiro Delay, Correction Ranker, Light Deflection, or Deep-Space Link calculators. No live API calls (CORS-restricted in static sites).">
+  <link rel="stylesheet" href="../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+
+<main class="container">
+  <h1>Horizons Scenario Builder</h1>
+  <p class="small mute">Public ephemeris-style scenario construction for deep-space optical-link and relativistic-correction studies.</p>
+
+  <div class="callout warn">
+    <strong>Disclaimer — Horizons mode.</strong>
+    Horizons mode uses public ephemeris data for public scenario construction. It does not call the live JPL Horizons API (CORS-restricted in static sites); instead it lets you paste Horizons output or load a cached public example. This is not a mission navigation pipeline and does not include mission-specific OD filters, covariance, tracking data, or internal operational products.
+  </div>
+
+  <div class="calc-layout">
+
+    <aside class="calc-inputs">
+      <h3 style="margin-top:0">Scenario inputs</h3>
+
+      <div class="field">
+        <label for="target">Target</label>
+        <select id="target">
+          <option value="Mars" selected>Mars</option>
+          <option value="Psyche">Psyche</option>
+          <option value="Jupiter">Jupiter</option>
+          <option value="Voyager 1">Voyager 1</option>
+          <option value="Custom">Custom Horizons ID</option>
+        </select>
+      </div>
+      <div class="field" id="target-custom-wrap" style="display:none">
+        <label for="target-custom">Horizons COMMAND / SPK-ID</label>
+        <input type="text" id="target-custom" placeholder="e.g. 499 (Mars), 599 (Jupiter), -31 (Voyager 1)">
+        <span class="hint">Any string Horizons would accept under the COMMAND= parameter.</span>
+      </div>
+
+      <div class="field">
+        <label for="observer">Observer</label>
+        <select id="observer">
+          <option value="Earth" selected>Earth geocenter (500@399)</option>
+          <option value="Goldstone">Topocentric Goldstone (DSS-14)</option>
+          <option value="Custom">Custom</option>
+        </select>
+      </div>
+      <div class="field" id="observer-custom-wrap" style="display:none">
+        <label for="observer-custom">Custom observer code</label>
+        <input type="text" id="observer-custom" placeholder="e.g. coord@399, -7@399">
+      </div>
+
+      <div class="field">
+        <label for="center">Center</label>
+        <select id="center">
+          <option value="SSB" selected>Solar-system barycenter (@0)</option>
+          <option value="Sun">Sun (@10)</option>
+          <option value="Earth">Earth (@399)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="epoch">UTC date/time</label>
+        <input type="datetime-local" id="epoch" value="2026-06-02T00:00">
+        <span class="hint">Single epoch (range/range-rate snapshot). Multi-epoch spans are future work.</span>
+      </div>
+
+      <div style="margin-top:14px; display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn btn-outline" id="load-cached">Use cached example</button>
+        <button class="btn btn-outline" id="clear-paste">Clear paste</button>
+      </div>
+
+      <details style="margin-top:14px">
+        <summary class="small"><strong>Paste Horizons output</strong></summary>
+        <div class="field" style="margin-top:8px">
+          <label for="paste-mode">Paste format</label>
+          <select id="paste-mode">
+            <option value="observer" selected>OBSERVER (ephemeris) table</option>
+            <option value="vectors">VECTORS table</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="paste-text">Raw Horizons output</label>
+          <textarea id="paste-text" rows="10" style="width:100%; font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:0.9em;" placeholder="Paste the text returned by https://ssd.jpl.nasa.gov/horizons/app.html (including the $$SOE / $$EOE markers if present)."></textarea>
+        </div>
+        <div>
+          <button class="btn" id="parse-paste">Parse</button>
+        </div>
+      </details>
+
+      <details style="margin-top:14px">
+        <summary class="small"><strong>Cached scenarios</strong></summary>
+        <div id="cached-list" style="margin-top:8px">
+          <span class="small mute">Loading...</span>
+        </div>
+      </details>
+    </aside>
+
+    <section class="calc-outputs">
+
+      <h2 style="margin-top:0">Scenario summary</h2>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="label">Range</div><div class="value" id="out-range">—</div></div>
+        <div class="kpi"><div class="label">Range-rate</div><div class="value" id="out-rangerate">—</div></div>
+        <div class="kpi"><div class="label">1-way light time</div><div class="value" id="out-lighttime">—</div></div>
+        <div class="kpi"><div class="label">Source</div><div class="value" id="out-source">—</div></div>
+      </div>
+
+      <h3>Range, unit breakdown</h3>
+      <table>
+        <thead><tr><th>Quantity</th><th class="num">m</th><th class="num">km</th><th class="num">AU</th><th class="num">light-seconds</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Range (target ↔ observer)</td>
+            <td class="num" id="row-range-m">—</td>
+            <td class="num" id="row-range-km">—</td>
+            <td class="num" id="row-range-au">—</td>
+            <td class="num" id="row-range-ls">—</td>
+          </tr>
+          <tr>
+            <td>Range-rate</td>
+            <td class="num" id="row-rr-m">—</td>
+            <td class="num" id="row-rr-km">—</td>
+            <td class="num" colspan="2"><span class="small mute">range-rate is a velocity, AU/light-second not applied</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Heliocentric geometry</h3>
+      <table>
+        <thead><tr><th>Quantity</th><th class="num">m</th><th class="num">km</th><th class="num">AU</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>$r_1$ — observer ↔ Sun</td>
+            <td class="num" id="row-r1-m">—</td>
+            <td class="num" id="row-r1-km">—</td>
+            <td class="num" id="row-r1-au">—</td>
+          </tr>
+          <tr>
+            <td>$r_2$ — target ↔ Sun</td>
+            <td class="num" id="row-r2-m">—</td>
+            <td class="num" id="row-r2-km">—</td>
+            <td class="num" id="row-r2-au">—</td>
+          </tr>
+          <tr>
+            <td>$R$ — observer ↔ target (= range)</td>
+            <td class="num" id="row-R-m">—</td>
+            <td class="num" id="row-R-km">—</td>
+            <td class="num" id="row-R-au">—</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="small mute">Heliocentric distances are populated only when the cached scenario or pasted vector block provides them. The Shapiro-delay calculator needs $r_1$, $r_2$, $R$; the Light-Deflection calculator needs the impact parameter $b$; if any of those are missing the "Send to" button will note what is required.</p>
+
+      <div id="warning-box"></div>
+
+      <h2>Send to calculator</h2>
+      <p class="small mute">Each button builds a URL with this scenario's numeric fields encoded as query parameters and navigates to the target calculator. Receiving calculators may inspect <code>location.search</code> via the <code>scenarioFromUrl()</code> helper.</p>
+      <div class="cta-row">
+        <button class="btn btn-outline" id="send-shapiro" data-calc="../shapiro-delay/">→ Shapiro Delay</button>
+        <button class="btn btn-outline" id="send-ranker" data-calc="../correction-ranker/">→ Correction Ranker</button>
+        <button class="btn btn-outline" id="send-deflection" data-calc="../light-deflection/">→ Light Deflection</button>
+        <button class="btn btn-outline" id="send-link" data-calc="../deep-space-link/">→ Deep-Space Link</button>
+      </div>
+
+      <h2>Export</h2>
+      <p class="small mute">Download the constructed scenario as a JSON file. The file is self-contained: it embeds the scenario_id, the resolved numeric fields, the source citation, and a timestamp. Receiving calculators can ingest the same JSON in a later pass.</p>
+      <div class="cta-row">
+        <button class="btn btn-outline" id="export-cert">Export Scenario Certificate</button>
+        <span class="small mute" id="export-status"></span>
+      </div>
+
+      <h3>Why this exists</h3>
+      <p>
+        Public deep-space calculators are most useful when the geometry comes from a public source. JPL Horizons is the standard
+        public ephemeris service. From a static-site browser, however, a direct fetch to <code>ssd.jpl.nasa.gov/api/horizons.api</code>
+        is blocked by CORS — there is no <code>Access-Control-Allow-Origin</code> header on the response. This page therefore offers
+        two reproducible alternatives:
+      </p>
+      <ul>
+        <li><strong>Cached scenarios</strong> — a small JSON file of round-numbered public scenarios that load instantly with no
+          network.</li>
+        <li><strong>Paste mode</strong> — the user runs Horizons themselves (web UI or API) and pastes the result; the parser
+          extracts range, range-rate, light-time, and (optionally) state vectors.</li>
+      </ul>
+      <p>
+        A future server-proxy mode is possible (the maintainer's GUT site already runs a Python deploy script). For Phase 1 the
+        rule is simple: <strong>no live API call from the browser</strong>.
+      </p>
+
+      <h3>Source notes</h3>
+      <ul class="assumptions-list">
+        <li>Cached scenario provenance is annotated in <code>cached_scenarios.json</code> via the <code>source_id</code> field (cross-referenced to <code>shared/source_registry.json</code>).</li>
+        <li>Round numbers used in cached examples come from public press releases (NASA DSOC, Voyager mission status) or canonical textbook geometries (Will 2018 §6.4 for Mars solar conjunction).</li>
+        <li>Parsed Horizons output is treated as user-supplied data; the page records <em>that</em> it was parsed but does not vouch for the values.</li>
+      </ul>
+
+      <h3>What this would need for mission-grade use</h3>
+      <details><summary class="small">Show requirements</summary><ul class="assumptions-list">
+        <li>Server-side proxy or signed-API integration with JPL Horizons (to bypass CORS without losing provenance).</li>
+        <li>SPICE kernel ingestion (BSP / SPK) rather than text scraping.</li>
+        <li>Full relativistic time-scale handling (TDB ↔ TT ↔ UTC).</li>
+        <li>Station coordinates + Earth orientation parameters.</li>
+        <li>Mission-specific OD filters, covariance, and tracking-data conditioning.</li>
+        <li>Versioned snapshot of the ephemeris used, with hash.</li>
+      </ul></details>
+    </section>
+  </div>
+</main>
+
+<script type="module">
+import {
+  parseHorizonsObserverTable,
+  parseHorizonsVectorTable,
+  scenarioToUrl,
+  HorizonsUnits,
+  validateScenario
+} from "../shared/horizons.js";
+import { bootstrap, downloadAs } from "../shared/shared.js";
+
+bootstrap({ activeKey: "horizons" });
+
+const $ = id => document.getElementById(id);
+
+// ----- Current scenario state -----
+let currentScenario = {
+  schema_version: "1.0",
+  scenario_id: null,
+  source_id: null,
+  target: "Mars",
+  observer: "Earth",
+  center: "SSB",
+  epoch_utc: null,
+  notes: ""
+};
+
+let cached = null;
+
+// ----- Helpers -----
+function fmtNum(v, digits = 4) {
+  if (!isFinite(v) || v == null) return "—";
+  const abs = Math.abs(v);
+  if (abs === 0) return "0";
+  if (abs >= 1e6 || abs < 1e-3) return v.toExponential(digits);
+  return Number(v.toPrecision(digits)).toString();
+}
+
+function fmtWithUnit(v, unit, digits = 4) {
+  if (!isFinite(v)) return "—";
+  return `${fmtNum(v, digits)} ${unit}`;
+}
+
+function setText(id, val) { const el = $(id); if (el) el.textContent = val; }
+
+// ----- Render scenario into the output panels -----
+function render() {
+  // Normalise: prefer SI (metres / m/s / seconds) for canonical representation.
+  let range_m = NaN;
+  if (isFinite(currentScenario.range_m))      range_m = currentScenario.range_m;
+  else if (isFinite(currentScenario.range_km)) range_m = HorizonsUnits.km_to_m(currentScenario.range_km);
+  else if (isFinite(currentScenario.range_au)) range_m = HorizonsUnits.AU_to_m(currentScenario.range_au);
+
+  let rr_m_s = NaN;
+  if (isFinite(currentScenario.range_rate_m_s))        rr_m_s = currentScenario.range_rate_m_s;
+  else if (isFinite(currentScenario.range_rate_km_s))  rr_m_s = HorizonsUnits.km_per_s_to_m_per_s(currentScenario.range_rate_km_s);
+
+  let lt_s = NaN;
+  if (isFinite(currentScenario.light_time_s)) lt_s = currentScenario.light_time_s;
+  else if (isFinite(range_m))                 lt_s = range_m / HorizonsUnits.C_M_PER_S;
+
+  // Update the canonical fields on the scenario object so export uses them.
+  if (isFinite(range_m)) {
+    currentScenario.range_m  = range_m;
+    currentScenario.range_km = HorizonsUnits.m_to_km(range_m);
+    currentScenario.range_au = HorizonsUnits.m_to_AU(range_m);
+  }
+  if (isFinite(rr_m_s)) {
+    currentScenario.range_rate_m_s  = rr_m_s;
+    currentScenario.range_rate_km_s = HorizonsUnits.m_per_s_to_km_per_s(rr_m_s);
+  }
+  if (isFinite(lt_s)) currentScenario.light_time_s = lt_s;
+
+  // KPI strip
+  setText("out-range",     isFinite(range_m) ? fmtWithUnit(currentScenario.range_au, "AU") : "—");
+  setText("out-rangerate", isFinite(rr_m_s)  ? fmtWithUnit(currentScenario.range_rate_km_s, "km/s") : "—");
+  setText("out-lighttime", isFinite(lt_s)    ? fmtWithUnit(lt_s, "s") : "—");
+  setText("out-source",    currentScenario.source_id || "—");
+
+  // Range table
+  setText("row-range-m",  isFinite(range_m) ? fmtNum(range_m)  : "—");
+  setText("row-range-km", isFinite(range_m) ? fmtNum(HorizonsUnits.m_to_km(range_m)) : "—");
+  setText("row-range-au", isFinite(range_m) ? fmtNum(HorizonsUnits.m_to_AU(range_m)) : "—");
+  setText("row-range-ls", isFinite(range_m) ? fmtNum(HorizonsUnits.m_to_ls(range_m)) : "—");
+
+  // Range-rate table
+  setText("row-rr-m",  isFinite(rr_m_s) ? fmtNum(rr_m_s) : "—");
+  setText("row-rr-km", isFinite(rr_m_s) ? fmtNum(HorizonsUnits.m_per_s_to_km_per_s(rr_m_s)) : "—");
+
+  // Heliocentric geometry table
+  const r1_m = isFinite(currentScenario.r1_m) ? currentScenario.r1_m :
+               isFinite(currentScenario.r1_au) ? HorizonsUnits.AU_to_m(currentScenario.r1_au) : NaN;
+  const r2_m = isFinite(currentScenario.r2_m) ? currentScenario.r2_m :
+               isFinite(currentScenario.r2_au) ? HorizonsUnits.AU_to_m(currentScenario.r2_au) : NaN;
+  const R_m  = isFinite(currentScenario.R_m)  ? currentScenario.R_m :
+               isFinite(currentScenario.R_au) ? HorizonsUnits.AU_to_m(currentScenario.R_au) :
+               isFinite(range_m) ? range_m : NaN;
+
+  if (isFinite(r1_m)) { currentScenario.r1_m = r1_m; currentScenario.r1_au = HorizonsUnits.m_to_AU(r1_m); }
+  if (isFinite(r2_m)) { currentScenario.r2_m = r2_m; currentScenario.r2_au = HorizonsUnits.m_to_AU(r2_m); }
+  if (isFinite(R_m))  { currentScenario.R_m  = R_m;  currentScenario.R_au  = HorizonsUnits.m_to_AU(R_m); }
+
+  setText("row-r1-m",  isFinite(r1_m) ? fmtNum(r1_m) : "—");
+  setText("row-r1-km", isFinite(r1_m) ? fmtNum(HorizonsUnits.m_to_km(r1_m)) : "—");
+  setText("row-r1-au", isFinite(r1_m) ? fmtNum(HorizonsUnits.m_to_AU(r1_m)) : "—");
+  setText("row-r2-m",  isFinite(r2_m) ? fmtNum(r2_m) : "—");
+  setText("row-r2-km", isFinite(r2_m) ? fmtNum(HorizonsUnits.m_to_km(r2_m)) : "—");
+  setText("row-r2-au", isFinite(r2_m) ? fmtNum(HorizonsUnits.m_to_AU(r2_m)) : "—");
+  setText("row-R-m",   isFinite(R_m)  ? fmtNum(R_m)  : "—");
+  setText("row-R-km",  isFinite(R_m)  ? fmtNum(HorizonsUnits.m_to_km(R_m)) : "—");
+  setText("row-R-au",  isFinite(R_m)  ? fmtNum(HorizonsUnits.m_to_AU(R_m)) : "—");
+
+  // Validation warnings
+  const warns = validateScenario(currentScenario);
+  $("warning-box").innerHTML = warns.length
+    ? `<div class="callout warn"><strong>Scenario warnings.</strong><ul style="margin:6px 0">${warns.map(w => `<li>${escapeHtml(w)}</li>`).join("")}</ul></div>`
+    : "";
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+// ----- Form -> scenario sync -----
+function readForm() {
+  const targetSelect = $("target").value;
+  currentScenario.target = targetSelect === "Custom"
+    ? ($("target-custom").value || "Custom")
+    : targetSelect;
+
+  const observerSelect = $("observer").value;
+  currentScenario.observer = observerSelect === "Custom"
+    ? ($("observer-custom").value || "Custom")
+    : observerSelect;
+
+  currentScenario.center = $("center").value;
+
+  const epochVal = $("epoch").value;
+  if (epochVal) {
+    // datetime-local gives 'YYYY-MM-DDTHH:MM'; append :00Z to canonicalise.
+    currentScenario.epoch_utc = epochVal.length === 16 ? `${epochVal}:00Z` : `${epochVal}Z`;
+  }
+}
+
+function writeForm() {
+  const knownTargets = ["Mars", "Psyche", "Jupiter", "Voyager 1"];
+  if (knownTargets.includes(currentScenario.target)) {
+    $("target").value = currentScenario.target;
+    $("target-custom-wrap").style.display = "none";
+  } else if (currentScenario.target) {
+    $("target").value = "Custom";
+    $("target-custom-wrap").style.display = "";
+    $("target-custom").value = currentScenario.target;
+  }
+
+  const knownObservers = ["Earth", "Goldstone"];
+  if (knownObservers.includes(currentScenario.observer)) {
+    $("observer").value = currentScenario.observer;
+    $("observer-custom-wrap").style.display = "none";
+  } else if (currentScenario.observer) {
+    $("observer").value = "Custom";
+    $("observer-custom-wrap").style.display = "";
+    $("observer-custom").value = currentScenario.observer;
+  }
+
+  if (currentScenario.center) $("center").value = currentScenario.center;
+
+  if (currentScenario.epoch_utc) {
+    // Strip the trailing 'Z' for the datetime-local input.
+    const m = currentScenario.epoch_utc.match(/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2})/);
+    if (m) $("epoch").value = m[1];
+  }
+}
+
+// ----- Cached scenario list -----
+async function loadCached() {
+  if (cached) return cached;
+  try {
+    const r = await fetch("./cached_scenarios.json");
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    cached = await r.json();
+  } catch (e) {
+    cached = { schema_version: "1.0", scenarios: [] };
+    $("cached-list").innerHTML = `<span class="small mute">Could not load cached_scenarios.json (${escapeHtml(e.message)}). The page works in paste mode only.</span>`;
+    return cached;
+  }
+  return cached;
+}
+
+function renderCachedList() {
+  if (!cached || !cached.scenarios?.length) {
+    $("cached-list").innerHTML = `<span class="small mute">No cached scenarios available.</span>`;
+    return;
+  }
+  $("cached-list").innerHTML = cached.scenarios.map(s => `
+    <div style="margin-bottom:10px; padding:8px 10px; border:1px solid var(--rule); border-radius:4px;">
+      <div><strong>${escapeHtml(s.name || s.scenario_id)}</strong></div>
+      <div class="small mute">${escapeHtml(s.target)} · ${escapeHtml(s.observer)} · ${escapeHtml(s.center)} · ${escapeHtml(s.epoch_utc)}</div>
+      <button class="btn btn-outline" style="margin-top:6px" data-scenario-id="${escapeHtml(s.scenario_id)}">Load</button>
+    </div>`).join("");
+
+  for (const btn of $("cached-list").querySelectorAll("button[data-scenario-id]")) {
+    btn.addEventListener("click", () => {
+      const id = btn.getAttribute("data-scenario-id");
+      const s  = cached.scenarios.find(x => x.scenario_id === id);
+      if (s) {
+        applyScenario(s);
+      }
+    });
+  }
+}
+
+function applyScenario(s) {
+  // Reset numeric fields then copy from the chosen scenario.
+  currentScenario = {
+    schema_version: "1.0",
+    scenario_id: s.scenario_id || null,
+    source_id:   s.source_id   || null,
+    target:      s.target      || "Custom",
+    observer:    s.observer    || "Earth",
+    center:      s.center      || "SSB",
+    epoch_utc:   s.epoch_utc   || null,
+    notes:       s.notes       || ""
+  };
+  for (const k of [
+    "range_m", "range_km", "range_au", "range_rate_m_s", "range_rate_km_s",
+    "light_time_s", "r1_m", "r2_m", "R_m", "r1_au", "r2_au", "R_au",
+    "impact_parameter_R_sun", "impact_parameter_m"
+  ]) {
+    if (k in s) currentScenario[k] = s[k];
+  }
+  writeForm();
+  render();
+}
+
+// ----- Paste mode -----
+function onParse() {
+  const text = $("paste-text").value;
+  const mode = $("paste-mode").value;
+  let parsed;
+  if (mode === "vectors") {
+    parsed = parseHorizonsVectorTable(text);
+    if (parsed.ok) {
+      // Convert position vector magnitude to range; pull RG/RR/LT shortcuts if available.
+      const mag_km = Math.sqrt(parsed.position_km.reduce((s, c) => s + c*c, 0));
+      if (isFinite(parsed.range_km))        currentScenario.range_km = parsed.range_km;
+      else                                  currentScenario.range_km = mag_km;
+      currentScenario.range_m = HorizonsUnits.km_to_m(currentScenario.range_km);
+      if (isFinite(parsed.range_rate_km_s)) {
+        currentScenario.range_rate_km_s = parsed.range_rate_km_s;
+        currentScenario.range_rate_m_s  = HorizonsUnits.km_per_s_to_m_per_s(parsed.range_rate_km_s);
+      }
+      if (isFinite(parsed.light_time_s)) currentScenario.light_time_s = parsed.light_time_s;
+      currentScenario.scenario_id = `pasted_vectors_${Date.now()}`;
+      currentScenario.source_id   = "jpl_horizons_api";
+      currentScenario.notes       = "User-pasted Horizons VECTORS table.";
+    }
+  } else {
+    parsed = parseHorizonsObserverTable(text);
+    if (parsed.ok) {
+      currentScenario.range_km        = parsed.range_km;
+      currentScenario.range_m         = HorizonsUnits.km_to_m(parsed.range_km);
+      currentScenario.range_rate_km_s = parsed.range_rate_km_s;
+      currentScenario.range_rate_m_s  = HorizonsUnits.km_per_s_to_m_per_s(parsed.range_rate_km_s);
+      currentScenario.light_time_s    = parsed.light_time_s;
+      if (parsed.epoch_utc) currentScenario.epoch_utc = parsed.epoch_utc;
+      currentScenario.scenario_id = `pasted_observer_${Date.now()}`;
+      currentScenario.source_id   = "jpl_horizons_api";
+      currentScenario.notes       = "User-pasted Horizons OBSERVER table.";
+    }
+  }
+
+  readForm(); // pull any user edits to target/observer/center/epoch first
+  writeForm();
+  render();
+
+  const warns = parsed.warnings || [];
+  const note = parsed.ok ? "Parsed successfully." : "Parse failed.";
+  $("warning-box").innerHTML = `<div class="callout ${parsed.ok ? "good" : "warn"}"><strong>${note}</strong>${warns.length ? `<ul style="margin:6px 0">${warns.map(w => `<li>${escapeHtml(w)}</li>`).join("")}</ul>` : ""}</div>`;
+}
+
+// ----- Send to calculator -----
+function sendTo(calcPath) {
+  readForm();
+  // Make sure the canonical numeric fields are populated before encoding.
+  render();
+  const url = scenarioToUrl(currentScenario, calcPath);
+  window.location.href = url;
+}
+
+// ----- Export Scenario Certificate -----
+function exportCertificate() {
+  readForm();
+  render();
+  const payload = {
+    ...currentScenario,
+    schema_version: "1.0",
+    exported_at_utc: new Date().toISOString(),
+    generator: "Relativistic Optics Lab — Horizons Scenario Builder",
+    disclaimer: "Public scenario construction. Not a mission navigation pipeline; does not include OD filters, covariance, tracking data, or internal operational products."
+  };
+  const json = JSON.stringify(payload, null, 2);
+  const id = currentScenario.scenario_id || `scenario_${Date.now()}`;
+  downloadAs(`horizons-scenario-${id}.json`, json, "application/json");
+  $("export-status").textContent = `Exported as horizons-scenario-${id}.json`;
+}
+
+// ----- Wire up -----
+document.addEventListener("DOMContentLoaded", async () => {
+  $("target").addEventListener("change", e => {
+    $("target-custom-wrap").style.display = e.target.value === "Custom" ? "" : "none";
+    readForm();
+    render();
+  });
+  $("observer").addEventListener("change", e => {
+    $("observer-custom-wrap").style.display = e.target.value === "Custom" ? "" : "none";
+    readForm();
+    render();
+  });
+  $("center").addEventListener("change", () => { readForm(); render(); });
+  $("epoch").addEventListener("change",  () => { readForm(); render(); });
+  $("target-custom").addEventListener("input", () => { readForm(); render(); });
+  $("observer-custom").addEventListener("input", () => { readForm(); render(); });
+
+  $("parse-paste").addEventListener("click", onParse);
+  $("clear-paste").addEventListener("click", () => { $("paste-text").value = ""; });
+  $("load-cached").addEventListener("click", async () => {
+    await loadCached();
+    if (cached.scenarios?.length) applyScenario(cached.scenarios[0]);
+  });
+
+  $("send-shapiro").addEventListener("click",    e => sendTo(e.target.getAttribute("data-calc")));
+  $("send-ranker").addEventListener("click",     e => sendTo(e.target.getAttribute("data-calc")));
+  $("send-deflection").addEventListener("click", e => sendTo(e.target.getAttribute("data-calc")));
+  $("send-link").addEventListener("click",       e => sendTo(e.target.getAttribute("data-calc")));
+
+  $("export-cert").addEventListener("click", exportCertificate);
+
+  await loadCached();
+  renderCachedList();
+  readForm();
+  render();
+});
+</script>
+
+</body>
+</html>

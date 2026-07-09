@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SG-5 — Electroweak embedding</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 252px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 10px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:14px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9670; The Anchors</a></div>
+<div class="ann-group">Start</div>
+<a href="index.html">Overview — how we judge</a>
+<a href="anchor-hierarchy-overview.html">Anchor hierarchy — map</a>
+<div class="ann-group">The method</div>
+<a href="a0-master-anchor.html">A0 — the master anchor</a>
+<a href="layer-1-metric.html">Layer 1 — MDL metric</a>
+<a href="layer-2-no-unpaid-labels.html">Layer 2 — no unpaid labels</a>
+<a href="layer-3-search-grammars.html">Layer 3 — search grammars</a>
+<a href="layer-4-carrier-forcing.html">Layer 4 — carrier-forcing</a>
+<a href="shape-minimality-challenge.html">Shape minimality challenge</a>
+<div class="ann-group">The hierarchy</div>
+<a href="deep-roots.html">The seven deep roots</a>
+<a href="master-anchors.html">Master anchors</a>
+<a href="logical-endpoint-proof.html">Logical endpoint proof</a>
+<a href="gate-traceability-template.html">Gate traceability template</a>
+<a href="blind-spots.html">Blind spots</a>
+<a href="ai-agent-completion-protocol.html">AI completion protocol</a>
+<div class="ann-group">Gate ledgers · GUT spine</div>
+<a href="sg1-anchor-ledger.html">SG-1 geometry</a>
+<a href="sg2-anchor-ledger.html">SG-2 gauge recovery</a>
+<a href="sg3-anchor-ledger.html">SG-3 generations</a>
+<a href="sg4-anchor-ledger.html">SG-4 hypercharge &amp; anomaly</a>
+<a href="sg5-anchor-ledger.html" class="current">SG-5 electroweak</a>
+<a href="sg6-anchor-ledger.html">SG-6 moduli stabilization</a>
+<a href="sg7-anchor-ledger.html">SG-7 threshold unification</a>
+<a href="sg8-anchor-ledger.html">SG-8 flavor closure</a>
+<a href="sg9-anchor-ledger.html">SG-9 proton safety</a>
+<a href="sg10-anchor-ledger.html">SG-10 claim boundary</a>
+<div class="ann-group">Gate ledgers · quantum/gravity/UV</div>
+<a href="uqf3-anchor-ledger.html">UQF-3 reflection positivity</a>
+<a href="uqf4-anchor-ledger.html">UQF-4 BRST / descent</a>
+<a href="uqf5a-5b-anchor-ledger.html">UQF-5A/5B linearized graviton</a>
+<a href="uqf5c-anchor-ledger.html">UQF-5C interacting graviton</a>
+<a href="uqf7-anchor-ledger.html">UQF-7 fermion chirality</a>
+<a href="uqf9-anchor-ledger.html">UQF-9 UV completion</a>
+<a href="uqf10-anchor-ledger.html">UQF-10 compactification</a>
+<a href="uqf14-anchor-ledger.html">UQF-14 unitarity / causality</a>
+<div class="ann-group">Gate ledgers · cosmology/BH/foundations</div>
+<a href="gap01-anchor-ledger.html">Gap-01 a6 Seeley-DeWitt</a>
+<a href="gap02-anchor-ledger.html">Gap-02 Yang-Mills mass gap</a>
+<a href="gap05-value-anchor-ledger.html">Gap-05 Lambda value</a>
+<a href="gap05-stability-anchor-ledger.html">Gap-05 Lambda stability</a>
+<a href="gap08-anchor-ledger.html">Gap-08 inflation</a>
+<a href="gap10-bg10-anchor-ledger.html">Gap-10/BG-10 baryogenesis</a>
+<a href="gap11-anchor-ledger.html">Gap-11 dark matter</a>
+<a href="gap13-anchor-ledger.html">Gap-13 BH entropy / Page</a>
+<a href="born-anchor-ledger.html">Born rule</a>
+<div class="ann-group">Gate ledgers · deep roots &amp; dissolutions</div>
+<a href="deeproot-granularity-anchor-ledger.html">Deep root — granularity</a>
+<a href="deeproot-shape-anchor-ledger.html">Deep root — structural form</a>
+<a href="lambda-catastrophe-anchor-ledger.html">Lambda-catastrophe (dissolved)</a>
+<a href="blackhole-singularity-anchor-ledger.html">Black-hole singularity (dissolved)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">SG-5 — Electroweak embedding Q=T3+Y / EWSB: the gate anchor ledger — rendered package. Rendered from <code>sg5-anchor-ledger.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>SG-5 — Electroweak embedding Q=T3+Y / EWSB: the gate anchor ledger</h1>
+<p><strong>The honest one-line: SG-5 has a strong, hand-checkable <em>embedding</em> leg — electric charge comes out exactly as $Q=T_3+Y$ on every Standard-Model multiplet, the electroweak group breaks to a single massless photon, and we actually <em>built</em> the geometric W/Z mass matrix — but the gate as a whole is OPEN, governed by its least-closed residual (the electroweak hierarchy), and the computed custodial parameter is a live falsifiable FINDING $\rho_{\rm tree}\neq 1$, not a derivation of $\rho=1$.</strong></p>
+<p>This page is the gate-specific instantiation of the <a href="./index.html">anchoring method</a>: it takes the master anchor and the bridges and applies them, object by object, to one gate. Every exact thing SG-5 touches gets its own row — its status, what it is <em>allowed</em> to claim, and what it is <em>forbidden</em> to claim. It follows the same eleven-part shape and the same universal table as the <a href="./sg4-anchor-ledger.html">canonical SG-4 ledger</a>.</p>
+<p>The honest edge here is a <em>strength</em>: where most unified frameworks insert $\rho=1$ by hand or by enlarging the bulk group to a custodial coset, we computed $\rho$ from the frozen geometry target-blind and named the tension. A computed falsifier beats an assumed symmetry.</p>
+<blockquote>
+<p><strong>selection ≠ derivation · given-E ≠ derivation-of-E · frozen/reproducible ≠ proven-unique.</strong></p>
+</blockquote>
+<hr />
+<h2>1. Gate status header</h2>
+<ul>
+<li><strong>Gate-level SG-5 roll-up:</strong> <strong>OPEN</strong> — governed by its least-closed residual (the electroweak hierarchy, R1/R2, OPEN / RELOCATION).</li>
+<li><strong>Taxonomy reconciliation (2026-07-05):</strong> under the current two-axis taxonomy the gate-level reading is <strong>TERMINAL + RESIDUALS-SHOWN</strong> — the banked terminals (the embedding leg DERIVED-GIVEN-E: $Q=T_3+Y$, forced-massless photon; and $v_{\rm EW}$ as a certified-irreducible second measured ruler) stand, while the residual family below remains listed and carried unchanged. The <strong>OPEN</strong> roll-up above is the earlier least-closed-residual convention, not a different set of facts; the least-closed residual (the electroweak hierarchy, R1/R2) is genuinely open, and the custodial result stays the FINDING $\rho_{\rm tree}\neq 1$, never a derivation of $\rho=1$. No individual residual is closed or re-graded by this note.</li>
+<li><strong>Charge / embedding leg (the local win):</strong> closed <em>only</em> as the embedding leg — the statement
+$$O_{\rm SG5,embed}(E_{\rm frozen}) = 0,$$
+i.e. $Q=T_3+Y$ holds componentwise, the $\mathbb Z_6$ congruence is satisfied field-by-field, and the single Wilson-line doublet breaks $SU(2)_L\times U(1)_Y\to U(1)_{\rm em}$ with the photon forced massless.</li>
+<li><strong>Status of the embedding leg:</strong> <strong>DERIVED-GIVEN-E</strong> (for the embedding leg <em>only</em>, given the frozen $\mathbb Z_6$ parity table).</li>
+<li><strong>The custodial observable:</strong> $\rho$ is <strong>COMPUTED</strong>, and the binding disposition is a <strong>FINDING: $\rho_{\rm tree}\neq 1$</strong> — not a derivation of $\rho=1$.</li>
+</ul>
+<p>The embedding leg is a genuine result: given the frozen spectrum, charge embeds exactly, the breaking leaves exactly one massless gauge boson, and the Higgs quadratic destabilization is structurally avoided at one loop. What stays open is everything beyond the embedding — above all the <em>lightness</em> of $v_{\rm EW}$ (OPEN / RELOCATION), the $\rho$-realization map (the FINDING's overturn-or-harden lever), and several audit/provenance residuals.</p>
+<hr />
+<h2>2. Frozen inputs (what SG-5 stands on, not what it produces)</h2>
+<ul>
+<li><strong>Frozen branch hashes</strong> <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code>. The branch is read-only. <strong>These hashes are audit anchors — they certify <em>which object</em> was tested and that it cannot be quietly retuned. They do not validate the physics.</strong></li>
+<li><strong>Upstream gauge group.</strong> $SU(3)_c\times SU(2)_L\times U(1)_Y$ from $\mathrm{isometries}(K_{\rm gauge})$ is the <strong>SG-2 result, taken as given</strong> here. SG-5 does not re-derive the group; it rides it.</li>
+<li><strong>Upstream spectrum</strong> $E_{\rm frozen}$ (the SM hypercharge triples) is <strong>given / charged / inherited</strong> — it enters SG-5 as input. <strong>SG-5 does not derive $E$.</strong> Every "passes" below is a statement <em>about this $E$</em>, not a derivation <em>of</em> it.</li>
+</ul>
+<hr />
+<h2>3. The object anchors (given-E / upstream)</h2>
+<p>The frozen geometric backbone is
+$$K_{\rm gauge} = K_6 \times S^2 \times S^1_Y/\mathbb Z_2 \quad (\times\, M_4),$$
+with $K_6=SU(3)/T^2$ the colour carrier, $S^2$ the weak-isospin carrier, and $S^1_Y/\mathbb Z_2$ the hypercharge carrier (a folded circle). The Higgs is the holonomy (Wilson-line / Hosotani) mode $H\in(1,2,+\tfrac12)$ on the $SU(2)_L$ cycle $\gamma$, carrying integer winding $n_H=1$.</p>
+<p>The Standard-Model multiplets carry the frozen $(T_3,Y)$ table (one generation):
+$$Q_L=(3,2)_{1/6},\; u_R=(\bar 3,1)_{2/3},\; d_R=(\bar 3,1)_{-1/3},\; L=(1,2)_{-1/2},\; e_R=(1,1)_{-1},\; H=(1,2)_{1/2}.$$
+<strong>Status: GIVEN-E / upstream-inherited</strong> — not SG-5-derived.</p>
+<hr />
+<h2>4. Root and master-anchor traceability</h2>
+<p><strong>Deep roots that are load-bearing for SG-5:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Deep root</th>
+<th>Role in SG-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Shape</strong></td>
+<td>supplies $K_{\rm gauge}=K_6\times S^2\times S^1_Y/\mathbb Z_2$, the cycle $\gamma$, and the eliminated custodial coset</td>
+</tr>
+<tr>
+<td><strong>Granularity</strong></td>
+<td>enforces <em>no unpaid labels</em> — the $\mathbb Z_6$ congruence, integer winding $n_H$, and every charge are charged or generated</td>
+</tr>
+<tr>
+<td><strong>Physical equivalence / invariance</strong></td>
+<td>makes $\rho$ a frame-pinned, gauge-invariant observable ($U(1)_3$-invariant; the photon-along-$T_3$ axis is physical)</td>
+</tr>
+<tr>
+<td><strong>Record interface</strong></td>
+<td>makes the charge table, the $\rho$ reproducer, and the $\eta_{\rm BK}$ identity reproducible and reviewable</td>
+</tr>
+<tr>
+<td><strong>Nonseparability</strong></td>
+<td>explains why the embedding leg does <strong>not</strong> close the hierarchy or the global completion</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td>the hierarchy of $v_{\rm EW}$ vs $M_{\rm Pl}$ is the gate's open SCALE frontier (the firewall is uncrossed)</td>
+</tr>
+</tbody>
+</table>
+<p><em>Causal order</em> is not a primary load-bearing anchor for the SG-5 embedding arithmetic.</p>
+<p><strong>Master anchors in play:</strong> finite invariant ledgers (the charge table, the commutator overlaps $O_a$) · no unpaid labels (the $\mathbb Z_6$ congruence, $n_H=1$) · the frozen branch · given-$E$ · the <em>declared</em> $\mathbb Z_6$ parity table and the <em>selected</em> minimal actor · open-residual discipline (the hierarchy and the realization map).</p>
+<hr />
+<h2>5. The SG-5 anchor ledger (the universal table)</h2>
+<p>One row per exact object SG-5 touches. Status tokens match the dossier; no grade is upgraded.</p>
+<table>
+<thead>
+<tr>
+<th>Gate anchor</th>
+<th>Exact object</th>
+<th>Deep-root link</th>
+<th>Master-anchor link</th>
+<th>Status</th>
+<th>Allowed claim</th>
+<th>Forbidden claim</th>
+<th>Open residual / closure task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gate roll-up</td>
+<td>SG-5</td>
+<td>Shape, Nonseparability, Scale</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN</strong></td>
+<td>a strong embedding leg + computed $\rho$ + open residuals</td>
+<td>"SG-5 is closed"</td>
+<td>close §9 residuals</td>
+</tr>
+<tr>
+<td>Frozen branch</td>
+<td>hashes <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code></td>
+<td>Record interface</td>
+<td>frozen branch</td>
+<td><strong>AUDIT ONLY</strong></td>
+<td>the tested object is frozen/read-only</td>
+<td>"hashes validate the physics"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Upstream group</td>
+<td>$SU(3)_c\times SU(2)_L\times U(1)_Y$</td>
+<td>Shape</td>
+<td>given-$E$</td>
+<td><strong>GIVEN (SG-2)</strong></td>
+<td>SG-5 rides the group</td>
+<td>"SG-5 derives the group"</td>
+<td>(see SG-2)</td>
+</tr>
+<tr>
+<td>Upstream spectrum</td>
+<td>$E_{\rm frozen}$</td>
+<td>Shape</td>
+<td>given-$E$</td>
+<td><strong>GIVEN-E</strong></td>
+<td>the charge table evaluates <em>this</em> $E$</td>
+<td>"SG-5 derives $E$"</td>
+<td>(see SG-2/SG-3 for $E$)</td>
+</tr>
+<tr>
+<td>Charge embedding</td>
+<td>$Q=T_3+Y$ (componentwise)</td>
+<td>Invariance</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>exact, hand-checkable on every multiplet</td>
+<td>"the spectrum is derived"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>$\mathbb Z_6$ congruence</td>
+<td>$t/3+d/2+Y\in\mathbb Z$</td>
+<td>Granularity</td>
+<td>no unpaid labels</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>non-conforming $Y$ is <em>inconsistent on the geometry</em></td>
+<td>"$Y$ is forced absolutely over all math"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Parity / center table</td>
+<td>the $\mathbb Z_6$ parity table (<code>ac4d2df3e708</code>)</td>
+<td>Shape</td>
+<td>declared $\mathbb Z_6$</td>
+<td><strong>AXIOM-CLOSED (R9)</strong></td>
+<td>selected &amp; frozen, table realizes $/\mathbb Z_6$</td>
+<td>"the table is forced"</td>
+<td>derive table or keep declared</td>
+</tr>
+<tr>
+<td>$\mathbb Z_6$ finest-ness</td>
+<td>$\Gamma=\mathbb Z_6$</td>
+<td>Shape</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN (R9)</strong></td>
+<td>only $\Gamma\le\mathbb Z_6$ ($q\mid 6$) is pinned</td>
+<td>"$\Gamma=\mathbb Z_6$ is proven"</td>
+<td>force $=\mathbb Z_6$ from global $Q$</td>
+</tr>
+<tr>
+<td>EWSB to $U(1)_{\rm em}$</td>
+<td>$SU(2)_L\times U(1)_Y\to U(1)_{\rm em}$</td>
+<td>Invariance</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>photon massless forced ($\det$ neutral block $=0$)</td>
+<td>"the breaking is engineered to fit $\rho$"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Single doublet</td>
+<td>$H\sim(1,2,+\tfrac12)$, bundle <code>2a0462b8aab9</code></td>
+<td>Shape</td>
+<td>declared structure</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>one Wilson-line/Hosotani doublet on $\gamma$</td>
+<td>"a second VEV source is excluded" (see R8)</td>
+<td>build $A_5$ EW-rep table (R8)</td>
+</tr>
+<tr>
+<td>Integer winding</td>
+<td>$n_H=1$ (<code>f65094fd8fd1</code>)</td>
+<td>Granularity</td>
+<td>no unpaid labels</td>
+<td><strong>AXIOM-CLOSED (R10)</strong></td>
+<td>minimal admissible winding; $n_H{=}0\Rightarrow v{=}0$ (blind)</td>
+<td>"$n_H{=}1$ forced a-priori over $n_H{\ge}2$"</td>
+<td>a-priori reason to prefer 1 over 2</td>
+</tr>
+<tr>
+<td>Minimal actor</td>
+<td>the EW-breaking actor selection</td>
+<td>Shape</td>
+<td>minimality selector</td>
+<td><strong>AXIOM-CLOSED</strong></td>
+<td>named target-blind minimality selection</td>
+<td>"minimality is a derivation"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Hosotani potential</td>
+<td>$V_{\rm Hos}(\theta_H)$ (one-loop CW)</td>
+<td>Scale</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED (symbolic)</strong></td>
+<td>finite, periodic, cutoff-independent</td>
+<td>"$V_{\rm Hos}$ fixes the breaking <em>direction</em>"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Higgs protection</td>
+<td>$\delta m_H^2\sim M_*^2$ forbidden</td>
+<td>Granularity</td>
+<td>no unpaid labels</td>
+<td><strong>DERIVED (one-loop)</strong></td>
+<td>quadratic destabilization topologically forbidden</td>
+<td>"all-orders protection is proven" (R7)</td>
+<td>loop-resummation bound (R7)</td>
+</tr>
+<tr>
+<td>Commutator overlaps</td>
+<td>$O_a=\tfrac12(|h|^2-h_a^2)$</td>
+<td>Invariance</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>exact closed form, machine-verified</td>
+<td>"$|D_\mu H|^2$ is the source operator"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Custodial parameter</td>
+<td>$\rho_{\rm tree}=\tfrac12+\dfrac{h_3^2}{h_1^2+h_2^2}$</td>
+<td>Invariance, Nonseparability</td>
+<td>finite invariant ledger</td>
+<td><strong>COMPUTED → FINDING $\rho_{\rm tree}\neq 1$</strong></td>
+<td>a real, $U(1)_3$-invariant observable; charge law pins $T_H\parallel T_3\Rightarrow O_3=0$</td>
+<td>"the geometry predicts $\rho=1$"</td>
+<td>mount realization map (R3)</td>
+</tr>
+<tr>
+<td>$\rho$ realization map</td>
+<td>$A_y$ EW-rep table / $A_5$ holonomy / $\gamma$-profile / $M_{0n}$</td>
+<td>Record interface</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / missing artifact (R3)</strong></td>
+<td>a named fail-closed decision rule</td>
+<td>"the FINDING is overturned" / "$\rho$ is a free modulus"</td>
+<td>mount 4 artifacts, run decision rule</td>
+</tr>
+<tr>
+<td>KK Schur correction</td>
+<td>$\delta\rho_{\rm KK}$ via $M_{0n}(M_{nn}^2)^{-1}M_{n0}$</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / BLOCKED (R4)</strong></td>
+<td>$M_{nn}$ present; needs $\gamma$-overlap $I_{0n}$</td>
+<td>"$(v/M_{KK})^2$ is a Schur certificate"</td>
+<td>compute $I_{0n}$, bound $\le10^{-4}$</td>
+</tr>
+<tr>
+<td>No-second-VEV</td>
+<td>$A_y/A_5$ zero-mode EW-rep content</td>
+<td>Granularity</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / BLOCKED (R8)</strong></td>
+<td>$m_0(p,q)$ Kostant table present+verified</td>
+<td>"no triplet/extra-doublet VEV" (unproven)</td>
+<td>build $A_5$ table; certify unique VEV</td>
+</tr>
+<tr>
+<td>Absolute W/Z masses</td>
+<td>$S^2$-vs-$S^1_Y$ co-normalization</td>
+<td>Scale</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN (R-abs)</strong></td>
+<td>co-norm <em>cancels in $\rho$</em> (banked)</td>
+<td>"absolute $M_W,M_Z$ from geometry (now)"</td>
+<td>common-normalization reduction integrals</td>
+</tr>
+<tr>
+<td>Determinant identity</td>
+<td>$1/\eta_{\rm BK}=32\pi\,e^{\sqrt3/24\pi}$ (<code>84e94518d3f5</code>)</td>
+<td>Record interface</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED (identity) / SUSPECT (provenance, R5)</strong></td>
+<td>identity recomputes to $0.009721281516\ldots$ exact</td>
+<td>"the <em>form</em> is proven target-blind"</td>
+<td>recompute determinant blind (with SG-8)</td>
+</tr>
+<tr>
+<td>$v$ / $m_h$ near-hit</td>
+<td>$v{=}246.02$, $m_h{=}123.82$</td>
+<td>Scale</td>
+<td>open-residual discipline</td>
+<td><strong>AUDIT / BLOCKED (R6)</strong></td>
+<td>values present; one-input-two-outputs compression</td>
+<td>"the reproducer was independently re-run"</td>
+<td>run R0 reproducer + re-hash</td>
+</tr>
+<tr>
+<td>Hierarchy of $v$</td>
+<td>lightness $v/M_{\rm Pl}\sim10^{-16}$</td>
+<td>Scale, Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / RELOCATION (R1/R2)</strong></td>
+<td>a banked near-no-go; $\theta_H^*$ read-from-min</td>
+<td>"$v$ emerges / the hierarchy is solved"</td>
+<td>$v$-independent UV readout (firewall-crossing)</td>
+</tr>
+<tr>
+<td>$v_{\rm EW}$ anchor</td>
+<td>$v_{\rm EW}=\theta_H^*/(2\pi R_\gamma)$</td>
+<td>Scale</td>
+<td>given-$E$</td>
+<td><strong>MEASURED-ANCHOR (irreducible)</strong></td>
+<td>a transparent second dimensionful anchor</td>
+<td>"$v_{\rm EW}$ is derived"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>$\theta_H^*$</td>
+<td>$\theta_H^*=\arg\min V_{\rm Hos}$</td>
+<td>Scale</td>
+<td>open-residual discipline</td>
+<td><strong>AXIOM-CLOSED (R4-θ)</strong></td>
+<td>read from the one-loop minimum (no target value)</td>
+<td>"$\theta_H^*\sim10^{-14}$ is symmetry-fixed"</td>
+<td>group-theory falsification of a fixing symmetry</td>
+</tr>
+<tr>
+<td>Endpoint validator</td>
+<td><code>validate_endpoint.py</code></td>
+<td>Record interface</td>
+<td>open-residual discipline</td>
+<td><strong>AUDIT ONLY</strong></td>
+<td>a re-run certificate that the frozen object is unchanged; it grades nothing higher than the gate's stated status</td>
+<td>"the validator validates the physics"</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. The arithmetic — the embedding win and the $\rho$ computation, in full</h2>
+<h3>6.1 Charge embedding (DERIVED-GIVEN-E)</h3>
+<p>Two exact predicates hold componentwise on every multiplet: $Q=T_3+Y$, and the $\mathbb Z_6$ congruence $t/3+d/2+Y\in\mathbb Z$ (with $t=+1,-1,0$ for $3,\bar 3,1$ of colour and $d=1,0$ for $SU(2)$ doublet/singlet). Hand-checked:</p>
+<table>
+<thead>
+<tr>
+<th>Multiplet</th>
+<th>$T_3$</th>
+<th>$Y$</th>
+<th>$Q=T_3+Y$</th>
+<th>$\mathbb Z_6$ check $t/3+d/2+Y$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$Q_L$</td>
+<td>$\pm\tfrac12$</td>
+<td>$+\tfrac16$</td>
+<td>$\{+\tfrac23,-\tfrac13\}$</td>
+<td>$\tfrac13+\tfrac12+\tfrac16=1\in\mathbb Z$</td>
+</tr>
+<tr>
+<td>$u_R$</td>
+<td>$0$</td>
+<td>$+\tfrac23$</td>
+<td>$+\tfrac23$</td>
+<td>$\tfrac13+0+\tfrac23=1\in\mathbb Z$</td>
+</tr>
+<tr>
+<td>$d_R$</td>
+<td>$0$</td>
+<td>$-\tfrac13$</td>
+<td>$-\tfrac13$</td>
+<td>$\tfrac13+0-\tfrac13=0\in\mathbb Z$</td>
+</tr>
+<tr>
+<td>$L$</td>
+<td>$\pm\tfrac12$</td>
+<td>$-\tfrac12$</td>
+<td>$\{0,-1\}$</td>
+<td>$0+\tfrac12-\tfrac12=0\in\mathbb Z$</td>
+</tr>
+<tr>
+<td>$e_R$</td>
+<td>$0$</td>
+<td>$-1$</td>
+<td>$-1$</td>
+<td>$0+0-1=-1\in\mathbb Z$</td>
+</tr>
+<tr>
+<td>$H$</td>
+<td>$\pm\tfrac12$</td>
+<td>$+\tfrac12$</td>
+<td>$\{+1,0\}$</td>
+<td>$0+\tfrac12+\tfrac12=1\in\mathbb Z$</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Diagnostic — the congruence has teeth (specific, not trivial).</strong> Replacing $Y(Q_L)=\tfrac16$ by $Y=\tfrac15$ gives
+$$\tfrac13+\tfrac12+\tfrac15=\tfrac{31}{30}\notin\mathbb Z,$$
+so the candidate is <em>barred on the geometry</em>. A rule that bars a nearby rational while admitting the SM triples field-by-field is a real arithmetic fact about $E_{\rm frozen}$, not an artifact. The down quark lands at exactly $-\tfrac13$ and atomic neutrality to $\sim1$ part in $10^{21}$ is reproduced structurally (forced by the congruence, not fitted).</p>
+<h3>6.2 The $\rho$ computation (COMPUTED → FINDING)</h3>
+<p>The frozen Higgs is a <strong>non-custodial Hosotani object</strong> ($A_y=(\theta_H/2\pi R_\gamma)T_H$, $T_H\in su(2)_L$, custodial $SO(4)$ coset eliminated), so the gauge-boson masses descend from the <strong>commutator</strong> operator $\propto\mathrm{Tr}\,|[A_\mu,A_y]|^2$, not $|D_\mu H|^2$. With $T_H=\sum_b h_b T_b$ and the $su(2)$ algebra, the VEV-weighted overlaps close exactly:
+$$O_a=\tfrac12\big(|h|^2-h_a^2\big),\qquad |h|^2=h_1^2+h_2^2+h_3^2.$$
+The charged $W^\pm$ get mass $\propto O_1+O_2$, the neutral $W^3$ gets $\propto O_3$, and the photon stays massless ($\det$ of the neutral $(W^3,B)$ block $=0$, normalization-independent). Hence
+$$\rho_{\rm tree}=\frac{O_1+O_2}{2\,O_3}=\frac12+\frac{h_3^2}{h_1^2+h_2^2}\in[\tfrac12,\infty),\qquad \rho_{\rm tree}=1\iff 2h_3^2=h_1^2+h_2^2.$$</p>
+<p><strong>Machine verification</strong> (<code>SG5_R3_RHO_REPRODUCER.py</code>, all checks PASS): the closed form $O_a$ to $8.9\times10^{-16}$; the $\rho$ formula to $4.5\times10^{-13}$, ranging $[0.5,\,3866.8\to\infty)$; the doublet holonomy eigenvalues $\pm\theta_H/2$ direction-independent to $3.9\times10^{-16}$ (so $V_{\rm Hos}$ is flat in the tilt direction); $\rho$ invariant under the $Q$-preserving $U(1)_3$ to $2.2\times10^{-16}$; and the body-diagonal $(1,1,1)$ giving $\rho=1$ on a $54.74^\circ$ cone. This is the <em>specificity diagnostic for $\rho$</em>: it varies over the full $[\tfrac12,\infty)$ as the direction varies, so it is a real observable, not a constant tautology.</p>
+<h3>6.3 The decisive step — the charge law pins the direction</h3>
+<p>For the unbroken $U(1)$ to be electromagnetic along $T_3$ (forced by the frozen $\mathbb Z_6$ charge table), the Hosotani VEV must satisfy $T_H\parallel T_3$. Then $[T_3,T_H]=0$, so
+$$(O_1,O_2,O_3)=(\tfrac12,\tfrac12,0)\ \Rightarrow\ O_3=0\ \Rightarrow\ \rho_{\rm tree}\neq 1.$$
+The neutral $W^3$ receives <strong>zero</strong> mass from the bare Hosotani commutator. The $\rho=1$ cone is barred (it would put the photon along $(1,1,1)/\sqrt3\neq T_3$). The only mechanism forcing $\rho=1$ is a custodial $SO(4)\simeq SU(2)_L\times SU(2)_R$ coset selecting $|D_\mu H|^2$ — and that coset is <strong>recorded eliminated</strong> in the frozen object. The measured $\rho_0=1.00038\pm0.00020$ is used only as a <strong>post-hoc falsifier</strong> — an input to nothing in the computation.</p>
+<p><strong>The obstruction split.</strong> The embedding leg closes:
+$$O_{\rm SG5,embed}(E_{\rm frozen})=\big(O_{\rm charge},\,O_{\rm congruence},\,O_{\rm EWSB},\,O_{\rm photon}\big)(E_{\rm frozen})=0.$$
+The full gate obstruction additionally carries the hierarchy and realization-map pieces, which are <strong>not</strong> closed:
+$$O_{\rm SG5}(E)=\big(O_{\rm embed}(E),\,O_{\rm hierarchy}(E),\,O_{\rm realization}(E),\,O_{\rm KK}(E),\,O_{\rm 2ndVEV}(E)\big).$$
+We do <strong>not</strong> assert $O_{\rm SG5}(E_{\rm frozen})=0$.</p>
+<hr />
+<h2>7. The "$\mathbb Z_6$" and the "$\rho$" phrases, split into honest objects</h2>
+<p>Two compact phrases each hide several claims with different statuses.</p>
+<p><strong>The $\mathbb Z_6$ embedding splits into three objects:</strong>
+1. <strong>The congruence</strong> $t/3+d/2+Y\in\mathbb Z$ (the Tong congruence $q=3z_2-2z_3\bmod 6$). <strong>DERIVED-GIVEN-E</strong> — load-bearing for charge rigidity.
+2. <strong>The declared parity/center table</strong> (hash <code>ac4d2df3e708</code>). <strong>AXIOM-CLOSED / declared</strong> — <em>selected and frozen, not searched</em> (manuscript §5.2: "selected the parity/center assignments on the fold; froze the parity table").
+3. <strong>$\mathbb Z_6$ finest-ness</strong>, $\Gamma=\mathbb Z_6$. <strong>OPEN</strong> — the line-operator/maximality posit pins only $\Gamma\le\mathbb Z_6$ ($q\mid 6$); "finest" is pinnable only by already wanting $\mathbb Z_6$.</p>
+<p><strong>The $\rho$ disposition splits into the computed facts and the standing finding.</strong> Two framings agree on <em>every computed fact</em> (the closed form $O_a$, the range $[\tfrac12,\infty)$, the flatness of $V_{\rm Hos}$, the eliminated custodial coset) and differ only on <em>disposition</em>:</p>
+<table>
+<thead>
+<tr>
+<th>Framing</th>
+<th>Basis</th>
+<th>Claim</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"undetermined flat modulus"</td>
+<td>the one-loop potential alone</td>
+<td>$V_{\rm Hos}$ flat $\Rightarrow h_3$ free $\Rightarrow \rho$ undetermined over $[\tfrac12,\infty)$</td>
+<td><strong>incomplete (does not use the charge law)</strong></td>
+</tr>
+<tr>
+<td>"FINDING: $\rho_{\rm tree}\neq 1$"</td>
+<td>the potential <strong>plus</strong> the charge law</td>
+<td>charge law pins $T_H\parallel T_3\Rightarrow O_3=0\Rightarrow\rho_{\rm tree}\neq 1$</td>
+<td><strong>the standing disposition</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The flatness of $V_{\rm Hos}$ means the <em>potential</em> selects no direction — but the <em>photon-along-$T_3$</em> requirement does. So $h_3$ is pinned, and the honest statement is a FINDING, not an undetermined bet.</p>
+<hr />
+<h2>8. The hierarchy and the protection result, scoped honestly</h2>
+<ul>
+<li><strong>Higgs quadratic destabilization avoided (banked, one-loop).</strong> The counterterm $\delta m_H^2\sim M_*^2$ is <em>topologically forbidden</em> — it would require a non-integer change in the integer winding $n_H$. $V_{\rm Hos}$ is finite ($n^{-5}$ sum converges), periodic, and cutoff-independent. This is a proven banked sub-result, but it is <strong>one-loop</strong>; all-orders protection is Diagnostic-only (R7).</li>
+<li><strong>Protection $\neq$ smallness.</strong> The protection ratio $\sqrt{\eta_{\rm BK}}/(2\pi)\sim10^{-2}$ is <strong>twelve orders of magnitude too large</strong> to be $v/M_{\rm Pl}\sim10^{-16}$. Quadratic-divergence protection does not deliver the lightness of $v$.</li>
+<li><strong>The hierarchy is OPEN / RELOCATION.</strong> $\theta_H^*\approx2.46\times10^{-14}$ is <strong>read from the one-loop minimum</strong>, not derived; the dimensionless exponent $I_{\rm EW}=\ln(M_{\rm Pl}/v)\approx36.83$ is not produced blind. The SCALE firewall is a four-part conjunction whose gates (2) and (4) FAIL: the only specified anchor $\partial_\sigma V=0$ <em>is</em> where $v$ is set, and $\mu_{\rm cell}\to v$ is closed-form invertible. So $v_{\rm EW}$ stands as a genuine <strong>second dimensionful anchor</strong> (alongside $M_{\rm Pl}$), with a <em>banked near-no-go</em> (a dimensional Buckingham-$\pi$ argument plus a "periodic minimum supplies no transmutation exponent" argument) explaining <em>why</em> it cannot be reduced <em>here</em> without relocating it.</li>
+</ul>
+<hr />
+<h2>9. Open residuals — grouped by family</h2>
+<p>None of these is closed by the embedding win. Each is a separate row.</p>
+<p><strong>Family A — the $\rho$ realization (the FINDING's lever):</strong>
+- <strong>R3-realization</strong> — the four unmounted artifacts ($A_y$ EW-rep table; $A_5$ holonomy generators, <strong>MISSING / not source-hashed</strong>; $\gamma$-cycle VEV profile; $M_{0n}$ overlaps) and the fail-closed decision rule. <strong>OPEN / missing artifact.</strong> Either outcome (FINDING STANDS/HARDENS, or REOPENED if a charge-law-consistent $T_H\not\parallel T_3$) closes it.
+- <strong>R3 two-loop</strong> — the $y_t\neq y_b$, $g'\neq 0$ two-loop $V_{\rm Hos}$ that could <em>dynamically</em> select the direction. <strong>Uncomputed.</strong>
+- <strong>R4 KK Schur</strong> — $\delta\rho_{\rm KK}$; $M_{nn}$ present, the $\gamma$-overlap $I_{0n}$ absent. <strong>OPEN / BLOCKED on $\gamma$-profile.</strong>
+- <strong>R8 no-second-VEV</strong> — the $A_y/A_5$ zero-mode EW-rep table (the $m_0(p,q)$ Kostant table is present+verified; the missing datum is one layer up). <strong>OPEN / BLOCKED on $A_5$ table.</strong></p>
+<p><strong>Family B — absolute masses &amp; provenance:</strong>
+- <strong>R-abs</strong> — the $S^2$-vs-$S^1_Y$ co-normalization for absolute $M_W,M_Z$ (cancels in $\rho$, owed for the masses). <strong>OPEN.</strong>
+- <strong>R5 $\eta_{\rm BK}$ provenance</strong> — is $1/\eta_{\rm BK}=32\pi\,e^{\sqrt3/24\pi}$ written blind, or reverse-engineered to hit $|y_t/y_b|$? <strong>SUSPECT (unaudited).</strong>
+- <strong>R6 $v$/$m_h$ reproducer</strong> — referenced, not independently re-run. <strong>AUDIT / BLOCKED.</strong></p>
+<p><strong>Family C — the hierarchy (least-closed; governs the roll-up):</strong>
+- <strong>R1/R2 hierarchy</strong> — the lightness of $v$. <strong>OPEN / RELOCATION</strong> (banked near-no-go).</p>
+<p><strong>Family D — axiom floors (named, target-blind):</strong>
+- <strong>R4-θ</strong> ($\theta_H^*$ read-from-min), <strong>R7</strong> (all-orders protection), <strong>R9</strong> (parity/$\mathbb Z_6$ table selected-not-searched; $=\mathbb Z_6$ OPEN), <strong>R10</strong> ($n_H=1$ minimality). <strong>AXIOM-CLOSED</strong> at named axioms.</p>
+<hr />
+<h2>10. Anti-claims (what this page refuses to say)</h2>
+<ul>
+<li>SG-5 does <strong>not</strong> derive $E$. Formally: $E_{\rm frozen}\in\ker O_{\rm SG5,embed}$, <strong>not</strong> $\ker O_{\rm SG5,embed}=\{E_{\rm SM}\}$.</li>
+<li>The geometry does <strong>not</strong> predict $\rho=1$. The binding disposition is the opposite: $\rho_{\rm tree}\neq 1$, a live falsifiable tension against $\rho_0=1.00038\pm0.00020$. No parameter was tuned to the measured value.</li>
+<li>$\rho$ is <strong>not</strong> a free / undetermined modulus. $V_{\rm Hos}$ flatness does not free $h_3$; the charge law pins $T_H\parallel T_3$.</li>
+<li>The custodial $SO(4)$ / $SO(5)/SO(4)$ coset may <strong>not</strong> be re-imported to rescue $\rho=1$ — it is recorded eliminated; importing it is reverse-engineering from the measured value.</li>
+<li>The electroweak <strong>hierarchy is not solved</strong> and $v$ does <strong>not</strong> "emerge" — $v_{\rm EW}$ is a transparent measured-but-irreducible second anchor; $\theta_H^*$ is read from the minimum.</li>
+<li>$v_{\rm EW}$ is <strong>not</strong> derived. given-E ≠ derivation of E.</li>
+<li>All-orders Higgs protection is <strong>not</strong> proven (one-loop only); the $A_5$/no-second-VEV certificate is <strong>not</strong> built; the KK $\delta\rho_{\rm KK}$ is <strong>not</strong> computed; the $\eta_{\rm BK}$ <em>form</em> is <strong>not</strong> audited; the R0 reproducer is <strong>not</strong> independently re-run.</li>
+<li>$\mathbb Z_6$ finest-ness is <strong>not</strong> proven (only $\Gamma\le\mathbb Z_6$).</li>
+<li>The frozen-branch hashes and the endpoint validator are audit anchors; they do <strong>not</strong> validate the physics.</li>
+<li><strong>Embedding-leg closure is not whole-gate closure.</strong> $O_{\rm SG5,embed}=0$ does not imply $O_{\rm SG5}=0$.</li>
+<li>The selected $K_6$/parity geometry is <strong>not</strong> proven <em>the</em> unique structure realizing $Q=T_3+Y$; charge is forced <em>given</em> the frozen, selected table.</li>
+</ul>
+<hr />
+<h2>11. Specialist closure plan</h2>
+<p>Each open residual is a concrete, finite, target-blind work-package. Attack order by leverage: R3-realization → R6 → R8/R-abs → R4 → R5 → R1/R2 → R7/R9/R10.</p>
+<table>
+<thead>
+<tr>
+<th>Residual</th>
+<th>Disposition</th>
+<th>Single most valuable next step</th>
+<th>Falsifier / refuting close</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R3-realization</strong></td>
+<td>FINDING $\rho_{\rm tree}\neq 1$ (binding)</td>
+<td>mount $A_y$/$A_5$/$\gamma$-profile/$M_{0n}$; run the one-pass fail-closed decision rule</td>
+<td>a charge-law-consistent $T_H\not\parallel T_3$ giving $\rho\to1$ → REOPENED, $\rho=1$ = DERIVED-GIVEN-E</td>
+</tr>
+<tr>
+<td><strong>R3 two-loop</strong></td>
+<td>one-loop flat</td>
+<td>compute $y_t\neq y_b$, $g'\neq0$ two-loop $V_{\rm Hos}$; read $\rho$ blind</td>
+<td>$\rho=1$ at the selected minimum → DERIVED-GIVEN-E; $\rho\neq1$ → FINDING hardens to a dynamical prediction</td>
+</tr>
+<tr>
+<td><strong>R8 no-2nd-VEV</strong></td>
+<td>BLOCKED ($A_5$ table)</td>
+<td>build the $A_y/A_5$ zero-mode EW-rep table; certify unique VEV source</td>
+<td>a second $Q=0$ VEV source exists → single-doublet picture corrected</td>
+</tr>
+<tr>
+<td><strong>R4 KK Schur</strong></td>
+<td>BLOCKED ($\gamma$-profile)</td>
+<td>compute $I_{0n}$ and $\delta\rho_{\rm KK}$; bound $\le10^{-4}$</td>
+<td>$\delta\rho_{\rm KK}$ large → a second contribution to the $\rho$ tension</td>
+</tr>
+<tr>
+<td><strong>R-abs masses</strong></td>
+<td>co-norm owed</td>
+<td>common-normalization $S^2$/$S^1_Y$ reduction integrals</td>
+<td>absolute $M_W,M_Z$ disagree with PDG</td>
+</tr>
+<tr>
+<td><strong>R5 $\eta_{\rm BK}$</strong></td>
+<td>SUSPECT</td>
+<td>recompute the Berezin–Kontsevich determinant blind (with SG-8 Route A)</td>
+<td>$1/\eta_{\rm BK}\neq 32\pi e^{\sqrt3/24\pi}$ → headline RELOCATES (true-by-construction)</td>
+</tr>
+<tr>
+<td><strong>R6 $v$/$m_h$</strong></td>
+<td>AUDIT / BLOCKED</td>
+<td>run the R0 reproducer target-blind; re-hash</td>
+<td>any value missing the declared band → Gate-8 downgrade</td>
+</tr>
+<tr>
+<td><strong>R1/R2 hierarchy</strong></td>
+<td>OPEN / RELOCATION</td>
+<td>bank the Path-A (dimensional) + Path-B (periodic-minimum) near-no-go</td>
+<td>a $v$-independent UV readout for $\mu_{\rm cell}$ crossing all firewall gates blind</td>
+</tr>
+<tr>
+<td><strong>R4-θ / R7 / R9 / R10</strong></td>
+<td>AXIOM-CLOSED</td>
+<td>name the target-blind axioms; run the cheap group-theory falsifications</td>
+<td>a symmetry of $\gamma$/$S^1_Y/\mathbb Z_2$ that fixes $\theta_H^*\sim10^{-14}$; an all-loop protection theorem; $=\mathbb Z_6$ forced from global $Q$</td>
+</tr>
+</tbody>
+</table>
+<p><strong>REDUCE-vs-RELOCATE verdict.</strong> The plan is brutally honest that <strong>R1/R2 RELOCATE</strong> — the hierarchy is a genuine second dimensionful anchor with a near-no-go, not a missing number. The one place real physics progress is available is <strong>R3</strong> (mount the realization map, or compute the two-loop lift), which can harden the FINDING into a dynamical prediction or overturn it into $\rho=1$ = DERIVED-GIVEN-E. The cheapest machine-lane win is <strong>R6</strong>. Closing these does not promote the gate: SG-5 stays OPEN; the wins are honesty, reproducibility, and a <em>computed</em> $\rho$ where the field assumes one.</p>
+<hr />
+<h2>12. Completion tests for this page</h2>
+<p><strong>Required presence (all met):</strong> gate roll-up OPEN · $O_{\rm SG5,embed}(E_{\rm frozen})=0$ · embedding leg DERIVED-GIVEN-E · $E$ not derived · frozen hashes (AUDIT ONLY) · $Q=T_3+Y$ table · $\mathbb Z_6$ congruence + the $Y=\tfrac15$ kill diagnostic · parity table AXIOM-CLOSED · $\mathbb Z_6$ finest-ness OPEN · EWSB / photon-massless · single doublet + $n_H=1$ · $V_{\rm Hos}$ · one-loop Higgs protection · closed form $O_a$ · $\rho_{\rm tree}=\tfrac12+h_3^2/(h_1^2+h_2^2)$ with the $[\tfrac12,\infty)$ range diagnostic · the FINDING $\rho_{\rm tree}\neq 1$ from $T_H\parallel T_3\Rightarrow O_3=0$ · R3 realization map · R4 KK · R8 no-2nd-VEV · R-abs · R5 $\eta_{\rm BK}$ · R6 reproducer · R1/R2 hierarchy (RELOCATION) · $v_{\rm EW}$ second anchor · R4-θ/R7/R9/R10 axioms · the anti-claims (geometry does not predict $\rho=1$; hierarchy not solved; hashes don't validate).</p>
+<p><strong>Required absence (all held):</strong> no claim that SG-5 is fully closed · $E$ is derived · the geometry predicts $\rho=1$ · $\rho$ is a free modulus · custodial coset re-imported · the hierarchy is solved / $v$ emerges · $v_{\rm EW}$ derived · all-orders protection proven · $\ker O_{\rm SG5}=\{E_{\rm SM}\}$ · $\mathbb Z_6$ finest-ness proven · hashes validate physics · embedding closure = whole-gate closure · any open residual asserted computed/proven/closed.</p>
+<hr />
+<p><em>This ledger follows the canonical eleven-part shape of the <a href="./sg4-anchor-ledger.html">SG-4 gate anchor ledger</a> and the same universal table.</em></p>
+<p><strong>See also:</strong> <a href="./index.html">the anchoring method</a> · <a href="./a0-master-anchor.html">the master anchor</a> · <a href="./layer-2-no-unpaid-labels.html">Layer 2 — no unpaid exact labels</a> (why charge embedding is given-E, not a free choice) · <a href="./layer-4-carrier-forcing.html">Layer 4 — carrier-forcing &amp; the given-E wall</a> · the sibling <a href="./sg4-anchor-ledger.html">SG-4 anchor ledger</a> (hypercharge &amp; anomaly) · the full <a href="../articles/DOSSIER_SG5_FULL.html">SG-5 dossier</a>.</p>
+</main>
+</div>
+</body></html>

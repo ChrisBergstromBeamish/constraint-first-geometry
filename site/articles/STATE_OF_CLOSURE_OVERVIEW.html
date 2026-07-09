@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<!-- State of the Closure — public overview -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>State of the Closure &mdash; where every gate now sits</title>
+<style>
+  /* Scoped fallback — harmless if the site stylesheet already defines these. */
+  .soc-wrap{max-width:1040px;margin:0 auto;padding:1.2rem 1.1rem;line-height:1.55;
+    font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#1c1c1c}
+  .soc-wrap h1{font-size:1.7rem;margin:.2rem 0 .3rem}
+  .soc-wrap h2{font-size:1.25rem;margin:1.6rem 0 .5rem}
+  .soc-wrap h3{font-size:1.05rem;margin:.2rem 0 .4rem}
+  .soc-wrap .card{border:1px solid #ccc;border-radius:8px;padding:1rem 1.2rem;
+    margin:1.2rem 0;background:#fcfcfc}
+  .soc-wrap .callout{border:1px solid #d4d4d4;border-left:4px solid #0b5;border-radius:5px;
+    padding:.6rem .95rem;margin:.7rem 0;background:#f7fdf9}
+  .soc-wrap .callout.warn{border-left-color:#d9822b;background:#fff8f0}
+  .soc-wrap .callout.frontier{border-left-color:#b33;background:#fdf6f6}
+  .soc-wrap table{border-collapse:collapse;width:100%;margin:.6rem 0;font-size:.92rem}
+  .soc-wrap th,.soc-wrap td{border:1px solid #ccc;padding:.45rem .6rem;text-align:left;vertical-align:top}
+  .soc-wrap th{background:#f0f0f0}
+  .soc-wrap tbody tr:nth-child(even){background:#f8f8f8}
+  .soc-wrap .grp td{background:#ececec;font-weight:700}
+  .soc-wrap .badge{display:inline-block;padding:.08rem .5rem;border-radius:10px;font-size:.78rem;
+    font-weight:700;white-space:nowrap}
+  .soc-wrap .b-build{background:#e3f1ff;color:#0a4a8c}
+  .soc-wrap .b-constr{background:#eee6ff;color:#5a2ca0}
+  .soc-wrap .b-frontier{background:#ffe3e3;color:#9c2222}
+  .soc-wrap .b-derived{background:#e6f7ec;color:#1c7a3e}
+  .soc-wrap .b-disclosed{background:#f0f0f0;color:#444}
+  .soc-wrap .lede{font-size:1.05rem}
+  .soc-wrap .muted{color:#555;font-size:.9rem}
+  .soc-wrap code{background:#f2f2f2;padding:.05rem .3rem;border-radius:3px}
+</style>
+</head>
+<body>
+<div class="soc-wrap">
+
+  <h1>State of the Closure</h1>
+  <p class="muted">An honest map of where every gate in the program now sits &mdash; last reviewed 2026-06-27.</p>
+
+  <p class="lede">This is a constraint-first geometric framework that attempts to derive the Standard
+  Model's structure &mdash; its gauge group, three generations, charge quantization, and forbidden
+  decays &mdash; from one frozen higher-dimensional geometry, given a small set of measured inputs, and
+  to interface that geometry honestly with quantum field theory and gravity. The page below states, in
+  plain language and without inflation, exactly what is established, what is a construction we have
+  specified but not finished, and what remains a genuine frontier research problem. The honest overall
+  ceiling is unchanged: <strong>a serious candidate, not a validated theory &mdash; with no live
+  refutation standing against it.</strong></p>
+
+  <!-- ============================ THE HEADLINE FRAMING ============================ -->
+  <div class="card">
+    <h2>The one-paragraph state of play</h2>
+    <p class="lede"><strong>The program reduces to one (still-open) buildable object, one construction,
+    and three named frontier problems &mdash; with everything else honestly derived-given-those, and no
+    live refutation standing against it.</strong></p>
+    <p>That is the whole claim, stated at its true strength and no higher:</p>
+    <ul>
+      <li><span class="badge b-build">BUILDABLE (NOT BUILT)</span> &mdash; <strong>one computational object</strong>
+      is the most tractable open item: the short-distance (heat-kernel) expansion coefficient on the
+      frozen geometry that the coupling-running, the graviton self-energy, and several gravity gates all
+      lean on. It is a well-posed calculation, not a conceptual gap &mdash; but it is <em>not built</em>:
+      the most recent attempt evaluated it two independent ways and <strong>the two routes
+      disagreed</strong>, localizing a fault in one of them. So this object is <em>open / near-built</em>,
+      and it currently discharges no gate.</li>
+      <li><span class="badge b-constr">CONSTRUCTION</span> &mdash; <strong>one object is specified but
+      not yet assembled end-to-end</strong>: the boundary anomaly-descent object that would turn the
+      forbidden-operator, anomaly-cancellation, and scope-boundary arguments into a single
+      machine-checked certificate. The component pieces exist; the master assembly is the open work.</li>
+      <li><span class="badge b-frontier">FRONTIER</span> &mdash; <strong>three problems are not ours to
+      hand-wave</strong>: they are among the field's own hardest open questions. We publish them as
+      <em>open</em>, with no claim to have solved them.</li>
+      <li><span class="badge b-derived">DERIVED-GIVEN-E</span> &mdash; <strong>everything else</strong>
+      (the gauge algebra, three generations, the hypercharge lattice, charge embedding, the flavor
+      ratio/mixing structure, proton-stable operator structure) is shown to follow rigidly <em>given</em>
+      the observed spectrum and the frozen geometry. "Given-E" is stated honestly: these results consume
+      measured input; they do not conjure the spectrum from nothing.</li>
+    </ul>
+    <p class="muted">"No live refutation" means exactly that &mdash; no current result inside the program
+    contradicts observation or contradicts another gate. It is <em>not</em> a claim of proof. Two gates
+    even carry standing, falsifiable precision tensions that we publish openly rather than hide (the
+    electroweak custodial parameter, and a forced up-quark mass); see the table.</p>
+  </div>
+
+  <!-- ============================ THE THREE BUCKETS ============================ -->
+  <h2>The three buckets, in detail</h2>
+
+  <div class="callout warn">
+    <h3><span class="badge b-build">BUILDABLE (NOT BUILT)</span> &nbsp;One computational object &mdash; open / near-built (NOT built)</h3>
+    <p>A single short-distance expansion coefficient (a heat-kernel / Seeley&ndash;DeWitt coefficient of
+    the graviton operator on the frozen geometry, with its boundary-defect contribution) is the most
+    tractable open item in the whole program, and it is shared across many gates: coupling running, the
+    graviton self-energy, the ultraviolet question, black-hole entropy, and more &mdash; "computed once,
+    used in many places." Where this stands honestly: the <em>scale-free</em> content is genuinely derived
+    and cross-checked (an exact color factor, exact-rational test-geometry checks reproduced two
+    independent ways, and the signs of the corrections), and a real curvature-input error was found and
+    corrected this cycle. But the decisive <em>numeric</em> value is <strong>not in hand</strong>: when
+    the shared boundary-defect coefficient was evaluated two structurally independent ways, the two routes
+    <strong>disagreed</strong>, and the cross-check localized a fault in one route. Because the two routes
+    did not agree, the object is <em>audit-unverified and not built</em> &mdash; it discharges no gate.
+    This sector is published as <strong>open / diagnostic-only</strong>. It is a build, not a mystery, but
+    it is honestly still open.</p>
+  </div>
+
+  <div class="callout">
+    <h3><span class="badge b-constr">CONSTRUCTION</span> &nbsp;One object to assemble</h3>
+    <p>The forbidden-decay (proton-stability) results, the higher-dimensional anomaly-cancellation gate,
+    and the scope-boundary ledger all lean on the same underlying object: a boundary anomaly-descent
+    construction that would certify, in one place and by machine, which operators are excluded to all
+    orders, that every reduction anomaly cancels, and which sectors the theory does and does not claim.
+    The component derivations are in hand &mdash; the low-dimension forbidden operators are
+    machine-certified given the spectrum, one decay channel is excluded to all orders by a colour-triality
+    argument, and the standard perturbative anomalies cancel given the spectrum. What remains is the
+    <em>master assembly</em>: the all-order completeness write-up, the existence proof of the correct
+    boundary-and-coset anomaly invariant (an integrality condition on the actual flux data plus the
+    orbifold-wall boundary structure), and a single machine-checked consistency pass &mdash; none yet
+    executed. Published as <strong>open</strong> pending that assembly.</p>
+  </div>
+
+  <div class="callout frontier">
+    <h3><span class="badge b-frontier">FRONTIER</span> &nbsp;Three named research problems</h3>
+    <p>These are not bookkeeping gaps. Each is, in its own right, a hard open problem in mathematical
+    physics, and we make <strong>no</strong> claim to have closed any of them:</p>
+    <ul>
+      <li><strong>The ultraviolet fixed point (asymptotic safety).</strong> Whether the framework has a
+      well-defined short-distance completion &mdash; a truncation-independent non-Gaussian fixed point
+      &mdash; is the same class of question as the asymptotic-safety program for gravity. A candidate
+      exists only at a declared truncation; current evidence trends against the naive route. Published
+      <strong>open</strong>.</li>
+      <li><strong>Dynamical fermion mirror-decoupling.</strong> The topological count gives three
+      left-handed generations and no mirror partners <em>at the level of indices</em>; showing the mirror
+      sector actually decouples <em>dynamically</em> through quantization is an open, strong-coupling
+      problem that no topological certificate can settle (a light vector-like mirror pair is invisible to
+      anomaly, cobordism and index tools). Published <strong>open</strong>.</li>
+      <li><strong>The Yang&ndash;Mills mass gap.</strong> The confinement / mass-gap input the program
+      relies on downstream is one of the field's canonical unsolved problems (a Clay Millennium problem).
+      We reduce the entire continuum obligation to a single named, value-free uniform inequality and say
+      so; the underlying problem is published <strong>open</strong>.</li>
+    </ul>
+    <p class="muted">Publishing these as frontier problems is the honest move: a candidate theory that
+    quietly "closed" the Yang&ndash;Mills mass gap or the UV completion in passing would be telling you
+    something false about itself.</p>
+  </div>
+
+  <!-- ============================ PER-GATE TABLE ============================ -->
+  <h2>Per-gate status &mdash; every gate</h2>
+  <p class="muted">Public status vocabulary: <strong>Derived-given-E</strong> (rigid given the measured
+  inputs and the selected geometry) &middot; <strong>Certificate-conditional</strong> (a real but scoped
+  certificate, conditional on a named upstream gate) &middot; <strong>Declared-frozen</strong> (specified
+  and reproducible, not proven unique) &middot; <strong>Audit (Open)</strong> (the audit is complete; the
+  physics is named-and-routed and stays open) &middot; <strong>Open</strong> (a named piece is genuinely
+  unfinished) &middot; <strong>Measured-but-irreducible</strong> (a measured anchor, no known reduction)
+  &middot; <strong>Dissolved</strong> (a puzzle removed by a named reframe, not solved) &middot;
+  <strong>Disclosed</strong> (a scope boundary, not a physics claim). No status on this page has been
+  upgraded for appearance.</p>
+
+  <table>
+    <thead>
+      <tr><th>Gate</th><th>What it claims</th><th>Bucket</th><th>Public status</th></tr>
+    </thead>
+    <tbody>
+
+      <tr class="grp"><td colspan="4">Geometry &amp; Standard-Model structure (SG&#8209;1 &hellip; SG&#8209;10)</td></tr>
+
+      <tr>
+        <td><strong>SG-1</strong><br>Geometry freeze</td>
+        <td>Commits and freezes the 13-dimensional active branch (colour carrier
+        K&#8326;&nbsp;=&nbsp;SU(3)/T&sup2;) as one content-addressed object before any test.</td>
+        <td><span class="badge b-constr">CONSTRUCTION</span></td>
+        <td><span class="badge b-disclosed">Declared-frozen</span><br><span class="muted">reproducible; forcedness open</span></td>
+      </tr>
+      <tr>
+        <td><strong>SG-2</strong><br>Gauge algebra</td>
+        <td>Recovers the Standard-Model gauge algebra (the 8&middot;3&middot;1, rank-4 content) as an
+        equality given the spectrum and the selected geometry.</td>
+        <td><span class="badge b-derived">DERIVED</span></td>
+        <td><span class="badge b-derived">Derived-given-E</span><br><span class="muted">gate roll-up open; carrier-forcedness category-relative</span></td>
+      </tr>
+      <tr>
+        <td><strong>SG-3</strong><br>Three generations</td>
+        <td>Three chiral families as a deformation-proof topological index
+        &chi;(K&#8326;,E)&nbsp;=&nbsp;&minus;3.</td>
+        <td><span class="badge b-derived">DERIVED</span> / <span class="badge b-frontier">FRONTIER</span></td>
+        <td><span class="badge b-derived">Derived-given-E</span><br><span class="muted">roll-up open; mirror-decoupling is the frontier piece</span></td>
+      </tr>
+      <tr>
+        <td><strong>SG-4</strong><br>Hypercharge quantization</td>
+        <td>The 1/6 hypercharge lattice from a bundle-descent obstruction; six anomaly ledgers exact.</td>
+        <td><span class="badge b-derived">DERIVED</span></td>
+        <td><span class="badge b-frontier">Open</span><br><span class="muted">anomaly is a filter, not a determiner</span></td>
+      </tr>
+      <tr>
+        <td><strong>SG-5</strong><br>Electroweak breaking</td>
+        <td>Charge embedding Q=T&#8323;+Y, SU(2)&times;U(1)&rarr;U(1)<sub>em</sub>, massless photon.</td>
+        <td><span class="badge b-build">BUILDABLE (NOT BUILT)</span> / <span class="badge b-frontier">FRONTIER</span></td>
+        <td><span class="badge b-frontier">Open</span><br><span class="muted">standing &rho;&ne;1 precision tension, published</span></td>
+      </tr>
+      <tr>
+        <td><strong>SG-6</strong><br>Moduli stabilization</td>
+        <td>Whether the compact geometry's shape and size are pinned before downstream tests.</td>
+        <td><span class="badge b-frontier">FRONTIER</span></td>
+        <td><span class="badge b-frontier">Open</span> <span class="muted">(saddle-leaning &rarr; minimum-leaning)</span><br><span class="muted">v<sub>EW</sub> read, not derived &rarr; second anchor</span></td>
+      </tr>
+      <tr>
+        <td><strong>SG-7</strong><br>Coupling running</td>
+        <td>Geometric thresholds for the running gauge couplings.</td>
+        <td><span class="badge b-build">BUILDABLE (NOT BUILT)</span></td>
+        <td><span class="badge b-frontier">Open</span> <span class="muted">(diagnostic-only)</span><br><span class="muted">signs derived; magnitudes the open build</span></td>
+      </tr>
+      <tr>
+        <td><strong>SG-8</strong><br>Flavor (Yukawa / CKM / PMNS)</td>
+        <td>Within-sector mass ratios, all CKM/PMNS angles, the Jarlskog and CKM phase forced from two
+        calibration anchors; the program's weakest link.</td>
+        <td><span class="badge b-frontier">FRONTIER</span></td>
+        <td><span class="badge b-frontier">Open</span><br><span class="muted">ratios/mixings/phase derived; 4 fitted scales + forced m<sub>u</sub> ~4.4&sigma; tension</span></td>
+      </tr>
+      <tr>
+        <td><strong>SG-9</strong><br>Proton stability</td>
+        <td>Forbidden-operator structure: low-dimension Wilson zeros machine-certified; one channel
+        excluded all-order by colour triality.</td>
+        <td><span class="badge b-constr">CONSTRUCTION</span></td>
+        <td><span class="badge b-frontier">Open</span> <span class="muted">(hardened)</span><br><span class="muted">all-order completeness + master assembly open</span></td>
+      </tr>
+      <tr>
+        <td><strong>SG-10</strong><br>Scope boundary</td>
+        <td>Names every sector the theory does <em>not</em> claim; enforces the scope wall. Derives no
+        number and rides no geometric object.</td>
+        <td><span class="badge b-constr">CONSTRUCTION</span></td>
+        <td><span class="badge b-disclosed">Disclosed</span><br><span class="muted">boundary ledger; machine check not yet run</span></td>
+      </tr>
+
+      <tr class="grp"><td colspan="4">Quantum consistency of the force sector (UQF gates)</td></tr>
+
+      <tr>
+        <td><strong>UQF-3</strong><br>Physical Hilbert space / positivity</td>
+        <td>No negative-norm (ghost) states in the physical spectrum &mdash; reflection positivity on the
+        interacting Hilbert space.</td>
+        <td><span class="badge b-constr">CONSTRUCTION</span> / <span class="badge b-frontier">FRONTIER</span></td>
+        <td><span class="badge b-derived">Certificate-conditional</span> <span class="muted">(retained sector, on UQF-4)</span><br><span class="badge b-frontier">Open</span> <span class="muted">(full interacting theory)</span></td>
+      </tr>
+      <tr>
+        <td><strong>UQF-4</strong><br>BRST closure &amp; anomaly cancellation</td>
+        <td>The gauge-fixing machinery closes and every anomaly &mdash; perturbative, global, and boundary
+        &mdash; cancels under reduction.</td>
+        <td><span class="badge b-constr">CONSTRUCTION</span></td>
+        <td><span class="badge b-frontier">Audit (Open)</span><br><span class="muted">perturbative anomalies cancel given E; boundary invariant unbuilt</span></td>
+      </tr>
+      <tr>
+        <td><strong>UQF-7</strong><br>Chirality survives quantization</td>
+        <td>Three chiral families with no light mirror partners survive into the quantized 4D theory.</td>
+        <td><span class="badge b-frontier">FRONTIER</span></td>
+        <td><span class="badge b-frontier">Audit (Open)</span><br><span class="muted">classical index closed; quantum mirror-decoupling is the wall</span></td>
+      </tr>
+      <tr>
+        <td><strong>UQF-9</strong><br>Ultraviolet completion</td>
+        <td>A sensible short-distance completion of the gravity-coupled theory (a fixed point), and the
+        finite graviton heat-kernel trace.</td>
+        <td><span class="badge b-build">BUILDABLE (NOT BUILT)</span> / <span class="badge b-frontier">FRONTIER</span></td>
+        <td><span class="badge b-frontier">Open (Audit)</span><br><span class="muted">UV fixed point is the frontier wall; a&#8326; trace uncomputed (shared object unbuilt)</span></td>
+      </tr>
+      <tr>
+        <td><strong>UQF-10</strong><br>Compactification survives quantization</td>
+        <td>No tachyonic mode, bounded moduli potential, no runaway volume, controlled vacuum energy.</td>
+        <td><span class="badge b-frontier">FRONTIER</span></td>
+        <td><span class="badge b-frontier">Audit (Open)</span><br><span class="muted">stable in truncation; rides un-run RG + UV wall; false saddle-scare audited away</span></td>
+      </tr>
+      <tr>
+        <td><strong>UQF-14</strong><br>Unitarity / causality / locality</td>
+        <td>System-wide quantum consistency: ghost cancellation, microcausality, locality, no
+        superluminal graviton.</td>
+        <td><span class="badge b-frontier">FRONTIER</span> <span class="muted">(routing node)</span></td>
+        <td><span class="badge b-frontier">Audit (Open)</span><br><span class="muted">verified perturbatively in scope; 4 sub-claims routed to upstream walls</span></td>
+      </tr>
+
+      <tr class="grp"><td colspan="4">Quantum-gravity interface &amp; foundational gaps</td></tr>
+
+      <tr>
+        <td><strong>GRAVITON</strong><br>Graviton consistency</td>
+        <td>A massless spin-2 graviton whose long-wavelength limit is general relativity; one-loop
+        ghost-corrected coefficient.</td>
+        <td><span class="badge b-build">BUILDABLE (NOT BUILT)</span> / <span class="badge b-frontier">FRONTIER</span></td>
+        <td><span class="badge b-derived">Certificate-conditional</span> <span class="muted">(linearized, on UQF-9)</span><br><span class="badge b-frontier">Open</span> <span class="muted">(interacting/strong-coupling)</span></td>
+      </tr>
+      <tr>
+        <td><strong>Gap-01</strong><br>Graviton heat-kernel coefficient</td>
+        <td>The sixth Seeley&ndash;DeWitt coefficient tr[a&#8326;] of the graviton+ghost operator in the
+        cubic-curvature basis.</td>
+        <td><span class="badge b-build">BUILDABLE (NOT BUILT)</span></td>
+        <td><span class="badge b-frontier">Open</span><br><span class="muted">scale-free part derived; magnitude + defect value + positivity open (routes disagreed)</span></td>
+      </tr>
+      <tr>
+        <td><strong>Gap-02</strong><br>Yang&ndash;Mills mass gap</td>
+        <td>A nonzero mass gap for 4D pure-glue SU(3) Yang&ndash;Mills (the Clay problem).</td>
+        <td><span class="badge b-frontier">FRONTIER</span></td>
+        <td><span class="badge b-frontier">Precisely-Open</span><br><span class="muted">reduced to one named uniform inequality; the Clay wall stands</span></td>
+      </tr>
+      <tr>
+        <td><strong>Gap-13</strong><br>Black-hole entropy / Page curve</td>
+        <td>The S = A/4 horizon entropy coefficient and a unitary Page curve.</td>
+        <td><span class="badge b-build">BUILDABLE (NOT BUILT)</span> / <span class="badge b-frontier">FRONTIER</span></td>
+        <td><span class="badge b-frontier">Open</span><br><span class="muted">1/4 a conditional geometric output; rides the unbuilt shared coefficient (routes disagreed)</span></td>
+      </tr>
+      <tr>
+        <td><strong>Born</strong><br>The Born rule</td>
+        <td>Probability = squared amplitude (trace of state&times;effect): functional form + measure.</td>
+        <td><span class="badge b-constr">CONSTRUCTION</span> / <span class="badge b-frontier">FRONTIER</span></td>
+        <td><span class="badge b-frontier">Open</span><br><span class="muted">measure leg reduced to a checkable object; non-contextuality imported, not derived</span></td>
+      </tr>
+      <tr>
+        <td><strong>Gap-05</strong> (&Lambda;)<br>Cosmological constant</td>
+        <td>The value &Lambda; &asymp; (2.3 meV)&#8308; and a per-scale radiative-stability mechanism.</td>
+        <td><span class="badge b-frontier">FRONTIER</span></td>
+        <td><span class="badge b-disclosed">Measured-but-irreducible</span> <span class="muted">(value)</span> &middot; <span class="badge b-disclosed">Dissolved</span> <span class="muted">(catastrophe-half, tree-level)</span><br><span class="badge b-frontier">Open</span> <span class="muted">(radiative-stability mechanism)</span></td>
+      </tr>
+
+      <tr class="grp"><td colspan="4">Cosmology &amp; out-of-scope diagnostics</td></tr>
+
+      <tr>
+        <td><strong>BG-10</strong><br>Baryon asymmetry &eta;<sub>B</sub></td>
+        <td>The matter/antimatter ratio &eta;<sub>B</sub> &asymp; 6.1&times;10<sup>&minus;10</sup> from
+        leptogenesis.</td>
+        <td><span class="badge b-frontier">FRONTIER</span> <span class="muted">(observation-locked)</span></td>
+        <td><span class="badge b-frontier">Open</span> <span class="muted">(0 of 4)</span><br><span class="muted">pre-registered falsifier; an unsupported CP ingredient withdrawn this session</span></td>
+      </tr>
+      <tr>
+        <td><strong>Gap-08</strong><br>Inflation / primordial spectrum</td>
+        <td>The geometry's breathing modulus as inflaton: tilt direction, tensor-to-scalar band.</td>
+        <td><span class="badge b-frontier">FRONTIER</span> <span class="muted">(out-of-scope)</span></td>
+        <td><span class="badge b-frontier">Open (cascade)</span> <span class="muted">&mdash; demotion this round</span><br><span class="muted">tilt direction derived; magnitude relocated onto a 2nd un-traced convention</span></td>
+      </tr>
+      <tr>
+        <td><strong>Gap-11</strong><br>Dark-matter candidate / relic abundance</td>
+        <td>A stable parity-odd boundary state and its relic abundance against &Omega;<sub>DM</sub>h&sup2; &asymp; 0.12.</td>
+        <td><span class="badge b-frontier">FRONTIER</span></td>
+        <td><span class="badge b-frontier">Open</span> <span class="muted">(open list enlarged this round)</span><br><span class="muted">state selected &amp; stable; coupling operator now a separate open premise</span></td>
+      </tr>
+
+      <tr class="grp"><td colspan="4">The roots beneath everything</td></tr>
+
+      <tr>
+        <td><strong>Deep&nbsp;Roots</strong><br>Granularity &amp; structural form</td>
+        <td>Why action comes in a uniform smallest grain (the quantum of action) and why the carrier is
+        <em>this</em> shape (K&#8326;, 13D, &chi;=&minus;3).</td>
+        <td><span class="badge b-frontier">FRONTIER</span></td>
+        <td><span class="badge b-frontier">Open</span><br><span class="muted">grain = 1 measured anchor + 1 named assumption; absolute minimality is an uncomputable wall</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ============================ HONEST TALLY ============================ -->
+  <h2>Honest tally</h2>
+  <div class="card">
+    <p class="muted">Rows are graded by the <em>least-closed residual</em> and are <strong>not a partition</strong>: a single gate can appear in more than one row, so the counts intentionally do not sum to the gate total.</p>
+    <table>
+      <thead><tr><th>Disposition (by least-closed residual)</th><th>Count</th><th>Gates</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge b-derived">Derived-given-E</span> / <span class="badge b-derived">Certificate-conditional</span></td><td>5</td><td>SG-2, SG-3 (local), UQF-3 (retained sector), Graviton (linearized) &mdash; conditional; SG-8 ratio/mixing leg</td></tr>
+        <tr><td><span class="badge b-disclosed">Declared-frozen</span> / <span class="badge b-disclosed">Disclosed</span> / <span class="badge b-disclosed">Measured-but-irreducible</span> / <span class="badge b-disclosed">Dissolved</span></td><td>3</td><td>SG-1, SG-10, Gap-05 (&Lambda; value + catastrophe-half)</td></tr>
+        <tr><td><span class="badge b-frontier">Open</span> / <span class="badge b-frontier">Audit (Open)</span> (a named piece unfinished)</td><td>26</td><td>every gate has at least one open residual &mdash; we grade by the weakest piece</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Rows overlap because we grade by the <em>least-closed residual</em>: a gate whose
+    local result is derived-given-E is still published as <strong>open</strong> overall if any single
+    piece of it is unfinished. This deliberately reports each gate at its weakest point, not its
+    strongest. That is why the third row contains every gate.</p>
+    <p><strong>Reading the tally honestly:</strong> the derived-given-E results are real and rest on the
+    observed spectrum as a measured anchor &mdash; they reduce structure, they do not invent it. The open
+    surface, sorted by <em>kind</em> rather than by gate, collapses into exactly three things:</p>
+    <ul>
+      <li><strong>One buildable computation</strong> &mdash; the shared heat-kernel coefficient (its last
+      two-route value attempt <em>disagreed</em>, so it is open / near-built, <strong>not built</strong>).
+      It is the binding residual behind SG-7, UQF-9, Graviton, Gap-01, Gap-13, and others.</li>
+      <li><strong>One construction</strong> &mdash; the boundary anomaly-descent assembly behind SG-9,
+      SG-10, and UQF-4.</li>
+      <li><strong>Three frontier problems</strong> &mdash; the UV fixed point (UQF-9, UQF-10, Gap-01),
+      dynamical fermion mirror-decoupling (SG-3, UQF-7), and the Yang&ndash;Mills mass gap (Gap-02, and
+      the confinement dependence of UQF-14, Born, &Lambda;).</li>
+    </ul>
+    <p>Everything else is honestly derived-given-those. That is the entire distance between "candidate"
+    and "validated," and there is <strong>no live refutation</strong> standing against any of it.</p>
+  </div>
+
+  <!-- ============================ WHAT WOULD KILL IT ============================ -->
+  <div class="callout warn">
+    <h3>What we are <em>not</em> claiming</h3>
+    <ul>
+      <li>We are <strong>not</strong> claiming the shared heat-kernel object is built &mdash; its last
+      two-route evaluation <em>disagreed</em>, so it discharges no gate and every residual that leans on
+      it stays open.</li>
+      <li>We are <strong>not</strong> claiming the geometry is proven unique or forced &mdash; only that it
+      is the shortest survivor inside a stated, extensible grammar (SG-1, Deep Roots).</li>
+      <li>We are <strong>not</strong> claiming to derive the observed spectrum from nothing &mdash; the
+      spectrum and a handful of measured constants are anchors that go <em>in</em>.</li>
+      <li>We are <strong>not</strong> claiming to have solved the Yang&ndash;Mills mass gap, the UV
+      completion, or dynamical mirror-decoupling. Those are published as frontier problems.</li>
+      <li>Two gates carry <strong>standing, falsifiable precision tensions</strong> we publish rather than
+      tune away: the electroweak custodial parameter (&rho; &ne; 1 at tree level on the frozen object,
+      SG-5) and the forced up-quark mass (a ~4.4&sigma; tension in SG-8 that no adjustment can rescue).</li>
+    </ul>
+    <p>If any one of those caveats were quietly dropped, the program would be over-claiming. Keeping them
+    visible is what makes the rest of the page trustworthy.</p>
+  </div>
+
+  <p class="muted">For the gate-by-gate write-ups, see each gate's
+  dossier. Overall ceiling, restated: <strong>a serious candidate, not a validated theory &mdash; with no
+  live refutation standing.</strong></p>
+
+</div>
+</body>
+</html>

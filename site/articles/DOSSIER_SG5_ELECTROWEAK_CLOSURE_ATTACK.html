@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SG-5 — Electroweak Embedding (Q=T_3+Y / EWSB to U(1)_{\rm em}): Per-Gate Closure-Attack Dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">SG-5 — Electroweak Embedding (Q=T_3+Y / EWSB to U(1)_{\rm em}): Per-Gate Closure-Attack Do — rendered package. Rendered from <code>DOSSIER_SG5_ELECTROWEAK_CLOSURE_ATTACK.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>SG-5 — Electroweak Embedding ($Q=T_3+Y$ / EWSB to $U(1)_{\rm em}$): Per-Gate Closure-Attack Dossier</h1>
+<blockquote>
+<p><strong>What this is.</strong> The closure-attack packet for <strong>SG-5 (Electroweak embedding $Q=T_3+Y$ / electroweak
+symmetry breaking to $U(1)_{\rm em}$)</strong> on the <strong>frozen 13D K₆ branch ONLY</strong>. It recaps concisely how our
+geometry embeds electric charge and breaks $SU(2)_L\times U(1)_Y\to U(1)_{\rm em}$ via a single
+Wilson-line/Hosotani doublet (the full derivation lives on the published site), verifies where the status
+actually stands, names every open residual, and lays out the attack plan to push the gate further. It is
+<strong>not</strong> a rival comparison (that is <code>BATTLE_GATES/</code>), <strong>not</strong> the one-line status ledger, <strong>not</strong> a reprint
+of the manuscript.</p>
+<p><strong>Binding discipline (carry verbatim).</strong> No status was ever upgraded. Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>
+READ-ONLY. Honest throughout: $Q=T_3+Y$ on every multiplet and the $SU(2)_L\times U(1)_Y\to U(1)_{\rm em}$
+breaking are <strong>GIVEN-E</strong> (computed with the SM chiral content + the selected geometry as input); $v=246.02$,
+$m_h=123.82$ are <strong>near-hits, frozen outputs given the anchors</strong>, NOT a hierarchy derivation; the
+<strong>gauge-hierarchy lightness of $v$ is UNDELIVERED</strong> — it rests on $\theta_H^\star$ <strong>read from a one-loop
+minimum</strong> (carrying ~85% of the hierarchy), and the <strong>SCALE firewall verdict is RELOCATION</strong> ($\mu_{\rm cell}$
+has no $v$-independent readout; the only available anchor $\partial_\sigma V=0$ <em>is</em> the hierarchy);
+<strong>custodial $\rho=1$ is UNDELIVERED</strong> (no custodial-symmetry object exists anywhere in the manuscript).
+Closure paths must be <strong>non-target-loaded</strong> (the κ³/π falsification test: a proposed axiom counts only if it would be
+written WITHOUT knowing the target). <strong>given-E ≠ derivation of E.</strong> AXIOM-CLOSED ≠ proven; selection ≠
+derivation; dissolved ≠ solved.</p>
+</blockquote>
+<hr />
+<h2>0. Header &amp; Verdict</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gate id</strong></td>
+<td>SG-5 — Electroweak embedding $Q=T_3+Y$ / EWSB to $U(1)_{\rm em}$</td>
+</tr>
+<tr>
+<td><strong>GUT manuscript gates spanned</strong></td>
+<td>The SG-5 scope is <strong>distributed</strong> across three manuscript gate cards (the manuscript never bundles "EW embedding" into one card): <strong>Gate 3</strong> (charge recovery $Q=T_3+Y$ + the $\mathbb{Z}_6$ rule; §6.3/§5.2; cert <code>certificates/G03_charge_z6/</code>); <strong>Gate 5</strong> (anomaly closure on the surviving EW-embedded chiral content; §6.5/§5.4/§3; cert <code>certificates/G05_anomaly_cancellation/</code>); <strong>Gate 8</strong> (Higgs protection = the EWSB mechanism + the $v$/$m_h$ outputs; §6.8/§5.7; cert <code>certificates/G08_higgs_protection/</code>). <strong>Note the naming hazard:</strong> the manuscript's <em>card</em> labelled "Gate 5" is <strong>Anomaly Cancellation</strong>, not the EW embedding; the SG-5 <em>dossier</em> (per the SCOPED ledger) is the EW-embedding + EWSB roll-up that draws on Gates 3/5/8.</td>
+</tr>
+<tr>
+<td><strong>Status label (binding)</strong></td>
+<td><strong>PARTIAL</strong></td>
+</tr>
+<tr>
+<td><strong>Target anchor(s)</strong></td>
+<td><strong>$M_{\rm Pl}$ + $v_{EW}$</strong> (the two dimensionful anchors; no measured invariant beyond these). $Q=T_3+Y$ is structural / DERIVED-GIVEN-E (no anchor of its own). The hierarchy-lightness of $v_{EW}$ is the <strong>open leg</strong> — it rests on $\theta_H^\star$ read-from-min, so $v_{EW}$ is a genuine second dimensionful anchor, <strong>OPEN</strong>; closing it needs the $\theta_H^\star$ derivation, not a new anchor. (See §A end.)</td>
+</tr>
+<tr>
+<td><strong>Manuscript card statuses</strong></td>
+<td>Gate 3: <em>Claimed certificate pass</em>. Gate 5 (anomaly): <em>Claimed certificate pass</em>. Gate 8 (Higgs): <em>Claimed certificate pass at one-loop; Diagnostic only at higher loops</em> (H.9.6/H.10.1). PARTIAL is the honest scoped-GUT roll-up of the three.</td>
+</tr>
+<tr>
+<td><strong>Frozen hashes it rides</strong></td>
+<td>Branch <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code>. Charge/EW primitives: parity table (realizes $[SU(3)\times SU(2)\times U(1)_Y]/\mathbb{Z}_6$) <code>ac4d2df3e708</code>; Higgs Wilson-line bundle <code>2a0462b8aab9</code>; Wilson-line cycle $\gamma$ <code>640e1d7f7773</code>; integer winding $n_H=1$ <code>f65094fd8fd1</code>; finite determinant $\eta_{BK}=0.009721281516312024$ <code>84e94518d3f5</code>; $y_t$ anchor <code>548d7099ef18</code>; $\lvert V_{us}\rvert$ anchor <code>a1bc510bc7cd</code>; comparison scale $M_Z$ <code>a6852c7a6b00</code>. UV reference $M_*=7.467\times10^{16}$ GeV (A1.10). <strong>$\theta_H^\star$: read from the chamber one-loop $V_{\rm Hos}$ minimum — no first-principles value (H.9.7).</strong> <strong>Custodial $\rho=1$: no object, no hash — UNDELIVERED.</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>0.1 Abstract — established / open / what would close it</h3>
+<p><strong>Established (given-E, given the selected &amp; frozen geometry + anchors).</strong></p>
+<ol>
+<li><strong>Electric-charge embedding $Q=T_3+Y$ is exact and componentwise.</strong> Hypercharge $U(1)_Y$ is the rotation of
+   $S^1_Y/\mathbb{Z}_2$; electromagnetism is the unbroken combination $Q=T_3+Y$. Two exact <em>architectural
+   predicates</em> hold per multiplet — $Q=T_3+Y$ componentwise, and the $\mathbb{Z}_6$ rule
+   $\tfrac{t}{3}+\tfrac{d}{2}+Y\in\mathbb{Z}$ — making non-conforming hypercharges <em>inconsistent on the
+   geometry</em>, not merely unobserved. The down quark lands at exactly $-\tfrac13$, charge neutrality of the atom
+   to $1$ part in $10^{21}$ is reproduced structurally (§6.3, §5.2, CR3; Appendix D charge tables).</li>
+<li><strong>The breaking $SU(2)_L\times U(1)_Y\to U(1)_{\rm em}$ is delivered by ONE doublet.</strong> A single
+   Wilson-line/Hosotani Higgs $H\in(\mathbf 1,\mathbf 2,+\tfrac12)$ — a holonomy mode of the gauge connection
+   on the $SU(2)_L$-direction cycle $\gamma\subset K_{\rm gauge}$, with <strong>integer winding $n_H=1$
+   (topologically protected)</strong> — acquires a VEV at the one-loop $V_{\rm Hos}$ minimum and breaks the EW group
+   to electromagnetism. One doublet, not a scalar inserted by hand (H.1, H.2.1).</li>
+<li><strong>The numbers near-hit.</strong> $v=246.02\pm3.5$ GeV ($0.06\sigma_{\rm th}$ vs PDG) and $m_h=123.82\pm1.8$ GeV
+   ($0.48\sigma_{\rm th}$ vs PDG $125.10\pm0.14$), both as <strong>post-freeze outputs</strong> of the same finite
+   determinant $\eta_{BK}$ that fixes $\lvert y_t/y_b\rvert$ — <em>one structural source, two SM outputs</em> (H.3,
+   H.4). This one-input-two-outputs compression is the genuine, non-trivial content.</li>
+<li><strong>The Higgs-mass quadratic destabilization is structurally avoided.</strong> The $\delta m_H^2\sim M_*^2$ tree
+   counterterm is topologically forbidden (it would require a non-integer change in $n_H$); $V_{\rm Hos}$ is
+   finite, periodic, cutoff-independent (H.2.1, H.9, H.10). This is a <em>proven, banked</em> sub-result.</li>
+</ol>
+<p><strong>Open (the honest deductions).</strong></p>
+<ul>
+<li><strong>(a) The gauge-hierarchy lightness of $v$ is UNDELIVERED.</strong> The protection ratio $\sqrt{\eta_{BK}}/(2\pi)\sim
+  10^{-2}$ is **twelve orders too large** to be $v/M_{\rm Pl}\sim10^{-16}$ (H.2 correction, 2026-06-23). The
+  full descent requires $\theta_H^\star\approx2.46\times10^{-14}$ via $v_{EW}=\theta_H^\star/(2\pi R_\gamma)$,
+  and <strong>$\theta_H^\star$ is read from the chamber one-loop minimum, not derived</strong> (H.9.7). That read modulus
+  carries <strong>~85%</strong> of the electroweak hierarchy (SG-6 line; HIERARCHY_RG). So $v=246.02$ is a <em>near-hit of a
+  read quantity</em>, not a derived lightness.</li>
+<li><strong>(b) Custodial $\rho=1$ is UNDELIVERED.</strong> $\rho=M_W^2/(M_Z^2\cos^2\theta_W)=1$ at tree level is the
+  hallmark constraint of EWSB by a doublet, protected by a custodial $SU(2)$. <strong>No custodial-symmetry object,
+  no $\rho$ computation, no $T$-parameter bound exists anywhere in the corpus</strong> (verified: zero matches for
+  custodial / $\rho=1$ / $\rho_0$ / $T$-parameter in <code>GUT.md</code>). The single-doublet content makes $\rho=1$
+  <em>plausible by structure</em>, but it is <strong>asserted-by-omission</strong>, not delivered.</li>
+<li><strong>(c) The SCALE firewall verdict is RELOCATION (not derivation).</strong> The question "is the SCALE cell
+  $\mu_{\rm cell}$ anchorable independently of the EW hierarchy?" was put to the no tuning to the known answer firewall and
+  <strong>failed</strong>: $\mu_{\rm cell}$ has no $v$-independent UV readout; the map $\mu_{\rm cell}\to v$ is
+  invertible-by-construction; the only available anchor $\partial_\sigma V=0$ <em>is</em> where $v$ is generated
+  (FIREWALL_MUCELL_INDEPENDENCE; CLOSURE_CAMPAIGN_RESULT §3; SCALE_HIERARCHY_FINAL_VERDICT). As a <em>derivation</em>
+  the SCALE route is <strong>confirmed circular</strong>.</li>
+<li><strong>(d) The whole gate is GIVEN-E and given-the-selected-geometry.</strong> Charge, breaking, and the numbers are all
+  computed with the SM chiral content E and the frozen branch supplied as input — SG-5 does not derive E, nor
+  prove this geometry unique.</li>
+</ul>
+<p><strong>What would close it (the ladder).</strong> DERIVED-CLOSED would require a <em>target-blind</em> derivation of
+$\theta_H^\star$ (hence the smallness of $v$) from the frozen geometry, OR a target-blind custodial-symmetry
+object that forces $\rho=1$. The realistic ceiling per residual is <strong>AXIOM-CLOSED</strong>: name one explicit,
+target-blind posit (e.g. "the EW VEV is the UV floor value $\Delta_0\sim\hbar$ at the frozen reference,
+adopted a priori"; "the doublet's $SU(2)_L$ holonomy carries a custodial $SU(2)_{\rm cust}$ from the $S^2$
+isometry") that pays the debt in plain sight. On the hierarchy-lightness residual the <em>most likely honest
+outcome is sharper-OPEN / RELOCATES</em> — the firewall has already ruled that the only escape is a named axiom
+that relocates the entire hierarchy into the log-sensitivity of $v$ to $\log(\mu_{\rm cell}/M_*)$.</p>
+<h3>0.2 Website source-of-truth (link, don't duplicate)</h3>
+<p>The full construction, the charge tables, the Wilson-line/Hosotani derivation, and the freeze records are the
+<strong>published manuscript</strong>, Paper I:</p>
+<ul>
+<li><strong>GUT.html §6.3</strong> (Gate-3 charge card) + <strong>§6.5</strong> (Gate-5 anomaly card) + <strong>§6.8</strong> (Gate-8 Higgs card) —
+  <a href="https://physics.magflowmeters.com/articles/GUT.html">https://physics.magflowmeters.com/articles/GUT.html</a></li>
+<li><strong>§5.2 / §5.4 / §5.7</strong> narrative modules; <strong>§3</strong> the worked anomaly example; <strong>Appendix D</strong> (charge
+  tables / SM recovery); <strong>Appendix E′</strong> (chirality + anomaly closure); <strong>Appendix H</strong> (Higgs protection:
+  H.1 origin, H.2.1 explicit Wilson-line formula + $V_{\rm Hos}$, H.4 outputs, H.9 protection checklist with
+  the H.9.7 non-claims box, H.10 correction-class ledger, H.11 authority summary); <strong>Appendix CR</strong> modules
+  <strong>CR2 / CR3 / CR5 / CR8</strong> (reader companions); <strong>Appendices A1/A2/R0</strong> (full-precision constants + freeze
+  records).</li>
+<li>Downstream cross-references: <strong>TOE.html</strong> (Paper IV) carries the SCALE/hierarchy firewall conclusions —
+  <a href="https://physics.magflowmeters.com/articles/TOE.html">https://physics.magflowmeters.com/articles/TOE.html</a>.</li>
+</ul>
+<p>This dossier recaps only what is needed to attack; the site controls all common material.</p>
+<hr />
+<h2>1. How OUR geometry closes the EW embedding — the closure claim (concise)</h2>
+<blockquote>
+<p>Full derivation: <strong>GUT.html §6.3 + §6.5 + §6.8 + Appendices D / E′ / H + CR2/CR3/CR5/CR8</strong>. This section is
+the attack-grade recap, not the derivation.</p>
+</blockquote>
+<h3>1.1 The mechanism end-to-end</h3>
+<p>SG-5 is one forward chain on the frozen SM-routing backbone
+$K_{\rm gauge}=K_6\times S^2\times S^1_Y/\mathbb{Z}_2$ (plus $\mathcal M_4$):</p>
+<pre><code> isometries(K_gauge) --&gt; SU(3)_c × SU(2)_L × U(1)_Y     [SG-2, given]
+   --S^1_Y/Z2 + Z6 quotient--&gt; Q = T_3 + Y on every multiplet   [Gate 3]
+   --one Wilson-line/Hosotani doublet H (n_H=1)--&gt;  V_Hos(θ_H) minimum θ_H*
+   --SU(2)_L×U(1)_Y → U(1)_em--&gt;  v = θ_H*/(2πR_γ),  m_h^2 = V&#x27;&#x27;_Hos(θ_H*)/(2πR_γ)^2
+   --same η_BK (finite determinant)--&gt; { v=246.02, m_h=123.82, |y_t/y_b| }
+</code></pre>
+<p>The load-bearing factors, named so a reader can attack each:</p>
+<ol>
+<li><strong>Charge carrier $S^1_Y/\mathbb{Z}_2$ + the $\mathbb{Z}_6$ global quotient.</strong> Hypercharge is the circle
+   rotation; the $\mathbb{Z}_2$ fold + center actions realize $[SU(3)\times SU(2)\times U(1)_Y]/\mathbb{Z}_6$.
+   The charge claim is <strong>two exact predicates</strong>: $Q=T_3+Y$ componentwise, and
+   $\tfrac{t}{3}+\tfrac{d}{2}+Y\in\mathbb{Z}$ ($t=+1,-1,0$ for $\mathbf3,\bar{\mathbf3},\mathbf1$; $d=1,0$ for
+   doublet/singlet). Frozen parity table <code>ac4d2df3e708</code> (R1.3). (Attack handle: the parity/center assignments
+   on the fold were <em>selected and frozen</em>, not searched — §5.2 says "searched no manifolds; selected the
+   parity/center assignments; froze the parity table." Charge is forced <em>given</em> that frozen table.)</li>
+<li><strong>The single Wilson-line/Hosotani doublet $H=(\mathbf1,\mathbf2,+\tfrac12)$.</strong> Identified with the holonomy
+   mode $W_\gamma=\mathcal P\exp(i\oint_\gamma A)$ on the $SU(2)_L$-direction cycle $\gamma$ (cycle
+   <code>640e1d7f7773</code>, bundle <code>2a0462b8aab9</code>). $E_{\rm Higgs}=L_\gamma\otimes V_{SU(2),{\rm doub}}\otimes
+   L_{Y=+1/2}$ (A2.5). Exactly **one** Higgs ($n_H=1$); lower winding $n_H=0$ gives $v=0$ (no breaking),
+   $n_H\ge2$ gives $v\approx492$ GeV and breaks the one-input-two-outputs alignment (failure ledger
+   L6368/L7650). (Attack handle: $n_H=1$ is <em>minimal admissible integer</em>, a selection, not a derivation that
+   nature picks 1.)</li>
+<li><strong>The Hosotani phase and the breaking.</strong> $A_\gamma=\tfrac{\theta_H}{2\pi R_\gamma}T_H$, $\theta_H\in[0,2\pi)$;
+   the VEV is $\langle H\rangle=\theta_H/(2\pi R_\gamma)$, so $v_{EW}=\theta_H^\star/(2\pi R_\gamma)$ with
+   $\theta_H^\star$ the minimum of the one-loop Coleman–Weinberg/Hosotani potential
+   $$ V_{\rm Hos}(\theta_H)=-\frac{3}{64\pi^6R_\gamma^4}\sum_{n=1}^\infty\frac{1}{n^5}\big[N_b\cos(n\theta_H)-N_f\cos(n\theta_H)\big], $$
+   which is finite (the $n^{-5}$ sum converges), periodic (so $n_H$ is a topological invariant), and
+   cutoff-independent. The non-zero $\theta_H^\star$ <strong>is</strong> the EWSB — the unbroken direction is $U(1)_{\rm em}$
+   with $Q=T_3+Y$. (Attack handle: <strong>$\theta_H^\star$ is read from this minimum</strong> — the single soft spot;
+   §1.2 (a).)</li>
+<li><strong>The finite determinant $\eta_{BK}=0.009721281516312024$ (<code>84e94518d3f5</code>).</strong> Sets the Higgs-mass scale
+   and the between-sector ratio simultaneously via the structural identity
+   $$ \frac{1}{\eta_{BK}}=e^{2\beta_1^\star}=32\pi\exp\!\Big(\frac{\sqrt3}{24\pi}\Big)\approx102.87=\lvert y_t/y_b\rvert \quad(\text{raw determinant; certified }M_Z\text{ value}\approx58,\text{ App J}). $$
+   One geometric quantity, two SM outputs ($v$, $m_h$) plus the Yukawa ratio — the structural over-determination
+   test. (Attack handle: the $\eta_{BK}$ provenance is the same kind of constant flagged for SG-8 Route A — is
+   it written from the geometry or reverse-engineered to hit $\lvert y_t/y_b\rvert\approx58$? See §4.3.)</li>
+<li><strong>The mass relations.</strong> $m_h^2=V''<em>{\rm Hos}(\theta_H^\star)/(2\pi R</em>\gamma)^2\sim g^2/(2\pi R_\gamma)^2\cdot
+   \mathcal O(1)$; the post-RG outputs are $v=246.02\pm3.5$, $m_h=123.82\pm1.8$ (H.4, A1.10). Note the
+   $N_b-N_f$ structure: if $N_b=N_f$ the $\theta_H$-dependence vanishes (no breaking) — EWSB requires the boson/
+   fermion KK content to differ, an attackable structural fact (§3 R5).</li>
+</ol>
+<h3>1.2 What "closed" means here, and its conditionality</h3>
+<p>"Closed" for SG-5 is <strong>three things at once, each at a different grade</strong>:</p>
+<ul>
+<li><strong>Charge ($Q=T_3+Y$): the strongest leg</strong> — an exact componentwise architectural identity + the $\mathbb{Z}_6$
+  consistency rule, <em>given the frozen parity/center table</em>. This is genuine and hand-checkable.</li>
+<li><strong>The breaking ($\to U(1)_{\rm em}$ by one doublet): genuine mechanism, given-E</strong> — a single Wilson-line
+  doublet with $n_H=1$ does break the group correctly and produces a VEV. The <em>mechanism</em> is real; the
+  <em>smallness of the VEV</em> is not derived.</li>
+<li><strong>The numbers ($v$, $m_h$): near-hits, frozen-output, given-the-anchors</strong> — post-freeze outputs of the same
+  $\eta_{BK}$, agreeing with PDG, <em>but</em> with $\theta_H^\star$ read from a minimum (so $v$'s magnitude is a read
+  modulus's near-hit) and $m_h$'s scale set by a determinant whose provenance must pass the falsification test.</li>
+</ul>
+<p>It is conditional on:</p>
+<ul>
+<li><strong>given-E</strong> — the SM chiral content and the EW group $SU(2)_L\times U(1)_Y$ supplied from SG-2/SG-3/SG-4.</li>
+<li><strong>given-the-selected-geometry</strong> — the frozen branch, the selected parity table, the selected cycle $\gamma$,
+  $n_H=1$ as the minimal admissible integer.</li>
+<li><strong>given-the-anchors</strong> — $y_t$ and $\lvert V_{us}\rvert$ (the flavor anchors that fix $\eta_{BK}$'s
+  calibration interface), plus the <strong>read</strong> $\theta_H^\star$ and the <strong>uncomputed</strong> hierarchy smallness.</li>
+</ul>
+<p><strong>The genuine, defensible content</strong> (the part that survives the honest accounting):</p>
+<table>
+<thead>
+<tr>
+<th>Genuine output</th>
+<th>Mechanism</th>
+<th>Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$Q=T_3+Y$ componentwise on every multiplet</td>
+<td>$S^1_Y/\mathbb{Z}_2$ + $\mathbb{Z}_6$ quotient, given parity table</td>
+<td>hand-checkable</td>
+</tr>
+<tr>
+<td>$\mathbb{Z}_6$ rule $\tfrac t3+\tfrac d2+Y\in\mathbb{Z}$</td>
+<td>global center consistency</td>
+<td>hand-checkable</td>
+</tr>
+<tr>
+<td>$SU(2)_L\times U(1)_Y\to U(1)_{\rm em}$ by one doublet</td>
+<td>Wilson-line holonomy, $n_H=1$</td>
+<td>symbolic</td>
+</tr>
+<tr>
+<td>Higgs-mass quadratic destabilization <strong>avoided</strong></td>
+<td>topological $n_H$ + finite $V_{\rm Hos}$</td>
+<td>symbolic (1-loop)</td>
+</tr>
+<tr>
+<td>$v$, $m_h$ from <strong>one</strong> determinant ($\eta_{BK}$)</td>
+<td>one-input-two-outputs compression</td>
+<td>machine-lane (AUDIT)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The conditional / non-genuine content</strong> (the honest "near-hit, not derived"):</p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Honest reality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$v=246.02$ magnitude (the lightness)</td>
+<td><strong>read modulus</strong> — $\theta_H^\star\approx2.46\times10^{-14}$ read from $V_{\rm Hos}$ min; ~85% of hierarchy undelivered</td>
+</tr>
+<tr>
+<td>$m_h=123.82$ scale</td>
+<td>set by $\eta_{BK}$ whose provenance must pass the κ³/π falsification test</td>
+</tr>
+<tr>
+<td>$\rho=1$ (custodial)</td>
+<td><strong>not delivered</strong> — no custodial object, asserted-by-omission</td>
+</tr>
+<tr>
+<td>hierarchy $v/M_{\rm Pl}\sim10^{-16}$</td>
+<td><strong>RELOCATION</strong> per SCALE firewall — circular as a derivation</td>
+</tr>
+</tbody>
+</table>
+<p>So the precise statement of closure: <strong>the geometry genuinely embeds electric charge ($Q=T_3+Y$) and breaks the
+EW group with a single protected doublet, and near-hits $v$/$m_h$ from one determinant; but the lightness of $v$
+is a read modulus (not derived), custodial $\rho=1$ is undelivered, and the SCALE route to the hierarchy is a
+confirmed relocation. Genuine embedding + breaking; undelivered lightness + custodial.</strong></p>
+<hr />
+<h2>2. Verify the status — is PARTIAL real?</h2>
+<p>This is the verification a skeptic would run. Each witness gets a grade — <strong>hand-checkable</strong> / <strong>symbolic</strong> /
+<strong>machine-lane</strong> — and an honest <strong>reproduces?</strong> flag.</p>
+<h3>2.1 The witness ledger</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Witness</th>
+<th>What it asserts</th>
+<th>Grade</th>
+<th>Reproduces?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1</td>
+<td><strong>$Q=T_3+Y$ componentwise</strong> (Gate 3; D charge tables)</td>
+<td>every SM multiplet gets the observed $Q$</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — e.g. $Q_L$: $T_3=\pm\tfrac12$, $Y=+\tfrac16\Rightarrow Q=\{+\tfrac23,-\tfrac13\}$; recomputes by hand for all multiplets given the frozen $Y$ table</td>
+</tr>
+<tr>
+<td>W2</td>
+<td><strong>$\mathbb{Z}_6$ rule</strong> $\tfrac t3+\tfrac d2+Y\in\mathbb{Z}$</td>
+<td>non-conforming $Y$ inconsistent on geometry</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — e.g. $Y(Q_L)=\tfrac15$ gives $\tfrac{31}{30}\notin\mathbb{Z}$ (killed); the SM triples satisfy it field-by-field (corroborated by A4-Z6 disposition: Tong congruence $q=3z_2-2z_3\bmod6$)</td>
+</tr>
+<tr>
+<td>W3</td>
+<td><strong>Single doublet breaks $\to U(1)_{\rm em}$</strong> (H.1, H.2.1)</td>
+<td>one Wilson-line $H$ at $n_H=1$ does EWSB</td>
+<td>symbolic</td>
+<td><strong>Yes (structurally)</strong> — $\langle H\rangle=\theta_H^\star/(2\pi R_\gamma)$ in the $SU(2)_L$ direction leaves $Q=T_3+Y$ unbroken; standard Hosotani algebra</td>
+</tr>
+<tr>
+<td>W4</td>
+<td><strong>$V_{\rm Hos}$ finite + cutoff-independent</strong> (H.2.1)</td>
+<td>no $\delta m_H^2\sim\Lambda^2$; $n^{-5}$ sum converges</td>
+<td>symbolic</td>
+<td><strong>Yes</strong> — the CW sum converges absolutely; the $\theta_H$-independent divergences cancel $N_b$ vs $N_f$; periodicity protects $n_H$</td>
+</tr>
+<tr>
+<td>W5</td>
+<td><strong>$v=246.02\pm3.5$, $m_h=123.82\pm1.8$</strong> (H.4)</td>
+<td>post-freeze outputs, $0.06\sigma/0.48\sigma$ vs PDG</td>
+<td>machine-lane</td>
+<td><strong>AUDIT</strong> — values present (H.4, A1.10), claimed regenerated by the R0 reproducer; <strong>not independently re-run here</strong> (same class as SG-7/SG-8 absent-harness flag)</td>
+</tr>
+<tr>
+<td>W6</td>
+<td><strong>$1/\eta_{BK}=32\pi\exp(\sqrt3/24\pi)\approx102.87$</strong> (A1.13, L7612)</td>
+<td>one determinant → $v$, $m_h$, $\lvert y_t/y_b\rvert$</td>
+<td>hand-checkable (algebra)</td>
+<td><strong>Yes for the identity</strong>; $32\pi\,e^{\sqrt3/24\pi}=102.87$ recomputes — <strong>but provenance of the <em>form</em> is the open question (κ³/π)</strong></td>
+</tr>
+<tr>
+<td>W7</td>
+<td><strong>$n_H=1$ winding + lower-winding exclusion</strong> (H.8a)</td>
+<td>$n_H=0\Rightarrow v=0$; $n_H\ge2\Rightarrow$ PDG miss</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — the exclusion is a clean structural statement; $n_H=2\Rightarrow v\approx492$ GeV breaks alignment</td>
+</tr>
+<tr>
+<td>W8</td>
+<td><strong>Higgs-protection checklist</strong> (H.9, 8 rows)</td>
+<td>structural protection, scope-honest</td>
+<td>symbolic/audit</td>
+<td><strong>Conditional</strong> — an auditable <em>checklist</em>; H.9.6 explicitly reports higher-loop protection as <strong>Diagnostic only</strong>, not proven</td>
+</tr>
+<tr>
+<td>W9</td>
+<td><strong>2026-06-23 correction box</strong> (H.2)</td>
+<td>$\sqrt{\eta_{BK}}/(2\pi)\sim10^{-2}$ is <strong>12 orders too large</strong> for the hierarchy</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — $10^{-2}$ vs $10^{-16}$; this is the authoritative honest figure; the hierarchy is <strong>not</strong> $\eta_{BK}$</td>
+</tr>
+<tr>
+<td>W10</td>
+<td><strong>$\theta_H^\star\approx2.46\times10^{-14}$ read from the min</strong> (H.9.7; HIERARCHY_RG)</td>
+<td>the smallness is a read modulus</td>
+<td>symbolic/audit</td>
+<td><strong>Reproduces as a read value, NOT as a derivation</strong> — $\theta_H^\star=2\pi R_\gamma v_{EW}$ inverts the observed $v$; deriving it blind is OPEN</td>
+</tr>
+<tr>
+<td>W11</td>
+<td><strong>Custodial $\rho=1$</strong></td>
+<td>—</td>
+<td>—</td>
+<td><strong>DOES NOT EXIST</strong> — zero corpus matches; undelivered</td>
+</tr>
+</tbody>
+</table>
+<h3>2.2 What reproduces, plainly</h3>
+<ul>
+<li><strong>The charge embedding reproduces by hand.</strong> $Q=T_3+Y$ on every multiplet and the $\mathbb{Z}_6$ rule are
+  exact arithmetic given the frozen $Y$ table. This is the strongest, most defensible leg of SG-5 — comparable
+  in rigidity to SG-2/SG-3's "given-E" recoveries.</li>
+<li><strong>The breaking + protection reproduce symbolically.</strong> A single $n_H=1$ Wilson-line doublet breaks
+  $SU(2)_L\times U(1)_Y\to U(1)_{\rm em}$ leaving $Q=T_3+Y$ unbroken; $V_{\rm Hos}$ is finite and
+  cutoff-independent; the quadratic destabilization is genuinely avoided. This is the <em>proven banked
+  sub-result</em> (SCALE_HIERARCHY_FINAL_VERDICT §"PROVEN sub-result": mass protected to $\sim10^{14}$ GeV).</li>
+<li><strong>The $\eta_{BK}$ identity reproduces algebraically.</strong> $32\pi\,e^{\sqrt3/24\pi}\approx102.87$ is a clean
+  recompute. The <em>value</em> reproduces; the <em>provenance of the formula</em> is the live question (§4.3).</li>
+</ul>
+<h3>2.3 What does NOT reproduce (honest gaps in the status)</h3>
+<ul>
+<li><strong>The lightness of $v$ does NOT reproduce as a derivation.</strong> $v=246.02$ matches PDG only because
+  $\theta_H^\star$ is read from the chamber minimum; the required $\theta_H^\star\approx2.46\times10^{-14}$ is
+  not produced from first principles (H.9.7). The "Gate-8 exponent PASS" comparing
+  $I_{\rm Hos}=\ln(M_{\rm Pl}/246.02)$ to $I_{\rm obs}=\ln(M_{\rm Pl}/246.22)$ is <strong>circular</strong> — the identity
+  $I_{\rm Hos}-I_{\rm obs}=\ln(v_{\rm obs}/v_{\rm corpus})$ makes it bit-identical to comparing $v$ vs $v$
+  (HANDOFF_T_HIERARCHY_RG_EXPONENT). So "v emerges" is a re-log of the standing input.</li>
+<li><strong>The SCALE hierarchy does NOT reproduce — it is RELOCATION.</strong> $\mu_{\rm cell}$ (the would-be bridge) has no
+  $v$-independent readout; $\mu_{\rm cell}\to v$ is invertible-by-construction (exponential); the only
+  available anchor $\partial_\sigma V=0$ <em>is</em> where $v$ is set (FIREWALL_MUCELL_INDEPENDENCE; the firewall is
+  <em>posed correctly and currently UNCROSSED</em>). Round-1 campaign <strong>demoted</strong> the SCALE-firewall closure from
+  AXIOM_CLOSED to <strong>OPEN</strong> under the OVERCLAIM test.</li>
+<li><strong>Custodial $\rho=1$ does NOT reproduce — it does not exist.</strong> No custodial $SU(2)$, no $\rho$/$T$ object,
+  no value, no hash. The single-doublet content makes $\rho=1$ <em>natural</em> in the SM sense, but the corpus
+  <strong>never states or computes it</strong>. This is an undelivered required EW observable.</li>
+<li><strong>The $v/m_h$ harness is AUDIT.</strong> The R0 reproducer is <em>referenced</em>; the executable byte-equal regeneration
+  of $v=246.02$/$m_h=123.82$ from the frozen $\eta_{BK}$ + geometry is not independently re-run in this audit.</li>
+</ul>
+<h3>2.4 Why PARTIAL (not higher, not lower)</h3>
+<ul>
+<li><strong>Not DERIVED-GIVEN-E</strong> (the SG-2/SG-3 tier): although the <em>charge</em> leg is rigid-given-E, SG-5 as a whole
+  carries an undelivered hierarchy lightness (read $\theta_H^\star$), an undelivered custodial $\rho=1$, a
+  RELOCATION verdict on the SCALE route, and an AUDIT harness — too many open residuals for the DERIVED tier.</li>
+<li><strong>Not OPEN/DECLARED-FROZEN:</strong> the wins are real and non-trivial — $Q=T_3+Y$ is exact, the breaking is
+  delivered by one protected doublet, the quadratic destabilization is genuinely avoided, and $v$/$m_h$
+  near-hit from a single determinant. This is well clear of "not claimed."</li>
+<li><strong>PARTIAL is exactly right:</strong> genuine charge + breaking + protection, near-hit numbers, with named open
+  residuals (lightness, custodial, SCALE-firewall) and downgrade rules with teeth. Matches the SCOPED_GUT
+  ledger SG-5 line verbatim.</li>
+</ul>
+<hr />
+<h2>3. The attack surface — what to attack (ranked by leverage)</h2>
+<p>Every open residual as a named object with its precise obstruction. <strong>Leverage</strong> = how much closing it moves
+the gate.</p>
+<h3>3.1 The residual register</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Residual (named object)</th>
+<th>Precise obstruction</th>
+<th>Status</th>
+<th>Leverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R1</strong></td>
+<td><strong>The gauge-hierarchy lightness of $v$ ($\theta_H^\star$ read from a minimum)</strong></td>
+<td>$v_{EW}=\theta_H^\star/(2\pi R_\gamma)$ requires $\theta_H^\star\approx2.46\times10^{-14}$; this value is <strong>read from the chamber one-loop $V_{\rm Hos}$ minimum, not derived</strong> (H.9.7). It carries <strong>~85%</strong> of the EW hierarchy. The protection ratio $\sqrt{\eta_{BK}}/(2\pi)\sim10^{-2}$ is 12 orders too large to be it.</td>
+<td>OPEN (shared with SG-6)</td>
+<td><strong>HIGHEST</strong> — it is the single biggest "near-hit vs derivation" gap; closing it would convert $v$ from read to derived</td>
+</tr>
+<tr>
+<td><strong>R2</strong></td>
+<td><strong>The SCALE firewall: $\mu_{\rm cell}$ vs the hierarchy = RELOCATION</strong></td>
+<td>$\mu_{\rm cell}$ has no $v$-independent UV readout; $\mu_{\rm cell}\to v$ invertible-by-construction; the only anchor $\partial_\sigma V=0$ <em>is</em> the hierarchy. Confirmed circular as a derivation (FIREWALL; campaign demotion to OPEN).</td>
+<td>OPEN / RELOCATION (firewall uncrossed)</td>
+<td><strong>HIGHEST (tied)</strong> — it is the <em>reason</em> R1 is hard; the firewall already proved the only escape relocates</td>
+</tr>
+<tr>
+<td><strong>R3</strong></td>
+<td><strong>Custodial $\rho=1$ undelivered</strong></td>
+<td>$\rho=M_W^2/(M_Z^2\cos^2\theta_W)=1$ is a required tree-level EW observable protected by custodial $SU(2)$. <strong>No custodial object, no $\rho$/$T$ computation exists in the corpus.</strong> Asserted-by-omission.</td>
+<td>OPEN (absent)</td>
+<td><strong>HIGH</strong> — a named EW observable the gate must deliver to be "EWSB-complete"; currently a silent gap</td>
+</tr>
+<tr>
+<td><strong>R4</strong></td>
+<td><strong>$\theta_H^\star$ uniqueness / read-not-derived (the SG-6 inheritance)</strong></td>
+<td>$\theta_H^\star$ is the minimum of $V_{\rm Hos}$; SG-6 reads it from a one-loop $V$ minimum (the acute SG-6 soft spot). The CP/breaking depend on it being the <em>right</em> minimum.</td>
+<td>OPEN (inherited from SG-6)</td>
+<td><strong>HIGH</strong> — R1's mechanical root; shared with SG-6</td>
+</tr>
+<tr>
+<td><strong>R5</strong></td>
+<td><strong>$\eta_{BK}$ provenance (target-blind or reverse-engineered?)</strong></td>
+<td>$1/\eta_{BK}=32\pi\,e^{\sqrt3/24\pi}\approx102.87=\lvert y_t/y_b\rvert$ (raw). Is the <em>form</em> written from the Wilson-line determinant, or reverse-engineered to hit $\approx58$ at $M_Z$? Same class as SG-8 Route A; the κ³/π cautionary pattern.</td>
+<td>SUSPECT (provenance unaudited)</td>
+<td><strong>MEDIUM-HIGH</strong> — if reverse-engineered, the "one-input-two-outputs" headline is true-by-construction</td>
+</tr>
+<tr>
+<td><strong>R6</strong></td>
+<td><strong>$v$/$m_h$ reproduction harness AUDIT</strong></td>
+<td>The R0 reproducer regenerating $v=246.02$/$m_h=123.82$ byte-equal from frozen $\eta_{BK}$ + geometry is referenced, not independently re-run. Same class as SG-7's absent δ-harness.</td>
+<td>AUDIT</td>
+<td><strong>MEDIUM</strong> — required for "claimed certificate pass" to be machine-real</td>
+</tr>
+<tr>
+<td><strong>R7</strong></td>
+<td><strong>Higher-loop Higgs protection Diagnostic-only</strong></td>
+<td>H.9.6/H.10.1: one-loop protection survives (gauge invariance preserves $n_H$); all-orders loop-resummation is <strong>not proven</strong> — Diagnostic only.</td>
+<td>DISCLOSED (scope limit)</td>
+<td><strong>LOW-MEDIUM</strong> — a disclosed limitation, not a hidden gap; a hard theorem to close</td>
+</tr>
+<tr>
+<td><strong>R8</strong></td>
+<td><strong>$N_b\ne N_f$ requirement for a non-trivial minimum</strong></td>
+<td>$V_{\rm Hos}\propto(N_b-N_f)\cos(n\theta_H)$; if $N_b=N_f$ the $\theta_H$-dependence vanishes (no breaking). The breaking <em>requires</em> a boson/fermion KK imbalance in the protected projection.</td>
+<td>OPEN (structural prerequisite)</td>
+<td><strong>LOW-MEDIUM</strong> — is the imbalance forced by the geometry, or assumed?</td>
+</tr>
+<tr>
+<td><strong>R9</strong></td>
+<td><strong>Parity/center table selected-not-searched</strong></td>
+<td>$Q=T_3+Y$ + $\mathbb{Z}_6$ are forced <em>given</em> the frozen parity table <code>ac4d2df3e708</code>, which §5.2 says was <em>selected</em> ("searched no manifolds; selected the parity/center assignments; froze the table").</td>
+<td>OPEN (selection ≠ derivation)</td>
+<td><strong>LOW</strong> — the charge leg is strong given the table; the table's selection is the residue</td>
+</tr>
+<tr>
+<td><strong>R10</strong></td>
+<td><strong>$n_H=1$ minimality (selection)</strong></td>
+<td>$n_H=1$ is the <em>minimal admissible integer</em>; the geometry does not <em>derive</em> that nature picks 1 (it excludes 0 and shows $\ge2$ misses PDG, which is a post-hoc data check).</td>
+<td>DISCLOSED (selection)</td>
+<td><strong>LOW</strong> — clean structural exclusion, but selection not forcedness</td>
+</tr>
+</tbody>
+</table>
+<h3>3.2 Leverage ranking (attack order)</h3>
+<ol>
+<li><strong>R2</strong> (SCALE firewall = RELOCATION) — it is the <em>reason</em> the hierarchy is hard; the firewall already
+   adjudicated the only escape relocates. The single highest-value (and most adversarially-tested) target.</li>
+<li><strong>R1</strong> (lightness of $v$ / read $\theta_H^\star$) — the biggest near-hit-vs-derivation gap; mechanically
+   rooted in R4, scale-rooted in R2.</li>
+<li><strong>R3</strong> (custodial $\rho=1$) — a named EW observable the gate currently does not deliver; cheapest <em>physics</em>
+   gap to at least <em>axiomatize</em> honestly.</li>
+<li><strong>R4</strong> ($\theta_H^\star$ read-from-min) — shared with SG-6; the mechanical root of R1.</li>
+<li><strong>R5</strong> ($\eta_{BK}$ provenance) — decides whether the one-input-two-outputs headline is genuine.</li>
+<li><strong>R6</strong> (harness AUDIT) — cheapest to close (owner artifact); makes the certificate machine-real.</li>
+<li><strong>R7 / R8 / R9 / R10</strong> — disclosed limit / structural prerequisite / selections.</li>
+</ol>
+<blockquote>
+<p><strong>The cardinal honest point.</strong> R1 and R2 are where the <strong>hierarchy</strong> lives, and the SCALE firewall has
+<em>already</em> run the no tuning to the known answer blade on them and returned <strong>RELOCATION</strong>. Any closure path that
+"derives" $\theta_H^\star$ or $v$ by introducing a UV-floor axiom <strong>relocates the entire hierarchy into the
+log-sensitivity of $v$ to $\log(\mu_{\rm cell}/M_*)$</strong> — the κ³/π failure mode. A path here counts only if it
+survives the firewall's six gates <em>blind</em>. R3 (custodial) is a genuine <em>missing</em> deliverable, not a
+relocation — it is the cleanest place to make honest progress (name the custodial axiom or compute $\rho$).
+R6 is the <em>non-physics</em> residual (reproducibility); closing it improves machine-reality but moves no input.</p>
+</blockquote>
+<hr />
+<h2>4. THE ATTACK PLAN — closure paths (the core)</h2>
+<p>For each residual: the <strong>technique</strong> (closure playbook T1 axiom-floor / T4 no-go / T5 firewall / T6
+all-operator-conditional / T7 eliminative / T10 selector), the <strong>named axiom it could reduce to</strong> (stated so it
+would be written WITHOUT the target value — the κ³/π falsification test), the <strong>specialist target</strong> / <strong>owner artifact</strong>
+needed, the <strong>math to attempt</strong>, and the <strong>success ladder</strong> (DERIVED-CLOSED rare → AXIOM-CLOSED likely →
+sharper-OPEN → REFUTED). Latest campaign dispositions folded in
+(<code>CLOSURE_CAMPAIGN_RESULT_2026-06-24.md</code> §3 + round 2).</p>
+<hr />
+<h3>4.1 R2 — The SCALE firewall: $\mu_{\rm cell}$ vs the hierarchy (the load-bearing relocation)</h3>
+<p><strong>Why first.</strong> R2 is the <em>reason</em> R1/R4 are hard. The SCALE-frontier convergence reduces the whole
+hierarchy-derivation question onto one object, $\mu_{\rm cell}$ (the uniform-cell $\Delta_0$ spectral value),
+and the firewall asks whether $\mu_{\rm cell}$ can be anchored independently of $v$. This has been attacked
+already; the dossier's job is to carry the verdict precisely and state what (if anything) could move it.</p>
+<p><strong>Technique: T5 (no tuning to the known answer firewall).</strong> The firewall criterion is an exact 4-part conjunction
+(FIREWALL_MUCELL_INDEPENDENCE): (1) UV-reference readout not IR-fixing; (2) $v$-independence of the anchor;
+(3) freeze-before-compare; (4) non-invertibility of $\mu_{\rm cell}\to v$. <strong>Current standing: gates (2) and
+(4) FAIL, gate (3)'s $\eta$-window is OPEN.</strong></p>
+<p><strong>The firewall, gate by gate (carried verbatim from the campaign):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>What it demands</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1) UV readout not IR-fixing</td>
+<td>$\mu_{\rm cell}$ pinned at a UV reference ($M_*$/$M_U$) by $v$-independent data</td>
+<td>the form is right (renorm-scale residue) — <strong>form verified, provenance not</strong></td>
+</tr>
+<tr>
+<td>(2) $v$-independence of anchor</td>
+<td>the pinning datum contains no EW input; $\partial_\sigma V=0$ disqualifies</td>
+<td><strong>FAILS</strong> — the only specified anchor $\partial_\sigma V=0$ <em>is</em> where $v$ is set</td>
+</tr>
+<tr>
+<td>(3) freeze-before-compare</td>
+<td>$\mu_{\rm cell}$ frozen before any $v$/$c_{\rm loop}$ computation; $\eta$-window closed</td>
+<td><strong>OPEN</strong> — uniform $\Delta_0$ unproven (live scheme knob W3)</td>
+</tr>
+<tr>
+<td>(4) non-invertibility</td>
+<td>$\mu_{\rm cell}\to v$ not algebraically invertible</td>
+<td><strong>FAILS</strong> — $\mu_{\rm cell}=I^{-1}(\ln(M_{\rm Pl}/v_{\rm obs}))$ closed-form invertible (κ³/π trap)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Named axiom it could reduce to (κ³/π falsification test applied).</strong></p>
+<blockquote>
+<p><strong>AXIOM-UV-CELL-FLOOR</strong> (target-blind form): <em>"the SCALE cell $\mu_{\rm cell}$ (the uniform-cell $\Delta_0$
+spectral value) is fixed at the frozen UV reference $M_*$, value $\sim\hbar$-class, a priori, BEFORE solving
+$\partial_\sigma V=0$."</em></p>
+</blockquote>
+<p>This is writable with no EW number in sight (it references only $\hbar$, $M_*$, the spectrum). <strong>But the
+firewall already ruled it does not establish independence</strong>, for two reasons it states in plain sight: (i) it
+is a <em>named axiom, not a derivation</em> — it posits the value rather than computing it from the spectrum; and (ii)
+it <strong>relocates the entire hierarchy into the log-sensitivity of $s_{\rm min}$ to $\log(\mu_{\rm cell}/M_*)$</strong> —
+$v/M_{\rm Pl}\sim2\times10^{-17}$ comes out only through $e^{-6s_{\rm min}}$, and $s_{\rm min}$ is
+logarithmically sensitive to $\mu_{\rm cell}$, so a tiny shift in $\mu_{\rm cell}$ moves $v$ <em>exponentially</em> —
+the hallmark of a knob. <strong>Unless the floor axiom fixes $\mu_{\rm cell}$ to within the log-tolerance by a
+principle that has nothing to do with 246 GeV, "v emerges" is true-by-construction.</strong> The campaign also found
+the closure banks a "unifies two of three roots onto one cell" consequence that
+<code>SCALE_HIERARCHY_FINAL_VERDICT</code> line 22 directly contradicts ("the cell and the hierarchy stay TWO SEPARATE
+floor-values … the link CAN'T be made"). <strong>Internal corpus conflict ⇒ must not be banked.</strong></p>
+<p><strong>Specialist target (to hand off).</strong> Either (a) exhibit a $v$-independent UV readout for $\mu_{\rm cell}$ —
+$\Delta_0$'s spectral value at the $K_6/M_U$ scale — and show it pins $\mu_{\rm cell}$ with <strong>no EW datum</strong>,
+<em>and</em> prove uniform $\Delta_0$ (closing the $\eta$-window, gate 3); OR (b) prove the dimensional near-no-go
+that <em>forbids</em> it (Path A: a second mass cannot be built from ${M_{\rm Pl},\hbar,\text{dimensionless
+geometry}}$ without a $\sigma$-carrying length — Buckingham-π). Path A is the <em>already-reached</em> honest endpoint.</p>
+<p><strong>Math to attempt.</strong> Run the firewall's six establishment steps <strong>blind</strong>: strike $\partial_\sigma V=0$ from the
+anchor list; freeze+hash $\mu_{\rm cell}$ before any $c_{\rm loop}$/$v$ computation; run the $v$-independence
+and non-invertibility audits; show log-tolerance robustness (does $\sigma_{\rm min}$ reproduce $v\approx246$
+with $\mu_{\rm cell}$ held at the UV value, AND is that UV value forced by $\Delta_0\approx\hbar+M_*$ to within
+the log-tolerance, <em>not</em> chosen so 246 comes out?). The corpus numerics already report a <strong>~34× threshold-weight
+swing across the $\sigma$-band</strong> (v-independence audit FAILS) and an exponential $\mu_{\rm cell}\to v$ map.</p>
+<p><strong>Success ladder.</strong>
+- DERIVED-CLOSED: a $v$-independent UV readout pins $\mu_{\rm cell}$ + uniform $\Delta_0$ proven → hierarchy
+  becomes a prediction. <strong>Judged unreachable in this geometry</strong> (Path A dimensional near-no-go).
+- AXIOM-CLOSED: AXIOM-UV-CELL-FLOOR named — <strong>but the campaign DEMOTED this to OPEN</strong>, because gates (2)/(4)
+  fail and it banks an internally-refuted root unification. So even AXIOM-CLOSED is <em>not</em> honestly available
+  here as a <em>derivation</em> claim.
+- <strong>sharper-OPEN (the honest standing):</strong> $v_{EW}$ is a <strong>genuine second dimensionful anchor</strong>, irreducible in
+  this structure, with a dimensional (Path A) + mechanistic (Path B) near-no-go <em>explaining why</em>. This is
+  stronger than "we failed" — it is "here is the structural reason it can't be reduced here."
+- REFUTED: someone exhibits a blind UV readout that survives all six gates → the firewall is crossed.</p>
+<p><strong>Honest disposition: OPEN / RELOCATION — the firewall is correctly posed and UNCROSSED.</strong> As a derivation the
+SCALE route is confirmed circular; the real banked win is the <em>near-no-go itself</em> (genuine, non-promoting). Do
+<strong>not</strong> bank AXIOM-UV-CELL-FLOOR as a closure — the campaign already demoted it.</p>
+<hr />
+<h3>4.2 R1 — The lightness of $v$ ($\theta_H^\star$ read, not derived)</h3>
+<p><strong>The target without loading.</strong> $v=246.02$ matches PDG only because $\theta_H^\star\approx2.46\times10^{-14}$
+is <em>read</em> from the $V_{\rm Hos}$ minimum. Closing R1 means <strong>deriving $\theta_H^\star$ (hence $v$'s smallness)
+blind from the frozen geometry, without a new tuning.</strong> The number it must reproduce <strong>without a new knob</strong>:
+$\theta_H^\star=2\pi R_\gamma v_{EW}$ with $1/(2\pi R_\gamma)=1.0\times10^{16}$ GeV $\Rightarrow$
+$\theta_H^\star\approx2.46\times10^{-14}$ (i.e. $I_{EW}=\ln(M_{\rm Pl}/v_{EW})\approx36.83$ derived blind).</p>
+<p><strong>Technique: T1 (axiom-floor) via dimensional transmutation; gated by R2's firewall.</strong> Dimensional
+transmutation is the <em>right mechanism shape</em> — $v_{EW}=M_{\rm Pl}\,e^{-I_{EW}}$ removes the second anchor <strong>iff</strong>
+$I_{EW}\approx36.83$ is derived blind. The honest state (HANDOFF_T_HIERARCHY_RG_EXPONENT;
+REVIEW_HIERARCHY_TRANSMUTATION):</p>
+<ul>
+<li><strong>It legitimately reduces the residual to ONE dimensionless number</strong> $I_{EW}$ — a real simplification.</li>
+<li><strong>It does NOT yet discharge the burden.</strong> As produced, $36.83$ is just $-\ln(v_{\rm corpus}/M_{\rm Pl})$,
+  computed <em>from</em> the assumed $v$. The "exponent PASS" is the circular re-log (W2 auto-FAIL).</li>
+<li><strong>The mechanism is the wrong kind for a periodic minimum.</strong> $\theta_H^\star$ is a stationary point of a
+  <em>periodic</em> potential, <strong>NOT a running coupling</strong>, so there is no transmutation exponent
+  $t_\star=2\pi/(b\alpha)$ to bound (Path B, SCALE_HIERARCHY_FINAL_VERDICT). The field-count bound governs only
+  $\ln(M_{\rm Pl}/M_U)$ (the frozen ~15%), never the ~85% hierarchy carried by $\theta_H^\star$.</li>
+</ul>
+<p><strong>Named axiom it could reduce to (κ³/π-clean).</strong></p>
+<blockquote>
+<p><strong>AXIOM-HIERARCHY-IS-UV-EXPONENT</strong> (target-blind form): <em>"$v_{EW}=M_{\rm Pl}\,e^{-I_{EW}}$, with $I_{EW}$ the
+dimensionless RG/geometric exponent computed from the frozen UV boundary vector $\Gamma_{\rm Pl}$
+(dimensionless data at $M_{\rm Pl}$, NO electroweak input)."</em></p>
+</blockquote>
+<p>Writable with no "246" in sight — it references only $M_{\rm Pl}$ and the frozen dimensionless UV data. <strong>The
+falsification test passes on the <em>statement</em></strong> (no target inside); the test is then whether $I_{EW}$ <em>computes to</em>
+$\approx36.83$ blind. <strong>Current status: the only available production of $36.83$ is circular</strong> (it re-logs
+$v$), so the axiom is <em>writable</em> but <strong>not yet yielding a blind value</strong> — and Path B says the periodic-minimum
+mechanism cannot supply the exponent at all.</p>
+<p><strong>Specialist target / owner artifact.</strong> (1) Freeze and hash the <strong>UV dimensionless boundary vector
+$\Gamma_{\rm Pl}=\mathcal G(\mathcal B_{\rm active})$</strong> — gauge/Yukawa/scalar couplings + the geometry's
+dimensionless inputs, with <strong>no EW dimensionful input</strong> — <em>before any comparison</em>. (2) Compute $t_\star$ blind
+and test $t_\star\stackrel?=I_{EW}=36.83$ with $\lvert z\rvert\le2$. (3) <strong>Automatic FAIL</strong> if the "derivation"
+reduces to $-\ln(v_{\rm corpus}/M_{\rm Pl})$ or if $\theta_H^\star$ is supplied rather than derived
+(HANDOFF_T_HIERARCHY_RG_EXPONENT G1–G6). The owner artifact is the frozen $\Gamma_{\rm Pl}$ + a blind
+$I_{EW}$-computation harness — <em>neither exists</em>.</p>
+<p><strong>Math to attempt.</strong> Recompute $V_{\rm Hos}(\theta_H)$ from the frozen KK spectrum (the $N_b$, $N_f$ content)
+and find $\theta_H^\star$ <strong>without inserting the observed $v$</strong> — i.e. derive the minimum's location from the
+geometry's $N_b-N_f$ imbalance alone. If the natural minimum sits at $\mathcal O(1)$ rather than
+$2.46\times10^{-14}$, the read-off is <em>not</em> reproduced blind and R1 stays open (the expected outcome, since a
+generic CW minimum is $\mathcal O(1)$, not $10^{-14}$).</p>
+<p><strong>Success ladder.</strong>
+- DERIVED-CLOSED: $\Gamma_{\rm Pl}$ frozen + $I_{EW}$ computes to $36.83$ blind → $v$'s smallness derived;
+  SCALE collapses $2\to1$ anchor. <strong>Judged unreachable</strong> (Path B: periodic minimum, no exponent; Path A:
+  dimensional near-no-go).
+- AXIOM-CLOSED: AXIOM-HIERARCHY-IS-UV-EXPONENT named — but it <strong>inherits R2's firewall fate</strong>: adopting it
+  relocates the hierarchy into log-sensitivity, so it is OPEN, not bankable as a closure.
+- <strong>sharper-OPEN (honest standing):</strong> $\theta_H^\star$ (hence $v$'s lightness) is <strong>read from a minimum</strong>, and
+  the transmutation route is rigorously ruled out for a periodic minimum. The ~85% is undelivered, <em>with a
+  reason</em>.
+- REFUTED: a blind $V_{\rm Hos}$ recompute yields $\theta_H^\star$ near $10^{-14}$ from geometry alone →
+  would be a genuine derivation (not expected).</p>
+<p><strong>Honest disposition: OPEN, with the mechanism rigorously diagnosed.</strong> The genuine banked win is the <em>proven
+mass-protection</em> (no $\delta m_H^2\sim M_*^2$), honestly bounded at <strong>12 orders short</strong> of the hierarchy. The
+lightness is a posit — and now we know <em>why it must be</em> in this geometry.</p>
+<hr />
+<h3>4.3 R3 — Custodial $\rho=1$ undelivered (the cleanest missing deliverable)</h3>
+<p><strong>The obstruction.</strong> $\rho=M_W^2/(M_Z^2\cos^2\theta_W)=1$ at tree level is <em>the</em> signature of EWSB by an
+$SU(2)$ doublet, protected by a custodial $SU(2)_{\rm cust}\subset SU(2)_L\times SU(2)_R$. The corpus
+<strong>contains no custodial object</strong>: no $\rho$, no $T$-parameter, no $SU(2)_{\rm cust}$ — verified by exhaustive
+search of <code>GUT.md</code> (zero matches). The gate breaks the EW group with one doublet but <strong>never states or computes
+the constraint that single-doublet breaking is supposed to deliver.</strong> This is a genuine <em>missing deliverable</em>,
+not a relocation.</p>
+<p><strong>Technique: T1 (axiom-floor) to name the custodial source; or T7 (eliminative) to compute $\rho$ directly.</strong></p>
+<p><strong>Route A (custodial from the doublet structure — the standard SM fact, target-blind).</strong> In the SM, $\rho=1$
+at tree level follows automatically from the Higgs being a single $SU(2)_L$ <strong>doublet</strong> (hypercharge
+$+\tfrac12$): the would-be Goldstone structure has an accidental global $SU(2)<em>L\times SU(2)_R\to SU(2)</em>{\rm
+cust}$ symmetry under which $(W^1,W^2,W^3)$ form a triplet, forcing $M_W=M_Z\cos\theta_W$. <strong>Our Higgs is
+exactly one such doublet</strong> ($E_{\rm Higgs}=L_\gamma\otimes V_{SU(2),{\rm doub}}\otimes L_{Y=+1/2}$, A2.5).</p>
+<ul>
+<li><strong>Named axiom (κ³/π-clean):</strong> <strong>AXIOM-CUSTODIAL-FROM-DOUBLET</strong> — <em>"the Wilson-line Higgs is a single
+  $SU(2)_L$ doublet of $Y=+\tfrac12$ ($n_H=1$), and the EW-breaking sector inherits the accidental custodial
+  $SU(2)_{\rm cust}$ of a single-doublet potential; hence $\rho=1$ at tree level."</em> Writable with no $\rho$
+  value in sight (it references only the doublet rep + the standard accidental symmetry). <strong>PASSES the
+  falsification test by construction.</strong> The test is then whether the <em>geometric</em> $V_{\rm Hos}$ respects the custodial
+  symmetry — i.e. whether the $S^2$/$S^1_Y$ routing breaks it.</li>
+<li><strong>κ³/π / RELOCATION check:</strong> PASS <em>as a statement</em>, <strong>but with a real risk</strong>: the custodial $SU(2)$ is an
+  <em>accidental</em> SM symmetry that is <strong>broken by $U(1)_Y$ gauging and by Yukawa splitting</strong> ($y_t\ne y_b$). Our
+  $V_{\rm Hos}\propto(N_b-N_f)$ and the hypercharge routing on $S^1_Y/\mathbb{Z}_2$ could <em>break</em> the custodial
+  symmetry geometrically — so the axiom must be <em>checked</em>, not assumed. The genuine question: <strong>does the
+  frozen geometry preserve or break $SU(2)_{\rm cust}$ in the breaking sector?</strong></li>
+</ul>
+<p><strong>Route B (compute $\rho$ from the geometric mass matrix — the falsifiable path).</strong> $M_W$ and $M_Z$ are set by
+the same $\langle H\rangle=\theta_H^\star/(2\pi R_\gamma)$ in the $SU(2)_L$ direction; with the frozen gauge
+couplings $g$, $g'$ from SG-2/SG-7, compute $M_W^2=\tfrac14 g^2 v^2$, $M_Z^2=\tfrac14(g^2+g'^2)v^2$ and form
+$\rho=M_W^2/(M_Z^2\cos^2\theta_W)$ <strong>target-blind</strong>. If a single doublet sources both, $\rho=1$ falls out; if
+the $S^2$/$S^1_Y$ routing introduces a triplet contamination or a custodial-breaking term, $\rho\ne1$ and the
+single-doublet claim is <em>refuted</em>.</p>
+<ul>
+<li><strong>Specialist target:</strong> "Given the frozen Higgs bundle $E_{\rm Higgs}$ and the SG-2 gauge embedding, compute
+  the $W$/$Z$ mass matrix from $\langle H\rangle$ and report $\rho$ at tree level, target-blind." Either it
+  yields $\rho=1$ (discharges R3 — and this would be a genuine DERIVED-GIVEN-E result, since $\rho=1$ is a
+  <em>structural</em> consequence not a fit), or it reveals a custodial-breaking geometric term (R3 becomes a
+  prediction-vs-data tension at the per-mille level — the falsifiable prediction is the measured $\rho_0=1.00038\pm
+  0.00020$).</li>
+</ul>
+<p><strong>Math to attempt.</strong> (1) Write the EW gauge-boson mass matrix from the single-doublet VEV in the geometric
+basis. (2) Check whether the $S^2$ (weak) + $S^1_Y$ (hyper) routing respects the custodial $SU(2)_{\rm cust}$.
+(3) Compute $\rho$ blind. This is a <strong>bounded, clean computation</strong> — arguably the most tractable <em>physics</em>
+target in SG-5, because $\rho=1$ for a single doublet is a near-automatic SM result and the only question is
+whether the geometry spoils it.</p>
+<p><strong>Success ladder.</strong>
+- DERIVED-CLOSED: $\rho=1$ falls out of the single-doublet geometric mass matrix target-blind → R3 closes as a
+  genuine DERIVED-GIVEN-E output (the <em>missing</em> EW deliverable supplied). <strong>Plausible and cheap</strong> — this is the
+  best realistic outcome in the gate, because $\rho=1$ is structural, not tuned.
+- AXIOM-CLOSED: AXIOM-CUSTODIAL-FROM-DOUBLET named + the geometry shown not to break it at the level needed →
+  $\rho=1$ reduced to one standard, target-blind posit.
+- sharper-OPEN: the custodial check is not run → R3 stays a disclosed missing deliverable.
+- REFUTED: the geometry breaks $SU(2)_{\rm cust}$ and yields $\rho\ne1$ beyond $\rho_0=1.00038\pm0.00020$ →
+  a genuine falsifier of single-doublet EWSB on this branch.</p>
+<p><strong>Honest disposition: OPEN but the most tractable HONEST-PROGRESS target in SG-5.</strong> Run Route B (compute
+$\rho$ blind) first — it can reach DERIVED-CLOSED because $\rho=1$ is a structural single-doublet consequence,
+and it surfaces any geometric custodial-breaking term as a clean falsifier. <strong>The current silent omission of
+$\rho$ is the gate's most fixable gap.</strong></p>
+<hr />
+<h3>4.4 R4 — $\theta_H^\star$ read from a minimum (the SG-6 inheritance)</h3>
+<p><strong>The obstruction.</strong> $\theta_H^\star$ — on which the breaking <em>location</em> and $v$'s magnitude both depend — is
+the minimum of the one-loop $V_{\rm Hos}$, inherited from SG-6, where it is the chamber-center witness <em>read
+from a one-loop $V$ minimum</em>, not independently derived. SG-6's acute soft spot propagates directly into SG-5
+(this is R4 = SG-8's R8 analogue for the EW sector).</p>
+<p><strong>Technique: T1 (axiom-floor), shared with SG-6.</strong> Two honest reductions, in increasing strength:</p>
+<blockquote>
+<p><strong>AXIOM-THETA-FROM-MIN (weak, current standing):</strong> <em>"$\theta_H^\star$ is the location of the global minimum
+of the frozen one-loop $V_{\rm Hos}(\theta_H)$."</em> This is <em>true by construction</em> and carries no target value
+— but it is the "read from a minimum" framing SG-6 already concedes is the soft spot.</p>
+<p><strong>AXIOM-THETA-SYMMETRY (strong, the goal):</strong> <em>"$\theta_H^\star$ is fixed by a symmetry/topology of the
+Wilson-line cycle (e.g. a modular or reflection symmetry of $S^1_Y/\mathbb{Z}_2$), not by minimizing a
+potential."</em> If provable, this upgrades $\theta_H^\star$ from "read" to "symmetry-fixed" — the same upgrade
+SG-8 seeks for $\tau=\omega$.</p>
+</blockquote>
+<p><strong>The decisive obstruction (carried from Path B).</strong> Unlike SG-8's $\tau=\omega$ (an order-three modular
+<em>fixed point</em>, symmetry-protected), $\theta_H^\star\approx2.46\times10^{-14}$ is <strong>not at a symmetric point</strong> —
+it is a tiny generic displacement of a periodic potential. A symmetry of the cycle would force
+$\theta_H^\star\in\{0,\pi\}$ (the symmetric points), giving $v=0$ or $v=$ maximal — <strong>neither is
+$10^{-14}$.</strong> So the strong axiom, if it applied, would give the <em>wrong</em> value. This is <em>why</em> $\theta_H^\star$
+must be read: the hierarchy is precisely the smallness of a <em>non-symmetric</em> minimum.</p>
+<p><strong>Specialist target.</strong> "Is there any symmetry of the frozen Wilson-line cycle $\gamma$ / the $S^1_Y/\mathbb{Z}_2$
+fold that fixes $\theta_H^\star$ at a non-symmetric point $\sim10^{-14}$?" Expected answer: <strong>no</strong> — symmetries
+fix symmetric points, and $10^{-14}$ is not one. This is a clean group-theory falsification.</p>
+<p><strong>Success ladder.</strong> AXIOM-THETA-FROM-MIN (weak) is <em>already standing</em> (AXIOM-CLOSED at the honest floor);
+AXIOM-THETA-SYMMETRY would be DERIVED-CLOSED but is <strong>expected to FAIL</strong> (the minimum is not symmetric);
+sharper-OPEN is the realistic endpoint. <strong>Honest disposition: AXIOM-CLOSED at the weak axiom; the strong
+symmetry upgrade is REFUTED-in-advance because $10^{-14}$ is not a symmetric point — which is exactly the
+content of R1's near-no-go.</strong></p>
+<hr />
+<h3>4.5 R5 — $\eta_{BK}$ provenance (the one-input-two-outputs headline)</h3>
+<p><strong>The obstruction.</strong> The headline "one geometric quantity, two SM outputs" rests on
+$1/\eta_{BK}=32\pi\exp(\sqrt3/24\pi)\approx102.87=\lvert y_t/y_b\rvert$ (raw determinant). If the <em>form</em>
+$32\pi\,e^{\sqrt3/24\pi}$ was written from the Wilson-line finite determinant <em>target-blind</em>, the headline is
+genuine. If it was reverse-engineered to land at $\lvert y_t/y_b\rvert\approx58$ (at $M_Z$) / $\approx102.87$
+(raw), it is <strong>true-by-construction</strong> — the κ³/π cautionary pattern (the $a:=4\kappa/\sqrt3$ keystone; the
+$\eta_B=6.05\times10^{-10}$ "manifest"). This is the same class as <strong>SG-8 Route A</strong> ($\eta_{BK}$,
+$K_{tb}^{\rm crit}$ provenance).</p>
+<p><strong>Technique: T5 (no tuning to the known answer firewall) on the constant's provenance.</strong></p>
+<ul>
+<li><strong>κ³/π falsification test:</strong> PASS only if $\eta_{BK}$ is demonstrably target-blind — a record that
+  $32\pi\,e^{\sqrt3/24\pi}$ was computed from the Gate-8 Wilson-line/Berezin–Kontsevich determinant <em>before</em>
+  and <em>independently of</em> the $\lvert y_t/y_b\rvert$ value. <strong>Current status: SUSPECT.</strong> $32\pi\approx100.53$ is
+  suspiciously close to $\approx102.87$ with the $e^{\sqrt3/24\pi}\approx1.0233$ correction doing the
+  fine-adjust; the test demands the determinant was written from geometry, not from $\approx58/102.87$.</li>
+<li><strong>Math to attempt:</strong> recompute the Berezin–Kontsevich finite determinant on the active branch from scratch,
+  target-blind, and check whether $1/\eta_{BK}$ falls out as $32\pi\,e^{\sqrt3/24\pi}$ <em>without</em>
+  $\lvert y_t/y_b\rvert$ in its inputs. This is a bounded computation handed to the Gate-8 determinant
+  specialist (shared with SG-8 Route A — close them together).</li>
+</ul>
+<p><strong>Named axiom?</strong> None — this is a <em>provenance audit</em>, not an axiom. The honest fallback if SUSPECT cannot be
+cleared:</p>
+<blockquote>
+<p><strong>DISCLOSED-CAUTION:</strong> state that the one-input-two-outputs compression is genuine <strong>iff</strong> $\eta_{BK}$ is
+target-blind, and flag $\eta_{BK}$ provenance as unaudited pending the determinant recompute — exactly as
+SG-8 flags Route A.</p>
+</blockquote>
+<p><strong>Success ladder.</strong> VERIFIED (determinant recompute yields $32\pi\,e^{\sqrt3/24\pi}$ blind → headline genuine);
+RELOCATES (reverse-engineered → headline true-by-construction, the over-determination claim folds);
+sharper-OPEN (provenance record absent → SUSPECT, disclosed). <strong>Honest disposition: SUSPECT — do not bank the
+one-input-two-outputs headline as a forced compression until the determinant recompute passes the falsification test.</strong>
+Couple this audit to SG-8 Route A (same constant).</p>
+<hr />
+<h3>4.6 R6 — $v$/$m_h$ reproduction harness (AUDIT)</h3>
+<p><strong>The obstruction.</strong> "$v=246.02$ and $m_h=123.82$ regenerate from the frozen $\eta_{BK}$ + geometry via the R0
+reproducer" is the load-bearing reproducibility claim, but the executable regeneration is <em>referenced</em>, not
+independently re-run in this audit — the same class as SG-7's absent δ-harness and SG-8's J.6/K.5 harness.</p>
+<p><strong>Technique: owner artifact (machine-lane), not an axiom.</strong> A fail-closed reproducibility task.</p>
+<p><strong>Owner artifact needed.</strong> (1) Run the R0 reproducer against the frozen inputs ($\eta_{BK}$ <code>84e94518d3f5</code>,
+$n_H=1$ <code>f65094fd8fd1</code>, cycle $\gamma$, $M_Z$ <code>a6852c7a6b00</code>), <strong>target-blind</strong>. (2) Confirm it regenerates
+$v=246.02\pm3.5$ and $m_h=123.82\pm1.8$ (the H.4/A1.10 values) to the declared precision. (3) Re-hash the R1.5/
+R1.6 rows and confirm the meta-hash recomputes to <code>a5b1e6f9d951</code>.</p>
+<p><strong>Math to attempt.</strong> None new — execution + verification. Fail-closed: if $v$ or $m_h$ cannot be regenerated,
+Gate 8 downgrades per the §6.12 / H.10.3 rule.</p>
+<p><strong>Success ladder.</strong> <strong>BLOCKED_INPUTS until the reproducer is mounted/re-run</strong> → then <strong>VERIFIED</strong> ($v$/$m_h$
+regenerate; "claimed certificate pass" becomes machine-real) or <strong>REFUTED</strong> (a value fails → downgrade).
+<strong>Highest value-per-effort closeable item</strong> — converts an asserted status into a machine-checked one with no
+new physics.</p>
+<hr />
+<h3>4.7 R7 — Higher-loop Higgs protection (Diagnostic only)</h3>
+<p><strong>The obstruction.</strong> One-loop protection survives because gauge invariance preserves the integer winding $n_H$;
+all-orders loop-resummation protection is <strong>not proven</strong> — H.9.6/H.10.1 report it as <strong>Diagnostic only</strong>, a
+deliberate scope limitation.</p>
+<p><strong>Technique: T1 (axiom-floor) on the topological-protection statement; or specialist no-go/resummation.</strong></p>
+<blockquote>
+<p><strong>AXIOM-WINDING-PROTECTION-ALL-LOOPS</strong> (κ³/π-clean): <em>"the integer winding $n_H$ is preserved to all loop
+orders because an integer cannot deform continuously under any perturbative gauge-invariant correction."</em>
+Writable with no mass value in sight; it is a topological statement.</p>
+</blockquote>
+<p><strong>The honest gap.</strong> The axiom is <em>plausible</em> (integers don't deform) but <strong>not proven</strong> — cross-sector and
+higher-loop corrections from outside the protected manifold are bounded, not provably zero (H.9.6,
+H.10.1 cross-sector row). The specialist target is a <strong>loop-resummation theorem</strong>: "perturbative corrections
+within the protected sector preserve $n_H$ at all orders," handed to a Hosotani/gauge-Higgs-unification
+specialist.</p>
+<p><strong>Success ladder.</strong> AXIOM-CLOSED (name the all-loop topological-protection axiom) is the realistic floor;
+DERIVED-CLOSED requires the resummation theorem (hard); the gate already DISCLOSES this honestly as Diagnostic.
+<strong>Honest disposition: DISCLOSED → AXIOM-CLOSED at the topological-protection axiom; the all-loop theorem is a
+genuine open specialist target, correctly scoped as Diagnostic, not hidden.</strong></p>
+<hr />
+<h3>4.8 R8 — $N_b\ne N_f$ requirement for a non-trivial minimum</h3>
+<p><strong>The obstruction.</strong> $V_{\rm Hos}\propto(N_b-N_f)\cos(n\theta_H)$. If $N_b=N_f$ in the relevant projection the
+$\theta_H$-dependence vanishes — <em>no breaking</em>. EWSB on this branch <strong>requires</strong> a boson/fermion KK imbalance.
+Is that imbalance <em>forced</em> by the frozen spectrum, or assumed?</p>
+<p><strong>Technique: T7 (eliminative) — compute the imbalance from the frozen KK content.</strong></p>
+<p><strong>Math to attempt.</strong> Tabulate $N_b$, $N_f$ for the protected projection from the frozen $K_{\rm gauge}$ KK
+spectrum (the same spectrum used in the G heat-kernel ledger and the EXTRACT_Q shape-doublet sum). Check the
+sign and magnitude of $N_b-N_f$ — and whether it produces a minimum at non-zero $\theta_H$ (necessary for
+breaking) at all. <strong>Caution (carried from EXTRACT_Q_SHAPE_DOUBLET):</strong> the relevant multiplicity table
+$d_{(p,q)}$ on $SU(3)/T^2$ is <strong>present-but-BLOCKED on disk</strong> — the $T^2$-invariant zero-weight multiplicity
+rule $m_0(p,q)$ is not supplied, so the graded sum (and hence a clean $N_b-N_f$) is <strong>fail-closed</strong>. The frozen
+heat-kernel ledger is ~3:1 boson-dominant (suggestive of a non-trivial minimum) but this is a dimensional hint,
+<strong>not</strong> a computed imbalance.</p>
+<p><strong>Named axiom?</strong> None needed if the imbalance computes; if it cannot (blocked), the honest statement is that
+the <em>existence</em> of a non-trivial breaking minimum rests on the blocked $m_0(p,q)$.</p>
+<p><strong>Success ladder.</strong> VERIFIED ($N_b-N_f$ computes and forces a non-trivial minimum → breaking is structural);
+BLOCKED_INPUTS (the $m_0(p,q)$ rule is absent → the breaking's existence is fail-closed on a missing
+group-theory datum); REFUTED ($N_b=N_f$ → no breaking, the doublet would not condense). <strong>Honest disposition:
+BLOCKED_INPUTS — the breaking <em>mechanism</em> is sound, but the <em>existence</em> of a non-trivial $\theta_H^\star$ rests
+on the same blocked $m_0(p,q)$ table that fail-closes the shape-doublet $q$. Supply $m_0(p,q)$ to unblock.</strong></p>
+<hr />
+<h3>4.9 R9 — Parity/center table selected-not-searched</h3>
+<p><strong>The obstruction.</strong> $Q=T_3+Y$ + the $\mathbb{Z}_6$ rule are <em>exact given</em> the frozen parity table
+<code>ac4d2df3e708</code>, which §5.2 states was <strong>selected</strong> ("searched no manifolds; selected the parity/center
+assignments on the fold; froze the parity table"). So the charge leg is forcedness <em>conditional on a selection</em>.</p>
+<p><strong>Technique: T10 (selector) + T4 (no-go on alternatives).</strong></p>
+<blockquote>
+<p><strong>AXIOM-PARITY-Z6</strong> (κ³/π-clean): <em>"the $\mathbb{Z}_2$ fold + center actions realize
+$[SU(3)\times SU(2)\times U(1)_Y]/\mathbb{Z}_6$ — the finest quotient consistent with the surviving spectrum
+and the $SU(3)\times SU(2)$ centers."</em> Writable with no charge value in sight.</p>
+</blockquote>
+<p><strong>The honest standing (from the A4-Z6 disposition).</strong> The campaign found $\Gamma=\mathbb{Z}_6$ is <strong>OPEN</strong>: the
+line-operator/maximality posit pins only $\Gamma\le\mathbb{Z}_6$ ($q\mid6$, not $q=6$), and "finest" is
+pinnable only by already wanting $\mathbb{Z}_6$ — the symmetric minimal cover $\Gamma=1$ is a priori equally
+motivated (no tuning to the known answer rejects AX-FINEST). <strong>But</strong> the SM hypercharge triples were verified to satisfy
+the Tong congruence $q=3z_2-2z_3\bmod6$ <strong>field-by-field</strong>, and the $\chi=-3$ trap is honored — so the <em>charge
+assignments</em> are consistent, even if the <em>quotient's finest-ness</em> is not forced.</p>
+<p><strong>Specialist target.</strong> "Is $\mathbb{Z}_6$ forced (not merely $\le\mathbb{Z}_6$) by the surviving spectrum +
+the requirement that $Q=T_3+Y$ be globally well-defined?" Expected: $\le\mathbb{Z}_6$ forced, $=\mathbb{Z}_6$
+selected.</p>
+<p><strong>Success ladder.</strong> AXIOM-CLOSED (AXIOM-PARITY-Z6 named; $Q=T_3+Y$ exact given it) is <em>already standing</em> and is
+the gate's strongest leg; DERIVED-CLOSED requires forcing $=\mathbb{Z}_6$ (OPEN per A4-Z6). <strong>Honest
+disposition: AXIOM-CLOSED — the charge embedding is rigid given the frozen parity table; the table's selection
+(and the $\mathbb{Z}_6$ finest-ness) is the residue, OPEN per the A4-Z6 campaign.</strong></p>
+<hr />
+<h3>4.10 R10 — $n_H=1$ minimality (selection)</h3>
+<p><strong>The obstruction.</strong> $n_H=1$ is the <em>minimal admissible integer</em> (H.8a): $n_H=0$ gives $v=0$ (no breaking),
+$n_H\ge2$ gives $v\approx492$ GeV and breaks the one-input-two-outputs alignment. The geometry <strong>excludes</strong>
+$n_H=0$ structurally and $n_H\ge2$ by a <em>post-hoc PDG check</em>; it does not <em>derive</em> that nature picks 1.</p>
+<p><strong>Technique: T10 (selector).</strong></p>
+<blockquote>
+<p><strong>AXIOM-MINIMAL-WINDING</strong> (κ³/π-clean): <em>"the Wilson-line Higgs carries the minimal non-zero admissible
+integer winding $n_H=1$."</em> Writable with no $v$ value in sight (it references only minimality + admissibility).</p>
+</blockquote>
+<p><strong>The honest split.</strong> $n_H=0$ exclusion is <strong>structural</strong> (no VEV — a clean a-priori kill). $n_H\ge2$ exclusion
+is <strong>data-dependent</strong> ($v\approx492$ misses PDG) — that is a selection by the target, not a forcedness. So the
+clean part (exclude 0) is target-blind; the "pick 1 over 2" part leans on $v$.</p>
+<p><strong>Success ladder.</strong> AXIOM-CLOSED (AXIOM-MINIMAL-WINDING) is the floor; DERIVED-CLOSED would require an
+<em>a-priori</em> reason (not $v\approx492$ misses PDG) to prefer 1 over 2 — none is given. <strong>Honest disposition:
+AXIOM-CLOSED at minimal-winding; the $n_H=0$ exclusion is structural and clean, the $n_H\ge2$ exclusion is a
+data check (selection), correctly disclosed.</strong></p>
+<hr />
+<h3>4.11 Attack-plan roll-up</h3>
+<table>
+<thead>
+<tr>
+<th>Residual</th>
+<th>Technique</th>
+<th>Named axiom (κ³/π-clean)</th>
+<th>Specialist target / owner artifact</th>
+<th>Realistic endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R2 SCALE firewall</td>
+<td>T5</td>
+<td>AXIOM-UV-CELL-FLOOR</td>
+<td>blind 6-gate firewall pass; or Path A dimensional near-no-go</td>
+<td><strong>OPEN / RELOCATION</strong> (firewall uncrossed; campaign-demoted)</td>
+</tr>
+<tr>
+<td>R1 lightness of $v$</td>
+<td>T1</td>
+<td>AXIOM-HIERARCHY-IS-UV-EXPONENT</td>
+<td>freeze $\Gamma_{\rm Pl}$ + blind $I_{EW}$ harness</td>
+<td><strong>sharper-OPEN</strong> (periodic-min → no exponent; 12 orders short)</td>
+</tr>
+<tr>
+<td>R3 custodial $\rho=1$</td>
+<td>T1 / T7</td>
+<td>AXIOM-CUSTODIAL-FROM-DOUBLET</td>
+<td><strong>compute $\rho$ blind from the single-doublet mass matrix</strong></td>
+<td><strong>OPEN → DERIVED-CLOSED plausible</strong> (most tractable physics target)</td>
+</tr>
+<tr>
+<td>R4 $\theta_H^\star$ read</td>
+<td>T1</td>
+<td>AXIOM-THETA-FROM-MIN (weak)</td>
+<td>symmetry-fixing check (expected to fail at $10^{-14}$)</td>
+<td>AXIOM-CLOSED (weak); strong upgrade REFUTED-in-advance</td>
+</tr>
+<tr>
+<td>R5 $\eta_{BK}$ provenance</td>
+<td>T5</td>
+<td>(none — provenance audit)</td>
+<td>recompute Berezin–Kontsevich determinant blind (with SG-8 Route A)</td>
+<td><strong>SUSPECT</strong> → VERIFIED or RELOCATES</td>
+</tr>
+<tr>
+<td>R6 $v$/$m_h$ harness</td>
+<td>machine-lane</td>
+<td>(none)</td>
+<td>run R0 reproducer + re-hash</td>
+<td>BLOCKED_INPUTS → VERIFIED (best value/effort)</td>
+</tr>
+<tr>
+<td>R7 higher-loop protection</td>
+<td>T1</td>
+<td>AXIOM-WINDING-PROTECTION-ALL-LOOPS</td>
+<td>loop-resummation theorem</td>
+<td>DISCLOSED → AXIOM-CLOSED</td>
+</tr>
+<tr>
+<td>R8 $N_b\ne N_f$</td>
+<td>T7</td>
+<td>(none)</td>
+<td>compute $N_b-N_f$ (needs $m_0(p,q)$)</td>
+<td><strong>BLOCKED_INPUTS</strong> ($m_0(p,q)$ absent)</td>
+</tr>
+<tr>
+<td>R9 parity/$\mathbb{Z}_6$ table</td>
+<td>T10 + T4</td>
+<td>AXIOM-PARITY-Z6</td>
+<td>force $=\mathbb{Z}_6$ (OPEN per A4-Z6)</td>
+<td>AXIOM-CLOSED (charge rigid given table)</td>
+</tr>
+<tr>
+<td>R10 $n_H=1$ minimality</td>
+<td>T10</td>
+<td>AXIOM-MINIMAL-WINDING</td>
+<td>a-priori 1-over-2 reason (none given)</td>
+<td>AXIOM-CLOSED</td>
+</tr>
+</tbody>
+</table>
+<p><strong>REDUCE-vs-RELOCATE verdict on the plan.</strong> The plan does <strong>not</strong> turn one hard problem into three harder
+ones — but it must be <em>brutally honest that two of its highest-leverage residuals RELOCATE</em>. R1 and R2 (the
+hierarchy lightness) are <strong>confirmed relocations as derivations</strong>: the SCALE firewall already proved
+$\mu_{\rm cell}$ has no $v$-independent readout, and the periodic-minimum mechanism rigorously cannot supply a
+transmutation exponent — so any "derivation" of $v$'s smallness relocates the hierarchy into the
+log-sensitivity of $v$ to $\log(\mu_{\rm cell}/M_*)$ (the κ³/π trap). The honest endpoint there is <strong>a genuine
+second dimensionful anchor with a near-no-go explaining why it is irreducible</strong> — a real, non-promoting result,
+not a closure. The <em>one place real physics progress is available</em> is <strong>R3 (custodial $\rho=1$)</strong>: it is a
+genuine <em>missing</em> deliverable (not a relocation), it is a bounded computation, and $\rho=1$ for a single
+doublet is a <em>structural</em> SM consequence — so R3 can plausibly reach <strong>DERIVED-CLOSED</strong> and supply the EW
+observable the gate currently omits. The cheap machine-lane win is <strong>R6</strong> (run the $v$/$m_h$ reproducer).
+<strong>R5</strong> ($\eta_{BK}$ provenance) is a SUSPECT that must be cleared or the one-input-two-outputs headline folds.
+<strong>R8</strong> is fail-closed on the same missing $m_0(p,q)$ group-theory datum that blocks the shape-doublet.</p>
+<p>The honest expected outcome of a full campaign: <strong>R3 plausibly DERIVED-CLOSED (compute $\rho$); R6 VERIFIED
+(run reproducer); R4/R7/R9/R10 AXIOM-CLOSED at honest floors; R1/R2 sharper-OPEN/RELOCATION (with the
+near-no-go banked); R5 SUSPECT-pending-audit; R8 BLOCKED_INPUTS.</strong> No DERIVED-CLOSED is promised on the
+hierarchy. The gate would move from PARTIAL-with-an-undelivered-custodial-and-asserted-status to
+<strong>PARTIAL-with-$\rho=1$-delivered + a machine-verified $v$/$m_h$ + a named axiom floor + a banked
+hierarchy near-no-go</strong> — a real honesty/reproducibility/physics gain on R3/R6, <strong>not</strong> a promotion on the
+hierarchy.</p>
+<hr />
+<h2>A. Anchoring &amp; Hardening Map</h2>
+<p>This gate, run through <strong>our internal honesty methodology</strong>: for each open residual we ask <strong>gap-or-wall?</strong> (does a route
+exist, or is the route itself the problem), <strong>hunt the implicit assumption</strong> the residual silently rests on,
+then ask <strong>which measured invariant truth must it terminate on</strong> — does it reduce to an EXISTING anchor
+($\hbar$ / $M_{\rm Pl}$ / spectrum-$E$ / $\alpha_i(M_Z)$ / $y_t$ / $\lvert V_{us}\rvert$), need a NEW named
+invariant, hinge on a SCHEME-anchor (one geometry-unfixed convention), sit as a COMPUTATION-DEBT (the route
+exists but the finished number/harness is absent), or have NO witness at all → OPEN. The framework and the
+disposition vocabulary used below are the live <strong>Gaps &amp; Walls Register</strong>
+(<a href="https://physics.magflowmeters.com/articles/GAPS_AND_WALLS_REGISTER.html">https://physics.magflowmeters.com/articles/GAPS_AND_WALLS_REGISTER.html</a>); the labels mean exactly what they
+mean there — <strong>DERIVED</strong> (tied to an already-measured fact, no new assumption) / <strong>DERIVED-GIVEN-E</strong> (rigid once
+the observed content $E$ is supplied) / <strong>AXIOM-CLOSED</strong> (reduced to one named value-free posit; the gap stays
+open) / <strong>DISSOLVED</strong> (a false/unmeasured premise dropped) / <strong>SCHEME-ANCHORED</strong> (reachable only after one named
+geometry-unfixed convention) / <strong>OPEN</strong> (genuinely unsolved, or the only escape assumes the answer) /
+<strong>BLOCKED</strong> (a real route exists but a required input is missing/contradictory) / <strong>measured-but-irreducible</strong>
+(known from experiment, no derivation here). Ceiling, unchanged: <strong>serious candidate, NOT validated.</strong></p>
+<h3>A.1 Per-residual anchoring &amp; hardening table</h3>
+<table>
+<thead>
+<tr>
+<th>Residual (from §3)</th>
+<th>GAP or WALL (+kind)</th>
+<th>Measured-invariant truth it must terminate on</th>
+<th>Honest disposition</th>
+<th>What would HARDEN it (concrete next step)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R1</strong> — lightness of $v$ ($\theta_H^\star$ read from a minimum)</td>
+<td><strong>WALL</strong> (no-known-route / only escape assumes the answer)</td>
+<td>Needs a <strong>NEW named invariant</strong>: a target-blind exponent $I_{EW}=\ln(M_{\rm Pl}/v_{EW})\approx36.83$ anchored on $M_{\rm Pl}$ alone (no EW input). It does <strong>not</strong> reduce to an existing anchor — the only available "derivation" re-logs the observed $v$ (circular), and a periodic CW minimum supplies no transmutation exponent.</td>
+<td><strong>OPEN</strong> (mechanism rigorously diagnosed; ~85% of the hierarchy undelivered, protection ratio 12 orders short)</td>
+<td>Freeze + hash the UV dimensionless boundary vector $\Gamma_{\rm Pl}$ (no EW dimensionful input), then recompute $V_{\rm Hos}$ from the frozen KK content and test whether $\theta_H^\star\sim10^{-14}$ falls out <strong>blind</strong> — expected to fail (generic minimum is $\mathcal O(1)$), which sharpens the OPEN with a reason.</td>
+</tr>
+<tr>
+<td><strong>R2</strong> — SCALE firewall: $\mu_{\rm cell}$ vs the hierarchy</td>
+<td><strong>WALL</strong> (the route itself is the problem — RELOCATION)</td>
+<td>The implicit assumption is that $\mu_{\rm cell}$ can be anchored independently of $v$. The firewall shows it cannot: its only anchor $\partial_\sigma V=0$ <strong>is</strong> where $v$ is set, and $\mu_{\rm cell}\to v$ is invertible-by-construction. Terminates on <strong>no $v$-independent invariant</strong> — $v_{EW}$ is itself a genuine second dimensionful anchor.</td>
+<td><strong>OPEN / RELOCATION</strong> (firewall correctly posed, UNCROSSED; AXIOM-UV-CELL-FLOOR campaign-DEMOTED to OPEN)</td>
+<td>Exhibit a $v$-independent UV readout for $\Delta_0$ at the $K_6/M_U$ scale <strong>and</strong> prove uniform $\Delta_0$ (close the $\eta$-window); OR bank the Path-A dimensional near-no-go (a second mass cannot be built from $\{M_{\rm Pl},\hbar,$ dimensionless geometry$\}$) as the honest endpoint — do <strong>not</strong> bank the floor axiom.</td>
+</tr>
+<tr>
+<td><strong>R3</strong> — custodial $\rho=1$ undelivered</td>
+<td><strong>GAP</strong> (a route exists; a deliverable is simply missing)</td>
+<td>Terminates on the <strong>measured $\rho_0=1.00038\pm0.00020$</strong> via the existing anchors: $\rho=M_W^2/(M_Z^2\cos^2\theta_W)$ is fixed by the single-doublet VEV + the frozen gauge couplings (the $\alpha_i(M_Z)$ line). $\rho=1$ is a <strong>structural</strong> single-doublet consequence, not a fit.</td>
+<td><strong>OPEN</strong> — but the gate's one plausibly <strong>DERIVED-GIVEN-E</strong> target (the most tractable physics gap)</td>
+<td>Run Route B: write the $W$/$Z$ mass matrix from the single-doublet $\langle H\rangle$ in the geometric basis, check whether the $S^2$/$S^1_Y$ routing preserves $SU(2)_{\rm cust}$, and compute $\rho$ <strong>blind</strong> — $\rho=1$ discharges R3; any custodial-breaking term surfaces as a clean falsifier vs $\rho_0$.</td>
+</tr>
+<tr>
+<td><strong>R4</strong> — $\theta_H^\star$ read from a minimum (SG-6 inheritance)</td>
+<td><strong>GAP→WALL boundary</strong> (weak axiom stands; strong upgrade has no route)</td>
+<td>The weak form is <strong>true by construction</strong> (no invariant needed). The strong upgrade would terminate on a <strong>symmetry/topology</strong> invariant of the cycle $\gamma$ — but $10^{-14}$ is <strong>not a symmetric point</strong> (symmetries force $\theta_H^\star\in\{0,\pi\}$), so no symmetry invariant can supply it.</td>
+<td><strong>AXIOM-CLOSED</strong> at AXIOM-THETA-FROM-MIN (weak); strong symmetry upgrade <strong>REFUTED-in-advance</strong></td>
+<td>The clean falsification is already available: confirm no symmetry of $\gamma$ / the $S^1_Y/\mathbb{Z}_2$ fold fixes a non-symmetric $\theta_H^\star\sim10^{-14}$ — recording it as a group-theory no-go hardens R1's near-no-go.</td>
+</tr>
+<tr>
+<td><strong>R5</strong> — $\eta_{BK}$ provenance (one-input-two-outputs)</td>
+<td><strong>GAP</strong> (provenance audit — a route exists)</td>
+<td>Hinges on whether $1/\eta_{BK}=32\pi\,e^{\sqrt3/24\pi}$ was written <strong>target-blind</strong> from the Wilson-line determinant, or reverse-engineered to land on $\lvert y_t/y_b\rvert$ (the <strong>$y_t$ anchor</strong>). If blind, it reduces to geometry; if not, the headline is true-by-construction (the κ³/π pattern).</td>
+<td><strong>SUSPECT</strong> (provenance unaudited) — do not bank the over-determination headline until cleared</td>
+<td>Recompute the Berezin–Kontsevich finite determinant on the active branch <strong>target-blind</strong> (with $\lvert y_t/y_b\rvert$ absent from inputs); couple to SG-8 Route A (same constant). Pass → VERIFIED; reverse-engineered → RELOCATES.</td>
+</tr>
+<tr>
+<td><strong>R6</strong> — $v$/$m_h$ reproduction harness</td>
+<td><strong>GAP</strong> (COMPUTATION-DEBT — route exists, harness not re-run)</td>
+<td>Terminates on the <strong>frozen spectrum / $\eta_{BK}$ + the $M_Z$ comparison scale</strong>: the R0 reproducer regenerating $v=246.02$, $m_h=123.82$ from frozen inputs. No new invariant; pure machine-reality.</td>
+<td><strong>AUDIT → BLOCKED_INPUTS</strong> until the reproducer is mounted/re-run</td>
+<td>Run the R0 reproducer <strong>target-blind</strong> against the frozen inputs ($\eta_{BK}$ <code>84e94518d3f5</code>, $n_H=1$, cycle $\gamma$, $M_Z$), confirm $v$/$m_h$ to declared precision, and re-hash to <code>a5b1e6f9d951</code>. Highest value-per-effort closeable item; fail-closed downgrade if a value misses.</td>
+</tr>
+<tr>
+<td><strong>R7</strong> — higher-loop Higgs protection</td>
+<td><strong>GAP</strong> (disclosed scope limit; route to a theorem exists)</td>
+<td>Terminates on a <strong>topological invariant</strong> ($\hbar$-class quantization): the integer winding $n_H$ cannot deform continuously under perturbative gauge-invariant corrections. One-loop is proven; all-orders is the open theorem.</td>
+<td><strong>DISCLOSED → AXIOM-CLOSED</strong> at AXIOM-WINDING-PROTECTION-ALL-LOOPS (honestly scoped Diagnostic, not hidden)</td>
+<td>Hand a loop-resummation theorem to a gauge-Higgs-unification specialist: "perturbative corrections within the protected sector preserve $n_H$ at all orders," bounding the cross-sector contributions H.9.6/H.10.1 flag as not-provably-zero.</td>
+</tr>
+<tr>
+<td><strong>R8</strong> — $N_b\ne N_f$ for a non-trivial minimum</td>
+<td><strong>GAP</strong> (BLOCKED — required group-theory datum missing)</td>
+<td>Terminates on the <strong>frozen spectrum-$E$</strong> (the KK content of the protected projection): the imbalance $N_b-N_f$ must compute from the $SU(3)/T^2$ multiplicity table. Blocked by the absent $T^2$-invariant zero-weight rule $m_0(p,q)$.</td>
+<td><strong>BLOCKED_INPUTS</strong> — breaking <em>mechanism</em> sound; <em>existence</em> of $\theta_H^\star\ne0$ fail-closed on $m_0(p,q)$</td>
+<td>Supply the $m_0(p,q)$ zero-weight multiplicity rule (the same datum that blocks the shape-doublet $q$), tabulate $N_b$, $N_f$, and confirm $N_b\ne N_f$ forces a minimum at non-zero $\theta_H$.</td>
+</tr>
+<tr>
+<td><strong>R9</strong> — parity/center table selected-not-searched</td>
+<td><strong>GAP</strong> (selection $\neq$ derivation; charge rigid given the table)</td>
+<td>The charge leg $Q=T_3+Y$ + the $\mathbb{Z}_6$ rule terminate on the <strong>frozen spectrum-$E$</strong> (the SM hypercharge triples satisfy the Tong congruence $q=3z_2-2z_3\bmod6$ field-by-field, $\chi=-3$ honored), <strong>given</strong> the frozen parity table. The table's finest-ness ($=\mathbb{Z}_6$ vs $\le\mathbb{Z}_6$) needs no new invariant — it is a selection.</td>
+<td><strong>AXIOM-CLOSED</strong> at AXIOM-PARITY-Z6 (the gate's strongest leg, hand-checkable); $=\mathbb{Z}_6$ finest-ness OPEN per A4-Z6</td>
+<td>Attempt to force $=\mathbb{Z}_6$ (not merely $\le\mathbb{Z}_6$) from the surviving spectrum + global well-definedness of $Q=T_3+Y$; expected outcome $\le\mathbb{Z}_6$ forced, $=\mathbb{Z}_6$ selected — recording the residue cleanly.</td>
+</tr>
+<tr>
+<td><strong>R10</strong> — $n_H=1$ minimality (selection)</td>
+<td><strong>GAP</strong> (selector; clean structural part + a data-leaning part)</td>
+<td>The $n_H=0$ exclusion is <strong>structural</strong> ($v=0$, target-blind). The "pick 1 over 2" leans on the <strong>measured $v$</strong> ($n_H\ge2\Rightarrow v\approx492$ misses PDG) — a selection by the target, not a new invariant.</td>
+<td><strong>AXIOM-CLOSED</strong> at AXIOM-MINIMAL-WINDING ($n_H=0$ kill clean; $n_H\ge2$ kill is a disclosed data check)</td>
+<td>Find an <em>a-priori</em> reason (independent of $v\approx492$ missing PDG) to prefer $n_H=1$ over $n_H=2$ — none is currently given; absent that, the honest floor is the named minimality axiom.</td>
+</tr>
+</tbody>
+</table>
+<h3>A.2 Gate-level rollup</h3>
+<ul>
+<li><strong>Overall disposition.</strong> SG-5 stays <strong>PARTIAL</strong>, and the hardening map confirms <em>why</em> it cannot rise higher:
+  its three genuine legs split sharply by what invariant they touch. The <strong>charge leg</strong> (R9) is the strongest —
+  <strong>AXIOM-CLOSED / hand-checkable</strong>, terminating on the frozen spectrum-$E$ given the parity table. The
+  <strong>breaking + protection</strong> legs are real mechanism but carry a <strong>BLOCKED</strong> existence proof (R8) and an
+  <strong>AXIOM-CLOSED</strong> all-loop scope limit (R7). The <strong>hierarchy</strong> legs (R1, R2) are the two <strong>WALLs</strong> — they
+  terminate on <strong>no $v$-independent invariant</strong>, and the SCALE firewall has already returned <strong>OPEN /
+  RELOCATION</strong>; $v_{EW}$ is a genuine second dimensionful anchor. <strong>Custodial $\rho=1$</strong> (R3) is the one true
+  <strong>GAP</strong> with a measured invariant ($\rho_0$) and a plausible <strong>DERIVED-GIVEN-E</strong> route. The headline economy
+  (R5) is <strong>SUSPECT</strong> until the determinant is recomputed blind, and the $v$/$m_h$ harness (R6) is a
+  <strong>COMPUTATION-DEBT</strong>.</li>
+<li><strong>Anchors it depends on.</strong> Existing anchors: <strong>spectrum-$E$</strong> (charge tables, the $\mathbb{Z}_6$ rule, the KK
+  imbalance — R8/R9), <strong>$y_t$</strong> (the $\lvert y_t/y_b\rvert$ calibration that $\eta_{BK}$ rides — R5),
+  <strong>$\lvert V_{us}\rvert$</strong> (the flavor-anchor interface), <strong>$\alpha_i(M_Z)$</strong> (the frozen gauge couplings
+  entering $M_W$/$M_Z$ — R3), and <strong>$M_{\rm Pl}$ / $\hbar$</strong> (the would-be hierarchy exponent and the
+  topological-winding quantization — R1/R7). It depends on <strong>no derived hierarchy invariant</strong> — that is exactly
+  the open surface. Consistency note: SG-5's quantitative status is <em>milder</em> than <strong>SG-7</strong>, which the live
+  Register and GUT.md now carry as <strong>Diagnostic-only / SCHEME-ANCHORED</strong> (threshold rows fitted-not-derived,
+  magnitude scheme-anchored); SG-5's numbers are near-hits given the anchors, not fitted threshold rows, but
+  share the discipline that signs/structure are firmer than magnitudes.</li>
+<li><strong>Single highest-leverage hardening move.</strong> <strong>Compute $\rho$ blind from the single-doublet geometric mass
+  matrix (R3, Route B).</strong> It is the only residual that is a genuine <em>missing deliverable</em> (not a relocation),
+  it is a bounded computation, it terminates on a <em>measured</em> invariant ($\rho_0=1.00038\pm0.00020$), and
+  $\rho=1$ is a structural single-doublet consequence — so it can plausibly reach <strong>DERIVED-GIVEN-E</strong> and supply
+  the one required EW observable the gate currently omits, while surfacing any geometric custodial-breaking term
+  as a clean falsifier. (The cheap reproducibility win is R6; the two WALLs R1/R2 admit only a banked
+  near-no-go, not a closure.) <strong>No status was ever upgraded</strong> — none of the above is a promotion; it is the honest map of where
+  each residual must terminate.</li>
+</ul>
+<h3>🎯 Target anchor(s) for this gate</h3>
+<p>In the terminate-on (anchoring) sense, SG-5 must terminate on the <strong>two dimensionful anchors $M_{\rm Pl}$
+and $v_{EW}$</strong> — and on no measured invariant beyond those. The <strong>charge leg ($Q=T_3+Y$ + the $\mathbb{Z}_6$
+rule)</strong> carries <strong>no anchor of its own</strong>: it is <strong>structural / DERIVED-GIVEN-E</strong> once the observed content $E$
+(the SM hypercharge triples) is supplied. The breaking and the near-hit numbers ($v=246.02$, $m_h=123.82$)
+ride the existing anchors ($\eta_{BK}$/spectrum-$E$, $y_t$, $\alpha_i(M_Z)$) — they are <strong>frozen outputs given
+the anchors, NOT a derived lightness</strong>. The <strong>single open leg is the hierarchy-lightness of $v_{EW}$</strong>: it
+rests on $\theta_H^\star$ <strong>read from a one-loop minimum</strong> (not derived) and terminates on <strong>no $v$-independent
+invariant</strong> — so $v_{EW}$ stands as <strong>a genuine second dimensionful anchor, OPEN</strong> (the SCALE firewall returned
+OPEN / RELOCATION). Closing the hierarchy needs the <strong>$\theta_H^\star$ derivation, not a new anchor</strong>; there is
+<strong>no measured invariant beyond $\{M_{\rm Pl},\,v_{EW}\}$</strong> for this gate to reach for. (No scheme-anchor is
+load-bearing for the target statement; $v_{EW}$'s lightness is OPEN, not SCHEME-ANCHORED.) <strong>No status was ever upgraded.</strong></p>
+<hr />
+
+<section class="card" id="sg5-pressure-test">
+  <h2>What this gate reduces to — and its honest status</h2>
+
+  <p style="border-left:4px solid #0b5;background:#f7fdf9;border-radius:4px;padding:.55rem .9rem">
+    <strong>Honest endpoint up front.</strong> The electroweak sector of the frozen geometry
+    <em>genuinely embeds electric charge</em> ($Q=T_3+Y$ on every multiplet) and
+    <em>genuinely breaks</em> $SU(2)_L\times U(1)_Y\to U(1)_{\rm em}$ with a single protected
+    Wilson-line doublet, and the photon comes out exactly massless. But the gate is
+    <strong>OPEN</strong>, not closed: the custodial parameter
+    $\rho$ on the actual frozen object comes out
+    $\rho_{\rm tree}\neq1$ — a real, live tension
+    with precision electroweak data — and the lightness of the electroweak scale is not derived.
+    Serious candidate, not validated.
+  </p>
+
+  <h3>What the gate reduces to</h3>
+  <p>
+    The electroweak legs rest, in plain physics terms, on the following:
+  </p>
+  <ul>
+    <li>The measured electroweak scale itself, $v_{EW}\approx246$ GeV — a directly measured
+      invariant with no derivation behind it. Everything else is derived <em>given</em> the
+      Standard-Model chiral content and the selected geometry as input.</li>
+    <li>The custodial parameter $\rho = M_W^2/(M_Z^2\cos^2\theta_W)$, which the Standard Model
+      fixes to $1$ at tree level, evaluated on the actual frozen object — a Wilson-line/holonomy
+      Higgs with no built-in custodial symmetry — rather than the textbook fundamental-doublet
+      form that trivially gives $\rho=1$.</li>
+    <li>The genuine geometric $W$/$Z$ mass matrix — the overlaps of the broken generators with
+      the holonomy direction — from which $\rho$ is read.</li>
+    <li>The charge law: $Q=T_3+Y$ being exact also constrains how the holonomy direction sits
+      inside $SU(2)_L$, which is what fixes $\rho$.</li>
+  </ul>
+
+  <h3>Honest endpoint</h3>
+  <p>
+    <strong>Established (given the observed inputs and the selected geometry):</strong>
+    the charge embedding $Q=T_3+Y$ is exact and hand-checkable on every multiplet; the breaking
+    $SU(2)_L\times U(1)_Y\to U(1)_{\rm em}$ is delivered by one topologically protected doublet;
+    the photon is exactly massless (forced by the charge-preserving vacuum, independent of all
+    normalizations); the dangerous quadratic sensitivity of the Higgs mass to the cutoff is
+    structurally avoided at one loop; and the same single geometric quantity that fixes a Yukawa
+    ratio also near-hits both $v$ and the Higgs mass.
+  </p>
+  <p>
+    <strong>The precisely-named open pieces:</strong>
+    (a) the custodial parameter comes out $\rho_{\rm tree}\neq1$ on the actual frozen object — a
+    genuine, falsifiable tension with precision electroweak measurements;
+    (b) the lightness of the electroweak scale is undelivered (a read phase, not a derivation),
+    and the only scale that could bridge it has no measurement-independent handle, so that route
+    relocates the hierarchy rather than closing it;
+    (c) two supporting certificates — that the doublet is the unique vacuum-generating mode, and
+    that mixing with heavy modes cannot shift $\rho$ appreciably — remain unbuilt, awaiting one
+    shared missing ingredient.
+    For all these reasons the gate stands <strong>OPEN</strong>.
+  </p>
+</section>
+
+<h2>5. References &amp; source map</h2>
+<h3>5.1 Website source-of-truth (common material — link, don't duplicate)</h3>
+<ul>
+<li><strong>Paper I, GUT.html</strong> — <a href="https://physics.magflowmeters.com/articles/GUT.html">https://physics.magflowmeters.com/articles/GUT.html</a></li>
+<li><strong>§6.3</strong> Gate-3 charge card; <strong>§6.5</strong> Gate-5 anomaly card; <strong>§6.8</strong> Gate-8 Higgs card; <strong>§6.12</strong>
+    falsification map (Gate 3/5/8 rows); <strong>§6.13</strong> certificate summary.</li>
+<li><strong>§5.2 / §5.4 / §5.7</strong> narrative modules; <strong>§3</strong> the worked anomaly example.</li>
+<li><strong>Appendix D</strong> (SM recovery / charge tables); <strong>Appendix E′</strong> (chirality + anomaly closure).</li>
+<li><strong>Appendix H</strong> (Higgs protection): H.1 origin, <strong>H.2.1</strong> explicit Wilson-line formula + $V_{\rm Hos}$ + the
+    <strong>2026-06-23 correction box</strong> ($\sqrt{\eta_{BK}}/(2\pi)\sim10^{-2}$ is 12 orders too large), H.4 outputs,
+    <strong>H.9</strong> protection checklist (the <strong>H.9.7 non-claims box</strong>: "$m_h$ not predicted from first principles
+    without chamber input"; "$\theta_H^\star$ read from the chamber minimum"), <strong>H.10</strong> correction-class
+    ledger, <strong>H.11</strong> authority summary.</li>
+<li><strong>Appendix CR</strong> modules <strong>CR2 / CR3 / CR5 / CR8</strong> (reader companions).</li>
+<li><strong>Appendices A1 / A2 / R0</strong> (full-precision constants $\eta_{BK}$, $M_*$; $E_{\rm Higgs}$ bundle; freeze
+    records — all hashes in §0 above).</li>
+<li><strong>Paper IV, TOE.html</strong> — <a href="https://physics.magflowmeters.com/articles/TOE.html">https://physics.magflowmeters.com/articles/TOE.html</a> (SCALE / hierarchy firewall
+  conclusions; the $v_{EW}$ second-anchor irreducibility).</li>
+</ul>
+<p>This dossier recaps only what is needed to attack; the site controls all common material.</p>
+<h3>5.2 Corpus locations (authoritative inputs to this dossier)</h3>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Path</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Per-gate dossier spec</td>
+<td><code>…/rendered/TOE/PER_GATE_DOSSIER_SPEC.md</code></td>
+<td>structure (sections 0–5)</td>
+</tr>
+<tr>
+<td>SG-8 exemplar (shape match)</td>
+<td><code>…/rendered/TOE/PER_GATE_DOSSIERS/DOSSIER_SG8_FLAVOR_CLOSURE_ATTACK.md</code></td>
+<td>format / depth template</td>
+</tr>
+<tr>
+<td>SG-5 status line</td>
+<td><code>…/rendered/TOE/SCOPED_GUT_PER_GATE_STATUS_LEDGER.md</code></td>
+<td>the PARTIAL label + honest caveats (carried verbatim)</td>
+</tr>
+<tr>
+<td><strong>SCALE firewall (authoritative R2 adjudication)</strong></td>
+<td><code>…/rendered/TOE/FIREWALL_MUCELL_INDEPENDENCE_2026-06-23.md</code></td>
+<td>the 4-part firewall criterion; gates (2)/(4) FAIL; RELOCATION</td>
+</tr>
+<tr>
+<td><strong>SCALE / hierarchy final verdict</strong></td>
+<td><code>…/rendered/TOE/SCALE_HIERARCHY_FINAL_VERDICT_2026-06-23.md</code></td>
+<td>Path A circular + Path B wrong-mechanism; $v_{EW}$ = second anchor; "two separate floor-values"</td>
+</tr>
+<tr>
+<td><strong>Hierarchy RG exponent handoff</strong></td>
+<td><code>…/rendered/TOE/HANDOFF_T_HIERARCHY_RG_EXPONENT.md</code></td>
+<td>$\theta_H^\star\approx2.46\times10^{-14}$; circular re-log auto-FAIL; $\Gamma_{\rm Pl}$ protocol</td>
+</tr>
+<tr>
+<td>Closure campaign (R2 demotion)</td>
+<td><code>…/rendered/TOE/CLOSURE_CAMPAIGN_RESULT_2026-06-24.md</code></td>
+<td>A2-firewall AXIOM_CLOSED→OPEN demotion; κ³/π discipline; §3 decisive verdict</td>
+</tr>
+<tr>
+<td>Closure campaign round 2</td>
+<td><code>…/rendered/TOE/CLOSURE_CAMPAIGN_ROUND2_2026-06-24.md</code></td>
+<td>demotion-on-verify norm; RELABEL_FAIL / BLOCKED_INPUTS dispositions</td>
+</tr>
+<tr>
+<td>Shape-doublet $q$ extract (R8 block)</td>
+<td><code>…/rendered/TOE/EXTRACT_Q_SHAPE_DOUBLET_2026-06-23.md</code></td>
+<td>$m_0(p,q)$ present-but-BLOCKED → $N_b-N_f$ fail-closed</td>
+</tr>
+<tr>
+<td>GUT manuscript</td>
+<td><code>…/rendered/GUT/GUT.md</code></td>
+<td>§6.3 charge; §6.5 anomaly; §6.8 Higgs; §5.2/§5.4/§5.7; Appendix D; Appendix E′; <strong>Appendix H</strong> (H.1–H.11); A1/A2/R0</td>
+</tr>
+</tbody>
+</table>
+<h3>5.3 Frozen-object hash index (load-bearing; READ-ONLY)</h3>
+<p>Branch <code>dcc66f1b2685</code> · manifest meta <code>a5b1e6f9d951</code> · parity table (realizes $/\mathbb{Z}_6$) <code>ac4d2df3e708</code>
+· Higgs Wilson-line bundle <code>2a0462b8aab9</code> · Wilson-line cycle $\gamma$ <code>640e1d7f7773</code> · integer winding
+$n_H=1$ <code>f65094fd8fd1</code> · $\eta_{BK}=0.009721281516312024$ <code>84e94518d3f5</code> · anchor $y_t$ <code>548d7099ef18</code> ·
+anchor $\lvert V_{us}\rvert$ <code>a1bc510bc7cd</code> · comparison scale $M_Z$ <code>a6852c7a6b00</code> · UV reference
+$M_*=7.467\times10^{16}$ GeV (A1.10). <strong>$\theta_H^\star$: no first-principles value — read from the
+$V_{\rm Hos}$ minimum (H.9.7).</strong> <strong>Custodial $\rho=1$: no object, no hash — UNDELIVERED.</strong> <strong>$m_0(p,q)$
+zero-weight multiplicity (R8): present-but-BLOCKED on disk — $N_b-N_f$ fail-closed.</strong></p>
+<hr />
+<h3>Closing honest statement</h3>
+<p>SG-5 is <strong>PARTIAL</strong>. Its genuine, defensible content is real and strong on three legs of unequal grade: the
+<strong>electric-charge embedding $Q=T_3+Y$</strong> is exact componentwise on every multiplet (plus the $\mathbb{Z}_6$
+consistency rule), <em>given</em> the frozen parity table — the strongest, hand-checkable leg; the <strong>breaking
+$SU(2)_L\times U(1)_Y\to U(1)_{\rm em}$ by a single Wilson-line/Hosotani doublet</strong> ($n_H=1$,
+integer-winding-protected) is a genuine mechanism that also <strong>structurally avoids the Higgs-mass quadratic
+destabilization</strong> (a proven, banked sub-result); and $v=246.02$, $m_h=123.82$ <strong>near-hit</strong> PDG from one finite
+determinant $\eta_{BK}$ (one input, two outputs). Its honest open surface is equally clear and is dominated by
+the <strong>hierarchy</strong>: the <strong>gauge-hierarchy lightness of $v$ is UNDELIVERED</strong> — $\theta_H^\star\approx2.46\times
+10^{-14}$ is <strong>read from the chamber minimum</strong> (~85% of the hierarchy), the protection ratio
+$\sqrt{\eta_{BK}}/(2\pi)\sim10^{-2}$ is <strong>12 orders too large</strong>, and the <strong>SCALE firewall verdict is
+RELOCATION</strong> ($\mu_{\rm cell}$ has no $v$-independent readout; $\partial_\sigma V=0$ <em>is</em> the hierarchy);
+<strong>custodial $\rho=1$ is UNDELIVERED</strong> (no custodial object exists in the corpus); $\eta_{BK}$ provenance is
+<strong>SUSPECT</strong> pending a target-blind determinant recompute; and the $v$/$m_h$ harness is <strong>AUDIT</strong>. The attack
+plan reduces these to named, target-blind axioms and bounded falsifiable computations — with the κ³/π falsification test
+guarding R1/R2 (the hierarchy, confirmed RELOCATION) and R5 ($\eta_{BK}$ provenance), and with the one genuine
+physics-progress target being <strong>R3 (compute $\rho$ blind from the single-doublet mass matrix → plausibly
+DERIVED-CLOSED)</strong>, the cheap machine-lane win being <strong>R6 (run the $v$/$m_h$ reproducer)</strong>, and <strong>R8</strong> fail-closed
+on the same missing $m_0(p,q)$ datum that blocks the shape-doublet. The realistic ceiling is <strong>$\rho=1$
+delivered + a machine-verified $v$/$m_h$ + a named axiom floor + a banked hierarchy near-no-go</strong> —
+<strong>not</strong> a promotion on the hierarchy. <strong>No status was ever upgraded; frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>
+READ-ONLY; given-E ≠ derivation of E; selection ≠ derivation; dissolved ≠ solved; nothing applied, nothing
+deployed.</strong></p>
+<p><em>Dossier built 2026-06-24. Our geometry (13D K₆ branch) only. Common material referenced to the published
+website source-of-truth, not duplicated.</em></p>
+</body></html>

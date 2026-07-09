@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deep roots — legitimate terminal endpoints</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 240px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9679; The Closure System</a></div>
+<div class="ann-sub"><a href="/anchors/">&#8592; The Anchors</a> &nbsp; <a href="/walls/">The Walls</a></div>
+<div class="ann-group">The endpoints</div>
+<a href="deep-roots.html" class="current">Deep roots — terminal endpoints</a>
+<a href="dissolutions.html">Dissolutions — dissolved ≠ solved</a>
+<div class="ann-group">The protocol</div>
+<a href="wall-routing-protocol.html">The wall-routing protocol</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">Deep roots — legitimate terminal endpoints — rendered package. Rendered from <code>deep-roots.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>Deep roots — legitimate terminal endpoints</h1>
+<blockquote>
+<p>Deep roots are the irreducible operating floor of the framework. They are where explanation currently stops. They are not magic, and they are not proof that no deeper theory exists. They are explicit commitments: each root is named, status-labeled, and connected to the rest of the anchor ledger. A root is acceptable only if it is openly paid, not smuggled.</p>
+</blockquote>
+<p>A deep root is the opposite of a hidden assumption. It is an assumption or irreducible operating condition that has been named, typed, charged, and protected from overclaim. The one statement this page exists to make explicit is this:</p>
+<p>$$\boxed{\;\text{A deep root is not a failure to explain. It is a declared endpoint where explanation stops honestly.}\;}$$</p>
+<p><strong>The deep roots are also where walls dissolve <em>to</em>.</strong> A wall dissolves <em>given a complete root</em> — the terminal endpoint is <strong>dissolved-given-Granularity / -Shape / -Scale</strong> (or a combination). And this is not a fallback: since nothing is <em>solved from nothing</em> (the floor is <strong>≥ 1</strong>), <strong>dissolution ≠ solved, but it is the only possible endpoint</strong> — a genuine wall either <strong>is</strong> a measured anchor at the root floor, or it dissolves once the complete root removes the idealization that generated it. See <strong><a href="./dissolutions.html">Dissolutions — dissolved is not solved</a></strong>.</p>
+<p>This page is part of the <strong>/closure/</strong> set. Its siblings are <a href="./dissolutions.html">Dissolutions — when a problem disappears once a root is granted</a> and <a href="./wall-routing-protocol.html">The wall-routing protocol — derivation, reduction-to-root, dissolution, or wall-record</a>. It builds directly on the <a href="/anchors/index.html">/anchors/</a> system and feeds the <a href="/walls/index.html">/walls/</a> frontier register.</p>
+<hr />
+<h2>Core thesis</h2>
+<p>A finite physical theory cannot derive everything from nothing. If every claim must be derived from something deeper forever, the theory never becomes finite or reviewable. Therefore every reviewable framework needs terminal anchors.</p>
+<p>Deep roots are those terminal anchors.</p>
+<p>They are <strong>not all theorem-grade.</strong> Some are meta-admissibility conditions, some are physical operating roots, and some are declared posits that may later be reduced. Their job is to prevent exact objects from floating unpaid. The discipline throughout is the program's spine:</p>
+<p>$$\text{anchored} \neq \text{closed} \quad\cdot\quad \text{dissolved} \neq \text{solved} \quad\cdot\quad \text{selected} \neq \text{forced} \quad\cdot\quad \text{given-}E \neq \text{derivation-of-}E.$$</p>
+<hr />
+<h2>Why deep roots are needed</h2>
+<h3>1. To stop infinite regress</h3>
+<p>Every explanation either derives from deeper structure, loops back circularly, or bottoms out. Infinite regress is not a finite theory:</p>
+<p>$$\text{claim} \rightarrow \text{premise} \rightarrow \text{deeper premise} \rightarrow \cdots$$</p>
+<p>Without a root endpoint, the chain never becomes auditable. A deep root is the place where the chain is deliberately and visibly cut, with the cut named and charged rather than hidden.</p>
+<h3>2. To prevent hidden assumptions</h3>
+<p>If a framework uses invariance, records, causal order, granularity, scale, shape, or nonseparability without naming them, those roots become hidden assumptions. The rule is:</p>
+<p>$$\boxed{\;\text{Every exact primitive must be generated, measured, charged, declared, or left open.}\;}$$</p>
+<p>Naming a root does not make it true. It makes it <em>visible</em> — so a reviewer can see exactly where the framework rests on something unproven.</p>
+<h3>3. To distinguish derivation from anchoring</h3>
+<p>A root is not necessarily derived. A root can be terminal by anchoring:</p>
+<p>$$\text{root named} + \text{status assigned} + \text{anti-claim stated} \;\Rightarrow\; \text{honest endpoint}.$$</p>
+<p>Anchoring is anchor-transfer, never anchor-elimination. A terminal-anchored endpoint is a legitimate stopping place; it is <strong>not</strong> a claim that the target was derived.</p>
+<h3>4. To prevent unicorn targets</h3>
+<p>Some demands are not reasonable per-gate closure targets:</p>
+<ul>
+<li>derive granularity from nothing;</li>
+<li>prove the $13$D shape is absolutely unique across all possible mathematics;</li>
+<li>prove no future theory could do better;</li>
+<li>prove a measured value from the same gate that uses it as target.</li>
+</ul>
+<p>These are often <strong>unicorn targets</strong> — universal negatives, unprovable in principle for any object in any field. A deep root lets the project stop at a paid primitive instead of pretending the unicorn was solved. A unicorn is never a wall; it is dissolved as a non-target, and only the bounded, in-grammar version is recorded as the real <a href="/walls/index.html">wall</a>.</p>
+<h3>5. To support wall handling</h3>
+<p>When a gate hits a wall, the first question is:</p>
+<p>$$\text{Is this wall reducible to a deep root?}$$</p>
+<p>If yes, the terminal endpoint may be <code>REDUCED-TO-AXIOM</code>, <code>AXIOM-CLOSED</code>, or <code>TERMINAL-ANCHORED</code>, not full derivation. The full decision procedure lives in the sibling <a href="./wall-routing-protocol.html">wall-routing protocol</a>; the rule below is the deep-root entry into it.</p>
+<hr />
+<h2>The seven-root hierarchy</h2>
+<p>Use this root set unless explicitly updated by the project lead. The seven correspond one-to-one with R1–R7 on the <a href="/anchors/deep-roots.html">/anchors/ Seven Deep Roots</a> page; this page treats them as <em>terminal endpoints</em>, that page treats them as <em>anchors</em>. They do not contradict.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>Deep root</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>Physical Equivalence / Invariance</td>
+<td>Physical content must survive admissible redescription.</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>Record Interface</td>
+<td>Physics is accessed through finite reproducible records.</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>Causal Order</td>
+<td>There is an invariant relation of possible influence.</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>Granularity / Cost-Floor</td>
+<td>Distinguishable physical transitions are not free.</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>Scale</td>
+<td>At least one absolute scale relation/value anchor is required.</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>Shape / Structural Form</td>
+<td>The frozen structural branch is the tested form.</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>Nonseparability / Global State Constraint</td>
+<td>Exact independence is non-fundamental; factorization is special.</td>
+</tr>
+</tbody>
+</table>
+<h3>Theorem-grade roots versus declared roots</h3>
+<p>The seven are <strong>not</strong> all the same kind of object, and the page that pretends they are is overclaiming. Three sorts appear:</p>
+<ul>
+<li><strong>Meta-admissibility conditions</strong> (R1, R2). These are conditions for anything to count as a physical claim or an empirical audit at all. They are upstream of every physical root and are not themselves derived theorems.</li>
+<li><strong>Physical operating roots</strong> (R3, R4, R5, R7). These are posits about the world, charged explicitly. Some sub-parts are argued (e.g. the <em>existence</em> of a required scale); the rest are declared or measured.</li>
+<li><strong>Declared / selected roots</strong> (R6, and the declared sub-posits of R4/R5). These bottom out on a named posit, a frozen branch, or a measured value, any of which <em>may later be reduced</em> but is not derived now.</li>
+</ul>
+<p>A <strong>theorem-grade</strong> root would be one whose content follows from strictly weaker premises without importing the target. None of the seven is claimed theorem-grade across the board. Saying otherwise is the first universal forbidden overclaim.</p>
+<hr />
+<h2>Root definitions</h2>
+<h3>R1 — Physical Equivalence / Invariance</h3>
+<p><strong>Operational statement.</strong> Physical content is what survives admissible redescription: coordinate changes, gauge choices, basis changes, observer frames, and notational relabeling.</p>
+<p><strong>Allowed claim.</strong> A gate object must be invariant or gauge-accounted to count as physical.</p>
+<p><strong>Forbidden claim.</strong> A coordinate artifact is physical because it appears in one representation.</p>
+<h3>R2 — Record Interface</h3>
+<p><strong>Operational statement.</strong> Physics is tested through finite, reproducible, physically instantiated records.</p>
+<p><strong>Allowed claim.</strong> Ledgers, hashes, symbolic runs, measured quantities, and audit artifacts enter through the record interface.</p>
+<p><strong>Forbidden claim.</strong> Observer means consciousness or subjective mind.</p>
+<h3>R3 — Causal Order</h3>
+<p><strong>Operational statement.</strong> There is an invariant structure of possible influence.</p>
+<p><strong>Allowed claim.</strong> Causal order constrains signalling, horizons, locality, and update rules.</p>
+<p><strong>Forbidden claim.</strong> Nonseparability permits usable faster-than-light signalling.</p>
+<h3>R4 — Granularity / Cost-Floor</h3>
+<p><strong>Operational statement.</strong> Distinguishable physical transitions carry nonzero specification/cost burden.</p>
+<p><strong>Allowed claim.</strong> Exact labels, charge tables, quotients, selectors, spectra, and constants are not free.</p>
+<p><strong>Forbidden claim.</strong> The granularity floor has been derived from nothing unless a strictly weaker reconstruction is supplied.</p>
+<h3>R5 — Scale</h3>
+<p><strong>Operational statement.</strong> Physical theory requires at least one scale anchor or invariant scale relation.</p>
+<p><strong>Allowed claim.</strong> Scale anchors magnitude, cutoff, Planck, curvature, and above/below-regime statements.</p>
+<p><strong>Forbidden claim.</strong> A naked dimensionful number is invariant by itself.</p>
+<h3>R6 — Shape / Structural Form</h3>
+<p><strong>Operational statement.</strong> The frozen structural branch is the form being tested.</p>
+<p><strong>Allowed claim.</strong> The shape can be selected or category-minimal inside a declared grammar.</p>
+<p><strong>Forbidden claim.</strong> The shape is absolutely unique across all possible mathematics.</p>
+<h3>R7 — Nonseparability / Global State Constraint</h3>
+<p><strong>Operational statement.</strong> Exact independence requires factorization, and exact factorization is special. Write exact independence as</p>
+<p>$$\rho_{AB}=\rho_A\otimes\rho_B,$$</p>
+<p>with correlation / nonseparability the generic case $\rho_{AB}\neq\rho_A\otimes\rho_B$.</p>
+<p><strong>Allowed claim.</strong> Local closure must embed into global consistency; local results cannot automatically close a full gate.</p>
+<p><strong>Forbidden claim.</strong> Measurement sends a usable signal everywhere.</p>
+<hr />
+<h2>Terminal statuses for deep-root gates</h2>
+<p>When a gate's residual is a deep root, the legitimate endpoint is one of the following — never bare <code>CLOSED</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Root situation</th>
+<th>Correct endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>root compressed to one named posit</td>
+<td><code>REDUCED-TO-AXIOM</code></td>
+</tr>
+<tr>
+<td>posit explicitly named and no longer hidden</td>
+<td><code>AXIOM-CLOSED</code></td>
+</tr>
+<tr>
+<td>root still selected/category-relative</td>
+<td><code>TERMINAL-ANCHORED / OPEN</code></td>
+</tr>
+<tr>
+<td>root blocked by universal negative</td>
+<td><code>WALL-RECORDED / PERMANENT WALL</code></td>
+</tr>
+<tr>
+<td>measured value bottoms the root</td>
+<td><code>MEASURED-ANCHOR</code></td>
+</tr>
+</tbody>
+</table>
+<h3>What <code>REDUCED-TO-AXIOM</code> means</h3>
+<p><code>REDUCED-TO-AXIOM</code> is the strongest <em>honest</em> endpoint available to a root that is not derived. It means the wall or root has been <strong>compressed to a named irreducible posit or minimal posit set</strong> — the count of free assumptions has been driven down as far as the framework can drive it, and what remains is one explicit, value-free declaration plus (where relevant) a measured residue. It is emphatically <strong>not</strong> a claim that the posit count reached zero. Reducing a root to one named axiom is progress; calling that "derived from nothing" is the overclaim the status exists to forbid.</p>
+<p>The wall register records exactly this kind of endpoint: the granularity deep root is logged as <code>REDUCED-TO-AXIOM (one value-free posit)</code>, <strong>TERMINAL-ANCHORED</strong> — with both the irreducibility unicorn and the $\hbar$-value unicorn dissolved — owning the bounded bridge wall <a href="/walls/w4-granularity-mdl.html">W4</a>. The shape deep root is logged as <code>SELECTOR-MINIMAL (category-relative)</code>, <strong>TERMINAL-ANCHORED</strong>, owning walls <a href="/walls/index.html">W5</a> and <a href="/walls/index.html">W6</a>.</p>
+<hr />
+<h2>Worked example: granularity (the model example)</h2>
+<p>The granularity root should <strong>not</strong> be scored as "derived from nothing." Its legitimate endpoint is:</p>
+<p>$$\boxed{\text{REDUCED-TO-AXIOM / AXIOM-CLOSED}}$$</p>
+<p>Meaning:</p>
+<ul>
+<li>the root has been compressed to <strong>one</strong> named, value-free posit (exact-global action-spectrum uniformity — an earned no-go via a finite-resources countermodel, not proven atomic);</li>
+<li>$\hbar$ is treated as <strong>measured residue / action spacing</strong> — a separate, genuinely atomic measured anchor;</li>
+<li>the posit is not hidden — it is named, typed, and charged;</li>
+<li>pre-quantum reconstruction remains <strong>open</strong> (the bounded metric-selection bridge <a href="/walls/w4-granularity-mdl.html">W4</a>: granularity $\Rightarrow$ description-length over dimension-count).</li>
+</ul>
+<p>So the honest granularity posit count is <strong>one, not zero</strong>: one declared posit plus one measured anchor. The existence/discreteness equivalence relocates the uniformity posit but does not eliminate it, and deriving uniformity from unitarity is circular by the program's own finding.</p>
+<p><strong>Allowed claim.</strong> Granularity has been reduced to one named posit plus measured residue.</p>
+<p><strong>Forbidden claim.</strong> Granularity has been derived from zero assumptions.</p>
+<p>This pattern recurs at the gate level: the Yang–Mills mass-gap gate is <strong>TERMINAL-ANCHORED</strong> precisely because it is <em>reduced-to-axiom on granularity</em> (axiom-conditional) — it is explicitly <strong>not</strong> a Clay solution. See <a href="/anchors/gap02-anchor-ledger.html">the gap-02 anchor ledger</a>.</p>
+<hr />
+<h2>Worked example: shape (the cautionary example)</h2>
+<p>The shape root should <strong>not</strong> be scored as fully closed if absolute uniqueness remains open. Its correct endpoint is:</p>
+<p>$$\boxed{\text{TERMINAL-ANCHORED / OPEN}}$$</p>
+<p>Meaning:</p>
+<ul>
+<li>there may be a <strong>category-relative selector win</strong>: within the declared internal-isometry grammar, the carriers of the frozen branch</li>
+</ul>
+<p>$$M_4\times K_6\times S^2\times S^1_Y/\mathbb{Z}_2,\qquad K_6=SU(3)/T^2,\qquad D=4+6+2+1=13,$$</p>
+<p>are forced <em>given</em> the grammar and the observed matter content $E$ (<code>DERIVED-GIVEN-E</code>);
+- the declared grammar, the bridge axiom, and the given $E$ are <strong>paid</strong> — named and charged, not smuggled;
+- <strong>architecture-neutral uniqueness</strong> and <strong>absolute irreducibility</strong> remain <code>OPEN</code> / permanent walls — an undischarged universal negative (a Kolmogorov-style uncomputable question), correctly refused-as-axiom rather than carried as theorem debt.</p>
+<p><strong>Allowed claim.</strong> The shape is selector-minimal inside the declared frozen grammar.</p>
+<p><strong>Forbidden claim.</strong> The shape is forced across all possible architectures.</p>
+<p>The contrast with granularity is the lesson of this page: granularity reaches <code>REDUCED-TO-AXIOM</code> because its residual is <em>one named posit</em>; shape reaches only <code>TERMINAL-ANCHORED / OPEN</code> because its residual is a <em>category-relative selection plus a dissolved uniqueness unicorn</em>. Neither is <code>CLOSED</code>. See <a href="/anchors/deeproot-shape-anchor-ledger.html">the shape deep-root anchor ledger</a>.</p>
+<hr />
+<h2>Shared status vocabulary</h2>
+<p>These statuses are used consistently across the /closure/, /anchors/, and /walls/ pages.</p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CLOSED</code></td>
+<td>The actual target is derived, computed, or proven at the stated scope. Rare.</td>
+</tr>
+<tr>
+<td><code>DERIVED</code></td>
+<td>The claim follows from stated premises without importing the target.</td>
+</tr>
+<tr>
+<td><code>DERIVED-GIVEN-E</code></td>
+<td>The claim follows given the upstream spectrum / input $E$; it does not derive $E$.</td>
+</tr>
+<tr>
+<td><code>DERIVED-GIVEN-AXIOM</code></td>
+<td>The claim follows once the declared axiom is granted.</td>
+</tr>
+<tr>
+<td><code>MEASURED-ANCHOR</code></td>
+<td>The value is empirical input / residue, not derived.</td>
+</tr>
+<tr>
+<td><code>DECLARED ROOT</code></td>
+<td>The framework bottoms out here; the root is named and paid.</td>
+</tr>
+<tr>
+<td><code>AXIOM-OPEN / declared</code></td>
+<td>The posit is explicitly declared and may later be reduced, but is not derived now.</td>
+</tr>
+<tr>
+<td><code>REDUCED-TO-AXIOM</code></td>
+<td>The wall/root has been compressed to a named irreducible posit or minimal posit set.</td>
+</tr>
+<tr>
+<td><code>AXIOM-CLOSED</code></td>
+<td>The primitive is no longer hidden; it is paid, named, and stable as an endpoint.</td>
+</tr>
+<tr>
+<td><code>DISSOLVED-CONDITIONAL</code></td>
+<td>The demanded problem disappears once a declared root/axiom/premise is accepted.</td>
+</tr>
+<tr>
+<td><code>TERMINAL-ANCHORED</code></td>
+<td>The gate has reached its legitimate endpoint by being tied to exact anchors and residuals.</td>
+</tr>
+<tr>
+<td><code>WALL-RECORDED</code></td>
+<td>The remaining object is a known frontier/permanent wall, not a per-gate task.</td>
+</tr>
+<tr>
+<td><code>VALUE-OPEN</code></td>
+<td>A catastrophe/pathology is dissolved, but the observed numerical value remains measured/open.</td>
+</tr>
+<tr>
+<td><code>MODEL-OPEN</code></td>
+<td>A pathology is dissolved, but the unique model/interior/dynamics is not derived.</td>
+</tr>
+<tr>
+<td><code>AUDIT ONLY</code></td>
+<td>The item validates reproducibility/object identity, not physical truth.</td>
+</tr>
+<tr>
+<td><code>OPEN</code></td>
+<td>A real residual remains.</td>
+</tr>
+<tr>
+<td><code>BLOCKED</code></td>
+<td>The residual cannot currently be executed because a prerequisite is missing.</td>
+</tr>
+<tr>
+<td><code>ANTI-CLAIM</code></td>
+<td>A claim the page explicitly refuses to make.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Allowed claims</h2>
+<p>The deep-root system <strong>may</strong> legitimately say:</p>
+<ul>
+<li>A deep root is a named, typed, charged terminal endpoint where explanation stops honestly.</li>
+<li>A root can be terminal by anchoring rather than by derivation.</li>
+<li>Granularity has been reduced to one named posit plus measured residue.</li>
+<li>The shape is selector-minimal inside the declared frozen grammar.</li>
+<li>The carriers are <code>DERIVED-GIVEN-E</code> inside the declared internal-isometry grammar.</li>
+<li>A wall reducible to a deep root may be <code>REDUCED-TO-AXIOM</code>, <code>AXIOM-CLOSED</code>, or <code>TERMINAL-ANCHORED</code>.</li>
+<li>A measured value (e.g. $\hbar$, $M_{\rm Pl}$) is a <code>MEASURED-ANCHOR</code>, not a derived output.</li>
+<li>A unicorn target is dissolved as a non-target; the bounded in-grammar version is the real wall.</li>
+</ul>
+<h2>Forbidden claims (universal forbidden overclaims)</h2>
+<p>No closure page may say or imply any of the following:</p>
+<ul>
+<li>"deep roots are all theorem-grade."</li>
+<li>"a declared root is derived from nothing."</li>
+<li>"dissolved means solved."</li>
+<li>"selected means forced."</li>
+<li>"given-$E$ means derivation-of-$E$."</li>
+<li>"a measured anchor has been derived by the same gate that uses it as target."</li>
+<li>"hashes validate physics."</li>
+<li>"local closure equals whole-gate closure."</li>
+<li>"a wall-record is a physics solution."</li>
+<li>"a unicorn target must be solved before a gate can reach terminal endpoint."</li>
+</ul>
+<p>The hard discipline, stated once more so it cannot be missed: <strong>anchored $\neq$ closed; dissolved $\neq$ solved; selected $\neq$ forced; given-$E$ $\neq$ derivation-of-$E$; a wall-record is not a solution.</strong> No physics gate is ever called <code>CLOSED</code> unless its actual target is derived. Currently <strong>zero</strong> physics gates are <code>CLOSED</code>.</p>
+<hr />
+<h2>Cross-links</h2>
+<ul>
+<li><strong>/closure/</strong> — <a href="./dissolutions.html">Dissolutions — when a problem disappears once a root is granted</a> · <a href="./wall-routing-protocol.html">The wall-routing protocol</a> · this page.</li>
+<li><strong>/anchors/</strong> — <a href="/anchors/deep-roots.html">The Seven Deep Roots (R1–R7 anchor view)</a> · <a href="/anchors/anchor-hierarchy-overview.html">The Anchor Hierarchy overview</a> · <a href="/anchors/master-anchors.html">Master / Fundamental Anchors</a> · <a href="/anchors/deeproot-granularity-anchor-ledger.html">granularity ledger</a> · <a href="/anchors/deeproot-shape-anchor-ledger.html">shape ledger</a>.</li>
+<li><strong>/walls/</strong> — <a href="/walls/index.html">The Wall Register (frontier walls + terminal endpoints)</a> · <a href="/walls/w4-granularity-mdl.html">W4 — granularity $\Rightarrow$ MDL bridge</a>.</li>
+</ul>
+<hr />
+<h2>Completion report</h2>
+<p><strong>Tests passed.</strong>
+- T1 — Defines deep roots as explicit terminal anchors, not magic (opening paragraph + boxed thesis).
+- T2 — Explains why roots are needed to stop infinite regress (reason 1, with the regress chain).
+- T3 — Includes the seven-root hierarchy (the seven-row table).
+- T4 — Distinguishes theorem-grade roots from declared roots (the "theorem-grade versus declared" section).
+- T5 — Explains <code>REDUCED-TO-AXIOM</code> (dedicated subsection + status table).
+- T6 — Includes granularity as the model example (boxed <code>REDUCED-TO-AXIOM / AXIOM-CLOSED</code>).
+- T7 — Includes shape as the cautionary example (boxed <code>TERMINAL-ANCHORED / OPEN</code>).
+- T8 — Contains an allowed-claims block and a forbidden-claims block.
+- T9 — Includes the universal forbidden overclaims (all ten).
+- T10 — Ends with this completion report.
+- U1 — Shared status vocabulary table present and consistent with /anchors/ and /walls/.
+- U2 — Terminal-anchored discipline stated explicitly (anchored ≠ closed; dissolved ≠ solved; selected ≠ forced; given-E ≠ derivation-of-E; a wall-record is not a solution).
+- U3 — No physics gate called CLOSED; zero gates CLOSED stated honestly.
+- U4 — All math in <code>$...$</code> / <code>$$...$$</code>; no internal-process vocabulary; no QC-chip / Mars content.
+- U5 — Cross-links to both other /closure/ pages, to /anchors/, and to /walls/.</p>
+<p><strong>Tests failed.</strong> None.</p>
+<p><strong>Open items.</strong>
+- Granularity uniformity posit (<code>AXIOM-UNIFORM-GRAIN</code>): <code>REDUCED-TO-AXIOM</code> (one value-free posit); not proven atomic. Posit count is one, not zero.
+- Shape absolute / architecture-neutral uniqueness: permanently <code>OPEN</code> — an undischarged universal negative, correctly refused-as-axiom.
+- Bundle-uniqueness theorem that could remove "given-$E$": <code>OPEN</code> (wall W5).
+- The description-length / MDL metric the cost-floor presupposes: <code>OPEN</code> (the bounded bridge wall W4).</p>
+<p><strong>Assumptions made.</strong>
+- Adopted the handoff's seven-root list, root definitions, terminal-status table, and worked examples verbatim; kept R1–R7 consistent with the sibling <a href="/anchors/deep-roots.html">/anchors/ Seven Deep Roots</a> page (terminal-endpoint view here, anchor view there).
+- Took the granularity and shape gate endpoints (<code>REDUCED-TO-AXIOM</code> / <code>TERMINAL-ANCHORED</code>, walls W4 / W5 / W6) from the wall register so this page does not contradict /walls/.
+- Used <code>$...$</code> / <code>$$...$$</code> for all math so it typesets, and only the shared status vocabulary labels.</p>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A0 — The Master Anchor</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 252px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 10px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:14px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9670; The Anchors</a></div>
+<div class="ann-group">Start</div>
+<a href="index.html">Overview — how we judge</a>
+<a href="anchor-hierarchy-overview.html">Anchor hierarchy — map</a>
+<div class="ann-group">The method</div>
+<a href="a0-master-anchor.html" class="current">A0 — the master anchor</a>
+<a href="layer-1-metric.html">Layer 1 — MDL metric</a>
+<a href="layer-2-no-unpaid-labels.html">Layer 2 — no unpaid labels</a>
+<a href="layer-3-search-grammars.html">Layer 3 — search grammars</a>
+<a href="layer-4-carrier-forcing.html">Layer 4 — carrier-forcing</a>
+<a href="shape-minimality-challenge.html">Shape minimality challenge</a>
+<div class="ann-group">The hierarchy</div>
+<a href="deep-roots.html">The seven deep roots</a>
+<a href="master-anchors.html">Master anchors</a>
+<a href="logical-endpoint-proof.html">Logical endpoint proof</a>
+<a href="gate-traceability-template.html">Gate traceability template</a>
+<a href="blind-spots.html">Blind spots</a>
+<a href="ai-agent-completion-protocol.html">AI completion protocol</a>
+<div class="ann-group">Gate ledgers · GUT spine</div>
+<a href="sg1-anchor-ledger.html">SG-1 geometry</a>
+<a href="sg2-anchor-ledger.html">SG-2 gauge recovery</a>
+<a href="sg3-anchor-ledger.html">SG-3 generations</a>
+<a href="sg4-anchor-ledger.html">SG-4 hypercharge &amp; anomaly</a>
+<a href="sg5-anchor-ledger.html">SG-5 electroweak</a>
+<a href="sg6-anchor-ledger.html">SG-6 moduli stabilization</a>
+<a href="sg7-anchor-ledger.html">SG-7 threshold unification</a>
+<a href="sg8-anchor-ledger.html">SG-8 flavor closure</a>
+<a href="sg9-anchor-ledger.html">SG-9 proton safety</a>
+<a href="sg10-anchor-ledger.html">SG-10 claim boundary</a>
+<div class="ann-group">Gate ledgers · quantum/gravity/UV</div>
+<a href="uqf3-anchor-ledger.html">UQF-3 reflection positivity</a>
+<a href="uqf4-anchor-ledger.html">UQF-4 BRST / descent</a>
+<a href="uqf5a-5b-anchor-ledger.html">UQF-5A/5B linearized graviton</a>
+<a href="uqf5c-anchor-ledger.html">UQF-5C interacting graviton</a>
+<a href="uqf7-anchor-ledger.html">UQF-7 fermion chirality</a>
+<a href="uqf9-anchor-ledger.html">UQF-9 UV completion</a>
+<a href="uqf10-anchor-ledger.html">UQF-10 compactification</a>
+<a href="uqf14-anchor-ledger.html">UQF-14 unitarity / causality</a>
+<div class="ann-group">Gate ledgers · cosmology/BH/foundations</div>
+<a href="gap01-anchor-ledger.html">Gap-01 a6 Seeley-DeWitt</a>
+<a href="gap02-anchor-ledger.html">Gap-02 Yang-Mills mass gap</a>
+<a href="gap05-value-anchor-ledger.html">Gap-05 Lambda value</a>
+<a href="gap05-stability-anchor-ledger.html">Gap-05 Lambda stability</a>
+<a href="gap08-anchor-ledger.html">Gap-08 inflation</a>
+<a href="gap10-bg10-anchor-ledger.html">Gap-10/BG-10 baryogenesis</a>
+<a href="gap11-anchor-ledger.html">Gap-11 dark matter</a>
+<a href="gap13-anchor-ledger.html">Gap-13 BH entropy / Page</a>
+<a href="born-anchor-ledger.html">Born rule</a>
+<div class="ann-group">Gate ledgers · deep roots &amp; dissolutions</div>
+<a href="deeproot-granularity-anchor-ledger.html">Deep root — granularity</a>
+<a href="deeproot-shape-anchor-ledger.html">Deep root — structural form</a>
+<a href="lambda-catastrophe-anchor-ledger.html">Lambda-catastrophe (dissolved)</a>
+<a href="blackhole-singularity-anchor-ledger.html">Black-hole singularity (dissolved)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">A0 — The Master Anchor — rendered package. Rendered from <code>a0-master-anchor.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>A0 — The Master Anchor</h1>
+<p><strong>Physical law is the shortest observer-invariant generator of finite observables. That single rule grades every claim we make — and every rival's.</strong></p>
+<h2>The question A0 answers</h2>
+<p>Before you can ask "is this 13-dimensional shape the simplest one that reproduces the Standard Model?" you have to answer a prior question: <em>what does "simplest" even mean, and what is the thing being measured?</em> Get that wrong and every later comparison is rigged. A0 is the answer. It is the master anchor — the one rule from which the whole scoring stack hangs — and it applies symmetrically to the framework and to every competitor it will ever face.</p>
+<p>A0 is not a claim about the shape. It is the rule that tells us how the shape, and a four-dimensional effective theory, and a string vacuum, and a noncommutative-geometry model must each be put on the scale and weighed <em>in the same units</em>. It is the audit standard, stated once, so that nothing downstream can quietly cheat.</p>
+<h2>The statement</h2>
+<blockquote>
+<p><strong>A0 (the Invariant Finite-Observable / Finite-Record Principle).</strong> <em>Physical law is the minimal observer-invariant generator of finite physical observables.</em> A theory earns physical status by generating finite observables that stay invariant across admissible frames, gauges, coordinates, and descriptions; and it is stronger when it generates <strong>more</strong> invariant observables from <strong>fewer explicitly-charged primitives</strong>, with no hidden labels and no post-hoc retuning.</p>
+</blockquote>
+<p>In one line:</p>
+<blockquote>
+<p><em>A theory is better when it produces more observer-invariant finite observables from fewer explicitly-charged primitives, with no post-hoc retuning.</em></p>
+</blockquote>
+<p>That is the whole ethic. Everything else is making it precise enough that it cannot be gamed.</p>
+<h2>The five clauses</h2>
+<p>A0 unpacks into five operational clauses. Each one closes a specific way a theory could otherwise smuggle in credit it has not earned.</p>
+<p><strong>A0.1 — Observable interface.</strong> A claim earns physical status <em>only</em> by connecting to finite physical observables: measured quantities, exact ledgers, reproducible hashes, gate certificates, named falsifiers. Science meets nature through finite records — a measurement returns a number to finite precision, a detector logs a finite count, a computation halts with a finite output. A statement that touches no finite record touches nothing physical. This clause is the gate at the front door: if a posit cannot be cashed out into something finitely recordable, it does not get scored at all.</p>
+<p><strong>A0.2 — Observer / frame invariance.</strong> Coordinate, representation, gauge, and observer-frame choices are not physical unless they leave invariant content. A description is not a law. If two descriptions disagree only on a choice of chart, basis, or gauge, the physics is what survives the change — the invariant. This is the working content of relativity and of gauge theory, promoted to an axiom of <em>what counts as a law in the first place</em>: the law is the invariant generator, not any one of its frame-dependent renderings.</p>
+<p><strong>A0.3 — Full-generator cost.</strong> A theory's cost is the cost of its <em>full generator</em> — not the cost of its prettiest fragment. The generator includes: the geometry, the search grammar, the rulebook, the bundle data, the measured anchors, the fitted normalizations, the selector choices, <em>and</em> the map to observables. You are charged for all of it. A theory does not get to advertise a small piece (say, "four numbers") while keeping the rest of its machinery off the books. The object that goes on the scale is the entire recipe needed to regenerate the observables.</p>
+<p><strong>A0.4 — No unpaid exact labels.</strong> Every exact label a theory uses — a gauge group, a charge table, a generation count, an anomaly-admissible spectrum, a bundle choice — must be one of three things: (i) <strong>generated</strong> by declared invariant structure, (ii) <strong>charged</strong> as primitive input, or (iii) <strong>marked open</strong>. There is no fourth option, and in particular there is no <em>free</em> exact label. Writing $su(3)\oplus su(2)\oplus u(1)$ into your starting assumptions is allowed — but you pay for the bits it took to write it. This is the anti-smuggling clause, and it is the seed of the Layer-2 theorem.</p>
+<p><strong>A0.5 — Freeze-before-compare.</strong> A generator must be <em>frozen before</em> the downstream comparison runs. If a theory changes after seeing the data it is being compared against, it is a new branch — a new candidate with a new cost — not the same theory vindicated. Without this clause, any model fits anything: you simply retune until it matches, then claim the match as a prediction. Freeze-before-compare is what makes "it reproduces the spectrum" mean something. In this program the frozen branch carries an explicit cryptographic fingerprint ($dcc66f1b2685$ / $a5b1e6f9d951$) so that "frozen" is a checkable fact, not a promise.</p>
+<h2>Why A0 is the right rule — the validation argument</h2>
+<p>A0 is not a derivation of any shape, and it does not pretend to be. What <em>can</em> be argued — and what we claim — is that A0 is the <strong>correct audit rule for any candidate theory</strong>. The argument is a short chain, and each step closes off an alternative scoring rule that would otherwise let a weaker theory "win."</p>
+<ol>
+<li>
+<p><strong>Science meets nature only through finite records.</strong> Every contact between theory and world is a finite observable (A0.1). So the only currency in which a theory can be paid is finite-record-generating power. A rule that scores anything else is scoring something nature never shows us.</p>
+</li>
+<li>
+<p><strong>Not every record-description is a law — only the invariant generator is.</strong> Given a stack of finite records, infinitely many descriptions reproduce them, most of them frame-dependent bookkeeping. The physics is the invariant content (A0.2). So the object we score must be the <em>invariant generator</em> of the records, not any particular description of them.</p>
+</li>
+<li>
+<p><strong>Two theories matching the same records are not equally simple if one writes the labels in by hand and the other generates them.</strong> If theory $X$ reproduces the spectrum by <em>postulating</em> the gauge group and charge table, and theory $Y$ reproduces it by <em>generating</em> them from structure, they are not tied — $X$ paid in primitive labels what $Y$ paid in structure, and an honest scale must see that difference. This forces clauses A0.3 and A0.4: charge <em>all</em> primitives, count <em>all</em> labels.</p>
+</li>
+<li>
+<p><strong>The comparison object is therefore the full generator, and the strongest theory is the shortest frozen invariant generator of the records.</strong> Combine the above with freeze-before-compare (A0.5) and the audit rule is fixed: weigh the entire frozen generator, in invariant-record-generating units, and prefer the shortest. That is exactly A0.</p>
+</li>
+</ol>
+<p>This is a meta-level argument: it does not tell you <em>which</em> generator is shortest (that is the hard, mostly-open work of Layers 1–4). It tells you that <em>this is the right question to ask</em>, and that the alternatives are worse.</p>
+<h3>Honest status of A0</h3>
+<p>A0's status is a <strong>meta-axiom / audit-theorem, conditionally validated</strong>. "Conditionally validated" means: the argument above shows A0 beats the rival scoring rules on their own terms, but A0 is not <em>derived from something more primitive</em> — it rests on the premise that finite-record-generating power is the currency of physics. That premise is itself a declared anchor. We hold it because it is the weakest assumption that still lets science be done at all, but we mark it as an anchor rather than a theorem. This is the discipline in action, applied to the master rule itself.</p>
+<p>To be explicit about what A0 is and is not — the three discipline lines, which every page in this program carries:</p>
+<ul>
+<li><strong>Selection ≠ derivation.</strong> Choosing A0 as the audit rule (because it beats the alternatives) is a <em>selection</em>, not a derivation of A0 from nothing.</li>
+<li><strong>Given-E ≠ derivation-of-E.</strong> A0 grades how well a theory generates observables <em>given</em> the observed matter content $E$; it does not by itself derive $E$.</li>
+<li><strong>Frozen / reproducible ≠ proven-unique.</strong> That a generator is frozen and its results reproduce blind is a real, checkable virtue — but it is not a proof that no other generator is shorter.</li>
+</ul>
+<h2>Why A0 beats the alternatives</h2>
+<p>A0 earns its place by defeating the four scoring rules a critic would naturally reach for instead. Each alternative, used alone, lets some genuinely-weaker theory declare victory.</p>
+<p><strong>Versus dimension-first ("fewer dimensions is simpler").</strong> Under a rule that counts spacetime dimensions, a clean four-dimensional effective theory automatically beats a thirteen-dimensional construction, because $4 < 13$. But that rule is blind to A0.3–A0.4: the 4D theory wins <em>only by writing the gauge group, the charge tables, the three generations, the hypercharges, the masses, and the mixings in by hand as free parameters</em> — a long list of unpaid exact labels. Dimension-first lets a theory hide an enormous primitive-label bill behind a small dimension count. A0 charges for the labels and exposes the bill. (Whether the full description-length ledger then favors $13$D is the <em>open</em> Layer-1 question — A0 does not pre-decide it; it only insists the comparison be done in full-generator units.)</p>
+<p><strong>Versus beauty ("the more elegant theory is truer").</strong> Elegance is real but subjective and unmeasurable — it gives two honest physicists two different rankings with no way to adjudicate. A0 replaces an aesthetic judgment with a charge sheet: count the invariant observables out, count the explicitly-charged primitives in, check nothing was retuned. The result is a number, not a taste.</p>
+<p><strong>Versus shape-first ("assume the geometry, then admire what it gives").</strong> Starting from the shape and reading off the Standard Model is exactly the move that smuggles the conclusion into the premise. If the geometry is <em>assumed</em>, then "the geometry yields the gauge group" is near-tautological — you put structure in, you get structure out. A0.3's full-generator clause forbids this free pass: the shape is part of the generator and is charged for, so "the shape gives the gauge group" only earns credit net of what the shape itself cost.</p>
+<p><strong>Versus granularity-alone ("reality is discrete, therefore...").</strong> Discreteness / finite operational granularity is a genuine and useful posit — in fact it is the natural premise from which the description-length metric of Layer 1 may eventually be derived. But on its own it is just a <em>named assumption about the world</em>, not an audit rule for theories. It tells you something about nature; it does not tell you how to weigh two candidate generators against each other. A0 is the rule that does the weighing; granularity is (at most) one of the anchors that justifies A0's chosen metric.</p>
+<p>In every case the failure of the alternative is the same shape: it lets a theory collect credit for an output without being charged for a corresponding input. A0 closes that loophole by definition — <em>charge every primitive, count every invariant observable, freeze before you compare</em>.</p>
+<h2>Status — reached vs open</h2>
+<p><strong>Reached.</strong> A0 is stated precisely, decomposed into five non-overlapping operational clauses, and argued to be the correct audit standard against the four standard alternatives. As an audit rule it is <em>in force</em>: it is the standard against which this program grades its own results and invites others to grade theirs. The freeze-before-compare clause is operationally satisfied for the frozen branch (the hash fingerprints are published and the downstream readouts reproduce blind).</p>
+<p><strong>Open — and deliberately so.</strong> A0 is an audit rule, not a victory. It tells you how to score; it does not hand you the score. Three things remain genuinely open and are <em>named, finite targets</em>, not vague hopes:</p>
+<ul>
+<li><strong>The metric that A0 presupposes</strong> (description-length vs dimension-count) is itself an open bridge theorem — see Layer 1. Until it is settled, "shortest generator" is metric-relative.</li>
+<li><strong>The full charge sheets</strong> for the framework and its rivals must be built symmetrically and completely — see Layer 2.</li>
+<li><strong>Whether the frozen shape is actually the shortest</strong> generator, even within a single declared search grammar, is the hard work of Layers 3–4 and the Shape Minimality Challenge.</li>
+</ul>
+<p>The honest top line: <strong>A0 is the audit rule, not a proof of the shape.</strong> It is what makes the rest of the program reviewable — it says exactly which game is being played and in which units, so that a skeptic can check the scoring rather than argue about taste. The honesty <em>is</em> the methodology: we name the rule by which we can be judged, before we report any result it grades.</p>
+<h2>Cross-links</h2>
+<ul>
+<li><strong><a href="./layer-1-metric.html">Layer 1 — Why "simplest" means description-length</a></strong> — the metric A0 presupposes, and the decisive open seam that decides whether $13$D can win at all.</li>
+<li><strong><a href="./layer-2-no-unpaid-labels.html">Layer 2 — No unpaid exact labels</a></strong> — clause A0.4 promoted to a theorem: every exact label is generated, charged, or open.</li>
+<li><strong><a href="./shape-minimality-challenge.html">The Shape Minimality Challenge</a></strong> — how A0 + the four layers turn an impossible "prove it's the simplest" into a reviewable, scored contest.</li>
+<li><strong><a href="./index.html">The Anchors — overview</a></strong> — the master anchor and the full bridge stack at a glance.</li>
+<li>Background dossier: <strong><a href="../articles/DOSSIER_DEEPROOT_SHAPE_FULL.html">The shape / deep-root derivation</a></strong>.</li>
+</ul>
+</main>
+</div>
+</body></html>

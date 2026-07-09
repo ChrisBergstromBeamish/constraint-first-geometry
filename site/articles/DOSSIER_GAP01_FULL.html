@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gap-01 — a6 Seeley-DeWitt wall (UV-completion input / one-loop finiteness of the frozen 13D graviton+ghost spectrum): full dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">Gap-01 — a6 Seeley-DeWitt wall (UV-completion input; one-loop finiteness of the frozen 13D — rendered package. Rendered from <code>DOSSIER_GAP01_FULL.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>Gap-01 — a6 Seeley-DeWitt wall (UV-completion input; one-loop finiteness of the frozen 13D graviton+ghost spectrum): full dossier</h1>
+<blockquote>
+<p><strong>What this is.</strong> The full per-gate dossier for <strong>Gap-01</strong>: the sixth Seeley–DeWitt heat-kernel coefficient, tr[a₆], of the de-Donder graviton-plus-ghost operator on the frozen 13D branch — the program's one-loop-finiteness / UV-completion-input probe. It expands the 30-second public brief (<code>articles/GATE_BRIEF_GAP01.md</code>) into the rigorous treatment a working physicist can both <em>check</em> and <em>build on</em>, and it hands the open holes to the specialist who will close them.</p>
+<p><strong>Binding discipline (carried verbatim).</strong> <strong>STATUS-UPGRADES:0.</strong> Frozen branch <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code> is <strong>READ-ONLY</strong>. The dimensionless, scale-free content is genuinely <strong>DERIVED</strong>; the dimensionful magnitude is <strong>dissolved-as-ill-posed at odd D=13</strong> and, where reported, is a <strong>labeled consistency coefficient only</strong>; the <strong>total value is NOT emitted</strong>; the <strong>positivity functional is UNMADE</strong> (no sign asserted). given-E ≠ derivation-of-E; anchored ≠ derived; dissolved ≠ solved; AXIOM-CLOSED ≠ proven; a captured terminal log ≠ an independent reproduction. <strong>This gate touches none of the famous walls</strong> — it is a finite-matching question, not a route across the Yang–Mills mass gap or the cosmological constant.</p>
+</blockquote>
+<hr />
+<h2>1. Executive summary and honest status</h2>
+<h3>1.1 Headline</h3>
+<p>The exact, scale-free heart of the a₆ calculation is genuinely derived and triple-checked. Four <strong>independent exact-rational sphere cross-checks</strong> (S²=4/315, S⁴=74/63, S⁶=1139/63, conformal=5/63) match the actual S^n eigenvalue heat trace to 13–16 decimal places, computed on the spectral side <em>independently</em> of the Gilkey contraction. (The dimensionless K₆ <strong>color factor 124/315</strong> is also pinned, but carries a caveat — it is <em>metric-selected</em>, holding at the normalization Scal_K6=7.5; the genuinely normalization-robust scale-free statements are the ratios a₄/a₂²=66/125 etc. See §3.2.) That is real, recovered physics: a clean, scheme-free piece of one-loop quantum gravity on the frozen geometry, computed two structurally different ways that agree.</p>
+<p>And the gate stays <strong>honestly OPEN</strong>, because the <em>dimensionful</em> magnitude rides an injected scale and — at the level that actually decides the gate — two computation routes for the K₆ heat-kernel value disagree. We say both halves plainly. The win is the win; the gap is the gap; neither is dressed as the other.</p>
+<h3>1.2 The honest grade (matches the live popup chip)</h3>
+<p><strong>OPEN — partial-derivation banked</strong> (scale-free sector DERIVED + dual-validated; bulk magnitude reported only as a labeled consistency coefficient; total value not emitted). Direction of travel: <strong>strengthened</strong>. No status was ever upgraded. The gate's status is set by its least-closed residual, and several residuals are non-terminal (a route inconsistency in the value, a positivity functional not built, a field-level sufficiency question shared with all of quantum gravity). One open piece ⇒ gate OPEN.</p>
+<h3>1.3 What this dossier establishes — and what it does not</h3>
+<p><strong>It establishes</strong>, rigorously and target-blind:</p>
+<ol>
+<li>that the scale-free sector of a₆ on the frozen branch is <strong>forced</strong> by Gilkey invariance theory plus standard QFT, and that its scheme-independent invariants (the color factor 124/315; the four sphere cross-checks S²=4/315, S⁴=74/63, S⁶=1139/63, conformal=5/63; the geometric signs) reproduce the actual S^n eigenvalue heat trace to relative error 0 to ~4×10⁻¹⁴;</li>
+<li>that the engine's curvature-derivative (∇) machinery is sound — Bianchi-validated on the Berger 3-sphere as 256·a²(a²−1)², null at a=1, by three independent codes — and that the one prior "retraction" of that machinery was a (1,3)-tensor verifier bug, not a wrong closed form;</li>
+<li>that a real ~31% curvature-input error inside the corpus a₆ engine has been <strong>located exactly</strong> (an as-written first-Bianchi-violating sign in the K₆ curvature builder; |Riem|²/Scal² = 31/147 instead of the Bianchi-exact 23/75) and the correction independently reproduced four ways;</li>
+<li>that the alleged "missing order-6 mixed-boundary heat-kernel coefficient" wall — the famous "boundary tower stops at a₅" obstruction — was a <strong>wrong-object artifact</strong>: the S¹_Y/ℤ₂ fixed points host a <em>global reflection</em> (Donnelly equivariant heat trace), not a manifold-with-boundary BVP, and the defect identity reduces to a graded bulk coefficient (1/2)c₃^γ.</li>
+</ol>
+<p><strong>It does NOT establish</strong> — and explicitly does not claim:</p>
+<ul>
+<li>a finite dimensionful tr[a₆] value (there is no canonical finite local t⁰ term at odd D=13; the magnitude is dissolved-as-ill-posed, and any GeV⁶ number is a labeled consistency coefficient, never gap-closing);</li>
+<li>the <em>total</em> (bulk + ℤ₂-defect) numeric value (the binding two-route check is R7 = FAIL_VALUE_MISMATCH: the two routes disagree grossly in both the physical ghost and graviton sectors; the LC machinery is validated but Route A's assembled candidate fails its own canonical anchor and Route B's graviton leg is still missing);</li>
+<li>the <strong>sign</strong> of any positivity functional (the functional is unmade; on independent grounds it has no valid realization on this off-shell, odd-D branch);</li>
+<li>that a finite, positive a₆ <em>constitutes</em> a UV completion (MO-12: it is one term in an unbounded a₈/a₁₀/… tower — a necessary-not-sufficient input, shared with all of quantum gravity);</li>
+<li>that the operator/spectrum is <em>derived</em> (it is read off the frozen branch: given-E ≠ derivation-of-E).</li>
+</ul>
+<p>This is a <strong>serious candidate / partial-unification result, not a validated closure.</strong></p>
+<hr />
+<h2>2. The community gap</h2>
+<h3>2.1 The precise open problem</h3>
+<p>No one in physics has a UV completion of quantum gravity. Perturbatively quantized general relativity is non-renormalizable: at two loops the pure-gravity effective action develops a divergence proportional to a cubic-curvature (mass-dimension-6) invariant, the Goroff–Sagnetti / van de Ven term, with no counterterm available in the classical action. The heat-kernel (Seeley–DeWitt / Gilkey) expansion is the standard organizing tool for exactly this structure: for a Laplace-type operator D on a d-dimensional manifold,</p>
+<pre><code>Tr e^{−tD}  ~  (4π t)^{−d/2}  Σ_{k≥0}  t^k  ∫ √g  tr_V[a_{2k}(x)]   (t → 0+),
+</code></pre>
+<p>where each <strong>a_{2k}</strong> is a <em>local, universal</em> polynomial in the curvature, the endomorphism E, and the bundle curvature Ω of D, of mass dimension 2k. The coefficient <strong>a₆</strong> (the k=3, mass-dimension-6, cubic-curvature term) is the one that governs the two-loop divergence structure and the leading UV behavior of the graviton self-energy. Its finiteness and sign are <em>the</em> canonical one-loop UV diagnostic.</p>
+<p>Gap-01 asks the bounded, well-posed version of that question on the program's frozen geometry: <strong>can tr[a₆] of the frozen 13D graviton+ghost operator be computed from the frozen spectrum, is it finite and well-behaved, and would such a value contribute toward a UV completion?</strong> The named object is <strong>MO-9</strong>, the assembled basis-projected tr[a₆] vector in the cubic-curvature basis; the adjudication objects are <strong>MO-10/MO-11</strong> (a positivity functional and its decision-grade pass-semantics) and <strong>MO-12</strong> (the necessary-not-sufficient / sufficiency question).</p>
+<h3>2.2 State of the art and best bound</h3>
+<p>The Gilkey a₆ coefficient is known in closed form. The canonical references are Gilkey's <em>Invariance Theory, the Heat Equation, and the Atiyah–Singer Index Theorem</em> (Theorem 4.8.16, the universal a₆ polynomial) and Vassilevich's review <em>Heat kernel expansion: user's manual</em> (Phys. Rept. 388 (2003) 279; hep-th/0306138), whose equation (4.29) is the explicit a₆ functional ("a6nobou") this gate's engine contracts. The smooth-bulk coefficient is therefore <em>available</em>; the difficulties are (i) actually contracting it against a specific high-dimensional graviton+ghost spectrum, (ii) the boundary/defect contribution, and (iii) the physical interpretation.</p>
+<p>On (ii), the <strong>boundary</strong> heat-kernel tower is the genuine frontier: the published mixed-boundary-condition coefficients run out at <strong>a₅</strong> (Branson–Gilkey–Kirsten–Vassilevich, <em>Nucl. Phys.</em> B563 (1999) 603; hep-th/9906144). An order-6 mixed Neumann/Dirichlet boundary coefficient does not exist in the literature. This is the obstruction the gate's earlier framing called the "missing-literature object." Part of this gate's progress (§3.5) is showing that for <em>this</em> geometry the relevant object is <strong>not</strong> a boundary coefficient at all.</p>
+<p>On (iii), gauge-fixing dependence is a known hazard: off-shell graviton heat-kernel coefficients are gauge- and parametrization-dependent and become invariant only <strong>on-shell</strong> (Einstein + Λ). This is documented in Bastianelli–Bonezzi–Melis, <em>EPJC</em> (2022), arXiv:2206.13287, corroborated by hep-th/9809169. This bears directly on whether a positivity verdict can even be read (§3.6).</p>
+<h3>2.3 Prior attempts and why each falls short</h3>
+<ul>
+<li><strong>Direct dimensional-regularization of a₆ at odd d.</strong> At odd d the a₆ term sits at a half-integer ζ-pole — <code>s = 7/2</code> (equivalently the t-power <code>t^(−7/2)</code> per <code>skeleton_check.py</code>) — a <em>power divergence</em> that is scheme-dependent and vanishes in dim-reg. There is no log term and no conformal-anomaly slot (a_{d/2}=a_{6.5} is non-integer, hence absent). So the dimensionful value is not a clean scheme-independent number — it is ill-posed as stated. This is not a failure of effort; it is a property of odd D.</li>
+<li><strong>Boundary-coefficient derivation (extend BGKV to a₆).</strong> A genuine new research result, heavy, and — for this geometry — aimed at the wrong object (§3.5): the S¹_Y/ℤ₂ fixed points are reflection fixed points of a closed manifold, not a boundary.</li>
+<li><strong>Reading positivity off the bulk sign alone.</strong> Off-shell, gauge-dependent, and on an odd-D power-divergence slot, the local a₆ density carries no scheme-independent UV verdict; the genuine positivity predicates (spectral positivity, reflection positivity) are functions of the whole spectrum, not of the local density (§3.6).</li>
+</ul>
+<p>The honest community position: <strong>the total a₆ for a realistic high-dimensional graviton+ghost spectrum has not been assembled by anyone.</strong> Gap-01's contribution is to compute the scale-free part exactly, to dissolve the false boundary wall into a tractable graded-bulk object, to locate the open value-leg precisely, and to keep every honest limit on the table.</p>
+<hr />
+<h2>3. The construction — rigorous math</h2>
+<blockquote>
+<p>Full construction lives in the corpus chapter <code>…/TOE/TOE_Self_close_chapters/ch_02_gap01_uv_gravity_a6.md</code> and the engine <code>…/computational_runs_2026-06-23/a6_computation/</code> (<code>a6_compute.py</code>, <code>berger_symbolic.py</code>, <code>bianchi_test.py</code>). This section is the rigorous recap, grounded line-by-line in the certificates listed in §5.</p>
+</blockquote>
+<h3>3.1 The operator and how the geometry sets up a₆</h3>
+<p>The frozen 13D branch is the product orbifold <strong>M₄ × K₆ × S² × S¹_Y/ℤ₂</strong>, with K₆ = SU(3)/T² the program's clean color carrier. The geometry supplies, concretely and load-bearingly (not as decoration):</p>
+<ol>
+<li><strong>The operator and bundles.</strong> The Laplace-type object is the <strong>de-Donder (harmonic gauge, α=1, Lichnerowicz) graviton</strong> acting on Sym²(T) — fibre dimension <strong>91</strong> in 13D — <em>minus</em> <strong>2×</strong> the Faddeev–Popov vector ghost on T — fibre dimension <strong>13</strong> — plus the Nakanishi–Kugo third ghost, which is ultralocal (G = ḡ) and contributes <strong>0</strong> at a₆. Symbolically <code>a₆^phys = a₆[grav] − 2·a₆[ghost] + 0</code>. (Source: certificate <code>B1_…/03_OBJECT_IDENTITY.md</code>, §A2; <code>E_OMEGA_OPERATOR.md</code> §2.5.)</li>
+<li><strong>The holonomy/bundle decomposition</strong> of those bundles under K₆ × S² × S¹_Y.</li>
+<li><strong>The background curvature invariants</strong> of the frozen branch that feed the cubic-curvature a₆ basis.</li>
+<li><strong>The clean, scale-free content</strong> — the dimensionless ratios that are geometry-pinned and scheme-free.</li>
+</ol>
+<p>So the geometry makes the question <strong>well-posed</strong> and <strong>pins the scale-free ratios</strong>. That is genuine work. What the geometry does <em>not</em> do: certify that the coefficient closes the high-energy problem, fix the dimensionful magnitude (which rides one geometry-unfixed scheme object), or determine that the operator/spectrum is unique (given-E ≠ derivation-of-E).</p>
+<h3>3.2 The scale-free sector (DERIVED, dual-validated)</h3>
+<p>This is the gate's earned win. The claim is that, given the frozen Laplace-type operator, the canonical one-loop a₆ object is <strong>forced</strong> — by locality, diffeomorphism/gauge covariance, elliptic consistency, dimensional homogeneity, and product/orbifold functoriality — to be the universal Gilkey Thm 4.8.16 / Vassilevich eq.(4.29) a₆ functional, and its <strong>scheme-independent invariants</strong> are uniquely determined.</p>
+<p><strong>The four exact-rational sphere cross-checks.</strong> Compute the a₆ heat-trace coefficient on round spheres two structurally independent ways and require agreement:</p>
+<ul>
+<li><strong>Route A (Gilkey contraction):</strong> plug the sphere curvature into the eq.(4.29) functional and contract.</li>
+<li><strong>Route B (spectral peel):</strong> sum the <em>actual</em> S^n Laplacian eigenvalue heat trace and extract the t³ coefficient by a 60-digit mpmath Vandermonde peel — no reference to the Gilkey formula at all.</li>
+</ul>
+<p>The two routes agree on:</p>
+<table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Value</th>
+<th>Route A vs Route B agreement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S² a₆</td>
+<td><strong>4/315</strong></td>
+<td>rel. error ~1.3×10⁻¹⁴</td>
+</tr>
+<tr>
+<td>S⁴ a₆</td>
+<td><strong>74/63</strong></td>
+<td>rel. error ~0</td>
+</tr>
+<tr>
+<td>S⁶ a₆</td>
+<td><strong>1139/63</strong></td>
+<td>rel. error ~2×10⁻¹⁶</td>
+</tr>
+<tr>
+<td>S⁶ conformal</td>
+<td><strong>5/63</strong></td>
+<td>rel. error ~4×10⁻¹⁴</td>
+</tr>
+</tbody>
+</table>
+<p>(Source: <code>01_DOSSIER.md</code> §2.1/W1; <code>CERT_SCALEFREE_SECTOR_2026-06-25.md</code>; <code>B1_…/08_TWO_ROUTE_AGREEMENT.md</code>; re-run 2026-06-24.) These are exact rationals reproduced on the spectral side independently of the Gilkey contraction — the textbook definition of target-blind. A grep of the verifier confirms no <code>2.8</code>/<code>94</code>/<code>target</code> tokens; the rationals are not back-fitted.</p>
+<p><strong>The color factor 124/315.</strong> This is the dimensionless K₆ color factor that the scale-free sector pins; it is dual-validated (witness W2). <strong>Honest caveat (carry it):</strong> 124/315 is <em>metric-selected</em> — it holds at the specific normalization Scal_K6 = 7.5; the corpus's own declared K₆ curvature gives a different decimal. So 124/315 is the clean scale-free <em>invariant of the validated normalization</em>, and must be reported with that caveat, <strong>not</strong> sold as "the one target-blind ratio that drops out of nothing." The genuinely normalization-robust scale-free statements are the <em>ratios</em> of §3.4 (a₄/a₂² = 66/125 etc.), which are exact independent of R₆.</p>
+<p><strong>Why this is the real recovered physics.</strong> The scale-free sector is a cost-0 theorem of Gilkey invariance theory plus standard QFT, <em>given</em> the frozen operator. It is the only earned, gate-relevant DERIVED win — and it is genuinely scheme-free.</p>
+<h3>3.3 The Berger ∇-machinery (sound; the retraction was a verifier bug)</h3>
+<p>The a₆ functional contains derivative-of-curvature monomials (e.g. |∇Riem|²), so the engine must differentiate the curvature correctly. A <code>bianchi_test.py</code> implementing both differentiation paths on the <strong>Berger 3-sphere</strong> (the squashed S³, a stress-test with known curvature) shows:</p>
+<ul>
+<li>the correct lowered-(0,4) differentiation path gives <strong>2nd-Bianchi residual ~0</strong> <em>and</em> reproduces the closed form <strong>256·a²(a²−1)²</strong> (null at a=1, where Berger becomes round);</li>
+<li>the upper-slot −Γ (1,3) path reproduces the earlier "retraction" numbers <em>and violates</em> 2nd Bianchi.</li>
+</ul>
+<p>Three independent codes agree on 256·a²(a²−1)². <strong>Conclusion:</strong> the engine's ∇-machinery is correct; the prior retraction was a (1,3)-tensor differentiation bug, not a wrong closed form (witness W3; <code>01_DOSSIER.md</code> §2.2). This validates the <em>machinery</em> on Berger — it does not by itself validate the K₆ magnitude against any published value (there is none).</p>
+<h3>3.4 The ~31% curvature-input error — located exactly, corrected target-blind</h3>
+<p>A real error sits inside the corpus a₆ engine, and the certificate <code>CERT_CURVATURE_DELTA_2026-06-25.md</code> (cross-confirmed by <code>B1_…/04_R3_K6_BIANCHI_FIX.md</code>) pins it precisely. The K₆ = SU(3)/T² curvature builder <code>a6_compute.py::k6_riem_gilkey::Rop()</code> writes the two naturally-reductive quarter-terms as</p>
+<pre><code>+1/4 [[Y,Z]_m, X]_m  −  1/4 [[X,Z]_m, Y]_m
+</code></pre>
+<p>whereas the correct naturally-reductive form (Besse 7.38 / Kobayashi–Nomizu) carries the <strong>opposite sign</strong>. The consequence is checkable target-blind, because the criterion is the <strong>first Bianchi identity</strong> — a theorem every Riemann tensor must satisfy — not any a₆ value:</p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>engine as-written</th>
+<th>sign-flipped (correct)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1st-Bianchi max-residual</td>
+<td><strong>0.142857 = 1/7 (VIOLATES)</strong></td>
+<td><strong>3.05×10⁻¹⁶ (satisfies)</strong></td>
+</tr>
+<tr>
+<td>|Riem|²/Scal²</td>
+<td><strong>31/147 = 0.21088</strong></td>
+<td><strong>23/75 = 0.30667</strong></td>
+</tr>
+<tr>
+<td>Ricci eigenvalues</td>
+<td>0.5 ×6 (isotropic)</td>
+<td>0.5 ×6 (isotropic)</td>
+</tr>
+<tr>
+<td>Scal/Ric_eig</td>
+<td>6.000000</td>
+<td>6.000000</td>
+</tr>
+<tr>
+<td>Einstein constant κ</td>
+<td>7/12</td>
+<td><strong>5/12</strong></td>
+</tr>
+<tr>
+<td>tr[a₆]_bulk (GeV⁶)</td>
+<td>−2.817995812×10⁹⁴</td>
+<td>−2.995681680×10⁹⁴</td>
+</tr>
+<tr>
+<td>Δ</td>
+<td>—</td>
+<td><strong>+6.305%, sign preserved (negative)</strong></td>
+</tr>
+</tbody>
+</table>
+<p>(Source: <code>B1_…/04_R3_K6_BIANCHI_FIX.md</code>; <code>CERT_CURVATURE_DELTA_2026-06-25.md</code>.) The engine self-check missed the error because it tested only Ricci isotropy and Scal/Ric=6, both <em>insensitive</em> to the sign (the Ricci contraction is unchanged). Per-channel: the Ricci/scalar-only cubics (R³, R|Ric|², Ric³, RicRicRiem) are unchanged (ratio 1.0000); only the Riemann-cubics move, diluting the ~45% jump in |Riem|² down to +6.305% in the bulk.</p>
+<p>The correction was reproduced <strong>four target-blind ways</strong>: (1) a Nomizu Levi-Civita rebuild R = ∇∇ − ∇∇ − ∇_[·,·]; (2) a covariant 2nd-Bianchi build with |∇Riem|²=0.25; (3) the corpus's <em>own</em> finite-difference reference <code>k6_fd_nablaR.py</code> (which outputs |Riem|²=1.91667 and Ricci eig 5/12 — its stale comment says 7/12); (4) sectional-curvature structure sums giving Scal=5/2. A from-scratch rebuild with a <em>different</em> inner product (−tr(XY) vs the corpus's −6·tr(XY)) gives Bianchi residual 0, |Riem|²/Scal²=23/75 and |Ric|²/Scal²=1/6 exactly — zero contact with the corpus answer. The fix is a one-line sign flip; it is documented as <strong>DISCLOSED-CORRECTED / computation-debt</strong> (a correction owed), not a closure, and it does <strong>not</strong> silently flip the bulk sign (corrected bulk is still negative). The scale-free sphere cross-checks (§3.2) still pass — the fix is K₆-local.</p>
+<p>The companion <strong>derivative sector</strong> (+1.260×10⁹² GeV⁶, −0.447% of bulk) rests on the K₆ value |∇Riem|² which has no direct external published anchor; its trust comes only from its sub-percent weight plus transfer-of-confidence from the Berger validation (§3.3). It is honestly flagged as such.</p>
+<h3>3.5 The ℤ₂ orbifold defect — the boundary wall dissolved into a graded bulk coefficient</h3>
+<p>This is one of the dossier's strongest structural results, and it changes the <em>kind</em> of object the "defect" is. The earlier framing (and the still-live public brief) treated the S¹_Y/ℤ₂ contribution as a <strong>missing order-6 mixed Neumann/Dirichlet boundary heat-kernel coefficient</strong>, absent from the literature because the boundary tower stops at a₅. The certificate <code>CERT_Z2_DEFECT_STRUCTURE_2026-06-25.md</code> (and <code>B1_…/03_OBJECT_IDENTITY.md</code>) shows that this is the <strong>wrong object</strong>.</p>
+<p>A global isometric ℤ₂ involution on a <em>closed</em> manifold is <strong>not</strong> a manifold-with-boundary BVP. Its order-6 contribution is the fixed-point term of the <strong>equivariant (Lefschetz) heat trace</strong> — the <strong>Donnelly</strong> expansion (<em>Math. Ann.</em> 224 (1976) 161) — which exists to all orders, has <strong>integer</strong> t-powers, no extrinsic-curvature monomials, and is built from bulk local invariants on the fixed locus weighted by the normal action. On the frozen branch:</p>
+<ul>
+<li>S¹_Y is <strong>flat</strong>, a direct-product factor; ℤ₂ acts as a pure reflection y → −y, with dσ|_N = [−1], so <strong>det(I − dσ|_N) = det(1 − (−1)) = 2</strong> (Donnelly nondegeneracy holds; per-fixed-point transverse weight 1/|det(I−A)| = 1/2);</li>
+<li>the fixed locus F = M₄ × K₆ × S² × {0, π} is <strong>totally geodesic</strong> (extrinsic curvature L_ab = 0; θ=0,π are geodesics of flat S¹);</li>
+<li>the <strong>angle deficit is 0</strong> — a line reflection has wedge angle π, so this is a codim-1 reflection, <strong>not</strong> a Cheeger cone (rotations R²/ℤ_N give deficit 2π(1−1/N)≠0 and a curvature δ-function; this reflection has neither).</li>
+</ul>
+<p>The decisive computation: the <strong>twisted trace</strong> Tr_σ(e^{−tD}) on S¹_R/ℤ₂ = <strong>1 exactly, t-independent</strong> (single fixed mode n=0; cos modes +1 and sin modes −1 cancel per n). That is an <strong>integer-power t⁰ Donnelly/Lefschetz series with no 1/√t half-integer boundary tower</strong> — the structural signature that there is no boundary object here at all.</p>
+<p>Hence the exact reduction:</p>
+<pre><code>Tr_{M/Z2}(e^{−tD}) = (1/2) Tr_M(e^{−tD})  ±  (1/2) Tr_M(σ e^{−tD})
+Tr_M(σ e^{−tD})    = Tr_base(γ e^{−tD_base})         (exact factorization)
+tr[a6]^{Z2-defect} = (1/2) c3^γ
+</code></pre>
+<p>where c₃^γ is the t³ (order-6) Seeley–DeWitt coefficient of the <strong>same</strong> de-Donder graviton+ghost operator on the 12d base M₄ × K₆ × S², using the <strong>same</strong> eq.(4.29) functional, same E, Ω, same K₆+S² curvature, with the fibre trace tr_V replaced by the <strong>graded</strong> trace tr_V(γ·), γ being the reflection action on the fibre. The grading constants are pure linear algebra, forced by D=13 + the reflection (zero reference to any a₆ value):</p>
+<pre><code>γ = Sym²(diag(1₁₂, −1)):   tr γ_grav = 67,   tr γ_ghost = 11,
+Block-A graded weight = 67 − 2·11 = 45    (vs. bulk 65).
+</code></pre>
+<p>This is <strong>REDUCE-not-RELOCATE</strong>: the subproblem (graded a₆ of a 12d base via the already-built, sphere-validated engine plus a trivial γ insertion) is strictly <em>easier</em> than deriving a new research-grade boundary BVP functional. The certificate verifies the reduction with <strong>six target-blind tests to machine precision</strong> — including the decisive <strong>T5</strong>: a <em>spinning</em> vector field on curved S² × (S¹/ℤ₂), whose direct orbifold spectrum equals the graded reduction through all Seeley–DeWitt orders (diff ~1×10⁻¹³), confirming the grading captures all orders through a₆, not just the leading one. An independent curved scalar check on S² × (S¹/ℤ₂) gives defect a₆ = <strong>2/315</strong> = (1/2)(4/315) to rel. 1.3×10⁻¹⁴ (<code>B1_…/03_OBJECT_IDENTITY.md</code>). All grading commutators [γ, E], [γ, Ω], [γ, trace-reversal] vanish exactly on the <em>actual engine matrices</em> (necessary for the factorization).</p>
+<p><strong>The honest residue.</strong> The <em>structure</em> is built and the false boundary wall is dissolved; but the <strong>numeric</strong> c₃^γ is <strong>not</strong> emitted — it inherits the dimensionful scheme problem (R1) and, more sharply, the still-open Levi-Civita correction (R4, §3.7). So "no total emitted" remains dominant — but for the <em>correct</em> reason (a runnable computation-debt), not a literature wall.</p>
+<h3>3.6 The positivity functional Π(a₆) — specified, then shown non-realizable</h3>
+<p>The decision object MO-10/MO-11 is a positivity functional Π that would read a UV verdict off the total a₆. The certificate <code>CERT_POSITIVITY_FUNCTIONAL_2026-06-25.md</code> does the disciplined thing: it <strong>fully specifies</strong> Π across six legs (operator basis; ghost signs; gauge-fixing dependence; zero modes; boundary terms; pass/fail semantics) <strong>before</strong> any sign is read, then shows Π has <strong>no valid realization</strong> on this branch — for four reasons, <strong>none of which uses sign(a₆)</strong>:</p>
+<ol>
+<li><strong>No admissible input.</strong> a₆_total is not emitted; a sign read off the bulk alone is not a verdict on the whole object.</li>
+<li><strong>Gauge-fixing dependence is fatal.</strong> Off-shell graviton heat-kernel coefficients are gauge/parametrization-dependent and become invariant only on-shell (arXiv:2206.13287). The frozen product branch M₄(flat) × K₆ × S² × S¹/ℤ₂ is manifestly off-shell (flat factors have Ric=0, internal factors Ric≠0, so Ric ∝ g fails for any single Λ). The invariance precondition fails.</li>
+<li><strong>Wrong predicate (odd-D).</strong> The log/conformal-anomaly coefficient is a_{d/2}, even d only. d=13 is odd; a₆ sits at t^(−7/2), a scheme-dependent power divergence carrying no scheme-independent UV verdict.</li>
+<li><strong>Object/predicate mismatch.</strong> Genuine positivity predicates (spectral positivity Tr e^{−tD}&gt;0, reflection positivity/unitarity) are functions of the full spectrum/measure, not of the local density a₆.</li>
+</ol>
+<p>Any one reason suffices. The functional is therefore <strong>OPEN/UNMADE</strong>, sharpened to <em>BLOCKED-as-valid-certificate</em>; <strong>no sign is asserted.</strong> Crucially, this construction makes the gate <em>fail-to-build</em> — it cannot manufacture a false PASS, the opposite of target-loading.</p>
+<h3>3.7 Where the value actually stands — and the two-route inconsistency</h3>
+<p>The dimensionful magnitude has two compounding problems. First, the <strong>odd-D dissolution</strong>: there is no canonical finite dimensionful a₆ at odd n. a₆ sits at the half-integer ζ-pole s=7/2 (a power divergence, scheme-dependent, zero in dim-reg) and ζ_L(0) is holomorphic for odd n (no log, no anomaly slot). The banked GeV⁶ number is a <em>local density × the prefactor (4π)^(−13/2)</em> (reproduced 7.1637×10⁻⁸), which is neither the canonical A₆ (units GeV⁻⁷) nor an object that legitimately pairs with that prefactor. So the magnitude is <strong>dissolved-as-ill-posed</strong>, admissible only as a labeled consistency coefficient.</p>
+<p>Second — and this is the <em>binding</em> open hole — the scale-free ratios that <em>would</em> survive at fixed scheme are blocked by a <strong>route inconsistency</strong> in the K₆ value. The K₆ coset is <strong>naturally reductive but NON-symmetric</strong>, so the Levi-Civita connection differs from the canonical (Peter–Weyl/Casimir) connection by Λ(X)Y = (1/2)[X,Y]_m. The Casimir/Peter–Weyl spectral method gives the <em>canonical</em>-connection spectrum, which is exact at a₀, a₂ but <strong>misses higher coefficients</strong> on the non-symmetric coset. The gap is located <strong>exactly</strong> (<code>B1_…/05_LC_CORRECTION.md</code>):</p>
+<ul>
+<li><strong>vector a₄ on K₆:</strong> canonical = 23/10 = 2.300; Levi-Civita = 281/120 = 2.341667; gap = 281/120 − 23/10 = <strong>1/24 EXACTLY</strong>;</li>
+<li><strong>scalars are immune</strong> (LC = canonical on functions) — which is <em>why</em> the scalar ratio a₄/a₂² = 66/125 is exact (reproduced to peel-noise 3.7×10⁻⁴ from the SU(3) Casimir spectrum).</li>
+</ul>
+<p>So the two routes for the graded value disagree because one (the spectral peel) silently uses the canonical connection and inherits the 1/24-class error, while the genuine object needs the Levi-Civita Bochner spectrum. The clearest <em>partial</em> result is in the ghost sector — but it is partial, not a reconciliation: a structurally-independent, Gilkey-free su(3) route earned the <strong>Bochner (E=0) ghost</strong> a₆/a₀ = <strong>149/1008</strong> (0.147817463; also via the corpus Gilkey engine with two curvature builds; exactly −16/315 + 143/720 = 149/1008), which dissolved the named su(3) root-shell blocker <em>for the Bochner ghost only</em>. It does <strong>NOT</strong> reconcile the <em>physical</em> ghost: the corpus's binding Faddeev–Popov ghost is the Lichnerowicz/Hodge operator with E = −Ric, whose Route-A (physical) value is <strong>−251/504</strong>, so against the Gilkey-free Route-B 149/1008 the two ghost routes <strong>DISAGREE</strong> by |−251/504 − 149/1008| = 31/48 ≈ 0.646 — ~6 orders outside the pre-fixed 1×10⁻⁶ tolerance. (An earlier draft claim "ghost sector reconciled / two routes agree exactly" was caught by the verifier as target-loading: the apparent agreement at 149/1008 came only from silently replacing the physical E = −Ric ghost with the pure-Bochner E = 0 operator. The corpus binding status is R7 = FAIL_VALUE_MISMATCH for the ghost as well as the graviton.) The graviton sector is likewise open: canonical (Bochner) and Levi-Civita (Lichnerowicz) values differ (e.g. graviton a₄ Bochner 233/210 vs Lichnerowicz 893/210), Route A's K₆-bundle a₆ fails its own canonical anchor (−43/504 vs −16/315), and the corpus carries two graviton a₄ anchors (893/210 vs 1643/210, same 2/21 gap but different absolute value) so the a₆ sign is not yet pinned. (Source: handoff first-pass plug results; <code>PLUG_RESULTS_FIRSTPASS_2026-06-29.md</code>; <code>B1_…/05_LC_CORRECTION.md</code>, <code>06</code>, <code>06b</code>, <code>07</code>, <code>08</code>, <code>13_FINAL_ROLLUP.md</code>.) <strong>The disagreement sits upstream of the scheme anchor</strong>, in the SU(3) Gelfand–Tsetlin off-diagonal matrix elements that gate the 5-class Levi-Civita Lichnerowicz graviton hopping on K₆ — and it is a Bochner-vs-Lichnerowicz operator-identity ambiguity in <em>both</em> the ghost and graviton sectors. The honest statement is therefore <strong>route-INCONSISTENT (R7 = FAIL_VALUE_MISMATCH) for the graded value</strong>, which is <em>stronger</em> than "uncomputed."</p>
+<h3>3.8 The residual register (R1–R10)</h3>
+<p>Consolidating the certificates and the B1 completion ledger:</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Residual (named object)</th>
+<th>Disposition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R1</strong></td>
+<td>Dimensionful BULK magnitude rides an injected scale</td>
+<td><strong>DISSOLVED-as-ill-posed</strong> at odd D=13 (no GeV⁶ value; consistency coefficient only)</td>
+</tr>
+<tr>
+<td><strong>R2</strong></td>
+<td>ℤ₂ orbifold-defect identity</td>
+<td><strong>STRUCTURE-BUILT</strong> — Donnelly (1/2)c₃^γ; the boundary-coefficient "wall" was a wrong-object artifact</td>
+</tr>
+<tr>
+<td><strong>R3</strong></td>
+<td>~31% curvature-input error</td>
+<td><strong>DERIVED-VERIFIED / DISCLOSED-CORRECTED</strong> (23/75 Bianchi-exact; engine 31/147 Bianchi-violating)</td>
+</tr>
+<tr>
+<td><strong>R4</strong></td>
+<td>Levi-Civita-vs-canonical correction (LC machinery)</td>
+<td><strong>COMPUTED/VALIDATED</strong> (latest pass, <code>13_FINAL_ROLLUP</code>) — vector a₄ gap = 1/24 exact, graviton Sym²(T) gap = 2/21 exact (canonical 291/70 or 541/70, LC 893/210 or 1643/210); Ω^LC = base Riemann to 1.1×10⁻¹⁶. (Earlier pass <code>02_RESIDUAL_LEDGER</code> recorded this OPEN; rollup supersedes.) Not by itself gate-closing.</td>
+</tr>
+<tr>
+<td><strong>R5</strong></td>
+<td>Route A graded c₃^γ value</td>
+<td><strong>ASSEMBLED candidate, ANCHOR-INCONSISTENT</strong> — single-engine cubic assembled, but its K₆-bundle a₆ fails the canonical anchor (−43/504 vs −16/315, MATCH=False). Binding.</td>
+</tr>
+<tr>
+<td><strong>R6</strong></td>
+<td>Route B independent value</td>
+<td><strong>PARTIAL</strong> — Gilkey-free Bochner-ghost a₆/a₀ = 149/1008 earned (named su(3) blocker dissolved for the Bochner ghost only); graviton Sym²(T) LC a₆ still missing (does not inherit the collapse; brute peel diverges). Binding.</td>
+</tr>
+<tr>
+<td><strong>R7</strong></td>
+<td>Two-route agreement for the VALUE</td>
+<td><strong>FAIL_VALUE_MISMATCH</strong> — sphere scale-free sector agrees 2 routes, but the B1 coefficient does not (ghost Route A −251/504 vs Route B 149/1008, |Δ|=31/48 ≈ 0.646, ~6 orders out). Binding.</td>
+</tr>
+<tr>
+<td><strong>R8</strong></td>
+<td>BRST σ-evenness sufficiency</td>
+<td><strong>PROVED (Phase H, 2026-06-26)</strong> — reduces to finite σ-equivariance; no longer the binding wall</td>
+</tr>
+<tr>
+<td><strong>MO-12 / R5(field)</strong></td>
+<td>Sufficiency: a₆ is one term in unbounded a₈/a₁₀/… tower</td>
+<td><strong>OPEN (field-level)</strong> — necessary-not-sufficient, shared with all QG</td>
+</tr>
+<tr>
+<td><strong>R(positivity)</strong></td>
+<td>Positivity functional MO-10/MO-11</td>
+<td><strong>OPEN/UNMADE</strong> — no valid realization on this off-shell odd-D branch; no sign asserted</td>
+</tr>
+<tr>
+<td><strong>R(given-E)</strong></td>
+<td>Spectrum given, not derived</td>
+<td><strong>DISCLOSED (given-E) / scoped</strong></td>
+</tr>
+</tbody>
+</table>
+<p>(Sources: <code>B1_…/02_RESIDUAL_LEDGER.md</code>, <code>13_FINAL_ROLLUP.md</code>; the four CERT_<em>.md certificates; <code>01_DOSSIER.md</code> §3.) </em><em>Gate status = least-closed residual = OPEN.</em>*</p>
+<h3>3.9 The SCHEME-ANCHORED cascade (why R1 is not alone)</h3>
+<p>Three quantitative objects that <em>looked</em> derived from the frozen geometry — the gauge <strong>threshold vector</strong> (SG-7), the moduli loop coefficient <strong>c_loop</strong> (SG-6), and the <strong>a₆</strong> magnitude (this gate) — do not pose three independent questions. They collapse onto <strong>one shared technical decision</strong>: which heat-kernel object is the finite one-loop coefficient (a scale-invariant object, which the blind runs use and which sends the color row toward zero, vs a dimension-laden object, which the corpus uses to reach its numbers). Settle that one decision and all three numbers move together. The sharpening from the 2026-06-28/29 audit is that the obstruction lives one level deeper still: in the SU(3) Gelfand–Tsetlin off-diagonal / Levi-Civita-hopping sector that R4 names. <strong>Reconcile the routes ONCE — fix the GT off-diagonal matrix elements (5-class LC Lichnerowicz hopping) — and the fix propagates to Gap-01 (R1/R4), SG-6 (its breathing-mode singlet / FRG-2 wall), and SG-7 (its threshold row-formula normalization).</strong> This is the gate's single highest-leverage move.</p>
+<hr />
+<h2>4. The insights we used</h2>
+<p>These are the moves that produced the progress, now shared at working-physicist depth so a reader can reproduce and extend them.</p>
+<p><strong>(I) Separate the scale-free skeleton from the dimensionful flesh — and only claim the skeleton.</strong> The decisive discipline was to recognize that Gilkey invariance theory <em>forces</em> the dimensionless invariants regardless of any scale choice, while the dimensionful magnitude rides a scheme object the geometry does not fix. By computing the sphere cross-checks on the <em>spectral</em> side (direct eigenvalue heat trace, Vandermonde t³ peel) independently of the Gilkey contraction, the scale-free sector becomes a genuine two-route, target-blind theorem — and the magnitude is openly excluded from the "derived" set. This is the κ³/π discipline in action: write the object <em>without knowing the target</em>.</p>
+<p><strong>(II) Use a theorem, not the target, as the correctness criterion.</strong> The ~31% curvature error was caught and fixed not by matching a known a₆ (there is none) but by the <strong>first Bianchi identity</strong> — a law every Riemann tensor obeys. The buggy tensor fails it (1/7); the corrected one passes (3×10⁻¹⁶) <em>and</em> lands on the clean rational 23/75 simultaneously. One sign choice cannot fake both an exact rational and Bianchi-exactness — that double coincidence is what makes the fix trustworthy without any target.</p>
+<p><strong>(III) Identify the <em>object</em>, not just attack the <em>wall</em>.</strong> The biggest conceptual move was refusing to derive a "missing order-6 boundary coefficient" and instead asking <em>what the S¹_Y/ℤ₂ fixed points actually are</em>. A flat-circle reflection on a closed manifold is a Donnelly equivariant fixed-point problem with integer t-powers and a totally-geodesic fixed locus — emphatically not a boundary BVP and not a Cheeger cone. The diagnostic that settled it was the twisted trace being exactly 1 and t-independent (no 1/√t tower). This is the "is the problem itself the unicorn?" move (M5/M7 from the attack arsenal): the wall was an artifact of describing the wrong object. The payoff is a <em>reduction</em> (graded bulk a₆ via the existing engine), not a <em>relocation</em> to a harder problem.</p>
+<p><strong>(IV) Specify the decision functional before reading the answer.</strong> For positivity, the win was to freeze all six legs of Π <em>before</em> any sign was read, then let the functional's own well-posedness conditions render the verdict. Because the four kill-reasons are each independent of sign(a₆), the construction cannot manufacture a false PASS — it can only honestly report "not buildable here." This is anti-target-loading by construction.</p>
+<p><strong>(V) Locate the gap to the exact rational, then name the machinery that closes it.</strong> Rather than declaring the value "uncomputed," the work pinned the open leg to a single exact number: the Levi-Civita-vs-canonical vector a₄ gap = <strong>1/24</strong>, with scalars provably immune (which is <em>why</em> 66/125 is exact). That converts a vague "the value disagrees" into a concrete computation-debt — the −2·Σ_i Λ(e_i)∇^can correction via explicit su(3) Gelfand–Tsetlin matrix elements on Peter–Weyl harmonic sections — that a specialist can run.</p>
+<p><strong>(VI) Collapse three "independent" open numbers onto one decision.</strong> Recognizing that the SG-6 modulus, the SG-7 threshold vector, and the Gap-01 a₆ value all ride the <em>same</em> heat-kernel scheme object (and, deeper, the same GT/LC-hopping sector) turns three gates' worth of work into one load-bearing computation. This is leverage discovered by auditing what the numbers share, not by attacking each in isolation.</p>
+<hr />
+<h2>5. Evidence and reproducibility</h2>
+<h3>5.1 Witness ledger</h3>
+<table>
+<thead>
+<tr>
+<th>W</th>
+<th>Witness</th>
+<th>What it shows</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>W1</strong></td>
+<td><code>a6_compute.py</code> <code>run_crosschecks()</code></td>
+<td>S²=4/315, S⁴=74/63, S⁶=1139/63, conf=5/63 — exact-rational, independent of the Gilkey contraction</td>
+<td>PASS (re-run 2026-06-24)</td>
+</tr>
+<tr>
+<td><strong>W2</strong></td>
+<td>Color factor 124/315</td>
+<td>Exact dimensionless ratio, dual-validated (metric-selected at Scal_K6=7.5 — carry the caveat)</td>
+<td>DERIVED (caveated)</td>
+</tr>
+<tr>
+<td><strong>W3</strong></td>
+<td><code>berger_symbolic.py</code> + <code>indep_berger.py</code> + <code>bianchi_test.py</code></td>
+<td>256·a²(a²−1)², null at a=1; retraction = (1,3)-tensor verifier bug</td>
+<td>VERIFIED</td>
+</tr>
+<tr>
+<td><strong>W4</strong></td>
+<td>Bulk value −2.817995812×10⁹⁴ GeV⁶ (corrected −2.995681680×10⁹⁴)</td>
+<td>Reproduced exactly by <code>a6_compute.py</code></td>
+<td>labeled consistency coefficient ONLY</td>
+</tr>
+<tr>
+<td><strong>W5</strong></td>
+<td>ℤ₂ defect = (1/2)c₃^γ (Donnelly); curved test defect = 2/315 to 1.3×10⁻¹⁴</td>
+<td>Structure built; value not emitted</td>
+<td>STRUCTURE-BUILT</td>
+</tr>
+<tr>
+<td><strong>W6</strong></td>
+<td>R3 sign fix: 31/147 (Bianchi-violating) → 23/75 (Bianchi-exact); +6.305% bulk</td>
+<td>A real engine error, corrected</td>
+<td>DISCLOSED-CORRECTED</td>
+</tr>
+<tr>
+<td><strong>W7</strong></td>
+<td><strong>Bochner (E=0)</strong> ghost graded a₆/a₀ = 149/1008, earned Gilkey-free (su(3) peel diff 2.7×10⁻⁹; −16/315+143/720); dissolves the named su(3) root-shell blocker for the Bochner ghost</td>
+<td>Partial: the <em>physical</em> (Lichnerowicz E=−Ric) ghost is −251/504, so ghost routes DISAGREE by 31/48 — NOT reconciled</td>
+<td>REDUCE (Bochner blocker only); R7 = FAIL_VALUE_MISMATCH</td>
+</tr>
+<tr>
+<td><strong>W8</strong></td>
+<td>LC-vs-canonical vector a₄ gap = 1/24 exact; scalars immune</td>
+<td>The open value-leg, exactly located</td>
+<td>OPEN/computation-debt</td>
+</tr>
+<tr>
+<td><strong>W9</strong></td>
+<td>Π(a₆) six-leg spec + four sign-independent kill-reasons</td>
+<td>Positivity functional non-realizable here</td>
+<td>OPEN/UNMADE (no sign)</td>
+</tr>
+<tr>
+<td><strong>W10</strong></td>
+<td>BRST σ-evenness (Phase H): [σ,Q_BRST]=0 all sectors, quartets σ-homogeneous, DeWitt measure σ-invariant</td>
+<td>Sufficiency of the factorization grading</td>
+<td>PROVED</td>
+</tr>
+<tr>
+<td><strong>W11</strong></td>
+<td>Stale orphan <code>a6_sphere_crosscheck.py</code> (S²=−8/405, S⁶=299/27)</td>
+<td>A <em>different</em> Gilkey transcription that FAILS; superseded — do not invoke</td>
+<td>housekeeping hazard</td>
+</tr>
+</tbody>
+</table>
+<h3>5.2 Frozen hashes and read-only context</h3>
+<p>Branch <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code> (READ-ONLY). Engine <code>.py</code> files carry 2026-06-22 timestamps and were <strong>unmutated</strong> during all of this work; every correction (the R3 sign flip; the graded-γ variant) is a <em>proposed</em> drop-in run by monkeypatch in a scratchpad sandbox, REQUIRES-COUNTERSIGN before any corpus edit. The frozen geometry anchor is <code>…/TOE/00_EXACT_GEOMETRY_ANCHOR.md</code> and <code>03_FROZEN_GEOMETRY_CONTEXT.md</code>.</p>
+<h3>5.3 Numerical checks — model vs reference, with honest pulls</h3>
+<ul>
+<li>Sphere a₆: relative error 0 to ~4×10⁻¹⁴ (spectral peel vs Gilkey contraction). <strong>Clean PASS.</strong></li>
+<li>First Bianchi on corrected K₆: residual 3.05×10⁻¹⁶ (machine zero). <strong>Clean PASS.</strong></li>
+<li>Curved ℤ₂ test (S²×(S¹/ℤ₂)): defect a₆ = 2/315, rel. 1.3×10⁻¹⁴; spinning-field T5 through all SD orders, diff ~1×10⁻¹³. <strong>Clean PASS.</strong></li>
+<li>Bochner (E=0) ghost graded a₆/a₀: 149/1008, Gilkey-free su(3) peel vs corpus Gilkey engine, diff 2.7×10⁻⁹. <strong>PASS for the Bochner object only</strong> — it dissolves the named su(3) blocker for the Bochner ghost but is <strong>not</strong> the physical ghost.</li>
+<li>Ghost graded value (physical, Lichnerowicz E=−Ric): Route A −251/504 vs Route B 149/1008, |Δ| = 31/48 ≈ 0.646, ~6 orders outside the 1×10⁻⁶ tolerance. <strong>HONEST FAIL (R7 = FAIL_VALUE_MISMATCH).</strong></li>
+<li>Graviton graded value: routes <strong>DISAGREE</strong> (Route A K₆-bundle anchor −43/504 vs −16/315; two graviton a₄ anchors 893/210 vs 1643/210). <strong>HONEST FAIL — together with the ghost mismatch this is why the gate is OPEN.</strong></li>
+<li>Dimensionful tr[a₆]: no clean value exists (ill-posed at odd D); GeV⁶ figures are consistency coefficients only. <strong>Not a check that can PASS.</strong></li>
+</ul>
+<h3>5.4 How a reader re-runs / re-derives</h3>
+<p>The certificates name runnable scripts (in the session scratchpad, target-blind, no corpus mutation):</p>
+<ul>
+<li><strong>Scale-free sector:</strong> <code>a6_compute.py</code> <code>run_crosschecks()</code> → the four sphere rationals; <code>skeleton_check.py</code> → (4π)^(−13/2)=7.1637×10⁻⁸ and the odd-D pole structure (<code>CERT_SCALEFREE_SECTOR_2026-06-25.md</code>).</li>
+<li><strong>R3 curvature fix:</strong> <code>R3_ground_truth.py</code> (prints 31/147 with Bianchi 1/7 vs sign-flipped 23/75 with Bianchi 3×10⁻¹⁶); <code>R3_corrected_bulk.py</code> (monkeypatches <code>k6_riem_gilkey</code>, re-runs <code>main()</code>, emits corrected bulk +6.305%); <code>k6_independent_recompute.py</code> / <code>k6_verify_route1.py</code> (four-method verification); <code>k6_fd_nablaR.py</code> (corpus's own FD reference) — see <code>CERT_CURVATURE_DELTA_2026-06-25.md</code>.</li>
+<li><strong>ℤ₂ defect structure:</strong> <code>A1_A2_object_real.py</code> (det(I−A)=2, twisted trace=1 t-independent), <code>R2_factorization.py</code> (curved defect 2/315), <code>A2_commutators_killtest.py</code> (grading commutators = 0), <code>test1..test6_*.py</code> (the six validations) — <code>CERT_Z2_DEFECT_STRUCTURE_2026-06-25.md</code>, <code>B1_…/03_OBJECT_IDENTITY.md</code>.</li>
+<li><strong>LC gap + Bochner-ghost blocker dissolution:</strong> <code>R4_scalefree_and_LCgap.py</code> (vector a₄ gap = 1/24 exact; scalars immune; sphere peel); the Bochner-ghost reproducers (149/1008 via two curvature builds + Gilkey-free su(3) peel — <em>not</em> the physical Lichnerowicz ghost) — <code>B1_…/05_LC_CORRECTION.md</code>, <code>07_ROUTE_B_SPECTRAL_C3.md</code>, <code>13_FINAL_ROLLUP.md</code>.</li>
+<li><strong>Positivity:</strong> <code>stage5_positivity_functional.md</code> (six-leg spec + leg-by-leg falsification tests) — <code>CERT_POSITIVITY_FUNCTIONAL_2026-06-25.md</code>.</li>
+</ul>
+<p><strong>Do NOT</strong> invoke the stale orphan <code>a6_sphere_crosscheck.py</code> (a different, failing Gilkey transcription; superseded — W11).</p>
+<hr />
+<h2>6. Open gaps and closure path — the specialist work plan</h2>
+<blockquote>
+<p>This is the most load-bearing section. Each open hole is a work-package: precise statement, why it's hard / traps to avoid, exactly what closes it (target-blind, with the refuting result spelled out), machinery &amp; inputs (with paths), and leverage. <strong>Physics only; firewall the device applications.</strong> Every closure must hold κ³/π discipline — written <em>without knowing the target</em> — or it relocates rather than closes.</p>
+</blockquote>
+<h3>Hole 1 (BINDING) — the graviton Levi-Civita correction / two-route value reconciliation (R4/R5/R6/R7)</h3>
+<p><strong>(a) Precise statement.</strong> Compute the first-order Levi-Civita correction to the <em>graviton</em> graded coefficient c₃^γ on the non-symmetric coset K₆ = SU(3)/T². The correction is <code>−2 Σ_i Λ(e_i) ∇^can_{e_i}</code> with Λ(X)Y = (1/2)[X,Y]<em _p_q_="(p,q)">m, evaluated on the tensor bundle Sym²(T) (graviton) — and settle the same correction for the <em>physical</em> (Lichnerowicz E=−Ric) ghost bundle T, where only the Bochner (E=0) variant is so far earned Gilkey-free. Concretely: derive the <strong>SU(3) Gelfand–Tsetlin off-diagonal matrix elements</strong> of the su(3) generators on Peter–Weyl harmonic sections (explicit V</em> tensor model), which gate the 5-class Levi-Civita Lichnerowicz graviton "hopping" between curvature classes on K₆. The missing object is <em>section-level</em> matrix elements, beyond Casimir/weight bookkeeping.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> The canonical (Peter–Weyl/Casimir) spectral method gives the <em>wrong connection's</em> spectrum on a non-symmetric coset — exact at a₀/a₂, but off by exactly 1/24 at vector a₄ (and worse for the graviton). The first-pass plug earned the <strong>Bochner (E=0) ghost</strong> value Gilkey-free (149/1008) — but this is <em>not</em> a reconciliation of the physical ghost: the corpus's binding Faddeev–Popov ghost is Lichnerowicz (E=−Ric, Route-A value −251/504), so the physical ghost routes DISAGREE by 31/48, exactly like the graviton. For the <strong>graviton</strong> the route fails for a sharper reason: the section trace moments T_j^LC(p,q) are <strong>Kostant quasi-polynomial</strong> — there are multiplicity deficits on the triangular-tip strata where fibre weights |w|² up to 8 exit the SU(3) weight hexagon. Global-polynomial resummation <em>poisons even a₂</em>; a brute-force peel is cost-bounded (reachable max Casimir ~124; the convergence needs thousands of irreps). <strong>Traps the verifier already caught here — do not repeat them:</strong> (1) <strong>TARGET-LOADING</strong> — an attempt to back-solve the GT elements toward a known a₆ was flagged; the elements must be derived structurally. (2) <strong>OVERCLAIM</strong> — a draft claimed "ghost sector reconciled ⇒ two routes AGREE EXACTLY ⇒ R7 MET"; that is FALSE against the frozen corpus (R7 = FAIL_VALUE_MISMATCH for both sectors; the apparent ghost "agreement" at 149/1008 came only from silently swapping the physical E=−Ric ghost for the pure-Bochner E=0 operator, and pairing the (1/2)c₃^γ reduction's own spectral anchor with the spectral peel is the <strong>same route twice</strong>, not two independent routes). Keep the earned Bochner-ghost blocker-dissolution strictly separate from the still-open physical-ghost and graviton value legs.</p>
+<p><strong>(c) Exactly what closes it.</strong> Derive the GT off-diagonal matrix elements target-blind; assemble the LC Lichnerowicz graviton graded c₃^γ; build a <strong>genuinely structurally independent</strong> second numeric route (not a second spectral peel — e.g. a non-spectral Gilkey contraction leg vs a spectral leg, distinct the way the sphere cross-checks are distinct); then re-run the two-route agreement against the pre-fixed 1×10⁻⁶ tolerance. <strong>Success:</strong> the two routes agree to tolerance on the graded graviton value, with no number fed in. <strong>Refuting result (also a valid close):</strong> if the routes cannot be reconciled without back-solving to a known number, report that the value is not target-blind-derivable and reduce the magnitude leg to a named, value-free axiom (AXIOM-HEATKERNEL-SCHEME-OBJECT) — a negative is a legitimate terminal.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Explicit su(3) V_{(p,q)} tensor model / Gelfand–Tsetlin basis; Peter–Weyl harmonic-section expansion; the Lichnerowicz/Bochner split on naturally-reductive cosets (Λ(X)Y=(1/2)[X,Y]_m). Start from: <code>B1_…/05_LC_CORRECTION.md</code> (the gap = 1/24, the correction formula), <code>06_ROUTE_A_GRADED_C3.md</code>, <code>07_ROUTE_B_SPECTRAL_C3.md</code>, <code>08_TWO_ROUTE_AGREEMENT.md</code>; the corpus <code>a6_compute.py</code> (Gilkey contraction leg) and <code>graviton_fiber.py</code> (graviton fibre data in hand); <code>R4_scalefree_and_LCgap.py</code>. The handoff first-pass scratch (recon scripts: <code>k6_curv2.py</code>, <code>nabla_riem.py</code>, <code>ghost_a6_mycurv.py</code>, <code>RECON_ghost_a6.py</code>, <code>PR21_clean_pins.py</code>) reproduces the ghost leg and the failing graviton leg.</p>
+<p><strong>(e) Leverage.</strong> This single fix is <strong>load-bearing for three gates</strong>: Gap-01 (R1/R4 here), <strong>SG-6</strong> (its R5 breathing-mode singlet / 13D FRG-2 wall), and <strong>SG-7</strong> (its R2 threshold row-formula normalization). It is ONE object, not three — reconcile the routes once and the fix propagates to all three. Highest-value work-package in the gate.</p>
+<h3>Hole 2 — the dimensionful magnitude scheme object (R1)</h3>
+<p><strong>(a) Precise statement.</strong> The dimensionful bulk a₆ terminates on no measured invariant; it rides one shared, geometry-unfixed heat-kernel scheme/scale object (the SCHEME-ANCHORED cascade, §3.9). At odd D=13 there is moreover no canonical finite local t⁰ term, so the magnitude is dissolved-as-ill-posed.</p>
+<p><strong>(b) Why it's hard / traps.</strong> At odd n, a₆ sits at the half-integer pole s=7/2 (scheme-dependent power divergence, zero in dim-reg); there is no log/anomaly slot. <strong>Trap:</strong> the banked GeV⁶ figure (−2.817995812×10⁹⁴, corrected −2.995681680×10⁹⁴) is a <em>local density × (4π)^(−13/2)</em>, not the canonical A₆ (GeV⁻⁷) — do not promote it to "the a₆ value." It is a labeled consistency coefficient and <strong>never gap-closing</strong>. Any object reverse-engineered to a known magnitude RELOCATES, it does not close.</p>
+<p><strong>(c) Exactly what closes it.</strong> Fix the shared one-loop scheme object <strong>target-blind</strong> — the κ³/π falsification test: it must be writable <em>without knowing the target magnitude</em>. If fixed and the magnitude lands → DERIVED-GIVEN-E. If not → Reduce to the named value-free axiom AXIOM-HEATKERNEL-SCHEME-OBJECT (AXIOM-CLOSED-pending-verification = OPEN unless the named object is verified to <em>yield</em> the value). Because the odd-D dissolution already shows no canonical finite value exists, the realistic terminal is the named axiom plus the dimensionless ratios from Hole 1.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> <code>CERT_SCALEFREE_SECTOR_2026-06-25.md</code> (odd-D pole structure, <code>skeleton_check.py</code>); <code>01_DOSSIER.md</code> §3.2 (the cascade); the SG-6/SG-7 dossiers (the shared object's other two faces).</p>
+<p><strong>(e) Leverage.</strong> Same shared object as Hole 1; settling the scheme object moves the SG-7 threshold vector + the SG-6 c_loop + a₆ together.</p>
+<h3>Hole 3 — the curvature-input correction (R3) — terminal, owed</h3>
+<p><strong>(a) Precise statement.</strong> The corpus engine's K₆ curvature builder writes a first-Bianchi-violating sign (|Riem|²/Scal²=31/147); the correct value is 23/75.</p>
+<p><strong>(b) Why it's hard / traps.</strong> It is not hard — it is a one-line sign flip — but it is <strong>owed, not closed</strong>. <strong>Trap:</strong> do not let R3's clean correctness inflate into gate-closure; correcting an <em>input</em> is necessary, not sufficient. The corrected bulk (−2.995681680×10⁹⁴) is still only a scheme-anchored consistency coefficient.</p>
+<p><strong>(c) Exactly what closes it.</strong> Apply the sign flip in <code>k6_riem_gilkey::Rop()</code> (and <code>verify_k6_curvature.py::Rop()</code>), re-run downstream, update <code>GAP01_A6_FINAL.md</code> with a disclosed-corrected note — REQUIRES-COUNTERSIGN. Success criterion (already met in sandbox): first Bianchi → 3×10⁻¹⁶, ratio → 23/75, bulk +6.305% sign preserved. Terminal as DISCLOSED-CORRECTED / computation-debt.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> <code>CERT_CURVATURE_DELTA_2026-06-25.md</code>; <code>B1_…/04_R3_K6_BIANCHI_FIX.md</code>; scratch drop-ins <code>k6_corrected_builder.py</code>, <code>run_corrected_engine.py</code>, <code>independent_bulk_recompute.py</code>; corpus FD reference <code>k6_fd_nablaR.py</code>.</p>
+<p><strong>(e) Leverage.</strong> Removes one contamination source from the value computation (Hole 1) and from SG-6/SG-7.</p>
+<h3>Hole 4 — the ℤ₂-defect numeric value (R2 value-leg)</h3>
+<p><strong>(a) Precise statement.</strong> Emit the numeric graded c₃^γ and assemble the total a₆ = bulk + (1/2)c₃^γ. The <em>structure</em> is built (Donnelly reduction, §3.5); only the number is missing.</p>
+<p><strong>(b) Why it's hard / traps.</strong> <strong>Major correction to the old framing — do not repeat it:</strong> this is <strong>NOT</strong> a task to "derive a missing order-6 mixed Neumann/Dirichlet boundary coefficient." That object is a <strong>dissolved wrong-object artifact</strong> (the twisted trace is integer-power t⁰, no boundary tower; det(I−dσ|_N)=2, totally-geodesic, angle deficit 0). The public brief still uses the older "boundary coefficient, tower stops at a₅" language; the current corpus state (CERT_Z2 + B1 rollup) supersedes it. The real blocker is that the graded value inherits Hole 1 (the LC correction) — it is a single engine, so the binding two-route rule is UNMET.</p>
+<p><strong>(c) Exactly what closes it.</strong> After Hole 1 (LC correction) is computed: add a γ-graded variant of <code>a6_density_operator()</code> (Block A scalar × tr(γ); Block B fibre-traced with γ inserted), evaluate on the 12d base M₄×K₆×S², multiply by 1/2. Success: the graded value emitted with a structurally independent second route agreeing to tolerance. <strong>Refuting result:</strong> if even after Hole 1 the routes disagree, the defect value is terminal-BLOCKED and exported. No total is to be fabricated; "no total emitted" stays dominant until the value is genuinely two-route-clean.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> <code>CERT_Z2_DEFECT_STRUCTURE_2026-06-25.md</code> (the reduction + six tests); <code>B1_…/03_OBJECT_IDENTITY.md</code>, <code>06_ROUTE_A_GRADED_C3.md</code>; grading constants tr γ_grav=67, tr γ_ghost=11, weight 45.</p>
+<p><strong>(e) Leverage.</strong> Closing the total is what would let the positivity functional (Hole 5) even have an admissible input.</p>
+<h3>Hole 5 — the positivity functional and its adjudication (R4-positivity / MO-10/MO-11)</h3>
+<p><strong>(a) Precise statement.</strong> Construct a decision-grade positivity functional Π(a₆_total) with pass-semantics and falsifier wiring, and evaluate it once the total exists. Until then, assert <strong>no sign</strong>.</p>
+<p><strong>(b) Why it's hard / traps.</strong> The functional is specified but has <strong>no valid realization</strong> on this branch for four sign-independent reasons (no admissible input; fatal off-shell gauge dependence; wrong odd-D predicate; object/predicate mismatch). <strong>Trap:</strong> do not read positivity off the <em>bulk sign alone</em> — that is not a verdict on the whole object, and off-shell gauge dependence means the bulk sign is not even invariant. Do not target-load the conventions so a known number "passes."</p>
+<p><strong>(c) Exactly what closes it.</strong> Either (i) obtain an on-shell background <em>without mutating the frozen geometry</em> (likely impossible — flat × curved factors cannot be Einstein for any single Λ), plus the total value (Hole 4) and the unmade ghost-sign path-integral re-derivation, plus a theorem linking sign(a₆) to a positivity property in odd-D off-shell (nonexistent); or (ii) accept the certified verdict that Π is non-realizable here and keep it OPEN/UNMADE. A refuting result (Π provably cannot decide) is the realistic terminal.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> <code>CERT_POSITIVITY_FUNCTIONAL_2026-06-25.md</code> (six-leg spec + falsification tests); arXiv:2206.13287 (off-shell gauge dependence); <code>CONVENTIONS.md</code> (residuals R-1 α, R-3 flat-vs-curved M₄); <code>E_OMEGA_OPERATOR.md</code> §0 (ghost-sign gating).</p>
+<p><strong>(e) Leverage.</strong> Gated on Hole 4; closes the MO-10/MO-11 adjudication leg if and only if a valid Π can exist.</p>
+<h3>Hole 6 — sufficiency (MO-12, field-level)</h3>
+<p><strong>(a) Precise statement.</strong> Whether a finite, positive total a₆ <em>constitutes</em> a UV completion.</p>
+<p><strong>(b) Why it's hard / why it is a dissolved unicorn, not an open weakness.</strong> a₆ is one term in the unbounded a₈/a₁₀/… Seeley–DeWitt tower; demanding that one coefficient certify the whole tower is a <strong>universal negative over an open-ended domain</strong> — unprovable in principle for <em>any</em> framework, shared with all of quantum gravity. This is dissolved as a shared ceiling, not a gap in our work. <strong>Trap:</strong> never frame necessary-not-sufficient as a hedge or a hidden weakness; it is the honest top. Never claim a finite a₆ "is" a UV completion.</p>
+<p><strong>(c) Exactly what closes it.</strong> No short route here; closing the field-level question is a quantum-gravity-wide problem. The bounded, honest claim — <strong>a₆ is a NECESSARY one-loop consistency check</strong> — is the ceiling. Keep necessary-not-sufficient binding.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> <code>01_DOSSIER.md</code> §1.2, §3.3 (R5); the continuum a₈/a₁₀ tower is separately REDUCED-TO-AXIOM (axiom-conditional on granularity / cost-floor) in the master ledger — but the <em>finite</em> a₆ + ℤ₂ defect survives as the real, bounded hole (Holes 1/4).</p>
+<p><strong>(e) Leverage.</strong> None gained by attacking it; do not spend the specialist's time here beyond keeping the scope honest.</p>
+<h3>Hole 7 — spectrum given, not derived (R7-given-E, scope)</h3>
+<p><strong>(a) Precise statement.</strong> The operator/bundles are read off the frozen branch, not proven to be the unique forced spectrum.</p>
+<p><strong>(b)/(c)/(d)/(e).</strong> This is a <strong>scope</strong> export, not an a₆ hole: it is the shared geometry-selection unicorn (given-E ≠ derived-E), a universal negative over all possible spectra, exported to the selection gates. Terminal as DISCLOSED (given-E) / scoped. Do not attempt to "derive" the spectrum inside Gap-01.</p>
+<hr />
+<h2>7. Honest ceiling and scope</h2>
+<p><strong>What is claimed.</strong> The scale-free sector of a₆ on the frozen 13D branch is <strong>DERIVED</strong> — the color factor 124/315 (caveated as metric-selected) and the four exact-rational sphere cross-checks are forced by Gilkey invariance theory + standard QFT and reproduced two structurally independent ways to ~10⁻¹⁴; the geometric signs are derived; the ∇-machinery is Berger-validated; the ~31% curvature error is located and corrected target-blind; and and the "missing boundary coefficient" wall is dissolved into a tractable Donnelly graded-bulk object (1/2)c₃^γ. A partial value-leg result is banked but <strong>not</strong> sold as closure: the <strong>Bochner (E=0)</strong> ghost a₆/a₀ = 149/1008 was earned Gilkey-free, dissolving the named su(3) blocker for that object only — the <em>physical</em> (Lichnerowicz E=−Ric) ghost and the graviton remain route-inconsistent.</p>
+<p><strong>What is NOT claimed.</strong> No finite dimensionful tr[a₆] value (ill-posed at odd D=13; any GeV⁶ figure is a labeled consistency coefficient, never gap-closing). No total value (the graviton Levi-Civita value-leg is route-inconsistent; the binding two-route rule is UNMET). No sign of any positivity functional (unmade; non-realizable here). No claim that a finite a₆ constitutes a UV completion (MO-12: necessary-not-sufficient, a shared ceiling). No claim that the spectrum is derived (given-E).</p>
+<p><strong>The dissolutions are ceilings, not solutions.</strong> dissolved ≠ solved. The odd-D ill-posedness of the magnitude and the MO-12 sufficiency question are <strong>universal negatives</strong> — limits on what <em>any</em> framework could establish, shared with all of quantum gravity — reframed honestly as the top of the achievable, not as private gaps. The continuum a₈/a₁₀/… existence obligation is REDUCED-TO-AXIOM (axiom-conditional on granularity); only the <em>finite</em> a₆ + ℤ₂ defect survives as a real, bounded, plug-able hole.</p>
+<p><strong>Anchors paid.</strong> No measured invariant is consumed by this gate. The scale-free content terminates on the geometry + standard heat-kernel physics (genuinely derived); the dimensionful magnitude would, if pursued, terminate on one named, value-free scheme object (AXIOM-HEATKERNEL-SCHEME-OBJECT) shared across Gap-01 / SG-6 / SG-7.</p>
+<p><strong>The bounded, falsifiable bet.</strong> Stated exactly as it stands in the frozen corpus: the two value routes for the K₆ graded a₆ currently DISAGREE grossly — R7 = FAIL_VALUE_MISMATCH, ~6 orders outside the pre-fixed 1×10⁻⁶ tolerance — in <em>both</em> the physical (Lichnerowicz E=−Ric) ghost sector (Route A −251/504 vs Route B 149/1008, |Δ|=31/48) and the graviton sector. The plug-able task is to (a) deliver the missing graviton Sym²(T) Levi-Civita c₃^γ on K₆ via the SU(3) Gelfand–Tsetlin off-diagonal matrix elements, (b) settle the Bochner-vs-Lichnerowicz operator identity so the physical ghost and graviton routes are compared on the same operator (the Bochner-ghost 149/1008 is earned, but is <em>not</em> the physical ghost), (c) fix the route's K₆-bundle derivative/LC sector against a structurally independent route, and (d) re-run the two-route agreement within the pre-fixed tolerance — all target-blind. If the routes cannot be reconciled without back-solving to a known number, we will say so, and reduce the magnitude leg to a named value-free axiom. That same graviton/route fix is load-bearing for SG-6 and SG-7.</p>
+<p><strong>Final grade.</strong> <strong>Serious candidate, NOT validated</strong> — a finite-matching diagnostic that recovers the scale-free ratios and signs and dissolves a false boundary wall, not a closed UV completion. It touches none of the famous walls (the Yang–Mills mass gap stays Precisely-OPEN; Λ stays Weinberg-OPEN). <strong>STATUS-UPGRADES:0; frozen branch READ-ONLY; given-E ≠ derivation-of-E; a captured log ≠ an independent reproduction; ANCHORED ≠ DERIVED; AXIOM-CLOSED ≠ atomic; MO-12 necessary-not-sufficient is binding.</strong></p>
+<hr />
+<p><em>Dossier assembled from: the Gap-01 completion-handoff dossier (<code>PER_GATE_DOSSIERS/GAP01_COMPLETION_HANDOFF/01_DOSSIER.md</code>); the four certificates <code>CERT_SCALEFREE_SECTOR_2026-06-25.md</code>, <code>CERT_CURVATURE_DELTA_2026-06-25.md</code>, <code>CERT_Z2_DEFECT_STRUCTURE_2026-06-25.md</code>, <code>CERT_POSITIVITY_FUNCTIONAL_2026-06-25.md</code>; the B1 ℤ₂-defect completion ledger (<code>certificates/B1_Z2_DEFECT_COMPLETION/02..13</code>); the public brief <code>GATE_BRIEF_GAP01.md</code>; and the build handoff <code>30pagedoc/handoffs/GAP01.md</code>. Body is rigorous recap + closure-path work plan; the corpus controls all common material. STATUS-UPGRADES:0.</em></p>
+</body></html>

@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Source Registry — Relativistic Optics Lab</title>
+  <meta name="description" content="Public authoritative sources cited by every formula, constant, and validation case in the Relativistic Optics Lab. Grouped by source type.">
+  <link rel="stylesheet" href="../shared/style.css">
+  <style>
+    .source-card {
+      background: var(--bg-card);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 12px 0;
+      scroll-margin-top: 70px;
+    }
+    .source-card:target {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+    .source-id {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.82em;
+      color: var(--ink-mute);
+      background: var(--code-bg);
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+    .source-card h3 {
+      margin: 0 0 4px;
+      font-size: 1.05em;
+    }
+    .source-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 4px 14px;
+      margin: 8px 0;
+      font-size: 0.9em;
+    }
+    .source-meta .label {
+      font-weight: 600;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.74em;
+    }
+    .group-section { margin-top: 30px; }
+    .group-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      border-bottom: 1px solid var(--rule-soft);
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+    }
+    .group-title h2 { border: none; margin: 0; padding: 0; }
+    .group-desc { color: var(--ink-mute); font-size: 0.88em; }
+    .type-badge {
+      display: inline-block;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.74em;
+      padding: 1px 7px;
+      border-radius: 10px;
+      vertical-align: middle;
+      background: var(--bg-soft);
+      color: var(--ink-soft);
+      border: 1px solid var(--rule);
+    }
+    .type-badge.authoritative_constant      { background: var(--accent-soft);  color: var(--accent); border-color: #c7d8ee; }
+    .type-badge.public_ephemeris            { background: #e6f4f1;             color: #0f766e;       border-color: #99e6db; }
+    .type-badge.textbook_benchmark          { background: var(--good-bg);      color: var(--good);   border-color: #bbf7d0; }
+    .type-badge.public_mission_fact         { background: #fef3c7;             color: #92400e;       border-color: #fde68a; }
+    .type-badge.public_experimental_support { background: #ede9fe;             color: #5b21b6;       border-color: #ddd6fe; }
+    .type-badge.user_assumption             { background: var(--warn-bg);      color: var(--warn);   border-color: #fed7aa; }
+    .registry-meta { font-size: 0.88em; color: var(--ink-mute); margin: 10px 0 20px; }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 4px 18px;
+      background: var(--bg-soft);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 12px 16px;
+      margin: 14px 0;
+    }
+    .toc-grid a { display: block; font-size: 0.88em; }
+    .filter-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin: 14px 0;
+      flex-wrap: wrap;
+    }
+    .filter-row input {
+      flex: 1;
+      min-width: 220px;
+      padding: 6px 10px;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      font: inherit;
+    }
+    .no-match { padding: 16px; color: var(--ink-mute); font-style: italic; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+
+<main class="container">
+  <h1>Source Registry</h1>
+  <p>
+    Every formula, constant, scenario anchor, and validation case in the Relativistic Optics Lab
+    cites one or more <code>source_id</code>s from <code>shared/source_registry.json</code>.
+    No prose-only sourcing is permitted. This page groups the registry by source <em>type</em>
+    so reviewers can tell at a glance whether a value rests on an exact SI definition, a public
+    ephemeris snapshot, a textbook benchmark, a public mission fact, an experimental constraint,
+    or a user-declared assumption.
+  </p>
+
+  <div id="registry-meta" class="registry-meta"></div>
+
+  <div class="filter-row">
+    <input type="text" id="filter-input" placeholder="Filter by id, name, authority, or use…">
+    <span id="match-count" class="small mute"></span>
+  </div>
+
+  <div id="toc"></div>
+
+  <div id="source-groups"></div>
+
+  <div class="callout" style="margin-top:28px">
+    <strong>How types are used.</strong>
+    <em>authoritative_constant</em> = SI / CODATA / IAU / IERS / NGA exact or recommended values;
+    <em>public_ephemeris</em> = JPL DE-series or Horizons snapshots;
+    <em>textbook_benchmark</em> = standard reference texts;
+    <em>public_mission_fact</em> = publicly disclosed mission parameters (never proprietary);
+    <em>public_experimental_support</em> = published measurement results used as cross-checks;
+    <em>user_assumption</em> = values entered at runtime, never validated independently.
+  </div>
+</main>
+
+<script type="module">
+import { bootstrap } from "../shared/shared.js";
+
+bootstrap({ activeKey: "" });
+
+function escapeHtml(s) {
+  return String(s ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[ch]));
+}
+
+const GROUP_LABELS = {
+  authoritative_constant:      ["Authoritative constants", "SI / CODATA / IAU / IERS / NGA exact or recommended values."],
+  public_ephemeris:            ["Public ephemerides",      "JPL DE-series and Horizons-API queries."],
+  textbook_benchmark:          ["Textbook benchmarks",     "Canonical reference texts for weak-field GR, optics, and GPS."],
+  public_mission_fact:         ["Public mission facts",    "Publicly disclosed scenario parameters. Never proprietary."],
+  public_experimental_support: ["Public experimental support", "Published measurement constraints used as cross-checks."],
+  user_assumption:             ["User assumptions",        "Values entered at runtime. Never validated independently."]
+};
+const GROUP_ORDER = [
+  "authoritative_constant",
+  "public_ephemeris",
+  "textbook_benchmark",
+  "public_mission_fact",
+  "public_experimental_support",
+  "user_assumption"
+];
+
+function renderSourceCard(s) {
+  const url = s.url ? `<a href="${escapeHtml(s.url)}" rel="noopener" target="_blank">${escapeHtml(s.url)}</a>` : '<span class="small mute">(no URL recorded)</span>';
+  const accessed = s.accessed ? escapeHtml(s.accessed) : "—";
+  const haystack = `${s.source_id} ${s.name} ${s.authority} ${s.use} ${s.url || ""}`.toLowerCase();
+  return `
+    <article class="source-card" id="${escapeHtml(s.source_id)}" data-search="${escapeHtml(haystack)}">
+      <h3>${escapeHtml(s.name || s.source_id)}
+        <span class="type-badge ${escapeHtml(s.type || "")}">${escapeHtml(s.type || "—")}</span>
+      </h3>
+      <div><span class="source-id">${escapeHtml(s.source_id)}</span></div>
+      <div class="source-meta">
+        <div><div class="label">Authority</div>${escapeHtml(s.authority || "—")}</div>
+        <div><div class="label">Accessed</div>${accessed}</div>
+      </div>
+      <div><div class="label" style="font-size:0.74em;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.04em">URL</div>${url}</div>
+      ${s.use ? `<div style="margin-top:8px"><div class="label" style="font-size:0.74em;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.04em">Use</div><div>${escapeHtml(s.use)}</div></div>` : ""}
+    </article>`;
+}
+
+async function load() {
+  let registry;
+  try {
+    const res = await fetch("../shared/source_registry.json");
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    registry = await res.json();
+  } catch (e) {
+    console.warn("source_registry fetch failed:", e);
+    document.getElementById("source-groups").innerHTML =
+      `<div class="callout warn"><strong>Could not load source registry.</strong> ${escapeHtml(String(e))}</div>`;
+    return;
+  }
+
+  const sources = registry.sources || [];
+
+  document.getElementById("registry-meta").innerHTML = `
+    <strong>Registry version:</strong> <code>${escapeHtml(registry.schema_version || "?")}</code> ·
+    <strong>Sources:</strong> ${sources.length} ·
+    Source file: <code>shared/source_registry.json</code>
+  `;
+
+  // Group sources by type
+  const grouped = {};
+  for (const s of sources) {
+    const type = s.type || "user_assumption";
+    if (!grouped[type]) grouped[type] = [];
+    grouped[type].push(s);
+  }
+
+  // Determine type order: known groups first in canonical order, then any unknown trailing
+  const allTypes = new Set(sources.map(s => s.type || "user_assumption"));
+  const orderedTypes = [...GROUP_ORDER.filter(t => allTypes.has(t)), ...[...allTypes].filter(t => !GROUP_ORDER.includes(t))];
+
+  // TOC
+  const tocLinks = sources.map(s => `<a href="#${encodeURIComponent(s.source_id)}"><code>${escapeHtml(s.source_id)}</code></a>`);
+  document.getElementById("toc").innerHTML = `
+    <details>
+      <summary><strong>Table of contents</strong> <span class="small mute">(${tocLinks.length} sources)</span></summary>
+      <div class="toc-grid">${tocLinks.join("")}</div>
+    </details>
+  `;
+
+  // Render groups
+  const groupsHost = document.getElementById("source-groups");
+  groupsHost.innerHTML = orderedTypes.map(type => {
+    const [label, desc] = GROUP_LABELS[type] || [type, ""];
+    const items = grouped[type] || [];
+    return `
+      <section class="group-section" id="group-${escapeHtml(type)}">
+        <div class="group-title">
+          <h2>${escapeHtml(label)} <span class="type-badge ${escapeHtml(type)}">${escapeHtml(type)}</span></h2>
+          <span class="small mute">${items.length} source${items.length === 1 ? "" : "s"}</span>
+        </div>
+        ${desc ? `<p class="group-desc">${escapeHtml(desc)}</p>` : ""}
+        ${items.map(renderSourceCard).join("")}
+      </section>`;
+  }).join("");
+
+  // Live filter
+  const input = document.getElementById("filter-input");
+  const counter = document.getElementById("match-count");
+  const cards = Array.from(groupsHost.querySelectorAll(".source-card"));
+  const total = cards.length;
+  counter.textContent = `${total} source${total === 1 ? "" : "s"}`;
+  function applyFilter() {
+    const q = input.value.trim().toLowerCase();
+    let shown = 0;
+    for (const c of cards) {
+      const hay = c.getAttribute("data-search") || "";
+      const match = !q || hay.includes(q);
+      c.style.display = match ? "" : "none";
+      if (match) shown++;
+    }
+    // Hide empty group sections
+    const sections = groupsHost.querySelectorAll(".group-section");
+    for (const sec of sections) {
+      const visible = Array.from(sec.querySelectorAll(".source-card")).some(c => c.style.display !== "none");
+      sec.style.display = (q && !visible) ? "none" : "";
+    }
+    counter.textContent = q ? `${shown} of ${total} match` : `${total} source${total === 1 ? "" : "s"}`;
+  }
+  input.addEventListener("input", applyFilter);
+
+  // Hash navigation
+  if (location.hash) {
+    const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (el) el.scrollIntoView({ behavior: "instant", block: "start" });
+  }
+}
+
+load();
+</script>
+
+</body>
+</html>

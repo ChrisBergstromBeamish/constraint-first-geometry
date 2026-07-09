@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Validation — Relativistic Optics Lab</title>
+  <meta name="description" content="Hardened validation suite: authoritative constants, analytic textbook cases, public Horizons geometry, DSOC scenario anchors, adversarial fail-closed tests, cross-tool consistency, deterministic receipt hash, deployment-gate.">
+  <link rel="stylesheet" href="../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    .badge.pass  { background: var(--good-bg); color: var(--good); border: 1px solid #bbf7d0; }
+    .badge.fail  { background: var(--bad-bg);  color: var(--bad);  border: 1px solid #fecaca; }
+    /* Trust-label badges: category-coded colours. The label catalogue lives in
+       shared/validation.js and is part of every case + result record. */
+    .badge.trust-exact       { background: #ecfeff; color: #0e7490; border: 1px solid #a5f3fc; }
+    .badge.trust-textbook    { background: #eef2ff; color: #4338ca; border: 1px solid #c7d2fe; }
+    .badge.trust-scenario    { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+    .badge.trust-experiment  { background: #ecfccb; color: #3f6212; border: 1px solid #d9f99d; }
+    .badge.trust-adversarial { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+    .badge.trust-xtool       { background: #e0e7ff; color: #3730a3; border: 1px solid #c7d2fe; }
+    .badge.trust-regression  { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+    .badge.trust-unknown     { background: var(--bg-soft); color: var(--ink-soft); border: 1px solid var(--rule); }
+    .gate {
+      padding: 14px 18px; border-radius: 6px; margin: 16px 0;
+      display: flex; align-items: center; gap: 14px;
+      border: 2px solid;
+    }
+    .gate.pass { background: var(--good-bg); border-color: var(--good); color: #064e3b; }
+    .gate.block { background: var(--bad-bg); border-color: var(--bad); color: #7f1d1d; }
+    .gate .label { font-weight: 700; font-size: 1.1em; letter-spacing: 0.04em; }
+    .gate .verdict {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 1.15em; font-weight: 700;
+    }
+    .receipt {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.85em; color: var(--ink-soft);
+      background: var(--bg-soft); padding: 2px 6px; border-radius: 3px;
+    }
+    .case-row td { vertical-align: top; }
+    .case-row.fail { background: #fef2f2; }
+    .case-row.pass { background: #ffffff; }
+    .case-row .id  { font-family: ui-monospace, monospace; font-size: 0.85em; color: var(--ink-mute); }
+    .case-row .num { text-align: right; font-variant-numeric: tabular-nums; font-family: ui-monospace, monospace; font-size: 0.9em; }
+    .case-row .meta-row { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+    .cat-section { margin-top: 26px; }
+    .xtool-section { margin-top: 26px; padding: 12px 16px; background: var(--bg-soft); border-radius: 4px; border-left: 4px solid var(--accent); }
+    .summary-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin: 14px 0; }
+    details summary { cursor: pointer; user-select: none; }
+    .src-tag {
+      display: inline-block; background: var(--bg-soft); border: 1px solid var(--rule);
+      padding: 1px 6px; border-radius: 3px; font-size: 0.78em; color: var(--ink-soft);
+      margin-right: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<main class="container">
+
+  <h1>Validation</h1>
+  <p class="small mute">Hardened audit system around the calculator suite. Every case has a formula, an expected value with provenance, an actual value computed live, a trust label, a tolerance, and a receipt hash.</p>
+
+  <div id="gate-box"></div>
+
+  <div id="consistency-box"></div>
+
+  <div id="receipt-box"></div>
+
+  <h2>Trust label legend</h2>
+  <p class="small mute">Every validation case carries exactly one trust label declaring what the case proves. These labels are emitted into the certificate and the JSON report so downstream reviewers know what kind of evidence a PASS represents.</p>
+  <div class="summary-grid" style="grid-template-columns: repeat(auto-fit,minmax(220px,1fr));">
+    <div class="kpi"><div class="label"><span class="badge trust-exact">Exact analytic</span></div><div class="small mute">Formula identity / closed-form expected value.</div></div>
+    <div class="kpi"><div class="label"><span class="badge trust-textbook">Textbook benchmark</span></div><div class="small mute">Reproduces a known textbook value within the published precision.</div></div>
+    <div class="kpi"><div class="label"><span class="badge trust-experiment">Public experimental support</span></div><div class="small mute">Validates a coefficient or effect against a published measurement, not an exact scenario.</div></div>
+    <div class="kpi"><div class="label"><span class="badge trust-scenario">Public scenario anchor</span></div><div class="small mute">Public mission facts as scenario context — NOT exact validation.</div></div>
+    <div class="kpi"><div class="label"><span class="badge trust-adversarial">Adversarial fail-closed</span></div><div class="small mute">Invalid input triggers a warning or rejection.</div></div>
+    <div class="kpi"><div class="label"><span class="badge trust-xtool">Cross-tool consistency</span></div><div class="small mute">Two independent code paths agree on the same physics term.</div></div>
+    <div class="kpi"><div class="label"><span class="badge trust-regression">Implementation regression</span></div><div class="small mute">Confirms the code path has not drifted from its earlier value.</div></div>
+  </div>
+
+  <h2>Summary</h2>
+  <div class="summary-grid" id="summary-cards"></div>
+
+  <div class="xtool-section" id="xtool-panel">
+    <h2 style="margin-top:0">Cross-tool consistency checks <span class="small mute" id="xtool-panel-count"></span></h2>
+    <p class="small mute">These cases compute the same physics term through two independent code paths in <code>shared/shared.js</code> / <code>shared/validation.js</code> and assert that the results agree to floating-point precision. They detect drift between calculators rather than validating any external reference.</p>
+    <table>
+      <thead><tr>
+        <th>ID</th><th>Case</th><th class="right">Expected</th><th class="right">Actual</th><th>Status</th>
+      </tr></thead>
+      <tbody id="xtool-panel-body"></tbody>
+    </table>
+  </div>
+
+  <h2>Authoritative constants</h2>
+  <p class="small">Every constant used by the calculators with its public source. Edit a constant in <code>shared/shared.js</code> only with a matching source change here.</p>
+  <table id="constants-table">
+    <thead><tr><th>Symbol</th><th>Value</th><th>Units</th><th>Source</th><th>Note</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>Validation cases</h2>
+
+  <div class="cat-section" id="cat-analytic">
+    <h3>Analytic textbook cases <span class="small mute">— exact closed-form expected values</span></h3>
+    <table><thead><tr>
+      <th>ID</th><th>Case</th><th>Formula</th><th class="right">Expected</th><th class="right">Actual</th><th class="right">Rel.&nbsp;err</th><th>Tol</th><th>Status</th>
+    </tr></thead><tbody></tbody></table>
+  </div>
+
+  <div class="cat-section" id="cat-horizons">
+    <h3>JPL Horizons public geometry <span class="small mute">— publicly tabulated ephemeris snapshots</span></h3>
+    <p class="small mute">Tolerances are relaxed to absorb published rounding, NOT to admit drift. Anchor values are recorded explicitly in <code>shared/validation.js</code>.</p>
+    <table><thead><tr>
+      <th>ID</th><th>Case</th><th>Formula</th><th class="right">Expected</th><th class="right">Actual</th><th class="right">Rel.&nbsp;err</th><th>Tol</th><th>Status</th>
+    </tr></thead><tbody></tbody></table>
+  </div>
+
+  <div class="cat-section" id="cat-dsoc">
+    <h3>NASA/JPL DSOC public scenario anchors <span class="small mute">— scenario anchors only</span></h3>
+    <div class="callout warn">
+      <strong>Public scenario anchors, not internal mission validation.</strong> These cases verify that the publicly disclosed
+      Psyche/DSOC parameters (transmit power, aperture, wavelength, Hale-receiver aperture, transverse
+      velocity) produce a sensible <em>order-of-magnitude</em> link budget in our uniform-spot model.
+      DSOC internal parameters — modulation, coding, detector quantum efficiency, AO loops,
+      pointing-control loops, scheme — are not public and are not modeled. These are DSOC public
+      scenario anchors only.
+    </div>
+    <table><thead><tr>
+      <th>ID</th><th>Case</th><th>Formula</th><th class="right">Expected</th><th class="right">Actual</th><th class="right">Rel.&nbsp;err</th><th>Tol</th><th>Status</th>
+    </tr></thead><tbody></tbody></table>
+  </div>
+
+  <div class="cat-section" id="cat-public_data">
+    <h3>Public-data experimental cross-checks <span class="small mute">— canonical experiments and published measurements</span></h3>
+    <p class="small mute">Compares the calculators' outputs against published values from canonical GR experiments (Eddington, GPS / Ashby, Pound–Rebka, Vessot–Levine GP-A, Cassini superior-conjunction, NASA DSOC public records). Tolerances reflect published precision plus the model's approximation order.</p>
+    <table><thead><tr>
+      <th>ID</th><th>Case</th><th>Formula</th><th class="right">Expected</th><th class="right">Actual</th><th class="right">Rel.&nbsp;err</th><th>Tol</th><th>Status</th>
+    </tr></thead><tbody></tbody></table>
+  </div>
+
+  <div class="cat-section" id="cat-adversarial">
+    <h3>Adversarial / fail-closed tests <span class="small mute">— calculators must error or warn on bad inputs</span></h3>
+    <table><thead><tr>
+      <th>ID</th><th>Case</th><th>Failure condition</th><th class="right">Expected</th><th class="right">Actual</th><th class="right">Rel.&nbsp;err</th><th>Tol</th><th>Status</th>
+    </tr></thead><tbody></tbody></table>
+  </div>
+
+  <div class="cat-section" id="cat-xtool">
+    <h3>Cross-tool consistency <span class="small mute">— same physics through two code paths must match</span></h3>
+    <table><thead><tr>
+      <th>ID</th><th>Case</th><th>Formula</th><th class="right">Expected</th><th class="right">Actual</th><th class="right">Rel.&nbsp;err</th><th>Tol</th><th>Status</th>
+    </tr></thead><tbody></tbody></table>
+  </div>
+
+  <h2>Source registry</h2>
+  <p class="small">Every formula and constant points to a public source. Source IDs in the validation cases above resolve to entries here.</p>
+  <table id="sources-table">
+    <thead><tr><th>ID</th><th>Name</th><th>Role</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>Deployment-blocking test rules</h2>
+  <ul>
+    <li>Every case marked <code>required: true</code> in <code>shared/validation.js</code> must PASS.</li>
+    <li>If any required case fails, the deployment gate above goes to <code>BLOCK</code>.</li>
+    <li>Adversarial cases test that the calculator fails closed on bad inputs; their PASS condition is that a NaN, Infinity, or warning is produced.</li>
+    <li>The receipt hash is recomputed on every page load. Two reviewers running this page should obtain the same receipt hash if the calculator module is unchanged.</li>
+  </ul>
+
+  <h2>Certificate format</h2>
+  <p class="small">Every calculator on the lab also exports a JSON certificate. Schema:</p>
+<pre>{
+  "tool":          "&lt;tool-name&gt;",
+  "version":       "0.1.0",
+  "timestamp_utc": "ISO-8601",
+  "inputs":        { ... },
+  "constants":     { ... },
+  "formulas":      [ "Δt = (1+γ) GM/c³ ln((r1+r2+R)/(r1+r2-R))", ... ],
+  "assumptions":   [ ... ],
+  "outputs":       { ... },
+  "tolerance_tests": [ { "term": "...", "rank": "KEEP|WATCH|IGNORE", ... } ],
+  "warnings":      [ ... ],
+  "source_notes":  [ ... ],
+  "generator":     "Relativistic Optics Lab (...)",
+  "hash":          { "sha256": "&lt;64-hex&gt;", "short": "&lt;12-hex&gt;" }
+}</pre>
+
+  <h2>Download report</h2>
+  <p class="small">The full validation report can be downloaded as JSON. This is the result that should be archived alongside any engineering note that cites a calculator output.</p>
+  <div class="cta-row">
+    <button class="btn btn-outline" id="dl-json">Download validation_report.json (live)</button>
+    <a class="btn btn-outline" href="validation_report.json" download>Download last committed snapshot</a>
+    <a class="btn btn-outline" href="validation_badge.json" download>Download validation_badge.json</a>
+    <span class="receipt" id="receipt-inline"></span>
+  </div>
+  <p class="small mute" style="margin-top:8px">Static badge (shields.io-style):
+    <a href="validation_badge.svg"><img src="validation_badge.svg" alt="validation status badge" style="vertical-align:middle"></a>
+  </p>
+
+</main>
+
+<script type="module">
+import { bootstrap, downloadAs } from "../shared/shared.js";
+import { runValidation, SourceRegistry, ConstantsTable, categoryLabel } from "../shared/validation.js";
+
+bootstrap({ activeKey: "val" });
+
+function fmtNum(v, sig = 6) {
+  if (v === null || v === undefined) return "—";
+  if (typeof v !== "number") return String(v);
+  if (!isFinite(v)) return v === Infinity ? "∞" : (v === -Infinity ? "−∞" : "NaN");
+  if (v === 0) return "0";
+  const abs = Math.abs(v);
+  if (abs >= 1e4 || abs < 1e-3) return v.toExponential(Math.max(0, sig - 1));
+  return v.toPrecision(sig);
+}
+
+function _escape(s) {
+  return String(s ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[ch]));
+}
+
+function fmtTol(tol_rel, tol_abs) {
+  const parts = [];
+  if (tol_rel !== undefined && tol_rel !== null) parts.push(`rel ≤ ${fmtNum(tol_rel,2)}`);
+  if (tol_abs !== undefined && tol_abs !== null) parts.push(`abs ≤ ${fmtNum(tol_abs,2)}`);
+  return parts.length ? parts.join(", ") : "—";
+}
+
+// Trust label → category-coded badge class. Catalogue is defined in shared/validation.js.
+function trustBadgeClass(label) {
+  switch (label) {
+    case "Exact analytic":              return "trust-exact";
+    case "Textbook benchmark":          return "trust-textbook";
+    case "Public scenario anchor":      return "trust-scenario";
+    case "Public experimental support": return "trust-experiment";
+    case "Adversarial fail-closed":     return "trust-adversarial";
+    case "Cross-tool consistency":      return "trust-xtool";
+    case "Implementation regression":   return "trust-regression";
+    default:                            return "trust-unknown";
+  }
+}
+
+function trustBadge(label) {
+  if (!label) return '<span class="badge trust-unknown" title="no trust label assigned">unlabeled</span>';
+  const cls = trustBadgeClass(label);
+  return `<span class="badge ${cls}" title="trust label">${_escape(label)}</span>`;
+}
+
+// Render the source_ids list as chips, resolving each id against the
+// SourceRegistry so the chip's tooltip carries the canonical source name.
+function renderSourceChips(ids) {
+  if (!ids || !ids.length) return "";
+  return ids.map(id => {
+    const meta = SourceRegistry[id];
+    const title = meta ? `${meta.name}${meta.uri ? " — " + meta.uri : ""}` : id;
+    return `<span class="src-tag" title="${_escape(title)}">${_escape(id)}</span>`;
+  }).join("");
+}
+
+let lastReport = null;
+
+async function run() {
+  // --- Authoritative constants table ---
+  const cTbody = document.querySelector("#constants-table tbody");
+  cTbody.innerHTML = ConstantsTable.map(c => `
+    <tr>
+      <td><code>${c.sym}</code></td>
+      <td class="num">${fmtNum(c.val, 12)}</td>
+      <td>${c.units}</td>
+      <td><span class="src-tag" title="${SourceRegistry[c.source]?.name ?? c.source}">${c.source}</span></td>
+      <td class="small">${c.note}</td>
+    </tr>`).join("");
+
+  // --- Source registry ---
+  const sTbody = document.querySelector("#sources-table tbody");
+  sTbody.innerHTML = Object.entries(SourceRegistry).map(([id, s]) => `
+    <tr>
+      <td><span class="src-tag">${id}</span></td>
+      <td>${s.uri ? `<a href="${s.uri}" rel="noopener" target="_blank">${s.name}</a>` : s.name}</td>
+      <td class="small">${s.role}</td>
+    </tr>`).join("");
+
+  // --- Run validation ---
+  const report = await runValidation();
+  lastReport = report;
+
+  // --- Deployment gate ---
+  const gate = report.deploymentGate;
+  document.getElementById("gate-box").innerHTML = `
+    <div class="gate ${gate === "PASS" ? "pass" : "block"}">
+      <div class="label">DEPLOYMENT GATE</div>
+      <div class="verdict">${gate}</div>
+      <div class="small">${report.summary.requiredFailed} required failure(s) · ${report.summary.passed} of ${report.summary.total} cases PASS</div>
+    </div>`;
+
+  // --- Receipt ---
+  document.getElementById("receipt-box").innerHTML = `
+    <div class="callout"><strong>Receipt hash (SHA-256).</strong>
+      <code class="receipt">${report.receipt.sha256}</code>
+      <div class="small mute" style="margin-top:4px">short: <code>${report.receipt.short}</code> · generated ${report.timestamp_utc}</div>
+      <div class="small mute">Two reviewers running this page on an unchanged calculator module obtain the same receipt.</div>
+    </div>`;
+  document.getElementById("receipt-inline").textContent = `receipt ${report.receipt.short}`;
+
+  // --- Summary cards ---
+  const s = report.summary;
+  const cards = [
+    { label: "Cases", value: s.total },
+    { label: "PASS", value: s.passed },
+    { label: "FAIL", value: s.failed },
+    { label: "Required FAIL", value: s.requiredFailed }
+  ];
+  document.getElementById("summary-cards").innerHTML = cards.map(c => `
+    <div class="kpi"><div class="label">${c.label}</div><div class="value">${c.value}</div></div>
+  `).join("") + Object.entries(s.byCategory).map(([cat, st]) => `
+    <div class="kpi">
+      <div class="label">${categoryLabel(cat)}</div>
+      <div class="value">${st.passed}/${st.total}<span class="unit">${st.requiredFailed > 0 ? " · req fail" : ""}</span></div>
+    </div>
+  `).join("");
+
+  // --- Per-category tables ---
+  for (const cat of ["analytic", "horizons", "dsoc", "public_data", "adversarial", "xtool"]) {
+    const tbody = document.querySelector(`#cat-${cat} table tbody`);
+    const rows = report.results.filter(r => r.category === cat);
+    tbody.innerHTML = rows.map(r => renderCaseRow(r, 8)).join("");
+  }
+
+  // --- Cross-tool consistency panel (P1.7) ---
+  // The xtool category already has its own table above. Mirror it in a compact
+  // dedicated panel so reviewers see two-code-path agreement results at a glance.
+  const xtoolRows = report.results.filter(r => r.category === "xtool");
+  const xPanel = document.getElementById("xtool-panel-body");
+  if (xPanel) {
+    xPanel.innerHTML = xtoolRows.map(r => `
+      <tr class="case-row ${r.pass ? "pass" : "fail"}">
+        <td><div class="id">${_escape(r.id)}</div>${trustBadge(r.trust_label)}</td>
+        <td><strong>${_escape(r.name)}</strong>
+            <div class="small mute" style="margin-top:3px">${renderSourceChips(r.sources)}</div></td>
+        <td class="num">${fmtNum(r.expected)} <span class="small mute">${_escape(r.expected_units || "")}</span></td>
+        <td class="num">${r.error ? `<span class="badge fail">err</span> ${_escape(r.error)}` : fmtNum(r.actual)}</td>
+        <td>${r.pass ? '<span class="badge pass">PASS</span>' : '<span class="badge fail">FAIL</span>'}</td>
+      </tr>`).join("");
+    const xCount = document.getElementById("xtool-panel-count");
+    if (xCount) {
+      const passed = xtoolRows.filter(r => r.pass).length;
+      xCount.textContent = `${passed} / ${xtoolRows.length} agreeing`;
+    }
+  }
+
+  // --- Static-vs-live receipt consistency check (P0) ---
+  // Fetch the committed validation_report.json snapshot and compare its
+  // receipt to the live receipt. Mismatch indicates the committed snapshot
+  // is stale with respect to the calculator modules currently loaded.
+  try {
+    const resp = await fetch("validation_report.json", { cache: "no-store" });
+    if (resp.ok) {
+      const staticReport = await resp.json();
+      const staticReceipt = staticReport?.receipt?.sha256 || staticReport?.receipt?.short || null;
+      const liveReceipt = report.receipt.sha256;
+      const matches = staticReceipt && (staticReceipt === liveReceipt
+                       || (typeof staticReceipt === "string"
+                           && liveReceipt.startsWith(staticReceipt)));
+      const consistencyBox = document.getElementById("consistency-box");
+      if (!matches) {
+        consistencyBox.innerHTML = `
+          <div class="callout warn">
+            <strong>WARNING: Static validation report does not match current calculator modules.</strong>
+            Receipt mismatch (live: <code class="receipt">${_escape(report.receipt.short)}</code>,
+            static: <code class="receipt">${_escape((staticReceipt || "").slice(0,12) || "—")}</code>).
+            Re-run the snapshot regeneration script and commit the updated <code>validation/validation_report.json</code>
+            so the badge, certificate references, and reviewer downloads stay aligned with the live calculator state.
+          </div>`;
+      } else {
+        consistencyBox.innerHTML = `
+          <div class="callout good">
+            <strong>Static snapshot matches live receipt.</strong>
+            Committed <code>validation_report.json</code> is up-to-date
+            (receipt <code class="receipt">${_escape(report.receipt.short)}</code>).
+          </div>`;
+      }
+    }
+  } catch (e) {
+    // Static snapshot unavailable (e.g. served without filesystem access);
+    // do not fail the page — just leave the consistency box empty.
+    const consistencyBox = document.getElementById("consistency-box");
+    if (consistencyBox) {
+      consistencyBox.innerHTML = `
+        <div class="callout warn">
+          <strong>Static validation snapshot could not be loaded.</strong>
+          <code>validation_report.json</code> fetch failed (${_escape(String(e?.message || e))}).
+          Static-vs-live receipt consistency cannot be confirmed.
+        </div>`;
+    }
+  }
+}
+
+// Render a single case row. Used by both the per-category tables and the
+// cross-tool panel (with a different column count for the derivation row).
+function renderCaseRow(r, colCount = 8) {
+  const mainRow = `
+    <tr class="case-row ${r.pass ? "pass" : "fail"}">
+      <td>
+        <div class="id">${_escape(r.id)}</div>
+        <div class="meta-row">
+          ${r.required ? '<span class="badge mvp" title="failure blocks deployment">required</span>' : '<span class="badge planned">optional</span>'}
+          ${trustBadge(r.trust_label)}
+          <span class="receipt" title="per-case hash">${_escape(r.hash || "")}</span>
+        </div>
+      </td>
+      <td>
+        <div><strong>${_escape(r.name)}</strong></div>
+        <div class="small mute" style="margin-top:3px">${renderSourceChips(r.sources)}</div>
+        ${r.notes ? `<div class="small mute" style="margin-top:4px">${_escape(r.notes)}</div>` : ""}
+      </td>
+      <td><code class="small">${_escape(r.formula)}</code></td>
+      <td class="num">${fmtNum(r.expected)}<div class="small mute">${_escape(r.expected_units || "")}</div></td>
+      <td class="num">${r.error ? `<span class="badge fail">err</span> ${_escape(r.error)}` : fmtNum(r.actual)}</td>
+      <td class="num">${isFinite(r.relErr) ? fmtNum(r.relErr, 3) : (isFinite(r.absErr) ? `abs ${fmtNum(r.absErr,3)}` : "—")}</td>
+      <td class="small">${fmtTol(r.tol_rel, r.tol_abs)}</td>
+      <td>${r.pass ? '<span class="badge pass">PASS</span>' : '<span class="badge fail">FAIL</span>'}</td>
+    </tr>`;
+  const derivRow = (r.derivation && r.derivation.length) ? `
+    <tr class="deriv-row ${r.pass ? "pass" : "fail"}">
+      <td colspan="${colCount}" style="padding:0 0 0 14px;border-top:none">
+        <details>
+          <summary class="small"><strong>Show full derivation</strong> <span class="mute">— ${r.derivation.length} steps</span></summary>
+          <pre class="small" style="white-space:pre-wrap;background:var(--bg-soft);padding:10px 14px;border-radius:4px;margin:6px 0;line-height:1.5">${r.derivation.map(_escape).join("\n")}</pre>
+        </details>
+      </td>
+    </tr>` : "";
+  return mainRow + derivRow;
+}
+
+document.getElementById("dl-json").addEventListener("click", () => {
+  if (!lastReport) return alert("Validation has not run yet.");
+  downloadAs(`validation_report_${lastReport.receipt.short}.json`,
+             JSON.stringify(lastReport, null, 2),
+             "application/json");
+});
+
+window.addEventListener("load", run);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sensitivity Sweep — Relativistic Optics Lab</title>
+  <meta name="description" content="Pick a calculator + one input parameter and sweep it over a range. Plots the output as a line chart and exports the (x, y) CSV. Linear or log axes.">
+  <link rel="stylesheet" href="../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    .input-row { display:grid; grid-template-columns: 0.9fr 1.1fr; gap:8px; align-items:center; margin-bottom:6px; }
+    .input-row label { font-size:0.85em; color:#4b5563; }
+    .input-row input { width:100%; padding:5px 7px; border:1px solid #d8dee4; border-radius:4px; font-size:0.92em; background:#fff; }
+    .stub { display:inline-block; padding:1px 6px; background:#fff7ed; color:#b45309; border:1px solid #fed7aa; border-radius:3px; font-size:0.75em; }
+  </style>
+</head>
+<body>
+
+<main class="container">
+  <h1>Sensitivity Sweep</h1>
+  <p class="small mute">Pick a calculator, pick a sweep variable, set a range. Line chart + CSV export.</p>
+
+  <div class="calc-layout">
+
+    <aside class="calc-inputs">
+      <h3 style="margin-top:0">Calculator</h3>
+      <div class="field">
+        <label for="calc">Calculator</label>
+        <select id="calc">
+          <option value="shapiro"  selected>Shapiro delay</option>
+          <option value="deflection">Light deflection</option>
+          <option value="sagnac">Sagnac chord</option>
+          <option value="freq">Frequency shift</option>
+          <option value="link">Link budget (photons/bit)</option>
+        </select>
+      </div>
+
+      <h3>Sweep parameter</h3>
+      <div class="field">
+        <label for="sweep-param">Sweep variable</label>
+        <select id="sweep-param"></select>
+      </div>
+      <div class="input-row"><label for="sweep-from">From</label><input type="number" step="any" id="sweep-from" value="0.5"></div>
+      <div class="input-row"><label for="sweep-to">To</label><input type="number" step="any" id="sweep-to" value="3"></div>
+      <div class="input-row"><label for="sweep-N">Steps N</label><input type="number" step="1" id="sweep-N" value="51"></div>
+      <div class="field">
+        <label for="sweep-scale">Scale</label>
+        <select id="sweep-scale">
+          <option value="linear" selected>linear</option>
+          <option value="log">log10</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="yscale">Y-axis scale</label>
+        <select id="yscale">
+          <option value="linear" selected>linear</option>
+          <option value="log">log10</option>
+        </select>
+      </div>
+
+      <h3>Other inputs (held fixed)</h3>
+      <div id="other-inputs"></div>
+
+      <div style="margin-top:14px">
+        <button class="btn" id="run">Sweep</button>
+        <button class="btn btn-outline" id="csv">Download CSV</button>
+        <span class="small mute" id="run-status" style="margin-left:8px"></span>
+      </div>
+    </aside>
+
+    <section class="calc-outputs">
+      <h2 style="margin-top:0">Sweep result</h2>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="label">Sweep variable</div><div class="value" id="kpi-var">—</div></div>
+        <div class="kpi"><div class="label">Output</div><div class="value" id="kpi-out">—</div></div>
+        <div class="kpi"><div class="label">Monotonic?</div><div class="value" id="kpi-mono">—</div></div>
+        <div class="kpi"><div class="label">min / max</div><div class="value" id="kpi-mm">—</div></div>
+      </div>
+
+      <h3>Plot</h3>
+      <div id="chart" class="formula-block" style="padding:8px"></div>
+
+      <h3>Formula</h3>
+      <div class="formula-block" id="formula-block">
+        <span class="small mute">Pick a calculator to load its formula.</span>
+      </div>
+
+      <h3>Assumptions and limits</h3>
+      <ul class="assumptions-list" id="assumptions-list"></ul>
+
+      <h3>Limits</h3>
+      <ul class="warnings-list">
+        <li>One parameter is swept at a time. Cross-term sensitivity (e.g. Δt(r1, R) jointly) is <span class="stub">TODO</span> — use the Uncertainty page for joint variation.</li>
+        <li>The CSV contains exactly the points plotted; no resampling or smoothing.</li>
+        <li>Each calculator is evaluated with the formulas in <code>shared/shared.js</code>; same approximation limits apply (weak-field PPN, paraxial, uniform-spot geometric collection, etc.).</li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<script type="module">
+import { N, Formulas, fmt, sci, bootstrap } from "../shared/shared.js";
+import { lineChart, csvFromXY, downloadBlob } from "../shared/plots.js";
+
+bootstrap({ activeKey: "sens" });
+
+const $ = id => document.getElementById(id);
+
+// ============================================================
+// Calculator definitions — each provides:
+//   inputs (name, default, units, hint)
+//   sweepable (subset of input names)
+//   formula_latex, assumptions
+//   fn(values) -> {y, yLabel, yUnits}
+// ============================================================
+const CALCS = {
+  shapiro: {
+    label: "Shapiro delay",
+    inputs: [
+      { name: "GM",    default: N.GM_sun,           units: "m³/s²", hint: "GM_sun by default" },
+      { name: "r1",    default: 1.0,                units: "AU",    hint: "emitter–body" },
+      { name: "r2",    default: 1.524,              units: "AU",    hint: "receiver–body" },
+      { name: "R",     default: 2.5239821,          units: "AU",    hint: "emitter–receiver (Euclidean)" },
+      { name: "gamma", default: 1.0,                units: "",      hint: "PPN γ; GR = 1" }
+    ],
+    sweepable: ["r1", "r2", "R", "gamma", "GM"],
+    formula_latex: "$$\\Delta t = (1+\\gamma)\\,\\frac{GM}{c^3}\\,\\ln\\!\\left(\\frac{r_1+r_2+R}{r_1+r_2-R}\\right)$$",
+    assumptions: [
+      "One-body weak-field PPN expansion",
+      "Distance inputs (r1, r2, R) are given in AU and converted to metres",
+      "Geometry must satisfy r1 + r2 > R; otherwise output is NaN"
+    ],
+    fn: (v) => {
+      const r1 = v.r1 * N.AU, r2 = v.r2 * N.AU, R = v.R * N.AU;
+      const denom = r1 + r2 - R;
+      if (denom <= 0) return { y: NaN, yLabel: "Δt", yUnits: "μs" };
+      const dt = (1 + v.gamma) * v.GM / Math.pow(N.c, 3) * Math.log((r1 + r2 + R) / denom);
+      return { y: dt * 1e6, yLabel: "Δt", yUnits: "μs" };
+    },
+    sweepDefaults: {
+      r1: { from: 0.5, to: 3.0, N: 51, scale: "linear" },
+      r2: { from: 0.5, to: 3.0, N: 51, scale: "linear" },
+      R:  { from: 0.1, to: 3.0, N: 51, scale: "linear" },
+      gamma: { from: 0.5, to: 1.5, N: 41, scale: "linear" },
+      GM: { from: 1e18, to: 1e21, N: 51, scale: "log" }
+    }
+  },
+
+  deflection: {
+    label: "Light deflection",
+    inputs: [
+      { name: "GM",    default: N.GM_sun, units: "m³/s²", hint: "" },
+      { name: "b",     default: 1.0,      units: "R_sun", hint: "impact parameter, in solar radii" },
+      { name: "gamma", default: 1.0,      units: "",      hint: "PPN γ" }
+    ],
+    sweepable: ["b", "gamma", "GM"],
+    formula_latex: "$$\\alpha = (1+\\gamma)\\,\\frac{2GM}{c^2 b}$$",
+    assumptions: [
+      "First-order PPN; observer / source at infinity",
+      "b given in solar radii and converted to metres for the formula"
+    ],
+    fn: (v) => {
+      const b = v.b * N.R_sun;
+      const a = (1 + v.gamma) * 2 * v.GM / (N.c * N.c * b);
+      return { y: a * (180/Math.PI) * 3600, yLabel: "α", yUnits: "arcsec" };
+    },
+    sweepDefaults: {
+      b:     { from: 1.0, to: 1e3, N: 60, scale: "log" },
+      gamma: { from: 0.5, to: 1.5, N: 41, scale: "linear" },
+      GM:    { from: 1e18, to: 1e21, N: 51, scale: "log" }
+    }
+  },
+
+  sagnac: {
+    label: "Sagnac chord",
+    inputs: [
+      { name: "Omega", default: N.Omega_earth, units: "rad/s", hint: "Earth = 7.292×10⁻⁵" },
+      { name: "L",     default: 1000,          units: "km",    hint: "chord length" }
+    ],
+    sweepable: ["Omega", "L"],
+    formula_latex: "$$\\Delta t_{\\rm Sag} = \\Omega\\, L^2/(2c^2)\\;\\;\\text{(orthogonal-chord scaling: }\\Omega \\cdot r_1 \\times r_2 \\text{ with }|r_1|=|r_2|=L/\\sqrt{2}\\text{)}$$",
+    assumptions: [
+      "Maximum-coupling geometry: Ω along ẑ; r1, r2 orthogonal in the equatorial plane",
+      "|r1| = |r2| = L/√2 so |r1 × r2| = L²/2",
+      "First order in ΩL/c"
+    ],
+    fn: (v) => {
+      const L = v.L * 1e3;
+      const dt = Formulas.sagnacDelay({
+        Omega: [0, 0, v.Omega],
+        r1:    [L/Math.sqrt(2), 0, 0],
+        r2:    [0, L/Math.sqrt(2), 0]
+      }).delay;
+      return { y: dt * 1e9, yLabel: "Δt", yUnits: "ns" };
+    },
+    sweepDefaults: {
+      Omega: { from: 1e-6, to: 1e-3, N: 60, scale: "log" },
+      L:     { from: 10,   to: 1e4,  N: 60, scale: "log" }
+    }
+  },
+
+  freq: {
+    label: "Frequency shift",
+    inputs: [
+      { name: "GM_earth", default: N.GM_earth, units: "m³/s²", hint: "" },
+      { name: "h_alt",    default: 20200,      units: "km",    hint: "altitude above Earth surface" },
+      { name: "v_r",      default: 3874,       units: "m/s",   hint: "receiver speed" },
+      { name: "v_par",    default: 0,          units: "m/s",   hint: "line-of-sight velocity (first-order Doppler)" }
+    ],
+    sweepable: ["h_alt", "v_r", "v_par"],
+    formula_latex: "$$\\Delta f/f \\;=\\; (U_e-U_r)/c^2 - (v_e^2 - v_r^2)/(2c^2) - v_\\parallel/c \\;\\;[\\mu s/\\text{day}]$$",
+    assumptions: [
+      "Geocentric circular orbit at altitude h_alt above Earth surface",
+      "Emitter stationary on Earth surface (v_e = 0)",
+      "Output × 86400 × 10⁶ → μs/day"
+    ],
+    fn: (v) => {
+      const r_alt = N.R_earth + v.h_alt * 1e3;
+      const U_e = -v.GM_earth / N.R_earth;
+      const U_r = -v.GM_earth / r_alt;
+      const r = Formulas.frequencyShift({
+        v_parallel: v.v_par,
+        U_e, U_r,
+        v_e: 0, v_r: v.v_r
+      });
+      return { y: r.total * 86400 * 1e6, yLabel: "offset", yUnits: "μs/day" };
+    },
+    sweepDefaults: {
+      h_alt: { from: 100,   to: 4e4, N: 60, scale: "linear" },
+      v_r:   { from: 0,     to: 1e4, N: 51, scale: "linear" },
+      v_par: { from: -1e4,  to: 1e4, N: 51, scale: "linear" }
+    }
+  },
+
+  link: {
+    label: "Link budget (photons/bit, Gaussian-beam coupling)",
+    inputs: [
+      { name: "Pt",      default: 4.0,    units: "W",      hint: "" },
+      { name: "lambda",  default: 1550,   units: "nm",     hint: "" },
+      { name: "Dt",      default: 0.22,   units: "m",      hint: "transmit aperture" },
+      { name: "Dr",      default: 5.1,    units: "m",      hint: "receive aperture" },
+      { name: "R",       default: 0.5,    units: "AU",     hint: "range" },
+      { name: "B",       default: 100e6,  units: "bit/s",  hint: "data rate" },
+      { name: "eta",     default: 0.5,    units: "",       hint: "optical efficiency" }
+    ],
+    sweepable: ["Pt", "lambda", "Dt", "Dr", "R", "B", "eta"],
+    formula_latex: "$$N_{\\gamma/\\text{bit}} = \\frac{P_t\\,\\eta\\,f_{\\text{collect}}(\\lambda, D_t, D_r, R)}{(hc/\\lambda)\\,B}$$",
+    assumptions: [
+      "Matched-mode Gaussian-beam launch (w_0 = D_t/2)",
+      "Centred receiver on the beam axis",
+      "Paraxial; no atmospheric / pointing loss in this baseline",
+      "Range R given in AU, λ in nm"
+    ],
+    fn: (v) => {
+      const lambda_m = v.lambda * 1e-9;
+      const R_m = v.R * N.AU;
+      const beam = Formulas.gaussianBeamCollection({ lambda: lambda_m, D_t: v.Dt, D_r: v.Dr, R: R_m });
+      const P_r = v.Pt * v.eta * beam.f_collect;
+      const Eg  = Formulas.photonEnergy(lambda_m);
+      const Nbit = P_r / Eg / v.B;
+      return { y: Nbit, yLabel: "N_γ/bit", yUnits: "γ/bit" };
+    },
+    sweepDefaults: {
+      Pt:     { from: 0.5,   to: 50,   N: 51, scale: "log" },
+      lambda: { from: 400,   to: 2000, N: 60, scale: "linear" },
+      Dt:     { from: 0.05,  to: 1.0,  N: 51, scale: "log" },
+      Dr:     { from: 1.0,   to: 10,   N: 51, scale: "linear" },
+      R:      { from: 0.05,  to: 50,   N: 60, scale: "log" },
+      B:      { from: 1e5,   to: 1e10, N: 60, scale: "log" },
+      eta:    { from: 0.05,  to: 1.0,  N: 41, scale: "linear" }
+    }
+  }
+};
+
+let currentCalc = CALCS.shapiro;
+let lastXs = null, lastYs = null, lastSweepName = null, lastYLabel = null, lastYUnits = null;
+
+function renderInputs() {
+  const param = $("sweep-param").value;
+  const host = $("other-inputs");
+  host.innerHTML = currentCalc.inputs.filter(it => it.name !== param).map(it => `
+    <div class="input-row">
+      <label for="ipt-${it.name}">${it.name} <span class="small mute">(${it.units})</span></label>
+      <input type="number" step="any" id="ipt-${it.name}" value="${it.default}">
+    </div>
+  `).join("");
+}
+
+function loadCalculator(key) {
+  currentCalc = CALCS[key];
+  // Populate sweepable list
+  const sp = $("sweep-param");
+  sp.innerHTML = currentCalc.sweepable.map((n, i) =>
+    `<option value="${n}" ${i === 0 ? "selected" : ""}>${n}</option>`
+  ).join("");
+  // Defaults for sweep range
+  const first = currentCalc.sweepable[0];
+  const d = currentCalc.sweepDefaults[first];
+  if (d) {
+    $("sweep-from").value = d.from;
+    $("sweep-to").value   = d.to;
+    $("sweep-N").value    = d.N;
+    $("sweep-scale").value = d.scale;
+  }
+  renderInputs();
+  $("formula-block").innerHTML = `<span class="label">${currentCalc.label}</span>${currentCalc.formula_latex}`;
+  $("assumptions-list").innerHTML = currentCalc.assumptions.map(a => `<li>${a}</li>`).join("");
+  if (window.renderMathInElement) window.renderMathInElement(document.body, {
+    delimiters: [{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}]
+  });
+}
+
+function loadSweepDefaults() {
+  const param = $("sweep-param").value;
+  const d = currentCalc.sweepDefaults[param];
+  if (!d) return;
+  $("sweep-from").value = d.from;
+  $("sweep-to").value   = d.to;
+  $("sweep-N").value    = d.N;
+  $("sweep-scale").value = d.scale;
+  renderInputs();
+}
+
+function run() {
+  const param = $("sweep-param").value;
+  const from  = parseFloat($("sweep-from").value);
+  const to    = parseFloat($("sweep-to").value);
+  const N_steps = Math.max(2, Math.min(2000, parseInt($("sweep-N").value, 10) || 51));
+  const scale = $("sweep-scale").value;
+
+  // Collect "other" inputs
+  const values = {};
+  for (const it of currentCalc.inputs) {
+    if (it.name === param) continue;
+    const el = $(`ipt-${it.name}`);
+    const v = el ? parseFloat(el.value) : it.default;
+    values[it.name] = isFinite(v) ? v : it.default;
+  }
+
+  // Build x array
+  const xs = new Array(N_steps);
+  if (scale === "log") {
+    if (from <= 0 || to <= 0) {
+      $("run-status").textContent = "log scale requires positive endpoints.";
+      return;
+    }
+    const lo = Math.log10(from), hi = Math.log10(to);
+    for (let i = 0; i < N_steps; i++) xs[i] = Math.pow(10, lo + (hi - lo) * i / (N_steps - 1));
+  } else {
+    for (let i = 0; i < N_steps; i++) xs[i] = from + (to - from) * i / (N_steps - 1);
+  }
+
+  // Evaluate
+  const ys = new Array(N_steps);
+  let yLabel = "y", yUnits = "";
+  const t0 = performance.now();
+  for (let i = 0; i < N_steps; i++) {
+    const v = { ...values, [param]: xs[i] };
+    let r;
+    try { r = currentCalc.fn(v); } catch (e) { r = { y: NaN, yLabel: "y", yUnits: "" }; }
+    ys[i] = r.y;
+    yLabel = r.yLabel; yUnits = r.yUnits;
+  }
+  const elapsed = performance.now() - t0;
+
+  // Stats
+  const finite = ys.filter(y => isFinite(y));
+  let mono = "n/a", yMin = NaN, yMax = NaN;
+  if (finite.length > 0) {
+    yMin = Math.min(...finite);
+    yMax = Math.max(...finite);
+    const yPairs = ys.map((y, i) => [xs[i], y]).filter(([_, y]) => isFinite(y));
+    let allUp = true, allDown = true;
+    for (let i = 1; i < yPairs.length; i++) {
+      if (yPairs[i][1] < yPairs[i-1][1]) allUp = false;
+      if (yPairs[i][1] > yPairs[i-1][1]) allDown = false;
+    }
+    mono = allUp ? "↑ monotonic up" : allDown ? "↓ monotonic down" : "✗ non-monotonic";
+  }
+
+  // KPIs
+  $("kpi-var").innerHTML = `${param} <span class="unit">(${currentCalc.inputs.find(it => it.name === param)?.units || ""})</span>`;
+  $("kpi-out").innerHTML = `${yLabel} <span class="unit">${yUnits}</span>`;
+  $("kpi-mono").innerHTML = mono;
+  $("kpi-mm").innerHTML = isFinite(yMin) ? `${sci(yMin, 3)} / ${sci(yMax, 3)} <span class="unit">${yUnits}</span>` : "—";
+
+  // Chart
+  lineChart($("chart"), { xs, ys }, {
+    title: `${currentCalc.label}: ${yLabel} vs ${param}`,
+    xLabel: `${param} (${currentCalc.inputs.find(it => it.name === param)?.units || ""})`,
+    yLabel: `${yLabel} (${yUnits})`,
+    xScale: scale,
+    yScale: $("yscale").value
+  });
+
+  lastXs = xs; lastYs = ys; lastSweepName = param; lastYLabel = yLabel; lastYUnits = yUnits;
+  $("run-status").textContent = `swept ${N_steps} points in ${elapsed.toFixed(0)} ms`;
+}
+
+$("calc").addEventListener("change", e => { loadCalculator(e.target.value); });
+$("sweep-param").addEventListener("change", () => { loadSweepDefaults(); });
+$("run").addEventListener("click", run);
+$("csv").addEventListener("click", () => {
+  if (!lastXs) return alert("Run a sweep first.");
+  const xLabel = `${lastSweepName}`;
+  const yLabel = `${lastYLabel}_${lastYUnits.replace(/[^a-z0-9]+/gi,"")}`;
+  const csv = csvFromXY(lastXs, lastYs, xLabel, yLabel);
+  downloadBlob(`sensitivity-${currentCalc.label.replace(/\W+/g,"_")}-${lastSweepName}.csv`, "text/csv", csv);
+});
+
+// Initial load
+loadCalculator("shapiro");
+window.addEventListener("load", () => setTimeout(run, 100));
+</script>
+
+</body>
+</html>

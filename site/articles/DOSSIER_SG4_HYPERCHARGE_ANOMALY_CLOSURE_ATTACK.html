@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SG-4 — Hypercharge Table + Anomaly Witness (GUT Gate 4 / §6.3 + §6.5): Per-Gate Closure-Attack Dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">SG-4 — Hypercharge Table + Anomaly Witness (GUT Gate 4 / §6.3 + §6.5): Per-Gate Closure-At — rendered package. Rendered from <code>DOSSIER_SG4_HYPERCHARGE_ANOMALY_CLOSURE_ATTACK.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>SG-4 — Hypercharge Table + Anomaly Witness (GUT Gate 4 / §6.3 + §6.5): Per-Gate Closure-Attack Dossier</h1>
+<blockquote>
+<p><strong>What this is.</strong> The closure-attack packet for <strong>SG-4 (the hypercharge table + the hand-checkable anomaly
+witness)</strong> on the <strong>frozen 13D K₆ branch ONLY</strong>. It recaps how our geometry fixes the charge embedding and
+inherits anomaly cancellation (concise; the full derivation lives on the published site), verifies where the
+status actually stands, names every open residual, and lays out the attack plan to push the gate further. It
+is <strong>not</strong> a rival comparison (that is <code>BATTLE_GATES/</code>), <strong>not</strong> the one-line status ledger, <strong>not</strong> a
+reprint of the manuscript.</p>
+<p><strong>Binding discipline (carry verbatim).</strong> No status was ever upgraded. Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>
+READ-ONLY. Honest throughout: anomaly cancellation is a <strong>FILTER on the chiral content E, not a determiner</strong>
+of it (there are infinitely many anomaly-free chiral solutions; our geometry passes the filter by <em>producing
+one SM generation per family</em>, it does not <em>derive</em> that this is the only solution); the perturbative
+ledgers and the by-hand witnesses are <strong>genuinely hand-checkable and they vanish</strong>, but they are evaluated
+<strong>given-E</strong> (the Gate-4 chiral spectrum supplied by SG-2/SG-3); the <strong>BV-BRST descent (UQF-4)</strong> stays
+<strong>AUDIT / NO-KNOWN-ROUTE</strong>; the <strong>R4 mixed 't Hooft anomaly <code>ξ_R4</code></strong> stays <strong>OPEN</strong> — it is a <code>NOT-A-WALL</code>
+element whose <em>value is genuinely unknown</em> (the operative differential is the 3-primary <code>d₅ = Q₁</code>, not a
+2-primary <code>d₃</code>; the untwisted default is the nonzero <code>ℤ₃</code> survivor; the <code>τ_K₆ = (2,2)</code> twist-correction is
+the sole remaining lever). Closure paths must be <strong>non-target-loaded</strong> (the κ³/π falsification test: a proposed axiom
+counts only if it would be written WITHOUT knowing the answer). <strong>given-E ≠ derivation of E.</strong> AXIOM-CLOSED ≠
+proven; selection ≠ derivation; dissolved ≠ solved.</p>
+</blockquote>
+<hr />
+<h2>0. Header &amp; Verdict</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gate id</strong></td>
+<td>SG-4 — Hypercharge table + hand-checkable anomaly witness</td>
+</tr>
+<tr>
+<td><strong>GUT manuscript gates spanned</strong></td>
+<td><strong>Gate 3</strong> (hypercharge &amp; electric charge; §6.3, narrative §5.2, companion CR3, certificate <code>certificates/G03_charge_z6/</code>) <strong>+ Gate 5</strong> (anomaly cancellation; §6.5, narrative §5.4 → §3 worked example, certificate <code>certificates/G05_anomaly_cancellation/</code>, Appendix E′). The dossier-spec name "SG-4 (Gate 4)" bundles the charge-recovery and anomaly-closure faces that the manuscript files as Gates 3 and 5; the chirality/family-count face (manuscript Gate 4 / SG-3) is a separate dossier (SG-3, <code>DERIVED-GIVEN-E</code>).</td>
+</tr>
+<tr>
+<td><strong>Status label (binding)</strong></td>
+<td><strong>PARTIAL</strong></td>
+</tr>
+<tr>
+<td><strong>Manuscript card status</strong></td>
+<td>Both faces are <em>Claimed certificate pass</em> in the manuscript (§6.3, §6.5); PARTIAL is the honest scoped-GUT roll-up: the <strong>perturbative</strong> ledgers pass as filters, but the <strong>filter-not-determiner</strong> caveat, the <strong>BV-BRST (UQF-4)</strong> descent and the <strong>R4 mixed 't Hooft (<code>ξ_R4</code>)</strong> anomaly stay AUDIT/OPEN.</td>
+</tr>
+<tr>
+<td><strong>Frozen hashes it rides</strong></td>
+<td>Branch <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code>. Charge face: parity table <code>ac4d2df3e708</code> (R1.3, co-read by Gate 4), the alternate Z₆-closure freeze <code>a68ee92a75be</code> (R1.3, CR3.8 / D.3.1), R1.4 hypercharge lattice. Anomaly face: surviving chiral spectrum A2.3 (Gate-4 output); convention block ($A(\bar R) = -A(R)$, $T(\text{fund}) = 1/2$, left-handed Weyl basis); E′ trace tables. R4 face (open): home <code>Ω₅^{Spin-c}(B(SU(3)→PSU(3)); τ_K₆)</code>; twist <code>τ_K₆ = τ(c̄₁(L_{K₆}))</code>, <code>c̄₁ = 2ρ mod 3 = (2,2) ≠ 0</code>; carrier <code>x̄₁ ∈ H³(BPU(3);ℤ/3)</code>; operative differential <code>d₅ = Q₁ = βP¹</code>. <strong><code>ξ_R4</code>: no value, no hash — OPEN.</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>0.1 Abstract — established / open / what would close it</h3>
+<p><strong>Target anchor(s):</strong> terminates on the <strong>observed spectrum E (spin-ℂ index −3)</strong> — anomaly cancellation is a
+FILTER on E, not a determiner (charge table + perturbative ledgers DERIVED-GIVEN-E); <strong>no new measured anchor
+needed</strong>, while the <strong>BV-BRST descent (UQF-4/7)</strong> and <strong><code>ξ_R4</code></strong> are <strong>COMPUTATION-DEBTS, value UNKNOWN / OPEN</strong>
+(see §A "Target anchor(s) for this gate").</p>
+<p><strong>Established (given-E, given the selected &amp; frozen geometry).</strong> Two distinct, genuinely strong things are
+established, both <strong>given</strong> the Gate-4 chiral spectrum E:</p>
+<ol>
+<li><strong>The charge table is a geometric output, not a fit.</strong> The weak sphere $S^2$ supplies $T_3$, the folded
+   hypercharge circle $S_Y^{\,1}/\mathbb{Z}_2$ supplies the $U(1)_Y$ direction, and a <strong>global $\mathbb{Z}_6$
+   centre-locking rule</strong> ties the colour-$\mathbb{Z}_3$, weak-$\mathbb{Z}_2$ and a sixth-root of the
+   hypercharge phase into the closure $\omega_3^{k_3}\omega_2^{k_2}\omega_6^{6Y}=1$, which <strong>forces hypercharge
+   onto the $\tfrac16\mathbb{Z}$ lattice</strong> and yields the full one-generation $Q = T_3 + Y$ table
+   ($Q_L:+\tfrac16$, $u_R:+\tfrac23$, $d_R:-\tfrac13$, $L_L:-\tfrac12$, $e_R:-1$, $H:+\tfrac12$) with <strong>no
+   per-multiplet adjustment</strong>. This is hand-checkable in five minutes (CR3.9–3.10).</li>
+<li><strong>The six perturbative anomaly ledgers vanish exactly, by hand.</strong> On that frozen one-generation spectrum,
+   the two pure-hypercharge witnesses ($\sum Y = 0$, $\sum Y^3 = 0$), the two mixed witnesses
+   ($[SU(3)]^2U(1)_Y$, $[SU(2)]^2U(1)_Y$ — the latter's by-hand form $3\cdot\tfrac16 - \tfrac12 = 0$), the
+   $[SU(3)]^3$ trace, the $[\mathrm{grav}]^2 U(1)_Y$ trace, and the <strong>mod-2 Witten</strong> doublet-parity count
+   ($3+1=4$, even) all close in exact rational arithmetic (§3.3, §3.6.2, Appendix E′). Anomaly cancellation is
+   <strong>inherited</strong> because the geometry's index output is exactly one SM generation per family.</li>
+</ol>
+<p><strong>Open (the honest deductions).</strong> (1) Anomaly cancellation is a <strong>FILTER, not a determiner</strong> — there are
+infinitely many anomaly-free chiral assignments; passing the filter certifies <em>this geometry produces a
+consistent spectrum</em>, it does <strong>not</strong> derive that the SM content is the unique solution. (2) Only <strong>~10 of the
+16</strong> independent quantum-consistency classes (the perturbative + discrete-global set our geometry is checked
+against) are demonstrably closed at certificate grade; the remainder are AUDIT/OPEN. (3) The <strong>BV-BRST descent
+(UQF-4)</strong> — the <em>non-perturbative</em>, coset-twist / descended-anomaly statement that the BRST differential is
+nilpotent and the descent measure exists — stays <strong>AUDIT / NO-KNOWN-ROUTE</strong>. (4) The <strong>R4 mixed 't Hooft
+anomaly <code>ξ_R4</code></strong> — the geometry's <em>own</em> candidate anomaly object (the $\mathbb{Z}_3$ colour-centre one-form
+symmetry of the pure-glue projection, twisted by the K₆ data) — is <strong>OPEN</strong>: well-posed as a finite twisted
+Spin-c bordism class, but its value is uncomputed (<code>NOT-A-WALL</code>, value <code>UNKNOWN</code>).</p>
+<p><strong>What would close it (the ladder).</strong> DERIVED-CLOSED on the <em>determiner</em> gap is <strong>unreachable</strong> — anomaly
+cancellation is a filter by its mathematical nature; the honest ceiling is to <strong>state the filter-not-determiner
+boundary precisely</strong> (AXIOM-/DISCLOSED-CLOSED). For the perturbative face, the realistic win is <strong>VERIFIED</strong>:
+mount and re-run the <code>certificates/G03_charge_z6/</code> and <code>certificates/G05_anomaly_cancellation/</code> exact-rational
+checks target-blind. For UQF-4, the ceiling is <strong>AXIOM-CLOSED</strong> (name the BV-BRST descent as an
+inherited-standard-QFT consistency import) or a specialist construction (DERIVED, hard). For <code>ξ_R4</code>, the
+ceiling is a <strong>specialist twisted-bordism computation</strong> (the <code>τ_K₆</code>-twist-correction to <code>d₅</code>) — DERIVED-CLOSED
+if the value is computed, sharper-OPEN if it remains a finite-but-unsettled <code>ℤ₃</code>-linear-algebra question.</p>
+<h3>0.2 Website source-of-truth (link, don't duplicate)</h3>
+<p>The full construction, the worked charge tables, the six-ledger trace table, and the freeze records are the
+<strong>published manuscript</strong>, Paper I:</p>
+<ul>
+<li><strong>GUT.html §6.3</strong> (Gate-3 card, hypercharge/charge) and <strong>§6.5</strong> (Gate-5 card, anomaly) —
+  <a href="https://physics.magflowmeters.com/articles/GUT.html">https://physics.magflowmeters.com/articles/GUT.html</a></li>
+<li><strong>§5.2 / §5.4</strong> narrative modules; <strong>§3</strong> (the worked anomaly example, end-to-end — §3.3 the six ledgers, §3.6.2
+  the one-generation trace table, §3.7 where the claim is actually closed); <strong>Appendix CR3</strong> (hypercharge reader
+  companion — CR3.5 $Q=T_3+Y$, CR3.7 the $S_Y^1/\mathbb{Z}_2$ source, <strong>CR3.8 the $\mathbb{Z}_6$ closure</strong>,
+  CR3.10 the full table, CR3.13 remove-one-term tests); <strong>Appendix CR5</strong> (anomaly reader companion); <strong>Appendix
+  D</strong> (representation-level recovery, charge tables D.2/D.3.1); <strong>Appendix E</strong> (chirality half) + <strong>Appendix E′</strong>
+  (anomaly closure — full six-ledger trace table, conventions); <strong>Appendix R0/R1</strong> (freeze records).</li>
+<li>The <strong>R4 / UQF-4 / <code>ξ_R4</code></strong> open objects are <em>not</em> in GUT.html (they live in Paper III/IV's quantum-completion
+  audit and the Gap-02 program); see the corpus map in §5.</li>
+</ul>
+<p>This dossier recaps only what is needed to attack; the site controls all common material.</p>
+<hr />
+<h2>1. How OUR geometry closes SG-4 — the closure claim (concise)</h2>
+<blockquote>
+<p>Full derivation: <strong>GUT.html §6.3 + §6.5 + §3 + Appendices CR3/CR5/D/E′</strong>. This section is the attack-grade
+recap, not the derivation.</p>
+</blockquote>
+<p>SG-4 has <strong>two faces</strong> that must be attacked separately because they fail (or hold) for different reasons.</p>
+<h3>1.1 Face A — the hypercharge table (geometric, hand-checkable, strong)</h3>
+<p>The charge embedding is generated by three load-bearing factors, named so a reader can attack each:</p>
+<ol>
+<li><strong>The weak sphere $S^2$ ($\times$-layer)</strong> supplies the isospin generator $T_3$ on every doublet
+   (CR3.6). (Attack handle: $T_3$ is <em>given-E</em> — it rides SG-2's gauge recovery, which is itself a cross-framework
+   TIE, not a Fable-discriminating determiner.)</li>
+<li><strong>The folded hypercharge circle $S_Y^{\,1}/\mathbb{Z}_2$ ($\times/\oplus$-layer)</strong> supplies the $U(1)_Y$
+   direction and, via the orbifold boundary, the no-mirror projection (CR3.7). The hypercharge <strong>line bundle
+   $L_Y$</strong> ($\otimes$-layer) carries the actual $Y$ labels.</li>
+<li><strong>The global $\mathbb{Z}_6$ centre-locking rule ($\oplus$-layer)</strong> — the decisive structural object. The SM
+   group is the quotient $G_{\rm SM} = [SU(3)_c \times SU(2)_L \times U(1)_Y]/\mathbb{Z}_6$, where the
+   $\mathbb{Z}_6$ acts by $k \mapsto (\zeta_3^k, (-1)^k, e^{2\pi i k/6})$. The consistency condition for a
+   multiplet $(k_3,k_2,k_6)$ is the <strong>closure</strong>
+   $$ \omega_3^{k_3}\,\omega_2^{k_2}\,\omega_6^{6Y} = 1 \quad \text{in } \mathbb{Z}_6, \qquad \omega_n=e^{2\pi i/n}, $$
+   which is <strong>exactly what forces hypercharge onto the $\tfrac16\mathbb{Z}$ lattice</strong> — finer than the integer
+   lattice a bare circle would give, by precisely the factor six the PDG charges require (CR3.8; D.3.1; freeze
+   <code>a68ee92a75be</code>).</li>
+</ol>
+<p><strong>The output is the full one-generation table</strong> via $Q = T_3 + Y$ applied five times after the $S^2$ and
+$S_Y^1/\mathbb{Z}_2$ labels are fixed — no per-multiplet fit (CR3.9–3.10):</p>
+<table>
+<thead>
+<tr>
+<th>Multiplet</th>
+<th>$SU(2)_L$</th>
+<th>$T_3$</th>
+<th style="text-align: right;">$Y$</th>
+<th>$Q = T_3 + Y$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$Q_L=(u_L,d_L)$</td>
+<td>doublet</td>
+<td>$\pm\tfrac12$</td>
+<td style="text-align: right;">$+\tfrac16$</td>
+<td>$+\tfrac23,\,-\tfrac13$</td>
+</tr>
+<tr>
+<td>$u_R$</td>
+<td>singlet</td>
+<td>$0$</td>
+<td style="text-align: right;">$+\tfrac23$</td>
+<td>$+\tfrac23$</td>
+</tr>
+<tr>
+<td>$d_R$</td>
+<td>singlet</td>
+<td>$0$</td>
+<td style="text-align: right;">$-\tfrac13$</td>
+<td>$-\tfrac13$</td>
+</tr>
+<tr>
+<td>$L_L=(\nu_L,e_L)$</td>
+<td>doublet</td>
+<td>$\pm\tfrac12$</td>
+<td style="text-align: right;">$-\tfrac12$</td>
+<td>$0,\,-1$</td>
+</tr>
+<tr>
+<td>$e_R$</td>
+<td>singlet</td>
+<td>$0$</td>
+<td style="text-align: right;">$-1$</td>
+<td>$-1$</td>
+</tr>
+<tr>
+<td>$H$</td>
+<td>doublet</td>
+<td>$\pm\tfrac12$</td>
+<td style="text-align: right;">$+\tfrac12$</td>
+<td>$+1,\,0$</td>
+</tr>
+</tbody>
+</table>
+<p>The neutrino comes out <strong>exactly neutral</strong> and the down quark at <strong>exactly $-\tfrac13$</strong> without either value
+being chosen — this is the genuine win of Face A.</p>
+<h3>1.2 Face B — the anomaly witnesses (inherited filter, hand-checkable)</h3>
+<p>On the <strong>frozen Gate-4 chiral spectrum</strong> (one SM generation per family, A2.3), six quantum-consistency ledgers
+are required to vanish. Each is a finite sum of fixed representation weights over the particle list — <em>nothing
+to tune</em> (§3.3). With the convention block ($A(\bar R) = -A(R)$, $T(\text{fund})=\tfrac12$, left-handed Weyl
+basis; right-handed singlets entered through their left-handed conjugate descriptions), the six are:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Ledger</th>
+<th>Form</th>
+<th>Witness</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L1</td>
+<td>$[U(1)_Y]^3$</td>
+<td>$\sum Y^3 = 0$</td>
+<td>$(1 - 32 + 4 - 9 + 36)/36 = 0$ (the §3.6.2 table)</td>
+</tr>
+<tr>
+<td>L2</td>
+<td>$[\mathrm{grav}]^2 U(1)_Y$</td>
+<td>$\sum Y = 0$</td>
+<td>$+1-2+1-1+1 = 0$</td>
+</tr>
+<tr>
+<td>L3</td>
+<td>$[SU(2)]^2 U(1)_Y$</td>
+<td>$\sum_{\rm doublets} Y = 0$</td>
+<td>$3\cdot\tfrac16 - \tfrac12 = 0$ (the by-hand mixed witness)</td>
+</tr>
+<tr>
+<td>L4</td>
+<td>$[SU(3)]^2 U(1)_Y$</td>
+<td>$\sum_{\rm triplets}Y = 0$</td>
+<td>$2\cdot\tfrac16 - \tfrac23 + \tfrac13 = 0$</td>
+</tr>
+<tr>
+<td>L5</td>
+<td>$[SU(3)]^3$</td>
+<td>$\sum_{\rm triplets} A(R) = 0$</td>
+<td>$Q_L$ ($\mathbf 3$) + $u_R^c$ ($\bar{\mathbf 3}$) + $d_R^c$ ($\bar{\mathbf 3}$) $\Rightarrow 1 - 1 = 0$ by vector-likeness in colour</td>
+</tr>
+<tr>
+<td>L6</td>
+<td>$[SU(2)]^3$ (Witten mod-2)</td>
+<td># weak doublets even</td>
+<td>$3 + 1 = 4$, even</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The clean diagnostic that the cancellation is not cheap.</strong> The <em>square</em> of the hypercharge does <strong>not</strong>
+vanish: $\sum Y^2 = \tfrac{10}{3} \neq 0$ (§3.3). Exactly the six consistency-critical combinations vanish and
+nothing innocent does — five unpaired fractions conspiring to zero. That specificity is the content of the
+filter. <strong>But</strong> the cancellation is <strong>inherited</strong>: the geometry earns its anomaly pass by <em>producing the right
+list</em> (one SM generation per family), and the SM's own cancellation comes along. The certificate verifies the
+pass on the list actually produced, <strong>with no content added afterward</strong> (§3.5 closing note).</p>
+<h3>1.3 What "closed" means here, and its conditionality</h3>
+<p>"Closed" for SG-4 is <strong>a geometric charge embedding + an inherited consistency filter passing on the produced
+spectrum</strong> — strictly <strong>not</strong>:</p>
+<ul>
+<li>not "anomaly cancellation derives the SM content" (it is a filter; see R1);</li>
+<li>not "the hypercharge assignments are unique across all geometries" (Face A is computed <em>given</em> the SM gauge
+  group and the produced spectrum);</li>
+<li>not "all quantum consistency is established" (the non-perturbative BV-BRST descent and the R4 mixed anomaly
+  are AUDIT/OPEN; see R3, R4).</li>
+</ul>
+<p>It is conditional on:</p>
+<ul>
+<li><strong>given-E</strong> — the SM chiral content (and the family index $-3$) supplied by SG-2/SG-3; SG-4 inherits SG-3's
+  conditionality and does not derive E.</li>
+<li><strong>given-the-selected-geometry</strong> — the frozen 13D K₆ branch, the folded hypercharge circle, and the
+  $\mathbb{Z}_6$ quotient as <em>declared</em> global structure.</li>
+</ul>
+<p><strong>The genuine, defensible content</strong> (the part that survives the honest accounting):</p>
+<table>
+<thead>
+<tr>
+<th>Genuine output</th>
+<th>Mechanism</th>
+<th>Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Full one-generation $Y$ / $Q$ table on the $\tfrac16\mathbb{Z}$ lattice</td>
+<td>$S^2$ ($T_3$) + $S_Y^1/\mathbb{Z}_2$ ($Y$) + $\mathbb{Z}_6$ closure</td>
+<td>hand-checkable</td>
+</tr>
+<tr>
+<td>Six perturbative ledgers vanish; $\sum Y^2 \neq 0$ diagnostic</td>
+<td>exact rational arithmetic on the frozen spectrum</td>
+<td>hand-checkable</td>
+</tr>
+<tr>
+<td>The geometry produces exactly one SM generation per family</td>
+<td>spin-ℂ index $-3$ (SG-3) feeding the anomaly filter</td>
+<td>inherited</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The conditional / non-genuine content:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Honest reality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Anomaly cancellation selects the SM"</td>
+<td><strong>FALSE as a determiner</strong> — it is a filter; infinitely many anomaly-free chiral solutions exist (R1)</td>
+</tr>
+<tr>
+<td>"All 16 quantum classes close"</td>
+<td><strong>~10/16</strong> demonstrably close at certificate grade; the rest AUDIT/OPEN (R2)</td>
+</tr>
+<tr>
+<td>"The theory is quantum-consistent non-perturbatively"</td>
+<td>BV-BRST descent (UQF-4) is <strong>AUDIT / NO-KNOWN-ROUTE</strong> (R3)</td>
+</tr>
+<tr>
+<td>"Every 't Hooft anomaly is accounted for"</td>
+<td>the R4 mixed <code>ξ_R4</code> is <strong>OPEN / value UNKNOWN</strong> (R4)</td>
+</tr>
+</tbody>
+</table>
+<p>So the precise statement of closure: <strong>the geometry genuinely produces the SM charge table from the $\mathbb{Z}_6$
+closure, and the six perturbative anomaly ledgers vanish by hand on the produced spectrum — but anomaly
+cancellation is a consistency FILTER passed by inheritance, not a derivation of the content, and the
+non-perturbative (BV-BRST) and geometry-specific (R4) anomaly statements remain open.</strong></p>
+<hr />
+<h2>2. Verify the status — is PARTIAL real?</h2>
+<p>This is the verification a skeptic would run. Each witness gets a grade — <strong>hand-checkable</strong> / <strong>symbolic</strong> /
+<strong>machine-lane</strong> — and an honest <strong>reproduces?</strong> flag.</p>
+<h3>2.1 The witness ledger</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Witness</th>
+<th>What it asserts</th>
+<th>Grade</th>
+<th>Reproduces?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1</td>
+<td><strong>$\mathbb{Z}_6$ closure</strong> $\omega_3^{k_3}\omega_2^{k_2}\omega_6^{6Y}=1$</td>
+<td>hypercharge forced onto $\tfrac16\mathbb{Z}$; full $Y$ table</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — each row's closure recomputes by hand (CR3.8–3.10); $6Y \in \mathbb{Z}$ checks for all six multiplets</td>
+</tr>
+<tr>
+<td>W2</td>
+<td><strong>$Q = T_3 + Y$ table</strong></td>
+<td>every $Q$ matches PDG</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — five applications of one formula; $\nu_L$ neutral, $d_R$ at $-\tfrac13$ recover exactly (CR3.9)</td>
+</tr>
+<tr>
+<td>W3</td>
+<td><strong>$\sum Y = 0$, $\sum Y^3 = 0$</strong></td>
+<td>the two pure-$Y$ ledgers vanish</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — the §3.6.2 table sums to 0/36 in the consistent left-handed bookkeeping (note: $\sum Y^3$ returns $-4/9$ in mixed conventions — a real trap, disclosed)</td>
+</tr>
+<tr>
+<td>W4</td>
+<td><strong>Mixed by-hand witness</strong> $3\cdot\tfrac16 - \tfrac12 = 0$</td>
+<td>$[SU(2)]^2U(1)_Y$ closes</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — the headline five-minute check</td>
+</tr>
+<tr>
+<td>W5</td>
+<td><strong>$\sum Y^2 = \tfrac{10}{3} \neq 0$</strong></td>
+<td>cancellation is specific, not generic</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — the diagnostic that distinguishes a filter from a triviality</td>
+</tr>
+<tr>
+<td>W6</td>
+<td><strong>Witten mod-2</strong> ($3+1=4$ even)</td>
+<td>$[SU(2)]^3$ global anomaly absent</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — doublet count per family even</td>
+</tr>
+<tr>
+<td>W7</td>
+<td><strong>$[SU(3)]^3$ + $[SU(3)]^2U(1)_Y$ traces</strong></td>
+<td>the colour ledgers close</td>
+<td>symbolic</td>
+<td><strong>Yes</strong> — colour vector-likeness; tabulated in E′</td>
+</tr>
+<tr>
+<td>W8</td>
+<td><strong><code>certificates/G03_charge_z6/</code></strong> (exact-fraction check)</td>
+<td>the charge table regenerates from frozen labels</td>
+<td>machine-lane</td>
+<td><strong>AUDIT</strong> — referenced (reuses the G05 spectrum file); not independently re-run here</td>
+</tr>
+<tr>
+<td>W9</td>
+<td><strong><code>certificates/G05_anomaly_cancellation/run.sh</code></strong> (exact-rational ledger)</td>
+<td>all six ledgers vanish from the frozen spectrum</td>
+<td>machine-lane</td>
+<td><strong>AUDIT</strong> — referenced; the exact-rational script is short and error-bar-free but not re-executed in this audit</td>
+</tr>
+<tr>
+<td>W10</td>
+<td><strong>R4 well-posing</strong> (<code>ξ_R4 ∈ Ω₅^{Spin-c}(B(SU(3)→PSU(3)); τ_K₆)</code>)</td>
+<td>the geometry's own anomaly is a finite, finitely-checkable bordism question</td>
+<td>symbolic</td>
+<td><strong>Partial</strong> — the <em>home</em> is verified; the <em>value</em> is OPEN (next computation = the <code>τ_K₆</code>-twist-correction to <code>d₅</code>)</td>
+</tr>
+<tr>
+<td>W11</td>
+<td><strong>UQF-4 BV-BRST descent</strong></td>
+<td>nilpotent BRST + descent measure exists</td>
+<td>—</td>
+<td><strong>No route</strong> — NO-KNOWN-ROUTE (OPEN_WALLS_REGISTER): "closes when the coset-twist / descended anomaly classes are constructed by a specialist"</td>
+</tr>
+</tbody>
+</table>
+<h3>2.2 What reproduces, plainly</h3>
+<ul>
+<li><strong>Face A reproduces fully by hand.</strong> The $\mathbb{Z}_6$ closure forces the $\tfrac16\mathbb{Z}$ lattice and the
+  $Q = T_3 + Y$ table falls out with no fit. This is the strongest leg of SG-4 and is genuine geometry-to-charge
+  recovery (given the SM group and the produced spectrum).</li>
+<li><strong>Face B's six perturbative ledgers reproduce by hand.</strong> The mixed witness $3\cdot\tfrac16 - \tfrac12 = 0$,
+  the cubic $\sum Y^3 = 0$, the linear $\sum Y = 0$, the colour traces, and the Witten parity all close in exact
+  rational arithmetic. The $\sum Y^2 = \tfrac{10}{3}$ diagnostic confirms the cancellation is <em>specific</em>, the
+  feature that makes it a genuine filter and not a triviality.</li>
+<li><strong>The exactness is real.</strong> Because every ledger is a finite sum of rationals, the certificate is a short
+  exact-rational script with <strong>no error bars</strong> — a clean pass/fail. This is the manuscript's cleanest gate by
+  that measure.</li>
+</ul>
+<h3>2.3 What does NOT yet reproduce (honest gaps in the status)</h3>
+<ul>
+<li><strong>The machine certificates (W8/W9) are AUDIT.</strong> The exact-fraction charge check and the exact-rational anomaly
+  ledger are <em>referenced</em>; the load-bearing executable (the run.sh regenerating the ledger byte-equal from the
+  frozen spectrum file) is <strong>not independently re-run</strong> in this audit — the same class as SG-7's absent
+  δ-harness and SG-8's J.6/K.5 mount. Until re-run target-blind, "the ledgers regenerate from the frozen hashes"
+  is <strong>declared-not-independently-verified here.</strong> (Mitigant: unlike SG-7, the underlying arithmetic is
+  <em>hand-reproducible</em>, so the AUDIT is lower-stakes — a skeptic can verify the math directly.)</li>
+<li><strong>The "anomaly cancellation selects E" reading does NOT reproduce — it is mathematically false.</strong> Anomaly
+  cancellation is a <em>filter</em>: there are infinitely many anomaly-free chiral $U(1)$ and non-abelian assignments
+  (the constraint is a finite set of Diophantine/polynomial conditions with an infinite solution variety). The
+  geometry passes the filter by <em>producing one SM generation per family</em>; it does <strong>not</strong> derive that this is the
+  only solution. The manuscript is already honest here (§3.5 closing note, §3.6.3 "what it does not show"), but
+  any roll-up that reads SG-4 as "the SM is selected by anomaly cancellation" overclaims.</li>
+<li><strong><code>ξ_R4</code> does not reproduce — it does not yet have a value.</strong> The R4 mixed 't Hooft anomaly is well-posed
+  (a finite twisted Spin-c bordism group) but <strong>uncomputed</strong>; the untwisted default is the nonzero <code>ℤ₃</code>
+  survivor, and whether the frozen <code>τ_K₆ = (2,2)</code> twist deforms it is an unsettled finite <code>ℤ₃</code>-linear-algebra
+  question. No value, no hash.</li>
+<li><strong>UQF-4 (BV-BRST descent) does not reproduce — there is no route.</strong> The quantized BV-BRST descent measure and
+  the coset-twist / descended anomaly classes are <strong>not constructed</strong>; flagged NO-KNOWN-ROUTE.</li>
+</ul>
+<h3>2.4 Why PARTIAL (not higher, not lower)</h3>
+<ul>
+<li><strong>Not DERIVED-GIVEN-E</strong> (the SG-2/SG-3 tier): SG-4 is not a single rigid integer/representation recovery. Its
+  charge face is strong and given-E, but its anomaly face is a <em>filter</em> (not a determiner), only ~10/16 quantum
+  classes close, and two anomaly statements (BV-BRST, R4) are AUDIT/OPEN — too many open residuals for the
+  DERIVED tier.</li>
+<li><strong>Not OPEN/DECLARED-FROZEN:</strong> the genuine wins are real and hand-checkable — the $\mathbb{Z}_6$-forced charge
+  table and the six vanishing ledgers are <em>not</em> reparameterizations; the $\sum Y^2 \neq 0$ diagnostic proves the
+  cancellation is specific.</li>
+<li><strong>PARTIAL is exactly right:</strong> a strong, hand-checkable geometric charge embedding + inherited perturbative
+  anomaly closure, with a precise filter-not-determiner boundary, ~10/16 classes closed, and the BV-BRST and R4
+  residuals named AUDIT/OPEN. This matches the SCOPED_GUT ledger SG-4 line verbatim.</li>
+</ul>
+<hr />
+<h2>3. The attack surface — what to attack (ranked by leverage)</h2>
+<p>Every open residual as a named object with its precise obstruction. <strong>Leverage</strong> = how much closing it moves
+the gate (and how much it sharpens the claim boundary).</p>
+<h3>3.1 The residual register</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Residual (named object)</th>
+<th>Precise obstruction</th>
+<th>Status</th>
+<th>Leverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R1</strong></td>
+<td><strong>Anomaly = FILTER, not determiner</strong></td>
+<td>Anomaly cancellation is a finite set of Diophantine/polynomial conditions with an <strong>infinite</strong> solution variety; passing certifies <em>this geometry produces a consistent spectrum</em>, NOT that the SM content is forced. Any "anomaly selects the SM" reading overclaims.</td>
+<td>DISCLOSED (boundary stated in §3.5/§3.6.3; must stay stated)</td>
+<td><strong>HIGHEST</strong> — it is the claim-boundary that conditions the whole anomaly face</td>
+</tr>
+<tr>
+<td><strong>R2</strong></td>
+<td><strong>Only ~10/16 quantum classes close</strong></td>
+<td>The full quantum-consistency set our geometry should be checked against is ~16 independent classes (the 6 perturbative ledgers + discrete-global/center/parity/descent classes). Only ~10 are demonstrably closed at certificate grade; the rest (global-discrete, descent, the R4 mixed) are AUDIT/OPEN.</td>
+<td>OPEN (partial coverage)</td>
+<td><strong>HIGH</strong> — defines exactly how much of "quantum consistency" is actually delivered</td>
+</tr>
+<tr>
+<td><strong>R3</strong></td>
+<td><strong>BV-BRST descent (UQF-4) AUDIT</strong></td>
+<td>The <em>non-perturbative</em> statement — nilpotent BRST differential + a constructed quantized descent measure + the named coset-twist / descended anomaly classes — is <strong>NO-KNOWN-ROUTE</strong>. Perturbative ledger vanishing does not establish it.</td>
+<td>AUDIT / NO-KNOWN-ROUTE</td>
+<td><strong>HIGH</strong> — the only path to "quantum-consistent" beyond one-loop perturbation theory</td>
+</tr>
+<tr>
+<td><strong>R4</strong></td>
+<td><strong>R4 mixed 't Hooft anomaly <code>ξ_R4</code> OPEN</strong></td>
+<td>The geometry's OWN candidate anomaly: the $\mathbb{Z}_3$ colour-centre one-form symmetry of the pure-glue projection, twisted by <code>τ_K₆</code>. Well-posed as <code>Ω₅^{Spin-c}(B(SU(3)→PSU(3)); τ_K₆)</code>; <strong>value UNKNOWN</strong>. Operative differential is the 3-primary <code>d₅ = Q₁ = βP¹</code> (NOT a 2-primary <code>d₃</code>, which is identically zero on 3-torsion); untwisted default = nonzero <code>ℤ₃</code> survivor; <code>τ_K₆ = (2,2)</code> twist-correction the sole lever. <code>NOT-A-WALL</code>.</td>
+<td>OPEN (value), well-posed (home)</td>
+<td><strong>MEDIUM-HIGH</strong> — geometry-specific; the most computationally tractable open object, but <code>NOT-A-WALL</code> (value is inert for the mass gap)</td>
+</tr>
+<tr>
+<td><strong>R5</strong></td>
+<td><strong>Machine certificates AUDIT</strong> (<code>G03_charge_z6/</code>, <code>G05_anomaly_cancellation/run.sh</code>)</td>
+<td>The exact-fraction charge check and exact-rational anomaly ledger are referenced, not independently re-run here.</td>
+<td>AUDIT</td>
+<td><strong>MEDIUM</strong> — cheapest to close (owner artifact); makes "certificate pass" machine-real; lower-stakes because hand-reproducible</td>
+</tr>
+<tr>
+<td><strong>R6</strong></td>
+<td><strong>Charge table is given-E + given-group</strong></td>
+<td>Face A computes $Y$/$Q$ <em>given</em> the SM gauge group (SG-2, a cross-framework TIE) and the produced spectrum (SG-3, given-E). It does not derive the SM group or content.</td>
+<td>DISCLOSED (inherited conditionality)</td>
+<td><strong>LOW-MEDIUM</strong> — honest framing; no new physics</td>
+</tr>
+<tr>
+<td><strong>R7</strong></td>
+<td><strong>$\mathbb{Z}_6$ quotient is declared global structure</strong></td>
+<td>The $\mathbb{Z}_6$ centre-locking is a <em>declared</em> admissible quotient (one of $\{1,\mathbb{Z}_2,\mathbb{Z}_3,\mathbb{Z}_6\}$); "the finest quotient is $\mathbb{Z}_6$" is pinnable only by already wanting the $\tfrac16\mathbb{Z}$ lattice (the A4-Z6 sub-claim B finding).</td>
+<td>OPEN (selection ≠ forcedness)</td>
+<td><strong>LOW-MEDIUM</strong> — selection-inside-a-category; sharpens what $\mathbb{Z}_6$ does and does not derive</td>
+</tr>
+<tr>
+<td><strong>R8</strong></td>
+<td><strong>The $\bar3$-vs-$3$ orientation bit</strong></td>
+<td><code>ξ_R4 ≠ 0</code> (if the class survives) additionally needs the $\bar c_1(L_{K_6})$ pushforward to land on it <strong>plus</strong> one owner orientation bit (colour rep $3$ vs $\bar3$). The bare object $\xi_{R4}=0$ is forced; the nonzero value needs the bit.</td>
+<td>OPEN (owner bit)</td>
+<td><strong>LOW</strong> — only matters conditional on R4 surviving; a single discrete choice</td>
+</tr>
+</tbody>
+</table>
+<h3>3.2 Leverage ranking (attack order)</h3>
+<ol>
+<li><strong>R1</strong> (filter-not-determiner) — the single most important claim-boundary; state it precisely and bind it.</li>
+<li><strong>R2</strong> (~10/16 classes) — the honest measure of how much quantum consistency is delivered.</li>
+<li><strong>R3</strong> (BV-BRST descent) — the only path past perturbation theory; NO-KNOWN-ROUTE, so the realistic move is
+   to name it as an inherited-standard-QFT import or hand it to a specialist.</li>
+<li><strong>R4</strong> (<code>ξ_R4</code>) — geometry-specific and most computationally tractable; the specialist twisted-bordism target.</li>
+<li><strong>R5</strong> (certificate AUDIT) — cheapest; owner artifact; makes the pass machine-real.</li>
+<li><strong>R6 / R7 / R8</strong> — inherited conditionality / declared-quotient selection / owner orientation bit.</li>
+</ol>
+<blockquote>
+<p><strong>The cardinal honest point.</strong> R1 is <strong>not a problem to be solved</strong> — it is a true mathematical fact about
+what anomaly cancellation <em>is</em>. The attack on R1 is to <strong>state the boundary</strong>, not to manufacture a
+determination; any "we derived the SM from anomaly cancellation" closure would be a category error, not a
+reduction. R3 (BV-BRST) and R4 (<code>ξ_R4</code>) are the genuine-physics open objects; both carry an explicit κ³/π
+falsification test so a tuned or target-loaded closure cannot be banked. R5 is the non-physics residual
+(reproducibility); closing it improves machine-reality but moves no claim.</p>
+</blockquote>
+<hr />
+<h2>4. THE ATTACK PLAN — closure paths (the core)</h2>
+<p>For each residual: the <strong>technique</strong> (closure playbook T1 axiom-floor / T4 no-go / T5 firewall / T6
+all-operator-conditional / T7 eliminative / T10 selector), the <strong>named axiom it could reduce to</strong> (stated so it
+would be written WITHOUT the answer — the κ³/π falsification test), the <strong>specialist target</strong> (theorem to hand off) or
+the <strong>owner artifact</strong> (certificate/computation) needed, the <strong>math to attempt</strong>, and the <strong>success ladder</strong>
+(DERIVED-CLOSED rare → AXIOM-CLOSED likely → sharper-OPEN → REFUTED).</p>
+<hr />
+<h3>4.1 R1 — Anomaly cancellation is a FILTER, not a determiner (the claim-boundary)</h3>
+<p><strong>Why first.</strong> The entire anomaly face's <em>force</em> depends on reading it correctly. Read as a determiner, SG-4
+overclaims and invites the fatal objection "you assumed the SM content." Read as a filter, SG-4's anomaly face
+is exactly as strong as it honestly is: a consistency check the produced spectrum passes.</p>
+<p><strong>Technique: T5 (no tuning to the known answer firewall) + T2-guarded restatement.</strong> This is <strong>not</strong> a problem to solve
+with math — it is a <strong>wrong premise to drop</strong>. The premise "anomaly cancellation determines the chiral content"
+is false; the audit's job is to drop it and state what replaces it.</p>
+<p><strong>Named axiom / principle it reduces to (κ³/π-clean):</strong></p>
+<blockquote>
+<p><strong>PRINCIPLE-ANOMALY-IS-A-FILTER</strong> (target-blind): <em>"Anomaly cancellation is a pass/fail consistency
+constraint on a GIVEN chiral spectrum, with an infinite solution variety; it eliminates inconsistent
+spectra, it does not single out the SM content. The geometry's contribution is to PRODUCE one SM generation
+per family (via the spin-ℂ index $-3$); the cancellation is then INHERITED."</em></p>
+</blockquote>
+<p>This is writable without any charge number — it is a statement about <em>what kind of object</em> anomaly cancellation
+is. It carries no target value, so it passes the falsification test trivially. It is <strong>already substantially the
+manuscript's position</strong> (§3.5 closing note: "the anomaly cancellation … is not an independent miracle this
+geometry performs — it is the Standard Model's own cancellation, <em>inherited</em>"; §3.6.3 "what it does not show").</p>
+<p><strong>Specialist target (optional sharpening).</strong> A bounded <strong>selector-strength theorem</strong>: "Within the declared
+search category (admissible compact factors + the $\mathbb{Z}_6$ quotient), is the SM chiral content the
+<em>unique</em> anomaly-free survivor, or do other geometries in the category also pass?" If a specialist shows the
+category is narrow enough that the filter <em>plus the index constraint</em> leaves only the SM content, that would
+upgrade the filter toward a category-relative determiner — but <strong>expect this to fail</strong>: the filter is infinite
+and the category is broad. The honest expected result is that anomaly cancellation <strong>never</strong> becomes a
+determiner.</p>
+<p><strong>Math to attempt.</strong> Exhibit two distinct anomaly-free chiral assignments (e.g. the SM plus any vector-like
+addition, or a known anomaly-free non-SM $U(1)$ charge solution) to make the infinite-variety point concrete
+and un-disputable in the dossier. This is a five-line example, not a research computation.</p>
+<p><strong>Success ladder.</strong>
+- DERIVED-CLOSED: <strong>unreachable</strong> — a determiner claim is mathematically false.
+- <strong>DISCLOSED-CORRECTED (the ceiling, essentially already standing):</strong> the filter-not-determiner boundary stated
+  precisely and bound to the roll-up; "anomaly selects the SM" explicitly retired.
+- sharper-OPEN: the selector-strength theorem is attempted and the category is shown broad (filter ≠ determiner
+  confirmed).
+- REFUTED: someone reads SG-4 as a determiner anywhere in the public package → that line must be patched.</p>
+<p><strong>Honest disposition: DISCLOSED-CORRECTED.</strong> The closure is <em>stating the boundary</em>, not raising the claim. This
+is the cleanest, lowest-risk win in the gate and requires only that the roll-up never read "anomaly determines E."</p>
+<hr />
+<h3>4.2 R2 — Only ~10/16 quantum-consistency classes close (the coverage measure)</h3>
+<p><strong>The obstruction.</strong> "Quantum consistency" is not a single check. The honest enumeration of the classes our
+geometry should be checked against is ~16 independent obligations: the <strong>6 perturbative ledgers</strong> (L1–L6 above,
+demonstrably closed, hand-checkable) <strong>plus</strong> discrete-global / center / parity / descent classes (e.g. the
+Witten-type global checks beyond $SU(2)$, the discrete-$\theta$ / one-form anomalies, the BV-BRST descent, the
+R4 mixed). Only ~10 of the 16 are at certificate grade; the remainder are R3/R4 and the discrete-global tail.</p>
+<p><strong>Technique: T6 (all-operator-conditional) + T7 (eliminative).</strong> The move is to <strong>enumerate the 16 classes
+explicitly</strong> and grade each — converting "~10/16" from a vague fraction into a named, auditable table.</p>
+<p><strong>Named axiom it could reduce to (κ³/π-clean):</strong></p>
+<blockquote>
+<p><strong>AXIOM-QUANTUM-CLASS-COVERAGE</strong> (target-blind): <em>"SG-4's anomaly closure is asserted at certificate grade
+ONLY for the enumerated perturbative + closed-discrete classes; the remaining classes (descent, R4 mixed,
+any un-enumerated global-discrete) are AUDIT/OPEN and explicitly not claimed."</em></p>
+</blockquote>
+<p>This is a <em>coverage declaration</em>, not a value — it passes the falsification test by construction.</p>
+<p><strong>Specialist target / owner artifact.</strong> (1) Owner: write the explicit 16-row class table (which 6 are
+perturbative-closed, which are the discrete-global tail, which are R3/R4). (2) Specialist: for each
+discrete-global class, determine whether it is <em>inherited-standard-QFT</em> (automatically satisfied by any
+consistent theory with this content — then DISCHARGED-AS-STANCE, not proven) or a <em>genuine geometry-specific
+obligation</em> (then AUDIT pending construction).</p>
+<p><strong>Math to attempt.</strong> Tabulate the discrete-global anomalies for $G_{\rm SM} = [SU(3)\times SU(2)\times
+U(1)]/\mathbb{Z}_6$ on the produced spectrum (the new-anomaly literature for the SM with the $\mathbb{Z}_6$
+quotient is mostly settled — most discrete-global anomalies of the SM are known to vanish or be inherited). Map
+each onto our 16-class enumeration.</p>
+<p><strong>Success ladder.</strong>
+- DERIVED-CLOSED: all 16 classes shown closed (the 6 perturbative + the discrete-global tail inherited + R3/R4
+  resolved). <strong>Gated on R3/R4</strong> — so not reachable until those close.
+- AXIOM-CLOSED: the coverage table written, the discrete-global tail discharged as inherited-standard-QFT
+  stance, R3/R4 left named-OPEN → "~10/16 closed, 6 named-open with dispositions."
+- sharper-OPEN: a discrete-global class turns out geometry-specific and uncomputed → it joins R3/R4 as a named
+  open obligation.
+- REFUTED: a discrete-global anomaly is shown <em>non-vanishing</em> on the produced spectrum → SG-4 anomaly face
+  downgrades to <em>Open / not claimed</em> (the §6.12 Gate-5 downgrade rule).</p>
+<p><strong>Honest disposition: AXIOM-CLOSED on coverage (write the 16-row table; discharge the inherited tail as stance;
+leave R3/R4 named-OPEN).</strong> This converts a vague "~10/16" into an auditable boundary. The number 16 itself is a
+claimed enumeration that the owner should pin precisely — the dossier reports it as the corpus figure, not as
+an independently re-derived count.</p>
+<hr />
+<h3>4.3 R3 — BV-BRST descent + descended anomaly classes (UQF-4 / UQF-7) AUDIT / NO-KNOWN-ROUTE</h3>
+<blockquote>
+<p><strong>Wall-ID note (per OPEN_WALLS_REGISTER, the granular authority).</strong> There are <strong>two</strong> distinct
+NO-KNOWN-ROUTE objects here: <strong>UQF-4 = the named coset-twist / descended anomaly classes</strong> (their
+vanishing) and <strong>UQF-7 = the quantized BV-BRST descent measure</strong> (its existence). The Quantum-paper
+rosetta <em>bundles</em> these under "UQF-4 — BRST/BV nilpotency and anomaly closure," which is why this dossier
+elsewhere tags the descent as "UQF-4"; the precise split is UQF-4 (anomaly classes) + UQF-7 (descent
+measure), and <strong>both</strong> are owed for Gate-4. The closure plan below attacks both.</p>
+</blockquote>
+<p><strong>The obstruction.</strong> The perturbative ledgers establish <em>one-loop</em> gauge-anomaly cancellation. They do <strong>not</strong>
+establish the non-perturbative statement: that the <strong>BV-BRST differential is nilpotent</strong> ($s^2 = 0$) on the
+full interacting theory, that the <strong>quantized descent measure exists</strong> (UQF-7), and that the <strong>named coset-twist /
+descended anomaly classes</strong> vanish (UQF-4). Both are flagged <strong>NO-KNOWN-ROUTE</strong> in OPEN_WALLS_REGISTER ("closes
+when the coset-twist / descended anomaly classes are constructed by a specialist; no short path exists today").</p>
+<p><strong>Technique: T1 (axiom-floor) for the honest import; specialist construction for the genuine path.</strong></p>
+<p><strong>Route A (the honest import — most likely outcome).</strong> The BV-BRST descent / nilpotency is a property <strong>any
+consistent gauge QFT must satisfy</strong> — it is not a new wall this framework invents. The OPEN_WALLS_REGISTER
+already records the perturbative-anomaly/descent KIND as <strong>INHERITED-STANDARD-QFT</strong> ("consistency any consistent
+theory must satisfy; not a new wall of this framework").</p>
+<blockquote>
+<p><strong>AXIOM-BRST-DESCENT-INHERITED</strong> (target-blind): <em>"The BV-BRST differential is nilpotent and the descent
+machinery is well-defined for the framework's gauge sector at the same standard as for the SM itself; this is
+imported as a standard-QFT consistency property, not derived here."</em></p>
+</blockquote>
+<p>Writable with no framework-specific value; passes the falsification test. <strong>But</strong> importing it is a <strong>STANCE, not a
+proof</strong> — and the κ³/π-discipline caveat applies: an EFT "not-owed" adjudication is a stance, nothing built. The
+honest disposition stays AUDIT, with the import named.</p>
+<p><strong>Route B (the genuine construction — hard, specialist).</strong> Construct the quantized BV-BRST descent measure for
+the <em>specific</em> coset/orbifold structure of the frozen branch (the $K_6 = SU(3)/T^2$ coset, the
+$S_Y^1/\mathbb{Z}_2$ fold, the $\mathbb{Z}_6$ quotient) and exhibit the descended anomaly classes vanishing.
+This is a research-grade construction with <strong>no short path today</strong>.</p>
+<ul>
+<li><strong>Specialist target:</strong> "Construct the BV-BRST complex for the frozen-branch gauge sector with its coset-twist
+  data and show (i) $s^2 = 0$ on the interacting fields, (ii) the descent equations close, (iii) the
+  coset-twist / descended anomaly classes are exact (vanish in cohomology)."</li>
+<li><strong>κ³/π falsification test:</strong> PASSES trivially (no target value is involved — it is a structural construction).</li>
+</ul>
+<p><strong>Math to attempt.</strong> None bounded enough for this dossier — Route B is a multi-month specialist construction.
+The actionable step is <strong>Route A</strong>: name the inherited-standard-QFT import explicitly in the claim boundary.</p>
+<p><strong>Success ladder.</strong>
+- DERIVED-CLOSED: Route B completed (descent measure constructed, classes shown exact). <strong>Unlikely soon
+  (NO-KNOWN-ROUTE).</strong>
+- <strong>AXIOM-CLOSED (likely):</strong> AXIOM-BRST-DESCENT-INHERITED named as a standard-QFT import; AUDIT retained with the
+  import recorded.
+- sharper-OPEN: the import is judged <em>not</em> automatically inherited for this coset structure → genuine
+  geometry-specific obligation, AUDIT stays.
+- REFUTED: a descended anomaly class is shown obstructed → the framework's gauge sector is inconsistent
+  (would be a major failure; no indication of this).</p>
+<p><strong>Honest disposition: AUDIT, reducible to AXIOM-BRST-DESCENT-INHERITED (stance, not proof); Route B is the only
+DERIVED path and has no short route.</strong></p>
+<hr />
+<h3>4.4 R4 — The R4 mixed 't Hooft anomaly <code>ξ_R4</code> (geometry-specific, OPEN, the tractable target)</h3>
+<p><strong>The obstruction.</strong> <code>ξ_R4</code> is the geometry's <em>own</em> candidate anomaly: the $\mathbb{Z}_3$ colour-centre
+one-form symmetry of the pure-glue (Spin-c) projection of the frozen branch, coupled to the K₆ data. It is
+<strong>well-posed</strong> — <code>ξ_R4 ∈ Ω₅^{Spin-c}(B(SU(3)→PSU(3)); τ_K₆)</code>, a finite abelian group (Theorem 11) — but its
+<strong>value is OPEN</strong>.</p>
+<p><strong>The corrected computation status (load-bearing, carry verbatim).</strong> The GAP02_R4_STEENROD_COMPUTATION redo
+<strong>voids</strong> the prior <code>d₃</code>-triviality transcript on two independent counts:</p>
+<ol>
+<li><strong>The carrier is degree-3, not degree-2.</strong> <code>H¹(BPU(3);ℤ/3) = H²(BPU(3);ℤ/3) = 0</code> — there is <strong>no</strong> degree-2
+   class <code>u₂</code>. The genuine 3-torsion carrier is <code>x̄₁ ∈ H³(BPU(3);ℤ/3)</code>.</li>
+<li><strong>The 2-primary <code>d₃ = βSq²ρ₂</code> is identically zero on 3-torsion</strong> (<code>ρ₂(3-torsion) = 0</code>). The owner's
+   "<code>d₃</code> ⇒ <code>ξ_R4 = 0</code>" expectation is <strong>REFUTED</strong>.</li>
+</ol>
+<p>The <strong>operative</strong> differential is the 3-primary <strong><code>d₅ = Q₁ = βP¹</code></strong> (the first nonzero AHSS differential
+<code>d_{2p-1}</code> at $p=3$). It sends the degree-3 carrier to <strong>degree 8</strong> (<code>y_{3,0}</code>) — <strong>off</strong> the $p+q=5$ bordism
+lines — so it kills the degree-5 survivor <strong>neither as source nor as target</strong>. The <strong>untwisted default is
+SURVIVAL</strong> (<code>Ω₅^{Spin}(PSU(3) × B²ℤ₃) = ℤ₃ ≠ 0</code>). The <strong>sole remaining lever</strong> is whether the frozen
+<code>τ_K₆ = (2,2)</code> twist-correction to <code>d₅</code> supplies an admissible degree-lowering term hitting the degree-5 <code>ℤ₃</code>
+survivor — a finite <code>ℤ₃</code>-linear-algebra question the cited (untwisted-only) literature does <strong>not</strong> settle.
+<strong>Verdict: <code>STILL_SUBTLE</code> — <code>ξ_R4</code> OPEN, NOT 0, NOT forced nonzero.</strong></p>
+<p><strong>Technique: specialist twisted-bordism computation (T-target) — the genuine DERIVED path.</strong></p>
+<p><strong>Named axiom (NOT applicable as a closure).</strong> <code>ξ_R4</code> is a <em>computable</em> topological invariant, not an axiom to
+posit. There is <strong>nothing to target-load</strong> — the value is whatever the bordism group says. (This is the good
+kind of open object: structure-first, with a definite answer waiting to be computed.)</p>
+<p><strong>Specialist target (precise, hand-off-ready).</strong></p>
+<blockquote>
+<p>Compute <code>ξ_R4 ∈ Ω₅^{Spin-c}(B(SU(3)→PSU(3)); τ_K₆)</code> for the EXACT refined object (the 2-group /
+PSU(3)-bundle, flux <code>w₂^{PSU(3)} = u₂ ∈ H²(BPSU(3),ℤ₃)</code>; the local-coefficient twist <code>τ_K₆ = τ(c̄₁)</code>,
+<code>c̄₁ = (2,2) ≠ 0</code>). Specifically: <strong>(a)</strong> evaluate the <code>τ_K₆</code>-twist-correction to the operative <code>d₅ = Q₁</code>
+on the degree-5 <code>ℤ₃</code> survivor — does the degree-matched correction <code>[τ_K₆] ∪ x̄₁</code> (degree $2+3=5$, on-line)
+deform the abutment? <strong>(b)</strong> account for the odd-prime Massey-product / <code>v₁</code>-filtration structure
+(Westerland's caveat: an exact single-cup twisted analogue "cannot possibly be true" at $p=3$); <strong>(c)</strong> verify
+the closest tabulated analogue (Wan–Wang <code>Ω₅^{Spin}(BPSU(3) × B²ℤ₃)</code>) and <strong>justify the
+$Spin \to Spin^{\mathbb{C}}$ degree-5 transfer</strong>; <strong>(d)</strong> settle the 2-group-vs-product distinction
+(possible Postnikov-square correction).</p>
+</blockquote>
+<p><strong>The owner bit.</strong> If the class survives and is nonzero, <code>ξ_R4 ≠ 0</code> <em>additionally</em> requires the
+$\bar c_1(L_{K_6})$ pushforward to land on it <strong>plus one owner orientation bit</strong> ($3$ vs $\bar3$); the bare
+object $\xi_{R4}=0$ is forced (R8).</p>
+<p><strong>Math to attempt.</strong> The <code>τ_K₆</code>-twist-correction is a <strong>finite <code>ℤ₃</code>-linear-algebra computation</strong> — bounded and
+falsifiable once the Massey-product structure is set up. This is the single most tractable open object in the
+gate.</p>
+<p><strong>The G1/G2 firewall (why this is <code>NOT-A-WALL</code>).</strong> Even if the class survives, is nonzero, and is
+geometry-sourced, <code>ξ_R4</code> is a <strong>G1 sector-realization constraint, category-distinct from the G2 coercivity /
+mass-gap</strong>. A 't Hooft anomaly is satisfiable by a <em>gapless</em> IR via anomaly-matching — so <strong>even a nonzero
+<code>ξ_R4</code> does not force a gap</strong> (the generic anomaly ⇒ gap implication is FALSE). The R4 value is <strong>inert for the
+mass gap either way</strong>; Gap-02 stays OPEN on the unproven certificate inequality
+$z_* < 1/(E_{\rm conn}\cdot A_{\rm fluc})$ regardless of <code>ξ_R4</code>.</p>
+<p><strong>Success ladder.</strong>
+- <strong>DERIVED-CLOSED (reachable, this is the tractable target):</strong> the <code>τ_K₆</code>-twist-correction computed → <code>ξ_R4</code>
+  pinned to <code>0</code> or <code>ℤ₃</code>. A definite topological value, target-blind. Closes the <em>value</em> leg of SG-4's R4 face.
+- sharper-OPEN: the Massey-product structure is set up but the finite <code>ℤ₃</code>-linear-algebra is shown
+  literature-unsettled → <code>ξ_R4</code> stays OPEN with a sharper named obstruction (the exact twist-correction rank).
+- REFUTED-of-a-prior-claim: any record asserting <code>ξ_R4 = 0</code> via the 2-primary <code>d₃</code> is voided (already done).
+- <strong>No effect on the mass gap regardless</strong> — <code>NOT-A-WALL</code>.</p>
+<p><strong>Honest disposition: OPEN, the single most computationally tractable target in the gate; specialist
+twisted-bordism computation of the <code>τ_K₆</code>-twist-correction to <code>d₅</code>; value inert for the mass gap (<code>NOT-A-WALL</code>);
+DERIVED-CLOSED on the value is reachable, but it closes only the R4 <em>value</em>, not SG-4's quantum-consistency
+coverage or the mass gap.</strong></p>
+<hr />
+<h3>4.5 R5 — Machine certificates AUDIT (<code>G03_charge_z6/</code>, <code>G05_anomaly_cancellation/run.sh</code>)</h3>
+<p><strong>The obstruction.</strong> "The charge table regenerates from frozen labels" and "all six ledgers vanish from the
+frozen spectrum" are asserted via the two certificates, but the load-bearing executables are <strong>referenced, not
+independently re-run</strong> in this audit — the same class as SG-7's absent δ-harness and SG-8's J.6/K.5 mount.</p>
+<p><strong>Technique: owner artifact (machine-lane), not an axiom.</strong> A <strong>fail-closed reproducibility task</strong>.</p>
+<p><strong>Owner artifact needed.</strong> (1) Run <code>certificates/G03_charge_z6/</code> exact-fraction check target-blind and confirm
+the printed charge table (CR3.10 / D.3.1) regenerates, including the $6Y \in \mathbb{Z}$ closure for all six
+multiplets. (2) Run <code>certificates/G05_anomaly_cancellation/run.sh</code> and confirm all six ledgers (L1–L6) vanish in
+exact rational arithmetic from the frozen spectrum file (the same spectrum file G03 reuses — a deliberate
+economy, R0 hashes). (3) Confirm against the R0 freeze hashes (<code>ac4d2df3e708</code>, <code>a68ee92a75be</code>, A2.3).</p>
+<p><strong>Math to attempt.</strong> None new — execution + verification. <strong>Mitigant unique to SG-4:</strong> the underlying arithmetic
+is <em>hand-reproducible</em> (W1–W7 above), so even an absent harness is independently verifiable by a skeptic with a
+pencil; this AUDIT is materially lower-stakes than SG-7's (where the δ-decimals do not recompute by hand).</p>
+<p><strong>Success ladder.</strong> <strong>BLOCKED_INPUTS until the certificates are re-run</strong> → then <strong>VERIFIED</strong> (the exact-rational
+checks reproduce; "Claimed certificate pass" becomes machine-real) or <strong>REFUTED</strong> (a value fails to regenerate →
+the affected gate downgrades to <em>Open / not claimed</em> per §6.12 Gate-3/Gate-5 rows). <strong>Highest value-per-effort
+closeable item</strong> — converts asserted into machine-checked with no new physics.</p>
+<p><strong>Honest disposition: AUDIT → VERIFIED is cheap and near-certain (the arithmetic is exact and hand-checkable);
+the harness mount is an owner artifact.</strong></p>
+<hr />
+<h3>4.6 R6 — The charge table is given-E and given-the-group</h3>
+<p><strong>The obstruction.</strong> Face A computes $Y$/$Q$ <em>given</em> the SM gauge group (SG-2, which is a cross-framework TIE —
+every framework recovers $SU(3)\times SU(2)\times U(1)$, so it is not Fable-discriminating) and <em>given</em> the
+produced chiral spectrum (SG-3, given-E). It does not derive the gauge group or the content.</p>
+<p><strong>Technique: T2-guarded restatement (no relocation).</strong> Name the inherited conditionality precisely.</p>
+<p><strong>Named principle (κ³/π-clean):</strong></p>
+<blockquote>
+<p><strong>PRINCIPLE-CHARGE-GIVEN-E</strong> (target-blind): <em>"The charge table is a geometric OUTPUT of $S^2$ + $S_Y^1/\mathbb{Z}_2$
++ the $\mathbb{Z}_6$ closure, computed GIVEN the SM gauge group (SG-2) and the produced spectrum (SG-3);
+selection ≠ derivation of the group or the content."</em></p>
+</blockquote>
+<p><strong>Action.</strong> Confirm the roll-up never reads Face A as "deriving the SM charges from nothing" — it derives the
+$\tfrac16\mathbb{Z}$ lattice and the $Q=T_3+Y$ table <em>given</em> the group and spectrum. <strong>No new physics; honest
+labeling.</strong></p>
+<p><strong>Success ladder. DISCLOSED-CONSISTENT</strong> — already substantially in place (the manuscript's given-E discipline);
+the residual is a consistency sweep. Note: this is <em>dependent</em> on SG-2/SG-3, not independently closeable.</p>
+<hr />
+<h3>4.7 R7 — The $\mathbb{Z}_6$ quotient is declared global structure (selection ≠ forcedness)</h3>
+<p><strong>The obstruction.</strong> The $\mathbb{Z}_6$ centre-locking is a <em>declared</em> admissible quotient chosen from
+$\{1, \mathbb{Z}_2, \mathbb{Z}_3, \mathbb{Z}_6\}$. The A4-Z6 sub-claim-B closure-campaign finding is sharp:
+<strong>"the finest quotient is $\mathbb{Z}_6$" is pinnable only by already wanting</strong> the $\tfrac16\mathbb{Z}$ lattice
+— the maximality/finest selector "AX-FINEST" was <strong>rejected on no tuning to the known answer</strong> (the symmetric minimal cover
+$\Gamma = 1$ is a priori equally motivated; the genuine constraint the geometry forces is only $\Gamma \le
+\mathbb{Z}_6$, i.e. $q \mid 6$, not $q = 6$).</p>
+<p><strong>Technique: T4 (no-go on the forcedness claim) + T10 (selector).</strong> The honest move is to <em>not</em> claim
+$\mathbb{Z}_6$ is forced and to state exactly what the geometry does force.</p>
+<p><strong>Named axiom it could reduce to (κ³/π-clean):</strong></p>
+<blockquote>
+<p><strong>AXIOM-Z6-DECLARED</strong> (target-blind): <em>"The geometry forces the centre-locking constraint $\Gamma \le
+\mathbb{Z}_6$ (the closure $\omega_3^{k_3}\omega_2^{k_2}\omega_6^{6Y}=1$ is consistent for $\Gamma$ dividing
+6); the SPECIFIC choice $\Gamma = \mathbb{Z}_6$ (giving the finest $\tfrac16\mathbb{Z}$ lattice) is a
+DECLARED admissible quotient, not forced — its selection matches the observed lattice but is not derived from
+below."</em></p>
+</blockquote>
+<p>This is writable with no charge value (it references only the quotient lattice $\{1,\mathbb{Z}_2,\mathbb{Z}_3,\mathbb{Z}_6\}$
+and the divisibility constraint). The campaign verified the SM hypercharge triples satisfy the Tong congruence
+$q \equiv 3z_2 - 2z_3 \bmod 6$ field-by-field — the constraint is real; the <em>finest</em>-selection is the un-forced part.</p>
+<p><strong>Specialist target.</strong> "Is $\mathbb{Z}_6$ (vs a coarser quotient) forced by any <em>independent</em> structural datum
+of the frozen branch (e.g. the orbifold parity table $\mathbb{Z}_6$ content, the spin structure), or only by
+matching the observed lattice?" If an independent datum forces it, R7 strengthens to forced; expect it to remain
+selection-inside-a-category.</p>
+<p><strong>Success ladder.</strong>
+- DERIVED-CLOSED: an independent structural datum forces $\Gamma = \mathbb{Z}_6$ → the finest-lattice is derived.
+  <strong>Unlikely (the campaign rejected AX-FINEST).</strong>
+- <strong>AXIOM-CLOSED (likely):</strong> AXIOM-Z6-DECLARED named; the constraint $\Gamma \le \mathbb{Z}_6$ forced, the
+  finest selection declared.
+- sharper-OPEN: stays selection-inside-a-category.</p>
+<p><strong>Honest disposition: AXIOM-CLOSED at AXIOM-Z6-DECLARED — the geometry forces $\Gamma \le \mathbb{Z}_6$, the
+finest choice is declared, and "$\mathbb{Z}_6$ is forced" is retired (the A4-Z6 finding).</strong></p>
+<hr />
+<h3>4.8 R8 — The $\bar3$-vs-$3$ orientation bit (conditional on R4 surviving)</h3>
+<p><strong>The obstruction.</strong> If <code>ξ_R4</code>'s class survives and is nonzero, the nonzero <em>value</em> additionally requires (i)
+the $\bar c_1(L_{K_6})$ pushforward to land on it and (ii) one owner orientation bit (colour rep $3$ vs $\bar3$).
+The bare object $\xi_{R4}=0$ is forced; only the nonzero value needs the bit.</p>
+<p><strong>Technique: T10 (selector) — a single discrete owner choice, conditional on R4.</strong></p>
+<p><strong>Named axiom (κ³/π-clean):</strong></p>
+<blockquote>
+<p><strong>AXIOM-COLOR-ORIENTATION-BIT</strong> (target-blind): <em>"The frozen branch fixes the colour rep orientation ($3$ vs
+$\bar3$) as a declared structural bit; conditional on <code>ξ_R4</code>'s class surviving, this bit selects the sign of
+the nonzero value."</em></p>
+</blockquote>
+<p>Writable with no anomaly value (it is a structural orientation choice). The elegant bit-independence the owner
+once reached for (that <em>both</em> orientations give the same <code>ξ_R4</code>) was <strong>REFUTED as written</strong> (the 2-primary <code>d₃</code>
+route is void) — so the bit may genuinely matter, and the honest statement is that it is a declared choice.</p>
+<p><strong>Action.</strong> Defer to R4: this residual only bites if the twisted-bordism computation shows the class survives
+nonzero. Record the bit as a declared structural input pending R4.</p>
+<p><strong>Success ladder. DEFERRED-TO-R4.</strong> Becomes a single discrete AXIOM-CLOSED choice if and only if R4's class
+survives; otherwise moot (bare object $=0$).</p>
+<hr />
+<h3>4.9 Attack-plan roll-up</h3>
+<table>
+<thead>
+<tr>
+<th>Residual</th>
+<th>Technique</th>
+<th>Named axiom / principle (κ³/π-clean)</th>
+<th>Specialist target / owner artifact</th>
+<th>Realistic endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1 filter-not-determiner</td>
+<td>T5 + T2-restate</td>
+<td>PRINCIPLE-ANOMALY-IS-A-FILTER</td>
+<td>exhibit 2 anomaly-free non-SM solutions</td>
+<td>DISCLOSED-CORRECTED (cleanest win; determiner is mathematically false)</td>
+</tr>
+<tr>
+<td>R2 ~10/16 classes</td>
+<td>T6 + T7</td>
+<td>AXIOM-QUANTUM-CLASS-COVERAGE</td>
+<td>write the 16-row class table; grade each</td>
+<td>AXIOM-CLOSED on coverage (R3/R4 left named-OPEN)</td>
+</tr>
+<tr>
+<td>R3 BV-BRST descent (UQF-4)</td>
+<td>T1 / specialist</td>
+<td>AXIOM-BRST-DESCENT-INHERITED</td>
+<td>construct the quantized descent measure (NO-KNOWN-ROUTE)</td>
+<td>AUDIT → AXIOM-CLOSED (stance); DERIVED only via specialist construction</td>
+</tr>
+<tr>
+<td>R4 <code>ξ_R4</code> mixed 't Hooft</td>
+<td>specialist bordism</td>
+<td>(none — computable invariant, nothing to load)</td>
+<td>compute the <code>τ_K₆</code>-twist-correction to <code>d₅</code></td>
+<td>OPEN → DERIVED-CLOSED on value (tractable); <code>NOT-A-WALL</code> for the gap</td>
+</tr>
+<tr>
+<td>R5 certificate AUDIT</td>
+<td>machine-lane</td>
+<td>(none)</td>
+<td>re-run G03/G05 exact-rational checks</td>
+<td>BLOCKED_INPUTS → VERIFIED (cheap; hand-reproducible)</td>
+</tr>
+<tr>
+<td>R6 given-E/given-group</td>
+<td>T2-restate</td>
+<td>PRINCIPLE-CHARGE-GIVEN-E</td>
+<td>consistency sweep</td>
+<td>DISCLOSED-CONSISTENT (dependent on SG-2/SG-3)</td>
+</tr>
+<tr>
+<td>R7 $\mathbb{Z}_6$ declared</td>
+<td>T4 + T10</td>
+<td>AXIOM-Z6-DECLARED</td>
+<td>independent forcing datum for $\Gamma=\mathbb{Z}_6$?</td>
+<td>AXIOM-CLOSED ($\Gamma \le \mathbb{Z}_6$ forced; finest declared)</td>
+</tr>
+<tr>
+<td>R8 colour orientation bit</td>
+<td>T10</td>
+<td>AXIOM-COLOR-ORIENTATION-BIT</td>
+<td>(deferred to R4)</td>
+<td>DEFERRED-TO-R4</td>
+</tr>
+</tbody>
+</table>
+<p><strong>REDUCE-vs-RELOCATE verdict on the plan.</strong> The plan does <strong>not</strong> turn one hard problem into three harder ones.
+Run the explicit harder-subproblem check:</p>
+<ul>
+<li><strong>R1 / R6 / R7</strong> reduce to <em>naming a boundary or a declared selection</em> in plain sight — each is a single
+  target-blind statement that pays a debt without inventing a new one. R1 is the cardinal case: it is a <strong>wrong
+  premise to drop</strong> (anomaly-as-determiner is false), not a problem to solve — dropping it <em>dissolves</em> the
+  overclaim without breaking the genuine filter content.</li>
+<li><strong>R2</strong> is a bookkeeping enumeration (write the 16-row table) — smaller than the gate, not harder.</li>
+<li><strong>R5</strong> is a mechanical owner re-run, made low-stakes by the fact that the arithmetic is hand-reproducible.</li>
+<li><strong>R3 (BV-BRST)</strong> is genuinely hard (NO-KNOWN-ROUTE), but the realistic move is the <em>import</em> (AXIOM-CLOSED as
+  stance), which does not manufacture a harder subproblem — it honestly records a standard-QFT debt. The DERIVED
+  path is correctly flagged as a multi-month specialist construction, not banked.</li>
+<li><strong>R4 (<code>ξ_R4</code>)</strong> is the one genuine-physics <em>computation</em>, and it is <strong>smaller</strong> than the original gate (a
+  finite <code>ℤ₃</code>-linear-algebra question about one twist-correction), with <strong>no target to load</strong> (it is a
+  topological invariant with a definite answer). Its firewall (<code>NOT-A-WALL</code>) is stated so a value cannot be
+  oversold as a mass-gap lever.</li>
+</ul>
+<p>The honest expected outcome of a full campaign: <strong>1 DISCLOSED-CORRECTED (R1), 1 AXIOM-CLOSED-on-coverage (R2),
+2 AXIOM-CLOSED (R3-stance, R7), 1 VERIFIED (R5), 1 DISCLOSED-CONSISTENT (R6), R4 either DERIVED-on-value (if the
+twist-correction is computed) or sharper-OPEN, R8 deferred.</strong> No DERIVED-CLOSED is promised on the <em>gate's
+headline</em> (anomaly-as-determiner is unreachable by construction); the gate would move from PARTIAL-with-asserted-status
+to <strong>PARTIAL-with-machine-verified-perturbative-status + a precise filter boundary + a named axiom floor for the
+non-perturbative/R4 residuals</strong> — a real honesty/reproducibility gain, <strong>not</strong> a promotion.</p>
+<hr />
+<h2>A. Anchoring &amp; Hardening Map</h2>
+<p>This section runs SG-4 through our internal honesty methodology: for each residual, decide <strong>gap vs wall</strong> (a gap has a known
+route — a finished computation, a written certificate, a measured input; a wall is one whose <em>route</em> is the
+problem), hunt the <strong>implicit assumption</strong> the residual silently carries, find the <strong>measured invariant</strong> each
+residual must ultimately terminate on, and assign the most conservative defensible disposition. The disposition
+vocabulary is the one used live in the <strong>Gaps &amp; Walls Register</strong>
+(<a href="https://physics.magflowmeters.com/articles/GAPS_AND_WALLS_REGISTER.html">https://physics.magflowmeters.com/articles/GAPS_AND_WALLS_REGISTER.html</a>) and is defined inline here:
+<strong>DERIVED</strong> (tied to an already-measured fact, no new assumption) · <strong>DERIVED-GIVEN-E</strong> (rigid once the observed
+SM content E is supplied) · <strong>AXIOM-CLOSED</strong> (reduced to one named, value-free, unproven assumption — the debt
+is recorded, not paid) · <strong>DISSOLVED</strong> (the problem rested on a false/unmeasured premise; dropping it makes it
+disappear — <em>dissolved is not solved</em>) · <strong>SCHEME-ANCHORED</strong> (a number reachable only after one named,
+geometry-unfixed regularization/normalization choice) · <strong>OPEN</strong> (genuinely unsolved, or the only escape
+assumes the answer) · <strong>BLOCKED</strong> (a real route exists but a required file/input is missing) ·
+<strong>measured-but-irreducible</strong> (known from experiment, no derivation anywhere). The existing <strong>anchor set</strong> a
+residual may terminate on is the four headline anchors plus the residues the Register names: <strong>ℏ</strong> (the action
+grain), <strong>M_Pl</strong>, the <strong>spin-ℂ index / spectrum-E</strong> (the observed SM content), the <strong>measured couplings
+α_i(M_Z)</strong>, <strong>y_t</strong>, <strong>|V_us|</strong>. "Terminates on an EXISTING anchor" is the strongest outcome; "needs a NEW named
+invariant," "hinges on a SCHEME-anchor," "is a COMPUTATION-DEBT," or "has NO witness → OPEN" are progressively
+weaker. The residuals are R1–R8 from §3.1; nothing here promotes any of them.</p>
+<h3>A.1 Per-residual anchoring table</h3>
+<table>
+<thead>
+<tr>
+<th>Residual (from §3)</th>
+<th>gap / <strong>WALL</strong> (+kind)</th>
+<th>Measured invariant it must terminate on</th>
+<th>Honest disposition</th>
+<th>What would HARDEN it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R1</strong> — anomaly = FILTER, not determiner</td>
+<td><strong>WALL</strong> (category wall: anomaly cancellation <em>is</em> a filter with infinite solution variety — no route turns it into a determiner)</td>
+<td>None — it terminates on a <strong>mathematical fact</strong>, not a measured number; the genuine geometric content it guards (one SM generation per family) rides the <strong>spectrum-E / spin-ℂ index −3</strong> anchor (SG-3).</td>
+<td><strong>DISSOLVED</strong> — the premise "anomaly cancellation determines the chiral content" is false; dropping it dissolves the overclaim while the genuine inherited-filter content survives. Matches the Register's "category error … DISSOLVED."</td>
+<td>Exhibit two distinct anomaly-free chiral solutions (a five-line example), bind PRINCIPLE-ANOMALY-IS-A-FILTER to the roll-up, and ensure no public line ever reads "anomaly selects the SM."</td>
+</tr>
+<tr>
+<td><strong>R2</strong> — only ~10/16 quantum-consistency classes close</td>
+<td>gap (route known: enumerate and grade the classes)</td>
+<td>The 6 perturbative ledgers terminate on <strong>spectrum-E</strong> (DERIVED-GIVEN-E, hand-checkable); the discrete-global tail terminates on inherited-standard-QFT consistency; R3/R4 do not yet terminate on any invariant.</td>
+<td><strong>AXIOM-CLOSED on coverage</strong> — reduces to one value-free coverage declaration (AXIOM-QUANTUM-CLASS-COVERAGE: certificate-grade only for the enumerated closed classes; the rest named-OPEN). The "16" is a corpus enumeration, not an independently re-derived count.</td>
+<td>Write the explicit 16-row class table and grade each row; discharge the discrete-global tail as inherited stance; leave R3/R4 named-OPEN. Converts the vague "~10/16" into an auditable boundary.</td>
+</tr>
+<tr>
+<td><strong>R3</strong> — BV-BRST descent (UQF-4) + descent measure (UQF-7)</td>
+<td><strong>WALL</strong> (NO-KNOWN-ROUTE: the non-perturbative descent construction has no known route, per the Register and OPEN_WALLS_REGISTER)</td>
+<td>No new measured invariant — it is a <strong>standard-QFT structural consistency</strong> any consistent gauge theory must satisfy, imported at the same standard as for the SM itself; the perturbative legs below it ride <strong>spectrum-E</strong>.</td>
+<td><strong>AXIOM-CLOSED (stance), staying AUDIT</strong> — reduces to AXIOM-BRST-DESCENT-INHERITED (an inherited-standard-QFT import). The import is a <strong>stance, not a proof</strong>; DERIVED is reachable only by a multi-month specialist construction.</td>
+<td>Name the inherited-standard-QFT import explicitly in the claim boundary (Route A); or hand a specialist the BV-BRST construction for the K₆ coset / S¹_Y/ℤ₂ fold / ℤ₆ quotient (Route B, the only DERIVED path).</td>
+</tr>
+<tr>
+<td><strong>R4</strong> — R4 mixed 't Hooft anomaly <code>ξ_R4</code></td>
+<td>gap, but a <strong>NOT-A-WALL</strong> one (Register: lever closed-negative — a 't Hooft anomaly is satisfiable by a gapless IR, so even nonzero <code>ξ_R4</code> forces no gap; <em>value</em> still unknown)</td>
+<td>A <strong>NEW computable topological invariant</strong> — <code>ξ_R4 ∈ Ω₅^{Spin-c}(B(SU(3)→PSU(3)); τ_K₆)</code> — with a definite answer waiting; nothing to target-load; inert for the mass gap regardless.</td>
+<td><strong>OPEN (value), well-posed (home)</strong> — a <strong>COMPUTATION-DEBT</strong>: a finite ℤ₃-linear-algebra question (the <code>τ_K₆=(2,2)</code> twist-correction to the operative <code>d₅=Q₁</code>). The 2-primary <code>d₃</code> route is voided; untwisted default is the nonzero ℤ₃ survivor.</td>
+<td>The single most tractable open object in the gate: compute the <code>τ_K₆</code>-twist-correction to <code>d₅</code> (specialist twisted-bordism). DERIVED-CLOSED on the <em>value</em> (0 or ℤ₃) is reachable — but it closes only the R4 value, never SG-4's coverage or the gap.</td>
+</tr>
+<tr>
+<td><strong>R5</strong> — machine certificates AUDIT (<code>G03_charge_z6/</code>, <code>G05_anomaly_cancellation/run.sh</code>)</td>
+<td>gap (route known: re-run the exact-rational scripts target-blind)</td>
+<td>Terminates on <strong>spectrum-E</strong> via the frozen spectrum file (A2.3) and the R0 freeze hashes; the underlying arithmetic is hand-reproducible (W1–W7) and so is independently anchorable by pencil.</td>
+<td><strong>BLOCKED (inputs) → VERIFIED</strong> when re-run — a pure reproducibility (COMPUTATION-DEBT) item, not physics; materially lower-stakes than SG-7's absent δ-harness because the math recomputes by hand.</td>
+<td>Mount and re-run both certificates target-blind; confirm the charge table and all six ledgers regenerate from the frozen hashes (<code>ac4d2df3e708</code>, <code>a68ee92a75be</code>, A2.3). Highest value-per-effort closeable item.</td>
+</tr>
+<tr>
+<td><strong>R6</strong> — charge table is given-E + given-group</td>
+<td>gap (honest labeling only)</td>
+<td>Terminates on <strong>spectrum-E</strong> (SG-3) and the SM gauge group (SG-2, a cross-framework TIE, DERIVED-GIVEN-E); it does not derive the group or the content.</td>
+<td><strong>DERIVED-GIVEN-E / DISCLOSED-CONSISTENT</strong> — reduces to PRINCIPLE-CHARGE-GIVEN-E (selection ≠ derivation). Dependent on SG-2/SG-3, not independently closeable.</td>
+<td>Confirm no roll-up reads Face A as "deriving the SM charges from nothing." No new physics; consistency sweep.</td>
+</tr>
+<tr>
+<td><strong>R7</strong> — ℤ₆ quotient is declared global structure</td>
+<td>gap (selection-inside-a-category)</td>
+<td>No measured invariant forces the <em>finest</em> choice; the geometry forces only the divisibility constraint Γ ≤ ℤ₆ (q ∣ 6). The lattice the finest choice matches (⅙ℤ) is itself a facet of <strong>spectrum-E</strong>.</td>
+<td><strong>AXIOM-CLOSED</strong> at AXIOM-Z6-DECLARED — the geometry forces Γ ≤ ℤ₆; the specific Γ = ℤ₆ is a <strong>declared</strong> admissible quotient (AX-FINEST was rejected on no tuning to the known answer, the A4-Z6 finding). "ℤ₆ is forced" is retired.</td>
+<td>Find an independent structural datum of the frozen branch (parity-table ℤ₆ content, spin structure) that forces Γ = ℤ₆ rather than merely matching the observed lattice. Expect it to stay selection-inside-a-category.</td>
+</tr>
+<tr>
+<td><strong>R8</strong> — the 3̄-vs-3 colour orientation bit</td>
+<td>gap, <strong>conditional on R4 surviving</strong> (else moot: bare object ξ_R4 = 0 is forced)</td>
+<td>A single discrete <strong>structural orientation bit</strong> (colour rep 3 vs 3̄); fixes only the <em>sign</em> of a nonzero <code>ξ_R4</code>, conditional on R4's class surviving.</td>
+<td><strong>DEFERRED-TO-R4</strong> — becomes one discrete AXIOM-CLOSED choice (AXIOM-COLOR-ORIENTATION-BIT) iff R4's class survives nonzero. The once-hoped bit-independence was refuted as written (the 2-primary <code>d₃</code> route is void).</td>
+<td>Resolve R4 first; if the class survives nonzero, record the orientation bit as a declared structural input. A single owner choice; moot otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h3>A.2 Gate-level rollup</h3>
+<p><strong>Overall disposition.</strong> SG-4 is <strong>PARTIAL → conservatively OPEN</strong> at the gate level, exactly as the live Register
+files it (SG-4 badge: PARTIAL → OPEN; perturbative checks DERIVED-GIVEN-E). The hardening map sharpens <em>why</em>: the
+gate's genuine content — the ℤ₆-forced ⅙ℤ hypercharge lattice + the full Q = T₃ + Y table, and the six
+perturbative anomaly ledgers vanishing by hand — terminates cleanly on <strong>spectrum-E</strong> and is DERIVED-GIVEN-E and
+hand-checkable. Its open surface splits into one <strong>category wall that dissolves</strong> (R1: anomaly-as-determiner is
+false, DISSOLVED — <em>dissolved is not solved</em>, the inherited-filter obligation remains), one <strong>NO-KNOWN-ROUTE wall</strong>
+(R3: BV-BRST descent, AXIOM-CLOSED-as-stance at best), one <strong>computation-debt with a definite topological answer</strong>
+that is <strong>NOT-A-WALL</strong> for the mass gap (R4: <code>ξ_R4</code> OPEN, value-only), one <strong>reproducibility debt</strong> (R5:
+BLOCKED→VERIFIED), and three <strong>honest-labeling / declared-selection</strong> items (R2 coverage AXIOM-CLOSED, R6
+given-E/given-group, R7 ℤ₆-declared AXIOM-CLOSED). No residual terminates on a NEW measured invariant; none rides
+a SCHEME-anchor (unlike SG-7, whose magnitudes are SCHEME-ANCHORED and whose Gate-7 is now Diagnostic-only with
+fitted-not-derived threshold rows — SG-4 carries no such fitted-magnitude debt).</p>
+<p><strong>Anchors this gate depends on.</strong> <strong>Spectrum-E (the spin-ℂ index −3)</strong> — load-bearing for the entire charge table,
+the anomaly filter, and R2/R5/R6; <strong>the measured SM gauge group via SG-2</strong> (a cross-framework TIE, not
+Fable-discriminating). It depends on <strong>no new invariant</strong> and on <strong>none of ℏ / M_Pl / α_i(M_Z) / y_t / |V_us|</strong>
+directly. R4 introduces a candidate <strong>new topological invariant</strong> (<code>ξ_R4</code>), but its value is inert for every
+physical claim (NOT-A-WALL).</p>
+<p><strong>Single highest-leverage hardening move.</strong> <strong>Bind the R1 boundary in plain sight</strong> — exhibit two distinct
+anomaly-free chiral solutions and ensure the public roll-up never reads "anomaly cancellation selects the SM."
+This is the cardinal, zero-cost, zero-risk win: it is not a problem to solve but a false premise to drop, and
+dropping it dissolves the gate's single largest overclaim exposure without touching the genuine content. (The
+highest value-per-effort <em>machine</em> move is R5 — re-run the two exact-rational certificates target-blind to make
+the perturbative pass machine-real; the most tractable genuine-physics <em>computation</em> is R4 — the <code>τ_K₆</code>-twist-
+correction to <code>d₅</code>.) None of these is a promotion; the gate's honest ceiling stays <strong>serious candidate, NOT
+validated</strong>, and "anomaly cancellation derives the Standard Model" remains mathematically false.</p>
+<h3>🎯 Target anchor(s) for this gate</h3>
+<p>In the terminate-on (anchoring) sense, SG-4 terminates on exactly <strong>one existing measured invariant: the
+observed spectrum E (the spin-ℂ index −3 / one SM generation per family)</strong> — and anomaly cancellation is a
+<strong>FILTER on E, not a determiner of it</strong> (<code>measured-but-irreducible</code> upstream, inherited as the geometry's
+index output; the ⅙ℤ charge table and the six perturbative ledgers are <strong>DERIVED-GIVEN-E</strong>, hand-checkable).
+The gate needs <strong>no new measured anchor</strong> and rides <strong>none of ℏ / M_Pl / α_i(M_Z) / y_t / |V_us|</strong> directly.
+Its non-perturbative residuals are <strong>COMPUTATION-DEBTS, not anchor-needs</strong>: the <strong>BV-BRST descent + measure
+(UQF-4 / UQF-7)</strong> is a value-free inherited-standard-QFT stance (AXIOM-CLOSED at best, AUDIT / NO-KNOWN-ROUTE),
+and the <strong>R4 mixed 't Hooft anomaly <code>ξ_R4</code></strong> is a well-posed twisted Spin-c bordism / ℤ₃-cohomology value
+awaiting a specialist computation — <strong>no measured invariant, value UNKNOWN / OPEN</strong> (NOT-A-WALL, inert for the
+mass gap). No scheme-anchor is carried (unlike SG-7). <strong>Status: anchor TERMINATED on spectrum-E; <code>ξ_R4</code> and the
+descent COMPUTATION-DEBT OPEN.</strong> No promotion.</p>
+<hr />
+
+<section class="card" id="sg4-pressure-test">
+  <h2>What this gate reduces to &mdash; and its honest status</h2>
+
+  <p class="callout" style="border-left:4px solid #0b5;background:#f7fdf9;border-radius:4px;padding:.55rem .9rem"><strong>Status:</strong> <strong>OPEN</strong>.
+  The honest scoped status is <strong>OPEN</strong>. The local,
+  hand-checkable results are genuine and rigid <em>given the observed Standard-Model
+  content</em>; but every step that would turn them into a derivation of that content,
+  or that reaches beyond one-loop consistency, remains an open question. The
+  gate is graded by its least-settled piece, so any single open residual makes the whole gate OPEN.</p>
+
+  <h3>The axioms and anchors this gate rests on</h3>
+  <p>The strong part of this gate ultimately rests on the following, stated plainly:</p>
+  <ul>
+    <li>It terminates on the <em>observed</em> one-generation Standard-Model spectrum
+      (the right-handed family index of magnitude three). No new measured constant is
+      introduced.</li>
+    <li>The hypercharge table is the coordinate shadow of a bundle-descent obstruction: a
+      global center identification ties color, weak, and hypercharge phases together and
+      forces hypercharge onto the one-sixth-integer lattice.</li>
+    <li>Given that spectrum and the Standard-Model gauge group, the charge formula
+      <em>Q = T<sub>3</sub> + Y</em> and the six perturbative anomaly ledgers are reproduced
+      as exact rational arithmetic &mdash; checkable by hand in minutes, with no error bars
+      and nothing tunable.</li>
+    <li>The cancellation is <em>specific</em>, not trivial: the sum of squared hypercharges
+      is non-zero (10/3), while exactly the six consistency-critical combinations vanish.
+      So the pass is a real filter, not an automatic identity.</li>
+  </ul>
+
+  <h3>Honest endpoint</h3>
+  <p><strong>Established (given the observed spectrum):</strong> the full one-generation
+  hypercharge/charge table on the one-sixth-integer lattice, and the six perturbative anomaly
+  ledgers, are reproduced exactly and by hand &mdash; with the neutrino coming out neutral and
+  the down quark at exactly minus one-third without either value being chosen. These are a
+  genuine consistency check that the observed content passes, terminal <em>given</em> that content.</p>
+  <p><strong>The precisely-named open pieces:</strong> (1) anomaly cancellation is a
+  <em>filter, not a determiner</em> &mdash; it does not derive the Standard-Model content, and any
+  reading that says it does is a category error; (2) the order-six center quotient that fixes
+  the lattice is <em>selected, not forced</em>; (3) the geometry's own discrete (mixed 't&nbsp;Hooft)
+  anomaly has <em>no computed value</em>; (4) the non-perturbative descent statement has
+  <em>no known route</em>; and (5) only about ten of sixteen quantum-consistency classes close at
+  certificate grade. Net: the local
+  gauge-representation admissibility of the observed spectrum is closed given that spectrum, but
+  the gate as a whole is <strong>OPEN</strong>. Honest ceiling: a serious candidate, not a
+  validated result.</p>
+</section>
+<!-- ============================ end SG-4 block ============================ -->
+
+<h2>5. References &amp; source map</h2>
+<h3>5.1 Website source-of-truth (common material — link, don't duplicate)</h3>
+<ul>
+<li><strong>Paper I, GUT.html</strong> — <a href="https://physics.magflowmeters.com/articles/GUT.html">https://physics.magflowmeters.com/articles/GUT.html</a></li>
+<li><strong>§6.3</strong> Gate-3 card (hypercharge/charge, status verbatim); <strong>§6.5</strong> Gate-5 card (anomaly); <strong>§6.12</strong>
+    falsification map (Gate-3 row: wrong $Y$/$Q$ or inconsistent $\mathbb{Z}_6$ → <em>Open</em>; Gate-5 row: any
+    nonzero trace → <em>Open</em>); <strong>§6.13</strong> certificate-status summary.</li>
+<li><strong>§5.2 / §5.4</strong> narrative modules; <strong>§3</strong> the worked anomaly example end-to-end — <strong>§3.3</strong> the six ledgers +
+    the $\sum Y^2 = \tfrac{10}{3}$ diagnostic, <strong>§3.6.2</strong> the one-generation trace table, <strong>§3.6.3</strong> "what it
+    does and does not show", <strong>§3.7</strong> "where the claim is actually closed".</li>
+<li><strong>Appendix CR3</strong> (hypercharge reader companion): CR3.5 $Q=T_3+Y$; CR3.6 $S^2 \to T_3$; CR3.7 $S_Y^1/\mathbb{Z}_2
+    \to Y$; **CR3.8 the $\mathbb{Z}_6$ closure** (the $\omega_3^{k_3}\omega_2^{k_2}\omega_6^{6Y}=1$ rule, freeze
+    <code>a68ee92a75be</code>); CR3.9 worked examples; CR3.10 the full table; CR3.11 selector eliminations; CR3.13
+    remove-one-term tests; CR3.14 what it shows / does not show.</li>
+<li><strong>Appendix CR5</strong> (anomaly reader companion); <strong>Appendix D</strong> (representation-level recovery, charge tables
+    D.2/D.3.1); <strong>Appendix E</strong> (chirality half) + <strong>Appendix E′</strong> (anomaly closure — full six-ledger trace
+    table, conventions $A(\bar R)=-A(R)$, $T(\text{fund})=\tfrac12$, left-handed Weyl basis); <strong>Appendix R0/R1</strong>
+    (freeze records, hashes).</li>
+<li>The <strong>R4 / UQF-4 / <code>ξ_R4</code></strong> open objects are NOT in GUT.html (Λ cross-reference Paper IV, TOE.html, does not
+  touch this gate).</li>
+</ul>
+<p>This dossier recaps only what is needed to attack; the site controls all common material.</p>
+<h3>5.2 Corpus locations (authoritative inputs to this dossier)</h3>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Path</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Per-gate dossier spec</td>
+<td><code>…/rendered/TOE/PER_GATE_DOSSIER_SPEC.md</code></td>
+<td>structure (sections 0–5)</td>
+</tr>
+<tr>
+<td>SG-4 status line</td>
+<td><code>…/rendered/TOE/SCOPED_GUT_PER_GATE_STATUS_LEDGER.md</code></td>
+<td>the PARTIAL label + the filter-not-determiner / ~10/16 / UQF-4 AUDIT / R4 OPEN caveats (carried verbatim)</td>
+</tr>
+<tr>
+<td><strong>R4 corrected computation (authoritative)</strong></td>
+<td><code>…/rendered/TOE/GAP02_R4_STEENROD_COMPUTATION.md</code></td>
+<td>the carrier-degree-3 fix, <code>d₃ ≡ 0</code> on 3-torsion, operative <code>d₅ = Q₁</code>, untwisted <code>ℤ₃</code> survives, <code>τ_K₆=(2,2)</code> twist-correction the sole lever, <code>STILL_SUBTLE</code></td>
+</tr>
+<tr>
+<td>R4 well-posing (Theorem 11)</td>
+<td><code>…/rendered/TOE/GAP02_R4_WELLPOSING_THEOREM.md</code></td>
+<td>the home <code>Ω₅^{Spin-c}(B(SU(3)→PSU(3)); τ_K₆)</code>; <code>c̄₁=(2,2)≠0</code> ⇒ <code>τ_K₆ ≠ 0</code>; group-vs-value Born cross-check</td>
+</tr>
+<tr>
+<td>R4 prior transcript (VOIDED)</td>
+<td><code>…/rendered/TOE/GAP02_R4_DELTA3_TRIVIAL.md</code></td>
+<td>superseded — the <code>u₂ ∈ H²</code> carrier does not exist; the 2-primary <code>d₃</code> is null on 3-torsion (kept only as the refuted-non-sequitur record)</td>
+</tr>
+<tr>
+<td>R4 <code>NOT-A-WALL</code> register</td>
+<td><code>…/rendered/TOE/OPEN_WALLS_REGISTER.md</code> (Tier C §5; UQF-4 §437; INHERITED-STANDARD-QFT note §426)</td>
+<td>the G1/G2 firewall (anomaly ⇏ gap); UQF-4 NO-KNOWN-ROUTE; UQF-7 BV-BRST descent measure NO-KNOWN-ROUTE</td>
+</tr>
+<tr>
+<td>Closure campaign (Born/Z6 dispositions)</td>
+<td><code>…/rendered/TOE/CLOSURE_CAMPAIGN_RESULT_2026-06-24.md</code> + <code>…_ROUND2_2026-06-24.md</code></td>
+<td>κ³/π falsification test; D1-born AX-NO-GAUGED-COLOR-C (center-only ℤ₆, $S^1_Y/\mathbb{Z}_2$=hypercharge, no S₃ color); A4-Z6 AX-FINEST rejected ($\Gamma \le \mathbb{Z}_6$, $q\mid6$ not $q=6$)</td>
+</tr>
+<tr>
+<td>GUT manuscript</td>
+<td><code>…/rendered/GUT/GUT.md</code></td>
+<td>§6.3 (Gate-3 card); §6.5 (Gate-5 card); §3 (worked anomaly, §3.3/§3.6.2/§3.7); CR3 (CR3.8 $\mathbb{Z}_6$, CR3.10 table); §6.12 (falsification map)</td>
+</tr>
+</tbody>
+</table>
+<h3>5.3 Frozen-object hash index (load-bearing; READ-ONLY)</h3>
+<p>Branch <code>dcc66f1b2685</code> · manifest meta <code>a5b1e6f9d951</code> · parity table <code>ac4d2df3e708</code> (R1.3, co-read by Gate 4) ·
+$\mathbb{Z}_6$-closure freeze <code>a68ee92a75be</code> (R1.3, CR3.8 / D.3.1) · R1.4 hypercharge lattice · surviving
+chiral spectrum A2.3 (Gate-4 output, reused by both <code>certificates/G03_charge_z6/</code> and
+<code>certificates/G05_anomaly_cancellation/</code>). <strong>R4 (open):</strong> home <code>Ω₅^{Spin-c}(B(SU(3)→PSU(3)); τ_K₆)</code>; twist
+<code>τ_K₆ = τ(c̄₁)</code>, <code>c̄₁ = 2ρ mod 3 = (2,2) ≠ 0</code>; carrier <code>x̄₁ ∈ H³(BPU(3);ℤ/3)</code>; operative <code>d₅ = Q₁ = βP¹</code>;
+<code>Q₁(x̄₁) = y_{3,0} ∈ H⁸</code> (off the $p+q=5$ lines). <strong><code>ξ_R4</code>: no value, no hash — OPEN. UQF-4 / BV-BRST descent:
+no construction — AUDIT / NO-KNOWN-ROUTE.</strong></p>
+<hr />
+<h3>Closing honest statement</h3>
+<p>SG-4 is <strong>PARTIAL</strong>. Its genuine, defensible content is real and hand-checkable: the <strong>$\mathbb{Z}_6$ closure
+forces hypercharge onto the $\tfrac16\mathbb{Z}$ lattice</strong> and the full one-generation $Q=T_3+Y$ table falls out
+with no per-multiplet fit; the <strong>six perturbative anomaly ledgers vanish exactly</strong> on the produced spectrum (the
+by-hand witness $3\cdot\tfrac16-\tfrac12=0$, $\sum Y = \sum Y^3 = 0$, the colour traces, the Witten mod-2 count),
+with the $\sum Y^2 = \tfrac{10}{3} \neq 0$ diagnostic proving the cancellation is <em>specific</em>, not trivial. Its
+honest open surface is equally clear: anomaly cancellation is a <strong>FILTER on E, not a determiner</strong> (infinitely
+many anomaly-free solutions — it is inherited, the geometry earning its pass by producing one SM generation per
+family); only <strong>~10/16</strong> quantum-consistency classes close at certificate grade; the <strong>BV-BRST descent (UQF-4)</strong>
+is <strong>AUDIT / NO-KNOWN-ROUTE</strong>; the <strong>R4 mixed 't Hooft anomaly <code>ξ_R4</code></strong> is <strong>OPEN</strong> — well-posed as a finite
+twisted Spin-c bordism class, operative differential the 3-primary <code>d₅ = Q₁</code> (the 2-primary <code>d₃</code> is null on
+3-torsion), untwisted default the nonzero <code>ℤ₃</code> survivor, the <code>τ_K₆=(2,2)</code> twist-correction the sole lever, and
+<code>NOT-A-WALL</code> (its value is inert for the mass gap by the G1/G2 firewall). The attack plan reduces these to a
+precise filter-not-determiner boundary, a 16-row coverage table, named target-blind axioms for the inherited
+non-perturbative consistency and the declared $\mathbb{Z}_6$ quotient, a cheap (hand-reproducible) certificate
+re-run, and one tractable specialist twisted-bordism computation for <code>ξ_R4</code> — with the κ³/π falsification test guarding
+R3 (BV-BRST import) and R7 ($\mathbb{Z}_6$ finest-selection) so a stance or a target-loaded selection cannot be
+dressed as a derivation. The realistic ceiling is a machine-verified perturbative status over a named axiom
+floor + a computed <code>ξ_R4</code> value — <strong>not</strong> a promotion, and <strong>never</strong> "anomaly cancellation derives the Standard
+Model" (which is mathematically false). <strong>No status was ever upgraded; frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>
+READ-ONLY; given-E ≠ derivation of E; nothing applied, nothing deployed.</strong></p>
+<p><em>Dossier built 2026-06-24. Our geometry (13D K₆ branch) only. Common material referenced to the published
+website source-of-truth, not duplicated.</em></p>
+</body></html>

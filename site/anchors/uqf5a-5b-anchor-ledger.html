@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UQF-5A/5B — Linearized graviton</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 252px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 10px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:14px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9670; The Anchors</a></div>
+<div class="ann-group">Start</div>
+<a href="index.html">Overview — how we judge</a>
+<a href="anchor-hierarchy-overview.html">Anchor hierarchy — map</a>
+<div class="ann-group">The method</div>
+<a href="a0-master-anchor.html">A0 — the master anchor</a>
+<a href="layer-1-metric.html">Layer 1 — MDL metric</a>
+<a href="layer-2-no-unpaid-labels.html">Layer 2 — no unpaid labels</a>
+<a href="layer-3-search-grammars.html">Layer 3 — search grammars</a>
+<a href="layer-4-carrier-forcing.html">Layer 4 — carrier-forcing</a>
+<a href="shape-minimality-challenge.html">Shape minimality challenge</a>
+<div class="ann-group">The hierarchy</div>
+<a href="deep-roots.html">The seven deep roots</a>
+<a href="master-anchors.html">Master anchors</a>
+<a href="logical-endpoint-proof.html">Logical endpoint proof</a>
+<a href="gate-traceability-template.html">Gate traceability template</a>
+<a href="blind-spots.html">Blind spots</a>
+<a href="ai-agent-completion-protocol.html">AI completion protocol</a>
+<div class="ann-group">Gate ledgers · GUT spine</div>
+<a href="sg1-anchor-ledger.html">SG-1 geometry</a>
+<a href="sg2-anchor-ledger.html">SG-2 gauge recovery</a>
+<a href="sg3-anchor-ledger.html">SG-3 generations</a>
+<a href="sg4-anchor-ledger.html">SG-4 hypercharge &amp; anomaly</a>
+<a href="sg5-anchor-ledger.html">SG-5 electroweak</a>
+<a href="sg6-anchor-ledger.html">SG-6 moduli stabilization</a>
+<a href="sg7-anchor-ledger.html">SG-7 threshold unification</a>
+<a href="sg8-anchor-ledger.html">SG-8 flavor closure</a>
+<a href="sg9-anchor-ledger.html">SG-9 proton safety</a>
+<a href="sg10-anchor-ledger.html">SG-10 claim boundary</a>
+<div class="ann-group">Gate ledgers · quantum/gravity/UV</div>
+<a href="uqf3-anchor-ledger.html">UQF-3 reflection positivity</a>
+<a href="uqf4-anchor-ledger.html">UQF-4 BRST / descent</a>
+<a href="uqf5a-5b-anchor-ledger.html" class="current">UQF-5A/5B linearized graviton</a>
+<a href="uqf5c-anchor-ledger.html">UQF-5C interacting graviton</a>
+<a href="uqf7-anchor-ledger.html">UQF-7 fermion chirality</a>
+<a href="uqf9-anchor-ledger.html">UQF-9 UV completion</a>
+<a href="uqf10-anchor-ledger.html">UQF-10 compactification</a>
+<a href="uqf14-anchor-ledger.html">UQF-14 unitarity / causality</a>
+<div class="ann-group">Gate ledgers · cosmology/BH/foundations</div>
+<a href="gap01-anchor-ledger.html">Gap-01 a6 Seeley-DeWitt</a>
+<a href="gap02-anchor-ledger.html">Gap-02 Yang-Mills mass gap</a>
+<a href="gap05-value-anchor-ledger.html">Gap-05 Lambda value</a>
+<a href="gap05-stability-anchor-ledger.html">Gap-05 Lambda stability</a>
+<a href="gap08-anchor-ledger.html">Gap-08 inflation</a>
+<a href="gap10-bg10-anchor-ledger.html">Gap-10/BG-10 baryogenesis</a>
+<a href="gap11-anchor-ledger.html">Gap-11 dark matter</a>
+<a href="gap13-anchor-ledger.html">Gap-13 BH entropy / Page</a>
+<a href="born-anchor-ledger.html">Born rule</a>
+<div class="ann-group">Gate ledgers · deep roots &amp; dissolutions</div>
+<a href="deeproot-granularity-anchor-ledger.html">Deep root — granularity</a>
+<a href="deeproot-shape-anchor-ledger.html">Deep root — structural form</a>
+<a href="lambda-catastrophe-anchor-ledger.html">Lambda-catastrophe (dissolved)</a>
+<a href="blackhole-singularity-anchor-ledger.html">Black-hole singularity (dissolved)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">UQF-5A/5B — Linearized graviton certificate (QG Q1): the gate anchor ledger — rendered package. Rendered from <code>uqf5a-5b-anchor-ledger.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>UQF-5A/5B — Linearized graviton certificate (QG Q1): the gate anchor ledger</h1>
+<p><strong>The honest one-line: UQF-5A/5B has a real, checkable structural win — the same frozen 13-D geometry that carries the Standard Model hands us a de-Donder Lichnerowicz spin-2 operator whose four-dimensional massless mode <em>is</em> the graviton, exactly two helicities at light speed reproducing linearized Einstein gravity — but that certificate is held <em>given-E</em> and <em>conditional on UQF-9</em>, the one-loop coefficient $a_6$ that would certify the quantum theory is not computed, and the interacting/strong-coupling leg 5C is OPEN.</strong></p>
+<p>This page is the gate-specific instantiation of the <a href="./index.html">anchoring method</a>: it takes the master anchor and the four bridges and applies them, object by object, to one gate. Every exact thing UQF-5A/5B touches gets its own row — its status, what it is <em>allowed</em> to claim, and what it is <em>forbidden</em> to claim. It follows the same eleven-part shape and universal table as the <a href="./sg4-anchor-ledger.html">SG-4 ledger</a>.</p>
+<hr />
+<h2>1. Gate status header</h2>
+<ul>
+<li><strong>Gate-level UQF-5A/5B roll-up:</strong> <strong>CERTIFICATE-CONDITIONAL (5A/5B, conditional on UQF-9) · OPEN (5C).</strong></li>
+<li><strong>Taxonomy reconciliation (2026-07-05).</strong> Under the current two-axis closure taxonomy, the gate-level grading of UQF-5A/5B is <strong>CERTIFIED-IRREDUCIBLE</strong>, read as <strong>TERMINAL + RESIDUALS-SHOWN</strong>. The one-loop positivity certificate is <strong>dissolved as ill-posed at odd $D=13$</strong>: the scheme-independent even-dimensional anomaly coefficient it would need to compare against does not exist, so the test does not apply rather than failing. The remaining frontier — a constructive non-perturbative completion of the interacting graviton — is the shared Clay-class UV wall, certified-irreducible and inherited from UQF-9, not a gap in this gate's own reasoning. The certified geometric keystone is the <em>dimensionless</em> bulk ratio $a_6/a_0=-6373/630$ (banked at Gap-01); the residuals listed below concern the <em>dimensionful</em> magnitude, its heat-kernel scheme object, and the strong-coupling completion — distinct objects, none re-graded. The residual family in this ledger (R1–R6, the colour ratio, R8/R9) <strong>remains listed and carried unchanged</strong>, and the facts are unchanged. The "CERTIFICATE-CONDITIONAL · OPEN (5C)" roll-up above reflects the superseded least-closed-residual rule, not different facts.</li>
+<li><strong>The closed <em>structural</em> leg (5A):</strong> the frozen background supplies the de-Donder graviton operator
+$$L_{\rm grav}=-(\nabla^2+E),\qquad E=\text{the curvature endomorphism},$$
+whose 4-D massless spin-2 mode is the graviton — held as <strong>structure, given-E</strong>.</li>
+<li><strong>Status, split so it cannot be misread:</strong><ul>
+<li><strong>5A — the mode exists (structural):</strong> <strong>CERTIFICATE-CONDITIONAL / given-E</strong> — the operator is supplied by the geometry and its 4-D massless mode is the graviton; the two-helicity count is <em>structural-given-E</em>, not yet a verified certificate (it rests on the unverified ghost subtraction R5).</li>
+<li><strong>5B — weak-field UV consistency:</strong> <strong>OPEN</strong> — rests on the computed $a_6$ coefficient, which is <strong>not computed</strong>; the once-banked bulk magnitude was <strong>refuted/retracted</strong>.</li>
+<li><strong>5C — interacting / strong-coupling theory:</strong> <strong>OPEN</strong> — a global wall shared with every approach to quantum gravity (exported to UQF-9/UQF-14).</li>
+<li><strong>The lone clean DERIVED quantity:</strong> the exact, theorem-anchored, target-blind geometric <em>input</em> $|{\rm Riem}|^2/{\rm Scal}^2=23/75$ on $K_6=SU(3)/T^2$ — <strong>DERIVED (scale-free input win, not a gate advance).</strong></li>
+</ul>
+</li>
+</ul>
+<p>The grade is set by the least-closed-residual rule: one open piece on a leg means the leg is not closed. The structural operator and the exact geometric input are genuinely terminal; everything that would <em>certify the quantum theory</em> — the $a_6$ coefficient, its sign, the positivity test, the UV completion — is OPEN.</p>
+<blockquote>
+<p><strong>selection ≠ derivation · given-E ≠ derivation-of-E · frozen/reproducible ≠ proven-unique.</strong></p>
+</blockquote>
+<hr />
+<h2>2. Frozen inputs (what UQF-5A/5B stands on, not what it produces)</h2>
+<ul>
+<li><strong>Frozen branch hashes</strong> <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code>. The branch is <strong>READ-ONLY</strong>. <strong>These hashes are audit anchors — they certify <em>which object</em> was tested and that it cannot be quietly retuned. They do not validate the physics.</strong></li>
+<li><strong>The frozen background</strong> $M_4\times K_6\times S^2\times S^1_Y/\mathbb Z_2$, with $K_6=SU(3)/T^2$ and total dimension $d=13$, is <strong>given / charged / inherited.</strong> Its role is precise but limited: it <strong>supplies the operator</strong> $L_{\rm grav}$ and the ghost operators whose spectral properties decide consistency. <strong>It does not, by itself, certify that the resulting quantum theory is finite or unitary.</strong></li>
+<li><strong>Upstream spectrum / observed GR limit</strong> $E_{\rm frozen}$ is <strong>given-E.</strong> The "reproduces Newton / linearized Einstein" claim takes the observed gravitational limit as input. <strong>UQF-5A/5B does not derive $E$.</strong></li>
+</ul>
+<hr />
+<h2>3. Object anchors (given-E / upstream)</h2>
+<p>The fields and structures the gate acts on, all upstream-inherited:</p>
+<ul>
+<li><strong>The metric fluctuation</strong> $g_{MN}=\bar g_{MN}+h_{MN}$ about the frozen background $\bar g$, with $h_{MN}$ a symmetric rank-2 tensor: $13\cdot 14/2=91$ components before constraints (<strong>the corpus graviton fiber dimension, 91</strong>).</li>
+<li><strong>The de-Donder (harmonic) gauge condition</strong> $\nabla^M\bar h_{MN}=0$ on the trace-reversed fluctuation $\bar h_{MN}=h_{MN}-\tfrac12\bar g_{MN}h$, which reduces the linearized Einstein operator to Lichnerowicz/Bochner form.</li>
+<li><strong>The Faddeev-Popov vector ghost</strong> (fiber dimension 13), plus a possible bosonic third (Nielsen-Kallosh) ghost depending on the gauge-fixing weight.</li>
+<li><strong>The Kaluza-Klein tower</strong> riding above the 4-D massless mode (modes carrying internal momentum on $K_6\times S^2\times S^1_Y$).</li>
+</ul>
+<p><strong>Status: GIVEN-E / upstream-inherited</strong> — none of these is UQF-5A/5B-derived.</p>
+<hr />
+<h2>4. Root and master-anchor traceability</h2>
+<p><strong>Deep roots that are load-bearing for UQF-5A/5B:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Deep root</th>
+<th>Role in UQF-5A/5B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Shape</strong></td>
+<td>the frozen $M_4\times K_6\times S^2\times S^1_Y$ geometry <em>supplies</em> the operator $L_{\rm grav}$ and the ghost operators</td>
+</tr>
+<tr>
+<td><strong>Granularity</strong></td>
+<td>enforces <em>no unfixed scale</em>: the dimensionful $a_6$ magnitude rides an injected scheme object, not a measured invariant</td>
+</tr>
+<tr>
+<td><strong>Physical equivalence / invariance</strong></td>
+<td>de-Donder gauge-fixing + BRST nilpotency make the ghost subtraction sign/multiplicity <em>forced</em>, and make the physical $a_6$ a frame-independent object</td>
+</tr>
+<tr>
+<td><strong>Record interface</strong></td>
+<td>makes the rational curvature ledgers ($23/75$, the sphere checks) reproducible from named scripts</td>
+</tr>
+<tr>
+<td><strong>Nonseparability</strong></td>
+<td>explains <em>why</em> one heat-kernel coefficient ($a_6$) cannot certify the strong-coupling theory — the unbounded $a_6<a_8<a_{10}<\cdots$ ladder</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td>the scale-free/magnitude split is the gate's sharpest honesty lever; the magnitude terminates on a scheme axiom</td>
+</tr>
+</tbody>
+</table>
+<p><em>Causal order</em> is not a primary load-bearing anchor for the UQF-5A/5B construction.</p>
+<p><strong>Master anchors in play:</strong> finite invariant ledgers · no unpaid labels (no unfixed scale) · the frozen branch · given-$E$ · the <em>declared</em> heat-kernel scheme object · open-residual discipline.</p>
+<hr />
+<h2>5. The UQF-5A/5B anchor ledger (the universal table)</h2>
+<table>
+<thead>
+<tr>
+<th>Gate anchor</th>
+<th>Exact object</th>
+<th>Deep-root link</th>
+<th>Master-anchor link</th>
+<th>Status</th>
+<th>Allowed claim</th>
+<th>Forbidden claim</th>
+<th>Closure task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gate roll-up</td>
+<td>UQF-5A/5B</td>
+<td>Shape, Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>CERTIFICATE-CONDITIONAL (5A/5B) · OPEN (5C)</strong></td>
+<td>structural certificate + open residuals</td>
+<td>"UQF-5A/5B is closed" / "QG is solved"</td>
+<td>close §9 residuals</td>
+</tr>
+<tr>
+<td>Frozen branch</td>
+<td>hashes <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code></td>
+<td>Record interface</td>
+<td>frozen branch</td>
+<td><strong>AUDIT ONLY</strong></td>
+<td>the tested object is frozen/read-only</td>
+<td>"hashes validate the physics"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Frozen background</td>
+<td>$M_4\times K_6\times S^2\times S^1_Y$, $d=13$</td>
+<td>Shape</td>
+<td>given-$E$</td>
+<td><strong>GIVEN-E</strong></td>
+<td>it <em>supplies</em> the operator</td>
+<td>"it certifies the quantum theory" / "it is the unique geometry"</td>
+<td>(selection ≠ derivation)</td>
+</tr>
+<tr>
+<td>Graviton operator (5A)</td>
+<td>$L_{\rm grav}=-(\nabla^2+E)$, Lichnerowicz</td>
+<td>Invariance</td>
+<td>finite invariant ledger</td>
+<td><strong>CERTIFICATE-CONDITIONAL / given-E</strong></td>
+<td>the 4-D massless mode is the graviton, as structure</td>
+<td>"the quantum theory is consistent"</td>
+<td>write explicit $E_{MN}{}^{PQ}$ at $d=13$, check $d{=}4$ limit</td>
+</tr>
+<tr>
+<td>Graviton fiber dim</td>
+<td>$91=13\cdot14/2$</td>
+<td>Shape</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>the corpus fiber count</td>
+<td>"the σ-weight is 67" (fabricated)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Helicity count</td>
+<td>exactly 2 massless spin-2 helicities</td>
+<td>Invariance</td>
+<td>finite invariant ledger</td>
+<td><strong>CERTIFICATE-CONDITIONAL / given-E</strong></td>
+<td>structural-given-E count</td>
+<td>"verified certificate" (rests on R5)</td>
+<td>verify against computed $a_6$</td>
+</tr>
+<tr>
+<td>IR limit</td>
+<td>Newton / linearized Einstein</td>
+<td>Invariance</td>
+<td>given-$E$</td>
+<td><strong>GIVEN-E</strong></td>
+<td>reproduced in the long-wavelength limit</td>
+<td>"derived from nothing"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>FP ghost sector (R5)</td>
+<td>$\;{\rm tr}[a_6]^{\rm phys}={\rm tr}[a_6({\rm grav})]-2\,{\rm tr}[a_6({\rm FP})]$</td>
+<td>Invariance</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED-GIVEN-E (sign) / OPEN (verification)</strong></td>
+<td>$-2$ sign &amp; multiplicity <em>forced</em> by BRST nilpotency</td>
+<td>"the subtraction is verified"</td>
+<td>pin operator identity, verify vs R1</td>
+</tr>
+<tr>
+<td>Ghost fiber dim; graded weight</td>
+<td>$13$; $91-2\cdot13=65$</td>
+<td>Shape</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>the corpus bookkeeping</td>
+<td>"ghost weight is 11" (fabricated)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>K₆ curvature ratio</td>
+<td>$|{\rm Riem}|^2/{\rm Scal}^2=23/75=0.306667$</td>
+<td>Granularity</td>
+<td>no unpaid labels</td>
+<td><strong>DERIVED (scale-free, target-blind)</strong></td>
+<td>exact, theorem-anchored input pinned 3 ways</td>
+<td>"this advances the gate"</td>
+<td>(banked input, not a gate move)</td>
+</tr>
+<tr>
+<td>K₆ Levi-Civita curvatures</td>
+<td>${\rm Ric}=5/12,\ {\rm Scal}=5/2,\ |{\rm Riem}|^2=23/12$</td>
+<td>Granularity</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED</strong></td>
+<td>the isotropic Einstein data on equal-radii $K_6$</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Sphere cross-checks</td>
+<td>$4/315,\ 74/63,\ 1139/63,\ 5/63$</td>
+<td>Record interface</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED / AUDIT</strong></td>
+<td>independent spectral↔algebraic matches, rel. err. $\le4\times10^{-14}$</td>
+<td>"validates the $d{=}13$ magnitude"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Engine curvature error (R2)</td>
+<td>$31/147=0.2109$, Bianchi-violating; deficit 31.23%</td>
+<td>Granularity</td>
+<td>no unpaid labels</td>
+<td><strong>DISCLOSED-CORRECTED / computation debt</strong></td>
+<td>a real, localized, root-caused sign error</td>
+<td>"the engine curvature is right" / "R2 closes the gate"</td>
+<td>code-fix to the Besse-7.38 sign</td>
+</tr>
+<tr>
+<td>$d{=}13$ $a_6$ vector (R1)</td>
+<td>${\rm tr}[a_6]^{\rm phys}$ over the ~46-term cubic basis</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN</strong></td>
+<td>a named, finite, "perturbative but heavy" computation</td>
+<td>"$a_6$ is computed/cross-checked"</td>
+<td>run the trace target-blind after R2</td>
+</tr>
+<tr>
+<td>Bulk magnitude</td>
+<td>$-2.817995812\times10^{94}\,{\rm GeV}^6$</td>
+<td>Scale</td>
+<td>no unpaid labels</td>
+<td><strong>REFUTED / RETRACTED</strong></td>
+<td>a withdrawn, $31/147$-contaminated number</td>
+<td>"$a_6$ magnitude is computed/closing"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Corrected magnitude</td>
+<td>$-2.995681680\times10^{94}\,{\rm GeV}^6$ (+6.30%)</td>
+<td>Scale</td>
+<td>declared scheme object</td>
+<td><strong>DERIVED-PENDING / scheme-anchored</strong></td>
+<td>sign-preserved, <em>not</em> tuned to pass any test</td>
+<td>"the magnitude is derived"</td>
+<td>settle the scheme object (R3)</td>
+</tr>
+<tr>
+<td>Dimensionless coeff $C$</td>
+<td>$C\approx-6.39$ (full grav-minus-ghost)</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / verified absent</strong></td>
+<td>currently <em>unreproduced</em></td>
+<td>"$C$'s sign is reproduced"</td>
+<td>reproduce target-blind (part of R1)</td>
+</tr>
+<tr>
+<td>Scheme object (R3)</td>
+<td><code>AXIOM-HEATKERNEL-SCHEME-OBJECT</code> (injected scale)</td>
+<td>Scale</td>
+<td>declared scheme object</td>
+<td><strong>AXIOM-OPEN / declared</strong></td>
+<td>the magnitude rides one named scale</td>
+<td>"the scale is fixed from geometry"</td>
+<td>settle target-blind or reduce to value-free axiom</td>
+</tr>
+<tr>
+<td>Positivity functional (R4)</td>
+<td>$P({\rm tr}[a_6])\ge0$</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / unselected (doubly open)</strong></td>
+<td>a named falsifier-<em>in-principle</em></td>
+<td>"$P$ is selected" / "$P(a_6)\ge0$ is run"</td>
+<td>select $P$, then evaluate on R1</td>
+</tr>
+<tr>
+<td>Orbifold defect (R6)</td>
+<td>order-6 mixed N⊕D boundary heat-kernel at $S^1_Y/\mathbb Z_2$</td>
+<td>Shape</td>
+<td>open-residual discipline</td>
+<td><strong>BLOCKED (literature ≤ $a_5$)</strong></td>
+<td>a real missing-literature object</td>
+<td>"the TOTAL ($\,$bulk+defect$\,$) is emitted"</td>
+<td>new boundary-coefficient result</td>
+</tr>
+<tr>
+<td>Colour ratio</td>
+<td>$124/315$</td>
+<td>Granularity</td>
+<td>no unpaid labels</td>
+<td><strong>DERIVED-PENDING-INDEPENDENT-REPRODUCTION</strong></td>
+<td>routed through the R2 engine; metric-selected</td>
+<td>"settled derived dual-validated win"</td>
+<td>independent target-blind reproduction off R2</td>
+</tr>
+<tr>
+<td>Strong-coupling leg (5C)</td>
+<td>interacting graviton + above-cutoff unitarity</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN (EXPORTED wall)</strong></td>
+<td>a global wall, <code>bounded:false</code></td>
+<td>"solve QG strong-coupling here"</td>
+<td>export to UQF-9/UQF-14; pursue P0</td>
+</tr>
+<tr>
+<td>Scope firewall (R7)</td>
+<td>$a_6\neq$ UV completion</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>FIREWALL (maintain)</strong></td>
+<td>$a_6$ necessary, not sufficient</td>
+<td>"$a_6$ computed ⇒ 5C closed"</td>
+<td>never cross it</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. The construction — the structural win, and where it stops</h2>
+<p>The construction has a fixed anatomy: <strong>OPERATOR → UNIVERSAL FORMULA → SPECIFIC TRACE → INTERPRETATION.</strong></p>
+<p><strong>(1) The operator (5A, solid).</strong> Linearizing $g_{MN}=\bar g_{MN}+h_{MN}$ and imposing de-Donder gauge $\nabla^M\bar h_{MN}=0$ reduces the linearized Einstein operator to Lichnerowicz/Bochner form,
+$$L_{\rm grav}h_{MN}=-\nabla^2 h_{MN}-2R_{MN}{}^{PQ}h_{PQ}+(\text{Ricci}\cdot h,\ \text{scalar}\cdot h),$$
+i.e. $L_{\rm grav}=-(\nabla^2+E)$ with $E$ built from the frozen background's Riemann, Ricci and scalar curvature. Of the 91 fiber components, gauge invariance and the on-shell constraints leave <strong>exactly two physical spin-2 helicities</strong> in the 4-D massless sector, at light speed — but this count is only well-posed once the ghost subtraction is in place, so it is <strong>structural-given-E</strong>, not a verified certificate.</p>
+<p><strong>(2) The forced ghost subtraction (5A structure / R5 verification).</strong> De-Donder gauge-fixing introduces an anticommuting FP vector ghost; the physically meaningful coefficient is
+$$\mathrm{tr}[a_6]^{\rm phys}=\mathrm{tr}[a_6(\text{graviton})]-2\,\mathrm{tr}[a_6(\text{FP ghost})]\ (+\,\text{third-ghost term if present}),$$
+with the $-2$ sign and multiplicity <strong>forced by BRST nilpotency</strong> — genuine structural content. The honest companion: a <em>forced</em> structure still has to be <em>checked against the computed coefficient</em>, and when the program tried, the two ghost routes disagreed (Route A $=-251/504$ vs Route B $=149/1008$). So the subtraction is <strong>forced but unverified.</strong></p>
+<p><strong>(3) The universal $a_6$ machinery.</strong> By the Gilkey theorem, $a_6$ of a Laplace-type operator is a universal local invariant — a fixed linear combination of dimension-6 curvature monomials. The corpus works the standard <strong>~46-term</strong> reduced cubic-curvature basis at $d=13$ (Gilkey 1995 Th. 3.3.1; Avramidi 2000 Ch. 4). This is why the wall is graded <strong>"perturbative but heavy"</strong> — a definite, finite computation, not an undecided existence problem.</p>
+<p><strong>(4) The banked exact input.</strong> The single curvature ratio controlling the $K_6$ pure-curvature sector is
+$$\frac{|{\rm Riem}|^2}{{\rm Scal}^2}\Big|_{K_6=SU(3)/T^2}=\frac{23}{75}=0.306667\ \ (\text{exact rational}),$$
+<strong>PROVED three independent target-blind ways</strong> (a Nomizu/Koszul Levi-Civita build giving ${\rm Ric}=5/12,\ {\rm Scal}=5/2,\ |{\rm Riem}|^2=23/12$; a finite-difference route; and an independent $SU(3)/T^2$ structure-constant computation), all with first-Bianchi residual $<10^{-15}$.</p>
+<p><strong>The construction stops, honestly, at the computed $a_6$ vector and everything downstream of it.</strong></p>
+<p><strong>Diagnostic — the input win is specific, theorem-anchored, not reverse-engineered from the measured value.</strong> The acceptance criterion for $23/75$ is the <strong>first Bianchi identity</strong> — a theorem the curvature tensor <em>must</em> satisfy — not "does it match a desired $a_6$?" The live engine's $31/147$ value <strong>fails</strong> Bianchi (max residual $1/7=0.142857$); the corrected $23/75$ <strong>passes</strong> it (residual $3\times10^{-16}$). The quantified deficit is
+$$1-\frac{31/147}{23/75}\approx 1-\frac{0.2109}{0.306667}=31.23\%,$$
+an independently-rebuilt, root-caused, <em>localized</em> error (the engine's Ricci/Scalar were correct, which is exactly why a Ricci-only self-check passed and <em>masked</em> the Riemann-norm bug). That the acceptance test is an internal theorem — not a target — is what makes $23/75$ a real banked input rather than a back-solved artifact.</p>
+<p><strong>The obstruction spine.</strong>
+$$h_{MN}\ \xrightarrow{\ \text{de-Donder}\ }\ L_{\rm grav}=-(\nabla^2+E)\ \xrightarrow{\ -2\,\text{FP ghost}\ }\ \xrightarrow{\ \text{Gilkey}/d{=}13\ }\ \mathrm{tr}[a_6]^{\rm phys}\ \xrightarrow{\ P(a_6)\ge0?\ }\ \text{5B}.$$
+The structural legs (operator, forced subtraction, exact input) are in hand; the trace, the magnitude, the positivity predicate, the defect, and the strong-coupling completion are not.</p>
+<hr />
+<h2>7. The two-helicity certificate, split into three honest objects</h2>
+<p>The single phrase "the linearized graviton certificate" hides three different claims with three different statuses:</p>
+<ol>
+<li><strong>The operator is supplied.</strong> The frozen geometry hands us $L_{\rm grav}=-(\nabla^2+E)$ uniquely (given-E), and its 4-D massless mode is the graviton. <strong>Status: CERTIFICATE-CONDITIONAL / given-E.</strong></li>
+<li><strong>The two-helicity count.</strong> Gauge invariance plus on-shell constraints leave exactly two massless spin-2 helicities. <strong>Status: structural-given-E</strong> — well-posed only <em>with</em> the ghost subtraction, which is unverified (R5), so it is <strong>not a verified certificate.</strong></li>
+<li><strong>The quantum-consistency certificate (5B).</strong> That the linearized quantum theory is one-loop consistent. <strong>Status: OPEN</strong> — it rests on the computed $a_6$ (R1), its magnitude (R3), the positivity predicate (R4), and the defect (R6), none of which is closed.</li>
+</ol>
+<p>So the operator is supplied-given-E, the helicity count is structural-given-E, and quantum consistency is open. The geometry's role is to <em>supply the operator</em>, never to <em>certify the theory.</em></p>
+<hr />
+<h2>8. Declared-structure split — the dimensionless / dimensionful firewall</h2>
+<p>The sharpest honesty lever in the gate is that the calculation cleanly splits into two parts with two statuses, and the single word "$a_6$" must not paper over the split:</p>
+<ol>
+<li><strong>The scale-free part</strong> — curvature <em>ratios</em> and colour factors. This is where the real, checkable wins live and terminate on geometry: $23/75$ (clean, theorem-anchored, DERIVED) and the four exact-rational sphere cross-checks (AUDIT/DERIVED). The colour ratio $124/315$ is <em>not</em> clean — it is metric-SELECTED (holds only at ${\rm Scal}_{K_6}=7.5$; the declared curvature gives $0.0252$) and routes through the R2 engine, so it is <strong>DERIVED-PENDING-INDEPENDENT-REPRODUCTION</strong>, not banked as a settled win.</li>
+<li><strong>The dimensionful magnitude</strong> — which rides one named, geometry-unfixed <strong>heat-kernel scheme object</strong> (the injected scale, the shared family with <code>c_loop</code> / SG-7-$\delta$). Even Bianchi-corrected, the magnitude is <strong>scheme-anchored</strong> and <strong>never gap-closing</strong>. The named axiom <code>AXIOM-HEATKERNEL-SCHEME-OBJECT</code> must be writable <em>without knowing any target magnitude</em> — the $\kappa^3/\pi$ falsification test discipline: any scheme reverse-engineered to land on a desired value is true-by-construction and <em>relocates</em> the mystery.</li>
+</ol>
+<p>Keeping the two strictly separate is what lets this page claim $23/75$ confidently while refusing to claim the ${\rm GeV}^6$ magnitude.</p>
+<hr />
+<h2>9. Open residuals — the quantum-consistency and strong-coupling families</h2>
+<p>The structural win above is one face of the gate. These distinct residuals make up the rest, and none is closed by the structural operator:</p>
+<p><strong>Family A — weak-field UV consistency (5B):</strong>
+- <strong>R1 — the $d=13$ graviton-minus-ghost $a_6$ vector</strong> — <strong>OPEN.</strong> Compute $\mathrm{tr}[a_6]^{\rm phys}$ over the ~46-term cubic basis at $d=13$, target-blind, <em>after fixing R2</em>; includes reproducing the sign of $C\approx-6.39$ (currently verified <em>absent</em>). Highest leverage; "perturbative but heavy" — a definite, finite computer-algebra computation, not an undecided existence problem.
+- <strong>R2 — the confirmed ~31.2% Riemann-norm deficit</strong> — <strong>DISCLOSED-CORRECTED / computation debt.</strong> The engine's $K_6$ Riemann builder violates first-Bianchi ($31/147$). A localized sign-fix to the Besse-7.38 form restores $23/75$. A correction owed, <em>not</em> a gate closure.
+- <strong>R3 — the dimensionful magnitude is scheme/scale-anchored</strong> — <strong>AXIOM-OPEN / declared.</strong> Settle the shared one-loop scheme object target-blind, or reduce to the value-free <code>AXIOM-HEATKERNEL-SCHEME-OBJECT</code>.
+- <strong>R4 — the positivity functional $P$ is unselected <em>and</em> $P(a_6)\ge0$ is unrun</strong> — <strong>OPEN (doubly open, decision-grade).</strong> Three competing readings remain (spectral/heat-kernel; effective-action higher-derivative sign; counterterm/renormalization); a defensible $3\to1$ physics argument exists but is <em>not</em> a selection.
+- <strong>R5 — the ghost/BRST subtraction is well-posed but unverified</strong> — <strong>OPEN.</strong> Sign $-2$ forced by BRST nilpotency, but the two ghost routes disagree by $31/48$; pin the operator identity (Bochner $E=0$ vs Lichnerowicz $E=-{\rm Ric}$) on principle and verify against R1.
+- <strong>R6 — the $\mathbb Z_2$ orbifold-defect order-6 boundary heat-kernel</strong> — <strong>BLOCKED.</strong> The published boundary tower stops at $a_5$ (BGKV; Kirsten); the TOTAL $=$ bulk $+$ defect cannot be emitted. A real literature gap, not a fabrication-able piece.</p>
+<p><strong>Family B — the colour-ratio credibility item:</strong>
+- <strong>$124/315$ colour ratio</strong> — <strong>DERIVED-PENDING-INDEPENDENT-TARGET-BLIND-REPRODUCTION.</strong> Reproduce off the R2 engine, target-blind, or do not bank it.</p>
+<p><strong>Family C — strong-coupling / global wall (5C, EXPORTED):</strong>
+- <strong>R8 / R9 — interacting graviton + above-cutoff unitarity</strong> — <strong>OPEN, <code>bounded:false</code>.</strong> A global open problem shared with every approach to quantum gravity; exported to UQF-9 / UQF-14. The nearest tractable sub-target is <strong>P0</strong> (does gravity own an intrinsic shortest length, or inherit the colour $R_0$?). <em>Not</em> a pluggable hole.
+- <strong>R7 — the scope firewall</strong> — <strong>FIREWALL to maintain, not a hole.</strong> $a_6$ certifies one heat-kernel coefficient; the unbounded $a_6<a_8<a_{10}<\cdots$ ladder is exactly why one coefficient cannot settle strong-coupling. <strong>$a_6$ is necessary, not sufficient.</strong></p>
+<hr />
+<h2>10. Anti-claims (what this page refuses to say)</h2>
+<ul>
+<li>UQF-5A/5B does <strong>not</strong> derive $E$, and the geometry does <strong>not</strong> certify the quantum theory. The "reproduces linearized GR" claim is <strong>given-E</strong> (the observed GR limit is the input).</li>
+<li><strong>The geometry supplies the operator; it is not a selector of a consistent quantum theory.</strong> Supplying $L_{\rm grav}$ does not prove finiteness or unitarity.</li>
+<li>The two-helicity count is <strong>structural-given-E, not a verified certificate</strong> — it rests on the unverified ghost subtraction (R5).</li>
+<li>$a_6$ is <strong>not</strong> computed. The bulk magnitude $-2.818\times10^{94}\,{\rm GeV}^6$ was <strong>refuted/retracted</strong> ($31/147$-contaminated) and must never be presented as computed/closing.</li>
+<li>The dimensionless coefficient $C\approx-6.39$'s sign is <strong>not</strong> reproduced (verified <em>absent</em>); do not "recover" it by tuning.</li>
+<li>The positivity functional $P$ is <strong>not</strong> selected, and $P(a_6)\ge0$ has <strong>not</strong> been run — it is a falsifier-<em>in-principle</em>, not yet runnable.</li>
+<li>$124/315$ is <strong>not</strong> a settled derived win — it is metric-selected and routes through the R2 engine. The clean target-blind invariant is $23/75$.</li>
+<li>The dimensionful magnitude is <strong>not</strong> derived — it is scheme-anchored on the named heat-kernel axiom.</li>
+<li><strong>$a_6\neq$ UV completion.</strong> "$a_6$ computed" must never be relabeled "5C closed." $a_6$ is necessary, not sufficient.</li>
+<li>The frozen-branch hashes are audit anchors; they do <strong>not</strong> validate the physics, and the frozen geometry is <strong>not</strong> proven the unique consistent spin-2 carrier.</li>
+</ul>
+<hr />
+<h2>11. Specialist closure plan</h2>
+<p>Each open residual is a concrete, finite, target-blind work-package:</p>
+<ol>
+<li><strong>R1 / the $a_6$ vector</strong> — run the full graviton+ghost fiber trace over the reduced cubic basis at $d=13$, <em>after</em> fixing R2; success = a target-blind coefficient vector that reproduces the four sphere cross-checks and survives an independent second-route agreement within the pre-fixed $10^{-6}$ tolerance. The named upstream lever: derive the $SU(3)$ Gelfand-Tsetlin off-diagonal matrix elements gating the Levi-Civita Lichnerowicz graviton hopping on $K_6$. A <strong>refuting</strong> result (positivity violated) is valid and decision-grade.</li>
+<li><strong>R2 / the curvature fix</strong> — a localized code-fix: flip the two quarter-bracket signs to the Besse-7.38 / KN-II naturally-reductive form; success = first-Bianchi residual to machine zero and $|{\rm Riem}|^2/{\rm Scal}^2=23/75$ from the on-disk engine. Ceiling: DISCLOSED-CORRECTED, not a gate closure.</li>
+<li><strong>R3 / the scheme object</strong> — settle the shared one-loop scheme object target-blind. If fixed and the magnitude lands → DERIVED-GIVEN-E; else reduce to the value-free <code>AXIOM-HEATKERNEL-SCHEME-OBJECT</code>. Refuting outcome: if no scheme can be fixed without back-solving, keep it scheme-anchored.</li>
+<li><strong>R4 / select $P$</strong> — make the physics selection among the three readings, state the adjudication rule, then evaluate on R1's output. A violation → REFUTED at decision grade; a pass → lifts 5A/5B toward certificate-grade conditional on UQF-9. Do not axiomatize a pass; do not select $P$ so the current corrected (negative) magnitude passes.</li>
+<li><strong>R5 / verify the ghost subtraction</strong> — pin the physical ghost operator identity (Bochner $E=0$ vs Lichnerowicz $E=-{\rm Ric}$) on principle, write the explicit operator, verify against R1's graviton trace; success = both routes agree within $10^{-6}$. Persistent disagreement that <em>cannot</em> be removed without redefining the object is itself a reportable obstruction.</li>
+<li><strong>R6 / the defect</strong> — a genuine specialist construction of the order-6 mixed Neumann⊕Dirichlet boundary coefficient (likely a new literature result). If obtainable, assemble the TOTAL; if not, terminal as BLOCKED — export to the tracked blocker ledger.</li>
+<li><strong>$124/315$</strong> — an independent target-blind reproduction off the R2 engine, or do not bank it.</li>
+<li><strong>5C / R8-R9</strong> — nothing inside this gate. Export to the open-walls register (<code>bounded:false</code>); pursue P0 as the nearest tractable UQF-9 sub-target.</li>
+</ol>
+<p>Closing R1-R6 lifts 5A/5B from "structural certificate, conditional" toward certificate-grade — and even then, only <em>given</em> $E$ and <em>conditional on UQF-9</em>. 5C is un-closeable here.</p>
+<hr />
+<h2>Completion tests for this page</h2>
+<p><strong>Tests passed (required presence, all met):</strong> gate roll-up CERTIFICATE-CONDITIONAL (5A/5B) · OPEN (5C) · the structural-leg operator $L_{\rm grav}=-(\nabla^2+E)$ · CERTIFICATE-CONDITIONAL / given-E label · "$E$ not derived / geometry supplies but does not certify" · frozen hashes (AUDIT ONLY) · every exact object as its own row · the theorem-anchored specificity diagnostic ($23/75$ passes first-Bianchi; $31/147$ fails; 31.23% deficit) · the scale-free / dimensionful firewall with no magnitude asserted · every open residual (R1, R2, R3, R4, R5, R6, R7, R8/R9, $124/315$) as its own row · the gate's anti-claims.</p>
+<p><strong>Tests held (required absence, all held):</strong> no claim that UQF-5A/5B is fully closed · QG solved · $E$ derived · the geometry certifies the quantum theory · the two-helicity count sold as a verified certificate · $a_6$ computed/cross-checked · the refuted bulk magnitude presented as closing · $C\approx-6.39$ sign reproduced · $P$ selected or $P(a_6)\ge0$ run · $124/315$ banked as a settled win · the magnitude derived · "$a_6$ computed ⇒ 5C closed" · hashes validate physics · local/structural closure = global completion · any fabricated fiber weights (67/11).</p>
+<p><strong>Open items:</strong> R1 (the $a_6$ vector, highest leverage) · R2 (curvature fix, DISCLOSED-CORRECTED) · R3 (scheme object / magnitude) · R4 (select $P$ + run, decision-grade) · R5 (verify ghost subtraction) · R6 (orbifold defect, BLOCKED in literature) · $124/315$ (independent reproduction) · R8/R9 (5C, exported wall, P0 sub-target).</p>
+<p><strong>Assumptions made:</strong> none beyond the dossier — every status matches the live grade (gate CERTIFICATE-CONDITIONAL conditional on UQF-9 for 5A/5B; OPEN for 5C); every number is traced to the dossier or corpus; nothing fabricated; no grade upgraded.</p>
+<hr />
+<p><em>This gate anchor ledger follows the canonical eleven-part shape and universal table of the <a href="./sg4-anchor-ledger.html">SG-4 ledger</a>.</em></p>
+<p><strong>See also:</strong> <a href="./index.html">the anchoring method</a> · <a href="./a0-master-anchor.html">A0 — the master anchor</a> · <a href="./layer-4-carrier-forcing.html">Layer 4 — carrier-forcing &amp; the given-E wall</a> (why the geometry is load-bearing but not certifying) · <a href="./sg4-anchor-ledger.html">SG-4 — Hypercharge &amp; anomaly</a> (the canonical gate ledger) · <a href="./uqf3-anchor-ledger.html">UQF-3 — reflection-positivity gate</a> (the sibling heat-kernel gate) · the full <a href="../articles/DOSSIER_UQF5A_5B_FULL.html">UQF-5A/5B dossier</a>.</p>
+</main>
+</div>
+</body></html>

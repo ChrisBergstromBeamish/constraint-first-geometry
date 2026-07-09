@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UQF-3 — Reflection positivity / physical Hilbert space: full dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">UQF-3 — Reflection positivity / physical Hilbert space: full dossier — rendered package. Rendered from <code>DOSSIER_UQF3_FULL.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>UQF-3 — Reflection positivity / physical Hilbert space: full dossier</h1>
+<blockquote>
+<p><strong>What this is.</strong> The deep, working-physicist treatment of gate <strong>UQF-3</strong> — the demand that, after the gauge redundancy is stripped, the quantum theory built on the program's frozen 13D branch has a genuine <em>positive-norm physical Hilbert space</em> (no negative-norm "ghost" states), i.e. the gate's version of Osterwalder–Schrader (OS) reflection positivity. It expands the live 30-second popup (<code>GATE_BRIEF_UQF3.html</code>) into a full audit a reader can both <strong>check</strong> and <strong>build on</strong>.</p>
+<p><strong>Binding discipline (carried verbatim).</strong> <strong>STATUS-UPGRADES:0.</strong> Frozen branch <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code> is <strong>READ-ONLY</strong>. The honest status is <em>unchanged</em> by this dossier: retained sector <strong>CERTIFICATE-CONDITIONAL</strong> (perturbative, given-E, conditional on UQF-4); full interacting theory <strong>OPEN</strong>. <em>Serious candidate / partial unification — NOT validated.</em> Every number below is traceable to a corpus file actually read or a standard reference; nothing is fabricated, and where a quantity is uncomputed it is marked <strong>OPEN</strong>.</p>
+</blockquote>
+<hr />
+<h2>1. Executive summary + honest status</h2>
+<p><strong>Headline.</strong> <em>No ghosts here:</em> on the physical, <strong>granular</strong> theory the program actually posits, the positivity that matters — finite-cutoff transfer-matrix / reflection positivity, plus a textbook perturbative no-ghost certificate on the retained 4D sector — is a <strong>derived fact</strong>. The one thing left genuinely open is the infinitely-fine <strong>continuum limit</strong>, which is the Clay-class 4D Yang–Mills wall that no one on Earth has crossed — plus a short, <em>named</em>, <em>bounded</em> list of finite residuals. This is not a blanket "reflection positivity is derived"; it is a precise two-tier claim with the open residuals laid out as work-packages.</p>
+<p><strong>Honest grade (must match the live popup chip).</strong></p>
+<blockquote>
+<p><strong>CERTIFICATE (finite-cutoff + perturbative-retained, conditional on UQF-4) · OPEN (uniform continuum limit).</strong>
+By the program's grading rubric (status = least-closed residual), <strong>the gate is OPEN.</strong> Direction this round: <em>strengthened</em> — the open part was sharpened, not closed. <strong>STATUS-UPGRADES:0.</strong></p>
+</blockquote>
+<p><strong>What this dossier establishes, and what it does not.</strong></p>
+<p><em>Establishes (banked, checkable):</em>
+- On the <strong>retained 4D zero-mode + low-Kaluza–Klein (KK) sector</strong>, <em>at perturbative order</em>, no negative-norm state survives the physical BRST cohomology. The Kugo–Ojima quartet mechanism removes the longitudinal and time-like gauge polarizations against the ghost–antighost pair, leaving the physical transverse modes positive-norm; matter and Higgs are positive-norm by construction; the linearized graviton carries its 2 transverse-traceless (TT) modes. This is textbook physics applied to the geometry's content — <strong>DERIVED-GIVEN-E (perturbative), conditional on UQF-4</strong> (residual R2/R7).
+- <strong>Finite-cutoff Osterwalder–Seiler / Lüscher reflection positivity</strong> — the transfer-matrix positivity that is the <em>physically relevant</em> positivity once you posit a granular world — is a <strong>derived fact</strong>, verified against published theorems, carrying the correct strong-coupling caveat (Gap-02 item S).
+- A genuine <strong>scope reduction</strong>: UQF-3's positivity wall is a <strong>proper sub-wall</strong> of the Yang–Mills mass-gap problem. You do <strong>not</strong> need the mass gap to get reflection positivity (the dependency runs mass-gap-machinery → positivity, never UQF-3 → mass gap).</p>
+<p><em>Does not establish (open, honest):</em>
+- Constructive positivity in the <strong>uniform continuum limit</strong> ($a\to 0$, $L\to\infty$) for the full interacting 4D gauge theory. This is identical to the 4D Yang–Mills Clay existence/positivity object; it exists <em>only</em> in the continuum and, under the program's granularity axiom <strong>P1</strong>, it is the BS-1 continuum unicorn — <strong>REDUCED-TO-AXIOM</strong> onto P1, axiom-conditional, <strong>NOT solved</strong> (residual R3).
+- The <strong>finite, bounded</strong> residuals: the order-6 mixed-boundary heat-kernel coefficient that would fix the sign of the positivity functional $P(a_6)\ge 0$ at the $S^1/\mathbb{Z}_2$ boundary (R4); the single even-degree $d{=}4$ boundary anomaly class inherited from UQF-4 (R1, AUDIT); the all-loop base–internal coupling / full KK tower (R6, which demotes the factorization "reduce" to a conjecture); and the IR-inheritance certificate exported to UQF-11 (R5).</p>
+<p><strong>The honest edge, stated plainly.</strong> The edge is <em>not</em> a clean one-limit / one-bet split. Beyond the continuum unicorn (a shared limit on all knowledge, not a defect of this program), <strong>finite/structural residuals remain</strong> — all bounded, none fabricated, each with a concrete close. The one decidable bet that is fully UQF-3-specific is the boundary coefficient $c_3^\gamma$ feeding $P(a_6)$: compute it target-blind and the boundary positivity either certifies or breaks. But even that, on its own, does <strong>not</strong> make the gate's positivity "derived," because R1/R5/R6 are independent open residuals. That refusal to over-promote is the gate's signature discipline.</p>
+<hr />
+<h2>2. The community gap</h2>
+<h3>2.1 The precise open problem</h3>
+<p>A relativistic quantum field theory is <em>physical</em> only if, after the gauge redundancy is removed, every physical state has <strong>non-negative norm</strong>: $\langle\psi|\psi\rangle \ge 0$ for all $\psi$ in the physical state space. Negative-norm "ghost" states would give negative probabilities — the theory would not be a quantum theory at all. In the Euclidean (imaginary-time) formulation, the sharp form of this requirement is <strong>Osterwalder–Schrader (OS) reflection positivity</strong>: a positivity condition on the Euclidean correlation functions under reflection across a time slice, which — together with the other OS axioms — <em>guarantees</em> that a sensible Lorentzian quantum theory with a positive-definite Hilbert space and a self-adjoint Hamiltonian bounded below can be <strong>reconstructed</strong>.</p>
+<p>For UQF-3 the object is: does the quantum theory built on the frozen active branch
+$$\mathfrak{B}_{\rm active}=[\mathcal{M}_{3,1}\times K_6\times S^2\times S^1_Y/\mathbb{Z}_2]\oplus[F^+]\otimes[E],\qquad K_6=SU(3)/T^2,$$
+admit a positive-definite inner product on its physical Hilbert space, with physical states defined as the BRST cohomology $\mathcal{H}_{\rm phys}=\ker Q/\operatorname{im}Q$?</p>
+<h3>2.2 Why this is an unsolved community problem</h3>
+<p>Proving OS reflection positivity <em>constructively</em> for an <strong>interacting 4D non-abelian gauge theory</strong> is an open problem of the global physics literature — it is part of the same difficulty as the <strong>Clay Millennium "Yang–Mills existence and mass gap"</strong> problem. No accepted theory has a complete constructive proof for any realistic 4D gauge theory. The difficulty is structural:</p>
+<ul>
+<li><strong>Gauge redundancy forces an indefinite metric.</strong> Covariant gauge-fixing (Faddeev–Popov) introduces ghost/antighost fields and a state space with an <em>indefinite</em> inner product. Positivity is a statement about the <strong>physical quotient</strong>, not the full space — and the quotient is well-defined only if the BRST charge is nilpotent ($Q^2=0$) and anomaly-free.</li>
+<li><strong>The interacting measure does not factorize.</strong> One would love to build the interacting Euclidean measure as a product of a base-spacetime piece and an internal-geometry piece. It does <strong>not</strong> factorize; the base–internal coupling is a genuine, irreducible sub-problem (this program's residual R6, see §3.6).</li>
+<li><strong>The continuum limit is the wall.</strong> Even granting finite-cutoff positivity (which <em>is</em> provable, see §3.3), surviving the <em>uniform</em> $a\to 0$, $L\to\infty$ limit with positivity intact is exactly the constructive-QFT obstruction nobody has crossed in 4D.</li>
+</ul>
+<h3>2.3 State of the art / best bound, and why prior attempts fall short</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Status in the literature</th>
+<th>Why it does not reach UQF-3's full object</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Finite-lattice Wilson gauge theory</strong></td>
+<td>OS / reflection positivity is a <strong>theorem</strong> (Osterwalder–Seiler; Lüscher) with a positive self-adjoint transfer matrix $T$, $H_a\ge 0$ on the lattice of spacing $a$</td>
+<td>Holds at fixed cutoff; the <em>uniform continuum limit</em> of the positive structure is the open part. Carries a strong-coupling-divergence caveat (Gap-02 item S, read in this dossier's source set).</td>
+</tr>
+<tr>
+<td><strong>Perturbative covariant gauge theory</strong></td>
+<td>Kugo–Ojima quartet mechanism (1979); BRST cohomology $\ker Q/\operatorname{im}Q$; no-ghost theorem at perturbative order (Weinberg Vol. II; Schwartz Ch. 25)</td>
+<td>Perturbative only; presupposes $Q^2=0$; says nothing constructive about the non-perturbative interacting theory.</td>
+</tr>
+<tr>
+<td><strong>2D / superrenormalizable constructive QFT</strong></td>
+<td>OS reconstruction carried out rigorously for several low-dimensional models</td>
+<td>Does not extend to 4D non-abelian gauge theory; the techniques do not survive the 4D continuum limit.</td>
+</tr>
+<tr>
+<td><strong>Linearized gravity</strong></td>
+<td>2 TT graviton modes positive-norm (van Nieuwenhuizen 1973; Stelle 1978)</td>
+<td>Linearized / free-field level on an admissible background; above-cutoff graviton unitarity is the UV-completion-of-gravity problem (exported to UQF-14/UQF-9).</td>
+</tr>
+</tbody>
+</table>
+<p>The honest reading: the <em>machinery</em> (BRST, Kugo–Ojima, lattice transfer matrices) is standard and gives real partial results, but the <strong>full interacting 4D continuum</strong> object is unsolved for everyone. UQF-3 inherits exactly that wall, plus a compactification-boundary sector ($S^1/\mathbb{Z}_2$) that adds difficulty <em>beyond</em> flat-space Yang–Mills.</p>
+<hr />
+<h2>3. The construction — rigorous math</h2>
+<blockquote>
+<p>Full common material lives on the published manuscript (Quantum, §5.3/§5.4/§6). This section is the from-content recap, deep enough to check.</p>
+</blockquote>
+<h3>3.1 The forward chain (what certifies what)</h3>
+<p>UQF-3 is a <strong>consistency/positivity gate evaluated on the survivor</strong> — no new geometry is searched. The chain, with each load-bearing factor named so a reader can attack it:</p>
+<pre><code>frozen geometry  -&gt;  field content + gauge groups + per-carrier polarization counts   [load-bearing role: sets the TARGET]
+       + gauge-fix + BRST quantization  -&gt;  Q (BRST charge), nilpotent Q^2=0           [INHERITED from UQF-4 — AUDIT]
+       + Kugo-Ojima quartet mechanism   -&gt;  longitudinal/time-like + ghost/antighost CANCEL
+       -&gt;  physical states = ker Q / im Q  -&gt;  retained sector: only positive-norm transverse modes survive
+       ==&gt; CERTIFICATE-CONDITIONAL (retained sector, perturbative, conditional on UQF-4)
+       ---- [the wall] ----
+       full interacting theory: all loops + full KK tower + nonperturbative + S^1/Z_2 boundary, uniform a-&gt;0
+       ==&gt; OPEN (4D-YM constructive-positivity wall + boundary anomaly + UQF-11 IR inheritance)
+</code></pre>
+<p>The five load-bearing factors (source: <code>01_DOSSIER.md</code> §1.1):</p>
+<ol>
+<li><strong>The geometry-supplied content (E).</strong> Gauge groups $SU(3)\times SU(2)\times U(1)$, the matter/Higgs reps, the retained 4D zero-mode + low-KK sector, and the per-carrier polarization counts — <em>what must come out positive-norm.</em> This is <strong>load-bearing, not validation</strong>: it sets the <em>target</em> of the certificate, not the certificate. <em>Supplying the field content $\ne$ proving the interacting theory is positive.</em></li>
+<li><strong>The BRST charge $Q$ and nilpotency $Q^2=0$.</strong> Inherited from <strong>UQF-4</strong> (badge AUDIT). The cohomology definition $\ker Q/\operatorname{im}Q$ presupposes nilpotency; this is the conditionality root (R1).</li>
+<li><strong>The Kugo–Ojima quartet mechanism</strong> (Kugo–Ojima 1979). Removes longitudinal + time-like gauge polarizations against the ghost–antighost pair. Verified <strong>perturbatively</strong>.</li>
+<li><strong>The physical-state definition (BRST cohomology).</strong> $\mathcal{H}_{\rm phys}=\ker Q/\operatorname{im}Q$ at ghost number zero; on the retained sector only the physical transverse modes survive with positive norm.</li>
+<li><strong>The linearized graviton.</strong> 2 TT polarizations, positive-norm at the linearized level (van Nieuwenhuizen / Stelle). Above-cutoff behavior is UQF-14 / UQF-9, <em>not</em> in this leg.</li>
+</ol>
+<h3>3.2 The retained-sector no-ghost certificate (R2 — earned, perturbative, given-E)</h3>
+<p><strong>Disposition:</strong> DERIVED-GIVEN-E (perturbative, retained 4D zero-mode + low-KK gauge/matter/Higgs sector) / OPEN (non-perturbative). Source: <code>08_UQF3_POSITIVITY_LEDGER_2026-06-25.md</code> §2.</p>
+<p>Given the geometry-supplied field content <strong>E</strong> — gauge group $SU(3)\times SU(2)\times U(1)$ from the frozen carrier; chiral matter in the Standard-Model reps over three generations; the Wilson-line/Hosotani Higgs; the low-lying massive KK gauge tower — <strong>and assuming</strong> the inherited nilpotency $Q^2=0$ + anomaly closure (R1, an exported pointer to UQF-4), the retained sector has, <em>perturbatively</em>:</p>
+<ol>
+<li><strong>Gauge fixing</strong> introduces the Faddeev–Popov ghost/antighost pair per generator in an indefinite-metric state space.</li>
+<li>With $Q^2=0$ (inherited), the <strong>BRST cohomology</strong> $\mathcal{H}_{\rm phys}=\ker Q/\operatorname{im}Q$ at ghost number zero is well-defined.</li>
+<li>The <strong>Kugo–Ojima quartet mechanism</strong> organizes the longitudinal + timelike gauge polarizations together with the ghost/antighost into <strong>zero-norm BRST quartets</strong> that cancel order-by-order in perturbative S-matrix elements. The <strong>2 transverse polarizations</strong> per generator survive as positive-norm BRST singlets.</li>
+<li><strong>Matter and Higgs</strong> are positive-norm BRST singlets.</li>
+<li><strong>Low-KK massive vectors</strong> keep their 3 physical polarizations; the eaten Goldstone joins a massive quartet and cancels.</li>
+</ol>
+<p><strong>Result:</strong> on the retained sector, perturbatively, no negative-norm state survives the physical cohomology. A genuine partial-tier win.</p>
+<p><strong>The load-bearing distinction (carry it explicitly).</strong> The earn is the <strong>perturbative quartet mechanism</strong> only. It is <strong>not</strong> the (non-perturbative) Kugo–Ojima completeness/confinement criterion — that is precisely the open wall (R3/R5). Treating the two as the same object is the syntax-to-semantics error (the program's "Test C"); refuse it.</p>
+<h3>3.3 Finite-cutoff Osterwalder–Seiler / Lüscher reflection positivity (banked, derived)</h3>
+<p>This is the second, <em>independent</em> banked win, and the one that justifies the headline "no ghosts here" for the <em>physical, granular</em> theory. On a Euclidean lattice of spacing $a$ and finite volume $L$, Wilson gauge theory satisfies <strong>reflection positivity</strong> with a <strong>positive, self-adjoint transfer matrix</strong> $T = e^{-aH_a}$, $H_a \ge 0$. This is a published theorem (Osterwalder–Seiler; Lüscher), and the program verifies it for the granular setting as a <strong>DERIVED fact</strong> with the correct <strong>strong-coupling-divergence caveat</strong> (source: Gap-02 dossier, item S, in this dossier's source set; corroborated by <code>specialist_reply.txt</code> provenance pointing to <code>gap_02_yang_mills_mass_gap/GAP02_STEP2_STANDARD_YM_PROOF_LANE/03_reflection_positivity_transfer_matrix.md</code>).</p>
+<p><strong>Why this matters under the granularity axiom P1.</strong> The program posits a <em>granular</em> world: physics is defined at finite resolution, and the infinitely-fine $a\to 0$ limit is one a physical theory never has to take (axiom P1). At any fixed granularity, reflection positivity + a positive transfer matrix + a finite-volume gap is <em>exactly</em> the physically relevant positivity statement — and it is <strong>derived</strong>, not assumed.</p>
+<p><strong>Bright-line discipline (do not over-claim).</strong> The frozen popup credits <em>only</em> the perturbative quartet cancellation on the retained sector and frames the entire interacting theory as having "no accepted proof for any realistic 4D gauge theory." Therefore: the finite-cutoff OS/Lüscher result is real and banked, but the dossier must <strong>not</strong> silently upgrade the headline to "reflection positivity is derived" for the full theory. The honest framing is two-tier: <em>finite-cutoff derived; uniform continuum open.</em> (Bright-line carried from the handoff: do not erase the distinction between the derived finite-cutoff fact and the dissolvable continuum unicorn.)</p>
+<h3>3.4 The scope reduction: positivity is a proper sub-wall of the mass gap (R3, the only genuinely new move)</h3>
+<p>A real logical-strength reduction, banked this round (source: <code>08_..._LEDGER</code> §4; <code>specialist_reply.txt</code> §1–§2; <code>02_CURRENT_STATE.md</code>):</p>
+<blockquote>
+<p><strong>UQF-3's positivity wall is a <em>proper sub-wall</em> of the Yang–Mills mass-gap problem: positivity does NOT require the mass gap.</strong></p>
+</blockquote>
+<p>The dependency runs <strong>one way</strong>: the only known machinery for constructive positivity is <em>shared</em> with the mass-gap problem, but logically you can have reflection positivity without proving a gap. So UQF-3's open object is <em>strictly smaller</em> than the full Clay mass-gap object — the <strong>logical scope shrinks</strong>. The <strong>practical difficulty does not</strong>: it is still Clay-class and shares the mass-gap problem's only known machinery. Both halves must be stated together; dropping the caveat would be an over-claim.</p>
+<p><strong>Bright-line discipline.</strong> The frozen popup says positivity "is part of the same difficulty as the Clay Millennium Yang–Mills problem." The corrected, sharper statement is: it is a strictly smaller <em>sub-wall</em> of that problem. Even a fully clean UQF-3 <strong>cannot, by itself, establish a Yang–Mills mass gap</strong> — that remains a separate Clay-class problem (cross-gate Gap-02). State the sub-wall relation; never invert it to "UQF-3 ⇒ mass gap."</p>
+<h3>3.5 The linearized graviton split (R7 — earned linearized, open above cutoff)</h3>
+<p><strong>Disposition:</strong> DERIVED-GIVEN-E (linearized, free-field, on the admissible background) / OPEN above cutoff. Source: <code>08_..._LEDGER</code> §3.</p>
+<p>The geometry supplies a 4D <strong>massless spin-2 zero mode</strong> (the graviton carrier). Linearizing the Einstein–Hilbert action about the admissible background and applying diffeomorphism-BRST removes the trace + longitudinal components via the same quartet mechanism used for spin-1, leaving the <strong>2 transverse-traceless helicity-$\pm 2$ modes positive-norm at the LINEARIZED / free quadratic-action level</strong> (van Nieuwenhuizen 1973 / Stelle 1978).</p>
+<p><strong>Wording discipline (required, applied here).</strong> This is stated as <em>positive-norm at the linearized / free quadratic-action level</em>, <strong>not</strong> as a "constructed positive-norm one-particle Fock space" or an "OS-reconstructed graviton Hilbert space." That full constructed/OS-reconstructed bridge is part of the open OS↔BRST construction folded into R3/R6/R8 and is <strong>not</strong> claimed here.</p>
+<p><strong>Two inline conditionalities, both standing:</strong>
+- <strong>(i)</strong> Conditional on UQF-4 ($Q^2=0$).
+- <strong>(ii)</strong> Conditional on the <strong>admissible background</strong> (small physical $\Lambda$, no on-shell mutation of the frozen geometry). On a curved background with $\Lambda\ne 0$ the mode count is preserved, but positivity becomes a unitarity-bound statement (BF / Higuchi-type); background admissibility itself lives in the $\Lambda$ sector. The linearized statement is therefore <strong>not</strong> unconditional.</p>
+<p><strong>Kept out of the earn:</strong> the <strong>massive KK spin-2 tower</strong> (5 polarizations each; Boulware–Deser / Fierz–Pauli-class positivity) is routed to <strong>R6</strong>, <em>not</em> folded into R7 — preventing a sector-to-whole overclaim. Above-cutoff graviton unitarity/causality/locality is the UV-completion-of-gravity problem, exported to <strong>UQF-14</strong> (blocked by UQF-9).</p>
+<h3>3.6 The two OPEN walls (R3, R6)</h3>
+<p><strong>R3 — constructive positivity of the full interacting 4D base (Precisely-OPEN).</strong> Constructing the full interacting positive physical Hilbert space of the 4D base theory is identical to the 4D Yang–Mills constructive-existence/positivity (Clay) problem. The geometry supplies the field content (the <em>target</em>) but <strong>no constructive positivity lever</strong>. Pointing an existing theorem at it, or adding an axiom "the active branch is positive," would be target-loading and is <strong>refused</strong> (RELABEL_FAIL if attempted). Scope reduce this round: R3 is a <em>proper sub-wall</em> of the mass-gap problem (§3.4).</p>
+<p><strong>R6 — full KK tower + all-loop positive-definite inner product.</strong> Summing the entire KK tower over all loops with a positive-definite inner product is <strong>OPEN</strong>. The interacting Euclidean measure does <strong>not</strong> factorize across base × internal; the previously claimed "factorization reduce" is <strong>retracted and demoted to a conjecture</strong> (a hidden third sub-problem: <em>local admissibility does not compose to global admissibility</em>). Depends on R3 + UQF-9 (UV) + UQF-10 (compactification). The massive KK spin-2 tower lives here. Source: <code>08_..._LEDGER</code> §4; <code>specialist_reply.txt</code> R6.</p>
+<h3>3.7 The $S^1/\mathbb{Z}_2$ boundary sector and the boundary heat-kernel object (R4)</h3>
+<p>The active branch adds difficulty <em>beyond</em> flat-space Yang–Mills: the $S^1_Y/\mathbb{Z}_2$ parity/boundary sector. The hypercharge circle $S^1_Y$ (radius $R_Y$) is orbifolded by $\theta\to-\theta$, with fixed loci $\theta=0,\pi$. In the full frozen 13D branch the fixed locus is
+$$F = \mathcal{M}_4 \times K_6 \times S^2 \times \{\theta=0,\pi\}\quad\text{— codimension 1, two disjoint copies.}$$
+(Source: <code>A6_Z2_DEFECT.md</code> §B.1.)</p>
+<p><strong>Crucial geometric fact (it changes the framework).</strong> The $\mathbb{Z}_2$ acts on the 1-dimensional normal direction $y=R_Y\theta$ as the <strong>reflection</strong> $y\to-y$ ($\det=-1$ on the normal space). A reflection on a line has <strong>no angle deficit</strong> — this is <strong>not</strong> the $\mathbb{R}^2/\mathbb{Z}_N$ <em>rotation</em> that produces a Cheeger cone (codim-2 conical singularity with a curvature $\delta$-function). There is no cone, no tip, no curvature $\delta$-function. Because $S^1$ is flat, the metric is a direct product, and $\theta=0$ is a geodesic, $F$ is <strong>totally geodesic</strong> (extrinsic curvature $L_{ab}=0$) and the geometry is <strong>smooth across the wall</strong> in the covering space ($R^+_{ijkl}=R^-_{ijkl}$). (Source: <code>A6_Z2_DEFECT.md</code> §B.1.)</p>
+<p>So the correct framework is <strong>Gilkey's boundary heat-kernel coefficient with a $\mathbb{Z}_2$ reflection</strong> (untwisted/even → Neumann projector; twisted/odd → Dirichlet projector on the normal mode), equivalently the orbifold method-of-images. The Z₂-defect contribution to the order-6 heat-kernel coefficient is the <strong>boundary</strong> piece $a_6^\partial$:
+$$a_6^{\rm defect} = (4\pi)^{-12/2}\int_F \sqrt{h}\,\operatorname{tr}_V\!\big[\,a_6^\partial\text{-density (Neu}\oplus\text{Dir)}\,\big]\times 2\ \ (\text{two loci }\theta=0,\pi),$$
+with the totally-geodesic simplification $L=0$ and smooth-wall $\tilde v=0$. (Source: <code>A6_Z2_DEFECT.md</code> §B.3.)</p>
+<p><strong>The named blocker (not a fabricated value).</strong> The <strong>order-6 boundary heat-kernel coefficient $a_6^\partial$ with mixed (Neumann ⊕ Dirichlet) boundary conditions does not exist in the published literature.</strong> The boundary Seeley–DeWitt tower is computed only through $a_5$:
+- Vassilevich, <em>Heat kernel expansion: user's manual</em>, Phys. Rept. <strong>388</strong> (2003) 279–360 (hep-th/0306138), §5.3: boundary coefficients $a_k$ given explicitly only through $a_4/a_5$; "$a_4$ and $a_5$ are too long to be presented … in full generality." <strong>No $a_6$ boundary coefficient is given or cited as existing.</strong>
+- $a_5$ for mixed boundary conditions: Branson–Gilkey–Kirsten–Vassilevich, Nucl. Phys. B <strong>563</strong> (1999) 603; generalized by Kirsten.
+- The <em>bulk</em> $a_6$ (Gilkey Thm 4.8.16) and the higher bulk $a_8$ (Avramidi), $a_{10}$ (van de Ven) exist — but those are <strong>closed-manifold</strong> ("no boundary") coefficients. The <strong>boundary</strong> tower stops at $a_5$.</p>
+<p>Because $F$ is totally geodesic ($L=0$) and the wall is smooth, the order-6 boundary integrand would be <em>substantially shorter</em> (it kills every extrinsic-curvature $L$ monomial and every jump term) but it does <strong>not vanish</strong>: even the totally-geodesic smooth $a_4^\partial$, $a_5^\partial$ retain bulk-curvature×boundary terms ($R$, $E$, $\Omega$ restricted to $F$, $f_{;nn}$, …). The order-6 analogue is therefore <strong>nonzero but unknown</strong>. Honest result: <strong>defect_computable = FALSE</strong>; the total $a_6=\text{bulk}+\text{defect}$ is <strong>not emitted</strong>, the defect named as a precise missing literature object. (Source: <code>A6_Z2_DEFECT.md</code> §B.2/§B.4.)</p>
+<blockquote>
+<p><strong>Cross-gate honesty note (read in the GAP01 handoff).</strong> The bulk $\operatorname{tr}[a_6]=-2.817995812\times10^{94}\,\text{GeV}^6$ was computed and reproduced, but in the <strong>later</strong> Gap-01 reconciliation it is <strong>RETRACTED</strong> (it rode a $31/147$ Bianchi-violating curvature input; the Bianchi-exact value is $23/75$) and, more fundamentally, the dimensionful magnitude is <strong>DISSOLVED-AS-ILL-POSED at odd $D=13$</strong> (no finite local $t^0$ term / no GeV$^6$ $a_6$ value exists at odd dimension). This dossier therefore records the bulk number only as a <em>labeled, retracted, scale-anchored consistency coefficient</em> — never as a gap-closing magnitude. (Source: <code>GAP01.md</code> handoff spine + banked notes.)</p>
+</blockquote>
+<h3>3.8 The compositionality obstruction and the missing theorem</h3>
+<p>Full closure of UQF-3 would require a theorem that is <strong>NOT proven</strong> (source: <code>08_..._LEDGER</code> §7; <code>02_CURRENT_STATE.md</code> post-session update):</p>
+<blockquote>
+<p><strong>GLOBAL-ADMISSIBILITY-COMPOSITION THEOREM (unproven).</strong> The operations that build the physical theory — compactification, orbifolding, truncation, gauge-fixing, BRST quotient, KK completion, IR limiting, and OS reconstruction — <strong>compose</strong> into a <em>single, full, positive physical Hilbert space</em>.</p>
+</blockquote>
+<p>The standing obstruction: <strong>local admissibility does not automatically compose into global admissibility.</strong> Sector-by-sector certificates (e.g. the retained-sector no-ghost result) do not, on their own, assemble into a positive interacting quantum theory across all interactions, the full KK tower, boundaries, IR limits, and above-cutoff regimes. Replacing this theorem with the assumption "the active branch is globally positive" is target-loading and is <strong>refused</strong>.</p>
+<hr />
+<h2>4. The insights we used (now shareable)</h2>
+<p>These are the moves that made the progress believable and reproducible. Each is shared at working-physicist depth; the device engineering is firewalled out.</p>
+<p><strong>Insight 1 — Two-tier honesty as a structural device, not a hedge.</strong> The decisive move was to refuse a single "positivity: derived / not derived" verdict and split it cleanly into <em>finite-cutoff (derived)</em> and <em>uniform-continuum (open)</em>. This is not rhetorical; it is the correct mathematical decomposition. Reflection positivity at fixed $a$ is a <em>theorem</em>; its survival under $a\to 0$ is a <em>separate</em> and open object. Conflating them is the gate's signature mis-close.</p>
+<p><strong>Insight 2 — Granularity (P1) dissolves the continuum unicorn into a shared limit on all knowledge.</strong> Constructive positivity in the $a\to 0$ limit is the 4D Yang–Mills Clay object — a <em>universal negative</em> (no one on Earth can do it, for any theory). The reframe: under the granularity axiom P1, a physical theory never has to take the infinitely-fine limit, so the open object is the <strong>BS-1 continuum unicorn</strong> — REDUCED-TO-AXIOM onto P1, axiom-conditional, <strong>NOT solved</strong>. This converts an apparent "defect of this program" into "a limit on all physics, with the physically relevant finite-cutoff version already derived." It is correctly <strong>non-axiomatizable</strong> beyond that — closable only by a genuinely new target-blind constructive-QFT idea no one has.</p>
+<p><strong>Insight 3 — The sub-wall reduction (positivity ⊊ mass gap).</strong> Recognizing that reflection positivity is logically <em>weaker</em> than the full mass-gap object — you can have RP without a gap — is a genuine scope reduction. It shrinks UQF-3's open object below the full Clay mass-gap object, while honestly keeping the practical-difficulty caveat (same Clay-class machinery).</p>
+<p><strong>Insight 4 — The boundary object is a reflection, not a cone.</strong> The single sharpest piece of geometric reasoning: the $S^1/\mathbb{Z}_2$ fixed locus is a <em>reflection</em> ($\det=-1$ on a 1D normal), giving a totally-geodesic, smooth, <strong>angle-deficit-zero</strong> boundary — <em>not</em> a Cheeger cone. This correctly routes the open object to <strong>Gilkey boundary heat-kernel theory</strong> (which stops at $a_5$) rather than to conical/Dowker deficit terms (which would be the wrong object). Getting the framework right is what lets the missing object be named <em>precisely</em> (the order-6 mixed-boundary coefficient) rather than fabricated.</p>
+<p><strong>Insight 5 — Load-bearing geometry ≠ certifying geometry.</strong> The geometry fixes <em>what</em> must come out positive-norm (the polarization inventory per carrier). It is load-bearing, but it supplies <strong>no positivity certificate</strong>. The certificate, where it exists, comes from standard quantization machinery applied to that content. This is the "Test D" (no geometry-to-certificate) discipline — and it is <em>why</em> the gate stays honest: it never lets the geometry's specificity masquerade as a proof.</p>
+<p><strong>Insight 6 — Compositionality is the real obstruction.</strong> The deepest converged blind-assumption: local/sector certificates do <strong>not</strong> compose into a global positive quantum theory. Naming this (the GLOBAL-ADMISSIBILITY-COMPOSITION theorem-debt) is what prevents the retained-sector win from being inflated into a full-theory claim.</p>
+<hr />
+<h2>5. Evidence &amp; reproducibility</h2>
+<h3>5.1 The witness ledger (source: <code>01_DOSSIER.md</code> §2.1)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Witness</th>
+<th>What it shows</th>
+<th>Honest caveat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>W1</strong></td>
+<td>Per-carrier polarization/norm table (retained sector)</td>
+<td>Each carrier's physical polarizations are positive-norm; gauge longitudinal/time-like modes cancel</td>
+<td>Perturbative; conditional on $Q^2=0$ (UQF-4)</td>
+</tr>
+<tr>
+<td><strong>W2</strong></td>
+<td>Kugo–Ojima quartet cancellation</td>
+<td>Longitudinal + time-like + ghost + antighost form null quartets, leaving transverse modes</td>
+<td>Textbook; verified perturbatively only</td>
+</tr>
+<tr>
+<td><strong>W3</strong></td>
+<td>BRST cohomology $\ker Q/\operatorname{im}Q$</td>
+<td>Physical-state definition; positive-norm on the retained cohomology</td>
+<td>Presupposes nilpotency $Q^2=0$ (inherited, AUDIT)</td>
+</tr>
+<tr>
+<td><strong>W4</strong></td>
+<td>Linearized graviton 2 TT modes</td>
+<td>Positive-norm graviton at linearized level</td>
+<td>Above-cutoff = UQF-14/UQF-9 (OPEN)</td>
+</tr>
+<tr>
+<td><strong>W5</strong></td>
+<td>Downgrade/falsifier map (UQF-4 ⇒ UQF-3; UQF-3 ⇒ UQF-14)</td>
+<td>The conditional dependency structure is declared, not hidden</td>
+<td>Confirms the inheritance is real, not closeable inside UQF-3</td>
+</tr>
+<tr>
+<td><strong>W6</strong></td>
+<td>Finite-cutoff OS/Lüscher RP + positive transfer matrix $T$, $H_a\ge 0$</td>
+<td>Reflection positivity is a derived fact at fixed cutoff (Osterwalder–Seiler; Lüscher)</td>
+<td>Strong-coupling-divergence caveat (Gap-02 item S); continuum limit open</td>
+</tr>
+</tbody>
+</table>
+<h3>5.2 Frozen hashes and the active object (load-bearing, READ-ONLY)</h3>
+<ul>
+<li>Branch <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code>.</li>
+<li>Active branch $\mathfrak{B}_{\rm active}=[\mathcal{M}_{3,1}\times K_6\times S^2\times S^1_Y/\mathbb{Z}_2]\oplus[F^+]\otimes[E]$, $K_6=SU(3)/T^2$.</li>
+<li>The geometry fixes: gauge groups $SU(3)\times SU(2)\times U(1)$, field content, retained 4D zero-mode + low-KK sector, per-carrier polarization counts, and the $S^1/\mathbb{Z}_2$ parity/boundary sector.</li>
+</ul>
+<h3>5.3 Numerical checks actually computed (every number traceable)</h3>
+<p>The numbers below are the <em>scale-free, route-independent</em> content that <strong>is</strong> derived; they live in the shared Gap-01 / a₆ engine (UQF-3's R4 boundary object is the same shared object). They are reported here as the checkable backbone of the boundary computation, with their honest caveats. <strong>No dimensionful magnitude is asserted as gap-closing.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Value</th>
+<th>Status / caveat</th>
+<th>Source file (read)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Berger $S^3$ $(\nabla R)^2$ closed form</td>
+<td>$256\,a^2(a^2-1)^2$</td>
+<td>DERIVED symbolically (Milnor connection); null at $a=1$; engine match to $\sim10^{-15}$ at $a\in\{0.5,0.7,1.3,2.0\}$</td>
+<td><code>A6_Z2_DEFECT.md</code> §A</td>
+</tr>
+<tr>
+<td>Sphere cross-check $S^2$ $a_6$</td>
+<td>$4/315$</td>
+<td>Exact rational; matches $S^n$ eigenvalue heat trace (rel. err 0)</td>
+<td><code>GAP01.md</code> banked</td>
+</tr>
+<tr>
+<td>Sphere cross-check $S^4$</td>
+<td>$74/63$</td>
+<td>Exact rational; PASS</td>
+<td><code>GAP01.md</code> banked</td>
+</tr>
+<tr>
+<td>Sphere cross-check $S^6$</td>
+<td>$1139/63$</td>
+<td>Exact rational; PASS ($\sim2\times10^{-16}$)</td>
+<td><code>GAP01.md</code> banked</td>
+</tr>
+<tr>
+<td>Sphere conformal cross-check</td>
+<td>$5/63$</td>
+<td>Exact rational; PASS ($\sim4\times10^{-14}$)</td>
+<td><code>GAP01.md</code> banked</td>
+</tr>
+<tr>
+<td>Color factor</td>
+<td>$124/315$</td>
+<td><strong>metric-SELECTED</strong> (holds at $\mathrm{Scal}_{K_6}=7.5$; the corpus's declared curvature gives $0.0252$) — carry the caveat; <strong>not</strong> the clean target-blind invariant</td>
+<td><code>GAP01.md</code> (explicit caveat)</td>
+</tr>
+<tr>
+<td>$K_6$ $|{\rm Riem}|^2/{\rm Scal}^2$ (Bianchi-exact)</td>
+<td>$23/75$</td>
+<td>Bianchi-exact (the live engine's $31/147$ is Bianchi-VIOLATING)</td>
+<td><code>GAP01.md</code> first-pass plug</td>
+</tr>
+<tr>
+<td>Ghost-sector $a_6/a_0$</td>
+<td>$149/1008$</td>
+<td>DERIVED + dual-route ($-16/315+143/720=149/1008$; Route B spectral peel diff $2.7\times10^{-9}$)</td>
+<td><code>GAP01.md</code> first-pass plug</td>
+</tr>
+<tr>
+<td>de-Donder graviton dim (Sym$^2 T$, $D=13$)</td>
+<td>$91$</td>
+<td>Forced by $D=13$</td>
+<td><code>A6_Z2_DEFECT.md</code> §B.1; UQF3 handoff plug</td>
+</tr>
+<tr>
+<td>FP vector-ghost dim ($D=13$)</td>
+<td>$13$</td>
+<td>Forced by $D=13$</td>
+<td><code>A6_Z2_DEFECT.md</code> §B.1</td>
+</tr>
+<tr>
+<td>Physical combination grav $-2\cdot$ghost</td>
+<td>$\times 65$</td>
+<td>$91-2\cdot13=65$</td>
+<td><code>A6_Z2_DEFECT.md</code> §B.1</td>
+</tr>
+<tr>
+<td>Grading trace $\operatorname{tr}\gamma_{\rm ghost}=\operatorname{tr}A$</td>
+<td>$11$</td>
+<td>$A=\mathrm{diag}(1_{12},-1)$ on the 13D fibre; $\operatorname{tr}A=12-1=11$</td>
+<td>UQF3 handoff plug <code>verify_grading.py</code></td>
+</tr>
+<tr>
+<td>Grading trace $\operatorname{tr}\gamma_{\rm grav}=\operatorname{tr}\mathrm{Sym}^2 A$</td>
+<td>$67$</td>
+<td>cross-check $((\operatorname{tr}A)^2+\operatorname{tr}A^2)/2=(121+13)/2=67$</td>
+<td>UQF3 handoff plug <code>verify_grading.py</code></td>
+</tr>
+<tr>
+<td>Graded weight</td>
+<td>$45$</td>
+<td>$67-2\cdot 11=45$</td>
+<td>UQF3 handoff plug</td>
+</tr>
+<tr>
+<td>Twisted-circle equivariant trace $\operatorname{Tr}(\sigma\,e^{-tD})$</td>
+<td>$1.000000000000$</td>
+<td>$t$-independent; integer powers; <strong>no</strong> half-integer $1/\sqrt t$ boundary tower — confirms $S^1/\mathbb{Z}_2$ is a global codim-1 $\mathbb{Z}_2$ reflection, not a manifold-with-boundary</td>
+<td>UQF3 handoff plug <code>verify_z2.py</code></td>
+</tr>
+<tr>
+<td>$\mathbb{Z}_2$ defect order-6 (product trace, scale-free)</td>
+<td>$(1/2)(4/315)=2/315$</td>
+<td>recovered by peel to $\sim10^{-5}$ (peel-noise); corpus Vandermonde route $1.3\times10^{-14}$ — <strong>scale-free only</strong>; the dimensionful $c_3^\gamma$ is <strong>NOT emitted</strong></td>
+<td>UQF3 handoff plug <code>verify_order6.py</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Discipline note (a trap the verifier already caught here).</strong> The narrow structural facts above reproduce target-blind, but the first-pass plug's <em>claim</em> that they discharge R4 was flagged <strong>OVERCLAIM</strong> — the numeric value $c_3^\gamma$ does <strong>not</strong> close. It requires the <strong>Levi-Civita (not canonical-connection) Bochner–Laplacian</strong> spectrum on the non-symmetric coset $K_6=SU(3)/T^2$. The available Casimir/Peter–Weyl (canonical-connection) spectrum is exact at $a_0/a_2$ but off by a precisely-located $1/24$ at the vector $a_4$ level, so it cannot deliver a trustworthy $a_6$. The genuine obstruction is a Gelfand–Tsetlin / Levi-Civita Bochner–Laplacian computation (see §6).</p>
+</blockquote>
+<h3>5.4 How a reader re-runs / re-derives</h3>
+<ul>
+<li><strong>Perturbative no-ghost (R2/R7):</strong> standard. Gauge-fix the retained-sector content E, construct the BRST charge $Q$, verify quartet cancellation à la Kugo–Ojima (1979) / Weinberg Vol. II / Schwartz Ch. 25. Nilpotency $Q^2=0$ is <em>assumed</em> (inherited from UQF-4) — do not re-prove it inside UQF-3.</li>
+<li><strong>Finite-cutoff OS/Lüscher RP (W6):</strong> lattice Wilson action, verify reflection positivity of the measure and positivity/self-adjointness of the transfer matrix $T$, $H_a\ge0$ (Osterwalder–Seiler; Lüscher). Provenance pointer (verified to exist): <code>…/gap_02_yang_mills_mass_gap/GAP02_STEP2_STANDARD_YM_PROOF_LANE/03_reflection_positivity_transfer_matrix.md</code>.</li>
+<li><strong>Scale-free $a_6$ backbone (§5.3):</strong> the three target-blind scratchpad scripts from the first-pass plug — <code>verify_z2.py</code> (sums circle scalar modes; confirms $\operatorname{Tr}(\sigma e^{-tD})=1.0$ at $t\in\{0.01,0.05,0.1,0.3\}$), <code>verify_order6.py</code> (product heat trace on $S^2\times(S^1/\mathbb{Z}_2)$; polyfit-peel recovers $a_0=1,a_2=1/3,a_4=1/15,a_6=4/315$, defect $(1/2)(4/315)=2/315$), <code>verify_grading.py</code> (builds $A=\mathrm{diag}(1_{12},-1)$; $\operatorname{tr}A=11$, $\operatorname{tr}\mathrm{Sym}^2 A=67$). All target-blind, <strong>no fitted $a_6$</strong>.</li>
+<li><strong>Berger anchor:</strong> <code>berger_symbolic.py</code> (SymPy, exact rationals) derives $256a^2(a^2-1)^2$ from Milnor's connection; <code>nablaR_K6.py</code> reproduces it to $\sim10^{-15}$.</li>
+</ul>
+<hr />
+<h2>6. Open gaps + closure path — the specialist work plan</h2>
+<blockquote>
+<p>The most load-bearing section. For <strong>each</strong> open hole: precise statement (a), why it is hard + traps (b), exactly what closes it (c), machinery &amp; inputs (d), leverage (e). Physics only; device engineering firewalled. <strong>STATUS-UPGRADES:0</strong> — a refuting result is a valid close.</p>
+</blockquote>
+<h3>6.1 R4 — the order-6 mixed-boundary heat-kernel coefficient (the only UQF-3-specific OPEN object NOT identical to Clay)</h3>
+<p><strong>(a) Precise statement.</strong> Derive the order-6 <strong>boundary</strong> heat-kernel coefficient $a_6^\partial$ for a Laplace-type operator with <strong>mixed (Neumann ⊕ Dirichlet = $\mathbb{Z}_2$-reflection) boundary conditions</strong>, on the totally-geodesic fixed locus $F=\mathcal{M}_4\times K_6\times S^2\times\{\theta=0,\pi\}$, with the de-Donder graviton + FP-ghost trace content ($91-2\cdot13=\times65$). This is the $a_6^\partial$ analogue of the BGKV $a_5$ result. <strong>It does not exist in the literature</strong> (boundary tower stops at $a_5$). The dimensionful coefficient $c_3^\gamma$ feeding the positivity functional is the deliverable.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons + traps.</strong>
+- The literature object simply is not there: Vassilevich §5.3 presents boundary $a_k$ only through $a_4/a_5$; even those are "too long to present in full generality." Deriving $a_6^\partial$ is a research-grade calculation (Gilkey invariance-theory functorial method extended to $k=6$ with boundary, or an Avramidi-type resolvent computation with reflection projectors).
+- <strong>Trap 1 (caught, named): wrong framework.</strong> Do <strong>not</strong> use a Cheeger-cone / Dowker conical-deficit term. The $\mathbb{Z}_2$ action is a <em>reflection</em> (angle deficit 0), not a rotation; the cone framework is the <strong>wrong object</strong>. The first-pass plug confirmed this target-blind: twisted-circle trace $=1.000000000000$, $t$-independent, no $1/\sqrt t$ tower (<code>verify_z2.py</code>) — so $S^1/\mathbb{Z}_2$ is a global codim-1 reflection, <em>not</em> a manifold-with-boundary tower.
+- <strong>Trap 2 (caught, named): OVERCLAIM.</strong> The first-pass plug established the object's <em>existence and identity</em> (reduced/discharged the <em>framework</em>) but claimed too much by implying the <em>value</em> closed. It does not. Keep R4 OPEN until $c_3^\gamma$ is actually computed.
+- <strong>Trap 3: wrong connection.</strong> The genuine obstruction is that the value needs the <strong>Levi-Civita (not canonical-connection) Bochner–Laplacian</strong> spectrum on the non-symmetric coset $K_6=SU(3)/T^2$. The canonical-connection (Casimir/Peter–Weyl) spectrum is exact at $a_0/a_2$ but off by a located $1/24$ at the vector $a_4$ level — it cannot deliver a trustworthy $a_6$.</p>
+<p><strong>(c) Exactly what closes it (target-blind).</strong> Compute $a_6^\partial$ with Neumann⊕Dirichlet projectors on the totally-geodesic, smooth ($L=0$, $\tilde v=0$) locus $F$, using the Levi-Civita Bochner–Laplacian spectrum on $K_6$. <strong>Success:</strong> a finite, target-blind $c_3^\gamma$ that feeds $P(a_6)$; the sign then either certifies ($P\ge0$, DERIVED-GIVEN-E per boundary row) or breaks it. <strong>Refuting close (equally valid):</strong> a clean derivation showing $a_6^\partial$ yields a definite-sign-violating contribution, which would <em>refute</em> boundary positivity — a decidable negative. <strong>Do NOT fabricate a total</strong>; if the order-6 boundary basis cannot be derived, terminal as BLOCKED with the precise missing literature object exported.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Gilkey, <em>Invariance Theory, the Heat Equation, and the Atiyah–Singer Index Theorem</em> (functorial boundary method); Vassilevich, Phys. Rept. <strong>388</strong> (2003), §5.3–5.4 (boundary $a_k$, $k\le5$), §6.3 (domain walls); Branson–Gilkey–Kirsten–Vassilevich, Nucl. Phys. B <strong>563</strong> (1999) 603 ($a_5$); Avramidi resolvent methods for the bulk $a_6/a_8$. Corpus files: <code>…/computational_runs_2026-06-23/a6_computation/A6_Z2_DEFECT.md</code> (framework + exact blocker + the $a_6^{\rm defect}$ integral formula); <code>berger_symbolic.py</code> / <code>nablaR_K6.py</code> (the validated $\nabla$-sector machinery); the three target-blind scratchpad scripts (<code>verify_z2.py</code>, <code>verify_order6.py</code>, <code>verify_grading.py</code>). The Gelfand–Tsetlin route to the Levi-Civita spectrum on $K_6$ is shared with Gap-01 R1 and SG-6/SG-7.</p>
+<p><strong>(e) Leverage.</strong> This is the same boundary/$a_6$ object shared with <strong>Gap-01 R2</strong> and the <strong>Phase-4 / a₆ boundary ledger</strong> and <strong>UQF-4</strong> boundary anomaly. The Levi-Civita Bochner–Laplacian / Gelfand–Tsetlin computation is <strong>load-bearing for three gates</strong> (Gap-01, SG-6, SG-7). Closing it discharges the only UQF-3-specific finite hole and feeds the positivity functional below.</p>
+<h3>6.2 The positivity functional $P(a_6)\ge 0$ — UNMADE (decision-grade closure criterion)</h3>
+<p><strong>(a) Precise statement.</strong> Construct the positivity functional $P(a_6)$ — the decision-grade physical-Hilbert-space closure criterion (Gap-01 MO-10/MO-11) — and its pass-semantics, then evaluate its sign once the boundary $a_6$ coefficient (§6.1) is in hand. As it stands the functional is <strong>stated as a criterion but never constructed, and NO sign is asserted.</strong></p>
+<p><strong>(b) Why it's hard / prior-attempt lessons + traps.</strong>
+- The frozen corpus disposition is <strong>OPEN / UNMADE</strong>, not reduced. Authoritative, dated rulings state it directly: <code>specialist_reply.txt</code> R4 ("Positivity functional + adjudication (MO-10/MO-11) UNMADE … NO sign … asserted"); <code>GAP01.md</code> ("OPEN / UNMADE — positivity functional not constructed; no sign asserted"); the GRAVITON ledger ("$P(a_6)\ge0$ … OPEN — $a_6$ vector uncomputed AND functional $P$ unselected; not yet a well-defined predicate").
+- <strong>Trap 1 (caught): TARGET-LOADING.</strong> The first-pass plug <em>attempted</em> target-loading here — do not select a functional or sign so as to land on the desired positive answer. The functional must be writable WITHOUT knowing positivity is the wanted outcome.
+- <strong>Trap 2 (caught): OVERCLAIM.</strong> What the plug actually established splits in two: a <em>faithful half</em> (the one-sided pass-semantics is real in the corpus — violation ⇒ decision-grade refute, while a pass is only consistency, MO-12 necessary-not-sufficient) and an <em>unestablished half</em> (the sign cannot be evaluated). Keep the two separate.
+- <strong>Blocking residual R-A:</strong> the sign of any well-posed positivity quantity cannot be evaluated because the <strong>total</strong> $\operatorname{tr}[a_6]$ cannot be assembled — the $\mathbb{Z}_2$ orbifold-defect piece is exactly the missing order-6 mixed-boundary coefficient (§6.1). The computed bulk is a labeled (and now retracted, ill-posed-at-odd-$D$) consistency coefficient only.</p>
+<p><strong>(c) Exactly what closes it.</strong> Two independently checkable deliverables. <strong>(1) Pass-semantics (constructible now, no $a_6$ value needed):</strong> formalize the one-sided rule — <em>violation ⇒ decision-grade refute; a pass is only consistency</em> — and wire its falsifier. This is the only defensible decision rule (MO-12: necessary-not-sufficient) and is <em>target-blind</em> (it can refute, not manufacture, positivity). <strong>(2) Sign evaluation (gated on §6.1):</strong> once $c_3^\gamma$ and a well-posed total exist, evaluate $P$. <strong>Success:</strong> a finite positive total feeding $P(a_6)\ge0$ converts the criterion from <em>stated</em> to <em>evaluated</em>. <strong>Refuting close:</strong> a definite-negative total that violates $P$ — a valid decision-grade refutation.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Corpus: <code>…/gap-01</code> <code>S4.2_falsifier_adjudication.md</code> and <code>01_named_missing_objects.md</code> (MO-11/MO-12 — the one-sided semantics); <code>GAP01_A6_RECONCILIATION_2026-06-24.md</code> and <code>A6_Z2_DEFECT.md</code> (the bulk vs defect split and the retraction). The functional construction is OS-axiom-grade: a reflection-positivity quadratic form whose non-negativity is the predicate. Note the bulk $\operatorname{tr}[a_6]=-2.817995812\times10^{94}\,\text{GeV}^6$ is <strong>retracted / dissolved-ill-posed at odd $D=13$</strong> — it must <strong>not</strong> be plugged in as a sign.</p>
+<p><strong>(e) Leverage.</strong> Closing this gives UQF-3 (and Gap-01) a <em>decision-grade</em> physical-Hilbert-space predicate. The pass-semantics half is constructible immediately and is independent of the boundary computation; building it now de-risks the gate even before §6.1 lands.</p>
+<h3>6.3 R1 — the inherited UQF-4 boundary anomaly class (AUDIT)</h3>
+<p><strong>(a) Precise statement.</strong> The perturbative-retained certificate is conditional on BV-BRST nilpotency $Q^2=0$ + full anomaly closure surviving the 13D→4D descent. The open content reduces to <strong>one even-degree boundary Chern–Simons / Dai–Freed / $\eta$ global-anomaly class</strong> on the $S^1/\mathbb{Z}_2$ boundary and $K_6\times S^2$. $d\le3$ bulk vanishing is PROVEN (FOS Cor 7.5); $d=4$ bulk vanishing is <strong>OPEN / likely-nonzero</strong> (FOS Cor 7.6).</p>
+<p><strong>(b) Why it's hard / traps.</strong> It is a global (not perturbative) anomaly — invisible to the local anomaly polynomial; it needs bordism/$\eta$-invariant machinery. <strong>Trap (named, REJECTED): AXIOM-COSET-TWIST-DESCENT-CANCELS.</strong> Assuming the class vanishes is target-loading and is <strong>rejected</strong> — the deciding $d=4$ boundary class is uncomputed and likely-nonzero. Do not assume it away to make the retained certificate unconditional.</p>
+<p><strong>(c) Exactly what closes it (target-blind).</strong> Carry out the bounded bordism/$\eta$ computation of the single even-degree boundary class at $\mathcal{M}_4$ ($d=4$) for the active branch content. <strong>Success:</strong> the class vanishes ⇒ DERIVED-GIVEN-E per cancelling row, the retained-sector certificate becomes unconditional. <strong>Refuting close:</strong> the class is nonzero ⇒ R1 REFUTED, which would <em>demote</em> even the retained-sector certificate — a decidable negative.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Dai–Freed / Freed–Hopkins boundary-anomaly theory; $\eta$-invariant / bordism groups ($\Omega^{\rm Spin\text{-}c}_*$, Pin$^\pm$ as relevant); FOS (Freed–Hopkins-type) Cor 7.5/7.6 cited in the handoff. This is the <strong>UQF-4</strong> specialist's object — UQF-3 <em>exports</em> it; the actual close lives there. Corpus: the UQF-4 dossier folder; <code>01_DOSSIER.md</code> §4.1 (the R1 export); cross-reference the Dai–Freed program tracked in <code>project_dai_freed_global_anomaly_2026-06-28</code> (the orbifold mod-8 class is the <em>same family</em> as the BG-10 $\sigma_\nu$ object).</p>
+<p><strong>(e) Leverage.</strong> Shared with <strong>UQF-4</strong> (the inheritance root) and the BG-10/$\sigma_\nu$ Dai–Freed family. Closing it unconditionalizes the retained-sector certificate for <em>every</em> gate that inherits the BRST/anomaly closure.</p>
+<h3>6.4 R6 — all-loop base–internal coupling / full KK tower (demotes factorization to conjecture)</h3>
+<p><strong>(a) Precise statement.</strong> A positive-definite inner product after summing the <strong>entire KK tower over all loops</strong> with the <strong>non-factorizing</strong> base–internal interacting measure. The earlier "factorization reduce" (base × internal) is <strong>retracted and demoted to a conjecture</strong>.</p>
+<p><strong>(b) Why it's hard / traps.</strong> The interacting Euclidean measure does <strong>not</strong> factorize across base × internal — a hidden third sub-problem (local admissibility ⇏ global admissibility). <strong>Trap:</strong> re-promoting the factorization reduce. It is a <em>conjecture</em>, not a reduce; treating it as established is the over-promotion the specialist caught.</p>
+<p><strong>(c) Exactly what closes it.</strong> Either (i) prove the base–internal coupling preserves positivity order-by-order across the full tower (a constructive-QFT-grade result — blocked by R3 + UQF-9/UQF-10), or (ii) establish the GLOBAL-ADMISSIBILITY-COMPOSITION theorem (§3.8). <strong>Refuting close:</strong> exhibit a tower/loop order where positivity fails — a decidable negative. Honest expectation: blocked by R3 + UQF-9/UQF-10; no independent close available today.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> KK spectral theory on $K_6\times S^2\times S^1_Y/\mathbb{Z}_2$; the Boulware–Deser / Fierz–Pauli positivity of the massive KK spin-2 tower; UQF-9 (UV completion) and UQF-10 (compactification stability). Corpus: <code>08_..._LEDGER</code> §4; <code>specialist_reply.txt</code> R6.</p>
+<p><strong>(e) Leverage.</strong> Tied to UQF-9/UQF-10; the GLOBAL-ADMISSIBILITY-COMPOSITION theorem, if ever proven, closes R6 <em>and</em> the full-theory half of R3 simultaneously.</p>
+<h3>6.5 R5 — non-perturbative confined-QCD IR positivity (exported to UQF-11)</h3>
+<p><strong>(a) Precise statement.</strong> The non-perturbative confined-QCD piece needs an IR positivity certificate. <strong>(b) Why it's hard:</strong> an IR certificate <strong>cannot</strong> be supplied by UV data — a <em>structural</em> boundary, not a missing computation. It includes the Yang–Mills mass gap (Gap-02). <strong>Trap:</strong> counting UQF-11 as <em>supplying</em> the certificate — it is <strong>USED, not proven</strong>. <strong>(c) Close:</strong> a genuine non-perturbative IR positivity result inside UQF-11 (no UV-data shortcut). <strong>(d) Machinery:</strong> UQF-11 non-perturbative-QCD program; Gap-02 mass-gap machinery. Corpus: export package <code>R5 → UQF-11</code> (<code>08_..._LEDGER</code> §5). <strong>(e) Leverage:</strong> shared with Gap-02 and UQF-11; the sub-wall reduction (§3.4) means UQF-3 does <em>not</em> wait on the gap for <em>positivity</em>, only for the IR sector.</p>
+<h3>6.6 The ~31% curvature-input error in the internal $a_6$ engine (computation-debt)</h3>
+<p><strong>(a) Precise statement.</strong> The corpus $a_6$ engine is half-right (derivative-sector ratio confirmed) / half-wrong: the $K_6$ curvature input the live engine writes is <strong>$31/147$, which is Bianchi-violating</strong> (max first-Bianchi residual $1/7\approx0.1428571$); the Bianchi-exact value is <strong>$23/75$</strong> (residual $\sim3\times10^{-16}$). <strong>(b) Why it matters:</strong> any magnitude riding the wrong curvature is untrustworthy. <strong>(c) Close (DISCLOSED-CORRECTED):</strong> flip the sign of the two naturally-reductive quarter-terms (Besse 7.38 / KN-II convention) so $|{\rm Riem}|^2/{\rm Scal}^2=23/75$, re-run, re-confirm the (already independently confirmed) derivative-sector ratio. This is a <strong>correction owed, not a closure</strong> — it does <em>not</em> close Gap-01 or UQF-3 (the magnitude remains a scheme-anchored, ill-posed-at-odd-$D$ consistency coefficient). <strong>(d) Machinery:</strong> <code>a6_compute.py</code> (frozen engine, <code>k6_riem_gilkey::Rop</code>); the first-pass plug's <code>r3_verify.py</code> / <code>r3_bulk_delta.py</code> (target-blind rebuild). <strong>(e) Leverage:</strong> the corrected curvature feeds the boundary $a_6$ object (§6.1) and the same shared engine used by Gap-01/SG-6/SG-7. <strong>Trap:</strong> do not let the corrected <em>bulk</em> magnitude ($\sim-2.9957\times10^{94}$) be read as gap-closing — it never is.</p>
+<h3>6.7 R8 — OS reflection positivity ↔ BRST no-ghost equivalence (DISCLOSED-CORRECTED / OPEN scoped)</h3>
+<p><strong>(a) Precise statement.</strong> The gate is named for <strong>OS reflection positivity</strong>; the delivered object is a <strong>BRST no-ghost certificate</strong>. For free/perturbative fields the two are standard-equivalent (covers R2 spin-1 + R7 free-graviton). For the <strong>full interacting branch</strong> the OS↔BRST equivalence is part of the open construction. <strong>(c) Close:</strong> establish the OS↔BRST bridge for the interacting active branch — folded into R3 + R6. <strong>Terminal:</strong> DISCLOSED-CORRECTED (name precisely which positivity object is delivered) → full-branch equivalence stays OPEN (scoped). <strong>Trap:</strong> presenting the BRST no-ghost certificate as full OS positivity for the interacting branch. <strong>(e) Leverage:</strong> purely a scoping/disclosure correction; no new computation, but it keeps the headline honest.</p>
+<h3>6.8 Attack-order summary (by leverage)</h3>
+<ol>
+<li><strong>§6.2 pass-semantics</strong> (constructible now, no $a_6$ value; de-risks the gate immediately).</li>
+<li><strong>§6.6 curvature-input fix</strong> (cheap, DISCLOSED-CORRECTED; unblocks trustworthy magnitudes downstream).</li>
+<li><strong>§6.1 boundary $a_6$ via Levi-Civita / Gelfand–Tsetlin</strong> (the only UQF-3-specific finite hole; load-bearing for 3 gates).</li>
+<li><strong>§6.3 R1 boundary anomaly</strong> (export to UQF-4; unconditionalizes the retained certificate).</li>
+<li><strong>§6.5 R5 / §6.4 R6 / §3.6 R3</strong> (the walls — honest precise OPEN/no-go with the wall named; a refuting result is a valid close).</li>
+</ol>
+<hr />
+<h2>7. Honest ceiling &amp; scope</h2>
+<p><strong>Dissolved ≠ solved.</strong> The constructive positivity in the <strong>uniform continuum limit</strong> ($a\to0$, $L\to\infty$) for the full interacting 4D gauge theory is the 4D Yang–Mills Clay existence/positivity object. Under the granularity axiom P1 it is the BS-1 continuum unicorn — <strong>REDUCED-TO-AXIOM onto P1, axiom-conditional, NOT solved.</strong> Dissolving it onto P1 is a <em>limit on all knowledge</em> (no one on Earth has crossed this wall, for any theory), not a defect of this program — but "dissolved" is explicitly <em>not</em> "solved," and we never print the continuum result as proven. It is correctly <strong>non-axiomatizable</strong> beyond P1: closable only by a genuinely new, target-blind constructive-QFT idea no one currently has.</p>
+<p><strong>Selection ≠ derivation; given-E ≠ derivation-of-E.</strong> The frozen geometry is <strong>load-bearing</strong> — it fixes <em>what</em> must come out positive-norm (the per-carrier polarization counts) — but it supplies <strong>no positivity certificate</strong>. The retained-sector certificate terminates on <strong>E (geometry-supplied content) + textbook positivity machinery</strong>, conditional on UQF-4: it is <strong>DERIVED-GIVEN-E + standard-result-inherited</strong>, <em>not</em> geometry-validated positivity. Supplying the field content is not the same as proving the interacting theory is positive.</p>
+<p><strong>What is explicitly NOT claimed.</strong>
+- NOT a blanket "reflection positivity is derived." Finite-cutoff: derived. Uniform continuum: open (R3). Finite residuals: open (R1/R4/R5/R6).
+- NOT a positivity proof for the full interacting theory after summing all loops + the entire KK tower + the non-perturbative sector. That all-orders global-sufficiency demand is a quantum-gravity-wide open question; demanding it be proven complete is the same universal wall everyone faces (its <em>finite</em> inputs — the boundary $a_6$ coefficient and the UQF-4 $d=4$ boundary class — ARE bounded holes, listed in §6; only the all-orders global-sufficiency demand dissolves).
+- NOT "UQF-3 ⇒ Yang–Mills mass gap." Even a fully clean UQF-3 is an anomaly/positivity-consistency leg only; the dependency runs mass-gap-machinery → positivity, never the reverse.
+- NOT a dimensionful gap-closing $a_6$ magnitude. The bulk $\operatorname{tr}[a_6]=-2.817995812\times10^{94}\,\text{GeV}^6$ is a <em>labeled, retracted, scale-anchored</em> consistency coefficient, dissolved-as-ill-posed at odd $D=13$.</p>
+<p><strong>The anchors paid.</strong> The floor converges to <strong>two value-free measured-invariant anchors</strong> (source: <code>specialist_reply.txt</code> §3): <strong>AXIOM-STABILITY-OF-MATTER</strong> (the time-translation generator is self-adjoint and bounded below — a ground state exists) and <strong>AXIOM-BORN-SIGN</strong> (probabilities are real and non-negative). These are three representations of one contraction/unitarity fact (bounded-below-$H$ / positive-norm / Born-sign), not three independent invariants; both are ATOMIC and measured-invariant. Beyond the floor sits one explicitly-named, Precisely-OPEN <strong>Clay-class wall</strong> (AXIOM-RECONSTRUCTION-BRIDGE-OPEN: on $\mathfrak{B}_{\rm active}$ the full interacting Euclidean measure exists and reconstructs stability + Born-sign), with <strong>no constructive lever from the geometry</strong>, plus the exported pointer AXIOM-BRST-NILPOTENCY-INHERITED ($Q^2=0$, → UQF-4, <em>not</em> a UQF-3 anchor).</p>
+<p><strong>Honest endpoint.</strong> UQF-3 stays <strong>OPEN</strong> at its honest ceiling — <em>serious candidate / partial unification, NOT validated.</em> The retained 4D zero-mode + low-KK sector (gauge / matter / Higgs + linearized graviton) is <strong>CERTIFICATE-CONDITIONAL</strong> (perturbative Kugo–Ojima / BRST no-ghost, conditional on UQF-4) and finite-cutoff OS/Lüscher reflection positivity is a <strong>derived</strong> fact; while the full interacting positive physical Hilbert space remains <strong>OPEN</strong> behind the 4D Yang–Mills constructive-positivity wall (R3, now shown a proper sub-wall of the mass gap), the uncomputed $S^1/\mathbb{Z}_2$ boundary $a_6$ coefficient (R4), the inherited $d=4$ boundary anomaly (R1, AUDIT), the non-factorizing full-KK / all-loop coupling (R6), the IR inheritance (R5), and above-cutoff graviton / UV completion (R7) — because the GLOBAL-ADMISSIBILITY-COMPOSITION theorem is unproven and local admissibility does not compose into global admissibility.</p>
+<p><strong>STATUS-UPGRADES:0. Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> READ-ONLY.</strong></p>
+<pre><code>given-E ≠ derivation of E    ·    dissolved ≠ solved    ·    selection ≠ derivation
+a textbook citation ≠ a from-content proof for the active branch    ·    anchored ≠ derived
+CERTIFICATE-CONDITIONAL ≠ unconditional    ·    finite-cutoff derived ≠ continuum derived
+</code></pre>
+<hr />
+<p><em>Dossier built per <code>DOSSIER_BUILD_PROTOCOL.md</code> v1 (2026-06-29). Synthesizes: <code>PER_GATE_DOSSIERS/UQF3_COMPLETION_HANDOFF/{01_DOSSIER, 02_CURRENT_STATE, 08_UQF3_POSITIVITY_LEDGER_2026-06-25, specialist_reply}</code>; <code>computational_runs_2026-06-23/a6_computation/A6_Z2_DEFECT.md</code>; <code>articles/GATE_BRIEF_UQF3.html</code>; <code>30pagedoc/handoffs/{UQF3, GAP01}.md</code>. Every number traced to a source actually read; uncomputed quantities marked OPEN. Physics shared; QC-chip / Mars-drive engineering firewalled.</em></p>
+</body></html>

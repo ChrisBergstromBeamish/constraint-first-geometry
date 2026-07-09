@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UQF-4 — BRST / anomaly descent: full dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">UQF-4 — BRST / anomaly descent: full dossier — rendered package. Rendered from <code>DOSSIER_UQF4_FULL.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>UQF-4 — BRST / anomaly descent: full dossier</h1>
+<blockquote>
+<p><strong>What this is.</strong> The full 30–50 page dossier for <strong>UQF-4</strong>, the quantum-consistency gate of the scoped theory on the frozen 13D K₆ branch. It expands the live 30-second popup and the gate brief into a treatment a working physicist can both <em>check</em> and <em>build on</em>. It synthesizes the gate's existing closure-attack packet, its certificates, and the cross-gate findings; it invents nothing.</p>
+<p><strong>Binding discipline (carried verbatim from every source).</strong> <strong>STATUS-UPGRADES:0.</strong> Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> is <strong>READ-ONLY</strong>. Honest throughout: given-E ≠ derivation of E; "machinery exists" ≠ "calculation done"; a captured log ≠ an independent reproduction; a regulator chosen to make the anomaly cancel = target-loading (REFUTES the row, does not close it); <strong>assuming the open class vanishes is REJECTED — we refuse to assume the answer.</strong></p>
+<p><strong>Status (must match the live popup): AUDIT (OPEN).</strong> The perturbative leg is DERIVED-GIVEN-E (independently reproduced); the residual is <strong>one</strong> bounded, falsifiable even-degree class whose <em>value is uncomputed/contested</em> and whose <em>existence precondition is blocked on a named, missing datum</em>. Direction: <strong>strengthened</strong> — sharpened and corrected, not closed.</p>
+</blockquote>
+<hr />
+<h2>1. Executive summary + honest status</h2>
+<h3>1.1 The headline</h3>
+<p>Every Standard-Model anomaly cancels on our spectrum — and we did not take that on faith: an internal specialist re-derived it <strong>target-blind, by exact rational arithmetic</strong>, and proved with a specificity check (Σ mult·Y² = 10/3 ≠ 0) that the cancellation is a real property of <em>this</em> matter content, not a trivial identity. With the perturbative core banked, the entire remaining quantum-consistency question has been <strong>compressed to one mathematical object</strong> — a single even-degree boundary/η class on the descended branch — whose resolution either closes the gate or falsifies the theory outright. That compression, and an honest self-correction of an earlier over-stated framing, are the gate's genuine gains.</p>
+<h3>1.2 The honest grade</h3>
+<p>UQF-4 is held at <strong>AUDIT (OPEN)</strong> — a <em>serious candidate / partial unification, NOT validated</em>. This is the binding status from every source: the gate brief (<code>articles/GATE_BRIEF_UQF4.md</code> §"Current honest status"), the completion result (<code>articles/UQF4_COMPLETION_RESULT.md</code> §0), the closure-attack dossier (<code>UQF4_COMPLETION_HANDOFF/01_DOSSIER.md</code> §0), and all four certificate roll-ups. <strong>No status was ever promoted.</strong> The frozen branch is read-only. The gate's status is set by its <em>least-closed residual</em>, and that residual is genuinely open.</p>
+<h3>1.3 What this dossier establishes — and what it does not</h3>
+<p>This dossier establishes, with full work shown, three real results: (i) the perturbative Standard-Model anomaly ledger cancels on the active-branch spectrum, independently reproduced by exact arithmetic and shown specific to E; (ii) classical BRST nilpotency s² = 0 holds on the descended action by the Jacobi identity of su(3)⊕su(2)⊕u(1); and (iii) the dozen scattered "open" rows of the original 16-class ledger are <strong>homogeneous components of a single Anderson-dual / Dai–Freed even-degree class</strong> — a genuine reduction, not a relabeling.</p>
+<p>It does <strong>not</strong> establish that the gate closes. The single remaining class wears several hats that are <em>not all the same computation</em>: whether the invertible Freed–Hopkins/Anderson-dual classification even applies to the interacting coset-WZ sector; whether the branch admits the tangential ξ-structure that makes the class <em>defined at all</em> (if not, the gate is refuted because the invariant does not exist); and whether the class, once defined, <em>vanishes</em>. The earlier "row 17 vanishes" headline produced inside this campaign was <strong>withdrawn on governance audit as a claim-boundary violation</strong> and is not revived here. The honest residual is a bounded, falsifiable computation — and it is owed, not done.</p>
+<hr />
+<h2>2. The community gap</h2>
+<h3>2.1 The precise open problem</h3>
+<p>For a quantum gauge theory to be consistent, the gauge-fixing machinery must remain self-consistent and <em>every</em> anomaly must cancel. In the Batalin–Vilkovisky (BV) formulation, both conditions are one equation: the <strong>quantum master equation (QME)</strong></p>
+<p>$$
+\tfrac12 (S,S) \;=\; i\hbar\,\Delta S,
+$$</p>
+<p>where $(\,\cdot\,,\,\cdot\,)$ is the BV antibracket and $\Delta$ the BV Laplacian. Solvability of the QME order-by-order in $\hbar$ is exactly "the full BRST/anomaly cocycle vanishes." Its $\hbar^0$ shadow is classical BRST nilpotency $s^2 = 0$; its higher orders are the anomalies. (<code>UQF4_COMPLETION_RESULT.md</code> §0; <code>01_DOSSIER.md</code> §F.0.)</p>
+<p>For a realistic theory this is not just the familiar <em>perturbative</em> Standard-Model anomalies. When a higher-dimensional geometry is folded down to 4D, the descent <strong>generates new anomaly classes</strong>: global anomalies, boundary anomalies on orbifold walls, bulk-to-boundary inflow terms, and the anomaly of a gauged Wess–Zumino term living on the internal coset. Completing this — non-perturbatively, for a realistic compactified model — is <strong>unsolved across the whole field.</strong> No accepted theory carries a full anomaly-descent certificate. This is a community-wide open problem, not a defect specific to this program. (<code>UQF4.md</code> handoff §"The gap"; brief §"What this gate must establish.")</p>
+<h3>2.2 The specific geometry that sets the problem</h3>
+<p>The descended branch is</p>
+<p>$$
+\mathcal B_{\text{active}} \;=\; \mathcal M_4 \times K_6 \times S^2 \times S^1_Y/\mathbb Z_2,
+\qquad K_6 = SU(3)/T^2 \ \text{(the flag manifold)},
+$$</p>
+<p>with gauge group $G = (SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The isometries route the group: $K_6 \to SU(3)$, $S^2 \to SU(2)$, $S^1_Y/\mathbb Z_2 \to U(1)$ (<code>01_DOSSIER.md</code> §D.1, §E.1). The geometry is load-bearing in a sharp way: the $S^1/\mathbb Z_2$ boundary, the bulk/boundary inflow, and the $SU(3)/T^2$ coset twist are exactly what generate the anomaly classes that have <strong>not</strong> been computed in any prior work. The geometry sets the problem precisely; it does not, by itself, certify that the problem closes. (<code>GATE_BRIEF_UQF4.md</code> §"The geometry's role.")</p>
+<h3>2.3 The 16-class ledger and the honest split</h3>
+<p>The corpus organizes UQF-4 as a <strong>16-class anomaly ledger</strong> plus two BRST-nilpotency certificates. The honest split (<code>GATE_BRIEF_UQF4.md</code>; <code>01_DOSSIER.md</code> §0.1):</p>
+<ul>
+<li><strong>10 of 16 — perturbative, cancel by inheritance.</strong> The standard SM cubic and mixed classes — $SU(3)^3$, the $SU(2)$ Witten global anomaly, $U(1)^3$, and the mixed gauge–gravitational anomaly — cancel by inheritance from the 4D SM ledger plus textbook even/odd-dimension rules. <strong>Given the spectrum</strong>, not a prediction of it.</li>
+<li><strong>5 of 16 — boundary/Dai–Freed/inflow, AUDIT-with-roadmap.</strong> The $S^1/\mathbb Z_2$ boundary rows, the Dai–Freed / Freed–Hopkins global rows on the boundary and on $K_6\times S^2$, and the bulk–boundary inflow row need a calculation whose machinery is well-defined (Hořava–Witten inflow, Dai–Freed η-invariant/bordism, Cordova–Ohmori) but which <strong>has not been performed for the active branch</strong>.</li>
+<li><strong>1 of 16 — the coset-twist / non-perturbative BV–BRST descent class (historically "row 17").</strong> This is the binding blocker.</li>
+</ul>
+<h3>2.4 State of the art and prior attempts</h3>
+<ul>
+<li><strong>Perturbative anomaly cancellation</strong> is textbook (the per-generation SM ledger). The state of the art is complete <em>for the perturbative sector given a spectrum</em> — and that is exactly what is banked here, no more.</li>
+<li><strong>Global / Dai–Freed anomalies</strong> have a modern classification: deformation classes of reflection-positive <strong>invertible</strong> field theories of fixed symmetry type ξ are the Anderson dual of the ξ-bordism spectrum, $(I\Omega^\xi)^{n+1}(\mathrm{pt})$ — the Freed–Hopkins conjecture, <strong>proved by Grady, arXiv:2310.15866</strong> (Oct 2023). Its three hypotheses — reflection-positivity, invertibility, and a fixed ξ-structure — are explicit and load-bearing (re-verified independently in <code>01_DOSSIER.md</code> §§B–E). This is the engine that lets the open rows collapse to one class — <em>when its hypotheses hold.</em></li>
+<li><strong>Gauged Wess–Zumino obstruction theory</strong> (Hull–Spence, hep-th/9407196; Figueroa-O'Farrill–Stanciu, hep-th/9407149) shows the obstruction to gauging a WZ term is an <strong>equivariant-cohomology class</strong> of the target, with vanishing theorems only in low worldvolume dimension. The decisive limitation, quoted verbatim in §4 below, is that the only $d=4$ vanishing theorem <strong>fails on both of its hypotheses</strong> for $SU(3)/T^2$.</li>
+<li><strong>Why prior attempts fall short for <em>this</em> object.</strong> There is <strong>no published computation</strong> of the $SU(3)/T^2$ gauged-WZ obstruction in the descended / boundary-lifted setting (independently confirmed, <code>01_DOSSIER.md</code> §E). So "no known route" is the honest, <em>verified</em> state of the literature, not a gap in the program's search. The frontier is real.</li>
+</ul>
+<hr />
+<h2>3. The construction — rigorous math</h2>
+<h3>3.1 The two certificates and the descent chain</h3>
+<p>UQF-4 demands two certificates: (i) $s^2 = 0$ order-by-order on the descended BV action, and (ii) every anomaly class vanishes on the physical Hilbert space after the descent under a fixed regulator. The descent chain (<code>01_DOSSIER.md</code> §1.1):</p>
+<pre><code>BV action of the descended theory  --check--&gt;  s^2 = 0 order-by-order   [classical: holds; quantum-descent: UNVERIFIED]
+chiral content E of the branch     --4D SM ledger + even/odd rules--&gt;   10/16 perturbative classes cancel   [DERIVED-GIVEN-E]
+S^1/Z_2 boundary + K_6 x S^2       --Horava-Witten / Dai-Freed eta--&gt;   5/16 boundary/global/inflow classes [AUDIT: not computed]
+K_6 = SU(3)/T^2 coset twist        --non-perturbative BV-BRST descent-&gt; 1/16 coset-twist class (row 17)      [the binding object]
+</code></pre>
+<h3>3.2 The perturbative cocycle — IMPLEMENTED and VERIFIED target-blind</h3>
+<p>This is the one leg fully provable now, and it was <em>executed</em>, not merely cited. Each of the six local anomaly polynomials was evaluated directly on the SM one-generation chiral content (left-handed Weyl convention, $Q = T_3 + Y$) by exact rational arithmetic, with the spectrum as input and the cancellation read off — never assumed (<code>01_DOSSIER.md</code> §F.1):</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Coefficient structure on E</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$[U(1)_Y]^3 = \sum \text{mult}\cdot Y^3$</td>
+<td>rational sum over the generation</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>$[\text{grav}]^2\,U(1)_Y = \sum \text{mult}\cdot Y$</td>
+<td>rational sum</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>$[SU(2)]^2\,U(1)_Y = \sum_{\text{doublets}} N_c\,Y$</td>
+<td>$3\cdot\tfrac16 - \tfrac12$</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>$[SU(3)]^2\,U(1)_Y = \sum_{\text{triplets}} N_w\,Y$</td>
+<td>$2\cdot\tfrac16 - \tfrac23 + \tfrac13$</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>$[SU(3)]^3$ (triality)</td>
+<td>$Q_L(+1) + u_c(-1) + d_c(-1)$ by weak mult.</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>Witten $[SU(2)]$ mod 2</td>
+<td># doublets $= 3 + 1 = 4$</td>
+<td><strong>even ⇒ 0</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Independent reproduction.</strong> A fresh script, using exact <code>Fraction</code> arithmetic and its own spectrum table (not the corpus's), recomputed all six to zero, and the <strong>diagnostic sum $\sum \text{mult}\cdot Y^2 = 10/3 \neq 0$</strong> confirms the cancellation is <em>specific to this E</em> — not an artifact of a trivially vanishing sum. This matches the independently-authored SG-4 anomaly ledger to the digit (<code>01_DOSSIER.md</code> §F.1; <code>UQF4_COMPLETION_RESULT.md</code> §0.1, §5 R1). <strong>Two independent derivations agree.</strong></p>
+<p><strong>Disposition: DERIVED-GIVEN-E.</strong> Real recovered physics — <em>given E</em>. The falsification test was applied: this is a <em>filter</em>, not a <em>selector</em> (§3.7). It is the degree-0 / free part of the single obstruction class evaluated on E.</p>
+<h3>3.3 Classical BRST nilpotency — VERIFIED</h3>
+<p>On the descended BV action, $s$ acts on fields, ghosts $c^a$, and antifields with</p>
+<p>$$
+s\,c^a = -\tfrac12 f^a{}_{bc}\,c^b c^c, \qquad s\,\phi = R^a\phi\,c_a .
+$$</p>
+<p>Classically $s^2 = 0$ is equivalent to the Jacobi identity of the gauge algebra plus closure — both inherited from the descended algebra $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak{u}(1)$, which <em>is</em> a Lie algebra, so Jacobi holds (<code>01_DOSSIER.md</code> §F.3). This is genuinely provable and holds. The <em>quantum</em> statement — that the BV Laplacian $\Delta$ of the <strong>descended</strong> measure (KK tower + orbifold projection + the coset ghost sector of $K_6 = SU(3)/T^2$) produces no $\hbar^1$ obstruction — is the $\hbar^1$ component of the <em>same</em> cocycle, and it does <strong>not</strong> separate from the coset class (§3.6). So the classical leg is VERIFIED; the quantum-descended leg is OPEN, and it is the same object as the binding blocker.</p>
+<h3>3.4 The single class — the structural reduction (REDUCE, not RELOCATE)</h3>
+<p>The load-bearing structural result: after the perturbative classes cancel, the remaining global/boundary/inflow obstructions are <strong>homogeneous components of one class</strong> — the partition-function phase as an Anderson-dual bordism invariant on the active branch (Freed–Hopkins / Grady engine). Concretely the formerly-scattered rows are one even-degree class seen under several lenses: the order-$\hbar$ BV-Laplacian obstruction, the $K_6\times S^2$ Dai–Freed row, the boundary η-phase, and the existence-of-tangential-structure input (<code>UQF4_COMPLETION_RESULT.md</code> §2; <code>01_DOSSIER.md</code> §F.5 "Unification check").</p>
+<p>This lowers the count of independent open objects to (essentially) one rather than shuffling the mystery into a new premise. The harder-subproblem check passes: the Phase-2 task is one bordism/η computation, <em>strictly smaller</em> than "verify 16 rows + 2 certificates" (<code>certificates/UQF4_OMEGA_REAL/00_RESULT.md</code> §3). But the unification is <strong>structural, not a closure</strong> — naming the single class is not evaluating it.</p>
+<h3>3.5 The tangential structure ξ — SPECIFIED (type-level), EXISTENCE blocked</h3>
+<p>The Grady engine classifies anomalies of a reflection-positive invertible theory of <em>fixed symmetry type</em> ξ by $(I\Omega^\xi)^{d+1}(\mathrm{pt})$, the Anderson dual of the ξ-bordism spectrum $MT\xi$. So <strong>no ξ ⇒ no $MT\xi$ ⇒ no bordism group ⇒ the class is not even an element of any group</strong> (<code>certificates/UQF4_OMEGA_REAL/03_TANGENTIAL_STRUCTURE.md</code> §1). ξ must be pinned before the target group and before any class.</p>
+<p>The construction distinguishes two claims, and the distinction is load-bearing:</p>
+<ul>
+<li><strong>(D) ξ is <em>specified</em> as a definite structure-type</strong> — a well-formed $(B, f:B\to BO)$ / Thom spectrum $MT\xi$.</li>
+<li><strong>(E) ξ <em>exists</em> on the descended branch</strong> — the branch admits the required reduction; $MT\xi$ is realized by the actual geometry.</li>
+</ul>
+<p><strong>(D) is ACHIEVED.</strong> The base is a $\mathrm{Spin}^c\text{-}(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ structure (the $\mathbb Z_6$ identifies fermion parity $(-1)^F$ with the gauge center; the hypercharge $U(1)$ plays the $\mathrm{Spin}^c$ determinant-line role on $\mathcal M_4 \times S^1_Y/\mathbb Z_2$), decorated by <strong>five geometry-forced twists</strong> (<code>03_TANGENTIAL_STRUCTURE.md</code> §3):</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Twist</th>
+<th>Source</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T-∂</td>
+<td>boundary / orbifold twist ($S^1_Y/\mathbb Z_2$, two walls)</td>
+<td>the orbifold interval</td>
+<td>ξ is a structure on a manifold-with-boundary; natural anomaly home is $d+1=5$ (HW inflow)</td>
+</tr>
+<tr>
+<td>T-cs</td>
+<td>coset twist of $K_6 = SU(3)/T^2$ (gauged flag-WZ)</td>
+<td>the coset</td>
+<td>adds the equivariant $SU(3)$ data; this is where $[\omega]$ enters ξ</td>
+</tr>
+<tr>
+<td>T-g</td>
+<td>gauge-bundle twist for $G = (SU(3)\times SU(2)\times U(1))/\mathbb Z_6$</td>
+<td>the gauge bundle</td>
+<td>makes $MT\xi$ a Thom spectrum over (the $\mathbb Z_6$-twisted) $BG$</td>
+</tr>
+<tr>
+<td>T-6</td>
+<td>$\mathbb Z_6$-center twist</td>
+<td>the center identification</td>
+<td>part of the structure group; sets the torsion in $A$</td>
+</tr>
+<tr>
+<td>T-3</td>
+<td>$\mathbb Z_3$-center / $Q_1 = \beta P^1$ twist</td>
+<td>the $SU(3)$ center</td>
+<td>degree-5 Milnor primitive in the $\mathbb Z_3$-twisted sector; the operative R4 class</td>
+</tr>
+</tbody>
+</table>
+<p>Each twist is <strong>read off a frozen datum before any anomaly value is known</strong> — a twist would be illegitimate only if added to force cancellation. (Falsification test: hide the answer; every twist is still required. PASS.)</p>
+<p><strong>(E) is BLOCKED — this is OPEN-1, the spine residual.</strong> Whether the branch <em>admits</em> ξ is a characteristic-class / orientability / integrality / bordism-<strong>existence</strong> question, <strong>not</strong> an anomaly-vanishing question, and logically upstream of every class value. The dedicated existence certificate returns <strong><code>BLOCKED_MISSING_CHARACTERISTIC_DATA</code></strong> (<code>certificates/UQF4_XI_EXISTENCE/00_RESULT.md</code>). Its obstruction tower splits into five:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Obstruction</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O1</td>
+<td>Orientability $w_1 = 0$ ($\mathbb Z_2$ reflection on $S^1_Y$ is orientation-reversing)</td>
+<td><strong>DISSOLVED</strong> — false obstruction once ξ is read as a relative/boundary Dai–Freed structure</td>
+</tr>
+<tr>
+<td>O2</td>
+<td>$\mathrm{Spin}^c$ base $W_3 = \beta w_2 = 0$ ($\mathcal M_4$ spin$^c$ · $K_6$ Kähler/Fano spin$^c$ · $S^2$ spin)</td>
+<td><strong>BANKED — clean</strong> (product of spin$^c$ is spin$^c$)</td>
+</tr>
+<tr>
+<td>O3</td>
+<td>Spin-$G$/center twist $w_2(X) + f^*\zeta = 0$ ($\zeta$ classifies $\mathbb Z_6\to\tilde G\to G$)</td>
+<td><strong>OPEN — load-bearing; branch $w_2$/flux data UNBUILT</strong></td>
+</tr>
+<tr>
+<td>O4</td>
+<td>Coset twist on $K_6$</td>
+<td><strong>BANKED — likely clean</strong> (conditional on O3)</td>
+</tr>
+<tr>
+<td>O5</td>
+<td>Boundary $\mathbb Z_2$ walls → Pin$^c$/relative Dai–Freed (shared blocker <strong>B2</strong>)</td>
+<td><strong>OPEN — UNBUILT</strong> (also blocks UQF-3)</td>
+</tr>
+</tbody>
+</table>
+<p>The named missing datum: the <strong>target-blind evaluation of $w_2(X) + f^*\zeta = 0$ in $H^2(X;\mathbb Z_2)$</strong> on the branch's <em>actual</em> bundle data — the parities of (a) $SU(2)_L$ weak-isospin flux on $S^2$, (b) $U(1)_Y$ hypercharge flux on $S^2$, (c) Wilson-line/flux content over the two 2-cycles of $K_6$ — plus the B2 relative/Pin$^c$ boundary structure. Until both are assembled, existence is BLOCKED. <strong>If $w_2 + f^*\zeta \neq 0$ with no compensating twist, the gate is REFUTED</strong> (the invariant is nonexistent, not zero) (<code>UQF4_XI_EXISTENCE/00_RESULT.md</code> decision rule).</p>
+<h3>3.6 The coset-WZ class $[\omega]$ — DEFINED, value NOT asserted</h3>
+<p>The gauged-WZ obstruction is an $SU(3)$-equivariant class of the target $K_6 = SU(3)/T^2$ (FOS/Hull–Spence). For the homogeneous space $G/H$ with $G = SU(3)$, $H = T^2$ (<code>certificates/UQF4_OMEGA_REAL/06_COSET_WZ_CLASS.md</code> §1):</p>
+<p>$$
+H^*_{SU(3)}(SU(3)/T^2) \;\cong\; H^*_{T^2}(\mathrm{pt}) \;=\; H^*(BT^2) \;=\; \mathbb Z[u_1, u_2], \qquad \deg u_i = 2 .
+$$</p>
+<p><strong>Even-degree, polynomial on two degree-2 generators</strong> (the $T^2$ weights). The class is built explicitly in the Cartan model of $SU(3)$-equivariant cohomology, $\Omega^*_{SU(3)}(K_6) = (S(\mathfrak{su}(3)^*)\otimes\Omega^*(K_6))^{SU(3)}$, with equivariant differential $d_{SU(3)} = d - \iota_{V_a}\varphi^a$. Take the invariant closed flag-σ WZ form $H \in \Omega^{\text{even}}(K_6)$ (degree 4 is load-bearing). Gauging requires lifting $[H]$ to an $SU(3)$-equivariantly closed form; the <strong>obstruction</strong> to that lift is</p>
+<p>$$
+[\omega]_{\text{bulk}} \;:=\; \text{(obstruction to the equivariant extension of }[H]\text{)} \;\in\; H^*_{SU(3)}(SU(3)/T^2) = \mathbb Z[u_1, u_2].
+$$</p>
+<p>It is computable in $\mathbb Z[u_1,u_2]$ from the $T^2$-isotropy weights and the cubic Casimir — <em>but its value is a downstream computation.</em> The construction returns a definite element whether or not it is zero (falsification test: works if nonzero. PASS) (<code>06_COSET_WZ_CLASS.md</code> §2).</p>
+<h3>3.7 The $d\le 3$ / $d = 4$ split — the decisive PROVEN-vs-OPEN line</h3>
+<p>The worldvolume dimension controls which Figueroa-O'Farrill–Stanciu (FOS) theorem applies (<code>06_COSET_WZ_CLASS.md</code> §3; <code>UQF4_COMPLETION_RESULT.md</code> §4):</p>
+<table>
+<thead>
+<tr>
+<th>worldvolume $d$</th>
+<th>applicable theorem</th>
+<th>outcome for $[\omega]_{\text{bulk}}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$d \le 3$</td>
+<td><strong>FOS Cor 7.5</strong> (target $H^1(M)=0$; $K_6$ simply connected ⇒ holds)</td>
+<td><strong>PROVEN VANISHING</strong> ✓</td>
+</tr>
+<tr>
+<td>$d = 4$ ($=\mathcal M_4$)</td>
+<td><strong>FOS Cor 7.6 — DOES NOT APPLY</strong></td>
+<td><strong>OPEN / a priori nonzero</strong> — the binding part</td>
+</tr>
+</tbody>
+</table>
+<p>FOS Cor 7.6 (the <em>only</em> $d=4$ vanishing theorem) needs <strong>both</strong> $H^2(M) = 0$ <strong>and</strong> the group to have no cubic Casimir. For this model <strong>both hypotheses fail</strong>: $H^2(SU(3)/T^2) = \mathbb Z^2 \neq 0$, and $SU(3)$ has a nonzero cubic Casimir (the $d$-symbol). So the $d=4$ part is <strong>not protected</strong>. This is a statement about <em>which theorem applies where</em>, not a claim of vanishing.</p>
+<h3>3.8 The boundary lift — DEFINED</h3>
+<p>The boundary $S^1_Y/\mathbb Z_2$ and Hořava–Witten inflow define a lift (<code>06_COSET_WZ_CLASS.md</code> §4; <code>certificates/UQF4_OMEGA_REAL/07</code>):</p>
+<p>$$
+[\omega]_{\text{lifted}} \;:=\; L_\partial\big([\omega]_{\text{bulk}}\big) \;\in\; A = (I\Omega^\xi)^5(\mathrm{pt}),
+\qquad L_\partial = \delta_{DF}\circ\sigma_\partial\circ r ,
+$$</p>
+<p>a composite of three standard natural maps (Borel realization $r$, the Hořava–Witten inflow suspension $\sigma_\partial: d\to d+1$, and the Dai–Freed / Anderson-dual landing $\delta_{DF}$). The $d=4$ even-degree bulk class, pushed across the boundary, becomes a $d+1 = 5$ global (η / secondary-operation) class, and $5 = 4+1$ is exactly the degree of the $\mathbb Z_3$-twisted Milnor primitive $Q_1 = \beta P^1$ (the $d_5$ AHSS differential at $p=3$, the $SU(3)$ center being $\mathbb Z_3$). <strong>The dimension arithmetic is forced by the geometry, not chosen.</strong> This is the precise content of "no known route": FOS vanishing is a $d\le 4$ <em>worldvolume</em> statement, and after the lift the object is a $d+1=5$ <em>bordism/inflow</em> class. No theorem in the literature vanishes the lifted $SU(3)/T^2$ gauged-WZ class.</p>
+<h3>3.9 The one class, several hats</h3>
+<p>$[\omega]_{\text{lifted}} \in A$ simultaneously is (<code>06_COSET_WZ_CLASS.md</code> §5; <code>01_DOSSIER.md</code> §D.3):</p>
+<ol>
+<li><strong>R4 / row 17</strong> — the coset-twist non-perturbative descent anomaly;</li>
+<li><strong>R2-quantum</strong> — the $\hbar^1$ BV-Laplacian obstruction of the coset-ghost measure;</li>
+<li><strong>the coset row of R3</strong> — the Dai–Freed / η global anomaly on $K_6\times S^2$ carrying the $\mathbb Z_3$ $d_5 = \beta P^1$ class.</li>
+</ol>
+<p>Constructing it once defines all three. <strong>But "compute one number" understates it</strong>: closure requires <em>three target-blind checks on that one class</em> — (1) that the ξ-structure exists so the invariant is <em>defined</em> (OPEN-1, §3.5), (2) that the invertible Anderson-dual classification <em>applies</em> to the interacting coset-WZ sector (the applicability premise), and (3) that the class <em>vanishes</em> — plus the order-$\hbar$ descended nilpotency, which is the <em>same</em> class, not a separable side-check. So the gate has <strong>one mathematical object left, not a single scalar</strong> (<code>UQF4.md</code> handoff §"The spine"; <code>01_DOSSIER.md</code> §D.4).</p>
+<h3>3.10 Filter, not selector (the dissolution)</h3>
+<p>The map $E \mapsto (A_{Y^3}, A_{\text{grav}Y}, A_{SU2}, A_{SU3\text{sq}}, A_{SU3\text{cube}}, w_2)$ is a fixed multilinear/linear functional. Its kernel is infinite-dimensional — adding any vector-like pair $R\oplus\bar R$ leaves every entry fixed — so $O(E) = 0$ has <strong>infinitely many solutions</strong> and cannot single out E (<code>01_DOSSIER.md</code> §F.2). Anomaly cancellation is a <strong>consistency filter on E, never a selector of E.</strong> The "anomaly picks the spectrum" reading is a category error, DISSOLVED, and carried at the headline so the perturbative win is not over-read.</p>
+<hr />
+<h2>4. The insights we used</h2>
+<p>These are the moves that produced the progress — shared at working-physicist depth so the result is reproducible and the gaps are closeable.</p>
+<h3>4.1 Make the obstruction <em>real</em> before computing it (EXISTENCE → IDENTITY → VALUE)</h3>
+<p>The campaign's most useful discipline is a three-step ladder: first show the obstruction is a <strong>well-defined object</strong> (EXISTENCE), then pin <strong>which</strong> object it is (IDENTITY), only then evaluate its <strong>VALUE</strong>. Phase 1 (<code>OMEGA-REAL</code>) delivered <em>only</em> the first step: ξ, the target group $A$, the BV complex, $[\omega]_{\text{bulk}}$, the lift $L_\partial$, and $\alpha_{\text{total}}$ are all canonically constructed and pass nine well-definedness falsification tests — <strong>with the value refused</strong> (<code>certificates/UQF4_OMEGA_REAL/00_RESULT.md</code>). This is a genuine advance: before it, the gate had a <em>named pathway</em> with no defined object; after it, the obstruction is a real, target-blind, computable element of a definite group. Skipping the ladder — jumping to VALUE before EXISTENCE — is exactly how the campaign's own later over-claim happened (§4.4).</p>
+<h3>4.2 Compression via the Anderson-dual engine (and keeping the engine off the floor)</h3>
+<p>The reduction of a dozen scattered rows to one class rests on Grady's proof of Freed–Hopkins: anomalies of reflection-positive invertible theories of fixed symmetry type are the Anderson dual of the bordism spectrum. The insight that makes this <em>honest</em> is keeping the engine <strong>off the axiom floor</strong>: it is a theorem-with-hypotheses (reflection-positivity, invertibility, fixed ξ), not an axiom. Whether those hypotheses hold for the <em>interacting coset-WZ sector</em> is itself a check — the "applicability premise" — so the collapse is conditional, and the dossier says so (<code>01_DOSSIER.md</code> §§B–D; <code>UQF4_COMPLETION_RESULT.md</code> §2). The elegant catch (Round-3 audit): row 17 is not a sibling of the other rows — it is the <strong>well-definedness precondition of the collapse itself</strong>. That is why it is special, and the audit <em>explains</em> the specialness rather than asserting it.</p>
+<h3>4.3 Use the dimension as structure (why the obstruction <em>survives</em>)</h3>
+<p>The Einstein-signature move: the binding blocker is not the bulk $d=4$ class but that class <strong>lifted across the boundary into the $d+1=5$ inflow problem</strong>, where the only protecting theorem (FOS, $d\le 4$) cannot reach it. One structural fact — boundary inflow raises the effective dimension by one — makes the hard thing fall out. "No known route" becomes "the descent transports the WZ obstruction out of the $d\le 4$ regime that would have killed it." This <em>locates</em> the obstruction precisely instead of merely recording its mystery (<code>01_DOSSIER.md</code> §C.1, §E.4).</p>
+<h3>4.4 Self-correction logged, not buried (two corrections)</h3>
+<p>Two over-claims produced inside this campaign were corrected on adversarial audit, and both corrections are recorded here because an honest downgrade should be logged:</p>
+<ul>
+<li><strong>The odd-degree no-go was wrong.</strong> An earlier framing put the blocker in a <strong>degree-3</strong> flag-manifold Wess–Zumino class with "no known route." But $SU(3)/T^2$ has cohomology in <em>even</em> degrees only ($H^0, H^2, H^4, H^6$; torsion-free; $H^2 = \mathbb Z^2$), so $H^3(SU(3)/T^2) = 0$ — <strong>there is no degree-3 WZ class to begin with</strong> (consistent with the flag-σ analysis of Karateev–Kravchuk–Serone–Tan, arXiv:2103.05035: the genuine terms are even-degree Chern–Simons). Building the odd-degree class would have been a <em>vacuous</em> existence claim. The honest residual is the <strong>even-degree</strong> class, with the $d=4$ part the binding piece (<code>UQF4_COMPLETION_RESULT.md</code> §4; <code>06_COSET_WZ_CLASS.md</code> §2).</li>
+<li><strong>The "$d\le 4$ bulk protection" was over-stated.</strong> An earlier statement asserted a verified $d\le 4$ vanishing theorem protects the bulk 4D class. That is false for the case of interest: FOS Cor 7.6 fails on <em>both</em> hypotheses here (§3.7). The corrected statement: $d\le 3$ proven, $d=4$ open.</li>
+</ul>
+<h3>4.5 The no-target-loading firewall (refuse to assume α = 0)</h3>
+<p>The most tempting non-closure is to "close" the gate by <em>assuming</em> the open class vanishes. This is <strong>REJECTED</strong> everywhere in the corpus as target-loading: assuming the answer relocates the entire mystery into one premise and would make the result worthless (<code>01_DOSSIER.md</code> §4.2 Route B; §A no-target-loading self-check). The same firewall applies to regulators: a regulator chosen so the descent closes is a hidden knob and <strong>refutes</strong> the row rather than closing it. Scheme-independence is automatic <em>only</em> when a row is delivered in manifest bordism/η form (where it is a corollary). The gate has <strong>no number to hit</strong> — the only "value" is zero, and zero is exactly what is refused.</p>
+<hr />
+<h2>5. Evidence &amp; reproducibility</h2>
+<h3>5.1 The witness ledger (what reproduces, honestly)</h3>
+<p>From <code>01_DOSSIER.md</code> §2.1, with the honest reproduces-flags:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Witness</th>
+<th>Grade</th>
+<th>Reproduces?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1</td>
+<td>SM perturbative cancellation ($SU(3)^3$, $SU(2)$-Witten, $U(1)^3$, gauge-grav)</td>
+<td>hand-checkable</td>
+<td><strong>Yes (given-E)</strong> — exact-arithmetic recompute; specificity $\sum Y^2 = 10/3 \neq 0$</td>
+</tr>
+<tr>
+<td>W2</td>
+<td>Even/odd-dimension descent inheritance</td>
+<td>symbolic</td>
+<td>Yes in principle; not re-derived for the branch here</td>
+</tr>
+<tr>
+<td>W3</td>
+<td>Classical BV–BRST $s^2 = 0$</td>
+<td>symbolic</td>
+<td><strong>Yes (classical)</strong>; order-$\hbar$ descended check NOT done</td>
+</tr>
+<tr>
+<td>W4</td>
+<td>$S^1/\mathbb Z_2$ boundary anomaly (HW inflow)</td>
+<td>machine/symbolic</td>
+<td><strong>NO</strong> — machinery defined, calculation not performed</td>
+</tr>
+<tr>
+<td>W5</td>
+<td>Dai–Freed / Freed–Hopkins global rows</td>
+<td>symbolic</td>
+<td><strong>NO</strong> — criterion named, bordism computation not done</td>
+</tr>
+<tr>
+<td>W6</td>
+<td>Bulk–boundary inflow row</td>
+<td>symbolic</td>
+<td><strong>NO</strong> — named, not computed</td>
+</tr>
+<tr>
+<td>W7</td>
+<td>Coset-twist / non-perturbative descent (row 17)</td>
+<td>—</td>
+<td><strong>NO</strong> — value uncomputed/contested; existence blocked</td>
+</tr>
+<tr>
+<td>W8</td>
+<td>Artifacts U05/U08 + frozen inputs (Appendix U)</td>
+<td>machine-lane</td>
+<td>AUDIT — referenced, not independently re-run; back the <em>inputs</em>, not the open rows</td>
+</tr>
+</tbody>
+</table>
+<h3>5.2 The certificate trail (what exists, and exactly what each says)</h3>
+<p>The certificate folder <code>UQF4_COMPLETION_HANDOFF/certificates/</code> carries four certificates. <strong>Read what each actually certifies</strong> — the differences are load-bearing:</p>
+<ul>
+<li><strong><code>UQF4_OMEGA_REAL/</code> → STATUS = <code>OMEGA_EXISTS</code>.</strong> The boundary-lifted obstruction $[\omega]_{\text{lifted}}$ and the total $\alpha_{\text{total}} = \alpha_{\text{pert}} + \alpha_{\text{boundary}} + \alpha_{DF} + \alpha_{\text{inflow}} + [\omega]_{\text{lifted}} \in A$ are canonically constructed and well-defined; all six required objects (ξ-type, $A$, BV complex, $[\omega]_{\text{bulk}}$, $L_\partial$, $\alpha_{\text{total}}$) are defined; all nine well-definedness falsification tests pass. <strong>This is a statement about the OBJECT, not its VALUE.</strong> The gate stays AUDIT (OPEN) (<code>OMEGA_REAL/00_RESULT.md</code>).</li>
+<li><strong><code>UQF4_OMEGA_COMPUTE/</code> → ROW 17 = <code>OMEGA_CONTESTED</code>.</strong> This certificate <em>attempted</em> the value and produced a candidate <code>OMEGA_VANISHES</code> (global facet $\in \mathrm{Ext}(\Omega^{\mathrm{Spin}^c}_5(B(G_{\text{SM}}/\mathbb Z_6))) = \mathrm{Ext}(0) = 0$, via DGL arXiv:1910.11277). <strong>That headline was WITHDRAWN on governance audit as a recordable verdict</strong> (<code>OMEGA_COMPUTE/00_RESULT.md</code> top banner). The recordable result is: gate = AUDIT (OPEN); $[\omega]_{\text{lifted}}$ value = UNCOMPUTED / CONTESTED.</li>
+<li><strong><code>UQF4_ROW17_REPAIR/</code> → <code>OMEGA_UNCOMPUTED / OMEGA_CONTESTED</code>.</strong> Records the three repairs logically prior to any row-17 value, each <strong>still owed</strong>: R-deg (degree placement $(I\Omega^\xi)^5$ vs $(I\Omega^\xi)^6$ / $\Omega_4$ vs $\Omega_5$), R-id (target identity — canonical refined-PSU(3)/one-form-center object vs bare $B(G_{\text{SM}}/\mathbb Z_6)$; spin$^c$-with-B–L vs pure-gauge), R-2rt (two genuinely independent routes; DGL read multiple times is one lineage).</li>
+<li><strong><code>UQF4_XI_EXISTENCE/</code> → <code>BLOCKED_MISSING_CHARACTERISTIC_DATA</code>.</strong> The OPEN-1 existence check (§3.5): O3 and O5/B2 open, missing datum = the target-blind $w_2 + f^*\zeta$ evaluation plus the relative/Pin$^c$ boundary object.</li>
+</ul>
+<h3>5.3 Why the withdrawal matters (the honesty hinge of this dossier)</h3>
+<p>The candidate "$[\omega]_{\text{lifted}} = 0$" rests on three contested moves (<code>10_ROW17_CONTESTED_DISPOSITION_2026-06-25.md</code>): (a) a <strong>degree relocation</strong> that contradicts Phase 1's own placement of the class — the $d\to d+1$ inflow shift must not double as the vanishing move; (b) a <strong>contaminated citation provenance</strong> — DGL establishes $\Omega_5 = 0$ for pure $G_{\text{SM}}/\mathbb Z_6$ in <em>Spin</em> bordism and in the spin$^c$ context <strong>where B–L is gauged</strong>, a provenance not re-audited on this load-bearing torsion claim; (c) a <strong>probable object-substitution</strong> vs the canonical refined-PSU(3) R4 target. Governance flagged this as a <strong>CLAIM_BOUNDARY_VIOLATION</strong> — a contested degree-convention judgment dressed as a target-blind theorem. <strong>It is not recorded as a vanishing, and this dossier does not revive it.</strong> What is safe to record is Phase-1 <code>OMEGA_EXISTS</code> and the contested status of the value.</p>
+<h3>5.4 The R3 five-row disposition (<code>R3_PARTIAL_AUDIT</code>)</h3>
+<p>The five boundary/Dai–Freed/inflow rows split into LOCAL (free-part) and GLOBAL (torsion-part) rows (<code>12_R3_FIVE_ROW_TARGET_BLIND_AUDIT_2026-06-26.md</code>):</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Row</th>
+<th>Facet</th>
+<th>Disposition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>$S^1_Y/\mathbb Z_2$ wall fermion anomaly (global)</td>
+<td>torsion $\mathrm{Ext}(\Omega_5)$</td>
+<td><strong>UNDEFINED/CONTESTED</strong> — contested degree; conditional on OPEN-1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Hořava–Witten bulk-CS inflow (local)</td>
+<td>free $\mathrm{Hom}(\Omega_6)$</td>
+<td><strong>DERIVED-GIVEN-E</strong> (solid; R1 arithmetic)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Dai–Freed global on boundary</td>
+<td>torsion $\mathrm{Ext}(\Omega_5)$</td>
+<td><strong>UNDEFINED/CONTESTED</strong> — same $\Omega_5$ fact, contested degree</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Dai–Freed global on $K_6\times S^2$ ($\mathbb Z_3$/$Q_1=\beta P^1$)</td>
+<td>torsion $\mathrm{Ext}(\Omega_5)$</td>
+<td><strong>CONTESTED/UNCOMPUTED — this IS row 17</strong>; not recordable as zero</td>
+</tr>
+<tr>
+<td>5</td>
+<td>bulk–boundary inflow balance (local)</td>
+<td>free $\mathrm{Hom}(\Omega_6)$</td>
+<td><strong>DERIVED-GIVEN-E</strong> (solid; R1)</td>
+</tr>
+</tbody>
+</table>
+<p>So <strong>two local rows are solid given-E; three global rows are undefined/contested</strong>, conditional on the unresolved OPEN-1. No row is established nonzero; no global row is a recordable zero.</p>
+<h3>5.5 Cross-gate corroboration (the gauge Dai–Freed ~74% partial)</h3>
+<p>An external finding (<code>project_dai_freed_global_anomaly_2026-06-28</code>, propagated into <code>01_DOSSIER.md</code> "Cross-gate propagation note 2026-06-29") chips the <strong>R3 gauge $\Omega_5$ Dai–Freed leg ONLY</strong>, with <strong>no bearing on R4</strong> (the coset-twist class is a distinct object). The orbifold <strong>mod-8 Dai–Freed object</strong> on the active branch is the same Pin/spin$^c$ lift bit BG-10 posits as $\sigma_\nu$; its <strong>default value, fixed by the global index $\chi = -3$, is $\sigma = 5 \bmod 8 = e^{-3i\pi/4}$.</strong> The separate <strong>gauge Dai–Freed class</strong> of that object computes to <strong>~74% vanishing — but CONDITIONAL</strong>: the AHSS differentials $d_3/d_5$ were <strong>not line-run</strong> for the active branch. So R3's grade is unchanged (AUDIT-with-roadmap) but now carries a <em>partial, conditional</em> computation rather than "nothing computed." <strong>"~74% conditional" ≠ "computed-to-cancel"</strong>; the firewall still applies. (BG-10's own status is honestly disfavored on this finding — its posited $\sigma_\nu = +1$ needs a $-4\bmod 8$ Pin$^-$ flip the frozen record does not force — but that is BG-10's disposition, not UQF-4's.)</p>
+<h3>5.6 How a reader re-runs it</h3>
+<ul>
+<li><strong>Perturbative leg (W1):</strong> write the SM one-generation spectrum in left-handed Weyl form with $Q = T_3 + Y$; evaluate the six polynomials of §3.2 by exact rational arithmetic; confirm all six $= 0$ and the diagnostic $\sum \text{mult}\cdot Y^2 = 10/3 \neq 0$. Cross-check against <code>SG4_ANOMALY_CLOSURE_RESULT.md</code> §3.</li>
+<li><strong>Classical nilpotency (W3):</strong> verify $s^2 = 0$ from $s\,c^a = -\tfrac12 f^a{}_{bc}c^bc^c$ on $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak{u}(1)$ — equivalent to Jacobi.</li>
+<li><strong>The single class (the open object):</strong> follow <code>OMEGA_REAL/03</code> (ξ), <code>04</code> ($A$), <code>06</code> ($[\omega]_{\text{bulk}}$, the Cartan-model construction and the FOS $d\le3$/$d=4$ split), <code>07</code> (the lift $L_\partial$). The value is <strong>not</strong> in any certificate as a recordable result — it is owed.</li>
+</ul>
+<hr />
+<h2>6. Open gaps + closure path (the specialist work plan)</h2>
+<p>The gate has <strong>one mathematical object</strong> open, wearing several hats that are <em>not all the same computation</em>, plus the existence precondition. Each hole below is a work-package. The strict dependency order is <strong>OPEN-1 (existence) → identity/degree repairs → value → the two-route reproduction</strong>: do not compute a value before the object exists and its identity is pinned.</p>
+<h3>Hole A — OPEN-1: does the ξ-structure EXIST on the branch? (the spine; highest leverage)</h3>
+<p><strong>(a) Precise statement.</strong> Decide whether the descended $M_4 \times K_6 \times S^2$-over-$S^1_Y/\mathbb Z_2$ branch <em>admits</em> the tangential structure ξ ($\mathrm{Spin}^c\text{-}(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ + the five twists). Concretely: evaluate $w_2(X) + f^*\zeta = 0$ in $H^2(X;\mathbb Z_2)$ on the branch's <em>actual</em> bundle data, and build the B2 relative/Pin$^c$ boundary object at the $S^1_Y/\mathbb Z_2$ walls. This is a characteristic-class / orientability / integrality question — <strong>not</strong> an anomaly-vanishing question. (<code>UQF4_XI_EXISTENCE/00_RESULT.md</code>.)</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> The required inputs are not yet assembled: the parities of (a) $SU(2)_L$ flux on $S^2$, (b) $U(1)_Y$ flux on $S^2$, (c) Wilson-line/flux content over the two 2-cycles of $K_6$. <strong>Traps the verifier already caught — do not repeat them:</strong> (i) Do <em>not</em> discharge O3 with DGL arXiv:1910.11277 — DGL compute $\Omega^{\mathrm{Spin}}_*(B(G_{\text{SM}}/\mathbb Z_6))$, the bordism of the <em>bare</em> gauge bundle, which <strong>presupposes</strong> the structure (cohomology-of-$BG$ $\neq$ the branch's $w_2$/flux) — this is the forbidden EXISTENCE→IDENTITY→VALUE inversion. (ii) Do <em>not</em> assume "yes" to pass the gate — a "yes" assumed is target-loading.</p>
+<p><strong>(c) Exactly what closes it.</strong> Compute $w_2 + f^*\zeta$ target-blind on the actual bundle data. <strong>$= 0$ ⇒ ξ exists ⇒ the class is defined</strong> (proceed to Hole B). <strong>$\neq 0$ with no compensating twist ⇒ <code>XI_NOT_ADMITTED</code> ⇒ the gate is REFUTED</strong> in the strongest way (the invariant is nonexistent, not zero — a genuine, valid close). O1 is already DISSOLVED (relative Dai–Freed reframe); O2, O4 are BANKED; the live obstructions are O3 and O5/B2.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Obstruction theory for lifting $\tau_X: X\to BO$ through $\xi: B\xi\to BO$; $\mathrm{Spin}^c$/$\mathrm{Spin}$-$G$ characteristic classes; relative/Pin$^c$ Dai–Freed boundary structure. Start from <code>UQF4_XI_EXISTENCE/00_RESULT.md</code>, <code>OMEGA_REAL/03_TANGENTIAL_STRUCTURE.md</code> §§2–5, and the frozen flux data on the active branch.</p>
+<p><strong>(e) Leverage.</strong> OPEN-1 is the single residual that gates <em>everything</em>: Holes B, C, D are all downstream of it (the class is not an element of any group until ξ exists). O5/B2 is the <strong>shared blocker that also moves UQF-3</strong> (the physical-Hilbert gate). Closing OPEN-1 is the highest-leverage single move in the gate.</p>
+<h3>Hole B — the value of the boundary-lifted even-degree class $[\omega]_{\text{lifted}}$ (the binding object, downstream of A)</h3>
+<p><strong>(a) Precise statement.</strong> Evaluate $[\omega]_{\text{lifted}} = L_\partial([\omega]_{\text{bulk}}) \in A = (I\Omega^\xi)^5(\mathrm{pt})$ on the active branch, target-blind: the relevant bordism group plus the η-invariant phase on the generators, with the $d_5 = Q_1 = \beta P^1$ differential at $p=3$ evaluated on the operative class. The $d\le 3$ part is <strong>provably zero</strong> (FOS Cor 7.5). The $d=4$ part is <strong>unprotected</strong> (FOS Cor 7.6 fails — $H^2(SU(3)/T^2) = \mathbb Z^2 \neq 0$ <em>and</em> $SU(3)$ has a cubic Casimir). (<code>06_COSET_WZ_CLASS.md</code>; <code>OMEGA_REAL/04</code>.)</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> No published computation of the descended/boundary-lifted $SU(3)/T^2$ gauged-WZ obstruction exists — this is a genuine frontier. <strong>The exact trap the campaign fell into (and that was withdrawn):</strong> the first-pass plug declared <code>OMEGA_VANISHES</code> via $\mathrm{Ext}(\Omega^{\mathrm{Spin}^c}_5(B(G_{\text{SM}}/\mathbb Z_6))) = \mathrm{Ext}(0) = 0$, but this was a <strong>CLAIM_BOUNDARY_VIOLATION</strong> for three reasons that must be repaired <em>first</em> (the R-deg/R-id/R-2rt repairs of <code>UQF4_ROW17_REPAIR</code>): the <strong>degree</strong> was relocated ($(I\Omega^\xi)^5$ vs $(I\Omega^\xi)^6$; $\Omega_4$ vs $\Omega_5$) so the $d\to d+1$ inflow shift double-counted as the vanishing move; the <strong>object identity</strong> was probably substituted (bare $B(G_{\text{SM}}/\mathbb Z_6)$ vs the canonical refined-PSU(3)/one-form-center target; spin$^c$-with-B–L vs pure-gauge); and <strong>DGL read several times is one lineage</strong>, not two independent routes. Do not relocate the degree; do not substitute the object; do not count one citation as two routes.</p>
+<p><strong>(c) Exactly what closes it.</strong> Compute the value in <strong>manifest bordism/η form</strong> (so scheme-independence is automatic), at the degree Phase 1 fixed, on the canonical refined target. <strong>Vanishes ⇒ the binding obstruction is gone (proceed toward DERIVED-GIVEN-E).</strong> <strong>Nonzero ⇒ the theory is REFUTED on the active branch</strong> (a valid close). <strong>Regulator doing the cancellation work ⇒ REFUTES the row</strong> (hidden knob).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> AHSS / James spectral sequence for $MT\xi$ (inputs: $H^*(BG)$, $H^*(SU(3)/T^2) = \mathbb Z[t_1,t_2,t_3]/(\sigma_1,\sigma_2,\sigma_3)$, the $\mathbb Z_6$/$\mathbb Z_2$ twists) + Anderson duality; the $\mathbb Z_3$ untwisted-survival + $\tau_{K_6} = (2,2)$ lever (<code>OMEGA_REAL/04</code>, <code>06</code>; <code>OMEGA_COMPUTE/01</code>). The Cartan-model construction of $[\omega]_{\text{bulk}}$ is in <code>06</code> §2.</p>
+<p><strong>(e) Leverage.</strong> This is the <strong>same class as Holes C and the quantum leg of the nilpotency check</strong> (§3.9) — settling it settles all three at once. It is the gate's binding blocker.</p>
+<h3>Hole C — the order-$\hbar$ (quantum) descended BV–BRST nilpotency</h3>
+<p><strong>(a) Precise statement.</strong> Verify the quantum master equation $\tfrac12(S,S) = i\hbar\,\Delta S$ order-by-order on the <em>descended</em> BV action — i.e. that the BV Laplacian $\Delta$ of the descended (orbifold + KK + coset-ghost) measure produces no $\hbar^1$ obstruction. Classical $s^2 = 0$ already holds (§3.3). (<code>01_DOSSIER.md</code> §F.3.)</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> The $\hbar^1$ piece is <strong>not independent</strong> of the coset sector: $\Delta$ on the flag-manifold ghost system is precisely where $[\omega]$ enters. So this does not separate from Hole B at one loop — it <em>is</em> a facet of the same class. The trap is treating it as a separable symbolic check that could "pass" while Hole B is open.</p>
+<p><strong>(c) Exactly what closes it.</strong> Either an order-by-order symbolic/machine-lane verification through $\hbar^1$ (which, by §3.9, <em>is</em> the $[\omega]_{\text{lifted}}$ evaluation) → <strong>VERIFIED</strong>; or, if it rests on a structural assumption, name it value-free (<strong>AXIOM-BV-NILPOTENCY-DESCENT</strong>) and mark <strong>AXIOM-CLOSED-pending = OPEN</strong>; failure ⇒ the gauge-fixing is inconsistent through the descent ⇒ <strong>REFUTED</strong>.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Descended BV action with the descended ghost sector / gauge-fixing fermion; the BV Laplacian of the orbifold+KK+coset-ghost measure (<code>OMEGA_REAL/05</code>).</p>
+<p><strong>(e) Leverage.</strong> Closes simultaneously with Hole B (same class). Independent value only as a consistency cross-check on the bordism computation.</p>
+<h3>Hole D — applicability of the invertible Anderson-dual classification to the interacting coset-WZ sector</h3>
+<p><strong>(a) Precise statement.</strong> Confirm that the descended coset-WZ anomaly is captured by the <strong>invertible</strong> Freed–Hopkins/Grady classification at all (vs requiring relative / non-invertible anomaly machinery). Grady's theorem has three load-bearing hypotheses — reflection-positivity, invertibility, fixed ξ — all of which must be checked for the descended branch. (<code>01_DOSSIER.md</code> §D.2; <code>OMEGA_REAL/03</code>.)</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> The Freed–Hopkins framework is invertible-theory machinery, while the gauged flag-manifold coset-WZ sector is a genuinely <em>interacting</em> structure. Whether its descent anomaly is <em>organized by</em> the invertible classification is an unverified premise that was silently smuggled inside "single class α" in early framings. The trap is assuming applicability because it is convenient for the collapse.</p>
+<p><strong>(c) Exactly what closes it.</strong> Check reflection-positivity + invertibility + the fixed ξ-structure for the descended branch (a bordism/orientability computation that overlaps with Hole A). If applicable ⇒ the single-class collapse is licensed and the anomaly is fully in $(I\Omega^\xi)^{d+1}$. If not ⇒ the rows do <strong>not</strong> collapse to one invertible class and the open content is larger than stated — sharper-OPEN (a valid, honest negative).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Grady arXiv:2310.15866 hypotheses; the structure of gauged-WZ anomaly theories as invertible/bordism-classified. The candidate resolution noted in <code>OMEGA_COMPUTE/00_RESULT.md</code> §2 ("a gauged-WZ anomaly theory is invertible") is <em>plausible but not independently established</em> on the canonical target — treat it as a check, not a result.</p>
+<p><strong>(e) Leverage.</strong> A facet of the same class (§3.9); resolves with Holes B/C. A <em>negative</em> here is the most informative outcome because it would re-expand the gate's open content.</p>
+<h3>Hole E — regulator / scheme-independence firewall (folds into B, C, D)</h3>
+<p><strong>(a) Precise statement.</strong> Show every computed row is regulator-independent — or that the regulator is fixed by the geometry, not chosen to cancel. (<code>01_DOSSIER.md</code> §F.6.)</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> Scheme-independence is <em>asserted</em> for the uncomputed rows. A regulator quietly doing the cancellation work is the single most dangerous hidden knob in the gate.</p>
+<p><strong>(c) Exactly what closes it.</strong> Deliver each row in <strong>manifest bordism/η form</strong>, where scheme-independence is automatic (a corollary, off the floor). A regulator doing the cancellation <strong>REFUTES</strong> the row.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Bordism/η representatives from Holes B–D; the no-target-loading falsification test (<code>OMEGA_REAL/09</code>).</p>
+<p><strong>(e) Leverage.</strong> Not closeable independently; it is the discipline that makes Holes B–D <em>count</em>.</p>
+<h3>6.1 Success/refute summary</h3>
+<p>The gate resolves the moment OPEN-1 is discharged and the single class is evaluated target-blind on the canonical object at the correct degree, with two independent routes and a manifest-bordism firewall:</p>
+<ul>
+<li><strong>ξ exists ∧ class vanishes ∧ nilpotency verified ∧ applicability confirmed ∧ scheme-independent ⇒ UQF-4 = DERIVED-GIVEN-E</strong> (closed given E).</li>
+<li><strong>ξ does not exist ⇒ REFUTED</strong> (invariant nonexistent). <strong>Class nonzero ⇒ REFUTED</strong> on the branch. <strong>Applicability fails ⇒ sharper-OPEN.</strong></li>
+</ul>
+<p>Every outcome is a valid close; <strong>none may be assumed.</strong></p>
+<hr />
+<h2>7. Honest ceiling &amp; scope</h2>
+<p><strong>What is claimed.</strong> Given the spectrum E, the perturbative Standard-Model anomalies cancel (independently reproduced by exact arithmetic; specific to E by the $\sum Y^2 = 10/3 \neq 0$ check); classical BRST nilpotency $s^2 = 0$ holds; and the scattered open rows are a single Anderson-dual / Dai–Freed even-degree class whose $d\le 3$ part provably vanishes (FOS Cor 7.5) and whose object is now canonically <em>defined</em> (Phase-1 <code>OMEGA_EXISTS</code>).</p>
+<p><strong>What is NOT claimed.</strong> The gate is <strong>not</strong> closed. The single class's value is <strong>uncomputed/contested</strong> (the candidate vanishing was withdrawn as a claim-boundary violation), its existence precondition is <strong>blocked on a named missing datum</strong> (OPEN-1), and its applicability premise is <strong>unchecked</strong>. No anomaly is asserted to vanish that was not computed.</p>
+<p><strong>The distinctions that bound the claim.</strong>
+- <strong>dissolved ≠ solved.</strong> "Anomaly selects the spectrum" is a dissolved category error; the perturbative win is a <em>filter on E</em>, not a <em>selector of E</em> (infinitely many anomaly-free spectra exist).
+- <strong>given-E ≠ derivation of E.</strong> The perturbative cancellation is DERIVED-GIVEN-E. Deriving E itself is an upstream gate (SG-2/SG-3) — anchor-transfer, not elimination.
+- <strong>selection ≠ derivation; "machinery exists" ≠ "calculation done"; a captured log ≠ an independent reproduction; ATOMIC floor ≠ closed gate.</strong></p>
+<p><strong>The anchors paid.</strong> UQF-4 rests on an <strong>ATOMIC floor of one measured anchor + one definition</strong>: ATOM-E (the chiral content E on which the obstruction is evaluated — the irreducible floor-of-one; the group and descent map are inherited from the frozen geometry via the isometries, not separate anchors) and ATOM-Q (the definitional name: quantum consistency = QME-solvability = anomaly-cocycle vanishing). The Grady single-class engine is correctly kept <strong>off</strong> the floor as a theorem-with-hypotheses. A floor of one measured invariant is the minimum honest bookkeeping permits — the correct outcome, not a deficiency.</p>
+<p><strong>The dissolved unicorns, framed as shared ceilings (never as our weakness, never as proven).</strong> That <em>no accepted theory has a complete non-perturbative anomaly-descent certificate for any realistic compactified model</em> is a community-wide open problem — demanding this program alone solve in full what nobody has solved is not a defect specific to us. And the earlier "no construction route in any prior work for the coset-twist descent" framing was itself <strong>rejected on internal audit</strong> as an over-broad universal-negative: the honest residual is a <em>bounded even-degree bordism/η computation</em>, not a no-go, and it must not be revived as a hole.</p>
+<p><strong>Scope ceiling.</strong> Even a fully clean UQF-4 is an <strong>anomaly-consistency leg only</strong> — no Osterwalder–Schrader/Wightman existence, no nontriviality, no spectral gap — so it <strong>cannot</strong> touch Gap-02 (the mass gap stays Precisely-OPEN) (<code>10_ROW17_CONTESTED_DISPOSITION_2026-06-25.md</code> §"Scope reminder"). Downstream, UQF-4's AUDIT status is contagious: it caps the unification paper at AUDIT and downgrades the gates that consume it (UQF-7, UQF-6 one tier each; UQF-3 loses its certificate) — exported to the downstream-gate dependency ledger to update automatically if UQF-4 moves.</p>
+<p><strong>Bottom line.</strong> UQF-4 is a <em>serious candidate / partial unification, NOT validated</em> — an honestly-held <strong>AUDIT (OPEN)</strong> gate that has been <strong>sharpened and corrected, not closed</strong>. The genuine gains are real: a verified, target-blind perturbative cancellation specific to E; a verified classical nilpotency; a structural compression of the open content to one defined class; and two logged self-corrections (the odd-degree no-go and the over-stated $d\le4$ protection). None is a promotion. The path forward is the bounded, target-blind program of §6 — existence first, then one bordism/η evaluation of the even-degree class — where <em>vanishing ⇒ DERIVED-GIVEN-E, nonzero or no-ξ ⇒ REFUTED</em>, computed, never assumed.</p>
+<p><em>Status: AUDIT (OPEN). No status promoted. Frozen branch read-only. Given-E ≠ derivation of E. Anchored ≠ derived. Assuming the open class vanishes: REJECTED.</em></p>
+</body></html>

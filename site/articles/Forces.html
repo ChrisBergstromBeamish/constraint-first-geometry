@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forces (Paper II): The Four-Force Interface</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">This framework GUT — Paper I, full three-layer rework (Appendix CR + Layer-1 claim spine + Layer-3 authority). Rendered from <code>Forces_F1_main_manuscript.md</code>.</div>
+<h1>A Four-Force Interface from the Frozen Paper-I Geometry</h1>
+<p><em>Paper II of the Fable pair — Layer F1, main force-interface claim spine.</em></p>
+<h2>One-Line Thesis</h2>
+<blockquote>
+<p><strong>The four forces are the symmetries of one small frozen shape.</strong></p>
+<p><em>Take a single six-dimensional shape, freeze it, and let the four forces be its symmetries — with </em><em>zero new dials</em><em> between the five strengths, two of them ($e$ and $G_F$) not predictions but identities that break against measurement if the geometry is wrong (§4 / §8–§9). It is sharp enough to be wrong on a napkin, and it tells you exactly where.</em></p>
+</blockquote>
+<hr />
+<h2>The Big Idea</h2>
+<blockquote>
+<p>Textbooks hand you four forces with five separate dial-like strengths and five disjoint origin stories: gravity with its own $G_N$, the strong force with $g_s$, the weak force with $g$, electromagnetism with $e$, and the Fermi scale $G_F$ — five disjoint origins, five effective theories that do not talk to each other.</p>
+<p>This paper makes one bet instead. Take a single small internal shape — the six-dimensional flag manifold $K_6 = SU(3)/T^2$, frozen by the companion GUT manuscript — and <em>let the forces be its symmetries.</em> The strong force is the shape's surviving rotation symmetry; the weak and electromagnetic forces descend from the two companion factors riding alongside it. Four explicit maps route each force out of the one shape. The payoff is thrift: the five force strengths add <strong>zero new dials</strong> — each is either read off the one frozen shape or computed from the others. Two of them, $e$ and $G_F$, aren't predictions at all but identities — and an identity that disagreed with experiment would prove the geometry wrong. Then an independent reality-check that the geometry is <em>buildable</em>: the same coset, built and simulated on open tools, is the admissibility chamber of a working error-corrector (§16, simulated grade — it changes no physics status). <em>Same shape, four forces, one machine — and it tells you exactly where it would break.</em></p>
+</blockquote>
+<p><strong>Core thesis (read this near the start).</strong></p>
+<blockquote>
+<p>This paper does not re-select the geometry and does not re-close Paper-I GUT certificates. It asks a narrower interface question: given the frozen Paper-I active branch, can gravity, strong, weak, and electromagnetic sectors be routed as compatible projections of the same geometry, with the expected low-energy textbook limits and explicit falsifiers?</p>
+<p>The four forces are not four independent stories. They are four projections of one frozen Paper-I active branch.</p>
+</blockquote>
+<hr />
+<h2>Abstract</h2>
+<p>This paper routes the four forces as four projections of one frozen six-dimensional shape — the constraint-selected 13D GUT geometry developed in the companion main manuscript. The active geometric backbone is $M_{13}=M_{3,1}\times K_6\times S^2\times S^1$ with $K_6=SU(3)/T^2$; the manuscript's layer separation between base geometry, finite rule constraints, and field/operator bundles (the $\times/\oplus/\otimes$ discipline) is defined where it is first used (§3). Every gate certificate this paper relies on lives externally in Paper I (Fable_GUT); this manuscript routes, not re-derives, them (WL-3, Reviewer First Read; §14).</p>
+<p>The purpose of this paper is narrower than a theory-of-everything claim. It shows how four familiar force sectors are routed through the same geometric backbone: gravity through the spacetime-facing metric block $G_{\mu\nu}$, the strong force through the surviving $SU(3)_c$ color action of $K_6$, the weak force through the $S^2$ spin-cover structure plus $S^1_Y$ hypercharge, and QED/electrostatics through the unbroken $U(1)_{\rm em}$ photon mode and its static Coulomb/Gauss-law limit. For an editor screening for scope: this is an <strong>interface/consistency paper</strong> — it re-closes no gate, inherits every certificate from Paper I, and is deliberately <strong>narrower than a theory of everything</strong> (§2, §12); the TOE-named sibling capsule is a separate state-ledger not under review here. Reading this paper does not require accepting any TOE claim.</p>
+<p>The paper is an interface and consistency document. It does not replace the main GUT manuscript's gate certificates, freeze records, or review protocol, and it claims none of the sectors listed in the non-claims boundary (§2 — full quantum gravity, nonperturbative QCD, strong CP, cosmology, dark matter, dark energy, baryogenesis). Its claim is that the four force interfaces can be written as mutually compatible projections of one shared geometry, with explicit low-energy targets and falsification conditions. The new contribution is therefore not only the four projection maps, but the Four-Force Constraint Backbone that makes the four maps mutually auditable as one interface rather than four independent sector summaries.</p>
+<p>This build organizes the paper around its own constraint list run in two tenses: the Four-Force Constraint Backbone (C-FF0–C-FF14, summarized in §4) is both the admissibility filter that defines the four projections and the test battery the finished interfaces must keep passing. Its headline is stated up front: the five textbook force strengths — $G_N$, $g_s$, $g$, $e$, $G_F$ — carry <strong>zero dials of their own</strong> in this routing, with $e$ and $G_F$ derived rather than independent (full provenance in §1). Each backbone row carries a machine certificate (Appendix Q, externalized to F3).</p>
+<hr />
+<h2>Supporting Documentation (exact-locator register)</h2>
+<p><em>Read-first audit aid; carries no claim and changes no status. This register pins the </em><em>canonical public URL</em><em> of every supporting document this paper depends on, so that every "Paper I", "companion", "F2/F3", "TOE_FINAL", "PDG", or "EXTERNAL" pointer in the body resolves to one unambiguous artifact rather than a vague "see the GUT paper". Inline references in the body cite these by short label (e.g. "Paper I App. F", "F3", "Paper II"); this table is the single home for the public URLs they resolve to. Authority and downgrade rules are unchanged — this register only locates the corpus, it does not re-rank it.</em></p>
+<table>
+<thead>
+<tr>
+<th>Label used in body</th>
+<th>Role</th>
+<th>Canonical public locator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Paper I (GUT)</strong> — <em>Fable_GUT</em></td>
+<td>Geometry/SM authority; every gate certificate, freeze record, anomaly closure, threshold, Higgs/$v$, flavor, proton, and reproducibility hash invoked here resolves to it (App. A1/A2/A3/A, C2/C4/C7/C8/C9, D, E/E′, F, G, GP, CR, O, R0/R1/R2; Gates 2–11).</td>
+<td>https://physics.magflowmeters.com/articles/GUT.html</td>
+</tr>
+<tr>
+<td>Paper I companions</td>
+<td>Rosetta / authority-index / certificate-index / provenance for Paper I (these carry no certificate authority of their own and reproduce the manuscript verbatim)</td>
+<td>Paper I, https://physics.magflowmeters.com/articles/GUT.html</td>
+</tr>
+<tr>
+<td>Paper I (earlier draft)</td>
+<td>Legacy <em>final_manuscript</em> draft; all authority letters resolve in the Fable_GUT build above via its A3.R ledger (§14.1)</td>
+<td>Paper I, https://physics.magflowmeters.com/articles/GUT.html</td>
+</tr>
+<tr>
+<td><strong>Paper II (Forces)</strong> — this paper</td>
+<td>Main force-interface claim spine (this document)</td>
+<td>https://physics.magflowmeters.com/articles/Forces.html</td>
+</tr>
+<tr>
+<td><strong>F2</strong> (C-FF Rosetta companion)</td>
+<td>Long-form C-FF0–C-FF14 mini-gate explanations; backbone falsification pedagogy (no certificate authority; reproduces this manuscript verbatim)</td>
+<td>Paper II, https://physics.magflowmeters.com/articles/Forces.html</td>
+</tr>
+<tr>
+<td><strong>F3</strong> (formal authority package companion)</td>
+<td>Appendix Q registry; full nine-field projection-spec tables; Paper-I dependency ledger; routing tables; scope authority (no certificate authority; reproduces this manuscript verbatim)</td>
+<td>Paper II, https://physics.magflowmeters.com/articles/Forces.html</td>
+</tr>
+<tr>
+<td>QC engineering-bridge companion</td>
+<td>Full §16 QC engineering bridge (pointer only in this paper)</td>
+<td>Paper II, https://physics.magflowmeters.com/articles/Forces.html</td>
+</tr>
+<tr>
+<td>Forces provenance-ledger companion</td>
+<td>Editorial provenance / pass-history</td>
+<td>Paper II, https://physics.magflowmeters.com/articles/Forces.html</td>
+</tr>
+<tr>
+<td>Forces reviewer-test-prompts companion</td>
+<td>The five Test-It-Yourself reviewer prompts (verbatim)</td>
+<td>Paper II, https://physics.magflowmeters.com/articles/Forces.html</td>
+</tr>
+<tr>
+<td><strong>Paper III (Quantum)</strong></td>
+<td>Sibling quantum-force-completion paper (cross-referenced as part of the corpus)</td>
+<td>https://physics.magflowmeters.com/articles/Quantum.html</td>
+</tr>
+<tr>
+<td><strong>Paper IV (Scoped TOE)</strong> — <em>TOE_FINAL</em> capsule</td>
+<td>The corpus capsule that owns the two questions this paper scopes out: stabilization (Gap-04, capsule labels v9/v10) and the Λ verdict (v12/v14); bounded, never used as support (§6, §10, A13/A14)</td>
+<td>https://physics.magflowmeters.com/articles/TOE.html</td>
+</tr>
+<tr>
+<td><strong>Companion (Particles)</strong></td>
+<td>Observed-particle-spectrum closure companion; executable regression suite + frozen CSVs hosted online</td>
+<td>https://physics.magflowmeters.com/articles/Particles.html ; regression suite + frozen CSVs at https://physics.magflowmeters.com/scripts/particles_regression/</td>
+</tr>
+<tr>
+<td><strong>Mars audit doc</strong></td>
+<td>A downstream metric-interface engineering audit consumes this geometry (out of scope here; available on request)</td>
+<td>available on request</td>
+</tr>
+<tr>
+<td><strong>Computational artifacts / scripts</strong></td>
+<td>Any runnable check, regression suite, or frozen CSV referenced in the corpus</td>
+<td>reproduction scripts at https://physics.magflowmeters.com/scripts/ ; the Particles regression suite at https://physics.magflowmeters.com/scripts/particles_regression/</td>
+</tr>
+<tr>
+<td><strong>Experimental data</strong> — PDG-2024</td>
+<td>Every MEASURED number imported here cites its specific listing/quantity</td>
+<td>Particle Data Group, <em>Review of Particle Physics</em> (PDG 2024) — per-quantity listing named at point of use (see §1.2.1 ledger)</td>
+</tr>
+</tbody>
+</table>
+<p><em>Locator convention.</em> Each sibling paper (GUT, Forces, Quantum, Scoped TOE) and the Particles companion resolves to its canonical public article on physics.magflowmeters.com. Non-deployed companion layers (the C-FF Rosetta, the formal authority package, the QC engineering bridge, the provenance ledger, and the reviewer-test prompts) carry no certificate authority of their own and reproduce this manuscript verbatim, so each resolves to the parent Paper II article above. The downstream metric-interface engineering audit is out of scope here and available on request.</p>
+<hr />
+<h2>How to Read This Paper — the one character to follow</h2>
+<p><em>This block is narrative orientation only; it adds no claim and changes no status. If you want the formal entry point, skip to "Reviewer First Read" below.</em></p>
+<p><em>The premise. Textbooks hand you the four forces as four separate stories with five dial-like strengths you are free to set by hand. This paper makes the opposite bet: the four forces are not four inputs but one frozen geometry's unavoidable bookkeeping — read off a single small six-dimensional shape, with no new dials in between.</em></p>
+<p><em>The character to bond with. Do not follow a person and do not follow a slogan. Follow the coupling that cannot be dialed by hand. Across §§6–9 there is really one protagonist wearing four masks — $G_N$, $g_s$, $g$, and then the two it refuses to even let you set independently, $e$ and $G_F$. Its defining trait is that it is whatever the frozen Paper-I geometry says it is and nothing else: you cannot tune it, you can only check it. That is exactly why it is trustworthy. An honest character names what would kill it, and this one does — it hands you the knife on the first page (the napkin anomaly witness $3\cdot\tfrac16-\tfrac12=0$, the two derived identities that would break against measurement) and dares you to find the place it is wrong.</em></p>
+<p><em>The journey we are excited to take. We imprint on the character at the five-couplings table (§1.2.1), where five textbook numbers collapse to one origin and two of them stop being free. We learn to trust it by watching it survive its own gauntlet — the Four-Force Constraint Backbone (§4), one list used first to build the maps and then to grade them. Then we ride it down four times: gravity read straight off the metric (§6), color that survives rather than gets assigned (§7), the weak sector that carries the live by-hand witness (§8), and QED as the terminal composite that inherits its charges instead of inventing them (§9). The thrill is the discipline: the character never lets the story claim more than the geometry pays for. It does not adopt the still-open constraint, it does not replace GR, Maxwell, or the SM, and it routes every certificate to Paper I rather than re-closing it. Same shape, four forces — and it tells you exactly where it would break.</em></p>
+<hr />
+<h2>Reviewer First Read</h2>
+<blockquote>
+<p><strong>Generalists:</strong> skim to the <strong>fast-check scoreboard</strong> below and the <strong>Test-It-Yourself</strong> checks (Paper II, https://physics.magflowmeters.com/articles/Forces.html); the rest of this front-matter block is the hostile reviewer's entry point.</p>
+</blockquote>
+<p>This front-matter block is the hostile reviewer's entry point. It states, before any physics, where this paper is weakest, where to attack it first, and — in one consolidated map — exactly one authoritative source for every load-bearing claim. It carries no new claim of its own; it is a routing and audit aid. Note on §16: the quantum-computer bridge appears because the <strong>same coset</strong> is independently buildable, not for any commercial reason; it is an EXTERNAL engineering artifact at SIMULATED grade that feeds <strong>zero</strong> numbers back into any force-interface row (C-FF13), and the physical-to-logical memory overhead it reports (~9.6–14.5:1, robust fallback 3.24:1) is an honest engineering floor, competitive with published qLDPC overheads — never an algorithm-level claim.</p>
+<h3>What to read first if you have one hour</h3>
+<p>If you are time-boxed and want to break this paper, do not start at the gravity section. Start where the interface claim is load-bearing and falsifiable on a napkin, then walk outward.</p>
+<p><strong>If you have one hour and want to <em>break</em> it (hostile-review order):</strong> (1) the projection maps §5 (the four $\pi_i$) and the composite QED factorization §9.3 — if any $\pi_i$ is not a real map from $\mathfrak B_{\rm active}$ (or, for QED, from the electroweak EFT), the routing collapses; (2) the live electroweak anomaly witness §8.6.4 — the one quantum-consistency check you can do by hand; (3) the five-couplings provenance table §1.2.1 — verify the two derived rows ($e$, $G_F$) are routed, not fitted; (4) the scope boundary §2/§12 and the no-double-counting ledger §10.1 — confirm no excluded sector is used to <em>support</em> an interface claim, only to bound it.</p>
+<p>The single most distinguishing structural commitment is the composite $\pi_{\rm QED}\circ\pi_{\rm weak}$ (C-FF8): if that factorization is not a real map from $\mathfrak B_{\rm active}$ (the frozen 13D active geometry, §3) down through the electroweak EFT, the routing collapses. Attack it first.</p>
+<h3>Known weakest links (stated before review)</h3>
+<p>The paper declares its own soft spots so a reviewer does not have to find them:</p>
+<ul>
+<li><strong>WL-1 — Einstein-frame conditionality (gravity).</strong> The headline $M_{\rm Pl}^2 = M_{13}^{11}\,\mathrm{Vol}(X)$ is honest only after the volume modulus is frozen (authority external: Paper I Gate 6 / App. F). If the modulus stayed dynamical the gravity interface self-downgrades to scalar-tensor (§6). This is a <em>declared dependency on Paper I</em>, not a claim closed here.</li>
+<li><strong>WL-2 — Quantum self-consistency of the compactification background is inherited, not proved here.</strong> The gravity annex's nonperturbative RG target rule and KK metric-mode quantization (F3) are model-definition level only. Whether the frozen background is quantum-stable is governed by the <em>corpus</em>, not this paper: see the TOE_FINAL Gap-04 (stabilization) discharge and the Λ verdict, cross-referenced in §6 (EXTERNAL). This paper does not lean on either result to close a four-force interface claim.</li>
+<li><strong>WL-3 — All gate certificates are external.</strong> Every "frozen", "anomaly-free", or "certificate" statement resolves in Paper I (Fable_GUT), invoked by interface only (C-FF13). This paper re-closes no gate; if a Paper I gate downgrades, the consuming rows here downgrade automatically (§14).</li>
+<li><strong>WL-4 — The strong sector's confinement/χSB/strong-CP edge is open.</strong> $SU(3)_c$ recovery is an interface claim; confinement, the mass gap, and strong CP are Outside this paper's scope and are <em>not</em> used as support (§7). Strong CP in particular remains honestly underived in the corpus (§6 corpus boundary; TOE_FINAL Path γ, EXTERNAL).</li>
+</ul>
+<p><em>Fastest falsification entry point (no tools):</em> the by-hand electroweak anomaly witness (§8.6.4) — if the hypercharge lattice were off by one step this subtraction would fail and the charge table would break with it.</p>
+<h3>Forces Authority Stack — what this paper owns, imports, and ignores</h3>
+<p><em>One page, read first.</em> This paper owns the <strong>four-force routing interface</strong>; Paper I (<em>Fable_GUT</em>) owns the <strong>GUT gate certificates</strong>; the QC engineering bridge (§16) carries <strong>no physics authority</strong>. The table states, per object type, who owns it and — the column reviewers ask for — <strong>what controls if two sources disagree</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Object / claim type</th>
+<th>Owned by Forces?</th>
+<th>Authority (single home)</th>
+<th>If conflict, which controls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Four projection maps $\pi_{\rm grav},\pi_{\rm strong},\pi_{\rm weak},\pi_{\rm QED}$</td>
+<td>Yes (interface claim)</td>
+<td>Forces §§5–10 / Appendix Q (F3)</td>
+<td><strong>Forces</strong> (routing is this paper's own object)</td>
+</tr>
+<tr>
+<td>Four-Force Constraint Backbone C-FF0–C-FF14</td>
+<td>Yes (interface constraint + test battery)</td>
+<td>Forces §4 / §5.6 master table (F3) / Appendix Q (F3)</td>
+<td><strong>Forces</strong></td>
+</tr>
+<tr>
+<td>Low-energy sanity / textbook-recovery targets</td>
+<td>Yes (as interface checks)</td>
+<td>Forces §11</td>
+<td><strong>Forces</strong></td>
+</tr>
+<tr>
+<td>$e$ and $G_F$ — derived identities (not predictions)</td>
+<td>Yes (as derived identities)</td>
+<td>Forces §9.6.7 ($e$) / §8.6.15 ($G_F$) / §1.2.1</td>
+<td><strong>Forces</strong>, but the inputs they consume are Paper I's</td>
+</tr>
+<tr>
+<td>Active branch selection $\mathfrak B_{\rm active}$</td>
+<td>No</td>
+<td>Paper I (imported frozen object)</td>
+<td><strong>Paper I</strong></td>
+</tr>
+<tr>
+<td>Gauge / charge / chirality / anomaly certificates</td>
+<td>No</td>
+<td>Paper I Gates 2–5 / App. D, E/E′ <strong>EXT</strong></td>
+<td><strong>Paper I</strong> (Forces only witnesses, e.g. §8.6.4)</td>
+</tr>
+<tr>
+<td>Stabilization / volume-modulus freeze</td>
+<td>No</td>
+<td>Paper I Gate 6 / App. F <strong>EXT</strong></td>
+<td><strong>Paper I</strong> (gravity row is conditional on it — WL-1)</td>
+</tr>
+<tr>
+<td>Threshold / Higgs / flavor / proton certificates</td>
+<td>No</td>
+<td>Paper I Gates 7–10 <strong>EXT</strong></td>
+<td><strong>Paper I</strong></td>
+</tr>
+<tr>
+<td>Input economy + $v$, $m_h$, $M_U$ outputs</td>
+<td>No (imported)</td>
+<td>Paper I §1.3.1 four-input table <strong>EXT</strong></td>
+<td><strong>Paper I</strong></td>
+</tr>
+<tr>
+<td>Stabilization (Gap-04) and Λ verdicts</td>
+<td>No (scoped out, inherited)</td>
+<td>TOE_FINAL v9/v10, v12/v14 <strong>EXT</strong></td>
+<td><strong>TOE_FINAL capsule</strong> (bounded, not used as support)</td>
+</tr>
+<tr>
+<td>Claim-boundary / scope discipline</td>
+<td>Shared</td>
+<td>Forces §2/§12 + Paper I boundary</td>
+<td><strong>Whichever is stricter</strong> (scope only narrows, never widens)</td>
+</tr>
+<tr>
+<td>QC engineering bridge (§16)</td>
+<td>No physics authority</td>
+<td>External simulated package / Forces §16 <strong>EXT</strong></td>
+<td><strong>Force-interface authority controls; QC is ignored for physics status</strong> (zero feedback, C-FF13)</td>
+</tr>
+</tbody>
+</table>
+<p><em>Downgrade-inheritance rule (binding).</em> Forces owns the routing; Paper I owns the gate certificates. <strong>If a Paper-I gate downgrades, every Forces row that consumes that gate downgrades automatically</strong> (§14) — Forces never re-closes or out-ranks a Paper I gate. <strong>If the QC bridge (§16) conflicts with any force-interface claim, the force-interface authority controls and the QC bridge is ignored for physics status.</strong> This is the one-table form of the §0.2 weakest links (WL-1/WL-3/WL-4) and the §14 Paper-I Interface Ledger.</p>
+<h3>Claim-to-Authority Map</h3>
+<p><em>Authority rule (binding).</em> For every load-bearing claim below, <strong>exactly one</strong> source is authoritative — either an in-doc location (this paper) or a named external artifact (Paper I appendix/gate, or a TOE_FINAL capsule by version label). Any other mention of the same claim elsewhere in this paper is descriptive, not load-bearing. External sources are tagged <strong>EXT</strong>; Paper I appendices are cited as "Paper I App. X" and resolve through that manuscript's A3.R legacy-reference ledger (§14). TOE_FINAL capsules are cited by stable version label (e.g. "TOE_FINAL v10").</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Load-bearing claim</th>
+<th>Strength (this paper)</th>
+<th>Single authoritative source</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1</td>
+<td>Four force sectors are projections of one parent geometry $M_{13}=M_{3,1}\times K_6\times S^2\times S^1$</td>
+<td>Interface claim</td>
+<td>§5 (this paper); geometry frozen at Paper I App. A1/A2 <strong>EXT</strong></td>
+<td>Interface claim</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>Gravity is the zero-mode projection of $G_{\mu\nu}$ in Einstein frame</td>
+<td>Interface claim (conditional on modulus freeze)</td>
+<td>§6; modulus freeze Paper I Gate 6 / App. F <strong>EXT</strong></td>
+<td>Interface claim</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>$SU(3)_c$ survives as the left action on $K_6=SU(3)/T^2$; QCD recovered</td>
+<td>Interface claim</td>
+<td>§7; reps Paper I App. D / Gates 2–3 <strong>EXT</strong></td>
+<td>Interface claim</td>
+</tr>
+<tr>
+<td>A4</td>
+<td>Color anomaly cancels on the shared matter content</td>
+<td>Main-manuscript certificate</td>
+<td>Paper I App. E/E′, Gate 5 <strong>EXT</strong> (witnessed in §7)</td>
+<td>Main-manuscript certificate</td>
+</tr>
+<tr>
+<td>A5</td>
+<td>$SU(2)_L$ from $S^2$ spin cover; $U(1)_Y$ from $S^1_Y$; $Q=T_3+Y$ on every multiplet</td>
+<td>Interface claim</td>
+<td>§8 (this paper, the convention's home)</td>
+<td>Interface claim</td>
+</tr>
+<tr>
+<td>A6</td>
+<td>Five electroweak anomaly classes cancel; live witness $3\cdot\tfrac16-\tfrac12=0$</td>
+<td>Interface claim (witness) + main-manuscript certificate (full)</td>
+<td>§8.6.4 (witness, this paper); full closure Paper I App. E/E′, Gate 5 <strong>EXT</strong></td>
+<td>Interface claim / certificate</td>
+</tr>
+<tr>
+<td>A7</td>
+<td>EWSB $SU(2)_L\times U(1)_Y\to U(1)_{\rm em}$; massive $W/Z$, massless photon</td>
+<td>Interface claim</td>
+<td>§8; Higgs/Wilson-line protection Paper I App. H / Gate 8 <strong>EXT</strong></td>
+<td>Interface claim</td>
+</tr>
+<tr>
+<td>A8</td>
+<td>Electroweak scale $v=246.02$ GeV</td>
+<td>Main-manuscript output (imported)</td>
+<td>Paper I Gate 8 / App. H, Paper I §8 <strong>EXT</strong> (output, not re-derived here)</td>
+<td>Main-manuscript certificate</td>
+</tr>
+<tr>
+<td>A9</td>
+<td>QED is the composite $\pi_{\rm QED}\circ\pi_{\rm weak}$; photon massless by ledger; Coulomb recovered</td>
+<td>Interface claim</td>
+<td>§9 (this paper)</td>
+<td>Interface claim</td>
+</tr>
+<tr>
+<td>A10</td>
+<td>$e=gg'/\sqrt{g^2+g'^2}$ and $G_F/\sqrt2=g^2/8M_W^2$ are derived, not independent</td>
+<td>Interface claim (derived identity)</td>
+<td>§9.6.7 ($e$), §8.6.15 ($G_F$) (this paper)</td>
+<td>Interface claim</td>
+</tr>
+<tr>
+<td>A11</td>
+<td>Four declared numerical inputs ($M_{\rm Pl}$; $\alpha_i^{-1}(M_Z)$; $y_t$; $\lvert V_{us}\rvert$); $v,m_h,M_U$ are outputs</td>
+<td>Main-manuscript economy (inherited)</td>
+<td>Paper I §1.3.1 four-input table + R1.8 hashes <strong>EXT</strong></td>
+<td>Main-manuscript certificate</td>
+</tr>
+<tr>
+<td>A12</td>
+<td>Threshold unification target $\alpha_i^{-1}(M_Z)$; threshold vector</td>
+<td>Main-manuscript certificate</td>
+<td>Paper I App. G / Gate 7 <strong>EXT</strong></td>
+<td>Main-manuscript certificate</td>
+</tr>
+<tr>
+<td>A13</td>
+<td>Quantum self-consistency of the frozen compactification background (stabilization)</td>
+<td>Outside this paper's scope (inherited from corpus)</td>
+<td>TOE_FINAL v9/v10 Gap-04 discharge <strong>EXT</strong> (§6)</td>
+<td>Outside this paper's scope</td>
+</tr>
+<tr>
+<td>A14</td>
+<td>Cosmological constant / vacuum-energy story</td>
+<td>Outside this paper's scope (inherited from corpus)</td>
+<td>TOE_FINAL v12/v14 Λ verdict <strong>EXT</strong> (§6)</td>
+<td>Outside this paper's scope</td>
+</tr>
+<tr>
+<td>A15</td>
+<td>Backbone coverage in both tenses (every C-FF row enforced + checked by a named Appendix Q certificate)</td>
+<td>Interface claim</td>
+<td>§4 / §5.6 master table + Appendix Q registry (F3)</td>
+<td>Interface claim</td>
+</tr>
+<tr>
+<td>A16</td>
+<td>The active coset $K_6=SU(3)/T^2$ is also an error-correction admissibility chamber, designed and simulated</td>
+<td>EXTERNAL engineering bridge (SIMULATED grade; no interface status changes)</td>
+<td>§16 pointer; QC engineering-bridge companion (Paper II, https://physics.magflowmeters.com/articles/Forces.html) <strong>EXT</strong></td>
+<td>EXTERNAL / SIMULATED</td>
+</tr>
+</tbody>
+</table>
+<p><em>Plain reading.</em> The map's spine is simple: this paper owns the <strong>routing</strong> claims (the projection maps, the charge convention, the derived couplings, the live anomaly witness, the backbone coverage); Paper I owns every <strong>gate certificate</strong> (anomaly closure, thresholds, Higgs protection, the input economy, $v$); the <strong>corpus capsules</strong> (TOE_FINAL) own the two questions this paper scopes out but that have moved upstream — stabilization (Gap-04) and Λ; and the <strong>QC engineering corpus</strong> owns the one EXTERNAL engineering fact (A16) that the geometry is buildable, routed through §16 at simulated grade with no feedback into any interface row. No claim has two homes.</p>
+<h3>Fast-check scoreboard: where the geometry gives the textbook's answer</h3>
+<p>The fastest way to decide whether this routing reduces to known physics is not to read the geometry — it is to check the <strong>landing points</strong>. Run each projection down to low energy and ask: does it arrive at the <em>same equation the textbook already has</em>? The table below is a routing index to those landing points, not a new claim. A reduces-to-known-physics check must return <strong>the same number out for the same inputs in</strong>, and must state plainly what it does <em>not</em> claim — here, it recovers the textbook limit but does not replace GR, Maxwell, or the SM.</p>
+<table>
+<thead>
+<tr>
+<th>Sector</th>
+<th>Textbook target it lands on</th>
+<th>Where it is worked</th>
+<th>Time to check</th>
+<th>Honest grade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gravity</td>
+<td>Newtonian limit $\nabla^2\Phi = 4\pi G\rho$ (weak-field, slow-motion)</td>
+<td>§6.6.9</td>
+<td>minutes (read the ladder)</td>
+<td>Interface claim; recovers GR's weak-field limit, does <strong>not</strong> replace GR</td>
+</tr>
+<tr>
+<td>QED / electrostatics</td>
+<td>Coulomb $E = Q/4\pi\epsilon_0 r^2$, Gauss $\nabla\!\cdot\!\mathbf E=+\rho/\epsilon_0$; photon massless</td>
+<td>§9.6.3</td>
+<td>minutes</td>
+<td>Interface claim; recovers the static Coulomb/Gauss (Maxwell) limit, does <strong>not</strong> replace QED/Maxwell</td>
+</tr>
+<tr>
+<td>Electroweak (consistency)</td>
+<td>Anomaly witness $3\cdot\tfrac16-\tfrac12=0$ — quantum consistency <strong>by hand</strong></td>
+<td>§8.6.4</td>
+<td>~30 seconds, no tools</td>
+<td>Interface claim (witness); full closure is Paper I's certificate <strong>EXT</strong></td>
+</tr>
+<tr>
+<td>Electroweak (couplings)</td>
+<td>$e=gg'/\sqrt{g^2+g'^2}$, $G_F/\sqrt2=g^2/8M_W^2$ — the historical Fermi/Weinberg identities</td>
+<td>§9.6.7 ($e$), §8.6.15 ($G_F$)</td>
+<td>minutes</td>
+<td><strong>Derived identities of the routing, not predictions</strong> — they <em>break</em> against measurement if the geometry is wrong (§13, C-FF4/C-FF8)</td>
+</tr>
+</tbody>
+</table>
+<p>The anomaly row is the sharpest: $3\cdot\tfrac16-\tfrac12=0$ is one subtraction a reviewer can do on a napkin, and if the hypercharge lattice were off by a single step it would fail. The two coupling rows are the falsifiable teeth of the zero-dials headline (§1): they are <strong>identities</strong>, so a reviewer who finds the standard electroweak relations is finding exactly what the routing must reproduce — not a tuned fit. The scoreboard does <em>not</em> upgrade any status: gravity remains a conditional interface claim (modulus freeze, WL-1), the strong sector's confinement/strong-CP edge stays scoped out (§7, WL-4), and full closures live in Paper I (C-FF13).</p>
+<h3>Test It Yourself, and where the companions live</h3>
+<p>The five copy-paste reviewer checks (3 Type-A reductions + 2 Type-B free-parameter consistency tests; the native pair — anomaly witness §8.6.4 and Newton+Coulomb/Poisson §6.6.9/§9.6.3 — plus three EXT Paper-I pointers) live VERBATIM in <strong>Paper II, https://physics.magflowmeters.com/articles/Forces.html</strong>. They are consistency/recovery checks at Interface-claim / BOUNDED grade — not proof — and upgrade no status. The companion layers below carry no certificate authority of their own and reproduce this manuscript verbatim; each resolves to the parent Paper II article above.</p>
+<table>
+<thead>
+<tr>
+<th>Companion layer</th>
+<th>What it carries (already externalized)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-FF Rosetta (F2)</td>
+<td>long-form C-FF0–C-FF14 mini-gate explanations; backbone falsification pedagogy</td>
+</tr>
+<tr>
+<td>Formal authority package (F3)</td>
+<td>Appendix Q certificate registry; full projection-spec tables; Paper-I dependency ledger; routing tables; scope authority</td>
+</tr>
+<tr>
+<td>QC engineering bridge</td>
+<td>the full §16 QC engineering bridge (pointer only in this paper)</td>
+</tr>
+<tr>
+<td>Provenance ledger</td>
+<td>editorial provenance / pass-history</td>
+</tr>
+<tr>
+<td>Reviewer-test prompts</td>
+<td>the five Test-It-Yourself reviewer prompts</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>1. Introduction: The Force-Interface Question</h1>
+<p>This section states the question the paper answers (§1.1 — can four force EFTs be written as compatible projections of one geometry?), the single organizing move it borrows from Paper I (§1.2 — the constraint backbone used in two tenses, as both the admissibility filter on projections and the test battery the finished interfaces keep passing), and the headline that move buys (§1.2.1 — five force strengths, one geometry, zero new dials).</p>
+<h2>1.1 The interface question</h2>
+<p>A central tension in modern unification work is that the four observed force sectors — gravity, the strong interaction, the weak interaction, and electromagnetism — are typically described by distinct effective field theories with disjoint kinematic data, disjoint symmetry groups, and disjoint conventions for matter content. Any claim that these sectors share a common origin must therefore do more than assert a parent group: it must exhibit a single geometric object together with four explicit projections, and it must show that those projections are mutually compatible at the level of state counting, anomaly cancellation, and regulator discipline.</p>
+<p>This paper takes that posture for the constraint-selected 13D geometry $M_{13}=M_{3,1}\times K_6\times S^2\times S^1$ with $K_6=SU(3)/T^2$. The geometry, its layer separation into base manifold ($\times$), finite rule constraints ($\oplus$), and field/operator bundles ($\otimes$), and the certificate machinery that selects it are developed in the main GUT manuscript. Here we treat that backbone as given and ask a narrower question: when one writes down the projection map $\pi_X$ from the active branch to each of the four force EFTs, do the four resulting interfaces fit together as views of a single object?</p>
+<p>The answer organized in this document is yes, in a precise interface sense. The answer is controlled by a Four-Force Constraint Backbone: a compact set of interface-level constraints that require one parent geometry, shared matter and charge conventions, compatible anomaly/regulator discipline, low-energy sanity targets, and explicit falsification paths (the full fifteen rows C-FF0–C-FF14 are summarized in §4; long-form in F2). Gravity is read off the spacetime-facing metric block; the strong sector descends from the $K_6$ color action; the weak sector descends from the $S^2$ spin-cover combined with $S^1$ hypercharge; and QED appears as the unbroken remnant of electroweak breaking with a Coulomb/Gauss-law static limit. The same matter bundle and charge convention $Q=T_3+Y$ feed all four projections, and the no-double-counting, anomaly, and regulator ledgers are shared.</p>
+<p>To keep that scope honest, this paper adopts the following standalone invariant:</p>
+<blockquote>
+<p>A mathematically literate physicist must be able to understand the four-force routing claim from this paper alone, using only the main GUT manuscript — <strong>Paper I, <em>Fable_GUT</em></strong> (canonical public article in the Supporting Documentation register: GUT.html) — for detailed gate certificates and frozen appendix authority.</p>
+</blockquote>
+<p>Two consequences follow. First, the paper carries enough geometric and group-theoretic content to make the four projections precise without external lookup. Second, it does not duplicate the certificate machinery of the main GUT manuscript; whenever a load-bearing gate, anomaly cancellation, or freeze record is invoked, it is invoked by interface only, with detailed authority resting in the main GUT manuscript — <strong>Paper I, the <em>Fable_GUT</em> build</strong> (an earlier draft circulated as <em>final_manuscript</em>; see §14 for the provenance note and the full authority map). The remainder of the paper makes the scope boundary explicit (§2), imports the shared geometry and layer discipline (§3), summarizes the constraint backbone (§4) and the projection specification (§5), defines the four force modules (§§6–9), lists the cross-sector consistency conditions (§10) and their falsification map (§13), and closes with the relation to the main manuscript (§14).</p>
+<h2>1.2 The inversion: the backbone is the test</h2>
+<p>This paper borrows Paper I's single organizing move and instantiates it at the interface level. Section 4 summarizes the Four-Force Constraint Backbone — fifteen conditions C-FF0 through C-FF14 that any honest four-force interface must satisfy. The usual way to use such a list is as a <em>review checklist</em>: write four sector summaries, then audit them. This paper uses the same list a second way, first: as the <strong>admissibility filter that defines the projections</strong>. A map $\pi_X$ counts as a projection of this paper only if it survives every backbone row (§5); the same fifteen rows then return, retrospectively, as the tests the four finished interfaces must keep passing (§13). One list, two tenses — the backbone is the test, and the test built the maps.</p>
+<p><strong>The obvious objection, answered before it is asked.</strong> <em>If the projections were constructed under the backbone, don't they pass the backbone by construction?</em> No, for four checkable reasons, each the interface-level analog of Paper I §1.3:</p>
+<ol>
+<li><strong>Construction reads structure; the targets read nature.</strong> The backbone's constraint-faces are structural — which parent geometry, which layer, which convention (C-FF0–C-FF8). Its evaluative faces are measured physics: the Newtonian limit, the <em>sign</em> of the QCD beta function against experiment, the Fermi constant's relation $G_F/\sqrt 2 = g^2/8M_W^2$, Coulomb's law, photon masslessness (C-FF11; §11). Building a map that respects layer discipline does not pre-pay a measured limit.</li>
+<li><strong>The cross-sector meshes were never guaranteed</strong> (each is a joint Interface claim, CONDITIONAL and separately checked, not pre-paid). Each projection could be written alone; what selection cannot arrange in advance is that all four mesh <em>jointly</em> — one matter bundle acting in four sectors (C-FF3), one charge convention surviving the weak→QED composition (C-FF4, C-FF8), and a no-double-counting ledger that closes over the <em>union</em> of all four state inventories (C-FF5; §10.1). These are joint conditions; any one sector's construction is blind to them.</li>
+<li><strong>Over-determination, interface form.</strong> The compression here is the <em>same-object constraint</em>: one frozen geometry must simultaneously source four independent EFT recoveries and five low-energy targets, with zero per-sector adjustable structure — every dial was frozen upstream in Paper I. A dishonest "interface" buys each sector its own parent; this one is forbidden to (C-FF0), and §1.2.1 counts what that buys.</li>
+<li><strong>The falsifiers stay live.</strong> Every backbone row keeps a named falsification path and downgrade (§13, keyed row-by-row to C-FF IDs); construction cannot pass a falsifier on a projection's behalf.</li>
+</ol>
+<p>The identity is again the honesty mechanism, not the loophole: one published list means there is no second standard — no construction rule hidden from the reviewer, and no evaluation rule the construction was excused from. The flow is $\mathfrak B_{\rm active} \xrightarrow{\mathcal C_{\rm FF}} \{\pi_i\} \to \{\mathrm{EFT}_i\} \to$ sanity targets $\to$ falsification map — the list $\mathcal C_{\rm FF}$ that licenses the maps at the front is the list the downgrade map evaluates at the back. (The long-form per-row pedagogy is the CFR mini-gates in F2; the master coverage table assigning every row its enforcing module and machine certificate is F3.)</p>
+<h3>1.2.1 Five couplings, one geometry</h3>
+<p>Here is what the same-object constraint buys, stated once, up front. The four forces arrive in textbooks with five dial-like strengths — $G_N$, $g_s$, $g$, $e$, $G_F$ — five numbers with five separate origin stories. In this routing they have <strong>one origin and zero new dials</strong>: every one is either routed from a Paper I frozen object or <em>computed</em> from the others. Two of the five are not even independent.</p>
+<table>
+<thead>
+<tr>
+<th>Coupling</th>
+<th>Where it comes from in the routing</th>
+<th>Provenance class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$G_N$</td>
+<td>Compactification-volume relation $M_{\rm Pl}^2 = M_*^{\,n+2} V_K$ on the frozen geometry; $M_{\rm Pl}$ is Paper I declared input 1 (R1.8)</td>
+<td>Routed from Paper I input 1</td>
+</tr>
+<tr>
+<td>$g_s$</td>
+<td>$K_6$ isometry normalization ($\mathrm{Tr}\,T^aT^b = \tfrac12\delta^{ab}$) with running against the frozen threshold ledger; the measured $\alpha_3(M_Z)$ is Paper I input 2's comparison <strong>target</strong>, not a dial here</td>
+<td>Routed; scored against Paper I input 2</td>
+</tr>
+<tr>
+<td>$g$</td>
+<td>$S^2$ spin-cover isometry, same normalization discipline; $\alpha_2(M_Z)$ likewise a target</td>
+<td>Routed; scored against Paper I input 2</td>
+</tr>
+<tr>
+<td>$e$</td>
+<td><strong>Computed</strong>: $e = g g' / \sqrt{g^2 + g'^2}$ from electroweak breaking, with $g'$ from the $S^1_Y/\mathbb{Z}_6$ hypercharge lattice</td>
+<td>Derived — not independent</td>
+</tr>
+<tr>
+<td>$G_F$</td>
+<td><strong>Computed</strong>: $G_F/\sqrt 2 = g^2 / 8 M_W^2$, with $M_W$ set by $v = 246.02$ GeV — itself a Paper I <em>output</em> of the Wilson-line determinant (Gate 8)</td>
+<td>Derived — not independent; scale is a Paper I output</td>
+</tr>
+</tbody>
+</table>
+<p><em>The honesty clauses.</em> First, the provenance classes are exact: nothing in this paper introduces a coupling dial — the only measured numbers anywhere in the two-paper system remain Paper I's four declared inputs (its §1.3.1), and this table shows the four force strengths plus the Fermi scale flowing out of that same economy. Second, the two derived rows are the table's falsifiable teeth: $e$ and $G_F$ are <em>identities of the routing</em> — if either relation failed against measurement at the stated normalizations, the weak/QED interface would be wrong as an interface, independent of Paper I (§13, rows C-FF4/C-FF8). Third, the scale unification is the quiet headline: $G_N$'s size and $G_F$'s size are routed through one volume and one determinant living on the same frozen object — the hierarchy between gravity and the weak force becomes a statement about $V_K$ and a winding integer, not two unrelated constants. What this paper does <em>not</em> claim is any new numerical prediction beyond Paper I's: the table is a provenance map, and its certificate is structural (Q-series, Appendix Q in F3). The honest reading of "zero new dials" is over-determination, not a fit. A number that can break against measurement is not a tuned number.</p>
+<p><strong>Inputs-in / outputs-out ledger (Paper I R1.8 economy, EXTERNAL).</strong> To make the "zero new dials" headline auditable in Paper I's own hashed-table style, the table below pins what this paper's coupling rows defer to. The four numbers in the upper block are the <em>only</em> measured inputs in the two-paper system; the lower block are <em>outputs</em> of the frozen geometry that this paper imports but never re-derives. The hashes are Paper I's R1.8 freeze hashes (authority is Paper I §1.3.1 / R0.R, EXTERNAL; reproduced here for cross-reference only).</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Object</th>
+<th>Value</th>
+<th>PDG-2024 listing (per-quantity)</th>
+<th>R1.8 hash (Paper I, EXT)</th>
+<th>Provenance class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input (anchor)</td>
+<td>$M_{\rm Pl}$</td>
+<td>MEASURED</td>
+<td>PDG 2024, "Physical Constants" table — Planck mass / Newtonian gravitational constant $G_N$</td>
+<td><code>df5976a365c3</code></td>
+<td>sets the Planck normalization → $G_N$</td>
+</tr>
+<tr>
+<td>Input (comparison target)</td>
+<td>$\alpha_i^{-1}(M_Z)$</td>
+<td>central (MEASURED)</td>
+<td>PDG 2024, "Physical Constants" ($\alpha(M_Z)$, $\sin^2\theta_W$) and "Standard Model of Electroweak Interactions" / QCD review ($\alpha_s(M_Z^2)$)</td>
+<td><code>6a3b6ef06697</code></td>
+<td>the three couplings the threshold gate must unify → $g_s$, $g$ targets</td>
+</tr>
+<tr>
+<td>Input (anchor)</td>
+<td>$y_t(M_Z)$</td>
+<td>$0.9665$ (MEASURED → RG, PDG-derived)</td>
+<td>PDG-derived from PDG 2024 "Quarks" — top-quark mass $m_t$ listing, run to $M_Z$</td>
+<td><code>548d7099ef18</code></td>
+<td>up-sector flavor normalization (not a force-strength dial)</td>
+</tr>
+<tr>
+<td>Input (anchor)</td>
+<td>$\lvert V_{us}\rvert$</td>
+<td>$0.22436$ (MEASURED)</td>
+<td>PDG 2024, "CKM Quark-Mixing Matrix" review — $\lvert V_{us}\rvert$ listing</td>
+<td><code>a1bc510bc7cd</code></td>
+<td>CKM flavor anchor (not a force-strength dial)</td>
+</tr>
+<tr>
+<td>Output (imported)</td>
+<td>$v$</td>
+<td>$246.02$ GeV (Paper I output, Gate 8; imported, not re-derived here)</td>
+<td>(output, not a PDG input) — authority Paper I §8 / App. H <strong>EXT</strong></td>
+<td>Paper I §8 / App. H</td>
+<td>sets $M_W$ → the $G_F$ row</td>
+</tr>
+<tr>
+<td>Output (imported)</td>
+<td>$M_Z$ comparison scale</td>
+<td>$91.1876$ GeV (MEASURED)</td>
+<td>PDG 2024, "Gauge &amp; Higgs Bosons" — $Z$-boson mass $m_Z$ listing</td>
+<td><code>a6852c7a6b00</code></td>
+<td>the scale at which $\alpha_i^{-1}$ are compared</td>
+</tr>
+</tbody>
+</table>
+<p><em>Honesty clauses (anchors vs targets vs outputs).</em> $M_{\rm Pl}$, $y_t$, $\lvert V_{us}\rvert$ are <strong>anchors</strong> (read before comparison); $\alpha_i^{-1}(M_Z)$ is a <strong>comparison target</strong> (the threshold gate must hit it, it is not fitted into the geometry); $v$ and $M_Z$ are <strong>outputs/inputs Paper I already froze</strong>, imported here as compatibility constraints, never re-derived (C-FF13). The over-determination that makes this anti-fitting is Paper I's, not this paper's: four declared inputs return nineteen-plus independent frozen observables there. This paper adds <strong>zero</strong> further inputs — its contribution is the routing, not new numbers. These values were re-checked against the corpus and show <strong>no drift</strong> (reconciliation recorded in §6 corpus boundary).</p>
+<p>The worked routing for each row is its force module: $G_N$ in §6, $g_s$ in §7, $g$ and $G_F$ in §8, $e$ in §9.</p>
+<hr />
+<h1>2. Scope Boundary in Brief</h1>
+<p>This section fixes what the paper does and does not claim before any physics is done: the interface claims (§2.1), the explicit non-claims (§2.2), and the four-label status vocabulary (§2.3). The scope boundary here is binding and is read as a strength, not a gap: an excluded sector is "not a failed gate" (C-FF12), and no interface claim may be closed by leaning on one. The formal enumerated non-claims ledger and the boundary rule are §12; the global conventions ledger, the full projection-specification template, and the full C-FF backbone live at §5 (summary), §4 (backbone), and F3 (formal).</p>
+<blockquote>
+<p><strong>Scope Boundary in Brief (single authoritative source).</strong> This is a four-force <em>interface</em> paper. It routes gravity, strong, weak, and electromagnetic sectors through the frozen Paper-I geometry; it does not re-close Paper-I gates, and it does not claim full quantum gravity, nonperturbative QCD (confinement / mass gap / strong CP), cosmology, dark matter, dark energy, baryogenesis, or TOE completion. §2.1–§2.2 hold the authoritative claim / non-claim lists; the formal non-claims ledger and the boundary rule (excluded sectors may be discussed as boundaries or future work but may never support, repair, or upgrade an interface claim — C-FF12) live in §12. Every other section states scope by <strong>pointing here</strong> rather than re-reciting the list.</p>
+</blockquote>
+<h2>2.1 What this paper claims</h2>
+<ul>
+<li>All four force branches use the <strong>same active parent geometry</strong> $M_{13}=M_{3,1}\times K_6\times S^2\times S^1$ with $K_6=SU(3)/T^2$.</li>
+<li>Each branch has a <strong>defined projection</strong> $\pi_X:\mathfrak B_{\rm active}\to\mathrm{EFT}_X$ from the active branch to its target effective field theory.</li>
+<li>The four sectors <strong>share matter-bundle and charge conventions</strong>, including a common $\mathcal E_{\rm matter}$ assignment and the relation $Q=T_3+Y$.</li>
+<li>The routing carries <strong>no double-counting</strong> of states, fields, or symmetry generators across sectors.</li>
+<li>The four projections use <strong>compatible regulator, anomaly, and state-counting</strong> conventions, so that thresholds, beta-function inputs, and anomaly cancellations are consistent across sectors.</li>
+<li>The combined result is a <strong>unified force-interface certificate</strong>: a single statement that the four force sectors are mutually compatible projections of one shared geometry.</li>
+</ul>
+<h2>2.2 What this paper does not claim</h2>
+<ul>
+<li>A theory of everything (TOE).</li>
+<li>A full quantum-gravity UV completion.</li>
+<li>A full nonperturbative QCD theorem package (confinement, mass gap, hadronic spectrum, lattice equivalence).</li>
+<li>A solution to the strong CP problem.</li>
+<li>Any cosmological claim (inflation, structure formation, horizon problem).</li>
+<li>A dark-matter candidate or mechanism.</li>
+<li>A dark-energy mechanism or cosmological-constant resolution.</li>
+<li>A baryogenesis mechanism.</li>
+<li>All precision phenomenology (full CKM/PMNS fits, full electroweak precision observables, full flavor anomalies).</li>
+<li>The charged-shell electrostatics example as a GUT gate closure; it is illustrative of the $U(1)_{\rm em}$ static limit, not a load-bearing gate.</li>
+</ul>
+<h2>2.3 Status vocabulary used in this paper</h2>
+<table>
+<thead>
+<tr>
+<th>Status label</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Interface claim</strong></td>
+<td>The routing or compatibility statement is defined in this paper and the four sectors mesh under it.</td>
+</tr>
+<tr>
+<td><strong>Main-manuscript certificate</strong></td>
+<td>The underlying detailed gate certificate, freeze record, or frozen appendix authority lives in the main GUT manuscript (Paper I, <em>Fable_GUT</em> = GUT.html, Supporting Documentation register) and is invoked here only by interface.</td>
+</tr>
+<tr>
+<td><strong>Diagnostic / illustrative</strong></td>
+<td>The item is included for physical intuition or low-energy sanity, not as a load-bearing claim of this paper.</td>
+</tr>
+<tr>
+<td><strong>Outside this paper's scope</strong></td>
+<td>The item is not claimed here; it is either deferred to the main manuscript (Paper I = GUT.html), to a named companion layer (F2/F3/QC-bridge per the Supporting Documentation register, all resolving to Paper II), or — for the stabilization (Gap-04) and Λ questions — to the Scoped-TOE capsule (Paper IV, TOE.html), or left open.</td>
+</tr>
+</tbody>
+</table>
+<p>Earlier internal project labels (CB, GCC, SCC, WCC, ECC, rTT) and Stage 6 / Stage 7 status terminology are not used as formal statuses in this paper. The global conventions ledger (signature, $Q=T_3+Y$, gluon vs metric notation, gauge normalization) and the nine-field projection-specification template are imported in §5 and given in full in F3.</p>
+<hr />
+<h1>3. Imported Paper-I Geometry and Layer Discipline</h1>
+<p>This section fixes the single object all four projections read from — the parent manifold $M_{13}=M_{3,1}\times K_6\times S^2\times S^1$ — and the three-layer separation every force module must respect. The geometry and the layering are <strong>imported, not re-derived</strong>: their selection argument and necessity dossier live in Paper I (App. A1/A2, App. B2, EXTERNAL). No force section introduces a parent manifold of its own.</p>
+<h2>3.1 The parent manifold</h2>
+<p>The shared parent geometry is the 13-dimensional product manifold</p>
+<p>$$
+M_{13} = M_{3,1} \times K_6 \times S^2 \times S^1,
+\qquad
+K_6 = SU(3)/T^2.
+$$</p>
+<p>In plain language, this is one 4D Lorentzian spacetime $M_{3,1}$, one 6D internal manifold $K_6$ that plays the role of a color/family flag manifold, one 2-sphere $S^2$ that carries the weak structure, and one circle $S^1$ that carries hypercharge with a boundary parity condition responsible for 4D chirality. All four force interfaces in this paper are projections of this single object; none introduces a separate parent manifold of its own.</p>
+<p>Here $T^2$ denotes the maximal Cartan torus of $SU(3)$. Since $T^2 \simeq U(1)^2$, $K_6 = SU(3)/T^2 = SU(3)/U(1)^2$. The $T^2$ notation is used throughout this paper to match the main GUT manuscript.</p>
+<p>This 13D product manifold is the active branch selected by the constraint method in the main manuscript. The selection argument — what eliminates competing branches, why the compact factorization is $K_6 \times S^2 \times S^1$ rather than some alternative, and what fixes the spin and boundary data — is not reproduced here (authority: Paper I App. A1/A2, EXTERNAL). The present paper takes this geometry as given and shows how four familiar force EFTs arise as compatible projections of this single object.</p>
+<h2>3.2 Layer discipline: $\times$, $\oplus$, $\otimes$</h2>
+<p>The architecture separates three distinct kinds of structure into three layers. The $\times$-layer is the base metric geometry: the product of Lorentzian spacetime with the compact internal factors, carrying the 13D metric $G_{MN}$ and its Levi-Civita data. The $\oplus$-layer is the finite chamber / admissibility / claim-control data: discrete projectors, finite groupings, and the admissibility conditions that select which configurations count. The $\otimes$-layer is the field / bundle / Hilbert / operator structure: matter bundles, gauge bundles, Higgs sectors, and the operator algebras that act on them. The necessity of these three separate layers — that no two can be collapsed into one without losing content — is recorded in Paper I App. B2 (EXTERNAL; the layer-necessity dossier).</p>
+<p>The active branch is the layered expression</p>
+<p>$$
+\mathfrak B_{\rm active} = [\mathcal M_4 \times K_6 \times S^2 \times S_Y^1] \oplus [F^+_{\rm finite} \oplus \mathcal C_{\rm admiss}] \otimes [\mathcal E_{\rm matter} \oplus \mathcal E_{\rm gauge} \oplus \mathcal E_{\rm Higgs} \oplus \mathcal E_{\rm proton}].
+$$</p>
+<p>The bracket $[\mathcal M_4 \times K_6 \times S^2 \times S_Y^1]$ is the $\times$-layer base geometry; $[F^+_{\rm finite} \oplus \mathcal C_{\rm admiss}]$ is the $\oplus$-layer finite chamber and admissibility data; $[\mathcal E_{\rm matter} \oplus \mathcal E_{\rm gauge} \oplus \mathcal E_{\rm Higgs} \oplus \mathcal E_{\rm proton}]$ is the $\otimes$-layer field content packaged as bundles over the base.</p>
+<p><strong>Layer-discipline binding rule.</strong> No force section in this paper may smuggle a $\oplus$-layer object (a finite chamber projector or admissibility condition) or an $\otimes$-layer object (a gauge bundle, matter bundle, or Hilbert space) into the $\times$-layer geometry, and no force section may relocate a $\times$-layer object (a base-metric component) into the $\oplus$- or $\otimes$-layer. Every object referenced in the gravity, strong, weak, and QED sections must carry an explicit layer assignment, and the projection maps of §5 must respect that assignment. (Per-force $\times/\oplus/\otimes$ routing tables: F3, force-routing appendix.)</p>
+<hr />
+<h1>4. Four-Force Constraint Backbone</h1>
+<p>The four-force interface is governed by a constraint backbone inherited from the main GUT manuscript but restated here at interface level. Its purpose is to prevent the gravity, strong, weak, and QED sections from becoming four separately written EFT summaries. A force branch counts as part of this paper only if it survives the shared constraints below.</p>
+<blockquote>
+<p><strong>One invariant.</strong> Each force sector must be recoverable as a projection of the same active branch, using the same geometry, layer discipline, matter-bundle conventions, charge normalization, state-counting rules, anomaly discipline, and status vocabulary.</p>
+</blockquote>
+<p>These fifteen rows are this paper's one list in two tenses (§1.2): prospectively the admissibility filter on projections, retrospectively the test battery of §13. The constraints are not optional style rules. If any row fails, the relevant force section downgrades according to the falsification map of §13.</p>
+<blockquote>
+<p>Layer F2 (the C-FF Rosetta companion, Appendix CFR — Paper II, https://physics.magflowmeters.com/articles/Forces.html) gives the long-form mini-gate explanation of every C-FF row — interface problem, constraint, what it forces, what it eliminates, force modules affected, authority, falsifier, status boundary. This section gives the interface spine only. The Rosetta adds <strong>no</strong> new rows, promotions, or claims; the formal authority for each row is the §5.6 master coverage table and its Q-series certificate (Appendix Q), both in F3.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>C-FF row</th>
+<th>Constraint (one line)</th>
+<th>Force modules affected</th>
+<th>Falsifier</th>
+<th>CFR / cert pointer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>C-FF0</strong></td>
+<td>One parent geometry $M_{13}$ for all four sectors</td>
+<td>all four</td>
+<td>any branch uses a different parent geometry</td>
+<td>F2 CFR-0; Q05 (F3); §13 r1</td>
+</tr>
+<tr>
+<td><strong>C-FF1</strong></td>
+<td>Every object assigned to $\times$, $\oplus$, or $\otimes$</td>
+<td>all four</td>
+<td>layer smuggling</td>
+<td>F2 CFR-1; Q03 (F3); §13 r9</td>
+</tr>
+<tr>
+<td><strong>C-FF2</strong></td>
+<td>Full projection specification per force (nine fields)</td>
+<td>all four</td>
+<td>a force lacks a projection map</td>
+<td>F2 CFR-2; Q05 (F3); §13 r2</td>
+</tr>
+<tr>
+<td><strong>C-FF3</strong></td>
+<td>One shared matter bundle $\mathcal E_{\rm matter}$</td>
+<td>strong, weak, QED</td>
+<td>different forces act on incompatible matter</td>
+<td>F2 CFR-3; Q03 (F3); §13 r10</td>
+</tr>
+<tr>
+<td><strong>C-FF4</strong></td>
+<td>$Q = T_3 + Y$, no hidden $Q=T_3+Y/2$ switch</td>
+<td>weak, QED</td>
+<td>inconsistent $Q$ normalization</td>
+<td>F2 CFR-4; Q02 (F3); §13 r4</td>
+</tr>
+<tr>
+<td><strong>C-FF5</strong></td>
+<td>No state / generator / field / zero mode double-counted</td>
+<td>all four</td>
+<td>a mode counted twice</td>
+<td>F2 CFR-5; Q03 (F3); §13 r3</td>
+</tr>
+<tr>
+<td><strong>C-FF6</strong></td>
+<td>4D gauge fields are descended actors, never primitive 13D bosons</td>
+<td>gravity, all gauge</td>
+<td>gauge field treated as a primitive 13D boson</td>
+<td>F2 CFR-6; Q03 (F3); §13 r9</td>
+</tr>
+<tr>
+<td><strong>C-FF7</strong></td>
+<td>Metric / mixed / compact blocks never conflated</td>
+<td>gravity</td>
+<td>the three blocks conflated</td>
+<td>F2 CFR-7; Q05 (F3); §13 r9</td>
+</tr>
+<tr>
+<td><strong>C-FF8</strong></td>
+<td>QED factors through electroweak breaking</td>
+<td>QED, weak</td>
+<td>photon taken as an independent parent projection</td>
+<td>F2 CFR-8; Q04 (F3); §13 r7</td>
+</tr>
+<tr>
+<td><strong>C-FF9</strong></td>
+<td>Shared regulator / RG / state-counting conventions</td>
+<td>strong, weak, QED</td>
+<td>incompatible RG/threshold schemes</td>
+<td>F2 CFR-9; Q06 (F3); §13 r5</td>
+</tr>
+<tr>
+<td><strong>C-FF10</strong></td>
+<td>Anomaly ledgers close on the shared content</td>
+<td>strong, weak</td>
+<td>any anomaly class unaccounted</td>
+<td>F2 CFR-10; Q02 (F3); §13 r6</td>
+</tr>
+<tr>
+<td><strong>C-FF11</strong></td>
+<td>One recognizable low-energy target per force</td>
+<td>all four</td>
+<td>a force lacks a recognizable target</td>
+<td>F2 CFR-11; Q06 (F3); §13 r11</td>
+</tr>
+<tr>
+<td><strong>C-FF12</strong></td>
+<td>Excluded sectors never upgrade interface claims</td>
+<td>all four</td>
+<td>an excluded sector used as support</td>
+<td>F2 CFR-12; Q07 (F3); §13 r8</td>
+</tr>
+<tr>
+<td><strong>C-FF13</strong></td>
+<td>Paper I keeps certificate authority; invoked by interface only</td>
+<td>all four</td>
+<td>this paper re-closes a Paper-I gate</td>
+<td>F2 CFR-13; Q07 (F3); §13 r8</td>
+</tr>
+<tr>
+<td><strong>C-FF14</strong></td>
+<td>Every claim carries a stated falsifier</td>
+<td>all four</td>
+<td>a claim lacks a falsifier</td>
+<td>F2 CFR-14; Q01 (F3); §13 r12</td>
+</tr>
+</tbody>
+</table>
+<p>The force-interface construction follows this flow:</p>
+<p>$$
+\mathfrak B_{\rm active}
+\xrightarrow{\mathcal C_{\rm FF}}
+\{\pi_{\rm grav},\pi_{\rm strong},\pi_{\rm weak},\pi_{\rm QED}\}
+\xrightarrow{}
+\{\mathrm{EFT}_{\rm grav},\mathrm{EFT}_{\rm QCD},\mathrm{EFT}_{\rm EW},\mathrm{EFT}_{\rm QED}\}
+\xrightarrow{}
+\text{sanity targets}
+\xrightarrow{}
+\text{falsification / downgrade map}.
+$$</p>
+<p>This explicitly makes the constraint list the backbone between the active branch and the force-specific projections, so any attack on the four-force interface claim can be routed to a specific constraint ID. The <strong>backbone coverage master table</strong> — which assigns every row its enforcing module, its machine certificate, and its falsification row, in both tenses — is the §5.6 master table, the authoritative completeness home, carried in full in F3.</p>
+<hr />
+<h1>5. Projection Specification</h1>
+<p>This section imports the projection-map definition, the admissibility condition that ties each map to the backbone, the projection table and composite QED routing, and the two metric-block↔gauge-bundle bridges. The <strong>formal nine-field projection-specification template</strong> and each module's <strong>filled spec table</strong> are externalized to F3; this section gives the spine and a pointer.</p>
+<h2>5.1 Definition and admissibility</h2>
+<p>Each force sector is realized as a projection from the active branch into a target effective field theory: for each $i \in \{\rm grav, strong, weak, QED\}$ there is a map</p>
+<p>$$
+\pi_i : \mathfrak B_{\rm active} \to \mathrm{EFT}_i
+$$</p>
+<p>that selects the layer-respecting data relevant to that force and discards the rest. Each force section (§§6–9) opens by naming $\pi_i$ and identifying the $\times$, $\oplus$, and $\otimes$ data that survives.</p>
+<p>A map $\pi_i$ is admissible in this paper <strong>only if</strong> it satisfies the Four-Force Constraint Backbone of §4. A projection is therefore not merely a notation for discarding data; it is a constrained reduction that must preserve the shared matter bundle, charge convention, layer discipline, regulator convention, and falsification path. Each force module fills the nine-field Operational Projection Specification template (Domain, Kept data, Discarded data, Projection operation, Normalization, EFT target, Required sanity check, Falsification path, Paper I authority); the filled tables are in F3.</p>
+<h3>Intuition pump: the forces <em>are</em> the symmetries of the shape</h3>
+<p>A <strong>force</strong>, in this picture, is not a thing added on top of the geometry — it is <em>a way to move the internal shape without changing it</em> (an isometry). Every distinct such motion is a gauge boson.</p>
+<ul>
+<li><strong>Smallest toy.</strong> Take a perfect sphere. You can spin it about any axis and it looks identical afterward — the sphere has rotation symmetries, and each independent spin direction is one "symmetry generator." A cube has fewer; a featureless blob has none. <strong>The richer and more rigid the shape, the more symmetries it carries — and the count is fixed by the shape, not chosen.</strong></li>
+<li><strong>The real object.</strong> The active internal shape is $K_6 = SU(3)/T^2$. Its surviving symmetries form exactly the $SU(3)_c$ of the strong force — <strong>eight</strong> independent motions, the eight gluons (§7). The companion $S^2$ factor carries the spin-cover symmetry that becomes the weak $SU(2)_L$, and the $S^1_Y$ factor carries the single hypercharge symmetry $U(1)_Y$ (§8). Electromagnetism is the one combination left unbroken after the weak symmetry hides itself (§9). Four forces, one shape, no force added by hand.</li>
+<li><strong>What is shown, and what is not.</strong> <em>Shown (as an interface claim, at the grade of §§7–9):</em> the <em>gauge content</em> — which symmetry groups survive, how many generators each carries, the charge convention $Q = T_3 + Y$ they share — is read from the shape's isometries, not fitted. <em>Not shown here:</em> the <em>strengths</em> of those forces are a separate question (the couplings of §1.2.1, routed from Paper I anchors, not from the symmetry count), and the deep dynamics — confinement, the mass gap, full quantum gravity — stay scoped out (§2, §12). The honest boundary is "the forces' <em>symmetry structure</em> is geometric."</li>
+</ul>
+<p>Because a frozen shape has a <em>fixed</em> set of such motions, the gauge groups are counted off the geometry, not dialed in — which is why the paper can claim four forces from one object with <strong>zero new dials</strong> (§1.2.1): you cannot re-tune the symmetries of a shape you are not allowed to reshape.</p>
+<h2>5.2 Projection table and composite QED routing</h2>
+<table>
+<thead>
+<tr>
+<th>Projection</th>
+<th>Domain</th>
+<th>Codomain</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\pi_{\rm grav}$</td>
+<td>$\mathfrak B_{\rm active}$</td>
+<td>gravity EFT</td>
+<td>$g_{\mu\nu}$, stress-energy coupling</td>
+</tr>
+<tr>
+<td>$\pi_{\rm strong}$</td>
+<td>$\mathfrak B_{\rm active}$</td>
+<td>QCD EFT</td>
+<td>$SU(3)_c$, gluons, quarks</td>
+</tr>
+<tr>
+<td>$\pi_{\rm weak}$</td>
+<td>$\mathfrak B_{\rm active}$</td>
+<td>electroweak EFT</td>
+<td>$SU(2)_L \times U(1)_Y$, chiral matter</td>
+</tr>
+<tr>
+<td>$\pi_{\rm QED}$</td>
+<td>electroweak EFT</td>
+<td>QED / electrostatics</td>
+<td>$U(1)_{\rm em}$, photon, Maxwell/static limit</td>
+</tr>
+</tbody>
+</table>
+<p>Three of the four projections take the active branch directly as their domain. The QED projection is <strong>composite</strong>: it factors through the electroweak EFT, reflecting that the unbroken $U(1)_{\rm em}$ photon is a post-breaking remnant of $SU(2)_L \times U(1)_Y$ rather than an independent reduction of the parent geometry. The four projections fit into a single commuting array:</p>
+<p>$$
+\begin{array}{ccccc}
+\mathfrak B_{\rm active}
+&\xrightarrow{\pi_{\rm grav}}&
+\mathrm{EFT}_{\rm grav}
+&\to&
+\mathrm{GR\ / weak\ field}
+\\
+\downarrow \pi_{\rm strong}
+&&
+\downarrow \pi_{\rm weak}
+&&
+\downarrow \pi_{\rm QED}
+\\
+\mathrm{EFT}_{SU(3)_c}
+&&
+\mathrm{EFT}_{SU(2)_L\times U(1)_Y}
+&&
+\mathrm{EFT}_{U(1)_{\rm em}}
+\end{array}
+$$</p>
+<h2>5.3 The two bridges (metric block ↔ gauge bundle)</h2>
+<p><strong>Bridge A — mixed metric block $\leftrightarrow$ gauge bundle.</strong> In Kaluza–Klein block form the 13D metric splits into a 4D block $g_{\mu\nu}$, a compact internal block $g_{AB}$, and a mixed block $G_{\mu A}$. The gauge zero modes originate in the mixed block: components $G_{\mu A}$ associated with the compact isometries of $K_6 \times S^2 \times S^1_Y$ descend to massless 4D vector modes, packaged as gauge connections $A_\mu^a T_a$ on the principal $G_{\rm SM}$-bundle $\mathcal E_{\rm gauge}$ ($G_{\mu A}$ zero modes $\rightsquigarrow A_\mu^a T_a \in \mathcal E_{\rm gauge}$). The left side is a $\times$-layer object; the right is an $\otimes$-layer object — the geometric origin of the gauge content is the mixed block, while the 4D actor is the bundle connection.</p>
+<p><strong>Bridge B — primitive metric vs emergent gauge actor.</strong> The 13D metric $G_{MN}$ is the only fundamental bosonic field in the $\times$-layer. The 4D Yang–Mills gauge fields $A_\mu^a$ are not added as independent primitive 13D fields; they are effective gauge actors obtained after compactification once the mixed-block zero modes are repackaged into $\mathcal E_{\rm gauge}$. There is no contradiction between "the 13D metric is the only primitive boson" and "the 4D theory has Yang–Mills gauge fields," provided $A_\mu^a$ is treated as descended/effective rather than primitive.</p>
+<p><strong>The binding interface-module skeleton.</strong> Each force section (6–9) follows one shape — ladder delta, EFT demands, the filled projection spec (F3), what survives the projection, backbone constraints carried, the math simplified-then-real ending at the §11 sanity target, and a seven-line closure block (Claim / Mechanism / Why it matters / Paper-I authority / Q-certificate / Status / Falsifier) — with §9 (QED) as the calibration deep instance the others mirror at scaled depth. Only the four §2.3 status labels are used.</p>
+<hr />
+<h1>6. Gravity Interface</h1>
+<p><em>First ride. We meet our un-tunable character in its plainest form — $G_N$, read straight off the metric with no breaking step in between. Watch how honestly it confesses its one dependency: freeze the volume modulus (Paper I's job, not ours) or the whole claim self-downgrades to scalar-tensor. It recovers Newton's limit and refuses to pretend it replaces GR. This is the bond: the character shows you its weakest seam before you have to go looking.</em></p>
+<p>Gravity is the one force read from the parent metric directly: the spacetime-facing block of $G_{MN}$, with no breaking step and no bundle in between. The quantum-gravity material (BV-BRST package, KK metric-mode quantization, nonperturbative RG target rule) is a model-definition annex collected in F3; the four-force trunk does not lean on it.</p>
+<blockquote>
+<h3>Gravity status box — conditional interface claim</h3>
+<p>The gravity interface is an <strong>interface claim</strong>, not a standalone quantum-gravity closure.</p>
+<p><strong>Conditionality.</strong> The Einstein-frame relation</p>
+<p>$$
+> M_{\rm Pl}^2 = M_{13}^{11}\,\mathrm{Vol}(X)
+> $$</p>
+<p>is valid <strong>only after</strong> the relevant internal volume modulus is frozen by Paper I (Gate 6 / App. F). If that modulus is not frozen, the gravity interface does <strong>not</strong> remain an Einstein-frame GR interface — it <strong>downgrades to a scalar-tensor interface</strong>.</p>
+<p><strong>What it recovers, what it does not replace.</strong> The interface recovers the weak-field / Newtonian limit ($\nabla^2\Phi = 4\pi G_N\rho$); it <strong>recovers GR's Newtonian limit without replacing GR</strong>. $G_N$ is Paper I's declared input routed through one frozen compact volume — there is no gravity-sector dial.</p>
+<p><strong>Authority split.</strong></p>
+<ul>
+<li>Forces owns the routing from the metric block to the 4D gravity interface.</li>
+<li>Paper I owns the modulus-freeze certificate (Gate 6 / App. F).</li>
+<li>Full quantum gravity is <strong>outside this paper's scope</strong> (§12).</li>
+<li>Cosmology and $\Lambda$ do <strong>not</strong> support the gravity interface claim here (§12; corpus boundary below).</li>
+</ul>
+<p><strong>Local failure table.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Failure</th>
+<th>Gravity consequence</th>
+<th>Paper consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Paper-I modulus freeze fails</td>
+<td>Einstein-frame claim downgrades</td>
+<td>gravity row becomes scalar-tensor conditional</td>
+</tr>
+<tr>
+<td>volume modulus remains dynamical</td>
+<td>$G_N$ becomes field-dependent</td>
+<td>C-FF gravity interface downgrades</td>
+</tr>
+<tr>
+<td>full quantum gravity demanded</td>
+<td>outside Forces scope</td>
+<td>no upgrade / no closure</td>
+</tr>
+<tr>
+<td>cosmology/$\Lambda$ used as support</td>
+<td>scope violation</td>
+<td>row downgrade</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><strong>Ladder delta (what is new here).</strong> <em>One object, three channels:</em> the 13D metric is the only primitive boson — its $(\mu,\nu)$ block becomes 4D gravity, its mixed $(\mu,A)$ block becomes the gauge descendants (Bridge A, §5.3), its internal $(A,B)$ block becomes spectra, moduli, and overlap data. Nothing is added; everything is routed. <em>The Einstein-frame caveat:</em> the headline $M_{\rm Pl}^2 = M_{13}^{11}\,\mathrm{Vol}(X)$ is conditional on the Paper-I modulus freeze (status box).</p>
+<p><strong>What gravity's EFT demands.</strong> Masses attract with an inverse-square force sourced by energy density (Poisson equation); <em>everything falls the same way</em> — one stress-energy ledger on one $g_{\mu\nu}$ (equivalence principle); and $G_N$ is one universal number. The tempting wrong routing — keeping mixed-block zero modes as gravity <em>and</em> introducing 4D Yang–Mills as fresh primitives — counts the same modes twice (C-FF5, C-FF6 fail jointly) and disconnects the gauge couplings from the compact volume; Bridge A exists to make that error unwritable.</p>
+<p><strong>The projection $\pi_{\rm grav}$.</strong> $\pi_{\rm grav} : \mathfrak B_{\rm active} \to \mathrm{EFT}_{\rm grav}$ produces the 4D metric $g_{\mu\nu}$ and fixes the stress-energy coupling on $\mathcal M_4$. Domain: $G_{MN}(x,y)$ on $\mathcal M_4\times X$, $X=K_6\times S^2\times S_Y^1$. Kept: the zero-mode $g_{\mu\nu}(x)$ and a universal stress-energy coupling. Operation: normalized compact zero-mode projection plus Einstein-frame Weyl rescaling. Sanity check: $\nabla^2\Phi = 4\pi G_N\rho$. Falsifier: no normalized zero mode, no Einstein-frame action, or a sector-dependent leading metric coupling. (Full nine-field spec table: F3. Paper I authority: App. A1, F, R0, EXTERNAL.) Layer routing ($\times$: $\mathcal M_4$, 13D metric base, $G_{\mu\nu}$; $\oplus$: gauge choice, diffeomorphism quotient, BRST/BV rules, freeze/downgrade protocol; $\otimes$: $h_{\mu\nu}$, $T_{\mu\nu}$, ghost/antifield domains): F3 routing appendix.</p>
+<p><strong>Backbone rows carried:</strong> C-FF7 (defining — metric / mixed / compact blocks never conflated), C-FF6 (gauge connections are descended actors via Bridge A), C-FF0, C-FF1, C-FF5 (massive KK modes are discarded-means-accounted in the correction ledger), C-FF11 (Newtonian limit), C-FF12/C-FF13 (the QG annex is Diagnostic only, authority stays with Paper I), C-FF14 (the falsification/downgrade map below). <strong>Consumes:</strong> nothing upstream — the trunk's first projection. <strong>Supplies:</strong> the shared Einstein-frame $g_{\mu\nu}$ background and single stress-energy ledger to §§7–9, and the $G_N$ row of §1.2.1.</p>
+<h2>6.6 The math, simplified then real (trunk)</h2>
+<p>Put one massless scalar on a compact space $X$ and expand in harmonics: the integral $\int_X dy\,\sqrt{g_X}\,Y_0\,\phi(x,y)$ picks out the $y$-independent piece; the rest is a heavy tower. The gravity ladder is that one move on the $(\mu,\nu)$ block, followed by the one honesty step the toy doesn't need — rescaling to the Einstein frame, legitimate only under the Paper-I modulus freeze (status box). The trunk reduction is:</p>
+<ul>
+<li><strong>Block decomposition.</strong> $G_{MN} = \begin{pmatrix} G_{\mu\nu} & G_{\mu B}\\ G_{A\nu} & G_{AB}\end{pmatrix}$ — $G_{\mu\nu}$ routes gravity, $G_{\mu A}$ routes gauge descendants, $G_{AB}$ routes compact spectra/moduli, without double-counting.</li>
+<li><strong>Dimensional reduction.</strong> With $Y_0(y)=\mathrm{Vol}(X)^{-1/2}$, the 4D mode is $g_{\mu\nu}^{(0)}(x)=\int_X d^9y\,\sqrt{g_X}\,Y_0\,G_{\mu\nu}(x,y)$; the physical Einstein-frame metric follows the Weyl rescaling that fixes $R[g]$ to coefficient $M_{\rm Pl}^2/2$.</li>
+<li><strong>Einstein-frame caveat.</strong> $M_{\rm Pl}^2 = M_{13}^{11}\mathrm{Vol}(X)$ is <strong>not an unconditional prediction</strong> — it is an Interface claim, <strong>CONDITIONAL</strong> on the volume modulus being FROZEN (WL-1). If the modulus remains dynamical the reduction is scalar-tensor, not pure Einstein gravity, and the interface downgrades (status box).</li>
+<li><strong>Universal-coupling test.</strong> Every reduced matter/gauge action must use the <em>same</em> Einstein-frame metric, $S_{\rm matter}^{(4)} = \int d^4x\,\sqrt{-g_E}\,\mathcal L_{\rm matter}(g^E_{\mu\nu},\Psi,A_\mu,\ldots)$; different leading metrics per sector is an equivalence-principle failure.</li>
+<li><strong>Einstein-Hilbert target + stress-energy coupling.</strong> $S_{\rm grav}^{(4)} = \frac{1}{16\pi G_N}\int\sqrt{-g}\,R[g] + S_{\rm EFT\,corr}$; $G_{\mu\nu}^{(4)} = 8\pi G_N\,T_{\mu\nu}^{\rm eff}$ on one shared ledger.</li>
+</ul>
+<h3>6.6.9 The sanity target and the coupling row, worked</h3>
+<p>The C-FF11 target is the weak-field limit $g_{00}\approx-(1+2\Phi)$ with $\nabla^2\Phi = 4\pi G_N\,\rho$ — Newtonian gravity recovered as the weak-field, slow-motion limit of the reduced Einstein equations (§11, row 1). The §1.2.1 coupling row is the normalization read in reverse: $G_N^{-1} \propto M_{\rm Pl}^2 = M_{13}^{11}\,\mathrm{Vol}(K_6\times S^2\times S^1)$, with $\mathrm{Vol}(K_6)=V_0 R^6\sqrt{x_1x_2x_3}$, $V_0=(2\pi)^3/\sqrt3$ — Newton's constant is Paper I's declared input 1 ($M_{\rm Pl}$, R1.8) routed through one frozen compact volume. No gravity-sector dial exists. This is the gravity sector's reduces-to-known-physics landing point: the geometry's weak-field limit is the textbook Poisson equation $\nabla^2\Phi=4\pi G\rho$ unchanged (recovers GR's Newtonian limit without replacing GR; status box).</p>
+<h2>6.7 Closure</h2>
+<pre><code>Claim:      4D Einstein gravity, with universal stress-energy coupling and the
+            Newtonian limit, is the normalized zero-mode projection of the
+            spacetime-facing block of the one parent metric, in Einstein frame.
+Mechanism:  block decomposition -&gt; zero-mode projection against Y0 -&gt; Weyl
+            rescaling under the Paper I modulus freeze -&gt; Einstein-Hilbert target.
+Why it
+matters:    anchors the routing&#x27;s ontology: the metric is the only primitive
+            boson, so every other force module must be descended, not added.
+Paper I
+authority:  App. A1/A2 (geometry), F (moduli freeze), C1/C7 (dossiers),
+            R0 (reproducibility), R2 + Section 9 (claim boundary) — EXTERNAL.
+Certificate: Q03 (counting homes), Q05 (spec/blocks), Q06 (Newtonian target),
+            Q07 (QG scope) — Appendix Q (F3).
+Status:     Interface claim (classical routing); Diagnostic (QG model-definition
+            package, F3 annex); Outside scope (UV completion, cosmology, Lambda).
+Falsifier:  no normalized zero mode; no Einstein-frame reduction (-&gt; scalar-
+            tensor downgrade); sector-dependent leading metric; QG material
+            used as gate support (§6.7.2, §13).
+</code></pre>
+<h3>6.7.2 Falsification / downgrade map</h3>
+<p>Each gravity interface claim has a defined failure path and downgrade; a triggered row downgrades the corresponding claim without renegotiation.</p>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Falsification path</th>
+<th>Downgrade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gravity from $G_{\mu\nu}$</td>
+<td>no defined projection to $g_{\mu\nu}$</td>
+<td>gravity interface under-defined</td>
+</tr>
+<tr>
+<td>Normalized metric projection</td>
+<td>no $Y_0$ / no measure / no zero mode</td>
+<td>gravity projection undefined</td>
+</tr>
+<tr>
+<td>Einstein-frame target</td>
+<td>no Weyl rescaling or modulus freeze</td>
+<td>scalar-tensor only</td>
+</tr>
+<tr>
+<td>Classical GR limit</td>
+<td>no Einstein-Hilbert target / wrong stress-energy</td>
+<td>classical interface fails</td>
+</tr>
+<tr>
+<td>Gauge redundancy handled</td>
+<td>no diffeo quotient / gauge-fixing</td>
+<td>quantum interface invalid</td>
+</tr>
+<tr>
+<td>Newtonian / weak-field limit</td>
+<td>no Poisson equation</td>
+<td>low-energy gravity interface fails</td>
+</tr>
+<tr>
+<td>Universal coupling</td>
+<td>sector-dependent leading metric</td>
+<td>equivalence-principle failure</td>
+</tr>
+<tr>
+<td>Quantum-geometry row</td>
+<td>no BRST/BV/FRG model definition</td>
+<td>companion claim downgrades</td>
+</tr>
+<tr>
+<td>QG material</td>
+<td>used as GUT-gate support</td>
+<td>scope violation</td>
+</tr>
+<tr>
+<td>Scope boundary</td>
+<td>full QG used to close GUT gates</td>
+<td>scope violation</td>
+</tr>
+</tbody>
+</table>
+<p>(The QG model-definition annex — BV-BRST master action, de Donder gauge, $12+1$ ADM canonical algebra, KK metric-mode quantization, nonperturbative RG target rule, equivalence-principle check, the gravity correction ledger, and the seven-row reviewer test suite — is Diagnostic / model-definition only and lives in F3. Authority pointers map every claim to Paper I C1/A1, A1/A2, C7, F/A1, R0, R2.)</p>
+<h2>6.8 Corpus boundary cross-reference (EXTERNAL; not required for the trunk)</h2>
+<p>Two structural questions this gravity annex deliberately leaves open — (i) the <strong>quantum self-consistency / stabilization</strong> of the frozen compactification background, and (ii) the <strong>cosmological-constant / vacuum-energy</strong> story — are governed not by this paper but by the live corpus capsule (<code>TOE_FINAL</code>; Paper IV, canonical public article in the Supporting Documentation register: TOE.html, with its formal authority package resolving to that same article). The version labels below (v9/v10, v12/v14) and the <code>gap04_frozen_package_native.json</code> artifact are that capsule's internal stable-version identifiers. This subsection records what changed upstream and promotes nothing: every status is carried at the grade the corpus assigns it, by interface only (C-FF12, C-FF13).</p>
+<ul>
+<li><strong>(i) Stabilization (Gap 04) — DISCHARGED upstream; this paper still scopes it out.</strong> TOE_FINAL v9 reports <em>Gap 04: CLOSED at decision grade</em> (D15-native runner PASS under the logged countersign; <code>gap04_frozen_package_native.json</code> <strong>EXT</strong>). TOE_FINAL v10 reports the boundary-sign event: with $c_{\rm bdry}=-1.08\times10^{-2}$ the stabilizing well exists unconditionally in $c_{\rm loop}$. Forces relies on this <strong>only</strong> at the level of WL-2: it is the upstream warrant that the RG target rule is pointed at a background the corpus treats as stabilized-at-decision-grade. The four-force trunk does not consume it; no interface claim in §§6–9 is upgraded by it.</li>
+<li><strong>(ii) The Λ line — Weinberg-open as a COMPUTED certificate; this paper still scopes it out.</strong> TOE_FINAL v12: the exact-weight graded supertrace shows <strong>no structural cancellation at any coefficient order</strong> (ratio 0.58 at $k=0$, 1.000 at $k=1$–8) — Λ stays Weinberg-open as a <em>computed one-loop certificate</em>, not an open mechanism hunt. TOE_FINAL v14: <em>I3 THEOREM_REFUTED</em> — the Λ operator is the unit operator; the chamber route to Λ is closed; Weinberg stands. Forces relies on this <strong>only</strong> to keep its own boundary honest. Nothing in this paper implies a live Λ-cancellation mechanism.</li>
+<li><strong>Strong CP (boundary note).</strong> The strong-sector annex scopes out strong CP (§7). The corpus likewise still has $\bar\theta$-smallness honestly underived (TOE_FINAL Path γ, <strong>EXT</strong>). The boundary is current and unchanged: Outside this paper's scope, not a closed claim.</li>
+<li><strong>Sanity-target consistency check (no drift).</strong> The frozen four-input headline ($M_{\rm Pl}$; $\alpha_i^{-1}(M_Z)$; $y_t=0.9665$; $\lvert V_{us}\rvert=0.22436$) and the imported $v=246.02$ GeV (Paper I Gate 8 output <strong>EXT</strong>) were re-checked against the corpus: <strong>no drift</strong>. No number in this paper was changed.</li>
+</ul>
+<p>One-line summary (binding): upstream, stabilization is discharged-at-decision-grade and Λ is a computed Weinberg-open certificate; in this paper, both remain <strong>Outside this paper's scope</strong>, now cited to their governing capsule. Promotions: zero.</p>
+<hr />
+<h1>7. Strong / QCD Interface</h1>
+<p><em>Second ride, and trust deepens. Here the character does its most literal trick: color is not assigned to the shape, it survives the shape. The coupling $g_s$ is whatever the $K_6$ isometry normalization says — you cannot reach in and set it. And true to character, it draws a hard line at its own scope: it claims the gauge-structure recovery and nothing about confinement or strong CP, which stay honestly open. The asymptotic-freedom sign it offers is a consequence, not a fitted prize.</em></p>
+<p>The strong module is where "force from geometry" is most literal: the color symmetry is not assigned to $K_6$ — it <em>survives</em> the construction of $K_6$, as the left action remaining on $SU(3)/T^2$. Its honesty hinge is notational: the action is written with Dirac quarks, the anomaly ledger with left-handed Weyl fields, and these are two notations for <strong>one</strong> spectrum.</p>
+<blockquote>
+<h3>Strong-sector status box — $SU(3)_c$ interface recovery, <strong>not</strong> nonperturbative QCD closure</h3>
+<p><strong>What this module claims.</strong> An <strong>$SU(3)_c$ gauge-structure INTERFACE recovery only</strong>: the unbroken color gauge connection, its eight adjoint gluons, and the triplet quark representation content descend from the shared geometry (left $SU(3)$ action on $K_6 = SU(3)/T^2$) onto the standard 4D QCD form. That gauge-structure recovery, plus its representation/anomaly consistency, is the entire owned strong-sector claim.</p>
+<p><strong>What this module does NOT claim — OUT OF SCOPE (§12).</strong> Not claimed, not solved, and not used as support: confinement; the QCD mass gap; chiral symmetry breaking; the strong-CP problem; the full nonperturbative QCD / hadron spectrum. These are nonperturbative and lie outside this paper's scope (§12; C-FF12 / C-FF14). They never establish, upgrade, or back the interface claim, and feed no scoped GUT gate.</p>
+<p><strong>Permitted perturbative / representation-level sanity checks.</strong> The module may state perturbative and representation-level consistency checks — including the one-loop $\beta(g_s)$ asymptotic-freedom <strong>sign</strong> — but these are consequences of the upstream-fixed representation content, <strong>not</strong> independent predictions, and do <strong>not</strong> upgrade the claim into nonperturbative QCD closure.</p>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Status in Forces</th>
+<th>Authority / note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$SU(3)_c$ interface recovery</td>
+<td>interface claim</td>
+<td>strong module / C-FF rows</td>
+</tr>
+<tr>
+<td>representation content</td>
+<td>inherited / interface-audited</td>
+<td>Paper I matter/gauge authority</td>
+</tr>
+<tr>
+<td>asymptotic-freedom sign</td>
+<td>sanity check</td>
+<td>representation-content consistency</td>
+</tr>
+<tr>
+<td>confinement</td>
+<td>OUT OF SCOPE (§12)</td>
+<td>not used as support</td>
+</tr>
+<tr>
+<td>mass gap</td>
+<td>OUT OF SCOPE (§12)</td>
+<td>not used as support</td>
+</tr>
+<tr>
+<td>chiral symmetry breaking</td>
+<td>OUT OF SCOPE (§12)</td>
+<td>not used as support</td>
+</tr>
+<tr>
+<td>strong CP</td>
+<td>OUT OF SCOPE (§12)</td>
+<td>not used as support</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><strong>Ladder delta.</strong> <em>Color from a quotient that keeps its symmetry:</em> dividing $SU(3)$ by its maximal torus removes two phase directions but not the symmetry — the full $SU(3)$ still acts from the left ($g\cdot[h]=[gh]$ on $K_6=SU(3)/T^2$, $\dim=8-2=6$); that surviving action descends to the eight gluons via Bridge A. <em>Two notations, one spectrum:</em> low-energy QCD reads with Dirac quarks $q_f$; anomaly accounting is honest only with left-handed Weyl fields ($u_R\to u^c_L$ in $\bar{\mathbf 3}$). The per-generation $SU(3)^3$ cancellation must be computed in the Weyl convention (C-FF10).</p>
+<p><strong>What QCD demands.</strong> Eight self-interacting gluons; quarks in color triplets, three families; a coupling that <em>weakens</em> at short distance (asymptotic freedom, the experimentally settled sign); and exact color anomaly cancellation. The wrong-handed what-if: assigning right-handed quarks plain triplets instead of conjugate triplets in the Weyl ledger leaves the Dirac action identical but silently breaks the $SU(3)^3$ anomaly — the theory dies at one loop. That is why anomaly rows defer to a frozen, convention-locked ledger (Paper I Gate 5 / App. E′, EXTERNAL).</p>
+<p><strong>The projection $\pi_{\rm strong}$.</strong> $\pi_{\rm strong} : \mathfrak B_{\rm active} \to \mathrm{EFT}_{SU(3)_c}$. Domain: $K_6=SU(3)/T^2$, $\mathcal E_{\rm gauge}$, $\mathcal E_{\rm matter}$. Kept: left $SU(3)$ action, color gauge connection, quark color modules. Normalization: $\mathrm{Tr}(T^aT^b)=\tfrac12\delta^{ab}$. EFT target: QCD Yang–Mills + quark action. Sanity check: $\beta(g_s)<0$ for SM active flavors. Falsifier: wrong color reps, nonzero color anomaly, or missing non-Abelian field strength. (Full spec table + layer routing: F3. Paper I authority: App. C2, D, C7/E, EXTERNAL.)</p>
+<p><strong>Backbone rows carried:</strong> C-FF0, C-FF10 (defining — representation/anomaly ledgers in the locked Weyl convention close on the shared content; authority Paper I Gate 5 / E′), C-FF3 (quarks carry color through the same $\mathcal E_{\rm matter}$ the weak module charges — one bundle), C-FF1, C-FF5, C-FF9 (β-function uses the shared state-counting and normalization), C-FF11 (asymptotic-freedom sign), C-FF12/C-FF14 (confinement/mass gap/χSB/strong CP Outside scope). <strong>Consumes:</strong> the chiral matter table (the quark sector's 4D chirality uses the $S^1/\mathbb Z_2$ no-mirror lift — Paper I Gate 4 — not $K_6$ alone) and the shared bundle from §8. <strong>Supplies:</strong> color modules to the joint anomaly audit (§10.2) and the $g_s$ row of §1.2.1.</p>
+<h2>7.6 The math, simplified then real (trunk)</h2>
+<p>Take the circle as a baby quotient: $U(1)$ acting on itself leaves nothing, but $SU(2)/U(1)=S^2$ keeps a full $SU(2)$ acting on the sphere. Color is the same move one rank up: quotient $SU(3)$ by its torus and the <em>whole</em> group still acts — six dimensions of carrier, eight surviving symmetry directions. The trunk ladder:</p>
+<ul>
+<li><strong>Color geometry / quotient.</strong> $K_6=SU(3)/T^2$, $\dim_{\mathbb R}(SU(3)/T^2)=8-2=6$ — six color/family directions remain after the two torus phase directions are removed.</li>
+<li><strong>Surviving action.</strong> $g\cdot[h]=[gh]$, $g,h\in SU(3)$ — color symmetry is not killed by the quotient.</li>
+<li><strong>Gauge connection and field strength.</strong> $A_\mu=A^a_\mu T^a$, $T^a\in\mathfrak{su}(3)$; $G^a_{\mu\nu}=\partial_\mu A^a_\nu-\partial_\nu A^a_\mu+g_s f^{abc}A^b_\mu A^c_\nu$ — gluons self-interact through the commutator term (genuinely non-Abelian).</li>
+<li><strong>QCD action.</strong> $S_{\rm QCD}=\int d^4x\,\sqrt{-g_4}\big[-\tfrac14 G^a_{\mu\nu}G^{a\mu\nu}+\sum_f \bar q_f(i\gamma^\mu D_\mu-m_f)q_f\big]$, with masses $m_f$ descendants of the overlap geometry, not primitives.</li>
+</ul>
+<p><strong>Representation / anomaly ledger (the binding form is left-handed Weyl):</strong> per generation, $Q_L$ in $\mathbf 3$, $u^c_L$ and $d^c_L$ in $\bar{\mathbf 3}$, leptons singlet; the apparent $SU(3)^3$ contribution from the two color-triplet components of $Q_L$ is cancelled by $u^c_L\oplus d^c_L$. Color anomaly cancellation must be checked in the same representation convention used by the matter ledger. (Full Dirac and Weyl ledger tables: F3. Authority: Paper I App. D/E, EXTERNAL.)</p>
+<h3>7.6.10 The sanity target and the coupling row, worked</h3>
+<p>The C-FF11 target is $\beta(g_s)=-\tfrac{g_s^3}{16\pi^2}\big(11-\tfrac23 n_f\big)+\cdots<0$ for the SM active flavor count — asymptotic freedom with the measured sign, a consequence of the recovered non-Abelian content rather than an extra assumption (§11, row 2). This is a <em>necessary consistency check the routing passes, not an independent prediction</em>: the one-loop coefficient is a function of the upstream-fixed representation content alone. The §1.2.1 coupling row: $g_s$ carries no dial of its own — its generator normalization is the §5/F3 convention, its running uses the shared state counting, and its measured value $\alpha_3(M_Z)$ enters only as Paper I's declared comparison <strong>target</strong> (R1.8, input 2), scored through the frozen threshold ledger of Paper I Gate 7.</p>
+<h2>7.7 Closure</h2>
+<pre><code>Claim:      the low-energy color sector of the active branch is standard SU(3)_c
+            QCD: surviving left action -&gt; adjoint gluons -&gt; triplet quarks on the
+            shared bundle -&gt; QCD action -&gt; asymptotic freedom, anomaly-free.
+Mechanism:  K6 = SU(3)/T^2 isometry descent (Bridge A) + shared-bundle matter
+            + locked Weyl anomaly ledger.
+Why it
+matters:    the non-Abelian half of the routing claim; the same geometry that
+            yields an Abelian remnant (§9) yields a confiningly-signed
+            non-Abelian sector with the right representation arithmetic.
+Paper I
+authority:  App. C2/A1 (K6), D/C7/A2 (color reps), E&#x27; (anomaly), G (thresholds),
+            I/J (quark masses as descendants), R0 (reproducibility) — EXTERNAL.
+Certificate: Q02 (reps/anomaly on shared spectrum), Q03 (counting homes),
+            Q06 (beta-sign target), Q07 (scope) — Appendix Q (F3).
+Status:     Interface claim (QCD recovery); Main-manuscript certificate (anomaly,
+            thresholds, masses); Outside scope (confinement, mass gap, chiSB,
+            strong CP).
+Falsifier:  no surviving SU(3) action; wrong color reps; nonzero color anomaly;
+            beta-function sign wrong; or any excluded item used as support
+            (§7.7.2, §13).
+</code></pre>
+<h3>7.7.2 Falsification / downgrade map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Falsification path</th>
+<th>Downgrade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$K_6$ sources color</td>
+<td>no surviving $SU(3)$ action</td>
+<td>Gate 2 fails</td>
+</tr>
+<tr>
+<td>correct quark color reps</td>
+<td>wrong reps or missing matter modules</td>
+<td>D/E fail</td>
+</tr>
+<tr>
+<td>QCD action recovered</td>
+<td>no non-Abelian field strength / quark coupling</td>
+<td>strong interface fails</td>
+</tr>
+<tr>
+<td>anomaly cancellation</td>
+<td>nonzero $SU(3)$ anomaly</td>
+<td>Gate 5 fails</td>
+</tr>
+<tr>
+<td>asymptotic freedom</td>
+<td>beta function sign wrong</td>
+<td>QCD consistency fails</td>
+</tr>
+<tr>
+<td>confinement / mass gap</td>
+<td>not routed externally</td>
+<td>diagnostic only</td>
+</tr>
+<tr>
+<td>strong CP</td>
+<td>not routed externally</td>
+<td>outside this paper's scope</td>
+</tr>
+</tbody>
+</table>
+<p>(The nonperturbative scope annex — confinement / singlets / hadrons, the strong-CP $\theta$-scope note, the seven-row reviewer test suite, and authority pointers to Paper I C2/A1, D/C7/A2, E, G, I/J, R0 — bounds the module and is carried in F3; per the status box none of it is used to establish the strong interface.)</p>
+<hr />
+<h1>8. Weak / Electroweak Interface</h1>
+<p><em>Third ride — the one where the character hands you the knife. This is where $g$ and $G_F$ live, and where the single arithmetic fact you can check by hand sits in the open: $3\cdot\tfrac16-\tfrac12=0$. Shift one hypercharge by one lattice step and two things break at once — the electron's charge and the napkin witness. The character is not asking for trust here; it is daring you to falsify it in thirty seconds. That is the most exciting moment in the journey, because a number that can break against measurement is not a tuned number.</em></p>
+<p>The weak module carries the heaviest interface load: it owns the shared matter table that §§7 and 9 act on, it executes the breaking that §9 depends on, and it hosts the one <em>live arithmetic witness</em> in the routing — the per-generation anomaly sum a reviewer can check on a napkin. Two of the five coupling rows of §1.2.1 are worked here.</p>
+<blockquote>
+<h3>Weak-sector status box — electroweak routing/interface claim</h3>
+<p>This section is an <strong>electroweak routing / interface claim</strong>. Gauge / charge / chirality / anomaly certificates are inherited from Paper I and are <strong>not re-closed here</strong> (C-FF13). The live witness $3\cdot\tfrac16-\tfrac12=0$ (§8.6.4) is an interface check; full anomaly closure is Paper I's certificate (App. E/E′, Gate 5, EXTERNAL). Baryogenesis, the full electroweak precision fit, and the full neutrino mechanism are <strong>Outside this paper's scope</strong> (§12) and are not used as support.</p>
+</blockquote>
+<p><strong>Ladder delta.</strong> <em>The spin cover — why a sphere yields doublets:</em> the rotations of $S^2$ form $SO(3)$, which has no doublets; weak doublets live on the double cover $SU(2)\to SO(3)$. The sphere is a true weak-isospin carrier only through its spin-c structure. <em>Chirality as boundary data:</em> the hypercharge circle carries a parity identification $\theta\sim-\theta$, and the $\mathbb Z_2$ boundary data kills the would-be mirror partner of every chiral mode — parity violation is structural (no-mirror lift, Paper I Gate 4 / App. E, EXTERNAL; mirror survival is a named falsifier).</p>
+<p><strong>What the weak EFT demands.</strong> Maximal parity violation; massive $W^\pm, Z$ with a massless photon (one breaking step splits one multiplet's fate); every multiplet's charge from $Q=T_3+Y$; the low-energy collapse to Fermi's four-fermion interaction with one $G_F$; and five anomaly classes cancelling on the same matter content. The what-if: shift one hypercharge by one lattice step — $Y(L_L)=-1/3$ instead of $-1/2$ — and two things fail at once: the electron gets $Q=-5/6$, and the napkin witness breaks, $3\cdot\tfrac16-\tfrac13\ne 0$. The same number fixes charges and quantum consistency (C-FF4, C-FF10).</p>
+<p><strong>The projection $\pi_{\rm weak}$.</strong> $\pi_{\rm weak} : \mathfrak B_{\rm active} \to \mathrm{EFT}_{SU(2)_L\times U(1)_Y}$. Domain: $S^2$, $S_Y^1/\mathbb Z_2$, $\mathcal E_{\rm matter}$, $\mathcal E_{\rm Higgs}$. Kept: weak doublets/singlets, hypercharge, Higgs/Wilson-line doublet. Operation: spin-cover projection + hypercharge-line projection + chiral boundary projection. Normalization: $Q=T_3+Y$. Sanity check: charge table, anomaly cancellation, $m_W/m_Z/\rho$, Fermi limit. Falsifier: wrong charge, mirror survival, anomaly, no $U(1)_{\rm em}$ remnant. (Full spec table + layer routing: F3. Paper I authority: App. C3, C4, D, H, K, EXTERNAL.)</p>
+<p><strong>Backbone rows carried:</strong> C-FF4 (defining — $Q=T_3+Y$ recovered row by row, the convention's home; no $Q=T_3+Y/2$ variant anywhere), C-FF3 (defining — this module publishes the five-bundle left-Weyl matter table §§7 and 9 act on), C-FF10 (five anomaly classes close, live witness $3\cdot\tfrac16-\tfrac12=0$), C-FF0/C-FF1, C-FF5, C-FF8 (supplier side — the breaking map and surviving $U(1)_{\rm em}$ are produced here and handed to §9), C-FF11 (Fermi limit + tree masses), C-FF12/C-FF14. <strong>Consumes:</strong> the shared Einstein-frame background (§6) and Paper I's frozen Higgs/Wilson-line sector (Gate 8: $v=246.02$ GeV is an <em>output</em> there, imported, never re-derived). <strong>Supplies:</strong> the matter/charge ledger to §§7 and 9; the entire electroweak EFT — domain of $\pi_{\rm QED}$ — to §9; the $g$ and $G_F$ rows of §1.2.1.</p>
+<h2>8.6 The math, simplified then real (trunk)</h2>
+<p>Break a $U(1)\times U(1)$ with one charged scalar: one combination of the two gauge fields eats the phase and gets a mass; the orthogonal combination stays massless. The electroweak ladder is the non-Abelian version — three generators broken, three Goldstones eaten by $W^\pm, Z$, one orthogonal mixture left massless — with the extra structure that the <em>matter</em> is chiral, so the same step that splits the boson masses writes parity violation into the currents.</p>
+<p><strong>Embedding.</strong> Weak representations come from $S^2$ spin-c monopole sectors; hypercharge from the parent $S^1$ charge lattice and global $\mathbb Z_6$ quotient, quantized as $Y\in\tfrac16\mathbb Z$; electric charge $Q=T_3+Y$. The per-generation left-Weyl spectrum is</p>
+<p>$$
+(3,2)_{1/6}\oplus(\bar3,1)_{-2/3}\oplus(\bar3,1)_{1/3}\oplus(1,2)_{-1/2}\oplus(1,1)_{1}.
+$$</p>
+<h3>8.6.4 Electroweak anomaly audit (the live witness)</h3>
+<p>For this spectrum the reduced 4D anomaly coefficients vanish:</p>
+<p>$$
+A_{SU(3)^3}=0,\quad A_{SU(3)^2U(1)_Y}=0,\quad A_{SU(2)^2U(1)_Y}=0,\quad A_{U(1)_Y^3}=0,\quad A_{\mathrm{grav}^2U(1)_Y}=0.
+$$</p>
+<p>For $SU(2)^2U(1)$, one generation gives</p>
+<p>$$
+3\cdot Y(Q_L)+1\cdot Y(L_L)=3\cdot\tfrac16-\tfrac12=0.
+$$</p>
+<p>This is the minimal visible witness that the hypercharge normalization is not arbitrary — the one fast-check a reviewer can run with no tools (fast-check scoreboard): the per-generation sum is identically zero, so quantum consistency is confirmed by a single subtraction. The global Witten anomaly also vanishes because the total number of left-handed $SU(2)$ doublets is even.</p>
+<p><strong>Breaking and masses.</strong> The Higgs/Wilson-line doublet $H\sim(\mathbf 1,\mathbf 2)_{1/2}$ drives $SU(2)_L\times U(1)_Y\to U(1)_{\rm em}$, removing three generators (three Goldstones eaten by $W^\pm, Z$, one physical scalar left). Tree-level: $m_W=\tfrac12 g v$, $m_Z=\tfrac12\sqrt{g^2+g'^2}\,v$, $\cos\theta_W=g/\sqrt{g^2+g'^2}$, and $\rho=m_W^2/(m_Z^2\cos^2\theta_W)=1$. No precision fit is claimed, but failure of these tree relations falsifies the weak interface. The photon/$Z$ mixing is $A_\mu=\sin\theta_W W^3_\mu+\cos\theta_W B_\mu$, $Z_\mu=\cos\theta_W W^3_\mu-\sin\theta_W B_\mu$. (Goldstone counting, the geometric Higgs-mode discussion, the full rung-by-rung ladder, the representation/chirality ledger with explicit $Q=T_3+Y$ per row, and the anomaly/no-mirror test table are carried in F3; the Higgs/Wilson-line protection certificate is Paper I App. H, EXTERNAL — imported as a compatibility constraint, no compactification-independent Higgs theorem claimed.)</p>
+<h3>8.6.15 The sanity targets and the coupling rows, worked</h3>
+<p>The C-FF11 targets: integrating out the heavy charged current gives $\mathcal L_{\rm Fermi}=-\tfrac{G_F}{\sqrt2}J^\mu_{\rm cc}J^{\rm cc}_\mu$ with $G_F/\sqrt2=g^2/8M_W^2$ (§11, row 3), and the tree relations $m_W=\tfrac12 g v$, $m_Z=\tfrac12\sqrt{g^2+g'^2}\,v$, $\rho=1$ are binding falsifiers. The §1.2.1 rows: $g$ is the $S^2$ isometry coupling under the shared normalization, with $\alpha_2(M_Z)$ as Paper I's comparison target; and $G_F$ is <strong>computed</strong> — $g$ from the routing, $M_W$ from $v$, and $v$ from Paper I's Gate-8 Wilson-line determinant, an output, not an anchor. The weak scale of this paper contains no dial.</p>
+<h2>8.7 Closure</h2>
+<pre><code>Claim:      the electroweak sector of the active branch is the chiral broken
+            descendant of S^2 (spin cover) x S^1_Y/Z2: Q = T3 + Y recovered on
+            every multiplet, five anomaly classes closed, EWSB -&gt; U(1)_em with
+            massive W/Z, and the Fermi limit as the low-energy reduction.
+Mechanism:  spin-cover doublets + hypercharge lattice + no-mirror boundary lift
+            + geometric Higgs doublet (1,2)_{1/2} breaking three generators.
+Why it
+matters:    the supplier module: its matter table feeds §§7 and 9, its breaking
+            is §9&#x27;s domain, and it hosts the routing&#x27;s live arithmetic witness
+            (3*(1/6) - 1/2 = 0).
+Paper I
+authority:  App. C3 (S^2), C4 (S^1_Y/Z2), D (SM recovery), E/E&#x27; (chirality +
+            anomalies), H/C9 (Higgs protection; v as Gate-8 output), K
+            (neutrinos), R0 (reproducibility) — EXTERNAL.
+Certificate: Q02 (charges + anomalies), Q03 (shared bundle homes),
+            Q04 (supplier side of composite QED), Q06 (Fermi + tree masses),
+            Q07 (scope) — Appendix Q (F3).
+Status:     Interface claim (EW recovery + breaking); Main-manuscript
+            certificate (chirality, anomalies, Higgs protection, v);
+            Outside scope (baryogenesis, precision fits, full nu mechanism).
+Falsifier:  wrong Y or Q on any row; mirror survival; any anomaly class
+            nonzero; no U(1)_em remnant or wrong mixing; tree relations
+            (m_W, m_Z, rho=1) fail; no Fermi reduction (§8.7.2, §13).
+</code></pre>
+<h3>8.7.2 Falsification / downgrade map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Falsification path</th>
+<th>Downgrade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$S^2$ sources weak sector</td>
+<td>no valid spin-cover / weak doublet routing</td>
+<td>weak recovery fails</td>
+</tr>
+<tr>
+<td>hypercharge consistency</td>
+<td>wrong $Y$ or $Q$ for any multiplet</td>
+<td>charge interface fails</td>
+</tr>
+<tr>
+<td>chirality</td>
+<td>mirror modes survive</td>
+<td>chirality interface fails</td>
+</tr>
+<tr>
+<td>anomaly cancellation</td>
+<td>any electroweak anomaly nonzero</td>
+<td>anomaly interface fails</td>
+</tr>
+<tr>
+<td>EWSB</td>
+<td>no $U(1)_{\rm em}$ remnant or wrong mixing</td>
+<td>weak/QED interface fails</td>
+</tr>
+<tr>
+<td>Higgs/Wilson-line mechanism</td>
+<td>breaking not tied to declared Higgs sector</td>
+<td>Higgs compatibility constraint downgrades</td>
+</tr>
+<tr>
+<td>Fermi limit</td>
+<td>no low-energy charged-current reduction</td>
+<td>weak low-energy interface fails</td>
+</tr>
+</tbody>
+</table>
+<p>(The claim-boundary ledger — Claimed vs Not claimed, the nine-row reviewer test suite, and authority pointers to Paper I C3/A1, C4/D, C7/D, E, H/C9, K, R0 — is carried in F3; excluded sectors are boundaries/diagnostics only and cannot support, repair, or upgrade the interface claim, §12.)</p>
+<hr />
+<h1>9. QED / Electromagnetic Interface — the Calibration Module</h1>
+<p><em>Final ride, and the payoff of "zero new dials." The photon's coupling $e$ is the character at its most disciplined: it is not cut from the geometry at all but inherited as a composite of what came before, so QED's charges are the weak sector's charges by construction — atom neutrality stops being a coincidence to be tuned. This is the calibration case worked at full depth so the previous three reads can be trusted at speed, and its endpoint is the most checkable thing in physics: Coulomb's law and a massless photon.</em></p>
+<p>This is the paper's worked deep instance: the one force module developed at full depth so the shape of §§6–8 can be read at speed. It is the right calibration case because $\pi_{\rm QED}$ is the <strong>composite</strong> projection — the only one whose domain is another EFT — so it exercises the backbone row (C-FF8) that most distinguishes an honest routing from four independent sector notes; and its endpoint is the most checkable in physics: Coulomb's law and a massless photon.</p>
+<blockquote>
+<h3>QED status box — downstream electroweak/QED interface claim</h3>
+<p>A <strong>downstream electroweak/QED interface claim</strong>. The Coulomb/Gauss recovery is a <strong>static sanity target, not a replacement for Maxwell/QED</strong> (§12). The photon is the post-breaking remnant; treating QED as an independent parent projection is the specific error C-FF8 forbids. The Landau pole, full nonperturbative QED, and the charged-shell example as a GUT-gate closure are <strong>not claimed</strong>.</p>
+</blockquote>
+<p><strong>Ladder delta.</strong> <em>Composite projection:</em> the photon is not cut directly from the 13D geometry. The weak module first produces the electroweak EFT; QED is a projection <em>of that</em> — the unbroken remnant after breaking. Treating QED as a direct parent projection would let the charge convention float free of the weak sector; that is exactly what C-FF8 forbids. Formally $\pi_{\rm QED} : \mathrm{EFT}_{SU(2)_L\times U(1)_Y}\to\mathrm{EFT}_{U(1)_{\rm em}}$, and the object exhibited is the composite $\pi_{\rm QED}\circ\pi_{\rm weak}:\mathfrak B_{\rm active}\to\mathrm{EFT}_{U(1)_{\rm em}}$. <em>Static limit as a constraint sector:</em> electrostatics is QED with the radiative sector switched off by constraint; the Coulomb interaction is the constrained, non-radiative sector of photon exchange (genuinely quantum).</p>
+<p><strong>What QED demands.</strong> Electric charges in one rigid pattern (the neutron is neutral because quark charges add to zero in exactly the observed combination); a massless photon and long-range EM; local charge conservation; no tree-level self-interaction; and at rest, a $1/r^2$ force. The what-if: a photon taken as an independent parent projection with its own $U(1)$ would tie nothing to the weak sector — atom neutrality would become a coincidence to be tuned. The composite structure makes that failure unwritable: QED's charges <em>are</em> the weak sector's charges, by construction of the domain.</p>
+<p><strong>The projection $\pi_{\rm QED}$.</strong> Domain: the electroweak EFT from $\pi_{\rm weak}$, not $\mathfrak B_{\rm active}$ directly. Kept: unbroken $U(1)_{\rm em}$, photon, charged matter. Discarded: massive $W/Z$ at low energy. Operation: electroweak breaking + neutral gauge-boson rotation + static limit. Normalization: same $Q=T_3+Y$ as the weak section. EFT target: QED action, Maxwell equations, Coulomb law. Falsifier: wrong charges, photon mass term, no Ward identity, no Coulomb limit. (Full spec table + layer routing: F3. Paper I authority: App. D, H, O (shell audit, diagnostic only), EXTERNAL.)</p>
+<p><strong>Backbone rows carried:</strong> C-FF8 (defining — the domain of $\pi_{\rm QED}$ <em>is</em> the electroweak EFT; the composite $\pi_{\rm QED}\circ\pi_{\rm weak}$ is the only path from $\mathfrak B_{\rm active}$ to QED), C-FF0 (descent holds by composition through §8), C-FF1, C-FF3/C-FF4 (the charge table is <em>inherited</em>, not restated — same $\mathcal E_{\rm matter}$ and same $Q=T_3+Y$, no convention switch), C-FF5 (photon = unbroken combination, not a fresh primitive), C-FF11 (Coulomb law + masslessness ledger), C-FF14 (sharpest falsifier: $m_\gamma^2 A_\mu A^\mu=0$). <strong>Consumes from §8:</strong> the breaking pattern, the Weinberg rotation, the Higgs/Wilson-line data, and $v$. <strong>Supplies downstream:</strong> nothing — QED is the terminal interface, which is why it calibrates the chain.</p>
+<h2>9.6 The math, simplified then real (trunk)</h2>
+<p>Take one charged field and one Abelian connection on flat 4D space, and impose gauge invariance alone: a mass term $m^2A_\mu A^\mu$ is forbidden and the coupled current obeys $\partial_\mu J^\mu=0$. The ladder is that two-line statement, descended from the 13D geometry through electroweak breaking instead of postulated.</p>
+<p>After the weak sector breaks to $U(1)_{\rm em}$, the unbroken massless Abelian combination is the photon; charge stays geometric because $Q=T_3+Y$ with $Y$ already fixed by the common embedding. After integrating out the heavy electroweak, KK, and modulus sectors, the descendant is $S_{\rm QED}=\int d^4x\,\sqrt{-g_4}\big[-\tfrac14 F_{\mu\nu}F^{\mu\nu}+\bar\psi(i\gamma^\mu D_\mu-m)\psi\big]$. QED is therefore not fundamental — it is the infrared truncation of the parent 13D electroweak-geometric theory. The trunk rungs:</p>
+<ul>
+<li><strong>Charge operator / remnant / mixing.</strong> $Q=T_3+Y$; $SU(2)_L\times U(1)_Y\to U(1)_{\rm em}$; $A_\mu=\sin\theta_W W^3_\mu+\cos\theta_W B_\mu$ (the massless mixture orthogonal to $Z$).</li>
+<li><strong>Field strength / Ward identity / Maxwell.</strong> $F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$ (Abelian, no commutator); $\partial_\mu J^\mu=0$ (charge locally conserved); $\nabla_\mu F^{\mu\nu}=J^\nu$, $\nabla_{[\lambda}F_{\mu\nu]}=0$.</li>
+<li><strong>Static limit / Coulomb.</strong> $\nabla^2\phi=-\rho/\epsilon_0$ (convention: $\mathbf E=-\nabla\phi$ and $\nabla\!\cdot\!\mathbf E=+\rho/\epsilon_0$, so the minus sign sits on $\phi$, not on Gauss's law); $E(r)=Q/4\pi\epsilon_0 r^2$.</li>
+</ul>
+<h3>9.6.3 The sanity target, worked</h3>
+<p>The C-FF11 target is the pair {Coulomb law, photon masslessness}. From $\nabla_\mu F^{\mu\nu}=J^\nu$, the static electric sector gives $\nabla\cdot\mathbf E=\rho/\epsilon_0$, $\mathbf E=-\nabla\phi$, $\nabla^2\phi=-\rho/\epsilon_0$, and for a point charge $E(r)=Q/(4\pi\epsilon_0 r^2)$ — the electrostatic limit of the same photon field that appears in the QED action (§11, row 4). This is the QED sector's reduces-to-known-physics landing point: the static limit recovers the textbook Coulomb/Gauss law $E=Q/4\pi\epsilon_0 r^2$ — the same field the textbook gives, recovered, not replaced. (Field-energy/multipole equivalence lives in Paper I App. O, <strong>EXT</strong>.)</p>
+<p><strong>Photon masslessness ledger.</strong> $m_\gamma^2 A_\mu A^\mu=0$ is required, tracked as four pass/fail rows: $U(1)_{\rm em}$ unbroken (no mass term); charge generator preserved ($Q=T_3+Y$ commutes with the vacuum / Wilson-line sector); no boundary mass (orbifold/boundary terms generate no photon mass); Ward identity (charge conservation holds). All four must pass for the QED interface to close; the falsifier is the survival of any photon mass term.</p>
+<h3>9.6.7 The coupling row of §1.2.1, worked</h3>
+<p>The derived coupling: $e=gg'/\sqrt{g^2+g'^2}$, read off the photon-mixing rung — the photon's coupling is the normalization of the massless mixture, computed from the weak and hypercharge couplings routed in §§8 and 5. No new dial enters; this is the table row that makes the five-couplings headline falsifiable at the QED interface (C-FF4/C-FF8, §13).</p>
+<h2>9.7 Closure</h2>
+<pre><code>Claim:      QED with its electrostatic limit is the unbroken Abelian descendant of
+            the electroweak interface — the composite π_QED ∘ π_weak — with charges
+            Q = T3 + Y inherited, photon massless by ledger, Coulomb/Gauss recovered.
+Mechanism:  electroweak breaking + neutral-boson rotation + static limit (Rungs 1–9).
+Why it
+matters:    the terminal interface; calibrates the whole routing — if the composite
+            structure failed here, &quot;one geometry, four forces&quot; would already be false.
+Paper I
+authority:  App. D (SM recovery), H (breaking), C3/C4/C7/C8 (dossiers), O (shell
+            audit, diagnostic), R0 (reproducibility), R2 (claim vocabulary) — EXTERNAL.
+Certificate: Q02 (charges), Q03 (counting homes), Q04 (composite factorization),
+            Q06 (sanity targets) — Appendix Q (F3).
+Status:     Interface claim (the routing); Main-manuscript certificate (every
+            invoked gate); Diagnostic (shell audit); Outside scope (§9, §12).
+Falsifier:  photon mass term; wrong charge table; no Ward identity; Coulomb limit
+            fails; or QED written as an independent parent branch (§9.7.2, §13).
+</code></pre>
+<h3>9.7.2 Falsification / downgrade map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Falsification path</th>
+<th>Downgrade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EM is electroweak remnant</td>
+<td>no unbroken $U(1)_{\rm em}$</td>
+<td>QED interface fails</td>
+</tr>
+<tr>
+<td>charge rule</td>
+<td>wrong charge table</td>
+<td>charge interface fails</td>
+</tr>
+<tr>
+<td>photon massless</td>
+<td>photon mass term appears</td>
+<td>QED fails</td>
+</tr>
+<tr>
+<td>QED action recovered</td>
+<td>wrong kinetic/coupling structure</td>
+<td>QED descendant fails</td>
+</tr>
+<tr>
+<td>Ward identity</td>
+<td>charge not conserved</td>
+<td>gauge consistency fails</td>
+</tr>
+<tr>
+<td>electrostatic limit</td>
+<td>Poisson/Coulomb not recovered</td>
+<td>electrostatic interface fails</td>
+</tr>
+<tr>
+<td>shell audit</td>
+<td>mismatch with Maxwell accounting</td>
+<td>shell-audit diagnostic fails</td>
+</tr>
+<tr>
+<td>shell audit overused</td>
+<td>used as GUT proof (illustrative only, Outside this paper's scope as a gate; OPEN)</td>
+<td>claim-boundary failure</td>
+</tr>
+</tbody>
+</table>
+<p>(The charge-normalization table with explicit $Q=T_3+Y$ per row, the nine-row reviewer test suite, the standard-objections answers — Landau pole, unified-theory gap, the static-mystery / triboelectric kernel optional downstream application — and authority pointers to Paper I App. D/C3/C4, H, C7/C8, O, R0, R2 are carried in F3; the static Coulomb/Gauss recovery does not replace QED/Maxwell, and excluded sectors are boundaries/diagnostics only, §12.)</p>
+<hr />
+<h1>10. Cross-Sector Ledgers</h1>
+<p>The cross-sector consistency conditions are the downstream audit of the Four-Force Constraint Backbone (§4). Section 4 states the constraints; this section checks whether the four instantiated projections satisfy them <em>together</em>. Each force interface must obey shared conventions for counting states, cancelling anomalies, and assigning regulators across the four sectors; any conflict triggered by these ledgers downgrades the affected interface claim via §13.</p>
+<p><strong>State-counting ledger (C-FF5).</strong> Every physical state used by one force is assigned to exactly one sector for counting purposes. Double-counting a state across two sectors, or omitting it from all, falsifies the integration. Sectors and their counted states: gravity (metric modes after gauge quotient), strong (gluons + quark color states), weak (chiral doublets/singlets), QED (charged matter + photon), flavor (family states). <em>Failure statement:</em> if the same state is counted in two sectors, or omitted from all, the integration fails and the affected interface claim is downgraded. (The row-by-row no-double-counting ledger — Appendix C — is carried in F3; its binding rule: a state may enter more than one table only if the tables use different accounting roles, e.g. a quark as physical matter in the QCD action <em>and</em> as an anomaly-trace contributor, but never as two independent physical states without a declared degeneracy factor.)</p>
+<p><strong>Anomaly ledger (C-FF10).</strong> The anomaly content must close across the four sectors using a single matter content: the content that recovers $Q=T_3+Y$ in the weak/QED interface must also cancel the gauge, mixed gauge-gravity, boundary/orbifold, and BRST anomaly classes. Detailed authority is Paper I Gate 5 / App. E/E′ (EXTERNAL); the live by-hand witness is §8.6.4.</p>
+<p><strong>Regulator / RG ledger (C-FF9).</strong> Threshold corrections, running couplings, and charge normalizations must use compatible conventions across sectors (same compact spectrum and regulator for threshold unification; compatible state counting for the QCD beta function; compatible charge normalization for QED running; compatible $SU(2)/U(1)$ normalization for electroweak running; the quantum-gravity companion is not used to close interface claims unless separately routed through Paper I). Inconsistent conventions falsify the cross-sector integration even when each sector is internally consistent.</p>
+<p><strong>Interface Consistency Proposition.</strong> Given $\mathfrak B_{\rm active}$, the global conventions ledger (§5/F3), the backbone (§4), and the four projection specifications (§§6–9 / F3), the four-force interface is well-defined <strong>if and only if</strong>: (1) each $\pi_i$ has a declared domain, codomain, kept/discarded data, normalization, and EFT target; (2) all four use the same matter-bundle and charge conventions; (3) no state/generator/field is counted in two incompatible sectors; (4) anomalies and regulator conventions are shared; (5) QED factors through electroweak breaking; (6) every force section has at least one low-energy sanity target. This is an Interface claim — <strong>CONDITIONAL</strong> on its premises, not a proof of final physical truth. The proposition is false if any projection is undefined, two projections assign incompatible quantum numbers to the same matter field, QED is not downstream of electroweak breaking, the same mode is counted twice in incompatible ways, or a force section lacks a recognizable low-energy EFT target. (The cross-sector convention matrix is carried in F3.)</p>
+<hr />
+<h1>11. Low-Energy Sanity Targets</h1>
+<p>This section is <strong>table-first</strong>. A minimum-pass sanity check per force is a recognizable low-energy or 4D limit; the table is the index, and the derivations are not re-printed — each row points to the module ladder that lands on it. This is the C-FF11 sanity-target object (Q06 reads its five frozen formulas verbatim, F3). A sanity target is a fast falsifier, not a final proof or a precision fit.</p>
+<table>
+<thead>
+<tr>
+<th>Sector</th>
+<th>Textbook target</th>
+<th>Where derived</th>
+<th>Status</th>
+<th>What failure means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gravity</td>
+<td>Newtonian limit $\nabla^2\Phi = 4\pi G\rho$</td>
+<td>§6.6.9</td>
+<td>grade per fast-check scoreboard; interface claim, <strong>conditional on Paper-I modulus freeze</strong> (§12)</td>
+<td>gravity routing fails/downgrades (→ scalar-tensor, §14)</td>
+</tr>
+<tr>
+<td>Strong</td>
+<td>asymptotic-freedom <strong>sign</strong> $\beta(g_s) < 0$ for SM active flavors</td>
+<td>§7</td>
+<td>interface sanity check (sign only); confinement / mass gap / strong CP scoped out (§12)</td>
+<td>strong routing fails/downgrades</td>
+</tr>
+<tr>
+<td>Weak</td>
+<td>Fermi limit $G_F/\sqrt 2 = g^2/(8M_W^2)$</td>
+<td>§8.6.15</td>
+<td>grade per scoreboard; <strong>derived identity, not a prediction</strong></td>
+<td>weak routing inconsistent with electroweak EFT</td>
+</tr>
+<tr>
+<td>QED</td>
+<td>Coulomb law $E = Q/(4\pi\epsilon_0 r^2)$</td>
+<td>§9.6.3</td>
+<td>grade per scoreboard; static Maxwell recovery, does <strong>not</strong> replace QED/Maxwell (§12)</td>
+<td>QED projection fails</td>
+</tr>
+<tr>
+<td>EW/QED bridge</td>
+<td>photon masslessness — no $m_\gamma^2 A_\mu A^\mu$</td>
+<td>§9.6.5</td>
+<td>interface claim; massless by ledger</td>
+<td>weak→QED composition fails</td>
+</tr>
+<tr>
+<td>EW couplings</td>
+<td>$e = gg'/\sqrt{g^2+g'^2}$</td>
+<td>§9.6.7</td>
+<td><strong>derived identity, not a prediction</strong></td>
+<td>routing inconsistent with electroweak EFT</td>
+</tr>
+</tbody>
+</table>
+<p>The last row and the Weak row record that $e$ and $G_F$ are <strong>derived identities of the routing, not predictions</strong> (§1.2.1) — they are not independent dials.</p>
+<p><strong>What these checks show / do not show.</strong> They show that the projection maps reduce to known low-energy / 4D limits, that the routing has falsifiable textbook landing points, that $e$ and $G_F$ are not independent dials, that gravity/QED limits match the standard equations under stated assumptions, and that the EW anomaly witness is a quick consistency check. They do <strong>not</strong> show full TOE completion, full quantum gravity, confinement / mass gap / strong CP, replacement of GR / Maxwell / SM, or the full anomaly certificate (which is Paper I's, §14). If a projection cannot recover its declared landing point under its stated assumptions, the corresponding interface row downgrades or fails per the "What failure means" column.</p>
+<hr />
+<h1>12. Formal Non-Claims Ledger</h1>
+<p>The <strong>authoritative non-claims list is §2.2</strong> (stated early, where scope belongs); this section is the formal enumeration that defers to it, spelling out in full the same boundary §2.2 carries in brief plus the two items §2.2 does not itemize (the QCD mass gap; precision phenomenology beyond §11). Every item below is <strong>Outside this paper's scope</strong> (status: OPEN) — none is established, refuted, or upgraded here. The modules and front matter do not re-recite scope; they point here.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Excluded sector</th>
+<th>Status</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12.1</td>
+<td>Full quantum gravity (UV completion)</td>
+<td>Outside scope (OPEN)</td>
+<td>gravity is a conditional interface claim only; modulus-freeze conditionality at §14</td>
+</tr>
+<tr>
+<td>12.2</td>
+<td>Nonperturbative QCD / confinement / mass gap</td>
+<td>Outside scope (OPEN)</td>
+<td>the strong sector's confinement / χSB / mass-gap edge is open (§7, WL-4); only the asymptotic-freedom <strong>sign</strong> is checked (§11)</td>
+</tr>
+<tr>
+<td>12.3</td>
+<td>Strong CP</td>
+<td>Outside scope (OPEN)</td>
+<td>underived; $\theta$-scope rule only (§7)</td>
+</tr>
+<tr>
+<td>12.4</td>
+<td>Cosmology / cosmological constant $\Lambda$</td>
+<td>Outside scope (OPEN)</td>
+<td>cross-referenced to corpus capsules (§6 corpus boundary, EXTERNAL); not used as support</td>
+</tr>
+<tr>
+<td>12.5</td>
+<td>Dark matter and dark energy</td>
+<td>Outside scope (OPEN)</td>
+<td>not addressed; not used as support</td>
+</tr>
+<tr>
+<td>12.6</td>
+<td>Baryogenesis</td>
+<td>Outside scope (OPEN)</td>
+<td>not addressed; not used as support</td>
+</tr>
+<tr>
+<td>12.7</td>
+<td>TOE completion</td>
+<td>Outside scope (OPEN)</td>
+<td>this is a four-force interface paper, not a theory of everything</td>
+</tr>
+<tr>
+<td>12.8</td>
+<td>QC engineering bridge (§16)</td>
+<td>EXTERNAL / SIMULATED</td>
+<td>engineering reality-check only; the no-feedback firewall (§16) bars any feedback into interface claims</td>
+</tr>
+<tr>
+<td>12.9</td>
+<td>Precision phenomenology beyond §11's leading targets</td>
+<td>Outside scope (OPEN)</td>
+<td>the §11 sanity targets are necessary minimal checks, not full precision fits</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Boundary rule.</strong> Excluded sectors may be discussed as boundaries, diagnostics, or future work. They may <strong>not</strong> support, repair, or upgrade any four-force interface claim (C-FF12/C-FF13). Companion or audit material that may exist for these topics outside the main GUT manuscript is not used to upgrade the main manuscript's gate certificates and is outside this paper's scope.</p>
+<hr />
+<h1>13. Falsification Map</h1>
+<p>Each interface claim of this paper has an explicit falsification path and a downgrade consequence. If any row triggers, the affected interface claim and any downstream consequence in §10 are downgraded. Each row is tied to a named constraint from the Four-Force Constraint Backbone (§4), so a reviewer can locate the first failing link directly; the Certificate column names the runnable Appendix Q check (F3) for each row.</p>
+<table>
+<thead>
+<tr>
+<th>Constraint</th>
+<th>Integration claim</th>
+<th>Falsification path</th>
+<th>Downgrade</th>
+<th>Certificate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-FF0</td>
+<td>one geometry</td>
+<td>any branch uses different parent geometry</td>
+<td>unified interface fails</td>
+<td>Q05</td>
+</tr>
+<tr>
+<td>C-FF2</td>
+<td>projection-based forces</td>
+<td>any force lacks a projection map</td>
+<td>branch becomes external insertion</td>
+<td>Q05</td>
+</tr>
+<tr>
+<td>C-FF5</td>
+<td>no double-counting</td>
+<td>state/field counted twice</td>
+<td>affected interface claim downgrades</td>
+<td>Q03</td>
+</tr>
+<tr>
+<td>C-FF4</td>
+<td>shared charge convention</td>
+<td>inconsistent $Q$ normalization</td>
+<td>weak/QED interface fails</td>
+<td>Q02</td>
+</tr>
+<tr>
+<td>C-FF9</td>
+<td>regulator compatibility</td>
+<td>incompatible RG/threshold schemes</td>
+<td>cross-sector RG claims downgrade</td>
+<td>Q06</td>
+</tr>
+<tr>
+<td>C-FF10</td>
+<td>anomaly compatibility</td>
+<td>any anomaly class unaccounted</td>
+<td>weak/QED interface fails</td>
+<td>Q02</td>
+</tr>
+<tr>
+<td>C-FF8</td>
+<td>QED downstream of EW</td>
+<td>photon not post-breaking remnant</td>
+<td>weak/QED interface fails</td>
+<td>Q04</td>
+</tr>
+<tr>
+<td>C-FF12, C-FF13</td>
+<td>companion claims scoped</td>
+<td>quantum-gravity or nonperturbative-QCD companion used to upgrade an interface claim</td>
+<td>scope-boundary failure</td>
+<td>Q07</td>
+</tr>
+<tr>
+<td>C-FF1, C-FF6, C-FF7</td>
+<td>layer / gauge-origin / metric-block discipline</td>
+<td>gauge field smuggled into $\times$ layer, or metric/mixed/compact blocks conflated</td>
+<td>layer-discipline failure</td>
+<td>Q03/Q05</td>
+</tr>
+<tr>
+<td>C-FF3</td>
+<td>shared matter bundle</td>
+<td>different forces act on incompatible $\mathcal E_{\rm matter}$</td>
+<td>matter-content interface fails</td>
+<td>Q03</td>
+</tr>
+<tr>
+<td>C-FF11</td>
+<td>low-energy sanity target</td>
+<td>a force section lacks a recognizable 4D EFT target</td>
+<td>sanity-target interface fails</td>
+<td>Q06</td>
+</tr>
+<tr>
+<td>C-FF14</td>
+<td>falsification-path discipline</td>
+<td>any projection or integration claim lacks a stated falsifier</td>
+<td>hostile review cannot localize failure; integration claim downgrades</td>
+<td>Q01</td>
+</tr>
+</tbody>
+</table>
+<p>All 15 backbone rows C-FF0–C-FF14 appear above (grouped where one falsifier covers several — e.g. C-FF12/C-FF13, and C-FF1/C-FF6/C-FF7); none is unmapped.</p>
+<hr />
+<h1>13a. Hostile-Review Matrix — The Strongest Objections, Answered as Falsifiers</h1>
+<p>This section does not try to make the objections sound weak. It states each objection in its strongest useful form, gives the paper's answer, names the audit path and the falsifier that would make the objection win, and marks the status boundary the answer respects. It makes <strong>no new claim and changes no status</strong> — it is a reader aid that routes each objection to material already in the body.</p>
+<p><strong>Status rule (binding on this section).</strong> <em>An answer to an objection may not upgrade a claim.</em> If an answer would require a status promotion, the answer is invalid and the corresponding row must downgrade. Every answer below routes to existing body material at its existing grade; none promotes.</p>
+<table>
+<thead>
+<tr>
+<th>Objection (strongest version)</th>
+<th>Answer</th>
+<th>Audit path</th>
+<th>Falsifier</th>
+<th>Status boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. "Four projections of one geometry is just relabeling."</strong> You can carve four EFTs out of any big-enough manifold and call the carving "unification"; if each map may discard whatever it likes, the sectors never constrain one another.</td>
+<td>The four maps are <strong>not free</strong>: every $\pi_i$ must survive the <em>same</em> fifteen-row backbone (C-FF0–C-FF14), and the binding rows are <em>joint</em> — one matter bundle in all four sectors (C-FF3), one charge convention $Q=T_3+Y$ surviving weak→QED (C-FF4, C-FF8), one no-double-counting ledger over the <em>union</em> of state inventories (C-FF5). A relabeling cannot pass a joint mesh it was never built to satisfy.</td>
+<td>§4 backbone; §10 union ledger; §8.6.4 anomaly witness; cert Q01/Q03</td>
+<td>any projection cannot be mapped from the frozen active branch, or any joint backbone row fails (§13)</td>
+<td>interface claim only; no upgrade</td>
+</tr>
+<tr>
+<td><strong>2. "Forces imports everything important from Paper I."</strong> "Zero new dials <em>here</em>" hides the fitting one paper upstream; the bill was paid by Paper I tuning knobs.</td>
+<td>Yes, intentionally — the economy is <strong>inherited, not re-proved here</strong>, declared as a weakest link (WL-3). What this paper <em>owns</em> is checkable: Paper I's <strong>four</strong> declared inputs ($M_{\rm Pl}$; $\alpha_i^{-1}(M_Z)$; $y_t$; $\lvert V_{us}\rvert$), and the §1.2.1 ledger shows five force strengths out with <strong>no further input added here</strong>. Forces owns routing; Paper I owns gate certificates.</td>
+<td>WL-3; §1.2.1 inputs/outputs ledger; §14 authority map + inheritance</td>
+<td>Forces uses an imported certificate without authority, tries to re-close it, or adds a measured input here (§14)</td>
+<td>inherited economy; no re-closure (C-FF13)</td>
+</tr>
+<tr>
+<td><strong>3. "Calling $e$ and $G_F$ 'derived' is overclaiming."</strong> These are standard electroweak identities; presenting them as a geometric achievement inflates a textbook result into a discovery.</td>
+<td>The paper makes the <strong>weaker, honest</strong> claim and labels it: $e$ and $G_F$ are <strong>derived identities of the routing, not predictions</strong> (§1.2.1, A10). The content is that they fall out of <em>this</em> geometry's electroweak descent with no independent dial ($g'$ from the $S^1_Y/\mathbb Z_6$ lattice, $g$ from the $S^2$ spin cover, §8), making them falsifiable teeth, not free parameters.</td>
+<td>§1.2.1; §8.6.15; §9.6.7; §13 rows C-FF4/C-FF8</td>
+<td>the identities fail against electroweak measurement at the stated normalizations, or are treated as fit dials</td>
+<td>identities, <strong>not</strong> predictions; no numerical claim beyond Paper I's (§12)</td>
+</tr>
+<tr>
+<td><strong>4. "You have not solved confinement / strong CP / quantum gravity / $\Lambda$."</strong> You excluded exactly the hard questions, then claimed the easy remainder.</td>
+<td>Correct, and out of scope by design: a scoped-out sector is <strong>bounded, never used as support</strong> (scope-boundary-as-strength, C-FF12). Each appears only with a status label and an upstream pointer (§7 strong-CP/confinement edge; §6 stabilization/$\Lambda$, EXTERNAL); §10 ledgers forbid any from feeding an interface claim. The falsifier survives the exclusion (§13 keys every claim to a backbone row).</td>
+<td>§2.2, §12 ledger; §7; §6; §13 map; cert Q07</td>
+<td>the manuscript uses confinement / strong CP / QG / $\Lambda$ to support an interface (e.g. $SU(3)_c$) routing claim</td>
+<td>excluded sectors cannot support interface claims (§12)</td>
+</tr>
+<tr>
+<td><strong>5. "The QC bridge is hype."</strong> Simulated engineering is being used as physics evidence.</td>
+<td>External / simulated-grade engineering with a <strong>no-feedback firewall</strong>: QC results do not support, repair, upgrade, or validate any Forces claim; remove the bridge and every status is unchanged (§16).</td>
+<td>§16 status box + no-feedback firewall; §12.8</td>
+<td>any QC result is used to support, repair, or upgrade a physics / interface status</td>
+<td>EXTERNAL / SIMULATED; zero feedback (C-FF13)</td>
+</tr>
+<tr>
+<td><strong>6. "The paper is overclaiming a theory of everything."</strong></td>
+<td>Explicitly scoped: this is a four-force <em>interface</em> paper, not a TOE (§12.7).</td>
+<td>§2.2; §12.7 ledger</td>
+<td>any excluded sector (§12) is used to support an interface claim</td>
+<td>not TOE; interface only</td>
+</tr>
+</tbody>
+</table>
+<p><em>The takeaway:</em> none of these objections is answered by assertion; each is answered by a pointer to a backbone row, a runnable Appendix Q certificate (F3), a named upstream authority, or a pre-registered falsifier already in this paper — and no answer upgrades a claim.</p>
+<hr />
+<h1>14. Paper-I Interface and Downgrade Ledger</h1>
+<p>This section is the formal boundary between this paper and Paper I (<em>Fable_GUT</em>): the provenance note and legacy-reference convention (§14.1), a <strong>summary</strong> authority map (the full formal dependency ledger is F3), the one-way cross-paper downgrade-inheritance rule (§14.3), and what this paper adds (§14.4). Every "frozen", "certificate", "anomaly-free", or gate-status claim in this paper resolves through this ledger to Paper I, EXTERNAL; this paper re-closes nothing.</p>
+<h2>14.1 Provenance</h2>
+<p>This paper is the standalone force-interface companion to the main GUT manuscript, <strong>Paper I: <em>Fable_GUT</em></strong> (https://physics.magflowmeters.com/articles/GUT.html) — the restructured build organized around the gate–constraint inversion (its §1.3), with the worked two-anchor fixing as its Section 8 and the machine-certificate registry at its R0.R. An earlier draft of Paper I circulated as <em>final_manuscript</em>; all authority letters resolve in the Fable_GUT build above, whose A3.R ledger maps any legacy reference. This paper uses the same active geometry and notation and reproduces none of Paper I's certificates.</p>
+<h2>14.2 Authority map (summary)</h2>
+<p>Paper I remains the sole authority for the items this paper invokes by interface. The summary below names the home and consumer for each; the <strong>full formal dependency ledger</strong> — every appendix/gate row mapped to its consuming module and §N row — is carried in F3.</p>
+<table>
+<thead>
+<tr>
+<th>Invoked here</th>
+<th>Paper I home (all EXTERNAL)</th>
+<th>Used by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frozen geometry and reconstruction</td>
+<td>App. A1 / A2; Paper I §2</td>
+<td>§§3–5; every module domain row</td>
+</tr>
+<tr>
+<td>Three-layer rule</td>
+<td>Paper I §2B; App. B2</td>
+<td>§3; routing tables (F3)</td>
+</tr>
+<tr>
+<td>SM recovery; charges</td>
+<td>App. D; Gates 2–3</td>
+<td>§§7–9</td>
+</tr>
+<tr>
+<td>Chirality and anomaly closure</td>
+<td>App. E / E′; Gates 4–5</td>
+<td>§§7–8 (Weyl ledgers)</td>
+</tr>
+<tr>
+<td>Moduli freeze / witnesses</td>
+<td>App. F; Gate 6</td>
+<td>§6 (Einstein-frame caveat)</td>
+</tr>
+<tr>
+<td>Threshold unification</td>
+<td>App. G; Gate 7</td>
+<td>§7; §1.2.1 ($g_s$, $g$ targets)</td>
+</tr>
+<tr>
+<td>Higgs protection; $v$, $m_h$</td>
+<td>App. H; Gate 8; Paper I §8</td>
+<td>§8 (breaking; $G_F$ row)</td>
+</tr>
+<tr>
+<td>Charged-shell field-energy equivalence</td>
+<td>App. O (O.4 / O.5)</td>
+<td>§9.6.3 (diagnostic-only boundary)</td>
+</tr>
+<tr>
+<td>Flavor chamber and outputs</td>
+<td>App. I / J / K; Gate 9</td>
+<td>quark masses (§7); §10 flavor row</td>
+</tr>
+<tr>
+<td>Proton safety</td>
+<td>App. L; Gate 10</td>
+<td>scope of $\otimes$ operator content</td>
+</tr>
+<tr>
+<td>Claim-boundary protocol</td>
+<td>Paper I §9; App. R2; Gate 11</td>
+<td>§2, §12, module annexes (F3)</td>
+</tr>
+<tr>
+<td>Freeze records, hashes, reproducibility</td>
+<td>App. R0 (incl. R0.R), R1</td>
+<td>every "frozen" claim in this paper</td>
+</tr>
+</tbody>
+</table>
+<p>The flavor/CKM/generation Paper-I homes consumed only by the companion reviewer prompts — the CKM CP phase $\delta_{\rm CKM}$ (raw $-120^\circ$ → Wolfenstein $+60.0^\circ$; Paper I §7.6, App. I/J) and the generation count (index $-3$; LEP $N_\nu$ consistency; Paper I §1.3.1, §3.4–§3.5, App. E) — are carried in the F3 full ledger (§14.2) and the reviewer-test-prompts companion (Paper II, https://physics.magflowmeters.com/articles/Forces.html; Prompts 4 and 5); they are scoped out of this paper's force-interface claim (§2.2).</p>
+<h2>14.3 Cross-paper downgrade inheritance</h2>
+<p>The dependency edge is one-way and binding: <strong>if a Paper-I gate downgrades, the rows here that consume it downgrade automatically</strong>, with no renegotiation in this paper. The inheritance map: Gate 2/3 → C-FF4 rows (§§7–9 charge tables); Gate 4/5 → C-FF10 rows (§§7–8 ledgers); Gate 6 → §6's Einstein-frame claim (drops to scalar-tensor); Gate 7 → the $g_s$/$g$ comparison rows of §1.2.1; Gate 8 → §8's breaking scale and the $G_F$ row; Gate 9 → the quark-mass descendant claims of §7. The converse never holds: nothing in this paper upgrades, re-closes, or substitutes for a Paper I certificate (C-FF13).</p>
+<h2>14.4 What this paper adds</h2>
+<p>A different object from Paper I: a unified routing map — the four projections, their backbone, the cross-sector ledgers, the coupling-provenance table — showing gravity, strong, weak, and QED/electrostatics as mutually compatible reductions of one 13D geometry, with its own machine-certificate layer (Appendix Q, F3) checking the interface claims that are this paper's contribution.</p>
+<hr />
+<h1>15. Conclusion</h1>
+<p><em>Journey's end. The character we followed — the coupling that cannot be dialed by hand — kept its promise across all four rides: it never claimed more than the frozen geometry pays for, it routed every certificate to Paper I instead of re-closing it, and it left its falsifiers live. The five textbook strengths arrived as one origin with zero new dials, two of them as identities that would break against measurement if the geometry were wrong. The story stays honest to the last line: it still does not adopt the open constraint, does not replace GR, Maxwell, or the SM, and tells you exactly where to cut if it is wrong.</em></p>
+<p>Detailed GUT gate certificates remain in the main manuscript; this paper supplies the interface layer. The four-force interface is therefore not merely a set of parallel reductions. It is a constraint-filtered routing statement: one parent geometry, one layer discipline, one matter/charge convention, one no-double-counting rule, one regulator/anomaly discipline, and four force-specific projections. The Four-Force Constraint Backbone (§4) makes explicit the conditions under which the gravity, strong, weak, and QED/electrostatic sectors can be read as mutually compatible projections of the same active branch. If any backbone constraint fails, the affected interface claim downgrades according to the falsification map of §13.</p>
+<p>Backbone coverage in both tenses — every C-FF row enforced by a named module and checked by a runnable Appendix Q certificate — is the §5.6 master table (the authoritative home for the coverage claim, carried in F3). Stated in this build's terms: the Four-Force Constraint Backbone is the paper's one list in two tenses — the conditions that defined the four projections are the conditions the finished interfaces keep passing, with a runnable certificate per row — and the headline that list buys is §1.2.1: five force strengths, one geometry, zero new dials.</p>
+<p>There is a way to test whether a geometry is real that has nothing to do with particle physics: <strong>try to build something with it.</strong> A shape that is mere bookkeeping cannot be machined into a working device; a shape that is real can — and §16 records the same coset, built and simulated, at its honest engineering grade, as an independent reality-check that changes no physics status.</p>
+<hr />
+<h1>16. Engineering Bridge Pointer</h1>
+<p>A separate engineering note records the external simulated QC bridge. It changes <strong>zero</strong> force-interface claims, <strong>zero</strong> Paper-I certificates, <strong>zero</strong> geometry objects (no manifold, coset, radius, code distance, or lattice; the physical:logical qubit ratio at 10,000 logical qubits is untouched), <strong>zero</strong> status labels in §§5–13, and <strong>zero</strong> numerical force outputs. It is <strong>EXTERNAL</strong>, at <strong>SIMULATED</strong> engineering grade, and is <strong>not physics authority for this paper</strong>.</p>
+<blockquote>
+<p><strong>No-feedback firewall.</strong> QC results do not support, repair, upgrade, or validate any Forces interface claim. If the QC bridge were removed entirely, every force-interface status in §§5–13 would remain unchanged. The bridge is a one-directional, buildability reality-check only; the no tuning to the known answer discipline (C-FF13) bars any feedback in the other direction. If the QC bridge conflicts with any force-interface claim, the force-interface authority controls.</p>
+</blockquote>
+<p>See the <strong>QC engineering-bridge companion</strong> (Paper II, https://physics.magflowmeters.com/articles/Forces.html) for the full bridge (shared coset $K_6 = SU(3)/T^2$, the engineering admissibility chamber, simulation status and grade, the reported QC numbers, what it does not license, the no-feedback firewall, and its relation to Paper I and Forces).</p>
+
+<!--contact-footer-cb-->
+<hr style="margin:34px 0 14px;border:none;border-top:1px solid #ccc">
+<div style="font-size:13.5px;color:#5a6068;text-align:center;padding:0 0 26px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"><strong>Chris Bergstrom</strong> &middot; <a href="mailto:cbergstr@gmail.com" style="color:#2b4a6f">cbergstr@gmail.com</a> &middot; <a href="https://physics.magflowmeters.com" style="color:#2b4a6f">physics.magflowmeters.com</a></div>
+</body></html>

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deep root — absolute scale (the magnitude discipline)</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 252px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 10px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:14px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9670; The Anchors</a></div>
+<div class="ann-group">Start</div>
+<a href="index.html">Overview — how we judge</a>
+<a href="anchor-hierarchy-overview.html">Anchor hierarchy — map</a>
+<div class="ann-group">The method</div>
+<a href="a0-master-anchor.html">A0 — the master anchor</a>
+<a href="layer-1-metric.html">Layer 1 — MDL metric</a>
+<a href="layer-2-no-unpaid-labels.html">Layer 2 — no unpaid labels</a>
+<a href="layer-3-search-grammars.html">Layer 3 — search grammars</a>
+<a href="layer-4-carrier-forcing.html">Layer 4 — carrier-forcing</a>
+<a href="shape-minimality-challenge.html">Shape minimality challenge</a>
+<div class="ann-group">The hierarchy</div>
+<a href="deep-roots.html">The seven deep roots</a>
+<a href="master-anchors.html">Master anchors</a>
+<a href="logical-endpoint-proof.html">Logical endpoint proof</a>
+<a href="gate-traceability-template.html">Gate traceability template</a>
+<a href="blind-spots.html">Blind spots</a>
+<a href="ai-agent-completion-protocol.html">AI completion protocol</a>
+<div class="ann-group">Gate ledgers · GUT spine</div>
+<a href="sg1-anchor-ledger.html">SG-1 geometry</a>
+<a href="sg2-anchor-ledger.html">SG-2 gauge recovery</a>
+<a href="sg3-anchor-ledger.html">SG-3 generations</a>
+<a href="sg4-anchor-ledger.html">SG-4 hypercharge &amp; anomaly</a>
+<a href="sg5-anchor-ledger.html">SG-5 electroweak</a>
+<a href="sg6-anchor-ledger.html">SG-6 moduli stabilization</a>
+<a href="sg7-anchor-ledger.html">SG-7 threshold unification</a>
+<a href="sg8-anchor-ledger.html">SG-8 flavor closure</a>
+<a href="sg9-anchor-ledger.html">SG-9 proton safety</a>
+<a href="sg10-anchor-ledger.html">SG-10 claim boundary</a>
+<div class="ann-group">Gate ledgers · quantum/gravity/UV</div>
+<a href="uqf3-anchor-ledger.html">UQF-3 reflection positivity</a>
+<a href="uqf4-anchor-ledger.html">UQF-4 BRST / descent</a>
+<a href="uqf5a-5b-anchor-ledger.html">UQF-5A/5B linearized graviton</a>
+<a href="uqf5c-anchor-ledger.html">UQF-5C interacting graviton</a>
+<a href="uqf7-anchor-ledger.html">UQF-7 fermion chirality</a>
+<a href="uqf9-anchor-ledger.html">UQF-9 UV completion</a>
+<a href="uqf10-anchor-ledger.html">UQF-10 compactification</a>
+<a href="uqf14-anchor-ledger.html">UQF-14 unitarity / causality</a>
+<div class="ann-group">Gate ledgers · cosmology/BH/foundations</div>
+<a href="gap01-anchor-ledger.html">Gap-01 a6 Seeley-DeWitt</a>
+<a href="gap02-anchor-ledger.html">Gap-02 Yang-Mills mass gap</a>
+<a href="gap05-value-anchor-ledger.html">Gap-05 Lambda value</a>
+<a href="gap05-stability-anchor-ledger.html">Gap-05 Lambda stability</a>
+<a href="gap08-anchor-ledger.html">Gap-08 inflation</a>
+<a href="gap10-bg10-anchor-ledger.html">Gap-10/BG-10 baryogenesis</a>
+<a href="gap11-anchor-ledger.html">Gap-11 dark matter</a>
+<a href="gap13-anchor-ledger.html">Gap-13 BH entropy / Page</a>
+<a href="born-anchor-ledger.html">Born rule</a>
+<div class="ann-group">Gate ledgers · deep roots &amp; dissolutions</div>
+<a href="deeproot-granularity-anchor-ledger.html">Deep root — granularity</a>
+<a href="deeproot-shape-anchor-ledger.html">Deep root — structural form</a>
+<a href="deeproot-scale-anchor-ledger.html" class="current">Deep root — absolute scale</a>
+<a href="lambda-catastrophe-anchor-ledger.html">Lambda-catastrophe (dissolved)</a>
+<a href="blackhole-singularity-anchor-ledger.html">Black-hole singularity (dissolved)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">DeepRoot-scale — Deep root - absolute scale (the magnitude discipline): the gate anchor ledger — rendered package. Rendered from <code>deeproot-scale-anchor-ledger.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>DeepRoot-scale — Deep root - absolute scale (the magnitude discipline): the gate anchor ledger</h1>
+<p><strong>The honest one-line: DeepRoot-scale has a real, banked terminal — the root rests on its anchor floor. The <em>existence</em> of at least one absolute dimensionful scale is theorem-grade (forced by unit-gauge invariance), and the framework carries exactly two measured rulers — $M_{\rm Pl}$ (the absolute scale, <code>MEASURED</code>) and $v_{\rm EW}$ (the electroweak scale, certified as a legitimate second measured ruler at SG-5) — with every dimensionless ratio traced back to them; but the <em>value</em> of each ruler is measured, not derived, and a family of dimensionful magnitudes across the candidate remains <code>SCALE-PAID</code>, <code>SCALE-OPEN</code>, or <code>SCALE-DISSOLVED</code>. Anchored is not derived.</strong></p>
+<p>This page is the gate-specific instantiation of the <a href="./index.html">anchoring method</a>: it takes the master anchor and the bridges and applies them, object by object, to one deep root — <strong>Scale (R5), the absolute-magnitude discipline</strong> whose public expansion is <a href="/scale/">The Scale</a>. Every exact thing DeepRoot-scale touches gets its own row — its status, what it is <em>allowed</em> to claim, and what it is <em>forbidden</em> to claim. It follows the same eleven-part shape and the same universal table as the sibling <a href="./deeproot-shape-anchor-ledger.html">DeepRoot-shape</a> and <a href="./deeproot-granularity-anchor-ledger.html">DeepRoot-granularity</a> ledgers.</p>
+<hr />
+<h2>1. Gate status header</h2>
+<ul>
+<li><strong>Scale sub-root (R5) roll-up:</strong> <strong>ANCHORED</strong> — the root rests on its anchor floor. Existence of at least one absolute scale is <strong>theorem-grade</strong>; the value of the absolute anchor $M_{\rm Pl}$ is a <strong>measured input</strong> (<code>MEASURED</code>), and the electroweak scale $v_{\rm EW}$ is a <strong>certified-irreducible second measured ruler</strong> (SG-5). The floor is $\geq 1$ anchor, forever — named, not eliminated.</li>
+<li><strong>Combined Deep-Roots gate roll-up (historical, superseded rule):</strong> under the earlier least-closed-residual convention this rolled up as <strong>OPEN</strong>, because the Scale root carries a family of dimensionful magnitudes that remain <code>SCALE-PAID</code> / <code>SCALE-OPEN</code> / <code>SCALE-DISSOLVED</code>. See the taxonomy-reconciliation note directly below — the facts are unchanged; only the grading rule differs.</li>
+</ul>
+<blockquote>
+<p><strong>Taxonomy reconciliation (2026-07-05).</strong> The gate-level grading of the Scale deep root under the current two-axis taxonomy is <strong>ANCHORED</strong> — read as <strong>TERMINAL + RESIDUALS-SHOWN</strong>: the root reaches its anchor-floor terminal ($M_{\rm Pl}$ measured; existence theorem-grade; $v_{\rm EW}$ certified second ruler), and the residual family listed in this ledger (the <code>SCALE-PAID</code> / <code>SCALE-OPEN</code> / <code>SCALE-DISSOLVED</code> magnitudes — R-SCL below) remains listed and carried unchanged. The earlier <strong>OPEN</strong> roll-up reflects the superseded least-closed-residual rule, not different facts. No individual residual is deleted, closed, or re-graded by this note.</p>
+</blockquote>
+<ul>
+<li><strong>Status, split so it cannot be misread:</strong><ul>
+<li><strong>The existence half (at least one absolute scale is required):</strong> <strong>DERIVED / theorem-grade</strong> — forced by unit-gauge (Buckingham-$\pi$) invariance: a naked dimensionful number carries no invariant content, so $\geq 1$ dimensionful anchor is required before <em>any</em> dimensionful prediction can exist.</li>
+<li><strong>The value half (the number $M_{\rm Pl}$):</strong> <strong>MEASURED-ANCHOR</strong> — supplied by measurement, terminal by anchoring. "$M_{\rm Pl}$ is derived from the geometry" is <em>refuted</em>.</li>
+<li><strong>The second ruler ($v_{\rm EW}$):</strong> <strong>CERTIFIED-IRREDUCIBLE (measured, SG-5)</strong> — a legitimate second measured scale; its ratio to $M_{\rm Pl}$ is <em>not</em> a derivation debt.</li>
+<li><strong>The dimensionful-magnitude family across the candidate:</strong> <strong>SCALE-PAID / SCALE-OPEN / SCALE-DISSOLVED</strong> — carried openly; none is a bare predicted magnitude.</li>
+<li><strong>The absolute-scale existence <em>proof</em> from the deeper roots (R1 + R4):</strong> <strong>OPEN</strong> — asserted-forced, not yet proven with no smuggled second anchor.</li>
+</ul>
+</li>
+</ul>
+<p>Given the unit-gauge layer, the discipline lands on a named floor: dimensionless ratios can be derived directly; every dimensionful magnitude must trace to $M_{\rm Pl}$ (or a declared measured scale) through a named bridge and scheme, or it is not a magnitude claim. What stays open is everything beyond the floor — the target-blind value bridges for the paid and open magnitudes.</p>
+<blockquote>
+<p><strong>existence ≠ value · anchored ≠ derived · stable ≠ derived · ratios ≠ units · dissolved ≠ solved.</strong></p>
+</blockquote>
+<hr />
+<h2>2. Frozen inputs (what DeepRoot-scale stands on, not what it produces)</h2>
+<ul>
+<li><strong>Frozen branch hashes</strong> <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>. The 13D branch is read-only and unmutated. <strong>These hashes are audit anchors — they certify <em>which object</em> the scale root cashes ratios against, and that it cannot be quietly retuned. They do not validate the physics.</strong></li>
+<li><strong>The absolute-scale anchor $M_{\rm Pl}$</strong> is <strong>given / charged</strong>: it enters as the <em>value</em> of the absolute scale, not as something this root derives. <strong>The root does not derive $M_{\rm Pl}$</strong> — it is one of the small set of measured anchors the framework runs on.</li>
+<li><strong>The measured-anchor set</strong> $\{\,M_{\rm Pl},\ \alpha_i(M_Z),\ y_t,\ |V_{us}|\,\}$, together with the second ruler $v_{\rm EW}$ (SG-5), is <strong>declared / charged</strong> — these are the units-fixing inputs the ratios are cashed against, not gate outputs.</li>
+<li><strong>The unit-gauge (Buckingham-$\pi$) axiom</strong> — physics is invariant under a rescaling of units; only dimensionless ratios and anchor-relative statements are unit-gauge invariant. <strong>Declared invariance principle</strong>, stated explicitly, never smuggled.</li>
+</ul>
+<hr />
+<h2>3. Object anchors — the absolute-scale anchor, stated as an object</h2>
+<p>The root argues <em>about</em> the scale anchor symbolically; here is the anchor itself, with no part left implicit.</p>
+<ul>
+<li><strong>Declared anchor.</strong> $M_{\rm Pl}$ — the <strong>ordinary</strong> Planck mass, $M_{\rm Pl}=(\hbar c/G_N)^{1/2}$; <em>not</em> the reduced Planck mass $\bar M_{\rm Pl}=M_{\rm Pl}/\sqrt{8\pi}\approx 2.4357\times10^{18}$ GeV.</li>
+<li><strong>Value.</strong> $$M_{\rm Pl}=1.220900000000000\times10^{19}\ \text{GeV}.$$ Source precision is <strong>4 significant figures</strong> ($1.2209\times10^{19}$ GeV, PDG-derived); the trailing zeros record the declared anchor field, not measured digits (precision-cost discipline). For the $\geq 16$-significant-figure value and full convention, see <a href="../articles/GUT.html">GUT Appendix A1</a> (<a href="../articles/GUT.pdf">PDF</a>); the same value and convention appear on the <a href="/shape/">Shape page</a> row A.2 (manifest hash <code>df5976a365c3</code>).</li>
+<li><strong>Units / convention.</strong> Natural units $\hbar=c=1$, GeV convention. The geometry it cashes (e.g. $M_{\rm Pl}^2=M_*^{\,n+2}V_K$) is convention-fixed; a reviewer preferring the reduced convention re-reads every $M_{\rm Pl}$ as $\bar M_{\rm Pl}\sqrt{8\pi}$ and rescales the left-hand side by $1/(8\pi)$ — the geometry on the right-hand side is unchanged.</li>
+<li><strong>Status — two halves, never merged.</strong> <strong>Existence</strong> of at least one absolute dimensionful scale is <strong>theorem-grade</strong> (forced by unit-rescaling invariance). The <strong>numerical value</strong> of the selected anchor is a <strong>measured input</strong> — status <code>MEASURED</code>, never <code>DERIVED</code>.</li>
+</ul>
+<p><strong>The compressed root statement.</strong> Scale is the absolute-magnitude discipline: one accepted scale anchor ($M_{\rm Pl}$), plus explicit rules for ratios, dimensions, RG windows, scheme objects, normalization, stability, and observable-scale readout. Arguing a scale is <em>needed</em> is not deriving the <em>number</em>. <strong>Status: MEASURED-ANCHOR (value) + theorem-grade (existence).</strong></p>
+<hr />
+<h2>4. Root and master-anchor traceability</h2>
+<p><strong>Deep roots that are load-bearing for DeepRoot-scale:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Deep root</th>
+<th>Role in DeepRoot-scale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Scale</strong></td>
+<td>this <em>is</em> the scale root — supplies the absolute-magnitude discipline, the one accepted anchor $M_{\rm Pl}$, and the ratios / dimensions / RG-window / scheme / normalization / stability / readout rulebook</td>
+</tr>
+<tr>
+<td><strong>Invariance (unit gauge, R1)</strong></td>
+<td>the <strong>Buckingham-$\pi$</strong> content: a naked dimensionful number is unit-gauge-dependent; only dimensionless ratios and anchor-relative values are invariant — this is what makes the existence half a theorem</td>
+</tr>
+<tr>
+<td><strong>Shape</strong></td>
+<td>supplies the object whose dimensionless ratios the scale root cashes; the compactification map (volumes, radii, Wilson angles) is Shape data, not a free scale bridge</td>
+</tr>
+<tr>
+<td><strong>Granularity</strong></td>
+<td>forbids hidden continuous precision; the precision-cost discipline (Scale $\cap$ Granularity) charges over-precision as free information and forbids rounding the anchor into an incomplete-root use</td>
+</tr>
+<tr>
+<td><strong>Record interface</strong></td>
+<td>makes the frozen branch + anchor value + scheme objects reproducible and blind-reproducible</td>
+</tr>
+<tr>
+<td><strong>Nonseparability</strong></td>
+<td>shared scheme objects (heat-kernel scheme, sector-scale policy, RG-matching scales) are settled once and propagated across gates, never re-chosen per gate to suit each target (SCL-H)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Master anchors in play:</strong> the measured-anchor set $\{M_{\rm Pl},\alpha_i(M_Z),y_t,|V_{us}|\}$ · the second ruler $v_{\rm EW}$ (SG-5) · the unit-gauge / Buckingham-$\pi$ invariance · no unpaid labels (a fitted normalization is a paid scale choice) · the frozen branch · open-residual discipline.</p>
+<hr />
+<h2>5. The DeepRoot-scale anchor ledger (the universal table)</h2>
+<table>
+<thead>
+<tr>
+<th>Gate anchor</th>
+<th>Exact object</th>
+<th>Deep-root link</th>
+<th>Master-anchor link</th>
+<th>Status</th>
+<th>Allowed claim</th>
+<th>Forbidden claim</th>
+<th>Open residual / closure task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gate roll-up</td>
+<td>DeepRoot-scale (R5)</td>
+<td>Scale, Invariance</td>
+<td>open-residual discipline</td>
+<td><strong>ANCHORED</strong></td>
+<td>rests on its anchor floor; terminal + residuals shown</td>
+<td>"the scale root is closed / all magnitudes derived"</td>
+<td>carry §9 residuals; target-blind value bridges</td>
+</tr>
+<tr>
+<td>Frozen branch</td>
+<td>hashes <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code></td>
+<td>Record interface</td>
+<td>frozen branch</td>
+<td><strong>AUDIT ONLY</strong></td>
+<td>the object ratios are cashed against is frozen/read-only</td>
+<td>"hashes validate the magnitudes"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Absolute-scale existence</td>
+<td>$\geq 1$ dimensionful anchor required</td>
+<td>Invariance (unit gauge)</td>
+<td>Buckingham-$\pi$</td>
+<td><strong>DERIVED / theorem-grade</strong></td>
+<td>at least one absolute scale is forced</td>
+<td>"the value of that scale is thereby derived"</td>
+<td>prove from R1+R4 with no smuggled 2nd anchor (Hole S1)</td>
+</tr>
+<tr>
+<td>Absolute-scale value</td>
+<td>$M_{\rm Pl}=1.2209\times10^{19}$ GeV</td>
+<td>Scale</td>
+<td>measured-anchor set</td>
+<td><strong>MEASURED-ANCHOR</strong></td>
+<td>the accepted value anchor, charged as input</td>
+<td>"$M_{\rm Pl}$ is derived from the geometry"</td>
+<td>declare terminal (floor $\geq 1$)</td>
+</tr>
+<tr>
+<td>Second ruler</td>
+<td>$v_{\rm EW}$ (electroweak scale)</td>
+<td>Scale</td>
+<td>SG-5 certificate</td>
+<td><strong>CERTIFIED-IRREDUCIBLE (measured)</strong></td>
+<td>a legitimate second measured ruler</td>
+<td>"$v_{\rm EW}/M_{\rm Pl}$ is a derivation debt"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Unit-gauge axiom</td>
+<td>Buckingham-$\pi$ invariance</td>
+<td>Invariance</td>
+<td>declared invariance</td>
+<td><strong>AXIOM / declared</strong></td>
+<td>only ratios &amp; anchor-relative values are invariant</td>
+<td>"a naked dimensionful number is invariant"</td>
+<td>keep declared</td>
+</tr>
+<tr>
+<td>Dimensionless ratios</td>
+<td>fermion mass ratios, mixings (CKM/PMNS)</td>
+<td>Scale, Shape</td>
+<td>no unpaid labels</td>
+<td><strong>SCALE-FREE-DERIVED (within grammar)</strong></td>
+<td>genuine predictions; tested vs frozen falsifiers</td>
+<td>"the ratio proves the absolute magnitude"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Absolute sector masses</td>
+<td>$N_d, N_e, N_\nu$ (injected reals)</td>
+<td>Scale, Granularity</td>
+<td>no unpaid labels</td>
+<td><strong>SCALE-PAID</strong></td>
+<td>fitted normalizations — the weakest scale link</td>
+<td>"$F^+$ derives $m_b,m_\tau,m_\nu$ scales"</td>
+<td>generate target-blind, or declare inside $E$-anchor</td>
+</tr>
+<tr>
+<td>Seesaw scale</td>
+<td>$M_R$ (shared object)</td>
+<td>Scale, Nonseparability</td>
+<td>shared scheme object (SCL-H)</td>
+<td><strong>SCALE-PAID</strong></td>
+<td>settled once &amp; propagated; paid unless generated</td>
+<td>"$M_R$ is a target-blind prediction"</td>
+<td>generate via decoupling/seesaw target-blind</td>
+</tr>
+<tr>
+<td>Heat-kernel $a_6$ (odd $D=13$)</td>
+<td>dimensionful $a_6$ magnitude</td>
+<td>Scale, Granularity</td>
+<td>predicate validity (SCL-C)</td>
+<td><strong>SCALE-CONSISTENCY-COEFFICIENT / SCALE-DISSOLVED</strong></td>
+<td>no canonical finite predicate; not gate-closing</td>
+<td>"the dimensionful $a_6$ number is a prediction"</td>
+<td>dissolution clears a false debt only</td>
+</tr>
+<tr>
+<td>Observed $\Lambda$ value</td>
+<td>cosmological constant magnitude</td>
+<td>Scale</td>
+<td>measured anchor</td>
+<td><strong>MEASURED / SCALE-OPEN (as derivation)</strong></td>
+<td>value is measured; distinct from stability</td>
+<td>"Planck-smallness $10^{-122}$ is the derivation"</td>
+<td>target-blind value bridge (open)</td>
+</tr>
+<tr>
+<td>$\Lambda$ radiative stability</td>
+<td>trace-decoupling protection</td>
+<td>Scale</td>
+<td>stability-vs-value (SCL-G)</td>
+<td><strong>property, not a number</strong></td>
+<td>dissolves the tuning sub-problem</td>
+<td>"stable, therefore derived"</td>
+<td>value sub-problem stays open</td>
+</tr>
+<tr>
+<td>Threshold / RG rows</td>
+<td>matching coefficients (W19, SG-7)</td>
+<td>Scale</td>
+<td>scale-bridge rule (SCL-J)</td>
+<td><strong>SCALE-OPEN</strong></td>
+<td>needs spectrum-to-threshold + scheme reconciliation</td>
+<td>"a number without a window is a number"</td>
+<td>fill the bridge certificate target-blind</td>
+</tr>
+<tr>
+<td>Yang–Mills gap</td>
+<td>uniform mass gap (continuum units)</td>
+<td>Scale</td>
+<td>scale-bridge rule</td>
+<td><strong>SCALE-OPEN / axiom-conditional</strong></td>
+<td>a coupling scale is not an existence proof</td>
+<td>"$\Lambda_{\rm QCD}$ proves the gap exists"</td>
+<td>uniform bound surviving continuum/volume limits</td>
+</tr>
+<tr>
+<td>Inflation $A_s, r, n_s$</td>
+<td>inflationary amplitudes</td>
+<td>Scale, Shape</td>
+<td>scale-bridge rule</td>
+<td><strong>SCALE-OPEN</strong></td>
+<td>needs geometry-forced potential tied to scale policy</td>
+<td>"amplitude is derived without a window"</td>
+<td>geometry-forced potential (open)</td>
+</tr>
+<tr>
+<td>Baryogenesis scales</td>
+<td>$M_N, T_{\rm reheat}$, washout ($\eta_B$)</td>
+<td>Scale</td>
+<td>scale-bridge rule</td>
+<td><strong>SCALE-PAID / SCALE-OPEN</strong></td>
+<td>generated or paid, target-blind</td>
+<td>"$\eta_B$ scales are predicted"</td>
+<td>RG + Boltzmann/washout target-blind</td>
+</tr>
+<tr>
+<td>Born weights</td>
+<td>probability normalization</td>
+<td>Scale, Invariance</td>
+<td>no unpaid labels</td>
+<td><strong>dimensionless</strong></td>
+<td>normalization must be invariant, measure forced</td>
+<td>"the measure is narrated into existence"</td>
+<td>forced (not narrated) measure — see Born ledger</td>
+</tr>
+<tr>
+<td>Shared scheme objects</td>
+<td>heat-kernel scheme; sector-scale policy; RG matching</td>
+<td>Nonseparability</td>
+<td>cross-gate shared object (SCL-H)</td>
+<td><strong>DECLARED / settled-once</strong></td>
+<td>settled once and propagated consistently</td>
+<td>"re-chosen per gate to suit each target"</td>
+<td>propagate; never re-choose (disguised reverse-engineering from the measured value)</td>
+</tr>
+<tr>
+<td>Existence proof leg</td>
+<td>one independent absolute scale from R1+R4</td>
+<td>Invariance</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN</strong></td>
+<td>a valid conditional skeleton</td>
+<td>"existence is proven with no smuggled anchor"</td>
+<td>prove uniqueness of the single anchor (Hole S1)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. The construction — the anchor floor and the discipline, in full</h2>
+<p><strong>The unit-gauge theorem (the existence half).</strong> Physics is unchanged under a rescaling of units (changing the GeV, the second, the kilogram). Treat that rescaling as a gauge symmetry — a <strong>unit gauge</strong>. Under it, every dimensionful number is multiplied by its conversion factor, so a <em>naked</em> dimensionful number carries no invariant content. Only two kinds of statement are unit-gauge invariant: (i) a <strong>dimensionless ratio</strong> (all unit factors cancel), or (ii) a dimensionful value <strong>expressed relative to an accepted anchor</strong> (the anchor transforms the same way). This is the Buckingham-$\pi$ content stated as a closure rule, and it forces the three consequences that <em>are</em> the discipline:</p>
+<ol>
+<li><strong>A dimensionless invariant can be derived directly</strong> — a $\pi$-group; no anchor, no bridge (the safe predictions cluster in the ratio column, SCL-A).</li>
+<li><strong>A dimensionful magnitude requires an anchor <em>plus</em> a bridge <em>plus</em> a scheme/window</strong> — gauge-dependent until tied to $M_{\rm Pl}$ (or a declared measured scale), carried by a named bridge (SCL-J), fixed by scheme/window (SCL-E). All three, or it is not a magnitude claim.</li>
+<li><strong>No anchor $\Rightarrow$ no magnitude claim, ever</strong> — Buckingham-$\pi$ forces $\geq 1$ dimensionful anchor before <em>any</em> dimensionful prediction can exist. This is the floor of the root (SCL-I): the anchor count is $\geq 1$, forever; named, not eliminated.</li>
+</ol>
+<p>So the existence half is <strong>forced</strong>, not asserted: at least one absolute dimensionful anchor is required to make any dimensionful statement unit-gauge invariant. What is <em>measured</em>, not forced, is <strong>which</strong> value that anchor takes. Existence: theorem. Value: <code>MEASURED</code>. The unit gauge is exactly why those two halves can never be merged.</p>
+<p><strong>The value half (the anchor floor).</strong> The framework charges a small measured-anchor set $\{\,M_{\rm Pl},\ \alpha_i(M_Z),\ y_t,\ |V_{us}|\,\}$, with $v_{\rm EW}$ a certified-irreducible second measured ruler (SG-5). $M_{\rm Pl}$ is the absolute dimensionful anchor that lets dimensionless ratios and readouts be cashed into physical numbers. Its value is read from experiment and charged as input; Planck-unit smallness of another quantity (e.g. $\Lambda\approx 10^{-122}\,M_{\rm Pl}^4$) is a <em>restatement</em> of a measured value, not a derivation of it.</p>
+<p><strong>The categorization map (every number gets a tag).</strong> No number appears on a gate or wall without exactly one of six mutually exclusive tags: <code>SCALE-FREE-DERIVED</code> (dimensionless invariant / exact ratio), <code>SCALE-ANCHORED</code> (dimensionful, anchor supplied, bridge forced), <code>SCALE-PAID</code> (fitted normalization / declared scheme object — an input, not a prediction), <code>SCALE-CONSISTENCY-COEFFICIENT</code> (internal check, not gate-closing), <code>SCALE-DISSOLVED</code> (the requested magnitude was never a valid scheme-independent object), <code>SCALE-OPEN</code> (bridge / scheme / anchor missing). <strong><code>SCALE-DISSOLVED</code> is not a success</strong> — it removes a false debt; it does not pay a real one.</p>
+<p><strong>The scale-status transition rule.</strong> A number does not jump categories for free; each move needs a required event actually exhibited. <code>SCALE-OPEN</code>$\to$<code>SCALE-PAID</code> requires the missing scale supplied as a declared input; <code>SCALE-PAID</code>$\to$<code>SCALE-FORCED</code> requires a <em>target-blind</em> bridge deriving it from the roots (passing the Scale Perturbation Test and forcing field 4); <code>SCALE-CONSISTENCY-COEFFICIENT</code>$\to$<code>SCALE-DERIVED</code> requires it to be shown a real observable or a necessary audit invariant; <strong><code>SCALE-DISSOLVED</code>$\to$closed is never automatic</strong> — closing requires a real surviving observable, never a dissolution.</p>
+<p><strong>The dimensionless-first doctrine.</strong> Derive the ratio, then — and only then, with a named anchor and a named bridge — reach for the magnitude. Most of the time the ratio closes and the magnitude stays <code>SCALE-PAID</code> or <code>SCALE-OPEN</code>. That is the honest shape of the result: <strong>over-determination</strong> — many derived dimensionless ratios against a few paid scales — is the actual evidence, and it is destroyed, not strengthened, by dressing paid scales up as predictions.</p>
+<hr />
+<h2>7. The naturalness split — a property is not a value</h2>
+<p>The single seductive move "it is natural, therefore derived" is refused and split into honest objects. A magnitude being <strong>small</strong>, <strong>radiatively stable</strong>, <strong>technically natural</strong>, <strong>symmetry-protected</strong>, or <strong>Planck-expressible</strong> does <strong>not</strong> derive it — each is a statement about how a number behaves, none supplies the number:</p>
+<ul>
+<li><strong>Small</strong> — a comparison, not a source; a small value can still be measured.</li>
+<li><strong>Radiatively stable</strong> — stability says corrections do not blow the value up; it does not say what it is (SCL-G). This is the $\Lambda$ trap.</li>
+<li><strong>Technically natural / symmetry-protected</strong> — a protecting symmetry makes a small value unsurprising; it does not compute it.</li>
+<li><strong>Planck-expressible</strong> — writing a measured number in Planck units is a restatement, not a derivation (the $10^{-122}$ trap).</li>
+</ul>
+<p><strong>Therefore naturalness dissolves a <em>tuning</em> sub-problem; it cannot supply a measured magnitude.</strong> The residual relocates cleanly: the tuning half is <code>SCALE-DISSOLVED</code> where a protection mechanism applies (a real result — it removes a false debt); the <em>value</em> half stays <code>MEASURED</code> / <code>SCALE-OPEN-as-derivation</code> until a target-blind value bridge exists. Report the two on separate lines — never collapse "it is natural" into "it is derived." This applies wherever a naturalness argument is made: the cosmological constant $\Lambda$, the Higgs / electroweak hierarchy, the inflationary amplitude $A_s$, and mass gaps.</p>
+<hr />
+<h2>8. The shared-scheme-object rule — settle once, propagate (SCL-H)</h2>
+<p>The single phrase "the scheme is fixed" hides several objects used by <strong>more than one gate</strong>; each must be settled once and propagated, never re-chosen per gate to suit each target:</p>
+<ul>
+<li><strong>(A) Heat-kernel scheme object</strong> — shared across Gap-01 ($a_6$), SG-6 (moduli), and the threshold/RG-matching gate (W19). Re-choosing it per gate is a SCL-H violation and a disguised reverse-engineering from the measured value.</li>
+<li><strong>(B) Sector-scale policy</strong> ($\kappa$, $N_d, N_e, N_\nu$, $M_R$, neutrino-scale policy) — shared across the flavor (W06), neutrino-mass, and leptogenesis (W12) gates. The fitted normalizations are the program's weakest scale link and the most exposed to over-counting; they are terminal-by-anchoring inside the $E$-anchor, not derived.</li>
+<li><strong>(C) RG matching scales / scheme / cutoff</strong> — shared across thresholds (W19), unification, and electroweak ($\rho_{\rm tree}$, W08) claims.</li>
+</ul>
+<p><strong>Therefore the unifying anti-pattern is reverse-engineering from the measured value:</strong> choosing the bridge, scheme, normalization, or scale <em>because</em> it reproduces the observed number. Reverse-engineering from the measured value fails field 4 of the forcing certificate automatically, and it is the single most important thing the Scale root is built to catch. The live residual relocates: <strong>R-SCL-a</strong> (target-blind value bridges for $\Lambda$, thresholds, inflation, baryogenesis) is OPEN; <strong>R-SCL-b</strong> (generated, not paid, sector scales / $M_R$) is OPEN; <strong>R-SCL-c</strong> (the absolute-scale existence proof with no smuggled second anchor) is OPEN.</p>
+<hr />
+<h2>9. Open residuals — the value-bridge / existence-proof family</h2>
+<p>The banked anchor-floor terminal is one face of the root. These distinct residuals make up the rest, and none is closed by the floor:</p>
+<ul>
+<li><strong>Absolute-scale existence proof</strong> — whether the existence of exactly <em>one</em> independent absolute scale can be <em>proven</em> (rather than asserted) from the invariance and record roots (R1 + R4), and whether no second independent dimensionful anchor is smuggled in elsewhere in the generator. <strong>OPEN.</strong></li>
+<li><strong>Target-blind value bridges</strong> — for the observed $\Lambda$ value, the threshold/RG rows (W19, SG-7), the inflationary amplitudes ($A_s, r, n_s$), and the baryogenesis scales ($M_N, T_{\rm reheat}$). Each currently terminates at <code>SCALE-OPEN</code> for lack of a target-blind bridge. <strong>OPEN.</strong></li>
+<li><strong>Generated (not paid) sector scales</strong> — $N_d, N_e, N_\nu$ and $M_R$ are <code>SCALE-PAID</code> fitted normalizations; a target-blind generation would move them to <code>SCALE-FORCED</code>, else they stay declared inside the $E$-anchor. <strong>OPEN / terminal-by-anchoring.</strong></li>
+<li><strong>Uniform Yang–Mills gap in the limit</strong> — a uniform mass-gap bound must survive the continuum and volume limits; a coupling scale ($\Lambda_{\rm QCD}$) is not a stand-in for the existence proof. <strong>OPEN / axiom-conditional.</strong></li>
+<li><strong>Dimensionful $a_6$ (odd $D=13$)</strong> — no canonical finite predicate; <code>SCALE-CONSISTENCY-COEFFICIENT</code> / <code>SCALE-DISSOLVED</code>. Dissolution clears a <em>false</em> debt and is honest, but it does <strong>not</strong> close the gate. <strong>DISSOLVED (false debt only).</strong></li>
+<li><strong>The anchor value itself</strong> — the whole readout bottoms on $M_{\rm Pl}$, which no known principle forces; its value is a measured input and "$M_{\rm Pl}$ is derived" is refused. <strong>MEASURED-ANCHOR (declare, do not plug).</strong></li>
+</ul>
+<hr />
+<h2>10. Anti-claims (what this page refuses to say)</h2>
+<ul>
+<li>DeepRoot-scale does <strong>not</strong> derive the value of $M_{\rm Pl}$. Existence of an absolute scale is a theorem; the <em>number</em> is measured.</li>
+<li><strong>A formula producing a number is not a prediction of that number.</strong> "The theory predicts this dimensionful value" is forbidden unless the anchor, units, scheme, energy window, <em>and</em> bridge are all shown.</li>
+<li><strong>Stability is not value.</strong> "The value is stable, therefore derived" is forbidden — a protection mechanism dissolves an instability problem; it does not supply the magnitude (the $\Lambda$ trap).</li>
+<li><strong>Ratios do not create units.</strong> "This exact ratio proves the absolute magnitude" is forbidden — a derived dimensionless ratio says nothing about the absolute scale until an anchor and a bridge are supplied.</li>
+<li><strong>A selected normalization is a paid scale choice</strong> unless forced. "The normalization is harmless" is forbidden; "metric-selected" is exact only under the declared normalization, not normalization-robust.</li>
+<li><strong>A coupling scale is not an existence proof.</strong> "$\Lambda_{\rm QCD}$ (or any coupling scale) proves the gap exists" is forbidden — moving the target is not closing it.</li>
+<li><strong>Planck-unit smallness is not a derivation.</strong> "$10^{-122}$ in Planck units is the derivation" is forbidden — it is a restatement of the measured value; the observed value must never back-solve structure.</li>
+<li>In odd $D=13$ the dimensionful $a_6$ magnitude has <strong>no canonical finite predicate</strong>; it is consistency-only or dissolved, <strong>never gate-closing</strong>.</li>
+<li><strong>Shared scheme objects are settled once and propagated</strong>; "we re-chose the scheme object for this gate" is reverse-engineering from the measured value in a scheme costume.</li>
+<li><strong>Dissolved is not solved.</strong> A dissolution removes a false debt; it does not pay the real one or close a gate — closing always needs a real surviving observable.</li>
+<li>The frozen-branch hashes are audit anchors; they do <strong>not</strong> validate the magnitudes, and reproducibility ≠ derivation.</li>
+<li><strong>Anchored is not derived.</strong> Resting on the $M_{\rm Pl}$ floor is a legitimate terminal, not a claim that the value was produced by the geometry.</li>
+</ul>
+<hr />
+<h2>11. Specialist closure plan</h2>
+<p>Each open residual is a concrete, finite, target-blind work-package. <strong>The target-blindness gate is mandatory for every value bridge:</strong> the bridge must be writable <em>without</em> the observed value — a bridge chosen because it reproduces the number fails field 4 automatically and does not count. Recommended order: Hole S1 → S2 → S3 → S4.</p>
+<ol>
+<li><strong>Hole S1 — Absolute-scale existence proof (address first).</strong> Prove from the invariance and record roots (R1 + R4) that <em>exactly one</em> independent absolute scale is required, and that no second independent dimensionful anchor is smuggled in elsewhere in the generator. <em>Realistic near-term best outcome:</em> "existence theorem-grade; single-anchor uniqueness reduced to a named check." The floor stays $\geq 1$ anchor ($M_{\rm Pl}$) by design, forever.</li>
+<li><strong>Hole S2 — Target-blind value bridges.</strong> For each of $\Lambda$, the threshold/RG rows (W19, SG-7), inflation ($A_s, r, n_s$), and baryogenesis ($M_N, T_{\rm reheat}$): produce a filled bridge certificate (RG flow / decoupling / threshold rule / compactification map / FRG map, or explicit dissolution) that is writable without the observed value. <em>Trap:</em> measurement is <strong>not</strong> a bridge — it supplies the one anchor (SCL-I), it does not carry a magnitude across scales.</li>
+<li><strong>Hole S3 — Generated (not paid) sector scales.</strong> Move $N_d, N_e, N_\nu$ and $M_R$ from <code>SCALE-PAID</code> toward <code>SCALE-FORCED</code> by a target-blind generation, or — the honest expected outcome — <strong>declare them the irreducible measured content of the $E$-anchor (terminal-by-anchoring)</strong>. <em>Trap:</em> do not present a fitted normalization as an output.</li>
+<li><strong>Hole S4 — Uniform Yang–Mills gap in the limit.</strong> Establish a uniform mass-gap bound surviving the continuum and volume limits in a stated scheme and window. <em>Honest odds LOW</em> (a recognized hard problem; attempt last). <em>Trap:</em> do not substitute a coupling scale for the existence proof.</li>
+</ol>
+<p>Closing Holes S1–S3 is the full value-bridge result — the only path from a named anchor floor toward target-blind magnitude forcing — and even then, only with the anchor value itself remaining a measured input, and never past the measurement-is-not-a-bridge line.</p>
+<hr />
+<h2>12. Completion tests for this page</h2>
+<p><strong>Required presence (all met):</strong> gate roll-up ANCHORED (terminal + residuals shown) · taxonomy-reconciliation note (two-axis, dated) · existence half theorem-grade · value half MEASURED-ANCHOR · $v_{\rm EW}$ certified-irreducible second ruler (SG-5) · $M_{\rm Pl}=1.2209\times10^{19}$ GeV (ordinary, not reduced) · the six claim categories · the scale-status transition rule · dimensionless-first doctrine · naturalness split (stability ≠ value) · shared-scheme-object rule (SCL-H) · the $\Lambda$ / $a_6$ / threshold / YM / inflation / baryogenesis rows typed · every exact object as its own row · the root's anti-claims · frozen hashes (AUDIT ONLY) · measured-anchor set $\{M_{\rm Pl},\alpha_i(M_Z),y_t,|V_{us}|\}$ · floor $\geq 1$ preserved.</p>
+<p><strong>Required absence (all held):</strong> no claim that a dimensionful value is predicted without anchor + bridge + scheme · no "stable therefore derived" · no "ratio proves the magnitude" · no "normalization is harmless" · no "coupling scale proves the gap" · no "$10^{-122}$ is the derivation" · no dimensionful $a_6$ as a prediction · no per-gate re-chosen scheme object · no "dissolved = solved" · no "$M_{\rm Pl}$ derived" · no measurement counted as a cross-scale bridge · no reader-visible build-process vocabulary.</p>
+<p><strong>Completion report.</strong> Tests passed: all required-presence and required-absence items above. Tests failed: none. Open items: absolute-scale existence proof from R1+R4 (Hole S1), target-blind value bridges for $\Lambda$/thresholds/inflation/baryogenesis (Hole S2), generated sector scales / $M_R$ (Hole S3), uniform YM gap in the limit (Hole S4). Assumptions made: the unit-gauge (Buckingham-$\pi$) axiom and the measured-anchor set — each stated explicitly, never smuggled. This page upgrades no grade: <strong>0 of 33 gates are physics-closed; no status changes.</strong></p>
+<hr />
+<p><em>This deep root follows the same eleven-part shape and universal table as the sibling <a href="./deeproot-shape-anchor-ledger.html">DeepRoot-shape</a> and <a href="./deeproot-granularity-anchor-ledger.html">DeepRoot-granularity</a> ledgers; its nature differs (a banked anchor-floor terminal with a family of paid/open/dissolved magnitudes carried openly and an existence-proof residual), and the table is adapted honestly to that nature.</em></p>
+<p><strong>See also:</strong> <a href="/scale/">The Scale — absolute-magnitude discipline</a> (the public expansion of R5) · <a href="./deep-roots.html">the seven deep roots</a> (Scale is R5) · <a href="/shape/">The Shape</a> (supplies the object) · <a href="/granularity/">The Granularity</a> (forbids hidden precision) · <a href="../articles/GUT.html">GUT Appendix A1 (full precision)</a> (<a href="../articles/GUT.pdf">PDF</a>) · the <a href="/gates/">gate scoreboard</a>.</p>
+</main>
+</div>
+</body></html>

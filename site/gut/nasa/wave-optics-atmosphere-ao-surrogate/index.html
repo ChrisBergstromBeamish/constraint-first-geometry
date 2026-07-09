@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wave-Optics / Atmosphere / AO Surrogate - Relativistic Optics Lab</title>
+  <meta name="description" content="Public engineering-surrogate propagation emulator. Estimates atmosphere/AO/coupling penalties under declared assumptions and validation limits. Not mission-certified; does not reproduce internal NASA/JPL pipelines.">
+  <link rel="stylesheet" href="../shared/style.css">
+  <link rel="stylesheet" href="wave_ao.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script type="module" src="wave_ao.js"></script>
+</head>
+<body>
+
+<main class="container">
+
+  <!-- ============================================== -->
+  <!-- Mandatory disclaimer banner (verbatim copy)    -->
+  <!-- ============================================== -->
+  <div class="wao-disclaimer">
+    <h2>Public engineering surrogate</h2>
+    <p>This is a public engineering-surrogate propagation emulator. It estimates atmosphere/AO/coupling penalties under declared assumptions and validation limits. It is not mission-certified and does not reproduce internal NASA/JPL pipelines.</p>
+  </div>
+
+  <h1>Wave-Optics / Atmosphere / AO Surrogate</h1>
+  <p class="subtitle">Penalty / Strehl / coupling distribution emulator over the reduced turbulence/coupling manifold, atmosphere/AO regime chamber, threshold layer, and safety layer. Public scenario anchors only.</p>
+
+  <div class="doc-links" style="margin:12px 0;display:flex;gap:8px;flex-wrap:wrap">
+    <a class="btn btn-outline" href="USER_GUIDE.md">📖 User Guide</a>
+    <a class="btn btn-outline" href="SAMPLE_NASA_SPEC.md">📋 Sample NASA Spec</a>
+  </div>
+
+  <!-- Scenario picker (top-of-page bar) -->
+  <div class="scenario-bar">
+    <span class="label">Scenario</span>
+    <select id="scenario-picker"></select>
+    <button class="btn" id="run-button">Run propagation emulator</button>
+    <button class="btn btn-outline" id="rerun-button">Re-run with new seed</button>
+    <span id="run-status" class="small mute" style="margin-left:8px"></span>
+  </div>
+  <p id="scenario-note" class="small mute" style="margin-top:-6px"></p>
+
+  <!-- Tab navigation (12 tabs) -->
+  <div class="tabs" role="tablist">
+    <button class="tab-button active" data-tab="summary">Summary</button>
+    <button class="tab-button"        data-tab="inputs">Scenario Inputs</button>
+    <button class="tab-button"        data-tab="model">Atmosphere / AO Model</button>
+    <button class="tab-button"        data-tab="uncertainty">Uncertainty Model</button>
+    <button class="tab-button"        data-tab="penalty">Penalty Distribution</button>
+    <button class="tab-button"        data-tab="strehl">Strehl / Coupling</button>
+    <button class="tab-button"        data-tab="impairments">Dominant Impairments</button>
+    <button class="tab-button"        data-tab="sensitivity">Sensitivity</button>
+    <button class="tab-button"        data-tab="escalation">High-Fidelity Escalation</button>
+    <button class="tab-button"        data-tab="validation">Validation</button>
+    <button class="tab-button"        data-tab="certificate">Certificate</button>
+    <button class="tab-button"        data-tab="research">Research Geometry Mapping</button>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- TAB 1: Summary                                 -->
+  <!-- ============================================== -->
+  <section id="tab-summary" class="tab-panel active" role="tabpanel">
+    <p class="small mute">Headline penalty numbers under the public scenario anchor. Fade probability gauge, percentile penalties (dB), dominant impairment, and escalation flag.</p>
+
+    <div class="summary-grid">
+      <div class="card gauge-card">
+        <h3>Fade probability P_fade</h3>
+        <div id="fade-gauge" class="gauge-container"></div>
+        <div id="fade-readout" class="gauge-readout">—</div>
+        <p class="small mute" id="fade-threshold-note">threshold 6.0 dB</p>
+      </div>
+
+      <div class="card">
+        <h3>Headline numbers</h3>
+        <table id="summary-table">
+          <tbody>
+            <tr><td>Fade probability P_fade</td><td class="num" id="s-pfade">—</td></tr>
+            <tr><td>Median penalty p50</td><td class="num" id="s-p50">—</td></tr>
+            <tr><td>95th percentile p95</td><td class="num" id="s-p95">—</td></tr>
+            <tr><td>Median Strehl S_50</td><td class="num" id="s-strehl">—</td></tr>
+            <tr><td>Median coupling eta_50</td><td class="num" id="s-coup">—</td></tr>
+            <tr><td>Dominant impairment</td><td id="s-impairment">—</td></tr>
+            <tr><td>High-fidelity escalation</td><td id="s-escalation">—</td></tr>
+            <tr><td>Escalation reason</td><td id="s-escalation-why">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="summary-warnings"></div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 2: Scenario Inputs (nested form)            -->
+  <!-- ============================================== -->
+  <section id="tab-inputs" class="tab-panel" role="tabpanel">
+    <p class="small mute">Nested scenario form: optical, atmosphere, AO, receiver. Defaults come from the selected public scenario anchor.</p>
+    <div id="input-form" class="nested-form"></div>
+    <div id="input-warnings"></div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 3: Atmosphere / AO Model                    -->
+  <!-- ============================================== -->
+  <section id="tab-model" class="tab-panel" role="tabpanel">
+    <p class="small mute">Regime presets and derived atmosphere/AO quantities at the active scenario. Cn²(h) hint is shown when an outer-scale profile is supplied.</p>
+    <div class="card">
+      <h4>Regime presets</h4>
+      <div id="regime-presets" class="preset-buttons"></div>
+      <p class="small mute">Quick load: standard atmosphere/AO presets that overwrite the atmosphere + AO blocks of the active scenario.</p>
+    </div>
+    <div class="card">
+      <h4>Derived quantities (deterministic)</h4>
+      <table id="derived-quantities">
+        <tbody>
+          <tr><td>Airmass X = sec(zenith)</td><td class="num" id="d-airmass">—</td></tr>
+          <tr><td>Fried r_0 at operating lambda</td><td class="num" id="d-r0">—</td></tr>
+          <tr><td>D_r / r_0</td><td class="num" id="d-dr0">—</td></tr>
+          <tr><td>Atmospheric loss (single-pass dB)</td><td class="num" id="d-atmloss">—</td></tr>
+          <tr><td>Aerosol attenuation</td><td class="num" id="d-aerosol">—</td></tr>
+          <tr><td>Strehl S (nominal, from residual WFE)</td><td class="num" id="d-strehl">—</td></tr>
+          <tr><td>Coupling eta_coup (nominal)</td><td class="num" id="d-coup">—</td></tr>
+          <tr><td>Total deterministic penalty</td><td class="num" id="d-totpen">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card" id="cn2-card">
+      <h4>Cn²(h) hint</h4>
+      <div id="cn2-hint" class="small mute">No Cn²(h) profile supplied; using single-layer r_0 model.</div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 4: Uncertainty Model                        -->
+  <!-- ============================================== -->
+  <section id="tab-uncertainty" class="tab-panel" role="tabpanel">
+    <p class="small mute">Per-input distribution picker. Supported distributions: fixed, normal, lognormal, uniform, triangular, empirical. Correlations are recorded but not yet sampled.</p>
+    <div id="uncertainty-form"></div>
+    <div class="card">
+      <h4>Correlations</h4>
+      <p class="small mute">Independence is assumed across inputs unless a correlation list is supplied. The MVP records correlations but does not yet draw correlated samples.</p>
+      <div id="correlations-list" class="small">No correlations recorded.</div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 5: Penalty Distribution                     -->
+  <!-- ============================================== -->
+  <section id="tab-penalty" class="tab-panel" role="tabpanel">
+    <p class="small mute">Histogram of propagation penalty (dB) over the Monte Carlo run, and the cumulative distribution. ~50 bins.</p>
+    <div class="plot-row">
+      <div class="plot-container" id="penalty-histogram"></div>
+      <div class="plot-container" id="penalty-cdf"></div>
+    </div>
+    <div class="percentile-grid">
+      <div class="pct-card"><div class="pct-label">p05</div><div class="pct-value" id="pp-p05">—</div></div>
+      <div class="pct-card"><div class="pct-label">p25</div><div class="pct-value" id="pp-p25">—</div></div>
+      <div class="pct-card"><div class="pct-label">p50</div><div class="pct-value" id="pp-p50">—</div></div>
+      <div class="pct-card"><div class="pct-label">p75</div><div class="pct-value" id="pp-p75">—</div></div>
+      <div class="pct-card"><div class="pct-label">p95</div><div class="pct-value" id="pp-p95">—</div></div>
+      <div class="pct-card"><div class="pct-label">mean</div><div class="pct-value" id="pp-mean">—</div></div>
+      <div class="pct-card"><div class="pct-label">std</div><div class="pct-value" id="pp-std">—</div></div>
+      <div class="pct-card"><div class="pct-label">valid / total</div><div class="pct-value" id="pp-counts">—</div></div>
+    </div>
+    <p class="small">
+      <button class="btn btn-outline" id="penalty-csv">Export penalty samples CSV</button>
+    </p>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 6: Strehl / Coupling                        -->
+  <!-- ============================================== -->
+  <section id="tab-strehl" class="tab-panel" role="tabpanel">
+    <p class="small mute">Separate distributions for the AO Strehl ratio S and the fiber/detector coupling efficiency eta_coup, sampled across the Monte Carlo run.</p>
+    <div class="plot-row">
+      <div class="plot-container" id="strehl-histogram"></div>
+      <div class="plot-container" id="coupling-histogram"></div>
+    </div>
+    <div class="plot-row">
+      <div class="plot-container" id="penalty-vs-r0"></div>
+      <div class="plot-container" id="penalty-vs-zenith"></div>
+    </div>
+    <p class="small">
+      <button class="btn btn-outline" id="r0-csv">Export penalty-vs-r_0 CSV</button>
+      <button class="btn btn-outline" id="zenith-csv">Export penalty-vs-zenith CSV</button>
+    </p>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 7: Dominant Impairments                     -->
+  <!-- ============================================== -->
+  <section id="tab-impairments" class="tab-panel" role="tabpanel">
+    <p class="small mute">Probability of each canonical impairment class across the Monte Carlo samples. The dominant impairment card shows which mechanism in the reduced turbulence/coupling manifold was active most often.</p>
+    <div class="plot-container" id="impairment-bars"></div>
+    <div class="card" id="dominant-imp-card">
+      <h3>Dominant impairment</h3>
+      <div id="dominant-imp-body" class="small mute">Run the emulator to compute the dominant impairment.</div>
+    </div>
+    <div class="card">
+      <h4>2D r_0 vs pointing-jitter heatmap (mean penalty dB)</h4>
+      <div class="plot-container" id="impairment-heatmap"></div>
+      <p class="small mute">Sweep at fixed other inputs; intended as a coarse design-space hint, not a high-fidelity surface.</p>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 8: Sensitivity                              -->
+  <!-- ============================================== -->
+  <section id="tab-sensitivity" class="tab-panel" role="tabpanel">
+    <p class="small mute">Tornado chart of penalty sensitivity to each input (delta penalty per fractional input change). Largest-magnitude bars are the most-load-bearing inputs.</p>
+    <div class="plot-container" id="tornado-container"></div>
+    <div class="card">
+      <h4>Dominant uncertainty contributor</h4>
+      <div id="dominant-uncert" class="small mute">Run the emulator to compute the dominant uncertainty contributor.</div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 9: High-Fidelity Escalation                 -->
+  <!-- ============================================== -->
+  <section id="tab-escalation" class="tab-panel" role="tabpanel">
+    <p class="small mute">Escalation logic flags scenarios where the public engineering surrogate alone is insufficient and a high-fidelity wave-optics model is recommended.</p>
+    <div class="card" id="escalation-card">
+      <h3>Escalation verdict</h3>
+      <div id="escalation-verdict" class="small mute">Run the emulator first.</div>
+    </div>
+    <div class="card">
+      <h4>Top-N escalation candidates</h4>
+      <div id="escalation-table-container">No scenarios ranked yet.</div>
+    </div>
+    <div class="card">
+      <h4>Recommended high-fidelity model</h4>
+      <div id="hf-model-card" class="small mute">No recommendation yet.</div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 10: Validation                              -->
+  <!-- ============================================== -->
+  <section id="tab-validation" class="tab-panel" role="tabpanel">
+    <p class="small mute">The wave-optics surrogate inherits the lab-wide validation page. Method sanity tests below; full report under the link.</p>
+    <div class="callout">
+      <strong>Wave-optics surrogate sanity checks</strong>
+    </div>
+    <div id="wave-ao-validation-tests"></div>
+    <p>
+      <a class="btn btn-outline" href="../validation/">Open lab-wide Validation page</a>
+    </p>
+    <div class="card" id="benchmark-card">
+      <h4>Benchmark dataset (optional)</h4>
+      <div id="benchmark-summary" class="small mute">Benchmark generator not yet attached.</div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 11: Certificate                             -->
+  <!-- ============================================== -->
+  <section id="tab-certificate" class="tab-panel" role="tabpanel">
+    <p class="small mute">Reproducible wave-optics certificate. The deterministic result_hash pins inputs + constants + formulas + outputs. The receipt_hash adds the export timestamp.</p>
+    <div class="field" style="max-width:540px">
+      <label for="cert-note">Scenario note (optional)</label>
+      <input type="text" id="cert-note" placeholder="e.g. public scenario anchor stress test">
+      <span class="hint">Free text. Embedded into the certificate's assumptions list.</span>
+    </div>
+    <div style="margin:8px 0">
+      <button class="btn" id="cert-build">Build certificate</button>
+      <button class="btn btn-outline" id="cert-json">Download JSON</button>
+      <button class="btn btn-outline" id="cert-md">Download Markdown</button>
+      <button class="btn btn-outline" id="cert-pdf">Print PDF</button>
+      <button class="btn btn-outline" id="review-packet">Download review packet</button>
+    </div>
+    <div class="card">
+      <h4>Hashes</h4>
+      <div class="small">
+        <div><strong>result_hash:</strong> <code id="cert-result-hash">—</code></div>
+        <div><strong>receipt_hash:</strong> <code id="cert-receipt-hash">—</code></div>
+      </div>
+    </div>
+    <div id="cert-result"></div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 12: Research Geometry Mapping (opt-in)      -->
+  <!-- ============================================== -->
+  <section id="tab-research" class="tab-panel" role="tabpanel">
+    <div class="callout">
+      <strong>Optional advanced view.</strong> The public UI uses engineering names everywhere; this tab carries the manuscript's research mapping for readers who want it.
+    </div>
+    <details class="research-drawer" open>
+      <summary>Show research mapping (research id - public engineering name)</summary>
+      <div id="research-drawer-body">
+        <p>The wave-optics surrogate runs over a constraint-compression framework. The public UI uses these engineering names:</p>
+        <table>
+          <thead><tr><th>Research id</th><th>Public engineering name</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td><code>K_6</code></td><td>reduced turbulence/coupling manifold</td><td>Limiter manifold over the propagation penalty</td></tr>
+            <tr><td><code>F_plus</code></td><td>atmosphere/AO regime chamber</td><td>Regime classifier (which limiter is active)</td></tr>
+            <tr><td><code>L_threshold</code></td><td>threshold layer</td><td>Penalty-vs-budget test</td></tr>
+            <tr><td><code>L_safety</code></td><td>safety layer</td><td>False-safe risk + escalation projector</td></tr>
+            <tr><td><code>x, &oplus;, &otimes;</code></td><td>full geometry map</td><td>Active-branch geometry of the propagation problem</td></tr>
+          </tbody>
+        </table>
+        <p class="small mute">The active-branch architecture is used as a constraint-compression framework, not as a claim that high-dimensional physics is required for standard atmospheric / AO engineering.</p>
+      </div>
+    </details>
+  </section>
+
+  <hr>
+  <p class="small mute" style="text-align:center">
+    Public engineering surrogate - wave-optics / atmosphere / AO emulator - not mission-certified.
+  </p>
+
+</main>
+
+</body>
+</html>

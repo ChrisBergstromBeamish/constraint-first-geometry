@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gap-02 — Yang&amp;ndash;Mills mass gap: full dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">Gap-02 — Yang–Mills mass gap: full dossier — rendered package. Rendered from <code>DOSSIER_GAP02_FULL.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>Gap-02 — Yang–Mills mass gap: full dossier</h1>
+<blockquote>
+<p><strong>What this is.</strong> The full closure-attack dossier for <strong>Gap-02 — the continuum Yang–Mills mass gap</strong>, one of the Clay Mathematics Institute's seven Millennium Prize Problems. It is the deep version of the 30-second status popup: it recaps what is rigorously established, localizes the exact missing object, records every executed numerical and structural result honestly (wins <em>and</em> losses), and lays out a specialist-grade work plan for each open hole. It synthesizes and expands the program's frozen Gap-02 corpus; it invents nothing.</p>
+<p><strong>Binding discipline (carried verbatim from the corpus).</strong> <strong>STATUS-UPGRADES:0.</strong> This is the <strong>GENUINE OPEN Clay Millennium Problem — no proof exists, not here, not anywhere.</strong> The program's established results <strong>REDUCE</strong> Gap-02 to a precisely-localized open object; they <strong>do NOT solve it.</strong> Frozen branch <code>dcc66f1b2685</code> / manifest <code>a5b1e6f9d951</code> is <strong>READ-ONLY</strong>. Every symbolic quantity ($\delta, K, \kappa, c, c', \Delta, \rho_\star, z_\star$) is symbolic — never assigned a value; any $\Delta>0$ would be <em>inherited from partner lattice work, not derived</em>. The geometry supplies <strong>NO Clay lever</strong> (Lemma 1, operator-level); the frozen package $F^+$ is <strong>INERT</strong> for the constructive pure-glue domain. <strong>Given-$E \neq$ derivation of $E$; dissolved $\neq$ solved; anchored $\neq$ derived; AXIOM-CLOSED $\neq$ proven.</strong></p>
+</blockquote>
+<hr />
+<h2>1. Executive summary and honest status</h2>
+<p><strong>Headline.</strong> We did not solve the Yang–Mills mass gap — nobody has — but we squeezed the entire unsolved Clay wall down to a <em>single</em> finite inequality, and proved that our own geometry gives no shortcut to it.</p>
+<p><strong>Honest grade (matches the live popup chip).</strong> Two honest framings of one fact:</p>
+<ul>
+<li><strong>Clay side:</strong> <strong>Precisely-OPEN <code>[X]</code></strong> — EXTERNAL / Clay. The continuum problem is unsolved here and everywhere.</li>
+<li><strong>Scoreboard side:</strong> <strong>Reduced-to-axiom (granularity) — axiom-conditional, NOT a Clay solution.</strong> The program's granularity posit (the Finite Operational Cell Law — a smallest physical action step, so the $a\to0$ continuum limit is never physically taken) <em>dissolves the continuum half by choice</em>, leaving a finite, checkable mass-gap residual plus the granularity axiom itself.</li>
+</ul>
+<p>These are the same situation described from two directions. Either way: <strong>dissolved $\neq$ solved; axiom-conditional; NOT a Clay solution.</strong> No status was ever upgraded.</p>
+<p><strong>What this dossier establishes — and what it does not.</strong> It establishes (rigorously, citably): (i) the implication <em>"uniform clustering $\Rightarrow$ the mass gap"</em> via an all-operator lemma; (ii) the localization of the <em>entire</em> remaining continuum obstruction to one inequality — the uniform-gap bridge $\Delta(a,L)/\Lambda_{\rm YM}\ge c>0$ uniformly as $a\to0$; (iii) an audit-grade "Lemma 1" descent proving the frozen 13D geometry adds no IR-relevant operator, so it supplies no proof lever; (iv) a rigorous pure-reflection-positivity no-go; (v) a rigorous combinatorial bound $E_{\rm conn}\le e\cdot7\approx19.03$ on one of the four $O(1)$ constants; and (vi) two executed, honestly-reported negative numerical results. It does <strong>not</strong> establish — and explicitly does not claim — a proof of the continuum mass gap, a continuum-measure construction, a satisfied certificate inequality, or that the geometry contributes a constructive lever. The cost-floor reframe <strong>changes the Clay question rather than answering it</strong>, and we say so out loud.</p>
+<p><strong>The testable bet, stated flat.</strong> The whole Clay wall is now localized to one finite, local inequality — the uniform-gap bridge — and, under the granularity axiom, to a floored certificate inequality $z_\star < 1/(E_{\rm conn}\cdot A_{\rm fluc})$. The honest sharpening: before that floored inequality can be proved <em>or</em> refuted, its activity weight $w(\gamma)$ must first be <strong>pinned by a derivation, not a convention choice</strong>, because the natural circularity-clean readings currently <em>disagree</em> on the verdict. The inequality is finite and could genuinely come out $\ge1$ — there is no guaranteed sign. And even a favorable sign closes only one horn of one sufficient condition, still conditional on the separately-open OS-reconstruction and SL-3 positivity gates.</p>
+<hr />
+<h2>2. The community gap</h2>
+<h3>2.1 The precise open problem</h3>
+<p>Pure $SU(3)$ Yang–Mills theory in four spacetime dimensions — the gauge sector of the strong interaction with the quarks removed — is <em>observed</em> to have a <strong>mass gap</strong>: a strictly positive lowest excitation above the vacuum. This is what makes the strong force short-ranged, the lightest glueball massive rather than massless, and the strong coupling run the way it does. It is an observation-locked fact (short-range nuclear force, massive hadrons, the measured running of $\alpha_s$), not a modeling artifact.</p>
+<p>Yet no one has ever <em>proven</em> it. The Clay Millennium Prize problem (Jaffe &amp; Witten, <em>Quantum Yang–Mills Theory</em>, Clay Mathematics Institute, 2000) asks for a mathematically rigorous construction of continuum 4D $SU(N)$ Yang–Mills as a quantum field theory satisfying the Wightman (or Osterwalder–Schrader) axioms, <strong>together with</strong> a proof that the theory has a positive mass gap $\Delta>0$. The conjunction — <em>existence of the continuum theory</em> <strong>and</strong> <em>a uniform gap for that same theory</em> — is the prize. The Clay statement itself anticipates that closing it likely requires "important new ideas both in physics and in mathematics."</p>
+<p>Stated in the standard constructive-Euclidean arena, the target theorem is:</p>
+<blockquote>
+<p><strong>Target theorem (verbatim, genuinely open).</strong> There exists $\Delta>0$ such that $\operatorname{Spec}(H|_{\mathcal H_{\rm phys}})\cap(0,\Delta)=\varnothing$ — <em>there is no sequence of normalized, vacuum-orthogonal, physical states whose energy $\to0$</em> — for the Hamiltonian $H$ obtained by Osterwalder–Schrader reconstruction of a genuine 4D continuum $SU(3)$ pure-gauge measure, with (a) OS reconstruction of that measure, (b) a unique vacuum $\Omega$ with $H\Omega=0$, (c) self-adjoint $H\ge0$, and (d) the gap $\Delta\ge c'\Lambda_{\rm YM}>0$ in physical units.</p>
+</blockquote>
+<h3>2.2 State of the art and best bounds</h3>
+<p>The honest landscape — every entry a real, standardly-cited result quoted at the <em>scope it actually establishes</em>:</p>
+<table>
+<thead>
+<tr>
+<th>Result</th>
+<th>Grade</th>
+<th>Why it is NOT the prize</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reflection positivity (OS-2) of the Wilson action; transfer matrix $H_a\ge0$</td>
+<td><strong>ESTABLISHED</strong> [Osterwalder–Seiler 1978, <em>Ann. Phys.</em> <strong>110</strong> 440; Lüscher 1977, <em>CMP</em> <strong>54</strong> 283; Seiler LNP <strong>159</strong> 1982]</td>
+<td>Holds at <em>fixed</em> lattice spacing $a$; surviving $a\to0$ is open.</td>
+</tr>
+<tr>
+<td>Finite-lattice measure existence, analyticity in $\beta$</td>
+<td><strong>ESTABLISHED</strong> [Wilson 1974, <em>PRD</em> <strong>10</strong> 2445; OS 1978]</td>
+<td>Fixed $a$, finite volume; not the continuum measure.</td>
+</tr>
+<tr>
+<td>Strong-coupling area law + positive string tension</td>
+<td><strong>ESTABLISHED</strong> [OS 1978; Münster 1981, <em>Nucl. Phys. B</em> <strong>190</strong> [FS3] 439]</td>
+<td>$\beta<\beta_0$ (coarse lattice); does not reach $\beta\to\infty$.</td>
+</tr>
+<tr>
+<td>Strong-coupling gap / glueball series</td>
+<td><strong>ESTABLISHED</strong> [Münster 1981; Seiler LNP <strong>159</strong>]</td>
+<td>Finite radius of convergence; lattice-artifact regime.</td>
+</tr>
+<tr>
+<td>Roughening / finite radius of convergence obstruction</td>
+<td><strong>ESTABLISHED (obstruction)</strong> [Lüscher–Münster–Weisz; Drouffe–Zuber 1983, <em>Phys. Rep.</em> <strong>102</strong>]</td>
+<td>Proves the easy route <em>fails</em>; not a positive bridge.</td>
+</tr>
+<tr>
+<td>Bałaban UV-stability of 4D lattice gauge theory</td>
+<td><strong>ESTABLISHED (UV only)</strong> [Bałaban, <em>CMP</em> series 1984–89, e.g. <strong>109</strong> (1987) 249]</td>
+<td>Controls small-field / UV end; large-field / IR uniform gap open.</td>
+</tr>
+<tr>
+<td>Magnen–Rivasseau–Sénéor 4D YM multiscale</td>
+<td><strong>ESTABLISHED (IR-cutoff construction)</strong> [MRS 1993, <em>CMP</em> <strong>155</strong> 325]</td>
+<td>Retains an IR cutoff; its removal with a gap bound is open.</td>
+</tr>
+<tr>
+<td>2D/3D YM measure constructions</td>
+<td><strong>ESTABLISHED (lower $d$)</strong> [Driver 1989; Sengupta 1997; Chandra–Chevyrev–Hairer–Shen 2022–24]</td>
+<td>Super-renormalizable; $d=4$ is the open case.</td>
+</tr>
+<tr>
+<td>Lattice numerics: $m_{0^{++}}\approx1.7$ GeV; $\sigma\approx(440\,{\rm MeV})^2$</td>
+<td><strong>ESTABLISHED (numerical evidence)</strong> [Chen et al. 2006; Athenodorou–Teper 2020]</td>
+<td>Finite-$a$ extrapolated; not a rigorous uniform continuum bound.</td>
+</tr>
+<tr>
+<td>$\Delta(a,L)/\Lambda_{\rm YM}\ge c>0$ uniform as $a\to0,L\to\infty,\beta\to\infty$</td>
+<td><strong>OPEN — CLAY</strong></td>
+<td><strong>This is the missing theorem. Owner: external constructive QFT.</strong></td>
+</tr>
+</tbody>
+</table>
+<p><em>(All scope columns and citations are reproduced from <code>GAP02_STEP2_STANDARD_YM_PROOF_LANE/05_uniform_gap_bridge.md</code> §1–6 and <code>.../06_first_attack_choice.md</code> §6.2, which carry the citation-honesty discipline verbatim.)</em></p>
+<h3>2.3 Prior attempts and why each falls short</h3>
+<ul>
+<li><strong>Strong-coupling expansion (the "easy route").</strong> At large bare coupling (small $\beta$) the convergent character/cluster expansion gives a rigorous area law and a positive gap <em>in lattice units</em>. But the expansion has a <strong>finite radius of convergence</strong> in $\beta$ and diverges before $\beta\to\infty$ — its breakdown is associated with the <em>roughening transition</em>. The continuum-limit window $\beta_R\le\beta<\infty$ is precisely the window the strong-coupling argument cannot reach. So strong-coupling confinement, real as it is, does <em>not</em> imply the continuum gap. The hard part is everything between $\beta_R$ and $\infty$ — the fine-lattice / weak-bare-coupling regime where no convergent series controls the gap. (<code>05_uniform_gap_bridge.md</code> §2–3.)</li>
+<li><strong>Bałaban's RG program.</strong> Rigorous block-spin renormalization-group control of the <em>weak-coupling, small-field</em> regime, uniformly in the cutoff — a landmark, genuinely 4D, genuinely non-abelian. But it is a UV-stability program; it controls the small-field end and does not deliver the completed infinite-volume continuum measure <em>with</em> a uniform gap. The large-field / IR end (where confinement and the gap are generated) is not closed by it.</li>
+<li><strong>Magnen–Rivasseau–Sénéor.</strong> A 4D YM phase-space / multiscale expansion constructing the theory with an <em>explicit IR cutoff</em>. The cutoff's removal <em>with</em> a gap bound is exactly the open part.</li>
+<li><strong>Area-law-to-gap (Route B).</strong> Even a <em>continuum</em> area law for the fundamental Wilson loop bounds the static quark–antiquark sector; converting it to a bound on the glueball / physical gauge-invariant spectrum requires the constructed continuum measure and OS reconstruction — an area law is a statement about one observable; the gap is a statement about the whole spectrum of $H$. So this route presupposes most of the bridge rather than bypassing it.</li>
+<li><strong>Anomaly-matching arguments.</strong> A 't Hooft anomaly (e.g. a mixed one-form-center / time-reversal anomaly) constrains the IR but <strong>does not by itself force a gap</strong> — it can be satisfied by a <em>gapless</em> theory (a conformal or TQFT phase can saturate the anomaly). So even a nonzero anomaly is necessary-not-sufficient.</li>
+</ul>
+<p>The structural lesson, verified across machineries: the obstruction is <strong>intrinsic to $d=4$ marginality</strong> at order-one coupling, not an artifact of any one method.</p>
+<hr />
+<h2>3. The construction — the rigorous math</h2>
+<p>This section is the core. It recaps the modular conditional chain that <em>reduces</em> Gap-02 to a single localized inequality, shows the actual equations, and records the intermediate results.</p>
+<h3>3.1 The constructive arena and dimensional transmutation</h3>
+<p>The standard arena (Glimm–Jaffe machinery; Osterwalder–Schrader reconstruction) is the Euclidean lattice regularization. A finite hypercubic lattice $\Lambda\subset(a\mathbb Z)^4$ with spacing $a$ and linear size $L$, link variables $U_\ell\in SU(3)$, the <strong>Wilson plaquette action</strong>
+$$S_W=\beta\sum_p\Bigl(1-\tfrac13\,\mathrm{Re}\,\mathrm{tr}\,U_p\Bigr),\qquad \beta=6/g_0^2,$$
+and the product Haar measure $d\mu_{a,L}\propto e^{-S_W}\prod_\ell dU_\ell$. The mass gap on the regularized theory is the inverse correlation length of connected gauge-invariant correlators, equivalently the lowest nonzero eigenvalue of the transfer-matrix Hamiltonian $H=-a^{-1}\log T$.</p>
+<p>Pure $SU(3)$ has <strong>no classical mass scale</strong>; by asymptotic freedom the only scale is the dynamically generated $\Lambda_{\rm YM}$, set via the two-loop $\beta$-function,
+$$a\,\Lambda_{\rm YM}=(b_0g_0^2)^{-b_1/2b_0^2}\,e^{-1/2b_0g_0^2}\,(1+O(g_0^2)),\qquad b_0=\tfrac{11}{16\pi^2}.$$
+The continuum limit is $a\to0\Leftrightarrow g_0\to0\Leftrightarrow\beta\to\infty$, holding $\Lambda_{\rm YM}$ fixed in physical units. <strong>Any honest gap statement must be expressed <em>relative</em> to $\Lambda_{\rm YM}$</strong> — a bare lattice number $\Delta(a)$ in lattice units is meaningless without scale-setting. (<code>05_uniform_gap_bridge.md</code> §0.)</p>
+<h3>3.2 The reduction chain (SL-0 through SL-2): what is established</h3>
+<p><strong>SL-0 (variational identity — ESTABLISHED, pure functional analysis).</strong> The statement "no soft physical sequence,"
+$$\inf\{\langle\psi,H\psi\rangle:\psi\perp\Omega,\ \|\psi\|=1\}=\Delta>0\;\equiv\;\operatorname{Spec}(H)\cap(0,\Delta)=\varnothing,$$
+is an exact equivalence — the spectral gap and the absence of low-energy normalized vacuum-orthogonal states are literally the same statement. Hand-checkable; no open content.</p>
+<p><strong>SL-1 / M4D (the all-operator Lemma — CLEAN conditional).</strong> The implication
+$$[\,H1\wedge H2\wedge H3\wedge H4\,]\Rightarrow\text{no soft physical sequence}\Rightarrow\text{gap}$$
+holds, where H1/H2/H3 are the OS-reconstruction conditions (continuum measure existence, RP survival, nontriviality + unique vacuum) and <strong>H4</strong> is <em>uniform exponential clustering</em> of the renormalized glueball correlator. This conditional reuses OS reconstruction + the spectral theorem + the Källén–Lehmann representation (all cited, not re-derived). It derives no numerical value. <strong>"Uniform clustering $\Rightarrow$ the gap" is genuinely rigorous.</strong> (<code>01_DOSSIER.md</code> §0.1; witness W3.)</p>
+<p><strong>SL-2 (finite-$(a,L)$ foundations — ESTABLISHED).</strong> At fixed spacing $a$ and finite volume, four results hold rigorously:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Result</th>
+<th>Honest scope</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F1</td>
+<td>RP (OS-2) of the Wilson action $\Rightarrow$ self-adjoint $0\le T\le1$, $H=-a^{-1}\log T\ge0$</td>
+<td>Any fixed $a$; property of the <em>regularized</em> theory</td>
+<td>OS 1978; Seiler LNP <strong>159</strong></td>
+</tr>
+<tr>
+<td>F2</td>
+<td>Transfer-matrix / Hamiltonian; unique ground state; gap of $T$ well-defined</td>
+<td>Fixed $a$, finite volume (gap $>0$ trivially)</td>
+<td>Creutz 1977; Lüscher 1977</td>
+</tr>
+<tr>
+<td>F3</td>
+<td>Existence + analyticity in $\beta$ of $d\mu_{a,L}$ ($SU(3)$ compact $\Rightarrow$ no divergences)</td>
+<td>Fixed $a$, finite $L$</td>
+<td>Wilson 1974; OS 1978</td>
+</tr>
+<tr>
+<td>F4</td>
+<td>Lüscher finite-volume mass-shift + Lüscher–Weisz improvement</td>
+<td>Controlled finite-$a$ handles</td>
+<td>Lüscher 1986; Lüscher–Weisz 1985</td>
+</tr>
+</tbody>
+</table>
+<p><strong>At finite $a$ both the gap and reflection positivity are trivial — the entire wall IS the $a\to0$ continuum limit.</strong> The finite-lattice theorems are the <em>floor</em> the continuum limit must not collapse below; they are not the bridge.</p>
+<h3>3.3 The brutal one-line bridge — the exact missing theorem</h3>
+<p>The reduction localizes the <em>entire</em> remaining continuum obstruction to a single inequality:</p>
+<p>$$\boxed{\;\frac{\Delta(a,L)}{\Lambda_{\rm YM}}\;\ge\;c\;>\;0\quad\text{uniformly as }a\to0,\;L\to\infty,\;\beta\to\infty\;}$$</p>
+<p>with the <em>same</em> $c$ for the <em>same</em> measure for which existence, reflection positivity, and nontriviality also hold in the limit. <strong>No such uniform lower bound is known.</strong> This lone inequality <em>is</em> the entire wall. (<code>05_uniform_gap_bridge.md</code> §0 box, §6.)</p>
+<p>The quantifier order is decisive and must be stated exactly: $\exists(\delta,K,\kappa,a_0,L_0,n_0)\,\forall(a,L,\beta,n)$ — a <em>single</em> $\delta$ uniform over all regulators and all scales. The hard core is the <strong>conjunction</strong>: existence <em>and</em> a uniform gap for the <em>same</em> theory in the weak-bare-coupling regime, where YM is renormalizable-but-not-super-renormalizable and the limit is genuinely non-perturbative.</p>
+<h3>3.4 Equivalent reformulations (the same open theorem, three faces)</h3>
+<p>The bridge has three equivalent faces — restating it does not advance it:</p>
+<ol>
+<li><strong>Spectral form</strong> (the box above): the transfer-matrix gap, scale-set, bounded below uniformly.</li>
+<li><strong>Correlator form (H4).</strong> For the glueball operator $O(x)=\mathrm{tr}\,F_{\mu\nu}F^{\mu\nu}(x)$ (lattice: plaquette / smeared-clover), the connected correlator obeys
+$$\langle O(x)O(0)\rangle_c\le C\,e^{-\Delta_0|x|},\qquad \Delta_0=-\lim_{|x|\to\infty}\tfrac1{|x|}\log\langle O(x)O(0)\rangle_c>0,$$
+with $\Delta_0/\Lambda_{\rm YM}\ge c>0$ for the <em>continuum-limit</em> measure (decay rate not collapsing to zero, not a finite-$a$ artifact).</li>
+<li><strong>Marginal Kotecký–Preiss (KP) form.</strong> A convergent polymer/activity expansion requires
+$$\rho_\star=E_{\rm conn}\cdot A_{\rm fluc}\cdot e^{-s_{\rm marg}}<1\quad(\text{equivalently }\delta>0),$$
+uniformly through the marginal band $g(2^na)=O(1)$.</li>
+</ol>
+<h3>3.5 The decisive obstruction: rarity $\not\Rightarrow$ domination in the marginal band</h3>
+<p>This is the precise reason the wall is hard. In the deep UV ($g\to0$), the large-field weight $\mu_n\le e^{-c/g^2}\to0$ banks the KP inequality automatically — large fields are exponentially rare. But <strong>rarity is not domination</strong>: the <em>bare activity</em> of those configurations can compensate. Inside the $d=4$ marginal band $g(2^na)=O(1)$ the inequality becomes a <strong>strict finite comparison between two $O(1)$ constants</strong>, with <em>no spare coercive margin</em> because $d=4$ marginal renormalizability leaves no tree-level smallness — the only smallness is loop-induced running. $\delta=0$ is the $d=4$ stall; this is the wall. (<code>01_DOSSIER.md</code> §2.3; <code>GAP02_AFRP_MONOTONE_DISPOSITION.md</code> §3.)</p>
+<p>Both available routes hit the <em>same</em> $\delta=0$ object — <strong>method-invariance</strong>, verified:
+- <strong>Polymer / cluster route (expansion side):</strong> in the band, $s_{\rm block}=O(1)$ versus $\log(E_{\rm conn}A_{\rm fluc}N_{\rm cert})=O(1)$; the contribution $C_n=\mu_n\|\Phi_n\|$ decays only if the activity exponent $b<c$, and $b=c$ is the stall. The band is plausibly <em>outside both convergence radii</em> — the Bałaban Gaussian-UV disk and the strong-coupling product-measure disk — a no-man's-land where no single uniform $\rho_\star<1$ need exist.
+- <strong>AF-RP monotone route (flow side):</strong> reaches the <em>identical</em> wall. The live target is a one-step contraction of a large-field disorder functional $M_n$,
+$$M_{n+1}\le(1-c\,b_0\,g_n^2)\,M_n+O(g_n^4)\,M_n,\qquad c>0,\ b_0=\tfrac{11N}{3}>0\ (\text{SU(3): }b_0=11),$$
+anchored at the $b_0>0$ UV-free fixed point. The driver $-c\,b_0\,g_n^2$ is non-abelian antiscreening (asymptotic freedom). The entire mathematical content is the <strong>uniform-in-$n$, uniform-in-$a$ bound on the $O(g_n^4)M_n$ remainder</strong> plus a fixed $c>0$ <em>through</em> $g=O(1)$ — which is exactly the $\delta=0$ marginal stall renamed. At $g=O(1)$ the $O(g^2)$ and $O(g^4)$ terms are the same order, the perturbative truncation is uncontrolled, and "$c>0$ uniform through the band" is the open problem, not a derived result. (Full derivation: <code>GAP02_AFRP_MONOTONE_DISPOSITION.md</code> §2.)</p>
+<p>A crucial honest note on what this monotone gives even <em>if</em> it worked: $\prod_k(1-c\,b_0\,g_k^2)\sim\exp(-c\,b_0\sum_k g_k^2)$; with one-loop running $g_k^2\sim1/(2b_0k)$ the harmonic sum gives $\sim n^{-c/2}$ — a <em>power-law</em> decay in RG-step count in the UV regime, <strong>not</strong> $e^{-mn}$. The physical exponential gap $m\sim\Lambda_{\rm YM}$ is generated by dimensional transmutation $\Lambda=\mu\exp(-1/(2b_0g^2(\mu)))$ — a scale set <em>at</em> the band where the running coupling becomes $O(1)$, exactly where the contraction control is lost.</p>
+<h3>3.6 The pure-reflection-positivity NO-GO (a rigorous negative)</h3>
+<p>A clean, rigorous reductio rules out the tempting shortcut of trying to get the gap from positivity alone:</p>
+<blockquote>
+<p><strong>Claim.</strong> No reflection-positivity-ONLY (gauge-group-agnostic) uniform-gap argument can exist, because it would prove a <em>false</em> gap for 4D compact $U(1)$, which has an established gapless Coulomb phase.</p>
+</blockquote>
+<p><strong>Proof.</strong> (1) RP is gauge-group-agnostic: the Osterwalder–Seiler transfer-matrix construction proves RP for the Wilson action for <em>any</em> compact $G$, using only Haar measure on $G$ and positivity of the reflected single-plaquette action — it never invokes $b_0$, non-abelianity, or structure constants, and holds verbatim for $G=U(1)$ and $G=SU(N)$. (2) 4D compact $U(1)$ is gapless: Guth (1980, <em>PRD</em> <strong>21</strong> 2291) rigorously proved a non-confining weak-coupling massless-photon phase (strengthened by Fröhlich–Spencer 1982, <em>CMP</em> <strong>83</strong> 411) — a theorem, not a conjecture. (3) Any uniform-gap argument whose <em>only</em> group-sensitive input is RP would apply identically to $U(1)$ and prove a gap there, contradicting (2). Hence no RP-only method can establish the $SU(N)$ uniform mass gap. $\blacksquare$</p>
+<p><strong>Sharpening (tightens, does not weaken):</strong> the no-go is against RP-<em>only</em> mechanisms. RP itself remains true and is <em>needed</em> downstream for the H4 $\Rightarrow$ gap / OS reconstruction step. The honest statement is "RP is insufficient / non-discriminating," not "RP is false." The gap must come from a genuinely <em>group-sensitive</em> nonperturbative input — asymptotic freedom $b_0=11N/3>0$ — not from positivity that compact $U(1)$ shares. (<code>GAP02_AFRP_MONOTONE_DISPOSITION.md</code> §1.)</p>
+<h3>3.7 Lemma 1 — the geometry supplies no Clay shortcut (audit-grade descent)</h3>
+<p>The frozen 13D object is the three-layer
+$$M_4\times K_6\times S^2\times S^1_Y/\mathbb Z_2\ \oplus\ F^+_{\rm finite}\oplus\mathcal C_{\rm admiss}\ \otimes\ E_{\rm matter}\oplus E_{\rm gauge}\oplus E_{\rm Higgs}\oplus E_{\rm proton},$$
+with $K_6=SU(3)/T^2$ the full flag manifold $F_3$ — the geometric <em>origin</em> of color. The descent map $\Pi$ KK-expands on $K_6\times S^2\times S^1_Y/\mathbb Z_2$, keeps 4D zero modes, integrates out modes $\ge M_{\rm KK}\sim1/R\sim M_{\rm GUT}\sim10^{16}$ GeV, and projects $A_M=(A_\mu,A_A)$ keeping $A_\mu^a\in su(3)_c$ (color glue) while $A_A\to E_{\rm Higgs}$ (Wilson-line scalars, <em>not</em> color glue).</p>
+<blockquote>
+<p><strong>Lemma 1B (pure-glue Clay projection — AUDIT-GRADE / TARGET).</strong> Dropping the quark matter $E_{\rm matter}$, the descended pure-gauge sector is <strong>ordinary 4D pure $SU(3)$ Yang–Mills</strong> plus a topological $\theta$-term and an $M_{\rm KK}$-suppressed irrelevant tail:
+$$S_{\rm eff}^{\rm 1B}=\int d^4x\Bigl[\tfrac1{4g_3^2}F^a_{\mu\nu}F^{a\,\mu\nu}+\tfrac{i\theta_{\rm QCD}}{32\pi^2}F^a_{\mu\nu}\tilde F^{a\,\mu\nu}+\sum_{d>4}\tfrac{c_d}{M_{\rm KK}^{d-4}}\mathcal O_d\Bigr].$$
+No extra IR-relevant constraint survives in the pure-glue $SU(3)$ projection — <em>with the single explicit exception of the R4 row</em> (§3.8).</p>
+</blockquote>
+<p>Every settled 13D-specific residue lands in exactly one bin: (i) a renormalization of $g_3$ (from $\mathrm{Vol}(K_6)$ + the KK threshold); (ii) topological $\theta$-data; (iii) physical quark matter (1A only, absent in 1B); (iv) an $M_{\rm KK}$-suppressed irrelevant operator $\mathcal O_d$ vanishing in the IR as $(\mu/M_{\rm KK})^{d-4}\to0$; or (gov) admissibility governance ($\mathcal C_{\rm admiss}$ restricts model-building <em>moves</em>, not the path-integral <em>measure</em>). <strong>None of (i)–(iv) or (gov) is an IR-relevant constraint.</strong> By Wilsonian universality the IR confining dynamics is indifferent to the UV completion. The geometry settles the gap's <em>origin</em> ($SU(3)$ from $K_6=SU(3)/T^2$) and pins $\Lambda_{\rm YM}$ as boundary data, but supplies no IR constructive lever; $F^+$ is inert. (Full gate-by-gate matrix: <code>gap02_lemma1_descent_audit/10_final_lemma1_statement.md</code> §1–5; three-layer reconciliation: <code>00_GAP02_CURRENT_STATUS_AND_RECONCILIATION.md</code>, net verdict <code>MIXED_WITH_OPEN</code>, 5-way tally INERT:10 / ORDINARY-YM:3 / WILSONIAN-IRRELEVANT:1 / TOPOLOGICAL→R4:1 / LEVER:<strong>0</strong>.)</p>
+<h3>3.8 The one open descent row (R4) and its well-posing</h3>
+<p>The single row the descent audit leaves genuinely open: does the frozen $K_6$ spin-c bundle carry a nontrivial <strong>mixed 't Hooft anomaly between the $\mathbb Z_3$ one-form center symmetry of $SU(3)_c$ and the spin-c data</strong>? Its family-count / chiral-anomaly channels are projected out or inert in pure glue (the FP ghosts are adjoint <em>scalars</em> with no spinor twist; $A_{333}=0$ leaves $Q_{\rm BRST}^2=0$ untouched); its holonomy phase is $\theta$-data (Gap-03's life, not the mass gap). But the $\mathbb Z_3$-center one-form anomaly survives the pure-glue projection in principle (center symmetry is exact <em>only</em> in pure glue) and is <strong>uncomputed</strong>. Held <code>OPEN_CANDIDATE</code> — neither closed to Lemma 1 (inertness unproven) nor promoted to a lever.</p>
+<p>The R4 object was first checked and found <strong>not well-posed as stated</strong> (verdict <code>R4_NOT_WELL_POSED_AS_STATED</code>), then well-posed (Theorem 11):</p>
+<blockquote>
+<p><strong>Theorem 11 (R4 Well-Posing).</strong> (I) The anomaly background is not a detached flat two-form in $B^2\mathbb Z_3=K(\mathbb Z_3,2)$; it is a $PSU(3)=SU(3)/\mathbb Z_3$ bundle whose lift obstruction is $u_2=w_2^{PSU(3)}\in H^2(BPSU(3),\mathbb Z_3)$ (the 't Hooft flux / fractional-instanton datum). (II) The $K_6$ datum enters as a <strong>local-coefficient twist</strong> $\tau_{K_6}:=\tau(\bar c_1(L_{K_6}))$ of the Spin-c bordism spectrum, not a cup product to be integrated. (III) The invariant lives, with correct degree, in
+$$\xi_{R4}\in\Omega_5^{\rm Spin\text{-}c}\bigl(B(SU(3)\to PSU(3));\,\tau_{K_6}\bigr),\quad\text{a finite abelian group.}$$</p>
+</blockquote>
+<p>Two elementary checks force the well-posing. The originally-written cup product $\bar c_1(L_{K_6})\cup B^{(2)}$ is malformed: $\bar c_1\in H^2$ (degree 2) and $B^{(2)}\in H^2$ (degree 2) give degree 4, but a 4D anomaly-inflow term needs a <strong>degree-5</strong> class on a bounding 5-manifold $W_5$ — and the product lives on the 10-real-dimensional $K_6\times M_4$, not on $W_5$. Malformed on both degree and locus. The lone-$\bar c_1$ fiber pushforward over the 6-dimensional $K_6$ lowers degree by 6, giving $2-6=-4<0$, ill-defined. The structurally correct cure (Freed–Hopkins) is to <em>twist the theory</em>, not multiply classes up to degree 5.</p>
+<p>Supporting frozen / standard facts (verified by direct reduction): $K_6=F_3$ has $b_2=\mathrm{rank}\,SU(3)=2$, so $H^2(K_6;\mathbb Z_3)=(\mathbb Z/3)^2$; $c_1(TK_6)=2\rho=\sum(\text{positive roots})=(2,2)$ in the fundamental-weight basis, which mod 3 is $(2,2)\ne(0,0)$, so $\bar c_1\ne0$ and the twist $\tau_{K_6}$ is <strong>nonzero</strong>. (Correction carried verbatim: the frozen "spin-c index $-3$" is $\chi(K_6,E)$, the holomorphic index of the specific bundle $E$, a <em>different</em> object from the manifold Euler characteristic $\chi(F_3)=+6=|\mathrm{Weyl}(SU(3))|$ — do <strong>not</strong> cite "$-3$" as the manifold Euler characteristic.)</p>
+<p>The operative differential was subsequently <strong>recomputed</strong> (<code>GAP02_R4_STEENROD_COMPUTATION.md</code>, which supersedes the earlier Theorem-11-note guess of an AHSS $d_3$). Two load-bearing structural corrections hold: (i) the anomaly carrier is the <strong>degree-3</strong> class $\bar x_1\in H^3(BPU(3);\mathbb Z/3)$ — there is <strong>no</strong> degree-2 mod-3 class ($H^1(BPU(3);\mathbb Z/3)=H^2(BPU(3);\mathbb Z/3)=0$), so the earlier "carrier $u_2\in H^2$" does not exist; (ii) the 2-primary $d_3=Sq^3_{\mathbb Z}=\beta\circ Sq^2\circ\rho_2$ is <strong>identically zero on 3-torsion</strong> (it factors through mod-2 reduction $\rho_2$, and $\rho_2(\text{3-torsion})=0$). The genuinely operative differential is therefore the <strong>3-primary $d_5=Q_1=\beta P^1$</strong> (the integral Milnor primitive, $|Q_1|=2p-1=5$ at $p=3$), <strong>not</strong> $d_3$. But $Q_1(\bar x_1)$ lands in degree $3+5=8$ (off the $p+q=5$ bordism lines), so $d_5$ kills the degree-5 survivor neither as source nor target — and the <strong>untwisted</strong> value is $\Omega_5^{\rm Spin}(PSU(3)\times B^2\mathbb Z_3)=\mathbb Z_3\ne0$ (cited literature anchor), i.e. the survivor <strong>persists</strong>. (Do <strong>not</strong> cite the older "untwisted $\Omega_5^{\rm Spin\text{-}c}(B^2\mathbb Z_3)=0$" reading — that was the wrong/superseded object.) The <strong>sole</strong> remaining lever is whether the frozen $\tau_{K_6}=(2,2)$ twist-correction to $d_5$ — a degree-2 class cupping the degree-3 carrier to land on the degree-5 line, carrying Massey-product / $v_1$-filtration structure at $p=3$, not a bare cup — supplies a nonzero, on-line, degree-lowering image; this is a finite $\mathbb Z_3$-linear-algebra question the cited (untwisted-only) literature does not settle. <strong>Value $\xi_{R4}$: OPEN — <code>STILL_SUBTLE</code>, not certified $0$, not forced $\ne0$; untwisted default $=\mathbb Z_3$.</strong> (<code>GAP02_R4_WELLPOSING_THEOREM.md</code> Theorem 11 + §2–4 for the well-posing home; <code>GAP02_R4_STEENROD_COMPUTATION.md</code> §1–5 for the corrected operative differential, which voids the earlier $d_3$ guess.)</p>
+<h3>3.9 The cost-floor reframe and the four $O(1)$ constants</h3>
+<p>Under the program's granularity / cost-floor root axiom, the continuum $a\to0$ idealization is <em>out of scope by choice</em>; the floored target is the finite certificate-alphabet inequality
+$$z_\star:=\sum_{\gamma\ne0}w(\gamma)<\frac1{E_{\rm conn}\cdot A_{\rm fluc}}\qquad\text{at fixed }\ell_\star\sim\Lambda_{\rm YM}^{-1},$$
+equivalently the master inequality $s_{\rm block}>\log(E_{\rm conn}A_{\rm fluc}N_{\rm cert})$. The four $O(1)$ constants are built <strong>only</strong> from local gauge-invariant configuration data (binned $\mathrm{Re/Im}\,\mathrm{tr}\,U_p$, $\mathrm{tr}\,U_p^2$, $\mathbb Z_3$ center-flux class, Wilson-loop class, block-curvature class, Wilson block action), <strong>modulo gauge</strong> — <em>no energy eigenstate, no transfer-matrix spectrum, no correlation length</em> enters anywhere (the circularity guard, confirmed by code inspection). The constants:</p>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+<th>Provenance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$E_{\rm conn}$ (rigorous)</td>
+<td>$19.0280=e\cdot7=e\cdot(2d-1),\ d=4$</td>
+<td>Analytic Penrose/Klarner lattice-animal connective-constant upper bound; $\beta$-independent; no error bar</td>
+</tr>
+<tr>
+<td>$A_{\rm fluc}$</td>
+<td>$0.05264\pm0.00014$</td>
+<td>Single-block $SU(3)$ Haar/Gaussian determinant ratio; $I_{\rm num}=\langle e^{-\beta(1-\frac13\mathrm{Re}\mathrm{tr}U_p)}\rangle_{\rm Haar}=0.09329\pm0.00024$ (20000 Haar draws, $\beta=6.0$), Gaussian ref $\sqrt{2\pi/\lambda}$, $\lambda=\beta/3=2.0$</td>
+</tr>
+<tr>
+<td>$s_{\rm block}$</td>
+<td>$1.0413\pm0.0412$</td>
+<td>Minimal per-certificate activation cost = 1st-percentile left edge of $\beta(1-\frac13\mathrm{Re}\mathrm{tr}U_p)$ over plaquettes exiting the small-field chamber ($\|1-U_p\|\ge\rho_{\rm thr}=1.0$); cross-check: analytic floor $(\beta/3)\cdot0.5\cdot\rho^2=1.0000$ agrees with the MC left edge</td>
+</tr>
+<tr>
+<td>$N_{\rm cert}$</td>
+<td>155 / 438 / 1342 (at $\delta_{\rm tr}=0.5/0.25/0.125$)</td>
+<td>Distinct realized non-vacuum cell letters (effective count)</td>
+</tr>
+</tbody>
+</table>
+<p>The rigorous $E_{\rm conn}\le e\cdot(2d-1)=e\cdot7\approx19.03$ is the one constant with a clean proof — a Penrose/Klarner-type bound on the connective constant of lattice animals on $\mathbb Z^4$, pure combinatorics, no fields and no spectrum, $\beta$-independent. (<code>GAP02_MASTER_INEQUALITY_RESULT.md</code> §1.)</p>
+<hr />
+<h2>4. The insights we used</h2>
+<p>These are the load-bearing ideas — now shareable — that made the progress believable and reproducible.</p>
+<ul>
+<li>
+<p><strong>Localize, don't gesture.</strong> Rather than claim partial progress on "the gap," the program decomposed the Clay statement into a modular conditional chain (SL-0 $\to$ SL-2 $\to$ M4D/H1–H4) and asked: <em>which single link carries all the open content?</em> The answer is the uniform-gap bridge / H4. Everything else is either established literature (the finite-$a$ floor) or a clean conditional. This is what converts a famous wall into a <em>named, finite</em> object a specialist can attack.</p>
+</li>
+<li>
+<p><strong>The quantifier order is the whole problem.</strong> The bridge is hard not because a gap is hard to <em>find</em> at fixed $a$ (it is trivial there), but because the single constant $c$ must be <em>uniform</em> over all regulators and all scales — $\exists\,c\,\forall(a,L,\beta)$, not $\forall(a,L,\beta)\,\exists\,c$. Making that order explicit is what reveals that the difficulty lives entirely in the $d=4$ marginal band.</p>
+</li>
+<li>
+<p><strong>Rarity $\not\Rightarrow$ domination — the category error that <em>is</em> the wall.</strong> In the UV the dangerous configurations are exponentially rare ($\mu_n\le e^{-c/g^2}$), which tempts one to conclude they cannot dominate. But the bare activity can compensate; rarity bounds a <em>weight</em>, not a <em>contribution</em>. Naming this distinction precisely (a weight bound vs a contribution bound) is what shows why Bałaban's small-field control does not extend, and what defines the exact sharpening a proof would need.</p>
+</li>
+<li>
+<p><strong>Method-invariance as evidence of intrinsic-ness.</strong> Two independent machineries — the polymer/cluster expansion and the AF-RP block-spin monotone — were pushed to their limits and <em>both</em> stall on the identical $\delta=0$ marginal object at $g=O(1)$. That coincidence is the signal that the obstruction is intrinsic to $d=4$ marginality, not an artifact of one tool — which is exactly the honest content the Clay statement's "needs a new idea" anticipates.</p>
+</li>
+<li>
+<p><strong>Group-sensitivity is mandatory; positivity is not enough.</strong> The compact-$U(1)$ reductio is a sharp filter: any argument that <em>would</em> gap $U(1)$ is wrong on its face, because $U(1)$ is provably gapless. This kills the entire class of RP-only / group-blind arguments and forces the proof to route through asymptotic freedom $b_0=11N/3>0$ — the one genuinely group-sensitive, non-abelian input.</p>
+</li>
+<li>
+<p><strong>Wilsonian universality as a discipline, not a hope.</strong> The Lemma 1 descent does not <em>assume</em> the geometry is irrelevant; it audits every 13D structure operator-by-operator and shows each is UV-origin, $\theta$-data, $M_{\rm KK}$-suppressed, or governance. The honest payoff is a <em>negative</em>: the geometry fixes the gap's origin and pins the scale, but cannot shortcut the proof. Reporting that negative — rather than manufacturing a lever — is what makes the rest of the dossier trustworthy.</p>
+</li>
+<li>
+<p><strong>The $\kappa^3/\pi$ falsification test (no target-loading).</strong> Every constant ($E_{\rm conn}$, $A_{\rm fluc}$, $s_{\rm marg}$, $N_{\rm cert}$) is admitted only if it would be written <em>without knowing the target verdict</em>. A constant chosen to land the inequality subcritical is target-loaded and <em>relocates</em> the problem rather than solving it. This blade is why the program reports $z_\star$ as OPEN rather than picking the convention that gives PASS (§5.3).</p>
+</li>
+</ul>
+<hr />
+<h2>5. Evidence and reproducibility</h2>
+<h3>5.1 What reproduces, plainly</h3>
+<ul>
+<li><strong>The reduction chain reproduces.</strong> SL-0 is hand-checkable; SL-2 is established literature; SL-1/M4D is a clean cited conditional. "Uniform clustering $\Rightarrow$ the gap" is genuinely rigorous.</li>
+<li><strong>The negatives reproduce.</strong> The pure-RP no-go is a rigorous reductio against the established gapless 4D compact $U(1)$ Coulomb phase. The Lemma 1 no-lever result is operator-level. The R4-lever-dead result is a cited fact (anomaly-matching does not force a gap).</li>
+<li><strong>The executed lattice runs reproduce.</strong> A validated $SU(3)$ Wilson Monte-Carlo engine, plaquette-gated, returns the honestly-recorded INCONCLUSIVE / convention-dependent verdicts.</li>
+</ul>
+<h3>5.2 The executed master-inequality Monte-Carlo run (an honest negative)</h3>
+<p>A finite-lattice evaluation of the <em>sufficient-condition</em> master inequality was run on a fixed $4^4$, $\beta=6.0$ ensemble. <strong>Hard gate (precondition for any verdict):</strong> the engine must reproduce the known $SU(3)$ Wilson plaquette average before any decidability verdict is emitted. It did:</p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Measured</th>
+<th>Reference</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\langle P\rangle$ at $\beta=6.0,\ L=4$</td>
+<td>$0.59375\pm0.00197$</td>
+<td>0.5937 (Creutz/standard)</td>
+<td><strong>PASS ($<1\sigma$)</strong></td>
+</tr>
+<tr>
+<td>$\langle P\rangle$ re-confirm</td>
+<td>$0.59639\pm0.00219$</td>
+<td>0.5937</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>$\langle P\rangle$ $\beta=1.0$ (strong-coupling sanity)</td>
+<td>0.0589</td>
+<td>$\beta/18=0.0556$</td>
+<td>consistent</td>
+</tr>
+</tbody>
+</table>
+<p>Engine: Cabibbo–Marinari + Kennedy–Pendleton heatbath + $SU(2)$-subgroup overrelaxation + reunitarization. (Disclosed caveat, low severity: $\beta=5.7$ fails by $\sim8\sigma$ on $L=4$ — finite-volume bias; the verdict rests on the $\beta=6.0$ anchor; a clean second anchor needs $L\ge8$.)</p>
+<p>The decidability margin $D\equiv s_{\rm block}-\log(E_{\rm conn}A_{\rm fluc}N_{\rm cert})$ (natural log; $D>0$ closes the horn, $D\le0$ INCONCLUSIVE):</p>
+<table>
+<thead>
+<tr>
+<th>$\delta_{\rm tr}$</th>
+<th>$N_{\rm eff}$</th>
+<th>$D$ [eff, empirical $\lambda_4$]</th>
+<th>$D$ [eff, rigorous $E_{\rm conn}$]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.5</td>
+<td>155</td>
+<td>$-3.661\pm0.055$</td>
+<td>$-4.004\pm0.041$</td>
+</tr>
+<tr>
+<td>0.25</td>
+<td>438</td>
+<td>$-4.699\pm0.055$</td>
+<td>$-5.043\pm0.041$</td>
+</tr>
+<tr>
+<td>0.125</td>
+<td>1342</td>
+<td>$-5.819\pm0.055$</td>
+<td>$-6.162\pm0.041$</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Every $D$ is negative</strong> — on both paths (effective-count and raw-UB), under both $E_{\rm conn}$ choices (rigorous $e\cdot7=19.028$ and empirical MC $\lambda_4=13.5$), at all three binnings; smallest $|D|/\sigma\approx67$. The critical count for $D=0$ is $N_{\rm cert}<\exp(1.0413)/(19.028\cdot0.05264)=2.83$ letters, while the smallest realized $N_{\rm eff}=155\gg2.83$. The negative sign was <strong>measured</strong> (small activation cost $\approx1.04$ vs certificate log-volume $\approx5$–18), not assumed subcritical.</p>
+<blockquote>
+<p><strong>EMPIRICAL VERDICT: INCONCLUSIVE</strong> ($D\le0$, sign-stable / binning-stable). The master inequality is <em>not satisfied</em> on this ensemble, so the large-field horn does not close at $\ell_\star$ here. <strong>This is NOT a refutation of the gap:</strong> master $\Rightarrow$ target is <em>sufficient, not necessary</em>; failing the sufficient condition does not deny the gap. A genuine refutation would need a <em>direct lower bound</em> $z_\star\ge1/(E_{\rm conn}\cdot A_{\rm fluc})$, which is not the object computed here.</p>
+</blockquote>
+<p>An honest granularity correction is recorded: an initial run mis-defined $s_{\rm block}$ as the <em>summed whole-block</em> action over $\sim81$–96 plaquettes ($s_{\rm block}\approx189$, $N_{\rm cert}\approx10^{461}$, $D\approx-872$), conflating "block" with a $2^4$ sub-lattice. Corrected to the per-certificate single-cell footing the master inequality requires ($s_{\rm block}\approx1.04$, per-cell $D\approx-4$). The correction moved $D$ <em>toward</em> $D>0$ but still landed negative — it did not cherry-pick a favorable sign. (<code>GAP02_MASTER_INEQUALITY_RESULT.md</code> §0–7.)</p>
+<p>The companion <strong>block-spin scale-scan</strong> ($b=2$ chain, 15 $(\beta,k)$ points, plaquette gate PASS at every point) returned $D\le0$ at every sampled coupling $g_{\rm eff}\in[0.942,2.449]$ spanning weak(UV) $\to$ marginal-$O(1)$ $\to$ strong(IR/blocked), with no positive-$D$ island and no sign crossing: <strong>NO-MANS-LAND</strong>. The overlap inequality $g_{\rm up}<g_\star$ is <em>undefined</em> — there is nothing to match because both expansion domains are empty over the band. (<code>GAP02_BLOCKSPIN_SCAN_RESULT.md</code> §1–4. Sub-floor disclosure: only the five $k=0$, $L=4$ points are torus-clean; $k\ge1$ are sub-floor artifacts; the verdict holds on the physical $k=0$ points alone.)</p>
+<h3>5.3 The $z_\star$ convention-underdetermination (a deeper, more honest finding)</h3>
+<p>A separate direct computation of the <em>boxed</em> target $z_\star:=\sum_{\gamma\ne0}w(\gamma)$ (rather than the sufficient KP proxy) found that $z_\star$ has <strong>three natural circularity-clean readings that disagree on the verdict</strong> (threshold $1/(E_{\rm conn}A_{\rm fluc})=0.998$):</p>
+<table>
+<thead>
+<tr>
+<th>Reading of $w(\gamma)$</th>
+<th>$z_\star$</th>
+<th>Binning-stable?</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(A) per distinct binned letter, $w=e^{-\min\text{cost in bin}}$</td>
+<td>7.66 ($\delta_{\rm tr}=.5$) $\to$ 922 ($.03125$)</td>
+<td>NO — diverges as $\delta_{\rm tr}\to0$</td>
+<td>FAIL (and ill-posed)</td>
+</tr>
+<tr>
+<td>(B) intensive KP polymer activity per reference site</td>
+<td>0.109</td>
+<td>YES</td>
+<td>PASS</td>
+</tr>
+<tr>
+<td>(single effective activity $=e^{-s_{\rm marg}}$)</td>
+<td>$e^{-s_{\rm block}}=0.353$</td>
+<td>YES</td>
+<td>PASS</td>
+</tr>
+</tbody>
+</table>
+<p>Reading (A) diverges because as $\delta_{\rm tr}\to0$ each realized cell becomes its own letter, so $\sum_{\rm letters}e^{-\min}\to\sum_{\rm cells}e^{-\text{cost}}=2678.2=n_{\rm ref}\cdot z_\star(B)$ — an <em>extensive, divergent</em> count, not a per-site activity. Its finiteness is purchased only by the arbitrary binning $\delta_{\rm tr}$, and the inequality's truth value is whatever $\delta_{\rm tr}$ one picks. This exposes an internal inconsistency: the corpus equated $E_{\rm conn}A_{\rm fluc}e^{-s_{\rm marg}}<1\Leftrightarrow E_{\rm conn}A_{\rm fluc}\sum_\gamma w(\gamma)<1$, which holds <em>only</em> if $\sum_\gamma w(\gamma)=e^{-s_{\rm marg}}$ (one effective activity), but the $N_{\rm cert}$ route makes $\sum_\gamma w(\gamma)\sim N_{\rm cert}e^{-s_{\rm block}}\gg e^{-s_{\rm block}}$. Since $E_{\rm conn}=e\cdot7$ is pure $\mathbb Z^4$ graph combinatorics containing <em>no</em> per-block letter count, the multiplicity $N_{\rm letters}$ must either live inside $z_\star$ (reading A, divergent) or be dropped (B / single-activity) — and the boxed inequality does not say which.</p>
+<blockquote>
+<p><strong>Disposition: OPEN — named obstruction: $w(\gamma)$ is convention-underdetermined at the floor; the natural circularity-clean conventions DISAGREE on the verdict.</strong> Picking reading B (or single-activity) to report PASS is naked target-loading; picking reading A to report FAIL is equally illegitimate (and ill-posed). No posit fixes $w(\gamma)$ that would be written <em>without knowing which verdict you want</em>. <strong>Until $w(\gamma)$ is pinned by a derivation, $z_\star$ is not a decidable number.</strong> (<code>GAP02_B2_COSTFLOOR_ZSTAR_DISPOSITION_2026-06-24.md</code> §1–6.)</p>
+</blockquote>
+<h3>5.4 How to re-run / re-derive</h3>
+<ul>
+<li><strong>Hand-checkable, no numerics:</strong> SL-0 (variational identity), the pure-RP no-go reductio, the Lemma 1 degree-counting for R4 (degree 4 $\ne$ 5; lone-$\bar c_1$ pushforward $2-6<0$), and the $E_{\rm conn}\le e\cdot7$ combinatorial bound.</li>
+<li><strong>Numerical lane (all scripts under <code>C:/tmp/massgap_computation/</code>):</strong> <code>su3_lattice.py</code> (validated $SU(3)$ Wilson MC engine; heatbath + overrelaxation; plaquette gate driver); <code>massgap_pipeline.py</code> (5-stage pipeline computing the four constants + $N_{\rm cert}$ + $D$); <code>CERTIFICATE_SPEC.md</code> (certificate alphabet, local gauge-invariant data only); <code>verify_D.py</code> (independent $D$ recomputation, reproduces to 3 decimals); plus scratchpad <code>zstar_direct.py</code> / <code>zstar_wellposed.py</code> for the three $z_\star$ estimators and the $\delta_{\rm tr}$ divergence. Pipeline self-reported <code>[done in 287.5s]</code>; verify CLEAN. The plaquette hard gate is the binding precondition: no $D$ verdict is trustworthy unless $\langle P\rangle$ reproduces the standard value at that point.</li>
+</ul>
+<h3>5.5 Frozen hashes (boundary data only — none is a Clay lever)</h3>
+<p>Branch <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code> / spin-c bundle on $K_6$ <code>0fd19c9ae0c1</code>. Radii at $\vec u=(1,1,1)$: $R_0=R_{K_6}=R_{S^2}$ <code>634438ce0776</code>, $R_{S^1_Y}=R_0/2$ <code>0e8b8dba2cf0</code>. $\Lambda_{\rm YM}$ pinned by $\alpha_3(M_Z)$ + $M_U\sim1.0\times10^{16}$ GeV + threshold $\delta_3=-1.7313$ via two-loop $\overline{\rm MS}$. $R_0=1.592\times10^{-17}$ GeV$^{-1}$. (<code>01_DOSSIER.md</code> §0; <code>00_GAP02_CURRENT_STATUS_AND_RECONCILIATION.md</code> Refinement 1.)</p>
+<hr />
+<h2>6. Open gaps and closure path — the specialist work plan</h2>
+<p>This is the most load-bearing section: a concrete, target-blind work-package for each open hole. A specialist should be able to pick up any one and start.</p>
+<h3>Hole R1 — The uniform-gap bridge (THE CLAY WALL)</h3>
+<p><strong>(a) Precise statement.</strong> Prove $\Delta(a,L)/\Lambda_{\rm YM}\ge c>0$ uniformly as $a\to0$, $L\to\infty$, $\beta\to\infty$ (equivalently H4 = the Marginal-KP inequality $\rho_\star=E_{\rm conn}A_{\rm fluc}e^{-s_{\rm marg}}<1$, equivalently $\delta>0$) — with the <em>single</em> $c$ uniform over all regulators and all scales, holding <em>through</em> the marginal band $g(2^na)=O(1)$, for the same measure whose existence, RP, and nontriviality survive the limit.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> Inside $g=O(1)$ the inequality is a strict $O(1)$-vs-$O(1)$ comparison with no spare coercive margin (d=4 marginal renormalizability). Bałaban-RG and constructive-SPDE both succeed only at $d\le3$; the marginal band is plausibly outside both convergence radii (Gaussian-UV disk and strong-coupling product-measure disk). <strong>Rarity ($\mu_n\le e^{-c/g^2}$) does NOT imply domination</strong> — the bare activity compensates; this category error <em>is</em> the wall. Method-invariance is verified: the polymer route and the AF-RP monotone stall on the <em>same</em> $\delta=0$ object. <strong>Traps the program's own passes caught (do not repeat):</strong> (1) the $\kappa^3/\pi$ pattern — reverse-engineering any of $E_{\rm conn},A_{\rm fluc},s_{\rm marg},\rho_\star$ to land subcritical (true-by-construction; it <em>relocates</em>, never closes); (2) reading the executed $D<0$ as a refutation (it is a <em>sufficient</em> proxy failing, INCONCLUSIVE); (3) using RP alone (the rigorous $U(1)$ no-go forbids it); (4) smuggling in the frozen geometry as a lever (Lemma 1 proves it supplies none; $F^+$ inert).</p>
+<p><strong>(c) Exactly what closes it.</strong> A target-blind proof of $\rho_\star<1$ uniform through the band, via one of three live lanes: <strong>Lane A</strong> — sharpen the Bałaban large-field step from a <em>weight</em> bound to a <em>contribution</em> bound, contracting by a fixed $e^{-\delta}$ through the band; <strong>Lane B</strong> — a convergent activity/cluster expansion at $g=O(1)$ with strictly positive $\delta$; <strong>Lane C</strong> — matching/overlap of the UV (Gaussian) and IR (product-measure) expansion domains across the band, OR a genuinely group-sensitive non-expansion method using $b_0=11N/3>0$ (the AF-RP monotone with the $O(g^4)$ remainder controlled uniformly through $g=O(1)$). <strong>Success criterion:</strong> $c>0$ established with no target-loaded constant; then SL-2/SL-1/M4D/SL-0 deliver the spectral consequence (with R2/R3 separately closed). <strong>A REFUTING result is also valid:</strong> a direct lower bound $\rho_\star\ge1$ (or $z_\star\ge1/(E_{\rm conn}A_{\rm fluc})$) uniformly would kill this sufficient route — a legitimate negative close.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Constructive RG (Bałaban <em>CMP</em> 1984–89); 4D YM multiscale (MRS 1993); KP polymer convergence; OS reconstruction (OS 1973/75); the AF-RP monotone schema and the four-constant pipeline. Start from <code>GAP02_STEP2_STANDARD_YM_PROOF_LANE/05_uniform_gap_bridge.md</code> (§4 names the missing RG estimate exactly) and <code>GAP02_AFRP_MONOTONE_DISPOSITION.md</code> (§2 the live monotone, §3 method-invariance). The Clay statement (Jaffe–Witten 2000) anticipates a genuinely new idea.</p>
+<p><strong>(e) Leverage.</strong> This <em>is</em> the gate. Closing it (with R2/R3) is the Clay prize. Even alone it would convert the entire reduction chain into a true Hamiltonian gap statement.</p>
+<h3>Hole R2 — SL-3: interacting nonperturbative BRST/Gribov kernel positivity</h3>
+<p><strong>(a) Precise statement.</strong> Establish the interacting nonperturbative positivity certificate on $\mathcal H_{\rm phys}=\ker(s)/\mathrm{im}(s)$ surviving $a\to0$ — the physical-kernel positivity of the BRST cohomology in the continuum limit.</p>
+<p><strong>(b) Why it's hard.</strong> The Gribov–Singer–Neuberger triad: no global continuous gauge section on a nontrivial bundle (Gribov 1978, Singer 1978); lattice BRST gives an indeterminate $0/0$ (the FP determinant sign-flips across Gribov copies; Neuberger 1987). Established only <em>perturbatively</em> (Kugo–Ojima quartet).</p>
+<p><strong>(c) Exactly what closes it.</strong> Construct a positivity certificate for the interacting nonperturbative kernel that survives the continuum limit, resolving the FP/Gribov ambiguity (e.g. via a Gribov-region-restricted measure with controlled positivity, or a manifestly positive gauge-invariant formulation). <strong>Refuting outcome:</strong> a proof that physical-kernel positivity <em>fails</em> in the limit would itself be a major (negative) result.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> BRST cohomology; Gribov–Zwanziger; Kugo–Ojima; constructive positivity methods. This is an <em>independent co-gate</em> — do not fold into R1. Export to a constructive-positivity specialist. (<code>01_DOSSIER.md</code> §4.2.)</p>
+<p><strong>(e) Leverage.</strong> Independent and load-bearing: even a proved R1 yields <em>no</em> gap without R2.</p>
+<h3>Hole R3 — OS-reconstruction / continuum-RP survival (H1·H2·H3)</h3>
+<p><strong>(a) Precise statement.</strong> Construct the continuum measure $\mu=\lim_{a\to0,L\to\infty,\beta\to\infty}\mu_{a,L}$ on gauge-invariant observables satisfying OS-0/1/2/3, with <strong>RP surviving $a\to0$</strong> (the open part — F1 gives RP only at fixed $a$), nontriviality (interacting, not Gaussian), and a unique clustering vacuum; then run OS$\to$Wightman reconstruction.</p>
+<p><strong>(b) Why it's hard.</strong> No 4D $SU(3)$ continuum measure has ever been constructed. Bałaban controls only the small-field UV; MRS retains an IR cutoff. The non-negotiable quantifier order — existence FIRST, then the gap — means a "continuum mass gap" asserted before steps 1–4 is <em>fabrication</em> (there is no Hamiltonian to gap).</p>
+<p><strong>(c) Exactly what closes it.</strong> A controlled construction of $\mu$ with the OS axioms verified in the limit and nontriviality proved. <strong>Refuting outcome:</strong> a proof of triviality (Gaussian fixed point) in the limit would refute the interacting theory's existence.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Constructive-QFT machinery (Glimm–Jaffe); OS reconstruction; tightness/compactness of the regulated sequence; convergence of Schwinger functions. The §4 RG bridge of <code>05_uniform_gap_bridge.md</code> is what would supply MO-1. Export to a constructive-measure specialist. (<code>01_DOSSIER.md</code> §4.3; <code>06_first_attack_choice.md</code> §6.3 MO-1..MO-7.)</p>
+<p><strong>(e) Leverage.</strong> Independent co-gate; converts clustering (H4) into a true Hamiltonian gap. Recommended division of labor (from the proof-lane analysis): <strong>Route A builds the measure (MO-1..4 + clustering); Route C converts that clustering into the spectral gap (MO-5/6/7)</strong> via glueball-correlator decay + OS reconstruction — the cleanest <em>framing</em> of the open problem, not a weakening of it.</p>
+<h3>Hole R4 — The R4 bordism anomaly value $\xi_{R4}$</h3>
+<p><strong>(a) Precise statement.</strong> Evaluate $\xi_{R4}\in\Omega_5^{\rm Spin\text{-}c}(B(SU(3)\to PSU(3));\tau_{K_6})$. The untwisted default is the <strong>nonzero survivor</strong> $\Omega_5^{\rm Spin}(PSU(3)\times B^2\mathbb Z_3)=\mathbb Z_3$; the open question is whether the frozen $\tau_{K_6}=(2,2)$ <strong>twist-correction to the operative differential $d_5=Q_1=\beta P^1$</strong> deforms / kills that degree-5 $\mathbb Z_3$ class (finite $\mathbb Z_3$-linear-algebra, carrying Massey-product structure at $p=3$).</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> The object was first written malformed (degree 4 cup product on the wrong locus); the lone-$\bar c_1$ pushforward gives negative degree. Theorem 11 well-poses it but does <em>not</em> evaluate it; the subsequent Steenrod recomputation (<code>GAP02_R4_STEENROD_COMPUTATION.md</code>) corrects the operative-differential guess but lands on <code>STILL_SUBTLE</code> (value OPEN). <strong>Traps caught (do not repeat):</strong> (i) the carrier is the <strong>degree-3</strong> class $\bar x_1\in H^3(BPU(3);\mathbb Z/3)$ — there is NO degree-2 mod-3 carrier ($H^2(BPU(3);\mathbb Z/3)=0$), so the earlier "$u_2\in H^2$" is void; (ii) the operative differential is NOT a $d_3$ — the 2-primary $d_3=\beta\mathrm{Sq}^2\rho_2$ is <em>identically zero on 3-torsion</em>; the genuinely operative one is the 3-primary $d_5=Q_1=\beta P^1$ ($|Q_1|=2p-1=5$), whose target $Q_1(\bar x_1)$ sits in degree 8, off the $p+q=5$ lines; (iii) do NOT read the older "untwisted $\Omega_5^{\rm Spin\text{-}c}(B^2\mathbb Z_3)=0$" as $\xi_{R4}=0$ — the correct untwisted value is $\mathbb Z_3\ne0$ (survivor persists), and the twist is the only lever; (iv) do NOT transcribe $\mathbb Z_2/\mathbb Z_4$ Pontryagin-square arithmetic onto $\mathbb Z_3$ (on $\mathbb Z_3$, $P$ lands in $\mathbb Z_3$); (v) do NOT read "R4 lever dead" as "R4 solved" — only the <em>lever</em> is closed-negative; the <em>value</em> is open. <strong>And the binding caveat (Hole R5 below):</strong> even a nonzero, universal $\xi_{R4}$ is <em>necessary-not-sufficient</em> for a gap.</p>
+<p><strong>(c) Exactly what closes it.</strong> Supply the three specialist inputs — the correct degree-5 bordism object ($B^2\mathbb Z_3$ vs $B(PSU(3))$ / 2-group), the $\tau_{K_6}$ twist mechanism, and the $c_1(L_{K_6})$ representative bit — then evaluate $\xi_{R4}$ via the <strong>twisted $d_5=Q_1$ correction</strong> on the degree-5 line (the bare $Q_1$ being off-line, only the $[\tau_{K_6}]$-correction can act there). <strong>Success criterion:</strong> a definite element of $\mathbb Z/3$. <strong>Refuting outcome:</strong> $\xi_{R4}=0$ is a perfectly valid close (the row is then fully inert); equally, confirming the untwisted $\mathbb Z_3$ persists is a valid value.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Twisted spin-c bordism; Atiyah–Hirzebruch spectral sequence (operative differential $d_5=Q_1=\beta P^1$ at $p=3$, NOT $d_3$); Freed–Hopkins (anomalies = twisted bordism invariants); Kapustin–Seiberg ($SU(N)/\mathbb Z_N$ flux); GKSW (one-form symmetries); GKKS (mixed anomaly at $\theta=\pi$); twisted-Morava / odd-prime twisted-AHSS structure (Westerland; Grady–Sati) for the $\tau_{K_6}$-correction. Start from <code>GAP02_R4_WELLPOSING_THEOREM.md</code> (Theorem 11 + §3) and <code>GAP02_R4_STEENROD_COMPUTATION.md</code> (§1–5, the corrected operative differential). <strong>Note the shared thread:</strong> the <em>same</em> $\xi_{R4}$ object is also the R4 thread under SG-4 (the geometry's own candidate anomaly) and the Born T-1(a) leg — the value computation lives on the SG-4 / Born ledgers, because it is <em>inert on the gap</em> here.</p>
+<p><strong>(e) Leverage.</strong> LOW for the gap (the lever is dead regardless of value — see R5). HIGH cross-gate: settling $\xi_{R4}$ closes a shared residual for SG-4 and Born T-1(a).</p>
+<h3>Hole R5 — Even a nonzero R4 anomaly is necessary-not-sufficient for a gap</h3>
+<p><strong>(a) Precise statement.</strong> A 't Hooft anomaly can be matched by a <em>gapless</em> theory; so even $\xi_{R4}\ne0$, descending and universality-preserving, does not force a gap.</p>
+<p><strong>(b) Why it's hard.</strong> Anomaly-matching constrains the IR phase but admits conformal or TQFT saturations that are gapless. So R4 alone cannot deliver the gap even if nonzero.</p>
+<p><strong>(c) Exactly what closes it.</strong> <em>Conditional on</em> R4 turning out nonzero and universality-preserving: separately prove the matched IR phase is gapped/confining rather than gapless — e.g. exclude a conformal or TQFT saturation of the anomaly — before treating R4 as a Clay handle. <strong>Refuting outcome:</strong> exhibiting a gapless anomaly-matching phase would confirm R4 is not a gap handle.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Anomaly-matching ('t Hooft); conformal/TQFT phase classification; the full conjunctive chain $\alpha$(descends to 4D) $\wedge\ \beta$(survives continuum) $\wedge\ \gamma$(constrains FP/Gribov) $\wedge$ universality-preserving. (<code>01_DOSSIER.md</code> §4.4; <code>10_final_lemma1_statement.md</code> §3 adjudicator.)</p>
+<p><strong>(e) Leverage.</strong> Gates whether any future nonzero $\xi_{R4}$ could ever become a gap lever.</p>
+<h3>Hole R6 — The granularity / cost-floor axiom (the deep root)</h3>
+<p><strong>(a) Precise statement.</strong> The granularity axiom (the Uniform Operational Cell Law: a single system-independent $\Delta_0>0$ such that no stable record occupies an operational cell smaller than $\Delta_0$) licenses the continuum dissolution but is itself <strong>unproven</strong> — the program tried and <em>failed</em> to derive a uniform floor from mere finiteness, and a countermodel exists.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> First-pass plug result (folded honestly): this hole is <strong>REDUCED-to-named-axiom</strong> — a status that <em>matches</em> the already-frozen grade, <strong>not an advance on it</strong> (the verifier caught an overclaim attempt here; keep to what is proven). The corpus already holds, as banked <em>losses</em>: (i) finite resources buy only $\eta$-dependent total boundedness, NOT a uniform $\Delta_0$ — the <strong>basin-shallowing countermodel</strong> (disjoint stable basins of depth $d_n=B\cdot2^{-n-1}$, $\sum d_n=B/2<\infty$, $\inf_n d_n=0$: finitely many basins above any tolerance $\eta$, but no smallest cell) is a rigorous counterexample to the uniform claim; (ii) the no-target-loading blade kills every candidate deeper premise — basin-packing (RELABEL: takes $\Delta_0$ as hypothesis), pre-quantum Margolus–Levitin (CIRCULAR + keystone $\tau\ge\pi\hbar/2E$ pinned only by $\hbar$ = the target), finite-information (RELABEL: "smallest bit" is the cell in costume), finitism ($\mathbb Q\cap[0,1]$ is dense-but-finite-in-window with $\inf$ gap 0), GPT finite dimension (assumed by fiat); (iii) the uniform-positive cell $\Delta_0>0$ is a named UNPROVEN posit with $\hbar$ as its residue value. <strong>Trap:</strong> do not relabel "REDUCED-to-axiom" as a derivation or a count reduction — the axiom count does NOT drop.</p>
+<p><strong>(c) Exactly what closes it.</strong> A derivation of a uniform positive minimum-action floor from a <em>strictly weaker</em> principle than positing it — one that (a) is not the cell law in costume [RELABEL], (b) is not QM smuggled in, (c) is writable <em>without</em> knowing the answer is $\hbar$. Two precisely-named residuals remain, both posited not derived: (R-uniformity-across-arenas) inter-arena uniformity — self-reference gives one cell per arena but does not bound the cell uniformly across all bounded causal arenas (the basin-shallowing countermodel CM2, $\inf_{\rm arenas}\Delta=0$, is unrefuted; composition-closure was tested and does NOT force the budget/cell ratio bounded); (R-positivity) strict positivity $\Delta_0>0$ vs the continuum $\Delta_0=0$. <strong>Refuting/honest-standing outcome:</strong> an explicit standing disclosure that it is a named posit (the current state) is a legitimate terminal — this is the <em>deep-root axiom</em>, not a unicorn, so a concrete weaker-premise derivation would genuinely close it.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> All steps hand-checkable, no numerics. Start from <code>RESULT_A1_FTC_UNIFORM_CELL_PREQUANTUM_DERIVATION_ATTACK_2026-06-24.md</code> (the AXIOM_CLOSED disposition + the basin-shallowing countermodel + the no-target-loading falsification test table), <code>RESULT_FTC_FORK_B_CELL_LAW_2026-06-23.md</code>, and the DeepRoot-granularity row of <code>GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md</code>.</p>
+<p><strong>(e) Leverage.</strong> Closing this would convert the scoreboard's "Reduced-to-axiom (granularity)" from axiom-conditional to derivation-grounded — it is the deepest root of the whole stack, shared across many gates. It does <em>not</em> close the continuum Clay problem (that remains R1–R3); it would only ground the dissolution side.</p>
+<blockquote>
+<p><strong>The cardinal honest point for §6.</strong> R1 is the Clay wall; R2/R3 are independent co-gates; R4/R5 are not a gap lever (only a shared cross-gate value + its necessary-not-sufficient caveat); R6 is the axiom the dissolution rests on. The wall — $d=4$ marginal coercivity at order-one coupling — is invariant under every legal, observation-preserving move; every such modification relocates into a strictly harder subproblem. Physics only; the device-engineering applications are firewalled out of this dossier entirely.</p>
+</blockquote>
+<hr />
+<h2>7. Honest ceiling and scope</h2>
+<p><strong>What is genuinely won (non-promoting).</strong> (1) The rigorous all-operator "uniform clustering $\Rightarrow$ gap" lemma (SL-1/M4D). (2) The precise localization of the <em>entire</em> wall to ONE named inequality — the Marginal-KP / uniform-gap bridge through the $d=4$ marginal band. (3) The rigorous pure-RP NO-GO (any RP-only argument would falsely gap compact $U(1)$). (4) The executed INCONCLUSIVE master-inequality run + the $z_\star$ convention-underdetermination finding (honest negatives, not closures). (5) The proven no-lever theorem (the geometry fixes the gap's <em>origin</em> and pins $\Lambda_{\rm YM}$ as boundary data, but supplies no IR constructive lever; $F^+$ inert). (6) The rigorous combinatorial bound $E_{\rm conn}\le e\cdot7\approx19.03$, and the well-posing of R4 as a finite twisted spin-c bordism target.</p>
+<p><strong>Dissolved $\neq$ solved.</strong> Declining the continuum limit by the granularity axiom <em>changes the Clay question rather than answering it.</em> The continuum (Clay) mass gap remains an open question; it is simply not the program's objective under the cost-floor scope. We state this out loud.</p>
+<p><strong>Selection $\neq$ derivation; given-$E\neq$ derivation-of-$E$.</strong> The geometry <em>selects</em> $SU(3)$ as the color group and <em>pins</em> $\Lambda_{\rm YM}$ from the frozen anchors ($\alpha_3(M_Z)$, $M_U$, $\delta_3$) as boundary data. Deriving the scale would be deriving $E$; it is not done inside Gap-02. The gap itself is a <em>measured</em> fact (short-range strong force, massive glueballs, running $\alpha_s$) — observation-locked, not a Gap-02 output.</p>
+<p><strong>Dissolved unicorns (shared ceilings, never claimed as proven, never listed as open weakness).</strong> (i) "No future theory could ever solve the continuum Clay mass gap by a different route" — an unprovable universal negative over all possible mathematics; the <em>bounded</em> ceiling is "no accepted constructive proof exists today, community-wide." (ii) "The granularity / cost-floor axiom is THE unique provably-irreducible bottom of the stack" — an undischargeable universal negative; the ceiling is "earned-irreducible under known reductions, a confessed posit." (iii) "No geometric / observation-preserving modification of the frozen shape could EVER supply an IR proof lever" — proof over an open-ended space of modifications; the <em>bounded, banked</em> claim is Lemma 1: on every settleable row, the geometry supplies no lever (R4 the one unsettled row, held honestly open).</p>
+<p><strong>What is explicitly NOT claimed.</strong> The Yang–Mills mass gap is <em>not</em> solved, closed, or proven here (no Clay solution). The cost-floor reframe does <em>not</em> answer the Clay problem. The frozen 13D geometry does <em>not</em> provide a proof lever or shortcut. The certificate / master inequality is <em>not</em> satisfied ($z_\star$ is convention-underdetermined and OPEN; could be $\ge1$). The INCONCLUSIVE MC result is <em>not</em> a partial win and <em>not</em> a refutation. A nonzero $\xi_{R4}$ would <em>not</em> by itself prove the gap.</p>
+<p><strong>The anchors paid.</strong> $\Lambda_{\rm YM}$ and the UV package are <em>given-E</em> boundary data (SM/declared inputs); the granularity cost-floor is a <em>named posit</em> ($\hbar$ as its residue). The reduction is rigorous; the wall and the two co-gates stay OPEN.</p>
+<p><strong>Ceiling, stated flat.</strong> Serious candidate / the gap is observed and its origin is geometry-fixed, but the continuum gap is NOT proved. STATUS-UPGRADES:0; frozen branch READ-ONLY; $F^+$ inert; given-$E\neq$ derivation of $E$; rarity $\not\Rightarrow$ domination; a captured log $\neq$ an independent reproduction; anchored $\neq$ derived; AXIOM-CLOSED $\neq$ proven.</p>
+<hr />
+<p><em>Sources synthesized (all read in full): <code>TOE/PER_GATE_DOSSIERS/GAP02_COMPLETION_HANDOFF/01_DOSSIER.md</code>; <code>TOE/gap_02_yang_mills_mass_gap/GAP02_STEP2_STANDARD_YM_PROOF_LANE/05_uniform_gap_bridge.md</code> and <code>06_first_attack_choice.md</code>; <code>TOE/gap_02_yang_mills_mass_gap/gap02_lemma1_descent_audit/10_final_lemma1_statement.md</code>; <code>TOE/gap_02_yang_mills_mass_gap/00_GAP02_CURRENT_STATUS_AND_RECONCILIATION.md</code>; <code>TOE/GAP02_AFRP_MONOTONE_DISPOSITION.md</code>; <code>TOE/GAP02_R4_WELLPOSING_THEOREM.md</code> and the superseding <code>TOE/GAP02_R4_STEENROD_COMPUTATION.md</code> (corrected operative differential $d_5=Q_1$; the earlier <code>GAP02_R4_DELTA3_TRIVIAL.md</code> $d_3$ transcript is voided); <code>TOE/GAP02_B2_COSTFLOOR_ZSTAR_DISPOSITION_2026-06-24.md</code>; <code>TOE/computational_runs_2026-06-23/massgap_computation/GAP02_MASTER_INEQUALITY_RESULT.md</code> and <code>GAP02_BLOCKSPIN_SCAN_RESULT.md</code>; <code>TOE/RESULT_A1_FTC_UNIFORM_CELL_PREQUANTUM_DERIVATION_ATTACK_2026-06-24.md</code>; and the existing brief <code>articles/GATE_BRIEF_GAP02.html</code>. External: Jaffe &amp; Witten, "Quantum Yang–Mills Theory," Clay Mathematics Institute Millennium Problem (2000). No number, hash, sign, or citation in this dossier was fabricated; every uncomputed quantity is marked OPEN.</em></p>
+</body></html>

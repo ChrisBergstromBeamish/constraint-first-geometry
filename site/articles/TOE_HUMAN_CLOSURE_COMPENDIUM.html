@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Fable TOE - Gate Closures (plain language)</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">In Search of Nature&#x27;s Elegance — Article 4: The Theory of Everything Candidate — rendered package. Rendered from <code>TOE_HUMAN_CLOSURE_COMPENDIUM.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>In Search of Nature's Elegance — Article 4: The Theory of Everything Candidate</h1>
+<h3>A plain-language companion to the reviewable TOE document</h3>
+<p><em>Written so that a curious reader with no physics training can follow it from start to
+finish. Nothing here is dressed up. Every careful word in the technical version is kept
+careful here. If the technical document says "we did not solve this," this version says
+the same thing, in the same breath.</em></p>
+<blockquote>
+<p><strong>A one-line warning before we begin.</strong> This is the story of a serious <em>candidate</em> for a
+theory of everything — not a finished theory, and not a victory. The people who built it
+are the first to say so, in writing, in the document this companion translates. The most
+honest thing about the work is the list of things it has <em>not</em> done. We will keep that
+list in full view the whole way through.</p>
+</blockquote>
+<hr />
+<h2>What a "theory of everything" is supposed to be — and what this one actually is</h2>
+<p>For a hundred years, physicists have chased a single dream: one short set of ideas that
+explains <em>all</em> of physics, with nothing left over and nothing put in by hand. No knobs to
+turn, no measured numbers to feed in — just principles, and out the other end comes the
+universe. That is the gold standard. That is what "theory of everything" means in its
+strongest sense.</p>
+<p><strong>This program does not reach that standard, and it does not pretend to.</strong> It says so in
+its very first paragraphs. What it does instead is something more modest and, in a way,
+more honest. It takes the gigantic question — <em>why is the universe the way it is?</em> — and
+drives it down to a very small number of bare assumptions that it then simply <em>declares</em>
+("this just is the way things are"). It cannot eliminate those assumptions. It argues, in
+most cases, that they probably <em>cannot</em> be eliminated. But it cannot prove that for all of
+them.</p>
+<p>So the headline is not "we explain everything." The headline is:</p>
+<blockquote>
+<p><strong>We have shrunk the mystery down to three irreducible assumptions, and we can show our
+work — but a real residue of genuinely unanswered questions remains, and we name every
+one of them.</strong></p>
+</blockquote>
+<p>That is called <strong>near-closure with a residual</strong>. Not closure. The difference matters, and
+keeping that difference visible is the whole point of the exercise.</p>
+<hr />
+<h2>The honest ceiling, stated plainly and up front</h2>
+<p>Before any of the interesting details, here is the verdict the authors place at the very
+top of their own work, refusing to bury it:</p>
+<ul>
+<li>This is <strong>a serious candidate</strong> for a theory of everything — a <em>partial</em> joining-together
+  of the force sector and the gravity sector, pushed down to a small floor of bare
+  assumptions.</li>
+<li>It is <strong>not a validated theory.</strong> Validated means "tested against the world and confirmed."
+  That has not happened.</li>
+<li>Measured against the eight standard checkboxes that physicists use to judge whether a
+  theory of everything is complete, the honest score is: <strong>zero fully met, four partly met,
+  four still open targets.</strong> Roughly half-finished — and forthright enough to say so.</li>
+<li>The deepest questions in physics — how the theory behaves at the very highest energies,
+  why empty space weighs what it weighs, a famous unsolved math problem about the strong
+  nuclear force, why quantum probabilities take the form they do, and why one particular
+  number in nature is so absurdly tiny — are <strong>all genuinely unanswered here.</strong></li>
+<li>And one of the program's own headline predictions about the cosmos is not just unproven —
+  it is a <strong>calculated, published failure.</strong> The authors ran the calculation, it came out
+  wrong, and they printed the wrong answer rather than hide it.</li>
+</ul>
+<p>If you remember only one paragraph from this companion, make it that one. Everything below
+is detail underneath that ceiling.</p>
+<hr />
+<h2>The rule that governs every word: nothing gets promoted</h2>
+<p>The team imposed one iron discipline on themselves, and it is worth understanding because
+it explains why the work reads so cautiously.</p>
+<p><strong>Rule: zero promotions.</strong> Nothing in this document is allowed to be upgraded. A "maybe"
+never quietly becomes a "yes." A "we selected this" never becomes a "this was forced on
+us." A "we declined to answer this" never becomes a "we solved this." An open problem stays
+open. Every careful qualifier is load-bearing — knock one out and, by the program's own
+rules, the claim it was holding up collapses into a failure.</p>
+<p>There is also a frozen, read-only master copy of the geometry the whole theory is built on
+(it has an identifying fingerprint, like a sealed file). It is locked so that nobody — not
+even the authors, not even an AI helping them — can quietly adjust the theory to make a
+prediction come out right. We will see in a moment why that lock matters so much.</p>
+<hr />
+<h2>The two ingredients you have to put in</h2>
+<p>Every theory has to start somewhere. This one starts with exactly two kinds of input, and
+that honesty about the starting point is itself part of the case.</p>
+<h3>Ingredient one: a single shape (chosen, not derived)</h3>
+<p>The theory is built on one specific 13-dimensional geometric object. Think of it as an
+elaborate stage with several hidden rooms folded up too small to see. The everyday four
+dimensions of space and time are the main stage; the extra rooms are where the forces of
+nature secretly live. In this picture, <strong>the forces of nature are the symmetries of those
+hidden rooms</strong> — the ways you can rotate or shift a room and have it look the same.</p>
+<p>Here is the crucial honesty: <strong>this shape was <em>chosen</em>, not <em>derived</em>.</strong> The team ran a
+kind of simplicity contest and this shape won — it is the tidiest one that does the job.
+But winning a simplicity contest is not the same as being <em>forced</em> by the laws of logic.
+The authors are emphatic about this. If they claimed "the winner of our contest is the only
+possible answer," they would just be smuggling the assumption in through a side door under a
+new name. So they don't. They carry the shape openly as an assumption — labeled SHAPE — and
+nothing more.</p>
+<h3>Ingredient two: four measured numbers</h3>
+<p>On top of the shape, the theory needs four numbers that have to be measured in a laboratory
+rather than calculated:</p>
+<ul>
+<li>the strength of gravity (set by a quantity called the Planck mass),</li>
+<li>the combined strength of the three non-gravity forces at a particular energy,</li>
+<li>the heaviness of the heaviest known particle (the top quark),</li>
+<li>one number describing how certain particles mix into each other.</li>
+</ul>
+<p>From just these four measured numbers, the theory then produces <strong>more than twenty other
+numbers</strong> that agree with what we observe. That ratio — four in, twenty-plus out — is the
+real selling point. A theory that needed twenty inputs to make twenty outputs would be
+useless. A theory that takes four and correctly constrains twenty-plus is doing genuine
+work. (Physicists call this being "over-determined," which is a good thing: it means the
+theory is sticking its neck out and could easily have been wrong.)</p>
+<p>The authors are careful to add: asking <em>"but why those exact four values?"</em> is a question
+they explicitly place <em>outside</em> their scope. They do not claim to answer it, and they do
+not pretend the question doesn't exist.</p>
+<hr />
+<h2>The gate-by-gate map, in plain words</h2>
+<p>The technical document lays out every major piece of physics as a "gate" with an honest
+status stamped on it. Below is the same map, translated faithfully. Watch the status labels
+closely — they are the entire substance. The honest labels come in five flavors:</p>
+<ul>
+<li><strong>Derived (given the particles).</strong> This genuinely follows by a checkable calculation — but
+  <em>only after</em> we accept which particles exist as part of the input. Take that away and it
+  doesn't follow.</li>
+<li><strong>Closed by an axiom — "dissolved."</strong> This is the subtle one. We did <strong>not</strong> solve this
+  problem. We <em>declined to ask the impossible version of it.</em> We refused to take a certain
+  idealization to its limit, and once you refuse that idealization the problem stops being a
+  problem. <strong>Declining is not solving.</strong> The authors hammer this point and so will we.</li>
+<li><strong>Closed by an axiom — "declared."</strong> Closed only because we <em>named it as a bare assumption.</em>
+  Not proven. We just decided to stand on it.</li>
+<li><strong>Partly there.</strong> There is real, calculated structure here, but it falls short of a full
+  pass.</li>
+<li><strong>Still open.</strong> Genuinely unresolved. Carried honestly, with a note saying exactly what it
+  would take to settle it.</li>
+</ul>
+<h3>The forces and the particles (the parts that mostly work)</h3>
+<table>
+<thead>
+<tr>
+<th>The question</th>
+<th>Honest status</th>
+<th>What that means in plain words</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Where do the forces of nature come from?</td>
+<td><strong>Derived, given the shape</strong> (and the shape was chosen)</td>
+<td>The known forces fall out of the symmetries of the hidden rooms. Real and checkable — but it rides on the shape we chose, and the <em>strengths</em> of the forces still come from the measured inputs, not from the theory.</td>
+</tr>
+<tr>
+<td>Why are there three families of matter particles?</td>
+<td><strong>Derived, given which particles exist</strong></td>
+<td>A single whole number that counts a topological feature of the geometry comes out to three — matching the three known generations of matter. But it is computed <em>from</em> the assumed particle content; the theory does not explain why those particles, or why three, in the first place.</td>
+</tr>
+<tr>
+<td>Do the electric charges of the particles add up consistently?</td>
+<td><strong>Derived (given the particles)</strong></td>
+<td>Yes — and you can check the key piece by hand on a napkin. A short sum comes out to exactly zero, which is the consistency condition. But again: this is a check <em>on</em> a given list of particles, not a proof that the list had to be that way.</td>
+</tr>
+<tr>
+<td>Why are electric charges quantized the way they are?</td>
+<td><strong>Half derived, half still open</strong></td>
+<td>One half genuinely follows by a hand-checkable calculation. The other half — <em>why this particular finest pattern and not a coarser one</em> — is honestly left open, because several different patterns would look identical on the particles we can see.</td>
+</tr>
+<tr>
+<td>Is the deep "spin" structure of the geometry consistent?</td>
+<td><strong>Derived, given the particles</strong> — and one tempting shortcut was <em>refuted</em></td>
+<td>A clean version of this works. Notably, an attractive simpler idea the team had hoped for turned out to be <em>blocked</em> by a known result — so they did <strong>not</strong> count it as a saving. The honesty cuts against their own interest here.</td>
+</tr>
+<tr>
+<td>The electron's charge — is it a free dial?</td>
+<td><strong>Derived (it's not a dial)</strong></td>
+<td>The electron's charge turns out to be a fixed combination of other quantities, not an independent input. A clean, falsifiable identity — it would break if measurements disagreed, and they don't.</td>
+</tr>
+<tr>
+<td>The strength of radioactive decay — a free dial?</td>
+<td><strong>Derived (it's not a dial)</strong></td>
+<td>Same story: it's a fixed combination, not an independent knob.</td>
+</tr>
+<tr>
+<td>Do the three forces unify into one at high energy?</td>
+<td><strong>Partly there</strong></td>
+<td>The <em>energy at which</em> they would merge is genuinely derived and lands in a believable range. But the merged <em>strength</em> is one of the four measured inputs, not a prediction.</td>
+</tr>
+<tr>
+<td>How few knobs does the theory really need?</td>
+<td><strong>Partly there</strong></td>
+<td>Four measured numbers produce twenty-plus outputs, and two former "dials" were eliminated. But this is <em>not</em> a zero-knob theory; a handful of irreducible inputs remain.</td>
+</tr>
+<tr>
+<td>Does ordinary gravity come out right?</td>
+<td><strong>Partly there, and conditional</strong></td>
+<td>Newton's gravity emerges — <em>but only if</em> a certain feature of the geometry is assumed to be frozen in place. If it were instead free to drift, gravity would come out subtly wrong. The result leans on that "if."</td>
+</tr>
+<tr>
+<td>Why doesn't the strong force violate a certain symmetry?</td>
+<td><strong>Still open</strong></td>
+<td>A long-standing puzzle. The hoped-for explanation inside this geometry was <em>proven not to work</em>, and the escape route outside it was declined. Honestly unresolved.</td>
+</tr>
+<tr>
+<td>Are the geometry's hidden shapes stable?</td>
+<td><strong>Still open / handed off</strong></td>
+<td>A narrow, local version is settled. But the full question depends on one number whose sign is still unknown, and the global version is handed off to a piece of machinery the program has <em>not</em> adopted.</td>
+</tr>
+</tbody>
+</table>
+<h3>The deepest questions (the parts that mostly don't work yet)</h3>
+<table>
+<thead>
+<tr>
+<th>The question</th>
+<th>Honest status</th>
+<th>What that means in plain words</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Is the whole theory internally consistent once everything interacts?</td>
+<td><strong>Partly there</strong></td>
+<td>The simplified, "linearized" version is checked and the charge-cancellation pieces are exact and hand-verifiable. But full consistency when everything is switched on and interacting is only graded "audit" — meaning examined, not certified — and one consistency object remains open.</td>
+</tr>
+<tr>
+<td>The Yang–Mills mass gap (a famous million-dollar math problem)</td>
+<td><strong>Closed by an axiom — "dissolved"</strong></td>
+<td><strong>This was not solved.</strong> A million-dollar prize exists for proving this, and that prize is <em>not</em> being claimed. What the program did was refuse the idealization that makes the problem hard in the first place (it declines to shrink a grid spacing all the way to zero). Once you decline that step, the prize question stops being your question. <strong>That is rescoping, not a closure</strong> — and the authors say so in bold. The version of the problem they keep, in finite form, stays openly unsolved.</td>
+</tr>
+<tr>
+<td>The finite version of that same mass-gap problem</td>
+<td><strong>Still open</strong></td>
+<td>After declining the idealization, a concrete finite inequality is left behind. Whether it actually holds is <em>asserted, not derived.</em> It could come out the wrong way. This is flagged as the thing they must <em>not</em> over-claim.</td>
+</tr>
+<tr>
+<td>A subtle internal consistency check unique to this geometry</td>
+<td><strong>Still open</strong></td>
+<td>Its baseline value is forced to zero, but a refined version is simply <strong>unknown</strong> — not zero, not nonzero, unknown. A couple of finite, machine-checkable steps would settle it; they haven't been done.</td>
+</tr>
+<tr>
+<td>How the theory behaves at the very highest energies (one specific missing object)</td>
+<td><strong>Still open</strong></td>
+<td>There is one named, uncomputed quantity at the heart of this. The team forbids itself from even guessing its value. And even if it came out favorable, that would be <em>necessary but not sufficient</em> — there's an endless tower of further checks behind it.</td>
+</tr>
+<tr>
+<td>The same high-energy question, via a different route</td>
+<td><strong>Still open</strong></td>
+<td>An alternative approach exists but has <strong>no proof that the key fixed point even exists.</strong> This is a frontier problem in physics generally, not just here.</td>
+</tr>
+<tr>
+<td>Why is empty space so unbelievably un-heavy? (the cosmological constant)</td>
+<td><strong>Still open — and a published failure</strong></td>
+<td>This is the famous "why is the vacuum energy so tiny" puzzle. The program's attempt to explain it <strong>failed by a calculated margin, and the failure is published.</strong> The careful calculation found <em>no</em> mechanism that makes the number cancel down. The number stays an unexplained "just is." (More on this below — it's important.)</td>
+</tr>
+<tr>
+<td>The history of the cosmos — inflation, why there's more matter than antimatter, dark matter</td>
+<td><strong>Still open / deliberately excluded</strong></td>
+<td>Largely walled off on purpose to avoid cheating (see the cautionary tale below). The matter/antimatter ledger sits at zero of four required pieces assembled.</td>
+</tr>
+<tr>
+<td>Why do quantum probabilities follow the rule they do? (the Born rule)</td>
+<td><strong>Still open</strong></td>
+<td>Part of the rule's <em>form</em> can be derived, but a key assumption has to be fed in by hand, and there's no way around that without arguing in a circle. Honestly unresolved.</td>
+</tr>
+<tr>
+<td>Which "measure" picks out our reality from the possibilities?</td>
+<td><strong>Still open</strong></td>
+<td>No version of this is <em>forced</em> by the framework, and a version simply <em>fitted</em> to the answer is banned by the program's own rules.</td>
+</tr>
+<tr>
+<td>Why is the gap between the everyday energy scale and the gravity scale so vast? (the hierarchy problem)</td>
+<td><strong>Still open — with a reasoned "probably can't be done here"</strong></td>
+<td>This needs a <em>second</em> independent measured scale that genuinely cannot be built out of the ingredients on hand. One real partial result exists — a protection mechanism that holds the relevant particle's mass steady — but it only covers part of the gap, falling <strong>twelve orders of magnitude short.</strong> Honest, large miss.</td>
+</tr>
+<tr>
+<td>Is energy conserved in the theory?</td>
+<td><strong>A target, written in pencil</strong></td>
+<td>In principle this follows by a standard argument — but the underlying dynamical layer needed to make the argument hasn't been built. So it's noted as a future target, <em>not</em> claimed. If it doesn't pan out, it gets erased, not promoted.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>The three assumptions everything rests on — and their honest verdicts</h2>
+<p>The whole program funnels down to <strong>three bare assumptions</strong> ("posits"). The central result
+is not any one prediction — it's that the mystery shrinks to exactly these three. Here is
+each one, in plain words, with its honest verdict kept intact.</p>
+<h3>Posit 1 — GRANULARITY: reality has a smallest meaningful grain</h3>
+<p><strong>The assumption:</strong> there is a smallest unit of "telling things apart" — a floor below which
+no two situations can be reliably distinguished or recorded. Reality is not infinitely
+fine-grained; it comes in cells.</p>
+<p><strong>How hard did they push on it?</strong> Hard. They tried to <em>derive</em> this floor from gentler
+assumptions — just "finite resources, finite time, finite cost." And they found, with a
+clean hand-checkable counterexample, that <strong>you cannot.</strong> Finite resources do <em>not</em> force a
+smallest grain. So the grain has to be assumed directly.</p>
+<p><strong>Honest verdict:</strong> GRANULARITY is <strong>a bare assumption — a declared starting point, not a
+theorem.</strong> The best they could ever hope to show is that this floor is <em>as deep as</em> the
+other pillars of physics — never that <em>nothing deeper exists.</em> An attractive deeper-sounding
+principle ("reality must be physically realizable") turned out, on inspection, to be the
+same assumption wearing a different hat — so it is never counted as progress. The work this
+round <em>sharpened</em> the assumption into something precise; it did <strong>not</strong> eliminate it. Zero
+promotions.</p>
+<h3>Posit 2 — SCALE: the universe needs at least one real-world ruler</h3>
+<p><strong>The assumption:</strong> at least one genuine dimensionful quantity — a real ruler with units,
+like a mass or a length — has to be put in by hand.</p>
+<p><strong>This is the one place a genuine "impossible" lives.</strong> There is an old, rock-solid
+mathematical theorem (it underlies all dimensional analysis) which proves that <strong>pure ratios
+can never set an absolute scale.</strong> You can know every proportion in the universe and still
+not know how big anything actually is until you nail down one real ruler. So <strong>at least one
+ruler is required, forever</strong> — having zero rulers is <em>provably</em> impossible. Every clever
+attempt to dodge this — and the authors list four of them — turns out to sneak exactly one
+ruler back in under a new name. This is the <strong>safest, strongest claim in the entire
+program</strong>, because here "irreducible" rests on a proof rather than on "we tried and failed."</p>
+<p><strong>The honest correction they made to themselves:</strong> they used to say "it's exactly <em>one</em>
+ruler, and we're most of the way to showing it." A careful re-audit <strong>retracted that.</strong> It is
+actually <strong>two rulers</strong>, not one — the everyday energy scale of particle physics is a
+<em>second</em> genuine ruler that cannot be reduced away in this setting. (This is the same fact as
+the hierarchy problem above.) The "at least one" floor and the "zero is impossible" proof
+still stand untouched. Only the word "exactly one" was withdrawn — and they withdrew it
+themselves.</p>
+<p><strong>Honest verdict:</strong> SCALE is a bare assumption, but <strong>uniquely it is a <em>proven</em> one</strong> (at
+least one ruler, forever). The honest count, though, is <strong>two rulers, not one.</strong> Zero
+promotions.</p>
+<h3>Posit 3 — SHAPE: this particular geometry and its particles</h3>
+<p><strong>The assumption:</strong> the specific 13-dimensional shape, plus the specific bundle of particles
+living on it.</p>
+<p><strong>How hard did they push?</strong> This is the weak link, and they say so — they call it the "swing
+root." They cannot prove the shape is the <em>only</em> possible one (proving a universal "nothing
+else could work" is essentially impossible — and, in a neat twist, the one kind of proof
+that <em>would</em> settle it would actually be a <em>derivation</em> of the shape, which would mean the
+shape wasn't a bare assumption after all). And they cannot reduce the shape to a deeper
+principle: the obvious candidate principles all turn out to be necessary-but-not-enough.</p>
+<p><strong>What is genuinely real here:</strong> one specific sub-piece — the charge-pattern structure — was
+genuinely <em>computed</em> with no free parameters. That's a real reduction. But it computes that
+piece <em>from</em> the assumed particles, so the assumption just <strong>moved around inside SHAPE; it
+didn't escape.</strong> Three other attempts to reduce sub-pieces came back "not derivable."</p>
+<p><strong>The wall they keep hitting:</strong> <em>which particles exist</em> — which types, and that there are
+three families — is the residue that <strong>no known principle forces.</strong> Everything they can
+derive, they derive <em>from</em> this, never <em>to</em> it.</p>
+<p><strong>Honest verdict:</strong> SHAPE is a bare assumption — <strong>but a compressible one</strong>, and that's the
+genuine finding. The expected honest endpoint is that SHAPE squeezes down to "the particle
+content plus the layering" and <em>stays an assumption there.</em> It's the one pillar where the
+count of sub-assumptions might still shrink — but it has not shrunk yet. Zero promotions.</p>
+<h3>The bottom line of the three</h3>
+<table>
+<thead>
+<tr>
+<th>The floor</th>
+<th>The count</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Absolute minimum, proven forever</td>
+<td><strong>at least 1</strong></td>
+<td>The dimensional-analysis theorem: zero rulers is impossible.</td>
+</tr>
+<tr>
+<td>Realistic expected endpoint</td>
+<td><strong>3 bare assumptions</strong></td>
+<td>SCALE (proven; really two rulers), GRANULARITY (a declared floor), SHAPE (compressible but still assumed).</td>
+</tr>
+<tr>
+<td>Best imaginable case</td>
+<td>still at least 1</td>
+<td>Even the best case is a <em>smaller, sharper</em> set of assumptions — <strong>never zero.</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The headline "assumption meter" reads <strong>twelve</strong> when you count the bundles, or roughly
+twenty-two to twenty-six when you itemize every sub-choice. Both numbers are always shown
+together so the bundles are never quietly treated as single atoms. Exactly <strong>one</strong> old
+pseudo-assumption was <em>dissolved</em> (the impossible-idealization version of the mass gap) — and
+"dissolved" again means <em>declined,</em> not <em>solved.</em> Zero promotions.</p>
+<hr />
+<h2>The published failure — and why it's the most trustworthy thing here</h2>
+<p>The cosmological constant is the cleanest honest negative in the whole program, and the
+authors put it forward almost proudly — not because they like failing, but because it proves
+they aren't grading their own homework with a soft pen.</p>
+<p>The puzzle: empty space should, by naive reckoning, weigh something colossal. In reality it
+weighs almost nothing — off by a factor with about 120 zeros. The program's proposed
+mechanism for explaining that cancellation <strong>was calculated, and it failed.</strong> The careful
+calculation found <strong>no cancellation at any level.</strong> One attack missed by roughly 113 orders
+of magnitude. Every alternative they tried just relocated the problem one-for-one. <strong>They ran
+it, it failed, and they published the failure as a failure.</strong> The tiny number stays an
+unexplained "just is," with only one narrow, pre-registered door left open for the future —
+and they explicitly forbid an AI from <em>fabricating</em> a fix to walk through it.</p>
+<p>This is what credibility looks like in practice. A program that only ever confirms itself
+can't be trusted, because it could never have told you it was wrong. This one demonstrably
+<em>can</em> tell you it's wrong — and did.</p>
+<h3>The cautionary tale they keep on the record</h3>
+<p>There's a companion story they keep pinned up as a warning to themselves. At one point a
+calculation produced a famous cosmic number — the matter/antimatter imbalance — landing
+<em>perfectly</em> inside the observed range. It looked like a triumph. It was not. The key step had
+been <strong>reverse-engineered to hit the target</strong> — the answer was secretly baked in from the
+start. So it is <strong>true by construction</strong> and <strong>must never be cited as a prediction.</strong> They
+keep this example on display precisely as the thing to never do again: any time a theory fixes
+one of its knobs <em>using the very thing it's trying to predict,</em> that's circular reasoning, and
+it gets thrown out. This is exactly why the master geometry is frozen and locked — so no one
+can quietly tune it to hit a target and call it a prophecy.</p>
+<hr />
+<h2>What's still missing — the honest residual, named in full</h2>
+<p>The reason this is "near-closure" and not "closure" is a real, named list of open problems —
+sixteen of them. The program doesn't wave at them; it enumerates each, says why it's open,
+and states what would close it. In plain terms, the still-open questions are:</p>
+<ol>
+<li>The finite version of the famous mass-gap problem (could come out either way).</li>
+<li>The single uncomputed object governing the highest-energy behavior.</li>
+<li>Whether a key high-energy "fixed point" even exists (unproven anywhere).</li>
+<li>Why quantum probabilities take their form (a circular-reasoning roadblock).</li>
+<li>Which "measure" selects our reality from the possibilities.</li>
+<li>Why empty space is so light — the published failure above.</li>
+<li>A subtle geometry-specific consistency value that's simply <em>unknown</em>.</li>
+<li>Why the energy scales are so far apart (the hierarchy — twelve orders short).</li>
+<li>Whether the hidden shapes are globally stable (hangs on one unknown sign).</li>
+<li>Why the strong force respects a certain symmetry it needn't.</li>
+<li>How the universe began (ties to decades-old external conjectures).</li>
+<li>How the cosmos reheated after its earliest moments.</li>
+<li>The detailed pattern left by cosmic inflation (partly waiting on experiments around 2030).</li>
+<li>What dark matter is (one un-derived overlap number blocks it).</li>
+<li>The matter/antimatter imbalance (zero of four required pieces assembled).</li>
+<li>The grand cosmic-data consistency check (waits on all of the above).</li>
+</ol>
+<p>Every one of these is carried as <strong>open</strong> — not solved, not dissolved, not quietly demoted.</p>
+<hr />
+<h2>How a skeptical reader can check the honest parts themselves</h2>
+<p>A nice feature: a handful of the genuine wins can be verified <em>by hand,</em> on paper, in
+minutes, with no special background. The authors single these out, because trusting the
+checkable parts is what earns provisional trust in the rest:</p>
+<ol>
+<li><strong>Three families of matter</strong> — a single whole-number count of the geometry comes out to
+   three.</li>
+<li><strong>Charges cancel</strong> — a short sum comes out to exactly zero. Pure arithmetic.</li>
+<li><strong>The charge pattern</strong> — a tidy modular-arithmetic check works particle by particle.</li>
+<li><strong>The electron's charge and the decay strength</strong> — confirm these are textbook combinations
+   of other quantities, not independent dials.</li>
+<li><strong>The grain counterexample</strong> — a clean one-line argument showing finite resources <em>don't</em>
+   force a smallest grain.</li>
+<li><strong>The ruler theorem</strong> — the standard dimensional-analysis result that pure ratios can't set
+   an absolute scale.</li>
+</ol>
+<p>Everything <em>else</em> — the heavy machinery deriving twenty-plus numbers from four, the gravity
+result, the failed vacuum-energy calculation — is <em>not</em> hand-checkable in this summary and
+rests on the deeper library of documents behind it. The honest reader is told exactly which
+tier each claim lives in, and pointed to where to audit the rest.</p>
+<hr />
+<h2>The ceiling, one last time</h2>
+<p>So where does this leave us? Exactly where the authors say it does, no higher:</p>
+<blockquote>
+<p>This is a <strong>credible, falsifiable, partial unification</strong> of the force and gravity sectors,
+driven down to a floor of <strong>three bare assumptions</strong> — of which only one (the need for at
+least one real-world ruler) rests on an actual proof. It leaves a <strong>named, honest residual</strong>
+of sixteen genuinely-open problems and <strong>one published cosmological failure.</strong> Against the
+eight standard completeness checks it scores <strong>zero fully met, four partly met, four open</strong> —
+about half-finished, and forthright enough to say so.</p>
+</blockquote>
+<p>It is <strong>near-closure with a residual, not closure.</strong> It is <strong>not</strong> a validated theory of
+everything. The discipline never broke: nothing was promoted, the frozen geometry stayed
+locked and untouched, the failures were kept on the page with the same weight as the wins.</p>
+<p>And that, in the end, is the real character of the thing. It is not a claim of triumph. It is
+a careful, sober <em>map</em> — of how far one elegant idea can be pushed, exactly where it stops,
+and precisely what would have to happen next. The honesty is not a disclaimer bolted onto the
+work. The honesty <strong>is</strong> the work.</p>
+<hr />
+<p><em>Faithful companion to the reviewable technical document. No status was upgraded in this
+translation: "dissolved" is not "solved," "selected" is not "proven," "conditional" stayed
+conditional, "open" stayed open, and the cosmological-constant result stayed a published
+failure. Nothing here is committed or deployed; the underlying geometry remains read-only and
+unchanged; the program's promotion count remains zero.</em></p>
+</body></html>

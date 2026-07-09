@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SG-4 Anomaly — Closure Result</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">SG-4 — Hypercharge / Anomaly (GUT Gate 4): CLOSURE RESULT — rendered package. Rendered from <code>SG4_ANOMALY_CLOSURE_RESULT.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>SG-4 — Hypercharge / Anomaly (GUT Gate 4): CLOSURE RESULT</h1>
+<blockquote>
+<p><strong>Status — binding header.</strong>
+<strong>Gate-level roll-up: OPEN</strong> (any open piece ⇒ OPEN, per the grading rubric).
+<strong>Local leg — Global Gauge Admissibility: AXIOM-CLOSED + DERIVED-GIVEN-E.</strong> The local gauge-representation
+admissibility of the upstream-generated spectrum E is closed: <code>O_SG4_local(E_frozen) = 0</code>.
+<strong>Open residuals keeping the gate OPEN:</strong> Z₆-finest-ness (declared, not forced), R4 mixed anomaly ξ_R4
+(OPEN/computation-debt), BV-BRST descent + descent measure (UQF-4/UQF-7, NO-KNOWN-ROUTE), 16/16 quantum
+coverage (OPEN, ~10/16 at cert grade), machine certs G03/G05 (AUDIT/BLOCKED).
+<strong>NOT</strong> a derivation of E; <strong>NOT</strong> "anomaly cancellation selects the SM" (that is DISSOLVED/false).
+<strong>No status was ever upgraded.</strong> Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> READ-ONLY. Honest ceiling: serious candidate, NOT validated.
+<strong>Provenance:</strong> specialist result + independent refute-before-upgrade verification (workflow <code>wtiihur36</code>; physics + disposition passes both HOLD/HONEST; break-test: no arithmetic error). Verified 2026-06-25.</p>
+</blockquote>
+<hr />
+<h2>§1. The reframing — Global Gauge Admissibility (adopted)</h2>
+<p>SG-4 is <strong>not "the hypercharge table."</strong> It is the <strong>vanishing of an obstruction map</strong> on the chiral spectrum
+E generated upstream (SG-2 group, SG-3 spectrum):</p>
+<p>$$O_{\rm SG4}(E) = \big(\,O_{\rm descent}(E),\; O_{\rm charge}(E),\; O_{\rm anomaly}(E),\; O_{\rm Witten}(E)\,\big),\qquad O_{\rm SG4}(E_{\rm frozen}) = 0.$$</p>
+<p>The SM hypercharge table is the <strong>coordinate shadow of bundle descent</strong>, not a primitive. This repackaging adds
+no claim and changes no status — it states the local leg at the invariant level. The headline
+"<strong>AXIOM-CLOSED + DERIVED-GIVEN-E</strong>" is valid for this <strong>local leg only</strong>, never as a gate label.</p>
+<h2>§2. Per-leg disposition (verified)</h2>
+<table>
+<thead>
+<tr>
+<th>Leg</th>
+<th>Disposition</th>
+<th>Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Six local anomaly ledgers</strong> ([U(1)_Y]³, [grav]²U(1)_Y, [SU(2)]²U(1)_Y, [SU(3)]²U(1)_Y, [SU(3)]³, Witten mod-2)</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>All re-derived to exact zero by rational arithmetic on the 1-gen spectrum; ∑Y²=10/3≠0 ⇒ cancellation <strong>specific, not trivial</strong>. A check that E passes, <strong>not</strong> a derivation of E.</td>
+</tr>
+<tr>
+<td><strong>Charge table Q=T₃+Y</strong></td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>ν neutral, d at −1/3, no per-multiplet fit.</td>
+</tr>
+<tr>
+<td><strong>Hypercharge lattice Y∈(1/6)ℤ</strong></td>
+<td><strong>DERIVED-GIVEN AXIOM-Z6-DECLARED</strong></td>
+<td>Center-locking <code>ω₃^{k₃}ω₂^{k₂}ω₆^{6Y}=1</code> ⇒ 6Y∈ℤ; verified all 6 multiplets.</td>
+</tr>
+<tr>
+<td><strong>Z₆ center quotient</strong></td>
+<td><strong>AXIOM-CLOSED (declared)</strong></td>
+<td>Selected, frozen.</td>
+</tr>
+<tr>
+<td><strong>Z₆-finest-ness (Γ=Z₆ vs Γ≤Z₆)</strong></td>
+<td><strong>OPEN</strong></td>
+<td>AX-FINEST rejected on no tuning to the known answer; line-operators pin only Γ≤Z₆ (q∣6, not q=6).</td>
+</tr>
+<tr>
+<td><strong>"Anomaly cancellation selects the SM"</strong></td>
+<td><strong>DISSOLVED / false</strong></td>
+<td>A filter, not a determiner — any R⊕R̄ cancels ⇒ infinitely many anomaly-free spectra; <code>E_frozen ∈ ker O_SG4</code>, <strong>not</strong> <code>ker O_SG4 = {E_SM}</code>.</td>
+</tr>
+<tr>
+<td><strong>R4 mixed 't Hooft anomaly ξ_R4</strong></td>
+<td><strong>OPEN / computation-debt</strong></td>
+<td>STILL_SUBTLE; operative d₅=Q₁=βP¹; untwisted ℤ₃ survives; τ_K₆=(2,2) twist-correction the sole lever; <strong>no value, no hash</strong>; NOT-A-WALL (inert for the mass gap).</td>
+</tr>
+<tr>
+<td><strong>BV-BRST descent (UQF-4) + descent measure (UQF-7)</strong></td>
+<td><strong>AUDIT / NO-KNOWN-ROUTE</strong></td>
+<td>AXIOM-CLOSED only as an inherited-standard-QFT stance; not proven. Genuinely tracked in <code>OPEN_WALLS_REGISTER.md</code>.</td>
+</tr>
+<tr>
+<td><strong>Machine certs G03/G05</strong></td>
+<td><strong>AUDIT / BLOCKED</strong></td>
+<td>Not re-run; hand-reproducible mitigant.</td>
+</tr>
+<tr>
+<td><strong>Full 16/16 quantum-consistency coverage</strong></td>
+<td><strong>OPEN</strong></td>
+<td>~10/16 at certificate grade.</td>
+</tr>
+<tr>
+<td><strong>Whole SG-4 / Gate 4 roll-up</strong></td>
+<td><strong>OPEN</strong></td>
+<td>Least-closed residual governs: Z₆-finest + ξ_R4 + BV-BRST + 16/16 + certs all open.</td>
+</tr>
+</tbody>
+</table>
+<h2>§3. The six ledgers (witnesses)</h2>
+<ol>
+<li><code>[U(1)_Y]³ = ΣY³</code>: per-field <code>36·mult·Y³ = {1, −32, 4, −9, 36}</code> → <strong>0</strong>.</li>
+<li><code>[grav]²U(1)_Y = ΣY</code>: <code>{+1, −2, +1, −1, +1}</code> → <strong>0</strong>.</li>
+<li><code>[SU(2)]²U(1)_Y</code>: <code>3·(1/6) − 1/2 = 0</code>.</li>
+<li><code>[SU(3)]²U(1)_Y</code>: <code>2·(1/6) − 2/3 + 1/3 = 0</code>.</li>
+<li><code>[SU(3)]³</code>: colour vector-like (Q_L + uᶜ + dᶜ ⇒ 1−1) → <strong>0</strong>.</li>
+<li>Witten <code>[SU(2)]</code> mod-2: #doublets <code>= 3+1 = 4</code>, even → <strong>no anomaly</strong>.</li>
+</ol>
+<p>Diagnostic: <code>ΣY² = 10/3 ≠ 0</code> — the cancellation is <strong>specific</strong>, not an automatic consequence of a trivial sum.</p>
+<h2>§4. The factorization (why the re-scoping is honest, not a dodge)</h2>
+<p><code>O_SG4_local(E) ⊂ O_full_quantum(E)</code>, where <code>O_full_quantum = (O_SG4_local, O_BV-BRST, ξ_R4, …)</code>. SG-4 owns the
+<strong>local</strong> obstruction; BV-BRST descent + R4 are <strong>higher quantum-completion obstructions</strong> that genuinely
+<strong>exist as tracked open walls</strong> (UQF-4, UQF-7 under GENUINELY-OPEN-NO-ROUTE; R4 Tier-C, value UNKNOWN). They are
+kept <strong>loudly open with named obstructions</strong>, not buried inside SG-4 — that is what makes the factorization
+legitimate rather than a goalpost-move. The gate stays <strong>OPEN</strong> until they close.</p>
+<h2>§5. Honest one-line</h2>
+<blockquote>
+<p>SG-4's <strong>local gauge-representation admissibility</strong> is closed: <code>O_SG4_local(E_frozen)=0</code> (six anomaly
+ledgers DERIVED-GIVEN-E, Q=T₃+Y + Y∈(1/6)ℤ DERIVED-GIVEN-E given the AXIOM-CLOSED Z₆ table). The <strong>gate is
+OPEN</strong> on Z₆-finest-ness, ξ_R4, BV-BRST descent, 16/16 coverage, and the machine certs. SG-4 does <strong>not</strong>
+derive E and does <strong>not</strong> show anomaly cancellation selects the SM (DISSOLVED/false). Serious candidate, NOT validated.</p>
+</blockquote>
+</body></html>

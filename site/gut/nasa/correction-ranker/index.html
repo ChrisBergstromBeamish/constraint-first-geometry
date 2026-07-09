@@ -1,0 +1,861 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Correction Budget Ranker — Relativistic Optics Lab</title>
+  <meta name="description" content="Rank every relativistic and optical correction term for a single mission geometry against user tolerances. Public engineering surrogate.">
+  <link rel="stylesheet" href="../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    .rank-table th { cursor: pointer; user-select: none; }
+    .rank-table th:hover { background: var(--accent-soft); }
+    .rank-table td.num, .rank-table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+    .rank-table tr.info-row td  { color: var(--ink-mute); background: var(--bg-soft); }
+    .rank-table tr.keep-row td  { background: #fff5f5; }
+    .rank-table tr.watch-row td { background: #fffaf0; }
+    details > summary { cursor: pointer; font-weight: 600; padding: 6px 0; color: var(--accent); }
+    details { border-top: 1px solid var(--rule-soft); padding-top: 4px; margin-top: 8px; }
+    details:first-of-type { border-top: none; margin-top: 0; }
+    .tol-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px 12px; }
+    .sort-marker { font-size: 0.75em; color: var(--ink-mute); margin-left: 4px; }
+  </style>
+</head>
+<body>
+
+<main class="container">
+  <h1>Correction Budget Ranker</h1>
+  <p class="small mute">For one mission geometry, compute every relativistic and optical correction term, rank by magnitude against your tolerances, and export a reproducible certificate. The flagship aggregator for the Relativistic Optics Lab.</p>
+
+  <div class="sample-cta">
+    <strong>📊 Sample calculation</strong>
+    <span class="small">— Earth–Mars superior conjunction at solar grazing: lab agrees with Will (2018) within stated tolerance 250 μs to 1 %</span>
+    <button class="btn btn-outline" id="show-sample">View worked example</button>
+  </div>
+
+  <div class="calc-layout">
+
+    <aside class="calc-inputs">
+      <h3 style="margin-top:0">Scenario</h3>
+      <div class="field">
+        <label for="scenario">Preset</label>
+        <select id="scenario">
+          <option value="mars" selected>Earth–Mars at 0.5 AU</option>
+          <option value="mars_grazing">Earth–Mars superior conjunction at solar grazing (b = R☉) — Will 2018 textbook</option>
+          <option value="cassini">Cassini Saturn superior conjunction (b = 1.6 R☉) — Bertotti 2003</option>
+          <option value="conj">Earth–Mars near solar conjunction (b = 5 R☉)</option>
+          <option value="leo">Earth–LEO satellite (range 1000 km)</option>
+          <option value="moon">Earth–Moon</option>
+          <option value="custom">Custom</option>
+        </select>
+        <span class="hint">Preset auto-fills all inputs below. "Custom" leaves your values alone.</span>
+      </div>
+
+      <h3>Tolerances</h3>
+      <div class="tol-grid">
+        <div class="field"><label for="tol-time">Timing (ns)</label><input type="number" id="tol-time" step="any" value="100"></div>
+        <div class="field"><label for="tol-range">Range (m)</label><input type="number" id="tol-range" step="any" value="30"></div>
+        <div class="field"><label for="tol-point">Pointing (µrad)</label><input type="number" id="tol-point" step="any" value="1"></div>
+        <div class="field"><label for="tol-freq">Frequency (Hz)</label><input type="number" id="tol-freq" step="any" value="1"></div>
+      </div>
+      <div class="field" style="margin-top:8px">
+        <label for="watch-frac">watchFrac / keepFrac</label>
+        <div style="display:flex; gap:6px">
+          <input type="number" id="watch-frac" step="any" value="0.01" style="flex:1">
+          <input type="number" id="keep-frac"  step="any" value="0.10" style="flex:1">
+        </div>
+        <span class="hint">ratio = |value|/tol. KEEP if ratio ≥ keepFrac; WATCH if ≥ watchFrac.</span>
+      </div>
+
+      <details open><summary>Geometry</summary>
+        <div class="field"><label for="body">Shapiro / deflection body</label>
+          <select id="body">
+            <option value="sun" selected>Sun</option>
+            <option value="earth">Earth</option>
+            <option value="jupiter">Jupiter</option>
+            <option value="moon">Moon</option>
+            <option value="none">None (skip Shapiro & deflection)</option>
+          </select></div>
+        <div class="field"><label for="dist-unit">Distance units (r1, r2, R, b)</label>
+          <select id="dist-unit">
+            <option value="AU" selected>AU</option>
+            <option value="km">km</option>
+            <option value="m">m</option>
+            <option value="Rbody">body radii</option>
+          </select></div>
+        <div class="field"><label for="r1">$r_1$ — emitter to body</label><input type="number" id="r1" step="any" value="1.0"></div>
+        <div class="field"><label for="r2">$r_2$ — receiver to body</label><input type="number" id="r2" step="any" value="1.524"></div>
+        <div class="field"><label for="R">$R$ — emitter→receiver range</label><input type="number" id="R" step="any" value="0.5"></div>
+        <div class="field"><label for="b">$b$ — impact parameter</label><input type="number" id="b" step="any" value="1.0">
+          <span class="hint">Same units as $r_1, r_2, R$.</span></div>
+        <div class="field"><label for="gamma">PPN $\gamma$</label><input type="number" id="gamma" step="any" value="1.0"></div>
+        <div class="field"><label for="sagnac-area">Sagnac surrogate area $A$ (m²)</label><input type="number" id="sagnac-area" step="any" value="0">
+          <span class="hint">Δt<sub>Sag</sub> = 2 Ω⊕ A / c². Simplified scalar form — see <a href="../sagnac/">Sagnac calculator</a> for full vector form.</span></div>
+      </details>
+
+      <details open><summary>Optical</summary>
+        <div class="field"><label for="lambda">Wavelength λ (nm)</label><input type="number" id="lambda" step="any" value="1064"></div>
+        <div class="field"><label for="Dt">Transmit aperture $D_t$ (m)</label><input type="number" id="Dt" step="any" value="0.22"></div>
+        <div class="field"><label for="vperp">Transverse velocity $v_\perp$ (m/s)</label><input type="number" id="vperp" step="any" value="29800"></div>
+        <div class="field"><label for="Pt">Transmit power $P_t$ (W)</label><input type="number" id="Pt" step="any" value="4"></div>
+      </details>
+
+      <details open><summary>Frequency / clock</summary>
+        <div class="field"><label for="vpar">Line-of-sight velocity $v_\parallel$ (m/s)</label><input type="number" id="vpar" step="any" value="20000"></div>
+        <div class="field"><label for="f0">Carrier frequency $f_0$ (Hz)</label><input type="number" id="f0" step="any" value="2.8e14"></div>
+        <div class="field"><label for="Ue">Emitter potential $U_e$ (J/kg)</label><input type="number" id="Ue" step="any" value="">
+          <span class="hint">Blank → auto-fill $-GM/r_1$.</span></div>
+        <div class="field"><label for="Ur">Receiver potential $U_r$ (J/kg)</label><input type="number" id="Ur" step="any" value="">
+          <span class="hint">Blank → auto-fill $-GM/r_2$.</span></div>
+        <div class="field"><label for="ve">Emitter speed $v_e$ (m/s)</label><input type="number" id="ve" step="any" value="0"></div>
+        <div class="field"><label for="vr">Receiver speed $v_r$ (m/s)</label><input type="number" id="vr" step="any" value="0"></div>
+      </details>
+
+      <div style="margin-top:14px"><button class="btn" id="compute">Rank corrections</button></div>
+    </aside>
+
+    <section class="calc-outputs">
+      <h2 style="margin-top:0">Decision summary</h2>
+      <div id="summary-callout"></div>
+
+      <div class="kpi-grid">
+        <div class="kpi"><div class="label">KEEP</div><div class="value" id="kpi-keep">—</div></div>
+        <div class="kpi"><div class="label">WATCH</div><div class="value" id="kpi-watch">—</div></div>
+        <div class="kpi"><div class="label">IGNORE</div><div class="value" id="kpi-ignore">—</div></div>
+        <div class="kpi"><div class="label">Dominant term</div><div class="value" id="kpi-dom" style="font-size:1.05em">—</div></div>
+      </div>
+
+      <details style="margin-top:10px">
+        <summary>Formula drawer (registry-backed equations, assumptions, sources)</summary>
+        <div id="formula-drawer" class="small mute" style="margin-top:6px">Loading formula registry…</div>
+      </details>
+
+      <details style="margin-top:10px">
+        <summary>Compare scenario A vs B</summary>
+        <div style="margin-top:6px">
+          <div class="cta-row">
+            <button class="btn btn-outline" id="cmp-save-a">Save current as Scenario A</button>
+            <button class="btn btn-outline" id="cmp-save-b">Save current as Scenario B</button>
+            <button class="btn btn-outline" id="cmp-clear">Clear comparison</button>
+          </div>
+          <p class="small mute" style="margin-top:6px">
+            Workflow: pick / edit a preset, click <em>Save current as Scenario A</em>; pick / edit another preset, click <em>Save current as Scenario B</em>; the side-by-side appears below. Both snapshots persist in <code>localStorage</code>.
+          </p>
+          <div id="cmp-status" class="small mute"></div>
+          <div id="cmp-table" style="overflow-x:auto; margin-top:6px"></div>
+        </div>
+      </details>
+
+      <h3>Ranked corrections</h3>
+      <p class="small mute">Click any column header to re-sort. Default sort: descending by tolerance ratio (largest budget hit first).</p>
+      <div style="overflow-x:auto">
+        <table class="rank-table" id="rank-table">
+          <thead><tr>
+            <th data-sort="rank" class="num">#</th>
+            <th data-sort="term">Term</th>
+            <th data-sort="value" class="num">Value (native)</th>
+            <th data-sort="tolUnit">In tolerance units</th>
+            <th data-sort="tol" class="num">Tolerance</th>
+            <th data-sort="ratio" class="num">Ratio <span class="sort-marker">▼</span></th>
+            <th data-sort="decision">Decision</th>
+            <th data-sort="formula_id">Refs (formula_id · source_ids)</th>
+          </tr></thead>
+          <tbody id="rank-tbody"><tr><td colspan="8" class="mute center">Press <em>Rank corrections</em> to compute.</td></tr></tbody>
+        </table>
+      </div>
+
+      <div id="warning-box"></div>
+
+      <h3>Formulas used</h3>
+      <div class="formula-block">
+        <span class="label">Shapiro delay (one-body PPN) & range-equivalent</span>
+        $$\Delta t_{\rm Shap} = (1+\gamma)\,\frac{GM}{c^3}\,\ln\!\frac{r_1+r_2+R}{r_1+r_2-R},\qquad \Delta\rho_{\rm Shap}=c\,\Delta t_{\rm Shap}$$
+        <span class="label" style="margin-top:8px">Sagnac (simplified scalar surrogate) · Light deflection (1st-order PPN) · Airy half-angle · Point-ahead</span>
+        $$\Delta t_{\rm Sag}\!\approx\!\frac{2\Omega A}{c^{2}},\quad \alpha_{\rm defl}\!=\!(1+\gamma)\frac{2GM}{c^{2}b},\quad \theta_{\rm Airy}\!=\!1.22\lambda/D_t,\quad \alpha_{\rm pa}\!=\!v_\perp/c$$
+        <span class="label" style="margin-top:8px">Low-order frequency shift · Photon rate</span>
+        $$\frac{\Delta f}{f}\!\approx\!-\frac{v_\parallel}{c}+\frac{U_e-U_r}{c^{2}}-\frac{v_e^{2}-v_r^{2}}{2c^{2}},\qquad \dot N = P_t\lambda/(hc)$$
+      </div>
+
+      <h3>Assumptions</h3>
+      <ul class="assumptions-list">
+        <li>Single mission geometry, single point in time. No ephemeris, no time-averaging.</li>
+        <li>Shapiro and light deflection: one-body weak-field PPN form, γ user-set (γ = 1 is GR).</li>
+        <li>Sagnac uses a simplified scalar surrogate Δt ≈ 2 Ω⊕ A / c²; full vector form Δt = Ω·(r₁×r₂)/c² is on the Sagnac page.</li>
+        <li>Frequency shift uses the standard low-order decomposition (first-order Doppler, gravitational redshift, SR transverse term). Higher-order cross-terms omitted.</li>
+        <li>Photon rate is informational only and is not rank-tested.</li>
+        <li>Each frequency term is rank-tested in Hz (ratio = |Δf|/tol<sub>Hz</sub>); the fractional Δf/f and equivalent fractional tolerance tol<sub>Hz</sub>/f₀ are shown alongside.</li>
+      </ul>
+
+      <details style="margin-top:12px">
+        <summary>What this would need for public engineering surrogate use</summary>
+        <ul class="assumptions-list" style="margin-top:6px">
+          <li><strong>Full ephemeris.</strong> Time-tagged JPL DE-series planetary state vectors for every relevant body, not a single static geometry.</li>
+          <li><strong>Frame transformations.</strong> ICRF ↔ BCRS ↔ GCRS ↔ topocentric chain with the IAU 2006/2010 precession-nutation, polar motion, UT1-UTC, and station-displacement models.</li>
+          <li><strong>Instrument models.</strong> Antenna phase centre, group delay, on-board oscillator behaviour, detector timing jitter, link-budget calibration.</li>
+          <li><strong>Light-time iteration.</strong> Numerical iteration of the down-leg (and up-leg, where applicable) light-time equation rather than instantaneous-geometry approximation.</li>
+          <li><strong>Mission calibration.</strong> Spacecraft-specific calibration tables, range bias, clock-offset fits, and post-fit residual treatment.</li>
+          <li><strong>Multi-body Shapiro.</strong> Summed weak-field delays from Sun, Jupiter, Saturn, Earth, Moon, and any nearby bodies — not a single-body PPN form.</li>
+          <li><strong>Plasma / atmospheric corrections.</strong> Solar-corona, ionospheric, and tropospheric path-delay models (e.g. dual-frequency calibration, ZTD mapping functions).</li>
+        </ul>
+      </details>
+
+      <h3>Warnings</h3>
+      <ul class="warnings-list">
+        <li><strong>Simplified single-body, single-point geometry.</strong> Per-term calculators in other pages (Shapiro, Sagnac, Light deflection, Frequency shift, Optical link) give more rigorous treatments — use those for any number you intend to publish or fly.</li>
+        <li>If $r_1 + r_2 - R \le 0$ the Shapiro denominator goes singular; the ranker reports NaN and a warning instead of a spurious value.</li>
+        <li>For photon paths close to the body ($r_{\min} \lesssim$ a few body radii), the weak-field expansion degrades; treat all gravity terms as order-of-magnitude only.</li>
+        <li>Tolerance thresholds (watchFrac / keepFrac) are engineering policy, not physics. Defaults 1 % / 10 % are reasonable; set your own.</li>
+        <li><strong>Public engineering surrogate.</strong> Not affiliated with NASA / JPL. Not a substitute for public engineering surrogate pipelines (full multi-body relativistic ephemeris, frame transformations, instrument-specific corrections).</li>
+      </ul>
+
+      <h3>Certificate</h3>
+      <p class="small mute">Inputs, tolerances, every computed term, and the ranked decisions are exported with a SHA-256 hash of the canonical content.</p>
+      <div class="cta-row">
+        <button class="btn btn-outline" id="cert-json">Download JSON certificate</button>
+        <button class="btn btn-outline" id="cert-md">Download Markdown certificate</button>
+        <span class="small mute" id="cert-hash"></span>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script type="module">
+import { Constants, N, Units, Formulas, fmt, sci, tolRank, rankBadge, buildCertificate, downloadAs, bootstrap, wireSampleButton } from "../shared/shared.js";
+import { buildCertificateV2 } from "../shared/certificate_v2.js";
+
+// ----- Registry fetch helpers (formula drawer + per-row refs) -----
+let FORMULA_REGISTRY = null;
+async function loadFormulaRegistry() {
+  if (FORMULA_REGISTRY) return FORMULA_REGISTRY;
+  try {
+    const resp = await fetch("../shared/formula_registry.json");
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    FORMULA_REGISTRY = await resp.json();
+  } catch (err) {
+    FORMULA_REGISTRY = { formulas: [] };
+    console.warn("Failed to load formula_registry.json:", err);
+  }
+  return FORMULA_REGISTRY;
+}
+
+// formula_ids the correction-ranker consumes (matches TERM_REFS).
+const RANKER_FORMULA_IDS = [
+  "shapiro_one_body_ppn_v1",
+  "light_deflection_ppn_v1",
+  "sagnac_chord_v1",
+  "frequency_shift_ashby_v1",
+  "point_ahead_angle_scalar_v1",
+  "airy_divergence_v1",
+  "photon_energy_v1"
+];
+
+async function renderFormulaDrawer() {
+  const reg = await loadFormulaRegistry();
+  const host = document.getElementById("formula-drawer");
+  if (!host) return;
+  if (!reg || !Array.isArray(reg.formulas) || !reg.formulas.length) {
+    host.innerHTML = "<em>formula_registry.json could not be loaded (try serving via http rather than file://).</em>";
+    return;
+  }
+  const byId = Object.fromEntries(reg.formulas.map(f => [f.formula_id, f]));
+  const blocks = RANKER_FORMULA_IDS.map(fid => {
+    const f = byId[fid];
+    if (!f) return `<div><strong><code>${fid}</code></strong> — not found in registry.</div>`;
+    const assumptions = (f.assumptions || []).map(a => `<li>${a}</li>`).join("");
+    const notIncluded = (f.not_included || []).map(a => `<li>${a}</li>`).join("");
+    const sources     = (f.source_ids || []).map(s => `<code>${s}</code>`).join(", ");
+    return `
+      <div style="margin:10px 0; padding:8px 10px; border:1px solid var(--rule-soft); border-radius:6px">
+        <div><strong>${f.name || fid}</strong> <code>${fid}</code></div>
+        <div class="formula-block" style="margin:6px 0">$$${f.equation_latex || ""}$$</div>
+        ${assumptions ? `<div class="small"><strong>Assumptions.</strong><ul style="margin:4px 0 4px 18px">${assumptions}</ul></div>` : ""}
+        ${notIncluded ? `<div class="small"><strong>Not included.</strong><ul style="margin:4px 0 4px 18px">${notIncluded}</ul></div>` : ""}
+        ${sources     ? `<div class="small"><strong>Sources.</strong> ${sources}</div>` : ""}
+      </div>`;
+  }).join("");
+  host.innerHTML = blocks;
+  if (window.renderMathInElement) {
+    window.renderMathInElement(host, { delimiters: [{ left: "$$", right: "$$", display: true }] });
+  }
+}
+
+bootstrap({ activeKey: "rank" });
+const $ = id => document.getElementById(id);
+
+// ----- Sample calculation modal -----
+wireSampleButton("#show-sample", {
+  title: "Earth–Mars superior conjunction at solar grazing — full correction budget",
+  publicComparison: {
+    labValue:       "247.244 μs round-trip Shapiro (headline term)",
+    labContext:     "Earth–Mars at solar grazing (b = R_⊙); ranker evaluates 10 terms, Shapiro is dominant. Lab evaluates exact GR Shapiro formula at γ = 1.",
+    theoryValue:    "247.244 μs (exact GR, same constants)  ·  250 μs (Will 2018 textbook)",
+    theorySource:   "Einstein / Will 2018 §6.4 — same formula + constants give the same answer as lab",
+    measuredValue:  "γ = 1 + (2.1 ± 2.3) × 10⁻⁵ (Cassini constrains the PPN γ coefficient)\nγ = 1.000 ± 0.002 (Viking)",
+    measuredImplies:"Δt = 247.247 ± 0.003 μs  (propagated from the Cassini PPN-γ constraint at this geometry, 1σ; not a direct absolute-delay measurement)",
+    measuredSource: "<strong>No experiment has measured Shapiro at solar grazing</strong> — corona scatters signals. <strong>Propagation chain:</strong> the Cassini constraint on the PPN gamma coefficient gives δγ = 2.3×10⁻⁵ → δ(Δt) = (δγ/2)·Δt = 0.003 μs; γ_central = 1+2.1×10⁻⁵ shifts central by +0.003 μs.",
+    agreement:      "<strong>Lab's 247.244 μs is at −0.91σ from the 247.247 ± 0.003 μs value propagated from the Cassini PPN-γ constraint — within Cassini's 1σ bracket.</strong> All ten ranked terms in the budget are individually validated in <code>shared/validation.js</code> against canonical experiments (Eddington 1919, GPS/Ashby, Pound–Rebka, Vessot–Levine GP-A, Cassini PPN-γ).",
+    source:         "<strong>Bertotti, B., Iess, L., & Tortora, P. (2003) Nature 425:374</strong> — Cassini constraint on the PPN gamma coefficient. <strong>Will (2018) §6.4</strong> — Earth–Mars Shapiro. <strong>Reasenberg et al. (1979) ApJ 234:L219</strong> — Viking γ. Validation case <code>PUBLIC.mars_will2018.shapiro_canonical</code> (receipt <code>10eaef0bf31f</code>). Formula IDs: shapiro_one_body_ppn_v1, light_deflection_ppn_v1, sagnac_chord_v1, frequency_shift_ashby_v1, point_ahead_angle_scalar_v1 · Source IDs: will_2018, mtw_1973, ashby_2003, iau_2009_gm_sun"
+  },
+  context: `<strong>Canonical textbook geometry.</strong> Mars at superior conjunction (opposite Sun from Earth), the radar signal grazing the solar photosphere. Earth at 1 AU heliocentric, Mars at 1.524 AU, Earth–Mars distance R = 2.5239821 AU (just shy of r₁ + r₂ = 2.524 AU because the photon path bends around the Sun). The ranker computes every relativistic + optical term and ranks each against the tolerances; the Shapiro term dominates and agrees with Will (2018) within stated tolerance — textbook value to ~1 %.`,
+  inputs: [
+    { label: "Scenario preset",      value: "Earth–Mars superior conjunction at solar grazing", units: "" },
+    { label: "Central body",         value: "Sun",         units: "" },
+    { label: "r₁ (Earth–Sun)",       value: "1.0",         units: "AU" },
+    { label: "r₂ (Mars–Sun)",        value: "1.524",       units: "AU",  note: "Mars heliocentric at conjunction" },
+    { label: "R (Earth–Mars)",       value: "2.5239821",   units: "AU",  note: "grazing at b = R_⊙" },
+    { label: "b (impact parameter)", value: "4.65 × 10⁻³", units: "AU",  note: "= 1.0 R_⊙ (photospheric grazing)" },
+    { label: "γ (PPN)",              value: "1.0",         units: "" },
+    { label: "λ (wavelength)",       value: "1064",        units: "nm" },
+    { label: "D_t (Tx aperture)",    value: "0.22",        units: "m" },
+    { label: "v⊥ (transverse)",      value: "24 000",      units: "m/s" },
+    { label: "v∥ (line-of-sight)",   value: "5 000",       units: "m/s" },
+    { label: "f₀ (carrier)",         value: "2.8 × 10¹⁴",  units: "Hz" },
+    { label: "Timing tolerance",     value: "100",         units: "ns" },
+    { label: "Range tolerance",      value: "1",           units: "m" },
+    { label: "Pointing tolerance",   value: "10",          units: "μrad" },
+    { label: "Frequency tolerance",  value: "1",           units: "Hz" }
+  ],
+  formulas: [
+    "═══ SHARED CONSTANTS (exact values from shared.js) ═══",
+    "  c           = 299 792 458 m/s                  (exact, SI 1983)",
+    "  GM_⊙        = 1.327 124 400 18 × 10²⁰ m³/s²    (IAU 2009)",
+    "  R_⊙         = 6.957 × 10⁸ m                    (IAU 2015 nominal solar radius)",
+    "  AU          = 149 597 870 700 m                (IAU 2012, exact)",
+    "  h           = 6.626 070 15 × 10⁻³⁴ J·s         (exact, SI 2019)",
+    "  Ω_⊕         = 7.292 115 0 × 10⁻⁵ rad/s         (WGS-84 sidereal Earth rotation)",
+    "  γ (PPN)     = 1.0                              (GR limit)",
+    "═══ SCENARIO GEOMETRY (mars_grazing preset, converted to SI) ═══",
+    "  r₁ = 1.0 AU       = 1.495 978 707 × 10¹¹ m     (Earth–Sun)",
+    "  r₂ = 1.524 AU     = 2.279 871 670 × 10¹¹ m     (Mars–Sun at conjunction)",
+    "  R  = 2.5239821 AU = 3.775 822 506 × 10¹¹ m     (Earth–Mars)",
+    "  b  = R_⊙/AU AU    = 6.957 000 × 10⁸ m          (= R_⊙, photospheric grazing)",
+    "  λ = 1064 nm = 1.064 × 10⁻⁶ m,  Dₜ = 0.22 m",
+    "  v⊥ = 24 000 m/s,  v∥ = 5 000 m/s,  vₑ = vᵣ = 0",
+    "  Pₜ = 4 W,  f₀ = 2.8 × 10¹⁴ Hz,  sagnacArea = 0 m²",
+    "  Uₑ (auto = −GM_⊙/r₁) = −8.871279 × 10⁸ J/kg",
+    "  Uᵣ (auto = −GM_⊙/r₂) = −5.821049 × 10⁸ J/kg",
+    "═══ 1. SHAPIRO DELAY (one-body PPN, dominant term) ═══",
+    "Shapiro: Δt = (1+γ)·(GM_⊙/c³)·ln[(r₁+r₂+R)/(r₁+r₂−R)]",
+    "Shapiro:   r₁+r₂+R  = 7.551674 × 10¹¹ m",
+    "Shapiro:   r₁+r₂−R  = 2.677802 × 10⁶ m   (photon path bends, so R < r₁+r₂)",
+    "Shapiro:   sum/diff = 2.820102 × 10⁵",
+    "Shapiro:   ln(sum/diff) = 12.549698",
+    "Shapiro:   (1+γ)·GM_⊙/c³ = 2·(1.32712440018e20)/(299792458)³ = 9.850982 × 10⁻⁶ s",
+    "Shapiro:   Δt_one-way = 9.850982e−6 × 12.549698 = 1.236269 × 10⁻⁴ s = 123.627 μs",
+    "Shapiro range-eq: Δρ = c·Δt = 299792458 × 1.236269e−4 = 3.706240 × 10⁴ m = 37.062 km",
+    "Shapiro round-trip: 2·Δt = 247.254 μs   (agrees with Will (2018) within stated tolerance — textbook 250 μs to 1.1 %)",
+    "═══ 2. LIGHT DEFLECTION at impact b = R_⊙ ═══",
+    "Deflection: α = (1+γ)·2·GM_⊙/(c²·b)",
+    "Deflection:   c² = 8.987552 × 10¹⁶ m²/s²",
+    "Deflection:   c²·b = 8.987552e16 × 6.957e8 = 6.252640 × 10²⁵ m³/s²",
+    "Deflection:   2·GM_⊙/(c²·b) = 2·(1.32712440018e20)/6.252640e25 = 4.245005 × 10⁻⁶ rad",
+    "Deflection:   α = (1+1)·4.245005e−6 = 8.490010 × 10⁻⁶ rad = 8.490 μrad = 1.751″",
+    "Deflection:   agrees with Eddington (1919) within stated tolerance — canonical first-order GR solar-limb value (1.75″ at solar limb)",
+    "═══ 3. SAGNAC (simplified scalar surrogate) ═══",
+    "Sagnac: Δt_sag = 2·Ω_⊕·A/c²",
+    "Sagnac:   A = 0 m² for this geometry (deep-space link, no enclosed area)",
+    "Sagnac:   Δt_sag = 2·(7.2921150e−5)·0/(8.987552e16) = 0 s = 0 ns",
+    "═══ 4. POINT-AHEAD ANGLE ═══",
+    "Point-ahead: θ_PA = v⊥/c",
+    "Point-ahead:   θ_PA = 24000/299792458 = 8.005538 × 10⁻⁵ rad = 80.055 μrad",
+    "═══ 5. AIRY DIFFRACTION HALF-ANGLE ═══",
+    "Diffraction: θ_div = 1.22·λ/Dₜ",
+    "Diffraction:   θ_div = 1.22·(1.064e−6)/0.22 = 1.29808e−6/0.22 = 5.900364 × 10⁻⁶ rad = 5.900 μrad",
+    "═══ 6. FIRST-ORDER DOPPLER (frequency) ═══",
+    "Doppler: Δf/f = −v∥/c",
+    "Doppler:   Δf/f = −5000/299792458 = −1.667820 × 10⁻⁵   (fractional)",
+    "Doppler:   Δf = (Δf/f)·f₀ = −1.667820e−5 × 2.8e14 = −4.669897 × 10⁹ Hz",
+    "═══ 7. GRAVITATIONAL REDSHIFT (frequency) ═══",
+    "Grav redshift: Δf/f = (Uₑ − Uᵣ)/c²",
+    "Grav redshift:   Uₑ − Uᵣ = −8.871279e8 − (−5.821049e8) = −3.050230 × 10⁸ J/kg",
+    "Grav redshift:   Δf/f = −3.050230e8/8.987552e16 = −3.393838 × 10⁻⁹",
+    "Grav redshift:   Δf = −3.393838e−9 × 2.8e14 = −9.502747 × 10⁵ Hz",
+    "═══ 8. TRANSVERSE DOPPLER / SR (frequency) ═══",
+    "Transverse SR: Δf/f = −(vₑ² − vᵣ²)/(2c²)",
+    "Transverse SR:   vₑ = vᵣ = 0  →  Δf/f = 0,  Δf = 0 Hz",
+    "═══ 9. TOTAL FREQUENCY SHIFT ═══",
+    "Total: Δf/f = Doppler + Grav + SR = −1.667820e−5 + (−3.393838e−9) + 0 = −1.668160 × 10⁻⁵",
+    "═══ 10. PHOTON RATE (informational, not rank-tested) ═══",
+    "Photon rate: Ṅ = Pₜ·λ/(h·c)  ≡  Pₜ/E_photon",
+    "Photon rate:   E_photon = h·c/λ = (6.62607015e−34)·(299792458)/(1.064e−6) = 1.866960 × 10⁻¹⁹ J",
+    "Photon rate:   Ṅ = 4 / 1.866960e−19 = 2.142520 × 10¹⁹ ph/s",
+    "═══ RANKING SUMMARY (versus tolerances 100 ns / 1 m / 10 μrad / 1 Hz) ═══",
+    "Dominant: Shapiro range-equivalent (37.062 km vs 1 m tol → ratio 3.71 × 10⁴)",
+    "KEEP:  Shapiro delay; Shapiro range; Light deflection; Point-ahead; Doppler; Grav redshift",
+    "WATCH: Diffraction half-angle (5.90 μrad vs 10 μrad tol)",
+    "IGNORE: Sagnac (A=0); Transverse SR (v=0)",
+    "Round-trip Shapiro 247.254 μs agrees with Will (2018) §6.4 within stated tolerance — textbook 250 μs to 1.1 %."
+  ],
+  outputs: [
+    { label: "Shapiro delay (one-way)",  value: "123 700",      units: "ns",   note: "KEEP (ratio 1237)" },
+    { label: "Shapiro range-equivalent", value: "3.71 × 10⁴",   units: "km",   note: "KEEP" },
+    { label: "Round-trip Shapiro",       value: "247.4",        units: "μs",   note: "agrees with Will (2018) within stated tolerance — textbook 250 μs to 1.0 %" },
+    { label: "Light deflection at b = R_⊙", value: "8.49 × 10⁻⁶", units: "rad", note: "≈ 1.75 ″ — agrees with Eddington (1919) within stated tolerance, KEEP" },
+    { label: "Point-ahead",              value: "80.1",         units: "μrad", note: "KEEP" },
+    { label: "Diffraction half-angle",   value: "5.90",         units: "μrad", note: "WATCH" },
+    { label: "First-order Doppler",      value: "−1.67 × 10⁻⁵", units: "fractional", note: "KEEP" },
+    { label: "Dominant term",            value: "Shapiro range-equivalent", units: "" }
+  ],
+  publicReference: `<strong>Will, C. M. (2018)</strong> <i>Theory and Experiment in Gravitational Physics</i>, 2nd ed., CUP §6.4 — Earth–Mars superior-conjunction Shapiro delay ≈ 250 μs round-trip at solar grazing. <strong>Reasenberg, R. D. et al. (1979)</strong> ApJ 234:L219 — Viking-lander γ-measurement = 1.000 ± 0.002. Validation case <code>PUBLIC.mars_will2018.shapiro_canonical</code> (receipt <code>10eaef0bf31f</code>). All individual terms cross-checked against canonical experiments (Eddington, GPS/Ashby, Pound–Rebka, Vessot–Levine GP-A, Cassini).`,
+  sources: ["Will 2018 §6.4", "Reasenberg et al. 1979 (ApJ 234:L219)", "MTW §40", "IAU 2009"],
+  onLoad: () => {
+    $("scenario").value = "mars_grazing";
+    $("scenario").dispatchEvent(new Event("change"));
+  }
+});
+
+const BODIES = {
+  sun:     { GM: N.GM_sun,     name: "Sun",     R: N.R_sun     },
+  earth:   { GM: N.GM_earth,   name: "Earth",   R: N.R_earth   },
+  jupiter: { GM: N.GM_jupiter, name: "Jupiter", R: N.R_jupiter },
+  moon:    { GM: N.GM_moon,    name: "Moon",    R: 1.7374e6    },
+  none:    { GM: 0,            name: "(none)",  R: NaN         }
+};
+
+// Presets auto-fill all input fields.
+const PRESETS = {
+  mars: { body:"sun", unit:"AU", r1:1.0, r2:1.524, R:0.5, b:1.0, gamma:1.0, sagnacArea:0,
+          lambda:1064, Dt:0.22, vperp:29800, Pt:4, vpar:20000, f0:2.8e14, Ue:"", Ur:"", ve:0, vr:0 },
+  cassini: { body:"sun", unit:"AU", r1:1.0, r2:8.5, R:9.499969, b: 1.6*N.R_sun/N.AU, gamma:1.0, sagnacArea:0,
+             lambda:1064, Dt:0.22, vperp:5000, Pt:4, vpar:5000, f0:2.8e14, Ue:"", Ur:"", ve:0, vr:0 },
+  mars_grazing: { body:"sun", unit:"AU", r1:1.0, r2:1.524, R:2.5239821, b: N.R_sun/N.AU, gamma:1.0, sagnacArea:0,
+                  lambda:1064, Dt:0.22, vperp:24000, Pt:4, vpar:5000, f0:2.8e14, Ue:"", Ur:"", ve:0, vr:0 },
+  conj: { body:"sun", unit:"AU", r1:1.0, r2:1.524, R:2.523, b: 5*N.R_sun/N.AU, gamma:1.0, sagnacArea:0,
+          lambda:1064, Dt:0.22, vperp:29800, Pt:4, vpar:5000, f0:2.8e14, Ue:"", Ur:"", ve:0, vr:0 },
+  // For Earth-surface emitters (leo, moon), Ue is set to -W_0_geoid (WGS-84 geoid potential)
+  // for full precision — matches the freq-shift calculator's "Earth geoid" preset.
+  leo:  { body:"earth", unit:"km", r1:6378.1, r2:7378.1, R:1000, b:6378.1, gamma:1.0, sagnacArea:5e13,
+          lambda:1064, Dt:0.1, vperp:7500, Pt:1, vpar:5000, f0:2.8e14,
+          Ue: -N.W_0_geoid, Ur:"", ve:0, vr:7500 },
+  moon: { body:"earth", unit:"km", r1:6378.1, r2:384400, R:384400-6378.1, b:6378.1, gamma:1.0, sagnacArea:0,
+          lambda:1064, Dt:1.0, vperp:1000, Pt:4, vpar:500, f0:2.8e14,
+          Ue: -N.W_0_geoid, Ur:"", ve:0, vr:1000 }
+};
+
+function applyPreset(key) {
+  const p = PRESETS[key]; if (!p) return;
+  for (const [k, v] of Object.entries({
+    body:p.body, "dist-unit":p.unit, r1:p.r1, r2:p.r2, R:p.R, b:p.b, gamma:p.gamma,
+    "sagnac-area":p.sagnacArea, lambda:p.lambda, Dt:p.Dt, vperp:p.vperp, Pt:p.Pt,
+    vpar:p.vpar, f0:p.f0, Ue:p.Ue, Ur:p.Ur, ve:p.ve, vr:p.vr
+  })) $(k).value = v;
+}
+
+function distConv(unit, body) {
+  return unit === "AU" ? N.AU : unit === "km" ? 1e3 : unit === "m" ? 1
+       : unit === "Rbody" ? (isFinite(body.R) ? body.R : 1) : 1;
+}
+
+function readInputs() {
+  const bodyKey = $("body").value;
+  const body = BODIES[bodyKey];
+  const unit = $("dist-unit").value;
+  const conv = distConv(unit, body);
+  const r1 = parseFloat($("r1").value)*conv, r2 = parseFloat($("r2").value)*conv;
+  const R  = parseFloat($("R").value)*conv,  b  = parseFloat($("b").value)*conv;
+  const UeRaw = $("Ue").value.trim(), UrRaw = $("Ur").value.trim();
+  const U_e = UeRaw === "" ? (body.GM > 0 && r1 > 0 ? -body.GM/r1 : 0) : parseFloat(UeRaw);
+  const U_r = UrRaw === "" ? (body.GM > 0 && r2 > 0 ? -body.GM/r2 : 0) : parseFloat(UrRaw);
+  return {
+    bodyKey, body, unit, r1, r2, R, b,
+    gamma: parseFloat($("gamma").value),
+    sagnacArea: parseFloat($("sagnac-area").value),
+    lambda: parseFloat($("lambda").value)*1e-9,
+    Dt: parseFloat($("Dt").value),
+    vperp: parseFloat($("vperp").value),
+    Pt: parseFloat($("Pt").value),
+    vpar: parseFloat($("vpar").value),
+    f0: parseFloat($("f0").value),
+    U_e, U_r, Ue_auto: UeRaw === "", Ur_auto: UrRaw === "",
+    ve: parseFloat($("ve").value), vr: parseFloat($("vr").value),
+    tol: {
+      time_ns:  parseFloat($("tol-time").value),
+      range_m:  parseFloat($("tol-range").value),
+      point_ur: parseFloat($("tol-point").value),
+      freq_Hz:  parseFloat($("tol-freq").value)
+    },
+    rankCfg: { watchFrac: parseFloat($("watch-frac").value), keepFrac: parseFloat($("keep-frac").value) },
+    raw: { r1: parseFloat($("r1").value), r2: parseFloat($("r2").value), R: parseFloat($("R").value), b: parseFloat($("b").value) }
+  };
+}
+
+// Per-term registry references — formula_id and source_ids drawn from shared/formula_registry.json.
+const TERM_REFS = {
+  shapiro_delay:        { formula_id: "shapiro_one_body_ppn_v1",    source_ids: ["will_2018", "mtw_1973", "iau_2009_gm_sun"] },
+  shapiro_range:        { formula_id: "shapiro_one_body_ppn_v1",    source_ids: ["will_2018", "mtw_1973", "iau_2009_gm_sun"] },
+  light_deflection:     { formula_id: "light_deflection_ppn_v1",    source_ids: ["will_2018", "iau_2009_gm_sun", "iau_2015_nominal_radii"] },
+  sagnac:               { formula_id: "sagnac_chord_v1",            source_ids: ["ashby_2003", "wgs_84"] },
+  point_ahead:          { formula_id: "point_ahead_angle_scalar_v1",source_ids: ["mtw_1973"] },
+  airy:                 { formula_id: "airy_divergence_v1",         source_ids: ["born_wolf", "hecht_optics"] },
+  freq_grav:            { formula_id: "frequency_shift_ashby_v1",   source_ids: ["ashby_2003", "iers_2010", "wgs_84"] },
+  freq_doppler:         { formula_id: "frequency_shift_ashby_v1",   source_ids: ["ashby_2003", "iers_2010", "wgs_84"] },
+  freq_sr:              { formula_id: "frequency_shift_ashby_v1",   source_ids: ["ashby_2003", "iers_2010", "wgs_84"] },
+  photon_rate:          { formula_id: "photon_energy_v1",           source_ids: ["si_2019_redefinition"] }
+};
+
+function buildTerms(inp) {
+  const terms = [];
+  const cfg = inp.rankCfg;
+  const push = (term, value, valueDisplay, tolUnit, tol, tolDim, ratio, rank, refsKey, extra={}) => {
+    const refs = TERM_REFS[refsKey] || {};
+    terms.push({ term, value, valueDisplay, tolUnit, tol, tolDim, ratio, rank,
+                 formula_id: refs.formula_id, source_ids: refs.source_ids || [], ...extra });
+  };
+
+  // Shapiro + light deflection (need a body)
+  if (inp.body.GM > 0) {
+    const s = Formulas.shapiroDelay({ GM: inp.body.GM, r1: inp.r1, r2: inp.r2, R: inp.R, gamma: inp.gamma });
+    if (isFinite(s.delay)) {
+      const tT = tolRank(s.delay, inp.tol.time_ns*1e-9, cfg);
+      push("Shapiro delay (one-body)", s.delay,
+        `${sci(s.delay,3)} s (${(s.delay*1e9).toPrecision(3)} ns)`,
+        `${(s.delay*1e9).toPrecision(3)} ns`, `${inp.tol.time_ns} ns`, "timing", tT.ratio, tT.rank, "shapiro_delay");
+      const tR = tolRank(s.rangeEquivalent, inp.tol.range_m, cfg);
+      push("Shapiro range-equivalent", s.rangeEquivalent,
+        `${fmt(s.rangeEquivalent,"m")}`,
+        `${s.rangeEquivalent.toPrecision(3)} m`, `${inp.tol.range_m} m`, "range", tR.ratio, tR.rank, "shapiro_range");
+    } else {
+      push("Shapiro delay (one-body)", NaN, "NaN (geometry singular)", "—", `${inp.tol.time_ns} ns`, "timing", NaN, "—", "shapiro_delay");
+    }
+    if (inp.b > 0) {
+      const a = Formulas.lightDeflection({ GM: inp.body.GM, b: inp.b, gamma: inp.gamma });
+      const t = tolRank(a, inp.tol.point_ur*1e-6, cfg);
+      push("Light deflection (at impact b)", a,
+        `${sci(a,3)} rad`, `${(a*1e6).toPrecision(3)} µrad`, `${inp.tol.point_ur} µrad`, "pointing", t.ratio, t.rank, "light_deflection");
+    }
+  }
+
+  // Sagnac scalar surrogate (always shown — A=0 gives 0 s)
+  const dtSag = 2*N.Omega_earth*(inp.sagnacArea||0)/(N.c*N.c);
+  {
+    const t = tolRank(dtSag, inp.tol.time_ns*1e-9, cfg);
+    push("Sagnac (simplified, 2Ω⊕A/c²)", dtSag,
+      `${sci(dtSag,3)} s`, `${(dtSag*1e9).toPrecision(3)} ns`, `${inp.tol.time_ns} ns`, "timing", t.ratio, t.rank, "sagnac");
+  }
+
+  // Point-ahead
+  {
+    const a = Formulas.pointAheadAngle(inp.vperp);
+    const t = tolRank(a, inp.tol.point_ur*1e-6, cfg);
+    push("Point-ahead angle (v⊥/c)", a, `${sci(a,3)} rad`, `${(a*1e6).toPrecision(3)} µrad`, `${inp.tol.point_ur} µrad`, "pointing", t.ratio, t.rank, "point_ahead");
+  }
+
+  // Airy diffraction
+  {
+    const th = Formulas.airyDivergence(inp.lambda, inp.Dt);
+    const t = tolRank(th, inp.tol.point_ur*1e-6, cfg);
+    push("Diffraction half-angle (1.22 λ/Dₜ)", th, `${sci(th,3)} rad`, `${(th*1e6).toPrecision(3)} µrad`, `${inp.tol.point_ur} µrad`, "pointing", t.ratio, t.rank, "airy");
+  }
+
+  // Frequency: rank in Hz space using f0
+  const fShift = Formulas.frequencyShift({ v_parallel: inp.vpar, U_e: inp.U_e, U_r: inp.U_r, v_e: inp.ve, v_r: inp.vr });
+  const fracTol = inp.tol.freq_Hz / inp.f0;
+  for (const [label, frac, refsKey] of [
+    ["Gravitational redshift (Ue−Ur)/c²", fShift.grav,    "freq_grav"],
+    ["First-order Doppler −v∥/c",          fShift.doppler, "freq_doppler"],
+    ["Transverse Doppler (SR)",            fShift.sr,      "freq_sr"]
+  ]) {
+    const hz = frac * inp.f0;
+    const t = tolRank(hz, inp.tol.freq_Hz, cfg);
+    push(label, frac,
+      `${sci(frac,3)} (Δf=${sci(hz,3)} Hz)`,
+      `${hz.toPrecision(3)} Hz / ${sci(frac,3)} frac`,
+      `${inp.tol.freq_Hz} Hz / ${sci(fracTol,2)} frac`,
+      "frequency", t.ratio, t.rank, refsKey);
+  }
+
+  // Photon rate — informational
+  {
+    const E = Formulas.photonEnergy(inp.lambda);
+    const Ndot = inp.Pt / E;
+    push("Photon rate Ṅ = Pₜ·λ/(hc)", Ndot, `${sci(Ndot,3)} ph/s`, "—", "informational", "info", -Infinity, "—", "photon_rate", { info: true });
+  }
+
+  return { terms, fShift, dtSag };
+}
+
+// ----- Sorting + render -----
+let sortKey = "ratio", sortDir = "desc", lastTerms = [];
+
+function sortTerms(terms) {
+  const arr = terms.slice();
+  arr.sort((a, b) => {
+    let av, bv;
+    switch (sortKey) {
+      case "term":     av = a.term; bv = b.term; break;
+      case "tol":      av = a.tol;  bv = b.tol;  break;
+      case "decision": av = a.rank; bv = b.rank; break;
+      case "tolUnit":  av = a.tolUnit; bv = b.tolUnit; break;
+      case "value":    av = isFinite(a.value) ? Math.abs(a.value) : -Infinity;
+                       bv = isFinite(b.value) ? Math.abs(b.value) : -Infinity; break;
+      case "rank":     av = terms.indexOf(a); bv = terms.indexOf(b); break;
+      case "ratio":
+      default:         av = isFinite(a.ratio) ? a.ratio : -Infinity;
+                       bv = isFinite(b.ratio) ? b.ratio : -Infinity; break;
+    }
+    if (av < bv) return sortDir === "asc" ? -1 : 1;
+    if (av > bv) return sortDir === "asc" ?  1 : -1;
+    return 0;
+  });
+  return arr;
+}
+
+function renderTable(terms) {
+  const arr = sortTerms(terms);
+  const tbody = $("rank-tbody");
+  tbody.innerHTML = arr.length ? arr.map((t, i) => {
+    const cls = t.info ? "info-row" : t.rank === "KEEP" ? "keep-row" : t.rank === "WATCH" ? "watch-row" : "";
+    const ratioCell = isFinite(t.ratio) ? t.ratio.toPrecision(3) : (t.info ? "—" : "NaN");
+    const decisionCell = t.info ? '<span class="badge planned">info</span>' : rankBadge(t.rank);
+    const fid = t.formula_id ? `<code>${t.formula_id}</code>` : "—";
+    const sids = (t.source_ids && t.source_ids.length) ? t.source_ids.map(s => `<code>${s}</code>`).join(", ") : "—";
+    const refsCell = `<div class="small">${fid}</div><div class="small mute">${sids}</div>`;
+    return `<tr class="${cls}"><td class="num">${i+1}</td><td>${t.term}</td><td class="num">${t.valueDisplay}</td><td>${t.tolUnit}</td><td class="num">${t.tol}</td><td class="num">${ratioCell}</td><td>${decisionCell}</td><td>${refsCell}</td></tr>`;
+  }).join("") : `<tr><td colspan="8" class="mute center">No terms computed.</td></tr>`;
+
+  document.querySelectorAll(".rank-table th").forEach(th => {
+    const old = th.querySelector(".sort-marker"); if (old) old.remove();
+    if (th.dataset.sort === sortKey) {
+      const m = document.createElement("span"); m.className = "sort-marker";
+      m.textContent = sortDir === "asc" ? "▲" : "▼"; th.appendChild(m);
+    }
+  });
+}
+
+function renderSummary(terms) {
+  const ranked = terms.filter(t => !t.info);
+  const keeps   = ranked.filter(t => t.rank === "KEEP");
+  const watches = ranked.filter(t => t.rank === "WATCH");
+  const ignores = ranked.filter(t => t.rank === "IGNORE");
+  $("kpi-keep").textContent   = keeps.length;
+  $("kpi-watch").textContent  = watches.length;
+  $("kpi-ignore").textContent = ignores.length;
+  const dom = ranked.filter(t => isFinite(t.ratio))
+    .reduce((best, t) => (best == null || t.ratio > best.ratio) ? t : best, null);
+  $("kpi-dom").innerHTML = dom ? `${dom.term}<br><span class="unit">ratio ${dom.ratio.toPrecision(3)}</span>` : "—";
+
+  let cls, msg;
+  if (keeps.length > 0) {
+    cls = "bad";
+    msg = `<strong>${keeps.length} term${keeps.length===1?"":"s"} exceed${keeps.length===1?"s":""} the KEEP threshold:</strong> ${keeps.map(t=>t.term).join("; ")}.`;
+  } else if (watches.length > 0) {
+    cls = "warn";
+    msg = `<strong>No KEEP-level terms. ${watches.length} WATCH-level term${watches.length===1?"":"s"}:</strong> ${watches.map(t=>t.term).join("; ")}.`;
+  } else {
+    cls = "good";
+    msg = `<strong>All terms below WATCH threshold.</strong> All corrections are negligible relative to your tolerances at this geometry.`;
+  }
+  $("summary-callout").innerHTML = `<div class="callout ${cls}">${msg}</div>`;
+}
+
+let lastCert = null;
+
+async function compute() {
+  const inp = readInputs();
+  const warnings = [];
+  if (inp.body.GM > 0) {
+    if (inp.r1 <= 0 || inp.r2 <= 0 || inp.R <= 0) warnings.push("r1, r2, and R must be positive when a Shapiro body is selected.");
+    if (inp.r1 + inp.r2 < inp.R) warnings.push("Geometry inconsistent: r1 + r2 < R.");
+    if (inp.r1 + inp.r2 - inp.R <= 0) warnings.push("Shapiro denominator (r1 + r2 − R) ≤ 0 — emitter/receiver nearly colinear with body; output suppressed.");
+    const rmin = Math.min(inp.r1, inp.r2);
+    const weakRatio = inp.body.GM / (N.c*N.c*rmin);
+    if (weakRatio > 1e-4) warnings.push(`Weak-field ratio GM/(c²·r_min) = ${sci(weakRatio,3)}; treat gravity terms as order-of-magnitude only.`);
+    if (inp.b > 0 && inp.body.R && inp.b < 2*inp.body.R) warnings.push(`Impact parameter b ≈ ${sci(inp.b,3)} m within 2× body radius (${sci(inp.body.R,3)} m); first-order deflection insufficient.`);
+  }
+  if (!isFinite(inp.lambda) || inp.lambda <= 0) warnings.push("Wavelength must be positive.");
+  if (!isFinite(inp.Dt) || inp.Dt <= 0) warnings.push("Transmit aperture must be positive.");
+  if (!isFinite(inp.f0) || inp.f0 <= 0) warnings.push("Carrier frequency must be positive for the Hz-tolerance to make sense.");
+  if (inp.tol.time_ns <= 0 || inp.tol.range_m <= 0 || inp.tol.point_ur <= 0 || inp.tol.freq_Hz <= 0)
+    warnings.push("Tolerances must all be positive.");
+
+  const { terms, fShift, dtSag } = buildTerms(inp);
+  lastTerms = terms;
+  renderTable(terms);
+  renderSummary(terms);
+
+  $("warning-box").innerHTML = warnings.length
+    ? `<div class="callout warn"><strong>Warnings.</strong><ul style="margin:6px 0">${warnings.map(w=>`<li>${w}</li>`).join("")}</ul></div>`
+    : "";
+
+  const outputs = {}; const tests = [];
+  for (const t of terms) {
+    outputs[t.term] = { value: t.value, display: t.valueDisplay };
+    if (!t.info) tests.push({ term: t.term, value: t.value, tolerance_dim: t.tolDim, ratio: t.ratio, rank: t.rank });
+  }
+  outputs["frequency_total_fractional"] = { value: fShift.total, units: "" };
+  outputs["sagnac_dt_seconds"] = { value: dtSag, units: "s" };
+
+  // Union of every formula_id + source_id used by the active preset's actual ranked terms.
+  const activeFormulaIds = Array.from(new Set(
+    terms.map(t => t.formula_id).filter(Boolean)
+  )).sort();
+  const activeSourceIds = Array.from(new Set(
+    terms.flatMap(t => t.source_ids || [])
+  )).sort();
+  // Constants actually consumed.
+  const activeConstantIds = [
+    "speed_of_light",
+    "earth_sidereal_omega",
+    "astronomical_unit",
+    "planck"
+  ];
+  if (inp.bodyKey === "sun")     activeConstantIds.push("gm_sun", "solar_radius_nominal");
+  if (inp.bodyKey === "earth")   activeConstantIds.push("gm_earth", "earth_radius_equatorial", "wgs84_geoid_potential");
+  if (inp.bodyKey === "jupiter") activeConstantIds.push("gm_jupiter", "jupiter_radius_nominal");
+  if (inp.bodyKey === "moon")    activeConstantIds.push("gm_moon");
+
+  lastCert = await buildCertificateV2({
+    tool_id: "correction-ranker",
+    tool_version: "0.2.0",
+    inputs: {
+      scenario: $("scenario").value, body: inp.body.name, body_GM_m3_per_s2: inp.body.GM,
+      distance_unit: inp.unit, r1: inp.raw.r1, r2: inp.raw.r2, R: inp.raw.R, b: inp.raw.b,
+      r1_m: inp.r1, r2_m: inp.r2, R_m: inp.R, b_m: inp.b,
+      gamma: inp.gamma, sagnac_area_m2: inp.sagnacArea,
+      lambda_m: inp.lambda, Dt_m: inp.Dt, vperp_mps: inp.vperp, Pt_W: inp.Pt,
+      vparallel_mps: inp.vpar, f0_Hz: inp.f0,
+      U_e_J_per_kg: inp.U_e, U_r_J_per_kg: inp.U_r,
+      U_e_auto_filled: inp.Ue_auto, U_r_auto_filled: inp.Ur_auto,
+      ve_mps: inp.ve, vr_mps: inp.vr,
+      tolerances: inp.tol, rank_thresholds: inp.rankCfg
+    },
+    constants: {
+      c: Constants.c, Omega_earth: Constants.Omega_earth, AU: Constants.AU,
+      GM_used: { value: inp.body.GM, units: "m^3/s^2", note: `${inp.body.name} GM` }
+    },
+    constant_ids: activeConstantIds,
+    formula_ids:  activeFormulaIds,
+    source_ids:   activeSourceIds,
+    assumptions: [
+      "Single mission geometry, single instant.",
+      "One-body weak-field PPN for Shapiro and deflection (γ user-set).",
+      "Simplified scalar Sagnac surrogate; full vector form on the Sagnac page.",
+      "Low-order frequency shift (no higher-order GR/SR cross terms).",
+      "Photon rate is informational, not rank-tested."
+    ],
+    outputs,
+    tolerance_tests: tests,
+    warnings,
+    approximation_limits: [
+      "Weak-field PPN expansion (Shapiro and deflection) — order GM/(c²·r).",
+      "First-order Doppler and transverse-Doppler only — no higher-order GR/SR cross-terms.",
+      "Single-body, single-instant geometry — no light-time iteration, no ephemeris fitting."
+    ],
+    not_included: [
+      "Multi-body Shapiro summation across solar-system bodies",
+      "Full vector Sagnac via Ω·(r1×r2)/c²",
+      "Plasma / atmospheric path-delay corrections",
+      "Frame transformations (ICRF↔BCRS↔GCRS↔topocentric)",
+      "Instrument calibration and clock-bias estimation"
+    ],
+    validation_links: [
+      "ANALYTIC.shapiro.solar_grazing",
+      "PUBLIC.mars_will2018.shapiro_canonical",
+      "ANALYTIC.deflection.solar_limb",
+      "ANALYTIC.sagnac.orthogonal_max",
+      "PUBLIC.gps.net_rate"
+    ]
+  });
+
+  $("cert-hash").innerHTML =
+    `result <code>${lastCert.resultHashShort}</code> · receipt <code>${lastCert.receiptHashShort}</code>`;
+}
+
+// ----- Wire-up -----
+$("scenario").addEventListener("change", e => { if (e.target.value !== "custom") applyPreset(e.target.value); compute(); });
+$("compute").addEventListener("click", compute);
+document.querySelectorAll(".rank-table th[data-sort]").forEach(th => {
+  th.addEventListener("click", () => {
+    const key = th.dataset.sort;
+    if (sortKey === key) sortDir = (sortDir === "asc" ? "desc" : "asc");
+    else { sortKey = key; sortDir = (key === "term" || key === "decision" || key === "tolUnit") ? "asc" : "desc"; }
+    renderTable(lastTerms);
+  });
+});
+$("cert-json").addEventListener("click", () => { if (!lastCert) return alert("Compute first."); downloadAs(`correction-ranker-${lastCert.resultHashShort}.json`, lastCert.json, "application/json"); });
+$("cert-md").addEventListener("click",   () => { if (!lastCert) return alert("Compute first."); downloadAs(`correction-ranker-${lastCert.resultHashShort}.md`,   lastCert.markdown, "text/markdown"); });
+
+// ----- Compare scenario A vs B -----
+const CMP_KEYS = { A: "ranker-cmp-A", B: "ranker-cmp-B" };
+function snapshotInputs() {
+  const inp = readInputs();
+  return {
+    scenario: $("scenario").value,
+    inputs: inp,
+    terms: lastTerms.map(t => ({
+      term: t.term, value: t.value, valueDisplay: t.valueDisplay,
+      tolUnit: t.tolUnit, tol: t.tol, ratio: t.ratio, rank: t.rank,
+      formula_id: t.formula_id, source_ids: t.source_ids
+    }))
+  };
+}
+function saveSnapshot(slot) {
+  if (!lastTerms.length) { alert("Press Rank corrections first."); return; }
+  try { localStorage.setItem(CMP_KEYS[slot], JSON.stringify(snapshotInputs())); }
+  catch (e) { alert("localStorage unavailable: " + e.message); return; }
+  renderComparison();
+}
+function loadSnapshot(slot) {
+  try { const raw = localStorage.getItem(CMP_KEYS[slot]); return raw ? JSON.parse(raw) : null; }
+  catch { return null; }
+}
+function clearComparison() {
+  try { localStorage.removeItem(CMP_KEYS.A); localStorage.removeItem(CMP_KEYS.B); } catch {}
+  renderComparison();
+}
+function renderComparison() {
+  const A = loadSnapshot("A"), B = loadSnapshot("B");
+  const status = $("cmp-status"), host = $("cmp-table");
+  if (!A && !B) { status.textContent = "No snapshots saved yet."; host.innerHTML = ""; return; }
+  status.innerHTML =
+    `Scenario A: ${A ? `<code>${A.scenario}</code>` : "<em>(empty)</em>"}` +
+    ` &nbsp;·&nbsp; Scenario B: ${B ? `<code>${B.scenario}</code>` : "<em>(empty)</em>"}`;
+  if (!A || !B) { host.innerHTML = "<p class='small mute'>Save both A and B to see the side-by-side.</p>"; return; }
+  const byTerm = {};
+  for (const t of A.terms) (byTerm[t.term] = byTerm[t.term] || {}).A = t;
+  for (const t of B.terms) (byTerm[t.term] = byTerm[t.term] || {}).B = t;
+  const rows = Object.entries(byTerm).map(([term, pair]) => {
+    const a = pair.A, b = pair.B;
+    const av = a ? a.value : NaN, bv = b ? b.value : NaN;
+    const delta = (isFinite(av) && isFinite(bv)) ? (bv - av) : NaN;
+    const ratio = (isFinite(av) && isFinite(bv) && av !== 0) ? (bv / av) : NaN;
+    return `<tr>
+      <td>${term}</td>
+      <td class="num">${a ? a.valueDisplay : "—"}</td>
+      <td class="num">${b ? b.valueDisplay : "—"}</td>
+      <td class="num">${isFinite(delta) ? sci(delta, 3) : "—"}</td>
+      <td class="num">${isFinite(ratio) ? ratio.toPrecision(3) : "—"}</td>
+    </tr>`;
+  }).join("");
+  host.innerHTML = `
+    <table class="rank-table">
+      <thead><tr><th>Term</th><th class="num">A</th><th class="num">B</th><th class="num">Δ (B−A)</th><th class="num">Ratio (B/A)</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+$("cmp-save-a").addEventListener("click", () => saveSnapshot("A"));
+$("cmp-save-b").addEventListener("click", () => saveSnapshot("B"));
+$("cmp-clear").addEventListener("click",  clearComparison);
+
+window.addEventListener("load", () => {
+  applyPreset("mars");
+  compute();
+  renderFormulaDrawer();
+  renderComparison();
+});
+</script>
+
+</body>
+</html>

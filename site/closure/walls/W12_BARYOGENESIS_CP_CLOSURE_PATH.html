@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>W12 — Baryogenesis CP-source</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 250px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9679; Closure paths</a></div>
+<div class="ann-sub"><a href="/closure/">&#8592; Closure system</a> &nbsp; <a href="/walls/">The Walls</a> &nbsp; <a href="/anchors/">The Anchors</a></div>
+<div class="ann-group">One closure path per wall</div>
+<a href="W01_UV_COMPLETION_CLOSURE_PATH.html">W1 UV completion</a>
+<a href="W02_CONTINUUM_EXISTENCE_CLOSURE_PATH.html">W2 continuum existence</a>
+<a href="W03_A6_COEFFICIENT_CLOSURE_PATH.html">W3 a6 coefficient</a>
+<a href="W04_GRANULARITY_MDL_CLOSURE_PATH.html">W4 granularity to MDL</a>
+<a href="W05_GIVEN_E_BUNDLE_CLOSURE_PATH.html">W5 given-E / bundle</a>
+<a href="W06_FLAVOR_RULEBOOK_CLOSURE_PATH.html">W6 flavor F+ rulebook</a>
+<a href="W07_ANOMALY_DESCENT_CLOSURE_PATH.html">W7 anomaly descent</a>
+<a href="W08_CUSTODIAL_RHO_CLOSURE_PATH.html">W8 custodial rho=1</a>
+<a href="W09_MODULI_STABILIZATION_CLOSURE_PATH.html">W9 moduli stabilization</a>
+<a href="W10_LAMBDA_STABILITY_CLOSURE_PATH.html">W10 Lambda stability</a>
+<a href="W11_LAMBDA_VALUE_CLOSURE_PATH.html">W11 Lambda value</a>
+<a href="W12_BARYOGENESIS_CP_CLOSURE_PATH.html" class="current">W12 baryogenesis CP</a>
+<a href="W13_DARK_MATTER_PORTAL_CLOSURE_PATH.html">W13 dark-matter portal</a>
+<a href="W14_INFLATION_SPECTRUM_CLOSURE_PATH.html">W14 inflation spectrum</a>
+<a href="W15_BORN_WEIGHT_CLOSURE_PATH.html">W15 Born-rule weight</a>
+<a href="W16_BH_MICROSTATES_CLOSURE_PATH.html">W16 BH microstates</a>
+<a href="W17_PROTON_OPERATORS_CLOSURE_PATH.html">W17 proton operators</a>
+<a href="W18_YM_UNIFORM_GAP_CLOSURE_PATH.html">W18 YM uniform gap</a>
+<a href="W19_THRESHOLD_MAGNITUDES_CLOSURE_PATH.html">W19 threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">W12 — Baryogenesis CP-source — rendered package. Rendered from <code>W12_BARYOGENESIS_CP_CLOSURE_PATH.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>W12 — Baryogenesis CP-source</h1>
+<p><strong>Wall:</strong> <a href="/walls/w12-baryogenesis-cp.html">The baryogenesis CP-source wall</a> · <strong>Closure routing via</strong> <a href="/closure/wall-routing-protocol.html">/closure</a></p>
+<h2>Routing decision</h2>
+<p><strong>DERIVE if CP-source and $M_R$ recipe are computed; otherwise OPEN-ANCHORED.</strong></p>
+<h2>Deep-root link(s)</h2>
+<ul>
+<li><strong>Shape</strong></li>
+<li><strong>Granularity</strong></li>
+<li><strong>Record Interface</strong></li>
+<li><strong>Nonseparability</strong></li>
+<li><strong>Scale</strong></li>
+</ul>
+<h2>Reduction / dissolution verdict</h2>
+<p>Cannot reduce/dissolve. The baryon asymmetry is an observed record; the missing CP-source is a real dynamical ingredient.</p>
+<p><strong>$M_R$ reconciliation — 2026-06-29.</strong> The shared seesaw-scale dependency is sharpened: the absolute $M_R$ is <strong><code>REDUCED-TO-ANCHOR</code></strong> (a terminal measured-type scale with no root; the inversion fixes only $N_\nu^2/M_R$, $N_\nu$ unvalued $\Rightarrow$ a line, not a number) — so the baryogenesis $I_{CP}$/washout computation inherits $M_R$ as a <em>paid anchor</em>, not as an open compute-obligation it can discharge. The wrong-sign $\sigma_\nu$ default remains the falsifiable prediction pressure; $M_R$ must never be pinned from the measured $\eta_B$.</p>
+<h2>Steps to the endpoint</h2>
+<ol>
+<li>Define rephasing-invariant high-scale CP invariant $I_{CP}$.</li>
+<li>Derive or anchor the $M_R$ spectrum recipe.</li>
+<li>Run density-matrix/washout evolution with frozen inputs.</li>
+<li>Pre-register $\eta_B$ in $[6.0, 6.2] \times 10^{-10}$.</li>
+<li>Compare sign and magnitude without retuning.</li>
+<li>Record wrong-sign default as falsifier pressure.</li>
+</ol>
+<h2>Success criterion / falsifier</h2>
+<p>Success: target-blind $I_{CP}$, $M_R$, washout, and $\eta_B$ in band. Falsifier: sign remains wrong or $\eta_B$ misses under frozen rules.</p>
+<h2>Terminal status assigned</h2>
+<p><code>OPEN-ANCHORED / BARYOGENESIS-BOUNDED</code></p>
+<h2>Residual work</h2>
+<p>CP invariant, $M_R$, washout, sign, magnitude.</p>
+<h2>Anti-claims</h2>
+<ul>
+<li>Having CP phases somewhere is not baryogenesis closure.</li>
+<li>A fitted $M_R$ recipe is not derived.</li>
+<li>Wrong-sign default must not be hidden.</li>
+</ul>
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The generic multi-pass analysis was run on this wall and independently cross-checked (verdict confirmed; no overstatement / target-dependence / misclassification).</p>
+<pre><code>Verdict: NOT_EXHAUSTED_BLOCKED
+Smallest missing rule (the precise hole):
+  A target-blind scale rule R2 that maps the frozen data (tau=omega, N=1, R_T2,Cartan) to an actual M_R=(M1,M2,M3) heavy-Majorana spectrum formula. No candidate grammar in the frozen record generates one; the only printed guess M_R=kappa*M_U is off by ~231x, and even a derived M_R stays degenerate with Y_nu (light data fixes only y_nu^2/M_R). Without M_R the rephasing-invariant I_CP (R3) cannot be evaluated and the kinetics/assembly (R4,R5) cannot run. This is the single binding wall; the wrong-sign sigma_nu bit (R1) is the highest-leverage residual but it sits behind the same Shape root.
+Terminal status: OPEN-ANCHORED / BARYOGENESIS-BOUNDED (Gap-10/BG-10 ANCHOR-CLOSED / WALL-RECORDED; physics-status OPEN / Diagnostic — 0 of 4 at certificate grade; no gate physics-CLOSED). Binding wall: a target-blind M_R-spectrum recipe (R2); highest-leverage residual: the shared sigma_nu mod-8 CP-sign bit whose geometry default points the WRONG way; eta_B in [6.0,6.2]e-10 pre-registered as the single post-freeze comparison.
+</code></pre>
+<hr />
+<h2>Shared closure invariant</h2>
+<p>A gate is terminal when its wall has the correct endpoint: derived, reduced to a root, dissolved, anchored, or wall-recorded. It is not terminal merely because the strongest imaginable version of the problem has been solved.</p>
+<p>Status-inflation guardrails:
+- DISSOLVED does not mean SOLVED.
+- SELECTED does not mean FORCED.
+- GIVEN-E does not mean DERIVED-E.
+- MEASURED-ANCHOR does not mean DERIVED VALUE.
+- WALL-RECORDED does not mean PHYSICS-CLOSED.
+- A bounded local certificate does not become global completion.</p>
+<h2>Completion tests for this wall file</h2>
+<p>This wall file is complete only if:
+- The wall is named exactly.
+- The routing decision is explicit.
+- At least one deep-root link is listed.
+- The endpoint status is explicit.
+- Local/banked wins are separated from the missing object.
+- The success criterion or falsifier is target-blind.
+- The anti-claims block prevents status inflation.
+- Any failure to reduce or dissolve is stated honestly.
+- Residual work is finite where possible; unicorn work is wall-recorded.</p>
+<h2>Completion report</h2>
+<p>Tests passed:
+- Wall named exactly.
+- Routing decision assigned.
+- Deep-root links listed.
+- Endpoint status assigned.
+- Honest failure to reduce/dissolve stated where applicable.
+- Success criterion/falsifier included.
+- Anti-claims included.</p>
+<p>Tests failed:
+- None in this handoff draft.</p>
+<p>Open items:
+- Execute the residual work listed above.</p>
+<p>Assumptions made:
+- Uses the uploaded wall register and the /closure endpoint strategy.</p>
+<h2>See also</h2>
+<ul>
+<li>Wall page: <a href="/walls/w12-baryogenesis-cp.html">/walls/w12-baryogenesis-cp.html</a></li>
+<li>Wall routing protocol: <a href="/closure/wall-routing-protocol.html">/closure/wall-routing-protocol.html</a></li>
+<li>Deep roots: <a href="/closure/deep-roots.html">/closure/deep-roots.html</a></li>
+<li>Dissolutions: <a href="/closure/dissolutions.html">/closure/dissolutions.html</a></li>
+<li>Closure index: <a href="./INDEX.html">./INDEX.html</a></li>
+</ul>
+</main>
+</div>
+</body></html>

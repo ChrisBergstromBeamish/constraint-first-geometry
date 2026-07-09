@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gap-11 — Dark matter: full dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">Gap-11 — Dark matter: full dossier — rendered package. Rendered from <code>DOSSIER_GAP11_FULL.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>Gap-11 — Dark matter: full dossier</h1>
+<blockquote>
+<p><strong>What this document is.</strong> The full per-gate dossier for <strong>Gap-11 (Dark matter)</strong> of the
+Fable / constraint-first-geometry program, on the <strong>frozen 13D K₆ branch only</strong> (geometry
+hashes <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code>, READ-ONLY). It expands the live 30-second
+popup and the brief article (<code>GATE_BRIEF_GAP11.html</code>) into a working-physicist-grade treatment:
+the rigorous structure behind the gate's progress, the insights that produced it, the evidence
+that backs each banked claim, and a concrete specialist work plan for every open hole.</p>
+<p><strong>Binding discipline (carried verbatim).</strong> <strong>STATUS-UPGRADES:0.</strong> The honest status is <strong>OPEN —
+serious, structurally-selected candidate, NOT validated</strong>, live binding label
+<em>CONDITIONAL-with-named-gate</em>. Nothing in this dossier upgrades that grade. Every number is
+traceable to a corpus source actually read (path-cited inline) or marked <strong>OPEN/UNRUN</strong>. No
+number is back-solved to the observed relic abundance — that anti-fitting move is the single
+most important thing this gate refuses to do. <strong>given-E ≠ derivation of E; anchored ≠ derived;
+selection ≠ derivation; banked ≠ derived; a captured log ≠ an independent reproduction;
+AXIOM-CLOSED ≠ atomic.</strong></p>
+</blockquote>
+<hr />
+<h2>§1. Executive summary + honest status</h2>
+<h3>1.1 The headline</h3>
+<p>The same frozen 13D shape that the rest of the program uses to recover the Standard Model also
+hands us a dark-matter candidate <strong>for free</strong> — a stable, electrically and color-neutral particle
+that <strong>nobody fitted to the cosmological data</strong>. Its identity and its stability both fall out of
+one structural feature of the geometry, and the candidate was structurally <strong>selected 17 of 18
+times across five reweightings</strong> of the selection audit, frozen <em>before</em> any
+comparison to data. That is real, recovered structure.</p>
+<p>What the geometry does <strong>not</strong> yet give us is the <strong>one number</strong> the relic abundance depends on:
+the <strong>portal normalization</strong> \(N_{\rm portal}\), the coefficient of the operator coupling the
+candidate to the Standard-Model thermal bath. That coefficient is a finite, in-principle-computable
+<strong>overlap integral on the boundary geometry</strong> — and it has <strong>not been run</strong>. Until it is run
+<strong>target-blind</strong> (never tuned to land on the observed abundance), no relic abundance is asserted.</p>
+<p>The honest move this gate's campaign made was to enlarge the gap, not shrink it: two
+adversarially-verified theorems showed that the tempting shortcut — "one geometric rule fixes both
+the dark <em>particle</em> and its <em>coupling</em>" — is <strong>not licensed as stated</strong>. We banked the structure,
+banked a falsifier, and refused the shortcut. That refusal is the gate's credibility.</p>
+<h3>1.2 The honest status (must match the live popup)</h3>
+<blockquote>
+<p><strong>Status: OPEN.</strong> Recorded in the corpus as <em>"conditional, blocked on a named gate"</em>; live
+binding label <strong>CONDITIONAL-with-named-gate</strong>. A <strong>serious, structurally-selected candidate —
+NOT validated.</strong> <strong>Promotions: 0.</strong>
+<em>(Source: <code>…/TOE/PER_GATE_DOSSIERS/GAP11_COMPLETION_HANDOFF/02_CURRENT_STATE.md</code>;
+<code>…/articles/GATE_BRIEF_GAP11.html</code>; <code>…/articles/GAP11_COMPLETION_RESULT.md</code> §0.)</em></p>
+</blockquote>
+<p>The status is set by the <strong>least-closed residual</strong> rule (the gate is no more closed than its
+weakest piece). The weakest pieces are: the portal <strong>operator is unnamed</strong>; the portal
+<strong>normalization is unrun</strong>; the relic abundance and the cross-section point value are
+<strong>downstream-blocked</strong> on that normalization; the reheating-temperature input is
+<strong>inherited-conditional from Gap-09</strong>; and the experimental adjudicator sits far below current
+reach. One open piece ⇒ the gate is OPEN.</p>
+<h3>1.3 What this dossier establishes — and what it does not</h3>
+<p><strong>It establishes</strong> (at the grades named): that the frozen geometry <em>supplies and stabilizes</em> a
+dark-matter candidate (the C-iii state), at <strong>selector-CANDIDATE grade</strong>; that the candidate is
+renormalizably <strong>stable</strong> by structure; that a <strong>one-sided KK-overclosure gate PASSES</strong>; that a
+<strong>refute-only direct-detection falsifier</strong> is banked at forecast grade; and that two <strong>verified
+theorems</strong> fenced off a false shortcut, restoring an honest two-item floor and replacing a binary
+reading with a trichotomy plus a single-component fork.</p>
+<p><strong>It does NOT establish</strong> — and explicitly does not claim — any value of the relic abundance
+\(\Omega_{\rm DM}h^2\); any computed value of \(N_{\rm portal}\); any named portal operator; any
+derivation of the reheating temperature; or any confirmation by experiment. <strong>No
+\(\Omega_{\rm DM}h^2\) is asserted anywhere in this dossier.</strong> The single decisive computation
+(\(N_{\rm portal}\)) is exactly as open at the end of this document as it was at the start: a
+finite, specifiable, <strong>UNRUN</strong> integral that is an owner/machine computation, not a logical
+argument an agent can carry.</p>
+<hr />
+<h2>§2. The community gap</h2>
+<h3>2.1 The precise open problem</h3>
+<p>Dark matter is the largest, most robust, and oldest unexplained mass budget in physics. Galaxy
+rotation curves, cluster dynamics, gravitational lensing, the acoustic peaks of the cosmic
+microwave background, and the growth of large-scale structure all converge on the same conclusion:
+roughly a quarter of the energy density of the universe is a gravitating, non-baryonic,
+electromagnetically dark, cold (or at least non-relativistic at structure formation) component. The
+Planck satellite's measurement of the cold-dark-matter physical density is the single anchor every
+candidate theory must reproduce:</p>
+<p>\[
+\Omega_{\rm DM} h^2 \approx 0.12 .
+\]</p>
+<p><em>(This is the only number Gap-11 compares against. Source: <code>GATE_BRIEF_GAP11.html</code>;
+<code>GAP11_COMPLETION_RESULT.md</code> §0, "Ω_DM h² ≈ 0.12 (Planck) — measured-but-irreducible". It is used
+strictly as a comparison target for a frozen prediction; it is </em><em>never</em><em> fitted to.)</em></p>
+<p>The field's open problem is twofold and unsolved everywhere: <strong>(1) what is the dark matter</strong> (its
+identity, mass, spin, couplings, stability mechanism), and <strong>(2) how much of it is there</strong> (its
+relic abundance, set by its production history in the early universe). No theory anywhere has
+<em>derived</em> both from first principles. The mainstream candidate families each answer (1) by positing
+a particle and answer (2) by a production mechanism whose parameters are then <em>fitted</em> to 0.12.</p>
+<h3>2.2 State of the art and best bounds</h3>
+<ul>
+<li><strong>WIMPs (weakly interacting massive particles).</strong> The historically dominant paradigm: a
+  weak-scale particle in thermal equilibrium that <em>freezes out</em> as the universe expands, with an
+  annihilation cross-section near the weak scale giving roughly the right abundance (the "WIMP
+  miracle"). Decades of direct-detection experiments (xenon and argon time-projection chambers)
+  have pushed the spin-independent nucleon cross-section bound down by many orders of magnitude
+  without a confirmed signal, excluding large swaths of the canonical WIMP parameter space and
+  approaching the <strong>neutrino floor</strong> (the irreducible background from coherent neutrino scattering),
+  conventionally around \(\sigma \sim 10^{-49}\,\mathrm{cm}^2\) for the relevant mass range.
+  <em>(Neutrino-floor figure as recorded in the corpus: <code>subsystems/E_direct_detection_null_forecast.md</code>,
+  "the neutrino floor (~10⁻⁴⁹ cm²)".)</em></li>
+<li><strong>Axions / ALPs.</strong> Motivated by the strong-CP problem; an entirely different production (misalignment)
+  and detection (haloscope) story. Their abundance likewise depends on initial conditions tuned to 0.12.</li>
+<li><strong>Freeze-in / FIMPs (feebly interacting massive particles).</strong> Instead of starting in equilibrium and
+  freezing out, the dark particle is <em>never</em> in equilibrium; it is slowly populated from the bath
+  through a feeble portal coupling. The abundance is set by the integral of the production rate over
+  the thermal history, and grows with the coupling rather than shrinking with it. This is the regime
+  Gap-11's candidate lives in <em>(see §3)</em>.</li>
+</ul>
+<p><strong>Why each falls short of a first-principles answer.</strong> In every mainstream construction the
+<em>identity</em> of the particle is a posit and the <em>coupling</em> that sets the abundance is a free parameter
+fitted to 0.12. The genuinely hard, universally open part is to make <strong>both</strong> the identity and the
+abundance follow from a fixed structure — without a knob tuned to the answer. That is precisely the
+bar Gap-11 holds itself to, and precisely why it stays OPEN rather than claiming a closed abundance.</p>
+<h3>2.3 How Gap-11 differs from the field — and where it inherits the field's hardness</h3>
+<p>Gap-11 does <strong>not</strong> posit a particle. The candidate is <em>read off</em> a frozen geometry that was fixed
+for entirely independent reasons (recovering the gauge group, the fermion content, etc.). The
+geometry then makes that same state <strong>stable</strong> by a discrete symmetry it already carries. So the
+<em>identity</em> and <em>stability</em> half of the field's problem is, here, answered structurally rather than
+by assumption.</p>
+<p>The <em>abundance</em> half, however, inherits the field's hardness in a sharpened form. It collapses to a
+<strong>single unrun integral</strong> (\(N_{\rm portal}\)) plus a <strong>thermal input owned by another gate</strong>
+(Gap-09's reheating temperature). The whole field's dark-matter abundance problem is, here, squeezed
+down to that one computation and that one cross-gap dependency — but it is <strong>not</strong> thereby solved.
+Naming where the mystery lives is not the same as paying it down. This dossier is scrupulous about
+that distinction.</p>
+<hr />
+<h2>§3. The construction — rigorous structure</h2>
+<blockquote>
+<p>Full primary construction: <strong>toe.md §IV / §V</strong> (the four-paper Fable TOE manuscript) plus the
+decomposition folder <code>…/TOE/gap_11_dark_matter/</code>. This section is the attack-grade reconstruction
+assembled from those sources; it shows the structure a reader can check, and marks every place a
+value is <strong>UNRUN</strong>.</p>
+</blockquote>
+<h3>3.1 The forward chain at a glance</h3>
+<p>Gap-11 is a single forward chain — a banked candidate plus banked viability gates, blocked on one
+named derivation, cascading on another gate for thermal inputs, adjudicated ultimately by an
+experiment:</p>
+<pre><code> §I  S¹_Y/ℤ₂ boundary  --localizes--&gt;  C-iii ℤ₂-odd, Y=0 state   [A: banked CANDIDATE, 17/18]
+                                            │
+   stability (ℤ₂ parity + Y=0)  [F: banked PASS]  ──┘
+                                            │
+   portal operator  [R1: UNNAMED]  --normalize--&gt;  N_portal  [R2: THE BLOCK, unrun overlap integral]
+                                            │
+   Gap-09 T_RH band  [R6: inherited-conditional]  ──┐
+                                                     ├─►  freeze-in quadrature  --&gt; Ω_DM h²  [R3: gated]
+   N_portal  ──────────────────────────────────────┘                      --compare(post-freeze)--&gt; 0.12
+                                                     └─►  σ_SI point value  [R5]  --&gt; direct detection [refute-only]
+</code></pre>
+<p><em>(Source: <code>01_DOSSIER.md</code> §1, reproduced faithfully.)</em></p>
+<p>The structural compression is the key insight: <strong>the same coefficient \(N_{\rm portal}\) sets both
+the production rate (the relic abundance) and the elastic scattering rate (the direct-detection
+cross-section).</strong> So Gap-11 is, structurally, <em>one missing derivation with two downstream consumers
+and one experimental adjudicator.</em> <em>(Source: <code>00_decomposition.md</code> §1.)</em></p>
+<h3>3.2 The candidate state C-iii (geometry-essential — banked)</h3>
+<p>The compact internal geometry contains an \(S^1_Y/\mathbb{Z}_2\) factor: a circle (carrying the
+hypercharge direction) modded by a \(\mathbb{Z}_2\) orbifold action. An orbifold of this type has
+<strong>boundary fixed points</strong> — loci left invariant by the \(\mathbb{Z}_2\) action — and fields can be
+<strong>localized</strong> at those fixed points rather than spread over the bulk circle.</p>
+<p>The boundary fixed point localizes a zero-mode with three structural quantum-number properties that
+together make it a dark-matter candidate:</p>
+<ol>
+<li><strong>\(\mathbb{Z}_2\)-odd parity.</strong> The state is odd under the orbifold's \(\mathbb{Z}_2\). This is
+   a discrete symmetry the geometry <em>already carries</em> (it is the orbifold action itself), not an
+   imposed stabilizing symmetry. A \(\mathbb{Z}_2\)-odd state cannot decay into a final state built
+   entirely from \(\mathbb{Z}_2\)-even Standard-Model fields — parity forbids it. This is the
+   stability mechanism.</li>
+<li><strong>Zero hypercharge, \(Y = 0\).</strong> Localized at the fixed point of the hypercharge circle, the
+   state carries no hypercharge. Combined with its being color- and electrically neutral, it is a
+   genuinely <em>dark</em> state.</li>
+<li><strong>Electric and color neutrality.</strong> It carries no unbroken gauge charge, so it does not couple to
+   photons or gluons at leading order — consistent with the non-interacting, dark phenomenology.</li>
+</ol>
+<p>This is labeled the <strong>C-iii</strong> candidate in the corpus. <em>(Source:
+<code>subsystems/A_candidate_selection.md</code> "the candidate is the S¹_Y/ℤ₂ boundary-localized ℤ₂-odd
+freeze-in state (C-iii)"; <code>GAP11_COMPLETION_RESULT.md</code> §0.1.)</em></p>
+<p><strong>It was not invented for the purpose.</strong> In the corpus's selection audit, run over an
+18-candidate field and re-evaluated under <strong>five reweightings</strong> of the selection razor,
+the C-iii state was <strong>selected 17 of 18 times</strong> — a structural selection by the geometry's boundary
+structure (§I inflow), <strong>frozen before any abundance comparison, not fitted to any abundance.</strong>
+<em>(Source: <code>subsystems/A_candidate_selection.md</code>; <code>00_decomposition.md</code> §0;
+<code>GAP11_COMPLETION_RESULT.md</code> §0.1.)</em></p>
+<blockquote>
+<p><strong>Grade guard (carried verbatim).</strong> The 17/18 result is a <strong>selector-CANDIDATE (decision-grade
+audit), NOT a certificate, NOT a prediction.</strong> The selector reweighting protocol is an external
+artifact referenced by the capsule; its non-vacuity is <strong>not</strong> independently re-derived in the
+corpus. "Real recovered structure" must be read at <em>this</em> grade.
+<em>(Source: <code>GAP11_COMPLETION_RESULT.md</code> §2.1.)</em></p>
+</blockquote>
+<h3>3.3 Stability — renormalizable, structural (banked)</h3>
+<p>The candidate's stability has two independent legs, both structural:</p>
+<ul>
+<li><strong>Decay is forbidden by \(\mathbb{Z}_2\)-odd parity.</strong> The discrete orbifold symmetry that
+  localizes the state is the same symmetry that forbids it from decaying to Standard-Model final
+  states. There is no lighter \(\mathbb{Z}_2\)-odd state for it to decay into, so it is the
+  lightest parity-odd state and is absolutely stable on cosmological timescales.</li>
+<li><strong>Any portal is renormalizable because \(Y = 0\).</strong> Zero hypercharge keeps the coupling of the
+  state to the bath renormalizable (it avoids the dimension-raising hypercharge structures that
+  would otherwise force non-renormalizable portals).</li>
+</ul>
+<p><em>(Source: <code>subsystems/F_stability_and_overclosure_gates.md</code>, "Renormalizable stability (Y = 0):
+§I-banked … ℤ₂-odd parity (a mirror/discrete symmetry forbidding decay to SM) combined with Y = 0";
+<code>01_DOSSIER.md</code> §1.)</em></p>
+<p>This stability is <strong>§I-banked</strong> — it follows from the frozen geometry and is hand-checkable given
+the geometry. It is a genuine, geometry-essential win: the <em>same</em> structure that supplies the
+identity supplies the stability.</p>
+<blockquote>
+<p><strong>Coupling between stability and the portal (R1↔F).</strong> Any portal operator proposed for the state
+(R1, §3.5) <strong>must preserve the \(\mathbb{Z}_2\)-odd parity.</strong> A portal term that breaks the parity
+would re-open a decay channel and destroy the stability. So the stability gate is a <em>constraint on
+admissible portal operators</em>, not an independent fact. <em>(Source:
+<code>subsystems/F_stability_and_overclosure_gates.md</code> "the ℤ₂-odd stability must survive at the
+operator level"; <code>01_DOSSIER.md</code> §1.)</em></p>
+</blockquote>
+<h3>3.4 The KK-overclosure gate (one-sided — banked PASS)</h3>
+<p>The orbifold geometry carries a <strong>Kaluza–Klein tower</strong> above the localized zero-mode. The corpus
+banks a <strong>KK-overclosure gate PASS across the whole inflaton band</strong>: the KK tower does <strong>not</strong>
+over-produce dark matter — it does not push \(\Omega > 1\) (does not overclose the universe) —
+anywhere in the allowed inflaton band. <em>(Source:
+<code>subsystems/F_stability_and_overclosure_gates.md</code>; <code>subsystems/C_relic_abundance_chain.md</code>;
+<code>00_decomposition.md</code> §0.)</em></p>
+<blockquote>
+<p><strong>This is a one-sided bound, and must never be upgraded.</strong> A non-overclosure PASS is a <em>necessary
+viability condition</em> — the candidate is not immediately ruled out by over-producing matter — but
+it is <strong>not</strong> a <em>sufficient abundance determination</em>. It does not, by itself, fix the abundance to
+0.12. Treating the PASS as if it determined the abundance is a forbidden over-claim. <em>(Source:
+<code>subsystems/F_stability_and_overclosure_gates.md</code> "Do not upgrade PASS to abundance determined —
+the overclosure gate is one-sided"; <code>02_CURRENT_STATE.md</code>.)</em></p>
+</blockquote>
+<p>An open <strong>audit</strong> attaches here (AO-2, §6): confirm the PASS is <em>non-vacuous</em> (it excludes a real
+region rather than passing trivially because the freeze-in rate is feeble by construction) and that
+it holds across the <strong>full Gap-09 conditional \(T_{\rm RH}\) band</strong>, not only the inflaton band.</p>
+<h3>3.5 The portal operator (UNNAMED — R1)</h3>
+<p>For the candidate to be produced from (and to scatter off) ordinary matter at all, it must couple to
+the Standard-Model bath through some operator — the <strong>portal</strong>. The corpus <strong>does not state which
+operator this is.</strong> Candidate forms named (none selected): a Higgs-portal-like \(|H|^2 X^2\); a
+Wilson-line / KK-mixing term; or a higher-dimension operator. <em>(Source:
+<code>subsystems/B_portal_normalization.md</code> §B.1; <code>01_named_missing_objects.md</code> MO-2.)</em></p>
+<p>The operator is required to satisfy two structural conditions:
+- <strong>Lowest mass-dimension admissible</strong> from the <code>⊗</code>-layer operator ledger (the program's structured
+  inventory of admissible couplings).
+- <strong>\(\mathbb{Z}_2\)-odd-preserving</strong> — it must not break the parity that stabilizes the state
+  (§3.3). The parity check against the stability gate (Subsystem F) is a <em>gate</em> on admissibility:
+  any parity-breaking operator is inadmissible.</p>
+<p>You <strong>cannot normalize an unnamed operator.</strong> Until R1 is resolved, \(N_{\rm portal}\) cannot even
+be written down, and the parity check cannot be performed. R1 therefore gates R2.</p>
+<h3>3.6 The portal normalization \(N_{\rm portal}\) — THE BLOCK (UNRUN — R2)</h3>
+<p>This is the single decisive object. \(N_{\rm portal}\) is the normalization (the coefficient, with
+its band) of the portal operator — the number that sets the feeble strength of the coupling. It is a
+<strong>finite wavefunction-overlap integral on the boundary geometry</strong>, reduced from 13D to 4D:</p>
+<p>\[
+N_{\rm portal} \;\propto\; \int_{S^1_Y/\mathbb{Z}_2}
+   \psi_{\rm C\text{-}iii}(y)\,\psi_{\rm bath}(y)\,(\text{geometry factors})\;dy ,
+\]</p>
+<p>where \(\psi_{\rm C\text{-}iii}(y)\) is the boundary-localized (fixed-point) profile of the
+candidate, \(\psi_{\rm bath}(y)\) is the profile of the bath field it couples to, and the geometry
+factors and the 13D→4D reduction follow the §IV dimensional-reduction conventions. <em>(Source:
+<code>01_DOSSIER.md</code> §1, §4.2; <code>subsystems/B_portal_normalization.md</code>; <code>02_tractability.md</code> §3.)</em></p>
+<p><strong>This integral is fully specifiable but UNRUN.</strong> It is an owner/machine computation
+(\([S]\to[O]\) in the program's tractability legend — "AI-setup-able with an owner/machine core"),
+<strong>not</strong> a logical argument an agent can carry to a value. <em>(Source: <code>02_tractability.md</code> §1–§2.)</em></p>
+<p>Three hazards attach to running it:</p>
+<ol>
+<li><strong>The normalization-convention hazard (K13-2 precedent).</strong> The D.1 / \(K_{\sigma\sigma}\)
+   dimensional-reduction machinery in §IV is the precedent for this kind of overlap normalization.
+   That same machinery is where the <strong>K13-2 normalization-convention issue</strong> arose in the Gap-09
+   chain. The identical convention hazard <strong>may recur here and must be tracked, not assumed away.</strong>
+   <em>(Source: <code>02_tractability.md</code> §3 step 2; <code>01_DOSSIER.md</code> §1, §4.2.)</em></li>
+<li><strong>The anti-fitting firewall (the load-bearing discipline).</strong> It is most tempting <em>here</em> to choose
+   \(N_{\rm portal}\) so that the downstream relic integral lands on 0.12. <strong>That is forbidden.</strong>
+   Backing the coefficient out of the observed abundance is true-by-construction (the κ³/π
+   anti-pattern) and it <em>relocates</em> the mystery into a tuned coefficient rather than closing it. The
+   firewall: freeze \(N_{\rm portal}\) and the resulting \(\Omega_{\rm DM}h^2\) <strong>before</strong> comparing
+   to 0.12; never tune. <em>(Source: <code>01_DOSSIER.md</code> §4.2, §5; <code>02_CURRENT_STATE.md</code>.)</em></li>
+<li><strong>The block-existence fork (see §3.9).</strong> Whether \(N_{\rm portal}\) is even an <em>object</em> depends
+   on an unrun structural trichotomy. On two of three branches (and on the tower-co-carry branch) it
+   is a non-object or a mere correction, not the decisive single integral.</li>
+</ol>
+<h3>3.7 The relic-abundance chain (downstream-blocked — R3)</h3>
+<p>Given a frozen \(N_{\rm portal}\) and a frozen reheating temperature, the abundance is obtained by
+the <strong>standard freeze-in Boltzmann quadrature</strong> — a single collision-term integral of the production
+rate over the thermal history:</p>
+<p>\[
+\Omega_{\rm DM} h^2 \;\propto\; \int \big(\text{production rate}(N_{\rm portal}, T)\big)\,dT
+\quad\text{over the } T_{\rm RH} \text{ band.}
+\]</p>
+<p>The mechanism is <strong>freeze-in</strong>, not freeze-out: the candidate is <em>never</em> in thermal equilibrium; it
+is slowly populated from the bath by the feeble portal. <em>(Source:
+<code>subsystems/B_portal_normalization.md</code>; <code>subsystems/C_relic_abundance_chain.md</code>.)</em></p>
+<p>This integral is a <strong>routine \([S]\) computation once its two inputs are frozen</strong> — but it is
+<strong>purely downstream</strong>: it cannot be run now without fabricating \(N_{\rm portal}\) (R2) or
+\(T_{\rm RH}\) (R6). It is gated, not failing. <em>(Source: <code>subsystems/C_relic_abundance_chain.md</code>;
+<code>01_named_missing_objects.md</code> MO-3.)</em></p>
+<p><strong>An open regime question (Q04) sets how heavily it leans on Gap-09:</strong>
+- <strong>UV-dominated freeze-in:</strong> the yield is set at the highest temperature \(T_{\rm RH}\), so the
+  abundance scales strongly with \(T_{\rm RH}\) and the Gap-09 dependence is <em>strong</em>.
+- <strong>IR-dominated freeze-in:</strong> the yield is set near the portal mass, so the dependence on
+  \(T_{\rm RH}\) is <em>weak</em>.</p>
+<p>Which regime applies is <strong>OPEN</strong>, and it decides how much of the block is the Gap-09 cascade versus
+the portal. <em>(Source: <code>subsystems/C_relic_abundance_chain.md</code> Q04;
+<code>subsystems/D_gap09_thermal_history_dependency.md</code>.)</em></p>
+<p><strong>Compare to 0.12 only post-freeze.</strong> The comparison to the measured anchor happens exactly once,
+after the prediction is frozen — never as a tuning step.</p>
+<h3>3.8 The thermal input \(T_{\rm RH}\) (inherited-conditional from Gap-09 — R6)</h3>
+<p>The freeze-in yield consumes a reheating temperature, owned entirely by <strong>Gap-09 (reheating /
+thermal history)</strong>. Gap-09 is itself <strong>CONDITIONAL, not closed</strong>: it outputs a band</p>
+<p>\[
+T_{\rm RH} \in [2.4\times10^{12},\; 4\times10^{15}]\ \mathrm{GeV}
+\quad (\approx 3 \text{ orders of magnitude wide}),
+\]</p>
+<p>with \(N_{\rm eff} = 3.044\) in-band, and it is <strong>re-gated on K13-2 (Gap-08) and \(c_{\rm loop}\)
+(Gap-04).</strong> <em>(Source: <code>subsystems/D_gap09_thermal_history_dependency.md</code>; <code>00_decomposition.md</code> §4;
+<code>01_named_missing_objects.md</code> MO-5.)</em></p>
+<p>Gap-11 therefore inherits a <strong>conditional, 3-OOM-wide band</strong> and <strong>cannot close it.</strong> This is a pure
+cross-gap cascade: Gap-11 is downstream of Gaps 09 → 08/04 and feeds nothing until closed (a closed
+relic chain would feed Gap-12 / CMB-LSS as a signed cosmological input). <em>(Source:
+<code>subsystems/D_gap09_thermal_history_dependency.md</code>; <code>00_decomposition.md</code> §4.)</em></p>
+<h3>3.9 The structural trichotomy and the single-component fork (UNRUN — R8)</h3>
+<p>This is the campaign's deepest structural finding, and the reason the block's <em>existence</em> is itself
+gated. Before \(N_{\rm portal}\) can be dignified as a debt, two target-blind inventory evaluations
+on the frozen <code>⊗</code>-ledger must be run:</p>
+<p><strong>The trichotomy (A3)</strong> — one target-blind inventory evaluation returns one of three branches:
+- <strong>(i) empty ledger</strong> → the abundance is <em>geometric</em>; \(N_{\rm portal}\) is a <strong>non-object</strong> (there
+  is no dynamical portal to normalize).
+- <strong>(ii) a unique operator</strong> → dynamical freeze-in; \(N_{\rm portal}\) <strong>is</strong> the single decisive
+  integral, and it inherits the Gap-09 \(T_{\rm RH}\) band.
+- <strong>(iii) a unique operator but geometric-dominated yield</strong> → \(N_{\rm portal}\) is only a
+  <strong>correction</strong>, not the leading term.</p>
+<p><strong>The single-component fork (A4)</strong> — is the relic carried by the zero-mode <strong>alone</strong>, or by the
+zero-mode <strong>plus its \(\mathbb{Z}_2\)-odd KK tower</strong> co-carrying the abundance as a sum? On the
+<strong>tower-co-carry</strong> branch, the answer routes into the already-banked KK-overclosure machinery plus
+Gap-09, and \(N_{\rm portal}\) is the <em>wrong object</em> to be computing.</p>
+<p><em>(Source: <code>GAP11_COMPLETION_RESULT.md</code> §3 (axioms A3, A4) and §5 (R8);
+<code>02_CURRENT_STATE.md</code>.)</em></p>
+<blockquote>
+<p><strong>The structural payoff.</strong> \(N_{\rm portal}\) is a real, decisive debt <strong>only</strong> in the conjunction
+<em>{A2 discharged ∧ trichotomy = (ii) ∧ single-component = true}</em>. On branches (i)/(iii) or the
+tower-co-carry branch, the block <strong>shrinks or dissolves for free</strong> — the abundance becomes
+geometric, or \(N_{\rm portal}\) becomes a correction, or it routes into already-banked machinery.
+This is why the trichotomy/fork is the genuine <em>reduce</em> candidate and <strong>must be run before</strong>
+\(N_{\rm portal}\) is treated as the single-object block. <em>(Source: <code>GAP11_COMPLETION_RESULT.md</code>
+§3, §5–§6.)</em></p>
+</blockquote>
+<h3>3.10 The direct-detection forecast and falsifier (banked at forecast grade — R5)</h3>
+<p>The same portal operator that sets the relic abundance sets the <strong>spin-independent elastic
+scattering cross-section off nucleons</strong>, \(\sigma_{\rm SI}\). The corpus banks a null-forecast
+<strong>band</strong> (not a point value):</p>
+<p>\[
+\sigma_{\rm SI} \sim 10^{-55}\text{–}10^{-60}\ \mathrm{cm}^2 ,
+\]</p>
+<p>which is <strong>\(\sim 6\text{–}11\) orders of magnitude below the neutrino floor</strong> (\(\sim 10^{-49}\,
+\mathrm{cm}^2\)) and far below any foreseeable terrestrial reach (recorded as \(\sim 35\text{–}40\)
+OOM below current sensitivity). <em>(Source: <code>subsystems/E_direct_detection_null_forecast.md</code>;
+<code>GAP11_COMPLETION_RESULT.md</code> §0; <code>01_named_missing_objects.md</code> MO-4.)</em></p>
+<p>From this band the corpus banks a <strong>pre-registered, asymmetric, refute-only falsifier</strong>:
+- The theory predicts direct-detection experiments see <strong>nothing</strong> (a null).
+- <strong>Any</strong> WIMP-like positive signal anywhere above the forecast band is <strong>fatal</strong> to the minimal
+  candidate.
+- Because the forecast sits so far below reach, <strong>no null result can confirm</strong> the candidate.</p>
+<p>So the falsifier is real but <strong>one-sided</strong>: detectable-only-by-refutation. <em>(Source:
+<code>subsystems/E_direct_detection_null_forecast.md</code>; <code>01_DOSSIER.md</code> §1.)</em> The \(\sigma_{\rm SI}\)
+<strong>point value</strong> (within the band) rides the same \(N_{\rm portal}\) and is therefore gated; the
+<strong>band and the falsifier rule</strong> are banked and already function.</p>
+<h3>3.11 The frozen coupling \(\lambda_p(0.12) \sim 10^{-11}\) — role ambiguous (R4)</h3>
+<p>The corpus records a <strong>frozen</strong> coupling \(\lambda_p(0.12) \sim 10^{-11}\) — a small coupling
+consistent with a feeble freeze-in rate. <em>(Source: <code>subsystems/F_stability_and_overclosure_gates.md</code>;
+<code>subsystems/B_portal_normalization.md</code>; <code>00_decomposition.md</code> §0.)</em></p>
+<p><strong>Its role is unresolved.</strong> Whether \(\lambda_p(0.12)\) <em>is</em> the portal normalization, <em>fixes</em> it,
+or is <em>downstream</em> of it is <strong>not made explicit in toe.md.</strong> The argument "0.12" itself is
+ambiguous — a radius ratio? \(\Omega_{\rm DM}h^2\)? a modulus value? <strong>Assuming it is
+\(N_{\rm portal}\) would back the normalization out of 0.12 — the prohibited anti-fitting move.</strong>
+This is a <strong>disambiguation question for the owner (Q01)</strong>, not a derivation. <em>(Source:
+<code>subsystems/B_portal_normalization.md</code> <code>questions_if_unknown</code>; <code>00_decomposition.md</code> §3.)</em></p>
+<hr />
+<h2>§4. The insights we used</h2>
+<p>These are the reusable moves — shareable at working-physicist depth — that produced the gate's
+honest progress.</p>
+<h3>4.1 Identity-and-stability for free, from a symmetry the geometry already has</h3>
+<p>The decisive conceptual move is that the <strong>stabilizing symmetry is not imposed — it is the orbifold
+action itself.</strong> In most dark-matter models a discrete symmetry (a \(\mathbb{Z}_2\) "dark parity")
+is added by hand to forbid decay. Here the \(\mathbb{Z}_2\) is already present as the orbifold of the
+hypercharge circle, fixed for independent reasons. A state localized at the fixed point is
+automatically odd under it, automatically neutral (it sits at the \(Y=0\) locus), and automatically
+stable. <strong>Identity, neutrality, and stability are one structural fact, not three assumptions.</strong> That
+is the insight that makes this a <em>constraint-selection</em> result rather than a model-build. <em>(Source:
+<code>subsystems/A_candidate_selection.md</code> purpose; <code>subsystems/F_...md</code>.)</em></p>
+<h3>4.2 Structural selection, frozen-before-compare — why 17/18 is meaningful</h3>
+<p>The selection was run <strong>target-blind</strong>: the 18-candidate field and the razor were frozen <em>before</em>
+any comparison to the abundance, and the C-iii state won 17 of 18 reweightings. The value of this is
+methodological — it shows the candidate was <em>not</em> reverse-engineered from the answer. The honest
+discipline is to read it at <strong>selector-CANDIDATE grade</strong> and to <em>audit</em> it (re-run the reweightings
+on the frozen field), <strong>never</strong> to re-score it from memory. The lesson reusable elsewhere: a
+selection is only evidence if the field and the criterion were frozen before the comparison.
+<em>(Source: <code>subsystems/A_candidate_selection.md</code>; <code>GAP11_COMPLETION_RESULT.md</code> §2.1.)</em></p>
+<h3>4.3 One coefficient, two consumers — the structural compression</h3>
+<p>The single most useful structural insight is that <strong>\(N_{\rm portal}\) sets both the relic abundance
+and the direct-detection cross-section.</strong> This is what compresses a cluster of seven separate-looking
+unknowns (identity, operator, normalization, mechanism, relic, cross-section, reheating) into <em>one
+missing derivation with two downstream consumers and one experimental adjudicator.</em> Closing the one
+coefficient sharpens both consumers at once. <em>(Source: <code>00_decomposition.md</code> §1;
+<code>01_DOSSIER.md</code> §1.)</em></p>
+<h3>4.4 The two theorems — refusing the shortcut, enlarging the floor honestly</h3>
+<p>The campaign's most important <em>insight</em> was a <strong>negative</strong> one, and it is worth stating in full
+because it is exactly the kind of move that keeps a program honest. An earlier reading had bundled a
+load-bearing shortcut into a single posit: that the <em>same</em> razor which selects the dark <strong>state</strong>
+(17/18) also governs the <strong>operator</strong> inventory by the same ordering — so that naming and normalizing
+the coupling would follow from the same selection. Two theorems were minted and <strong>adversarially
+verified (both valid, both not target-loaded)</strong>:</p>
+<ul>
+<li><strong>Theorem 1 (razor-governs-operators): REFUTED AS STATED.</strong> A razor defined and validated on
+  <em>architecture-branches</em> is not, without an explicit extension, an ordering on <em>operators</em> — a type
+  mismatch. The razor's only operator-touching coordinate is a <strong>count</strong>, whereas the rule actually
+  needed is <strong>lowest-mass-dimension</strong> on a single operator. The two functionals are mutually blind to
+  each other's discriminating variable.</li>
+<li><strong>Theorem 2 (operator-admissibility-metric): REFUTED AS STATED.</strong> An explicit admissible pair — a
+  dim-5 fitted-coefficient Higgs-portal versus a dim-6 generator-rule coupling — is ranked in
+  <strong>opposite order</strong> by mass-dimension-first versus the record-cost metric. A genuine disagreement,
+  constructed with no abundance value in sight. It terminates in the named posit
+  <strong>AXIOM-OPERATOR-ORDERING.</strong></li>
+</ul>
+<p><em>(Source: <code>GAP11_COMPLETION_RESULT.md</code> §2.2.)</em></p>
+<blockquote>
+<p><strong>What "REFUTED AS STATED" means (binding disambiguation).</strong> It means the <em>strong anchor-transfer</em>
+from the state selection to the operator inventory is <strong>not licensed</strong>. It does <strong>NOT</strong> mean the
+dark-matter candidate was disproven. The candidate's identity and stability stand; what is refuted
+is the claim that one razor automatically governs both inventories. <em>(Source:
+<code>GAP11_COMPLETION_RESULT.md</code> §2.2.)</em></p>
+</blockquote>
+<p>The consequence is <strong>reduce-not-relabel in reverse</strong>: the honest count is restored from one
+over-merged posit to <strong>two</strong> items — (a) the genuine identity/stability win, reduced to the frozen
+lex-min razor (intact, no number, falsification test PASS); and (b) a newly-named, undischarged premise
+(operator-governance), now exposed as <strong>AXIOM-OPEN</strong>. The gate was made <strong>honest-larger, not more
+closed.</strong> That is the insight: being right about each residual is the deliverable. <em>(Source:
+<code>GAP11_COMPLETION_RESULT.md</code> §2.2, §4.)</em></p>
+<h3>4.5 The anti-fitting firewall as a first-class object (the κ³/π discipline)</h3>
+<p>The reason \(N_{\rm portal}\) stays honestly open rather than being quietly "closed" is a hard rule:
+<strong>any coefficient back-solved to make the abundance hit 0.12 is true-by-construction and relocates
+the mystery instead of closing it.</strong> This is named after the κ³/π anti-pattern elsewhere in the
+program. The firewall is applied as a <em>falsification test</em> to every proposed axiom: it counts only if it
+would be written <strong>without knowing \(\Omega_{\rm DM}h^2 = 0.12\).</strong> Both named axioms
+(AXIOM-PORTAL-OPERATOR, referencing only the <code>⊗</code>-layer ledger plus the parity gate; and
+AXIOM-PORTAL-NORMALIZATION, referencing only the boundary geometry plus the reduction convention)
+<strong>pass the falsification test as statements</strong> — the open question is whether they <em>yield</em> a value, which is
+the unrun computation. <em>(Source: <code>01_DOSSIER.md</code> §4.2, §5; <code>02_CURRENT_STATE.md</code>.)</em></p>
+<hr />
+<h2>§5. Evidence &amp; reproducibility</h2>
+<h3>5.1 The witness ledger (with honest reproduces? flags)</h3>
+<p><em>(Faithfully reproduced from <code>01_DOSSIER.md</code> §2.1.)</em></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Witness</th>
+<th>What it asserts</th>
+<th>Grade</th>
+<th>Reproduces?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1</td>
+<td>C-iii candidate identity (ℤ₂-odd, \(Y=0\), boundary-localized)</td>
+<td>the geometry localizes a stable neutral state</td>
+<td>structural</td>
+<td><strong>Yes (given geometry)</strong> — follows from the \(S^1_Y/\mathbb{Z}_2\) boundary + parity assignment</td>
+</tr>
+<tr>
+<td>W2</td>
+<td>17/18 structural selection across 5 reweightings</td>
+<td>a geometric pick, frozen before any abundance compare</td>
+<td>audit</td>
+<td><strong>Audit-able (AO-1)</strong> — re-run the reweighting on the frozen 18-field; do NOT re-score from memory</td>
+</tr>
+<tr>
+<td>W3</td>
+<td>Renormalizable stability (\(Y=0\) + ℤ₂ parity)</td>
+<td>decay forbidden, coupling renormalizable</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — parity + zero-hypercharge are structural</td>
+</tr>
+<tr>
+<td>W4</td>
+<td>KK-overclosure PASS (one-sided, inflaton band)</td>
+<td>the candidate does not overclose across the band</td>
+<td>machine-lane</td>
+<td><strong>Banked PASS</strong> — non-vacuity + \(T_{\rm RH}\)-band coverage is the open AO-2 audit</td>
+</tr>
+<tr>
+<td>W5</td>
+<td>Portal operator coupling C-iii to the bath</td>
+<td>the operator exists + preserves ℤ₂</td>
+<td>symbolic</td>
+<td><strong>NO — UNNAMED in the corpus (R1)</strong></td>
+</tr>
+<tr>
+<td>W6</td>
+<td>\(N_{\rm portal}\) overlap value</td>
+<td>a finite geometric coefficient</td>
+<td>machine-lane</td>
+<td><strong>NO — UNRUN (R2)</strong>; specifiable, not evaluated</td>
+</tr>
+<tr>
+<td>W7</td>
+<td>\(\Omega_{\rm DM}h^2\) relic integral</td>
+<td>the candidate reproduces ≈0.12</td>
+<td>machine-lane</td>
+<td><strong>NO — gated on R2 + R6 (R3)</strong>; not run</td>
+</tr>
+<tr>
+<td>W8</td>
+<td>\(\sigma_{\rm SI}\) band + falsifier (\(10^{-55}\)–\(10^{-60}\) cm²)</td>
+<td>any detection kills the minimal candidate</td>
+<td>forecast</td>
+<td><strong>Banked (forecast grade)</strong> — the <em>band</em>, not the point value (R5); asymmetric/refute-only</td>
+</tr>
+<tr>
+<td>W9</td>
+<td>\(\lambda_p(0.12)\sim10^{-11}\) FROZEN</td>
+<td>a frozen coupling, role vs \(N_{\rm portal}\) ambiguous</td>
+<td>record</td>
+<td><strong>Recorded</strong> — definitional relation to \(N_{\rm portal}\) <strong>unresolved</strong> (R4/Q01)</td>
+</tr>
+<tr>
+<td>W10</td>
+<td>Gap-09 \(T_{\rm RH}\) band \([2.4\times10^{12},4\times10^{15}]\) GeV</td>
+<td>the thermal input to the relic integral</td>
+<td>inherited</td>
+<td><strong>Inherited-CONDITIONAL</strong> — owned by Gap-09 (R6); 3 OOM wide, behind Gaps 08/04</td>
+</tr>
+</tbody>
+</table>
+<h3>5.2 The named axioms and their atomicity verdicts</h3>
+<p><em>(Faithfully reproduced from <code>GAP11_COMPLETION_RESULT.md</code> §3.)</em></p>
+<table>
+<thead>
+<tr>
+<th>Axiom / element</th>
+<th>What it is</th>
+<th>Atomic?</th>
+<th>Disposition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A0 — the measured floor</strong></td>
+<td>\(\Omega_{\rm DM}h^2 \approx 0.12\) (Planck); the refute-only falsifier, compared exactly once</td>
+<td><strong>YES</strong> — a directly measured cosmological invariant</td>
+<td>Terminal / measured-but-irreducible. The single atomic anchor; reducing it would eliminate the anchor — not allowed.</td>
+</tr>
+<tr>
+<td><strong>A1 — dark identity (reduced)</strong></td>
+<td>the stable, neutral, ℤ₂-odd, \(Y=0\) zero-mode at the \(S^1_Y/\mathbb{Z}_2\) fixed point</td>
+<td><strong>NO</strong> (not Buckingham-π atomic) but irreducible <em>within</em> Gap-11</td>
+<td>REDUCED-TO the frozen lex-min / SHAPE admissibility razor (inherited, not eliminated). The genuine win; carries no number; falsification test PASS. Grade: selector-CANDIDATE.</td>
+</tr>
+<tr>
+<td><strong>A2 — razor governs operators</strong></td>
+<td>the posit that the state-razor also orders the operator inventory</td>
+<td><strong>NO</strong> — both theorems show the transfer is <strong>REFUTED AS STATED</strong></td>
+<td>AXIOM-OPEN; terminates in AXIOM-OPERATOR-ORDERING until discharged target-blind.</td>
+</tr>
+<tr>
+<td><strong>A3 — the structural trichotomy</strong></td>
+<td>one target-blind inventory evaluation: (i) empty → geometric, \(N_{\rm portal}\) a non-object; (ii) unique operator → freeze-in, \(N_{\rm portal}\) the single integral; (iii) unique but geometric-dominated → \(N_{\rm portal}\) only a correction</td>
+<td><strong>NO</strong> — AXIOM-OPEN / unrun AUDIT</td>
+<td>The genuine REDUCE candidate; branches (i)/(iii) shrink-or-dissolve the block for free. Must run before \(N_{\rm portal}\) is dignified as a debt.</td>
+</tr>
+<tr>
+<td><strong>A4 — single-component fork</strong></td>
+<td>zero-mode alone vs. zero-mode + its ℤ₂-odd KK tower co-carrying the relic as a sum</td>
+<td><strong>NO</strong> — AXIOM-OPEN / AUDIT</td>
+<td>Tower-co-carry routes the answer into the banked KK-overclosure machinery + Gap-09, making \(N_{\rm portal}\) the wrong object.</td>
+</tr>
+<tr>
+<td><strong>D1 — \(N_{\rm portal}\)</strong></td>
+<td>the finite overlap integral on \(S^1_Y/\mathbb{Z}_2\); a functional of the frozen geometry + reduction convention alone</td>
+<td>n/a — a calculation owed, never an axiom</td>
+<td>OPEN / computation debt — UNRUN. A real debt <strong>only</strong> in {A2 discharged ∧ trichotomy=(ii) ∧ single-component=true}. <strong>Firewall:</strong> any \(N_{\rm portal}\) inverted out of 0.12 is true-by-construction and RELOCATES.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Net atomicity floor.</strong> One genuinely atomic terminal (A0, measured) + one inherited identity win
+(A1, reduced to the frozen razor, no number) over one exposed open premise (A2), two unrun structural
+forks (A3, A4), and one UNRUN computation debt (D1). One genuine measured anchor is the honest floor.
+<em>(Source: <code>GAP11_COMPLETION_RESULT.md</code> §3.)</em></p>
+<h3>5.3 Frozen hashes and inherited inputs</h3>
+<ul>
+<li><strong>Branch / manifest:</strong> <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> — READ-ONLY. <em>(Source: <code>01_DOSSIER.md</code> §0.)</em></li>
+<li><strong>Sector primitives:</strong> the \(S^1_Y/\mathbb{Z}_2\) orbifold action + boundary fixed point; the
+  ℤ₂-odd parity assignment (\(Y=0\)); the frozen \(\lambda_p(0.12)\sim10^{-11}\). <em>(Source:
+  <code>01_DOSSIER.md</code> §0.)</em></li>
+<li><strong>No first-principles hash for \(N_{\rm portal}\)</strong> — it is unrun. <em>(Source: <code>01_DOSSIER.md</code> §0.)</em></li>
+<li><strong>Inherited:</strong> the Gap-09 \(T_{\rm RH}\) band \([2.4\times10^{12},4\times10^{15}]\) GeV
+  (CONDITIONAL). <em>(Source: <code>01_DOSSIER.md</code> §0; <code>subsystems/D_...md</code>.)</em></li>
+</ul>
+<h3>5.4 How a reader re-derives / re-runs (exactly)</h3>
+<ol>
+<li><strong>Re-check identity + stability (W1, W3) — hand-checkable.</strong> Take the frozen \(S^1_Y/\mathbb{Z}_2\)
+   orbifold; confirm the fixed point localizes a zero-mode; confirm the mode is ℤ₂-odd and sits at the
+   \(Y=0\) locus; confirm ℤ₂-odd parity forbids decay to ℤ₂-even Standard-Model final states and that
+   \(Y=0\) keeps any portal renormalizable. <em>(Procedure from <code>subsystems/A_...md</code>, <code>F_...md</code>.)</em></li>
+<li><strong>Audit the selection (W2, AO-1) — do NOT re-score.</strong> Obtain the frozen 18-candidate field and the
+   5 reweighting vectors; re-run the reweighting with the field + razor <strong>frozen before any abundance
+   comparison</strong>; confirm C-iii is selected 17/18 and check whether it is the <em>unique</em> survivor or a
+   near-tie. <em>(Procedure from <code>subsystems/A_...md</code> <code>questions_if_unknown</code>; <code>00_decomposition.md</code>.)</em></li>
+<li><strong>Audit the KK-overclosure PASS (W4, AO-2).</strong> Re-evaluate the KK relic sum across the conditional
+   \(T_{\rm RH}\) band; confirm the PASS excludes a real (non-vacuous) region and that it holds across
+   the <strong>full Gap-09 band</strong>, not only the inflaton band. <em>(Procedure from <code>subsystems/F_...md</code>.)</em></li>
+<li><strong>Specify (do NOT run) \(N_{\rm portal}\) (W6).</strong> Write the overlap integral of §3.6 once R1 names
+   the operator; track the K13-2 normalization-convention hazard; <strong>do not evaluate it from memory and
+   never tune it to 0.12.</strong> <em>(Procedure from <code>02_tractability.md</code> §3.)</em></li>
+<li><strong>Hold the downstream chain (W7) blocked</strong> until R2 and R6 are frozen, then run the freeze-in
+   quadrature and compare to 0.12 exactly once, post-freeze.</li>
+</ol>
+<blockquote>
+<p><strong>Reproducibility honesty.</strong> W5–W7 do <strong>not</strong> reproduce: the operator is unnamed, the normalization
+is unrun, the relic integral is gated. These are honest absences, recorded as such. A captured log
+of any of these would <strong>not</strong> be an independent reproduction. <em>(Source: <code>01_DOSSIER.md</code> §2.3.)</em></p>
+</blockquote>
+<hr />
+<h2>§6. Open gaps + closure path — the specialist work plan</h2>
+<blockquote>
+<p>This is the most load-bearing section. Each open hole is a work-package a specialist can pick up and
+start closing immediately. The attack order follows the leverage ranking in <code>01_DOSSIER.md</code> §3.2:
+<strong>R8 (decide the branch) → R1 (name the operator) → R2 (run \(N_{\rm portal}\)) → R3 (relic) →
+R5 (σ_SI) → R4/R6/R7 (export / audit).</strong> The hard discipline throughout: <strong>target-blind, never
+tune to 0.12, STATUS-UPGRADES:0.</strong></p>
+</blockquote>
+<h3>6.0 R8 — Decide the branch (the structural trichotomy + single-component fork) — RUN THIS FIRST</h3>
+<p><strong>(a) Precise statement.</strong> Two target-blind inventory evaluations on the frozen <code>⊗</code>-ledger:
+(A3) is the ledger empty (branch i), does it yield a unique freeze-in operator (branch ii), or a
+unique operator with geometric-dominated yield (branch iii)? (A4) is the relic carried by the
+zero-mode alone, or zero-mode + its ℤ₂-odd KK tower (tower-co-carry)? These decide whether
+\(N_{\rm portal}\) is even an object.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> The earlier reading <em>skipped</em> this step and treated
+\(N_{\rm portal}\) as automatically the single decisive integral. The two verified theorems (§4.4)
+showed the operator-governance that this skip silently assumed is <strong>REFUTED AS STATED</strong>. <em>Trap to
+avoid:</em> dignifying \(N_{\rm portal}\) as a single-object debt <strong>before</strong> the branch is known — on
+branches (i)/(iii)/tower-co-carry it is a non-object or a correction, and running its integral would
+be wasted (or worse, a place to smuggle in a tuned value). Do not infer the branch from the 17/18
+state selection — that transfer is exactly what the theorems refuted.</p>
+<p><strong>(c) Exactly what closes it.</strong> Run the two inventory evaluations target-blind on the frozen ledger.
+<strong>Success:</strong> a single branch is selected with a recorded witness. <strong>A refuting / dissolving result is
+a valid close:</strong> branch (i) → the abundance is geometric and \(N_{\rm portal}\) dissolves; branch
+(iii) → \(N_{\rm portal}\) demotes to a correction; tower-co-carry → route into the banked
+KK-overclosure + Gap-09 machinery. Any of these <em>shrinks the gate honestly</em> without running R2.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The frozen <code>⊗</code>-layer operator ledger; the program's
+inventory/audit evaluators; the AXIOM-OPERATOR-ORDERING posit (must be discharged here, not
+inherited). Start from <code>GAP11_COMPLETION_RESULT.md</code> §3 (A3/A4) and §5 (R8); <code>02_CURRENT_STATE.md</code>.</p>
+<p><strong>(e) Leverage.</strong> Decides the <em>entire</em> downstream chain. On two of three branches (plus
+tower-co-carry) the rest of the work plan (R1/R2/R3/R5) collapses or re-routes. This is the
+highest-value single move in the gate.</p>
+<h3>6.1 R1 — Name the portal operator (the cheapest genuine step, on branch ii)</h3>
+<p><strong>(a) Precise statement.</strong> Identify the explicit lowest-mass-dimension, <strong>ℤ₂-odd-preserving</strong>
+operator coupling the C-iii mode to a Standard-Model bath field, drawn from the <code>⊗</code>-layer ledger.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> The operator is <em>unnamed in toe.md</em>; you cannot
+normalize an unnamed operator. The verified <strong>Theorem 1</strong> showed the operator ordering cannot be
+inherited from the state-selection razor (a count-vs-mass-dimension type mismatch). <em>Trap to avoid:</em>
+re-using the state razor's <em>count</em> coordinate as if it ordered operators — it does not. The correct
+ordering is <strong>lowest mass-dimension on a single operator</strong>, which must be exhibited explicitly to
+discharge AXIOM-OPERATOR-ORDERING. <em>Second trap:</em> proposing a parity-breaking operator — it would
+re-open a decay channel and break the banked stability (the R1↔F coupling, §3.3).</p>
+<p><strong>(c) Exactly what closes it.</strong> Run a target-blind operator-inventory razor on the frozen ledger that
+(a) names the lowest-dimension ℤ₂-odd-preserving operator and (b) exhibits an explicit ordering on
+operators. <strong>Success ladder:</strong> DERIVED-GIVEN-E if the operator falls out uniquely; <strong>Reduced to
+Axiom</strong> <code>AXIOM-PORTAL-OPERATOR</code> ("the C-iii state couples through the lowest-dimension
+ℤ₂-odd-preserving operator admitted by the <code>⊗</code>-ledger") if it must be posited (named, value-free —
+passes the falsification test); <strong>OPEN</strong> if it cannot be fixed without owner input. A <strong>refuting</strong> result —
+no admissible ℤ₂-odd-preserving operator exists — would force branch (i) of the trichotomy
+(geometric abundance), a valid close.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The <code>⊗</code>-layer ledger; the ℤ₂-parity gate from Subsystem F; technique T10
+(selector / structural identification). Start from <code>subsystems/B_portal_normalization.md</code> §B.1;
+<code>02_tractability.md</code> §3 step 1; <code>01_DOSSIER.md</code> §4.1.</p>
+<p><strong>(e) Leverage.</strong> Gates R2 (and R5's point value). You cannot write \(N_{\rm portal}\) until R1
+lands. It also discharges, or names, AXIOM-OPERATOR-ORDERING.</p>
+<h3>6.2 R2 — Evaluate the portal normalization \(N_{\rm portal}\) (THE BLOCK)</h3>
+<p><strong>(a) Precise statement.</strong> Evaluate, <strong>target-blind</strong>, the finite overlap integral
+\(N_{\rm portal}\propto\int_{S^1_Y/\mathbb{Z}_2}\psi_{\rm C\text{-}iii}(y)\,\psi_{\rm bath}(y)\,
+(\text{geometry factors})\,dy\), reduced 13D→4D via the §IV conventions — producing a value (with
+band) <strong>without reference to 0.12.</strong></p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> It is an owner/machine computation (\([S]\to[O]\)),
+<strong>not</strong> a logical argument an agent can carry — the corpus is explicit that <em>no honest AI attempt
+exists</em> without fabricating a geometric integral. <em>Trap 1 (the cardinal one):</em> backing
+\(N_{\rm portal}\) out of \(\Omega_{\rm DM}h^2 = 0.12\). That is true-by-construction (the κ³/π
+anti-pattern) and <strong>RELOCATES</strong> the mystery — refuse it. <em>Trap 2:</em> assuming the frozen
+\(\lambda_p(0.12)\sim10^{-11}\) <em>is</em> \(N_{\rm portal}\) — that is the same anti-fitting violation in
+disguise (it implicitly carries 0.12; see R4). <em>Trap 3:</em> assuming the K13-2 normalization-convention
+issue away — the same D.1 / \(K_{\sigma\sigma}\) machinery that produced K13-2 in Gap-09 may recur
+here; <strong>track it, do not assume it.</strong></p>
+<p><strong>(c) Exactly what closes it.</strong> <em>Only on the surviving branch (ii)+single-component:</em> evaluate the
+integral target-blind; feed it forward (do not compare yet). <strong>Success ladder:</strong> DERIVED-CLOSED only
+if the integral evaluates with no fudge <strong>and</strong> the downstream relic integral lands near 0.12
+post-freeze; <strong>Reduced to Axiom</strong> <code>AXIOM-PORTAL-NORMALIZATION</code> ("the portal coupling's normalization
+is the geometric overlap integral of the C-iii boundary profile with the bath-field profile on
+\(S^1_Y/\mathbb{Z}_2\), a function of boundary geometry and reduction convention only, independent of
+any abundance value") if it is named and verified to <em>yield</em> a value; <strong>OPEN / [O]</strong> if it requires
+owner-machine evaluation it has not received (the realistic current terminus — it is <strong>not [A]</strong>).
+<strong>A refuting result is a valid close:</strong> a target-blind value giving an abundance far from 0.12 beyond
+the band kills the minimal candidate.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The boundary-mode profile \(\psi_{\rm C\text{-}iii}\) and bath profile
+\(\psi_{\rm bath}\) from §I; the §IV dimensional-reduction conventions (D.1 / \(K_{\sigma\sigma}\)
+precedent); technique T1 (axiom-floor) for the genuine path and T5 (firewall) against relocation.
+Start from <code>subsystems/B_portal_normalization.md</code>; <code>02_tractability.md</code> §3 steps 2–4;
+<code>01_DOSSIER.md</code> §4.2.</p>
+<p><strong>(e) Leverage.</strong> Closing R2 un-gates R3 (relic) and R5 (σ_SI point value) simultaneously — the
+single coefficient sets both consumers. This is the one new derivation Gap-11 needs of its own.</p>
+<h3>6.3 R3 — Run the relic integral \(\Omega_{\rm DM}h^2\) (downstream)</h3>
+<p><strong>(a) Precise statement.</strong> Once \(N_{\rm portal}\) (R2) and a frozen \(T_{\rm RH}\) band (R6) exist,
+run the standard freeze-in Boltzmann quadrature \(\Omega_{\rm DM}h^2\propto\int(\text{production
+rate}(N_{\rm portal},T))\,dT\) over the band; resolve the UV/IR regime (Q04); freeze the prediction;
+compare to 0.12 <strong>exactly once</strong>, post-freeze.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> It is routine <em>as a calculation</em> but <strong>purely
+downstream</strong> — it cannot be run now without fabricating R2 or R6. <em>Trap:</em> running it speculatively
+with an invented \(N_{\rm portal}\) or a hand-picked \(T_{\rm RH}\); both fabricate inputs. <em>Trap:</em>
+choosing the UV/IR regime to make the answer come out — the regime is a physical fact (Q04) to be
+resolved, not a knob.</p>
+<p><strong>(c) Exactly what closes it.</strong> With both inputs frozen, evaluate the quadrature; freeze; compare
+once. <strong>Success:</strong> DERIVED-GIVEN-E if both inputs are frozen and the integral runs and lands near
+0.12. <strong>Refuting:</strong> an abundance far from 0.12 kills the minimal candidate — a valid close. Note R3
+may be <strong>vacated entirely</strong> on trichotomy branch (i) or the tower-co-carry branch (where the
+abundance is geometric / tower-carried).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Standard freeze-in Boltzmann quadrature; the Q04 regime resolution;
+\(N_{\rm portal}\) (R2) and the Gap-09 \(T_{\rm RH}\) band (R6). Start from
+<code>subsystems/C_relic_abundance_chain.md</code>; <code>01_named_missing_objects.md</code> MO-3; <code>01_DOSSIER.md</code> §4.3.</p>
+<p><strong>(e) Leverage.</strong> A closed relic chain would feed Gap-12 (CMB/LSS) as a signed cosmological input —
+the gate's only downstream consumer. <em>(Source: <code>subsystems/C_...md</code>; <code>00_decomposition.md</code> §4.)</em></p>
+<h3>6.4 R5 — The \(\sigma_{\rm SI}\) point value + the asymmetric falsifier (experiment-gated)</h3>
+<p><strong>(a) Precise statement.</strong> Compute the \(\sigma_{\rm SI}\) point value (within the recorded
+\(10^{-55}\)–\(10^{-60}\) cm² band) from the <em>same</em> \(N_{\rm portal}\) once R2 lands; the band +
+falsifier are already banked.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> The point value rides R2 (gated); the <em>adjudication</em>
+is an <strong>experiment</strong>, structurally not closeable by argument. <em>Trap:</em> inventing a point value; <em>trap:</em>
+claiming a null result confirms the candidate — it cannot (the forecast is 6–11 OOM below the
+neutrino floor, \(\sim 35\text{–}40\) OOM below current sensitivity). The falsifier is <strong>one-sided</strong>:
+any positive signal kills the minimal candidate; no null confirms it.</p>
+<p><strong>(c) Exactly what closes it.</strong> Compute \(\sigma_{\rm SI}\) from \(N_{\rm portal}\) (consistency
+check Q07: confirm it lands in the recorded band). <strong>Success:</strong> DERIVED-GIVEN-E for the point value
+once R2 lands. <strong>Adjudication:</strong> experiment-gated / OPEN (refute-only) — export the falsifier to the
+prediction/falsification matrix. A positive direct-detection signal anywhere above the band is the
+<strong>refuting</strong> outcome (fatal to the minimal candidate, a valid close).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The same \(N_{\rm portal}\) overlap calc (R2); the worldwide
+direct-detection programme (the external adjudicator). Start from
+<code>subsystems/E_direct_detection_null_forecast.md</code>; <code>01_DOSSIER.md</code> §4.5.</p>
+<p><strong>(e) Leverage.</strong> Sharpening, not a blocker — the band/falsifier already function. Closing R2 closes
+this for free.</p>
+<h3>6.5 R4 — Disambiguate \(\lambda_p(0.12)\sim10^{-11}\) vs \(N_{\rm portal}\) (export to owner)</h3>
+<p><strong>(a) Precise statement.</strong> Resolve, by a single declared owner ruling, whether the frozen
+\(\lambda_p(0.12)\) <em>is</em> \(N_{\rm portal}\), <em>fixes</em> it, or is <em>downstream</em> of it — and what the
+argument "0.12" denotes (radius ratio? \(\Omega_{\rm DM}h^2\)? a modulus?).</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> The relation is <strong>not in toe.md</strong>; the meaning of the
+argument is ambiguous. <em>Trap (forbidden):</em> assuming the identity — it would back \(N_{\rm portal}\)
+out of 0.12, the anti-fitting violation. This is a <em>question</em>, not a derivation.</p>
+<p><strong>(c) Exactly what closes it.</strong> Emit the disambiguation question (Q01) to the owner. <strong>Success:</strong>
+EXPORTED (Q01 to owner) is the honest terminus; if the owner confirms a relation, it <strong>narrows R2</strong>.
+Until then, OPEN-as-question. Not closeable by argument; not assumable.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Technique T5 (firewall) + export-as-question. Start from
+<code>subsystems/B_portal_normalization.md</code> <code>questions_if_unknown</code>; <code>00_decomposition.md</code> §3;
+<code>01_DOSSIER.md</code> §4.4.</p>
+<p><strong>(e) Leverage.</strong> Could narrow R2 if confirmed; cannot, on its own, close anything (and must never be
+assumed).</p>
+<h3>6.6 R6 — Freeze the \(T_{\rm RH}\) band (export to Gap-09 → Gaps 08/04)</h3>
+<p><strong>(a) Precise statement.</strong> Freeze a single \(T_{\rm RH}\) (or a narrowed band) replacing the current
+3-OOM conditional band \([2.4\times10^{12},4\times10^{15}]\) GeV.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> It is <strong>not closeable inside Gap-11</strong> — it is owned by
+Gap-09, itself re-gated on K13-2 (Gap-08) and \(c_{\rm loop}\) (Gap-04). <em>Trap:</em> counting
+\(T_{\rm RH}\) as a Gap-11 output, or hand-picking a value inside the band to make R3 come out.</p>
+<p><strong>(c) Exactly what closes it.</strong> Close Gap-09 (transitively Gaps 08/04). <strong>Success:</strong> EXPORTED to
+Gap-09 — terminal-by-export; the band narrows only when Gap-09 closes. It matters for the abundance
+<strong>only</strong> on the trichotomy-(ii) + single-component branch.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> None internal — pure cross-gap cascade. Start from
+<code>subsystems/D_gap09_thermal_history_dependency.md</code>; the Gap-09 folder
+<code>…/TOE/gap_09_reheating_thermal_history/</code>.</p>
+<p><strong>(e) Leverage.</strong> A frozen \(T_{\rm RH}\) un-gates R3 (jointly with R2). Closing Gap-09 also serves
+every other gate that consumes the thermal history.</p>
+<h3>6.7 R7 — Audit the banked selection + KK-overclosure non-vacuity (verification, not physics)</h3>
+<p><strong>(a) Precise statement.</strong> AO-1: re-run the 5 reweightings on the frozen 18-candidate field to
+confirm 17/18 is a genuine, non-tie geometric pick. AO-2: confirm the KK-overclosure PASS (i)
+excludes a real region and (ii) holds across the <strong>full Gap-09 conditional \(T_{\rm RH}\) band</strong>, not
+only the inflaton band.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> <em>Trap (cardinal):</em> re-scoring the selection from
+memory — the field and razor must be frozen before any comparison. <em>Trap:</em> assuming the one-sided
+PASS covers the full \(T_{\rm RH}\) band when it was banked only over the inflaton band.</p>
+<p><strong>(c) Exactly what closes it.</strong> Run AO-1/AO-2 on an independent re-run. <strong>Success:</strong> VERIFIED-by-audit
+→ the banked items become machine-confirmed (still at candidate grade — no promotion). <strong>Refuting:</strong>
+if AO-2 fails to cover the Gap-09 band, that is a <em>sharper-OPEN</em> result (a real finding). Neither
+audit closes R2.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The frozen 18-candidate field + 5 reweighting vectors (AO-1); the KK relic
+sum across the conditional band (AO-2); machine-lane audit setup. Start from
+<code>subsystems/A_candidate_selection.md</code>; <code>subsystems/F_stability_and_overclosure_gates.md</code>;
+<code>01_DOSSIER.md</code> §4.7.</p>
+<p><strong>(e) Leverage.</strong> Confirms the banked structure the rest of the gate rests on; no new physics, no
+promotion.</p>
+<h3>6.8 The anti-fitting self-check (apply to every named axiom above)</h3>
+<p>For each proposed axiom, confirm it is writable <strong>without</strong> knowing \(\Omega_{\rm DM}h^2 = 0.12\):
+- <strong>AXIOM-PORTAL-OPERATOR</strong> — references only the <code>⊗</code>-layer ledger + the ℤ₂-parity gate. No abundance
+  value. ✔
+- <strong>AXIOM-PORTAL-NORMALIZATION</strong> — references only the boundary geometry + the reduction convention.
+  No abundance value. ✔ (Whether it <em>yields</em> the right value is the unrun computation, not part of
+  the statement.)
+- <strong>The trap:</strong> any \(N_{\rm portal}\) chosen so the relic integral hits 0.12 is true-by-construction
+  (κ³/π) and RELOCATES — refuse it. A frozen \(\lambda_p(0.12)\) that coincides with \(N_{\rm portal}\)
+  is a <strong>question for the owner</strong>, not a closure. <em>(Source: <code>01_DOSSIER.md</code> §5;
+  <code>GAP11_COMPLETION_RESULT.md</code> §4.)</em></p>
+<hr />
+<h2>§7. Honest ceiling &amp; scope</h2>
+<h3>7.1 What is, and is not, claimed</h3>
+<p><strong>Claimed (at the stated grades):</strong> the frozen geometry <em>supplies and stabilizes</em> a structurally
+selected dark-matter candidate (identity + stability, real geometry-essential structure, at
+selector-CANDIDATE grade); a one-sided KK-overclosure PASS is banked; a pre-registered, refute-only
+direct-detection falsifier is banked at forecast grade; two adversarially-verified theorems refuted,
+<em>as stated</em>, the shortcut that one razor governs both the state and the operator inventories — a
+diagnostic gain that enlarged the honest floor.</p>
+<p><strong>NOT claimed (forbidden over-claims, denied by the frozen docs):</strong>
+- <strong>The geometry derives / predicts \(\Omega_{\rm DM}h^2 \approx 0.12\).</strong> No \(\Omega_{\rm DM}h^2\)
+  value is asserted anywhere; the relic integral is gated, not run; \(N_{\rm portal}\) has no
+  assertable value. <em>(Denied by <code>02_CURRENT_STATE.md</code>; <code>GAP11_COMPLETION_RESULT.md</code> §6.)</em>
+- <strong>One geometric rule selects both the particle and its portal operator.</strong> REFUTED AS STATED by the
+  two verified theorems; only the state-side selection is banked. <em>(Denied by
+  <code>GAP11_COMPLETION_RESULT.md</code> §2.2.)</em>
+- <strong>\(\lambda_p(0.12)\sim10^{-11}\) IS \(N_{\rm portal}\).</strong> Its role is unresolved (Q01); assuming
+  the identity backs the normalization out of 0.12 — the prohibited anti-fitting move. <em>(Denied by
+  <code>subsystems/B_...md</code>.)</em>
+- <strong>The KK-overclosure PASS fixes the abundance.</strong> It is one-sided — a necessary viability bound, not
+  a sufficient abundance determination. <em>(Denied by <code>subsystems/F_...md</code>.)</em></p>
+<h3>7.2 The dissolved unicorns — shared ceilings, not weaknesses</h3>
+<p>Two endpoints are <strong>universal limits on all of physics</strong>, not gaps in this theory, and are framed as
+the correct ceiling rather than as open weakness:</p>
+<ul>
+<li><strong>No null direct-detection experiment can ever CONFIRM the candidate.</strong> The forecast
+  \(\sigma_{\rm SI}\) sits 6–11 OOM below the neutrino floor, so confirmation-by-null is unattainable
+  for <em>any</em> feebly-coupled relic, by any experiment. This is an observation limit on all of physics.
+  The bounded, honest endpoint is the one-sided refute-only falsifier — and that <em>is</em> the ceiling, not
+  a hedge. <em>(Source: handoff spine; <code>subsystems/E_...md</code>.)</em></li>
+<li><strong>Proving \(N_{\rm portal}\) is THE absolutely unique geometric coefficient under any possible
+  reduction convention</strong> is a universal-negative over an open-ended domain — unprovable in principle.
+  The bounded, correct claim is a target-blind overlap integral on the frozen geometry under the
+  stated §IV convention. <em>(Source: handoff spine.)</em></li>
+</ul>
+<h3>7.3 The anchors paid, and the honest floor</h3>
+<p>Gap-11 rests on <strong>one genuine measured anchor</strong> — \(\Omega_{\rm DM}h^2 \approx 0.12\), used
+compared-to-only, never fitted — <strong>plus</strong> a banked structural candidate (identity + stability, real
+but <em>not</em> abundance). The two legs that could carry a closure (AXIOM-PORTAL-OPERATOR,
+AXIOM-PORTAL-NORMALIZATION) are <strong>AXIOM-OPEN, not atomic</strong>: naming them is precision, not closure —
+the magnitude debt (\(N_{\rm portal}\) → abundance) is unpaid. The thermal input \(T_{\rm RH}\) is
+exported to Gap-09; the cross-section adjudication is exported to experiment. <em>(Source:
+<code>02_CURRENT_STATE.md</code> (0), (iv); <code>GAP11_COMPLETION_RESULT.md</code> §3.)</em></p>
+<h3>7.4 Bottom line</h3>
+<p>Gap-11 is a <strong>serious, structurally-selected candidate — NOT validated.</strong> It is an honestly-held
+<strong>OPEN / CONDITIONAL-with-named-gate</strong> result that has been <em>sharpened and made honest-larger</em>, not
+closed. The frozen geometry genuinely carries the candidate's identity and stability; the two
+verified theorems refused a false shortcut; the single decisive block, \(N_{\rm portal}\), is exactly
+as open as at the start — a finite, in-principle-computable, <strong>UNRUN</strong> overlap integral whose very
+existence as a single-object debt is itself fork-gated. The path forward is concrete and ordered: run
+the trichotomy/fork target-blind to decide the branch; <em>only on the surviving branch</em> name the
+operator and run \(N_{\rm portal}\) target-blind on a frozen Gap-09 \(T_{\rm RH}\) band; then compare
+to 0.12 exactly once. The candidate can be <strong>refuted</strong> by a direct-detection signal but cannot be
+<strong>confirmed</strong> by any foreseeable null — and that asymmetry is an observation limit on everyone, not a
+defect of this theory.</p>
+<p><strong>given-E ≠ derivation of E; selection ≠ derivation; banked ≠ derived; anchored ≠ derived;
+AXIOM-CLOSED ≠ atomic; a captured log ≠ an independent reproduction. STATUS-UPGRADES:0. Frozen branch
+<code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> READ-ONLY. No \(\Omega_{\rm DM}h^2\) asserted. Never tune
+\(N_{\rm portal}\) to 0.12.</strong></p>
+<hr />
+<p><em>Dossier built by synthesis + expansion of: <code>…/TOE/PER_GATE_DOSSIERS/GAP11_COMPLETION_HANDOFF/</code>
+(<code>01_DOSSIER.md</code>, <code>02_CURRENT_STATE.md</code>); <code>…/TOE/gap_11_dark_matter/</code> (<code>00_decomposition.md</code>,
+<code>01_named_missing_objects.md</code>, <code>02_tractability.md</code>, <code>subsystems/A–F</code>);
+<code>…/articles/GAP11_COMPLETION_RESULT.md</code>; <code>…/articles/GATE_BRIEF_GAP11.html</code>; and the dossier-build
+handoff <code>…/TOE/30pagedoc/handoffs/GAP11.md</code>. Per <code>DOSSIER_BUILD_PROTOCOL.md</code> v1. No status promoted;
+no number fabricated; firewall clean.</em></p>
+</body></html>

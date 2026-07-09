@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GRANULARITY — The Cost-Floor Root (Deep Root 1 of 3)</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">GRANULARITY — The Cost-Floor Root (Deep Root 1 of 3) — rendered package. Rendered from <code>GRANULARITY_ROOT_DOSSIER.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>GRANULARITY — The Cost-Floor Root (Deep Root 1 of 3)</h1>
+<blockquote>
+<p><strong>Honest status: DECLARED POSIT — a <em>declared root, not a theorem</em>.</strong> Reality has a smallest meaningful step (the Finite (Uniform) Operational Cell Law); &hbar; is the <em>size</em> of that step, and its value is a residue. The honest ceiling is <strong>co-fundamentality, not strict irreducibility</strong>: the closure shows finite resources do <strong>not</strong> by themselves force granularity (countermodel on R=[0,1] with delta-tests), and the certification route is circular inside QM. So this root is <em>argued</em>, not <em>proven</em>. This dossier presents the granularity / recordability ("record-keeping") result, the theorem-attack, and the boundary classification. No status was upgraded.</p>
+</blockquote>
+<p>This document explains the GRANULARITY axiom: the claim that reality has a positive cost/action floor, and that the continuum is an idealization. It states the axiom, gives the recordability reduction that sharpens it, presents the decisive theorem and the honest obstruction, and fixes the precise boundary between what is supported and what stays open.</p>
+<hr />
+<h2>1. The result in one sentence</h2>
+<p>Reality is granular not because space is pixelated, but because <strong>only robustly recordable distinctions are physically real, and bounded causal reality has finite robust record capacity.</strong> The granularity root bottoms on the <strong>Finite Operational Cell Law</strong> ($\Delta_0 > 0$): a positive operational resolution cell, which is the pre-quantum shadow of $\hbar$-graining. The <em>existence</em> of the cell is the root; its <em>value</em> ($\hbar$) is a residue.</p>
+<p>The granularity root moved from a vague "cost floor" confession to a precise structural posit with: a rigorous no-go (finite resources are insufficient), a named irreducible primitive (the cell law), a derived sufficiency (basin-packing ⇒ floor), and the exact correspondence to $\hbar$-graining as a residue-valued shadow.</p>
+<table>
+<thead>
+<tr>
+<th>Root</th>
+<th>Irreducible bottom (sharpest honest form)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GRANULARITY (R1)</strong></td>
+<td><strong>Finite Operational Cell Law</strong> — a positive operational resolution cell $\Delta_0>0$ (pre-quantum shadow of $\hbar$-graining). NOT derivable from finite resources (countermodel); cell value = residue.</td>
+</tr>
+<tr>
+<td><strong>SCALE</strong></td>
+<td>≥1 dimensionful anchor proven; 2 anchors $\{M_{\rm Pl}, v_{EW}\}$; hierarchy OPEN (RG-exponent route).</td>
+</tr>
+<tr>
+<td><strong>SHAPE</strong></td>
+<td>the geometry / matter content $E$ (SM chiral spectrum, 3 generations); selector-minimal + functional-role floor; realization-minimality not earned.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. The recordability root and its closure stack</h2>
+<blockquote>
+<p><strong>Thesis:</strong> the universe is granular not because space is pixelated, but because only robustly recordable distinctions are physically real, and bounded causal reality has finite robust record capacity.</p>
+</blockquote>
+<h3>2.1 What the reframe achieves and what it relocates</h3>
+<p><strong>Genuine:</strong>
+- <strong>Pedigree.</strong> "Facts require records" = Wheeler <em>it-from-bit</em> + Zurek <em>quantum Darwinism / einselection</em> (objective facts = redundantly recorded environmental information) + Landauer "information is physical." A recognized foundational stance.
+- <strong>It breaks the <em>surface</em> distinguishability circle.</strong> Distinguishability is defined by the <strong>pre-Hilbert operational metric</strong> $d_{\rm op}(r_a,r_b)=\sup_{T,e}|P(e\mid r_a,T)-P(e\mid r_b,T)|$ (total-variation over test statistics) — no inner product, no Born rule. This is exactly the operational distinguishability of the Hardy / Chiribella–D'Ariano–Perinotti GPT frameworks.
+- <strong>Unification insight.</strong> Margolus–Levitin, Landauer, Bekenstein are three shadows of <em>finite stable recordability in a bounded causal world</em>.</p>
+<p><strong>Relocation (honest — not closure):</strong>
+- The chain bottoms on <strong>"bounded causal recordability ⇒ $R_{\rm phys}$ compact" (T3), which is NOT proven.</strong> In standard operational/GPT frameworks <strong>compactness of the state space is an axiom, not a theorem</strong>; the one near-theorem version (Buchholz–Wichmann <strong>nuclearity</strong>) lives <em>inside QFT</em> (using it would import a quantum-internal theorem). So T3 is a genuinely new pre-quantum result — the real wall.
+- The margin <strong>$\Delta > 0$ is a resolution floor posited by hand</strong> → a <strong>new residue</strong> alongside $\hbar$, $k_B$. The reframe trades {cost floor $\varepsilon$} for {resolution floor $\Delta$ + compactness}; better-motivated, but the posited constant is changed, not removed.</p>
+<h3>2.2 The closure stack</h3>
+<pre><code>R0 — RECORDABILITY ROOT: a physical distinction is real only if a bounded causal
+     subsystem can stably record + retrieve it, with operational margin d_op ≥ Δ &gt; 0.
+   ↓
+T1 — No-record, no-fact: a distinction with no stable bounded-causal record is not a
+     physical fact. (Kills purely formal continuum refinements: math diff ≠ physical diff.)
+   ↓
+T2 — Robust records are Δ-separated: a stable record requires finite operational margin
+     d_op(r_a,r_b) ≥ Δ; sub-Δ &quot;differences&quot; are noise / gauge / coordinate / unregistered.
+   ↓
+T3 — ★ DECISIVE ★  Bounded causal record spaces are compact:
+     R_phys is compact (hence totally bounded) under d_op  ⇒  N_max(R,Δ,τ) &lt; ∞.
+   ↓
+T4 — Compact recordability ⇒ compact distinguishability: D ↪ R_phys, D closed ⇒ D compact.
+   ↓
+T5 — Compact distinguishability ⇒ positive floor:
+     D compact, c:D→ℝ≥0 continuous, c(x)=0 ⇒ x∉D  ⇒  ε = min_D c &gt; 0.
+   ↓
+T6 — Finite resource ⇒ finite distinguishable milestones.
+   ↓
+T7 — ML / Landauer / Bekenstein appear as framework shadows (CONFIRMATION, not premise).
+</code></pre>
+<p>T5 is established: if $D$ is compact, $c: D\to\mathbb{R}_{\ge0}$ continuous, and $c(x)=0 \Rightarrow x\notin D$, then $\varepsilon = \min_D c > 0$ (extreme value theorem + pointwise positivity). T3+T4 deliver the compact $D$ this needs.</p>
+<h3>2.3 The decisive theorem and the precise obstruction</h3>
+<p><strong>T-BOUNDED-CAUSAL-RECORD-COMPACTNESS.</strong>
+$$\text{bounded causal support} + \text{stable retrievability} + \text{finite operational resolution }\Delta \;\Longrightarrow\; R_{\rm phys}\text{ compact}.$$
+Equivalently the <strong>missing lemma:</strong> for fixed $\Delta>0$, finite duration $\tau$, bounded causal support $R$,
+$$N_{\max}(R,\Delta,\tau) < \infty \quad(\text{finite stable record capacity}).$$</p>
+<p><strong>The attack — a <em>pre-quantum nuclearity / $\Delta$-net packing</em> argument.</strong> Total-boundedness of $R_{\rm phys}$ ⇒ finitely many $\Delta$-separated records. Derive total-boundedness from a <strong>packing bound</strong>: a bounded causal region carrying a <em>finite resource budget</em> (action / energy·time / information capacity) admits only finitely many mutually $\Delta$-distinguishable test-statistics profiles. This is a <strong>pre-quantum re-derivation of nuclearity</strong> — the structure exists rigorously in algebraic QFT (Buchholz–Wichmann); the task is to obtain it from bounded-causal-resource axioms <em>alone</em>.</p>
+<p><strong>The live circularity risk (must be defeated, not assumed):</strong> the "finite resource budget" bounding the packing must <strong>not</strong> secretly <em>be</em> the per-milestone floor. The honest target is: finiteness-of-<em>total</em>-resource + $\Delta$ ⇒ finiteness-of-<em>count</em> ⇒ (via T5) floor-<em>per</em>-milestone — three distinct objects. If the packing bound only works by assuming a per-record cost floor, the derivation is circular and FAILS.</p>
+<h3>2.4 Three correctness conditions (the relabel-guards)</h3>
+<p>Three failure modes must be ruled out, and each is hard-gate:</p>
+<ul>
+<li><strong>Compactness must be derived.</strong> T3 must be <strong>derived</strong> from bounded causal recordability; <em>assuming</em> $R_{\rm phys}$ compact (the GPT-axiom move) moves the floor, does not prove it.</li>
+<li><strong>No Bekenstein circularity.</strong> Bekenstein/holographic bounds may appear only at T7 as confirmation; using them to prove T3 is circular (Bekenstein is supposed to be a <em>shadow</em> of the floor).</li>
+<li><strong>No quantum import.</strong> The metric at the root <strong>must</strong> be the test-statistics TV-distance $d_{\rm op}$ — <strong>not</strong> trace distance, fidelity, or Hilbert overlap; and <strong>no</strong> invocation of nuclearity-as-a-QFT-theorem. Hilbert space may enter only as a <em>downstream representation theorem</em> for recordable alternatives.</li>
+</ul>
+<h3>2.5 Honest scope of the recordability reduction</h3>
+<ul>
+<li><strong>Ceiling = co-fundamentality, not strict irreducibility.</strong> Best case: recordability sits <em>at or below</em> QM/thermo/GR in the implication order, with the floor as a derived consequence. The strict negative ("no deeper principle") is unattainable.</li>
+<li><strong>Residues (never delivered):</strong> $\hbar$, $k_B$, the Bekenstein constant — <strong>and now $\Delta$</strong> (the resolution margin) unless it too is derived. This is about <em>structure</em>, not magnitude.</li>
+<li><strong>Odds:</strong> this is the open frontier of quantum foundations (deriving compactness/finiteness of the state space from operational/causal principles). Honestly low-to-moderate; the <strong>Bekenstein leg is the most plausible to make rigorous — but only as T7 confirmation</strong>; the <strong>pre-quantum compactness derivation (T3) is the hard core.</strong></li>
+<li><strong>What success buys:</strong> upgrades R1 from "declared cost-floor confession" to <strong>"co-fundamental recordability root with a derived floor"</strong> — the strongest honest status granularity can attain. It closes no physics gap; the axiom count is unchanged (granularity stays a root; its <em>form</em> and <em>standing</em> improve).</li>
+</ul>
+<p>The honest verdict: the strongest granularity attempt to date — it picks the right pre-quantum primitive and breaks the surface circle — but it relocates the irreducible posit to the open theorem T3 (<code>recordability ⇒ compactness</code>) and introduces $\Delta$ as a new residue.</p>
+<hr />
+<h2>3. T3 reduced to the FTC lemma</h2>
+<p>The recordability program reduces the decisive wall (T3) to a single named lemma, with a rigorous countermodel proving the naive primitives insufficient.</p>
+<h3>3.1 Target (T3)</h3>
+<p>Bounded causal record-support system $R$ (finite extent, finite duration $\tau$, finite total resource budget $B$); $\mathcal{R}_{\rm phys}$ = admissible stably-retrievable records under $d_{\rm op}(r_a,r_b)=\sup_{T,e}|P(e\mid r_a,T)-P(e\mid r_b,T)|$. Claim: $\mathcal{R}_{\rm phys}$ compact ⇒ $N_{\max}(R,\Delta,\tau)<\infty$ for every $\Delta>0$.</p>
+<h3>3.2 Theorem A — finite total resource does NOT imply compact recordability</h3>
+<p><strong>Countermodel.</strong> Classical pointer $x\in[0,1]$, records $r_x$. Finite extent, finite $\tau$, finite energy-time budget $B$ (a classical pointer at rest needs no energy scaling with the number of positions). Admissible classical readout test $T_{x,y}$ (is the pointer near $x$, excluding $y$) gives $P(e_x\mid r_x,T_{x,y})=1$, $P(e_x\mid r_y,T_{x,y})=0$, so $d_{\rm op}(r_x,r_y)=1$ for all $x\neq y$. Then $[0,1]$ under $d_{\rm op}$ is an uncountable discrete space: for any $0<\Delta\le1$, every pair is $\Delta$-separated ⇒ $N_{\max}=\infty$ ⇒ not totally bounded ⇒ not compact. ∎</p>
+<p>The countermodel is decisive: finite causal support + finite duration + finite action/energy-time genuinely do not yield T3.</p>
+<h3>3.3 The precise obstruction</h3>
+<p>The missing link is <strong>not</strong> "compactness" abstractly. It is: <strong>finite resource must bound operational resolving power</strong> —
+$$ B<\infty \;\overset{?}{\Longrightarrow}\; \forall\,\Delta>0,\; N_{\max}(R,\Delta,\tau)<\infty. $$
+Finite extent / duration / energy-time do not stop arbitrarily sharp readout tests <em>unless a law connects the resource budget to readout resolution.</em> That law is what T3 needs.</p>
+<p>A guard fires on the easy "fix": defining $B$ = finite information capacity (bits) gives $N_{\max}\le 2^B$ trivially — but that <em>assumes</em> finite record capacity. So: $B$ = action/energy-time ⇒ T3 <strong>OPEN</strong>; $B$ = finite information capacity ⇒ illegitimate relabel. Finite information capacity must be <em>derived</em> from more primitive resource assumptions, not assumed.</p>
+<h3>3.4 Lemma FTC — Finite-Resource Operational Test-Compression</h3>
+<blockquote>
+<p>For every bounded causal $R$ (budget $B$, duration $\tau$) and every tolerance $\eta>0$, there is a <strong>finite</strong> family of admissible tests $\mathcal{T}_\eta=\{(T_j,e_j)\}_{j=1}^{M(B,\eta,\tau)}$ such that for all admissible records $r,s$:
+$$ d_{\rm op}(r,s)\;\le\;\max_{1\le j\le M}\big|P(e_j\mid r,T_j)-P(e_j\mid s,T_j)\big|\;+\;\eta. $$</p>
+</blockquote>
+<p>Interpretation: <em>every operational distinction makeable with bounded causal resources is $\eta$-approximable by finitely many bounded-resource tests</em> — the pre-quantum analogue of nuclearity / finite local degrees of freedom, stated with <strong>no</strong> Hilbert space, trace distance, Born rule, Bekenstein bound, or QFT.</p>
+<h3>3.5 Theorem B — T3 conditional on FTC</h3>
+<p>If FTC holds and $\mathcal{R}_{\rm phys}$ is closed under $d_{\rm op}$-Cauchy limits, then $\mathcal{R}_{\rm phys}$ is compact. <strong>Proof.</strong> Fix $\eta>0$; FTC gives finite $\mathcal{T}_\eta$. Map $\Phi_\eta(r)=(P(e_j\mid r,T_j))_{j=1}^M\in[0,1]^M$. Cover the (totally bounded) cube by finite sup-norm cells of radius $\eta$; pick one representative per nonempty cell → finite $\{r_1,\dots,r_K\}$. Any $r$ lies in a cell with rep $r_k$: $\max_j|\Phi_\eta(r)_j-\Phi_\eta(r_k)_j|\le2\eta$, so by FTC $d_{\rm op}(r,r_k)\le3\eta$. Finite $3\eta$-net for every $\eta$ ⇒ totally bounded; + completeness ⇒ compact. ∎</p>
+<h3>3.6 Packing bound under FTC</h3>
+<p>$\eta=\Delta/4$, cells of radius $\Delta/4$: two records in one cell satisfy $\max_j|\cdots|\le\Delta/2$, so $d_{\rm op}\le3\Delta/4<\Delta$ — $\Delta$-separated records sit in distinct cells. Hence
+$$ N_{\max}(R,\Delta,\tau)\;\le\;F(B,\Delta,\tau)\;<\;\infty. $$</p>
+<h3>3.7 Reduction and next target</h3>
+<p>$$ \text{T3} \;\underset{\text{up to closure}}{\Longleftarrow}\; \text{FTC} \;=\; \text{"bounded causal resources forbid infinite operational shattering."} $$
+The true missing theorem is <strong>not</strong> compactness; it is that <em>a finite causal system cannot support an infinite family of independently resolvable tests at arbitrarily fine resolution</em> — i.e. a <strong>pre-quantum resource→resolution law</strong>. FTC is the <strong>operational, pre-Hilbert core of the uncertainty principle / Margolus–Levitin bound</strong> — the countermodel works precisely because classical physics lacks a resource→resolution law and QM is the framework that supplies one. Therefore FTC is <em>as hard as a slice of quantum reconstruction</em>, and the fork is: (i) FTC derivable from something more primitive → recordability grounds granularity; or (ii) FTC is itself the irreducible posit → granularity co-fundamental at the FTC level (still a strictly better posit than "cost floor $\varepsilon>0$").</p>
+<h3>3.8 Honest ceiling</h3>
+<p>Even with FTC proven: ceiling = <strong>co-fundamentality, not strict irreducibility</strong>; values $\hbar$, $k_B$, the Bekenstein constant, and $\Delta$ remain residues; axiom count unchanged; no physics gap closes.</p>
+<hr />
+<h2>4. The irreducible bottom: the Finite Operational Cell Law</h2>
+<p>The FTC attack identifies the sharpest honest bottom of the granularity root: a <strong>Finite Operational Cell Law</strong>. FTC is <strong>not</strong> derivable from finite causal/action resources alone; it follows, conditionally, from a positive operational cell.</p>
+<h3>4.1 Theorem — FTC is not derivable from finite resources alone</h3>
+<p>Admissible binary tests $f_a(r)=P(e_a\mid r,T_a)\in[0,1]$; $d_{\rm op}(r,s)=\sup_a|f_a(r)-f_a(s)|$. Countermodel: $R=[0,1]$, tests $f_x(r)=\mathbb{1}[r=x]$. For distinct $r\neq s$, $f_r$ separates them ⇒ $d_{\rm op}(r,s)=1$. For any finite $\{f_{x_1},\dots,f_{x_M}\}$, pick $r,s\notin\{x_j\}$ (possible, $[0,1]$ uncountable): all selected tests give $0$ on both ⇒ $\max_j|f_{x_j}(r)-f_{x_j}(s)|=0$, while $d_{\rm op}(r,s)=1$. So FTC ($d_{\rm op}\le\max+\eta$) fails for every $\eta<1$. ∎</p>
+<p>This countermodel is <strong>valid and decisive.</strong> Delta-tests $f_x(r)=\mathbb{1}[r=x]$ give $d_{\rm op}=1$ for all distinct records; any finite family returns $0$ on a pair outside it, so $1\le 0+\eta$ fails for $\eta<1$.</p>
+<p><strong>Therefore:</strong> finite causal support + finite duration + finite action/energy-time do <strong>not</strong> imply FTC unless the theory already forbids infinitely sharp operational tests.</p>
+<h3>4.2 What FTC is — a finite-resolution law</h3>
+<p>FTC is a <strong>finite-resolution law</strong>, not a theorem of finite resources:
+$$ \text{FTC} \;\Longleftrightarrow\; \text{bounded records cannot support an infinite family of independently resolvable operational distinctions.} $$
+That <em>is</em> the granular content. Adopting FTC is therefore <strong>naming the real primitive</strong>, not deriving granularity. Stated sharply:</p>
+<blockquote>
+<p><strong>Finite Operational Cell Law (the irreducible bottom).</strong> A bounded causal record-support system has a positive (uniform) lower cell-size $\Delta_0>0$ for stable, independently resolvable records.</p>
+</blockquote>
+<p>The <strong>value</strong> of the cell is a residue (it appears as $\hbar$ in quantum mechanics); the <strong>existence</strong> of the cell is the root. This is the pre-quantum shadow of $\hbar$-graining — it is the honestly-named irreducible posit, openly <em>added</em> rather than derived.</p>
+<h3>4.3 Conditional theorem — basin-packing: cell law ⇒ FTC</h3>
+<p>Assume an operational stability landscape with finite total variation $\mathrm{Var}_{\rm op}(R)\le B$, and that each stable record requires a basin of robustness depth $\ge\Delta$ to be resolvable. Pairwise-resolvable robust records have disjoint depth-$\ge\Delta$ basin-certificates, so $N\cdot\Delta\le B$ ⇒ $N\le\lfloor B/\Delta\rfloor<\infty$. Finite ⇒ totally bounded; with completeness ⇒ compact. FTC then follows by finite-pair test extraction over a finite $\eta/6$-net (triangle inequality), with $M(B,\eta,\tau)\le\lceil B/\Delta\rceil^2$. ∎ <em>(Conditional on the cell law $\Delta>0$ — exactly the irreducible posit of §4.2; honest, not circular.)</em></p>
+<p>The basin-packing conditional is sound and honestly labeled. The Morse/packing bound $N\cdot\Delta\le B\Rightarrow N\le\lfloor B/\Delta\rfloor$ ⇒ totally bounded ⇒ FTC, $M\lesssim(B/\Delta)^2$. It is not a relabel: it grounds FTC in a stability picture and isolates the irreducible bit ($\Delta>0$), which it openly <em>adds</em> rather than derives. There is no compactness/QM/Bekenstein/thermal import; $\Delta>0$ is named as the posit; the value $\hbar$ is kept as a residue.</p>
+<h3>4.4 The two granularity faces and the uniform cell</h3>
+<p>There are <strong>two granularity faces</strong>: the <em>finiteness face</em> (the count of distinguishable milestones is discrete) and the <em>action-floor face</em> (there is a positive cost quantum per milestone, $\varepsilon>0$ / $\hbar>0$).</p>
+<p>An $\eta$-dependent margin $\Delta(\eta)$ yields <strong>total boundedness</strong>, which suffices for the <em>cost-floor face</em> ($\varepsilon>0$ via T5). The <em>finiteness face</em> (a <strong>discrete</strong> milestone count) and the exact $\hbar$-graining correspondence ($N\approx V/\hbar^n$, <em>finite</em>) require the <strong>uniform</strong> cell $\Delta_0>0$ that the Finite Operational Cell Law is named for.</p>
+<p>With the strengthened <strong>Uniform Operational Cell Law</strong> (a system-independent $\Delta_0>0$), basin-packing gives
+$$ N \le \lfloor B/\Delta_0 \rfloor < \infty $$
+— <em>absolute</em> finiteness, not merely total boundedness — recovering <strong>both</strong> granularity faces (finiteness: a bounded milestone count under budget $B$, blocking the continuum pointer by denying arbitrarily-cheap records; action-floor: cost $\ge \Delta_0 > 0$) and matching $\hbar$-graining ($N \approx V/\Omega_0$ with $\Omega_0 \sim \hbar^n$ as residue). The irreducible bottom in final form: <strong>a bounded causal record system has a uniform positive record-cell size $\Delta_0>0$</strong> (named, not derived; $\hbar$ its residue value).</p>
+<h3>4.5 Honest ceiling</h3>
+<p>Ceiling = <strong>co-fundamentality, not strict irreducibility</strong>. Values $\hbar$, $k_B$, the Bekenstein constant, and the cell size $\Delta_0$ remain residues; the axiom count does not drop (granularity stays one root); no physics gap closes. What changed is its standing and precision.</p>
+<p>The honest one-line endpoint: <strong>reality is granular because stable records require positive operational cells; the cell's existence is the root, its value ($\hbar$) is a residue.</strong></p>
+<hr />
+<h2>5. The floor-first reconstruction target</h2>
+<p>An alternative, complementary route states granularity as a reconstruction target. It is an open theorem target (estimated ~15–20% odds on one framework), recorded here for completeness.</p>
+<h3>5.1 Why both naive paths died</h3>
+<p><code>AXIOM-COSTFLOOR</code> (R1) is the deepest "just accept it" on the ledger — a <strong>confession</strong> (declared, not proven). Both obvious routes fail:</p>
+<ul>
+<li><strong>Reduction (derive it from something deeper) → relabel.</strong> Every general parent principle (finite-information-per-region, physical Church–Turing / computability, logical well-foundedness) delivers the <strong>finiteness face</strong> (the milestone <em>count</em> is discrete) but <strong>not the action-floor face</strong> ($\hbar>0$, the cost <em>quantum</em>) without re-injecting $\varepsilon>0$ by hand — the <strong>"action-floor residue."</strong> "Reality must be physically realizable" is an outright equal-strength relabel.</li>
+<li><strong>Certification (prove it irreducible) → circular.</strong> "Cost floor per <strong>distinguishable</strong> transition" presupposes <em>distinguishability</em> — and the only place that lives rigorously today is <strong>Hilbert-space orthogonality, i.e. inside QM.</strong> So the natural arrow runs QM ⇒ energy–time geometry ⇒ the Margolus–Levitin floor, making granularity <strong>downstream of QM, not its root</strong> (likewise Landauer ⇐ thermodynamics, Bekenstein ⇐ semiclassical GR). <strong>This is the distinguishability circle — the decisive obstruction.</strong></li>
+</ul>
+<p>Net: granularity is most likely an irreducible <strong>two-face posit</strong> (finiteness face + action-floor face); only the <strong>Lorentz-scalar leg</strong> stands clean (cost/action/info are Lorentz scalars ⇒ frame-independence falls out).</p>
+<h3>5.2 High-level problem statement</h3>
+<blockquote>
+<p><strong>Define distinguishability <em>without</em> quantum mechanics, then derive the structural cores of quantum kinematics, thermodynamics, and holographic counting <em>from</em> a single positive cost floor — thereby showing the granularity is <em>at least as deep as</em> the frameworks that currently imply it, rather than a downstream consequence of them.</strong></p>
+</blockquote>
+<p>From minimal floor axioms — <strong>(i)</strong> a countable partial order of "distinguishable milestones" (prerequisite chains), <strong>(ii)</strong> a single positive real additive cost with a floor $\varepsilon>0$ per milestone, <strong>(iii)</strong> finite total resource — <em>and a pre-quantum definition of distinguishability</em> (operational perfect-discriminability / a test-space or orthomodular primitive, <strong>not</strong> Hilbert orthogonality) — <strong>derive as theorems</strong>:
+- (a) the inner-product/Hilbert structure in which "distinguishable" = orthogonal (a Gleason / Solèr / Hardy–CDP-style reconstruction), so <strong>Margolus–Levitin $\tau \ge \pi\hbar/2E$ falls out</strong> as the cost-rate bound;
+- (b) <strong>Landauer $kT \ln 2$</strong> as the thermodynamic shadow of the same per-milestone floor;
+- (c) the <strong>Bekenstein bound</strong> as finite-region milestone-counting.</p>
+<p><strong>Success condition:</strong> each of ML / Landauer / Bekenstein is a theorem of the floor axioms; the floor axioms are provably <strong>strictly weaker</strong> than the frameworks they reconstruct; distinguishability is defined <strong>non-circularly</strong> (pre-Hilbert).</p>
+<h3>5.3 Honest scope, falsifiers, and what success buys</h3>
+<ul>
+<li><strong>Ceiling = co-fundamentality, not strict irreducibility.</strong> Best case: the floor sits <em>at or below</em> QM/thermo/GR in the implication order. The strict negative ("no deeper principle exists") is unattainable in principle.</li>
+<li><strong>The value is never delivered.</strong> $\hbar$, $k_B$, the Bekenstein constant stay "just is" (FLOOR-VALUES-RESIDUE). This theorem is about <em>structure</em>, not magnitude.</li>
+<li><strong>Correctness conditions (auto-fail):</strong> importing the inner-product/orthogonality you are supposed to derive (= assuming QM = circular); a "deeper principle" of equal/greater strength (relocation, not derivation); reconstructing only finiteness-of-count while re-injecting $\varepsilon>0$/$\hbar$ by hand (action-floor face un-reduced).</li>
+<li><strong>Named missing object:</strong> a pre-quantum <em>distinguishability test-space + additive-cost</em> axiom set, plus the reconstruction theorem (Hilbert space + ML/Landauer/Bekenstein as outputs).</li>
+<li><strong>Odds:</strong> ~15–20% to flip the arrow on <em>one</em> framework (Bekenstein most plausible — region-counting is natively finite-information; ML the hardest — it <em>is</em> the open QM-reconstruction problem); ~3–5% all three; ~0% for the strict negative.</li>
+<li><strong>What success changes:</strong> closes no physics gap; the count is unchanged (granularity stays a root). It upgrades R1's <em>epistemic standing</em> from "declared confession" to "co-fundamental root carrying a floor-first reconstruction certificate" — the strongest honest status granularity can attain.</li>
+</ul>
+<hr />
+<h2>6. The granularity boundary — four tiers (G0/G1/G2/G3)</h2>
+<p>The word "granular" carries a single binding meaning, and every claim is partitioned into one of four tiers G0/G1/G2/G3. This is the firewall: any sentence that promotes a G0 or G1 fact into a G2 (spectral gap) or G3 (spacetime discreteness) claim <strong>without a theorem</strong> is rejected.</p>
+<p>The core reframe being policed:</p>
+<blockquote>
+<p>The physical state space is a <strong>constraint-selected kernel</strong>
+$\mathcal{H}_{\rm phys} = \ker(\text{constraints})/\text{(gauge-null directions)}$.
+The Yang-Mills mass gap is
+$\operatorname{Spec}\!\big(H|_{\mathcal{H}_{\rm phys}}\big)\cap(0,\Delta)=\varnothing$
+— "there is <strong>no</strong> sequence of normalized, vacuum-orthogonal, <strong>physical</strong> states whose energy $\to 0$."
+Physical-kernel coercivity:
+$\displaystyle\inf_{\substack{\psi\perp\Omega,\ \psi\in\mathcal{H}_{\rm phys},\ \|\psi\|=1}}\langle\psi,H\psi\rangle > 0.$</p>
+</blockquote>
+<p>"Null-space physicality" is <strong>NOT</strong> "spacetime pixels." The kernel can be infinite-dimensional and continuous; selecting it asserts nothing about a smallest length. A null space can be infinite-dimensional and continuous, so "null space ⇒ spacetime is granular" is <strong>false</strong>. The correct claim is: <em>if the physical null space has an isolated vacuum under $H$, then physical excitations are spectrally granular.</em></p>
+<h3>6.1 The four tiers (binding definitions)</h3>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Name</th>
+<th>Definition</th>
+<th>Default status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>G0</strong></td>
+<td>Constraint granularity</td>
+<td>A fail-closed selector returns a <strong>discrete surviving branch</strong> (or a narrowed admissible set) from a continuum of candidates.</td>
+<td><strong>SUPPORTED structurally</strong></td>
+</tr>
+<tr>
+<td><strong>G1</strong></td>
+<td>Sector-label granularity</td>
+<td>Discrete labels exist <strong>within selected sectors</strong>: winding numbers, parities, center sectors, projectors, family index, representation weights.</td>
+<td><strong>SUPPORTED in selected sectors</strong></td>
+</tr>
+<tr>
+<td><strong>G2</strong></td>
+<td>Spectral granularity</td>
+<td>A <strong>positive first excitation</strong> above the vacuum: $\operatorname{Spec}(H|_{\mathcal H_{\rm phys}})\cap(0,\Delta)=\varnothing$, $\Delta>0$. For pure YM this <strong>is</strong> the mass gap.</td>
+<td><strong>recognized-open</strong></td>
+</tr>
+<tr>
+<td><strong>G3</strong></td>
+<td>Spacetime discreteness</td>
+<td>A literal smallest length / pixelated spacetime / lattice-of-reality.</td>
+<td><strong>NOT claimed</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The firewall is the implication that is <strong>forbidden without a theorem</strong>:</p>
+<p>$$\boxed{\,G0/G1 \;\not\Rightarrow\; G2/G3\,}$$</p>
+<p>A discrete <em>branch</em> (G0) and discrete <em>labels</em> (G1) are facts about the <strong>selection</strong> and the <strong>bookkeeping</strong> of the physical kernel. They say nothing about (a) whether the Hamiltonian restricted to that kernel has a spectral gap (G2), nor (b) whether the underlying arena is discrete (G3). Both G2 and G3 require their own theorem. G2's theorem is the recognized open continuum problem and is OPEN; G3 is <strong>not asserted at all</strong> by this program.</p>
+<h3>6.2 Per-claim classification table</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Claim</th>
+<th>Tier</th>
+<th>Status</th>
+<th>Corpus anchor (verified)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C1</td>
+<td>The fail-closed selector $\mathcal S:(\mathcal B_0,\mathcal C)\to\mathcal B_{\rm surviving}$ returns a discrete surviving branch under the declared search category.</td>
+<td><strong>G0</strong></td>
+<td><strong>SUPPORTED structurally</strong></td>
+<td>GUT §4.5 / Appendix B1 selector; §1001 "first non-empty class $\mathcal B_{\times\oplus\otimes}$"; §1481 "the only branch that survives."</td>
+</tr>
+<tr>
+<td>C2</td>
+<td>The surviving branch is selected by pass/fail <strong>elimination</strong> under constraint set $\mathcal C$, not by continuous tuning.</td>
+<td><strong>G0</strong></td>
+<td><strong>SUPPORTED structurally</strong></td>
+<td>GUT §648, §1346, §1479 ("eliminative and fail-closed").</td>
+</tr>
+<tr>
+<td>C3</td>
+<td>The full $\times+\oplus+\otimes$ class is the <strong>first non-empty</strong> constraint intersection (every proper layer subset gives an empty survivor set).</td>
+<td><strong>G0</strong></td>
+<td><strong>SUPPORTED structurally</strong></td>
+<td>GUT §1001 (necessity-as-interface).</td>
+</tr>
+<tr>
+<td>C4</td>
+<td>Center sectors of $SU(3)_c$ (the $\mathbb Z_3$/$\mathbb Z_6$ center labels) are discrete sector labels.</td>
+<td><strong>G1</strong></td>
+<td><strong>SUPPORTED in selected sectors</strong></td>
+<td>GUT center/parity sector bookkeeping; corpus center-sector labels.</td>
+</tr>
+<tr>
+<td>C5</td>
+<td>The BRST projectors $\Pi_i$ (quartet projection onto $\ker Q_{\rm BRST}/\operatorname{im}Q_{\rm BRST}$) define discrete physical-state sectors.</td>
+<td><strong>G1</strong></td>
+<td><strong>SUPPORTED in selected sectors</strong></td>
+<td>Quantum §1090, §2061, §2231 ($\mathcal H_{\rm phys}=\ker Q_{\rm BRST}/\operatorname{im}Q_{\rm BRST}$); Kugo-Ojima quartet §2203.</td>
+</tr>
+<tr>
+<td>C6</td>
+<td>The family index / chiral count $\chi=-3$ (three generations) is a discrete topological label.</td>
+<td><strong>G1</strong></td>
+<td><strong>SUPPORTED in selected sectors</strong></td>
+<td>GUT chiral-spectrum / six-ledger anomaly closure (§1244).</td>
+</tr>
+<tr>
+<td>C7</td>
+<td>Representation weights ($SU(3)\times SU(2)\times U(1)$ rep assignments on the retained sector) are discrete labels.</td>
+<td><strong>G1</strong></td>
+<td><strong>SUPPORTED in selected sectors</strong></td>
+<td>Quantum §2205 (two physical polarisations per gauge boson on retained 4D zero-mode sector).</td>
+</tr>
+<tr>
+<td>C8</td>
+<td>Winding numbers / parities of the selected sectors are discrete.</td>
+<td><strong>G1</strong></td>
+<td><strong>SUPPORTED in selected sectors</strong></td>
+<td>Corpus parity/winding sector labels.</td>
+</tr>
+<tr>
+<td>C9</td>
+<td>$\mathcal H_{\rm phys}=\ker(\text{constraints})/\text{(gauge-null)}$ is the physical Hilbert space (BRST cohomology).</td>
+<td><strong>G1 (structural definition)</strong></td>
+<td><strong>SUPPORTED</strong> as a definition; <strong>does NOT by itself supply G2</strong>.</td>
+<td>Quantum §2061, §2231.</td>
+</tr>
+<tr>
+<td><strong>C10</strong></td>
+<td><strong>The physical kernel has a positive first excitation: $\operatorname{Spec}(H|_{\mathcal H_{\rm phys}})\cap(0,\Delta)=\varnothing$, $\Delta\ge c'\Lambda_{\rm YM}$</strong> (the Yang-Mills mass gap).</td>
+<td><strong>G2</strong></td>
+<td><strong>recognized-open [X]</strong></td>
+<td>Gap 02 standing: <strong>Precisely-OPEN</strong>.</td>
+</tr>
+<tr>
+<td><strong>C11</strong></td>
+<td><strong>Physical-kernel coercivity $\inf_{\psi\perp\Omega,\,\psi\in\mathcal H_{\rm phys},\,\|\psi\|=1}\langle\psi,H\psi\rangle>0$.</strong></td>
+<td><strong>G2</strong></td>
+<td><strong>OPEN — THE WALL</strong></td>
+<td>A coercivity / domination bound on the strong-field tail, uniform to the IR. It is OPEN. Margin exactly critical (marginal renormalizability).</td>
+</tr>
+<tr>
+<td>C12</td>
+<td>Full interacting nonperturbative positivity of $\mathcal H_{\rm phys}$ ($\langle\psi|\psi\rangle\ge0$, continuum YM).</td>
+<td><strong>G2-adjacent (positivity)</strong></td>
+<td><strong>OPEN (AUDIT)</strong></td>
+<td>Quantum §2271 ("same status as 4D interacting Yang-Mills positivity … a long-standing open problem of mathematical physics"); §2371 "full nonperturbative positivity remains open."</td>
+</tr>
+<tr>
+<td>C13</td>
+<td><strong>Conditional:</strong> [uniform gauge-invariant exponential clustering (S-I, OPEN)] ∧ [OS construction + RP-survival + nontriviality (OPEN)] ⟹ [$\operatorname{Spec}(H)\cap(0,\Delta)=\varnothing$].</td>
+<td><strong>Conditional bridge into G2</strong></td>
+<td><strong>CLEAN</strong> (the <em>conditional</em> is proved; the mass gap stays OPEN).</td>
+<td>M4D S4 conditional spectral conversion lemma §H4, §215.</td>
+</tr>
+<tr>
+<td>C14</td>
+<td>Spacetime is pixelated / has a smallest length / continuum is an approximation to a reality-lattice.</td>
+<td><strong>G3</strong></td>
+<td><strong>NOT claimed</strong></td>
+<td>Explicitly not asserted (struck in the null-space reframe).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reading of the table.</strong> The <em>support</em> lives entirely in G0 (rows C1–C3) and G1 (rows C4–C9). Everything load-bearing for the <strong>mass gap</strong> (C10, C11, and the positivity C12) is <strong>G2 = recognized-open</strong>; the only G2-direction result that is CLEAN is the <strong>conditional</strong> C13, which proves an implication, not the gap. G3 (C14) is <strong>not made</strong>.</p>
+<h3>6.3 Concrete item lists</h3>
+<p><strong>G0 items — constraint granularity (SUPPORTED structurally)</strong>
+- The <strong>GUT fail-closed selector</strong> $\mathcal S$: applies every constraint to every candidate, keeps exactly the passers, no negotiation (GUT §1346).
+- The <strong>discrete surviving branch</strong> — the $F^+$-augmented active branch; selector returns <strong>one</strong> branch, not a continuous family (GUT §1481).
+- The <strong>first non-empty constraint intersection</strong> $\mathcal B_{\times\oplus\otimes}$ (every proper layer subset ⟹ empty survivor set) (GUT §1001).
+- Gate stack: gauge recovery, charge, chirality, anomaly, stabilization, threshold, Higgs protection, proton safety, flavor closure (GUT §648).</p>
+<p><strong>G1 items — sector-label granularity (SUPPORTED in selected sectors)</strong>
+- <strong>Center sectors:</strong> the $\mathbb Z_3$ center of $SU(3)_c$ (and $\mathbb Z_6$ combined-center labels).
+- <strong>Projectors $\Pi_i$:</strong> BRST quartet projection onto $\ker Q_{\rm BRST}/\operatorname{im}Q_{\rm BRST}$ (Quantum §2203, §2231).
+- <strong>Family index $\chi=-3$:</strong> three-generation chiral count / six-ledger anomaly closure (GUT §1244).
+- <strong>$\mathbb Z_6$:</strong> combined center / hypercharge-normalization discrete label.
+- <strong>Representation weights:</strong> $SU(3)\times SU(2)\times U(1)$ rep assignments on the retained 4D zero-mode sector (Quantum §2205).
+- <strong>Winding numbers / parities</strong> of the selected sectors.</p>
+<p><strong>G2 items — spectral granularity (recognized-open — NOT supported)</strong>
+- The mass gap $\operatorname{Spec}(H|_{\mathcal H_{\rm phys}})\cap(0,\Delta)=\varnothing$ (C10).
+- Physical-kernel coercivity inf $>0$ — <strong>the wall</strong> (C11).
+- Full interacting nonperturbative positivity (C12).</p>
+<p><strong>G3 items — spacetime discreteness (NOT claimed)</strong>
+- Smallest length, pixelated spacetime, reality-lattice. <strong>None asserted.</strong></p>
+<h3>6.4 Rejected promotions (firewall enforcement)</h3>
+<p>The following promotions <strong>G0/G1 ⇒ G2/G3</strong> are <strong>REJECTED</strong> because no theorem licenses them:</p>
+<table>
+<thead>
+<tr>
+<th>Rejected promotion</th>
+<th>From → To</th>
+<th>Why rejected</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RP-1</strong></td>
+<td>C1/C3 (discrete surviving branch, G0) ⇒ C10 (mass gap, G2)</td>
+<td>A discrete <em>branch</em> under the selector is a fact about which geometry survives constraint elimination. It does <strong>not</strong> imply the Hamiltonian on that branch's physical kernel has an isolated vacuum. The gap is the <strong>separate</strong> recognized open continuum problem, OPEN. No theorem connects branch-discreteness to spectral isolation.</td>
+</tr>
+<tr>
+<td><strong>RP-2</strong></td>
+<td>C5/C9 (BRST projectors / $\mathcal H_{\rm phys}$ definition, G1) ⇒ C11 (coercivity, G2)</td>
+<td>Defining the physical kernel by BRST cohomology supplies the <em>domain</em> of the inf, not a <em>lower bound</em> on it. The coercivity is a strong-field bound at exactly-critical margin (marginal renormalizability). Having the projector does not bound the infimum away from 0.</td>
+</tr>
+<tr>
+<td><strong>RP-3</strong></td>
+<td>C4/C8 (center sectors / winding, G1) ⇒ C14 (spacetime pixels, G3)</td>
+<td>Discrete <strong>labels</strong> on a continuous configuration space are not discrete <strong>points</strong> of spacetime. Center sectors and winding numbers are topological labels of continuum fields; the arena stays continuous. "Null-space physicality is NOT spacetime pixels."</td>
+</tr>
+<tr>
+<td><strong>RP-4</strong></td>
+<td>C6 ($\chi=-3$ family index, G1) ⇒ C14 (G3)</td>
+<td>A discrete topological invariant (chiral count) on a smooth manifold says nothing about a smallest length.</td>
+</tr>
+<tr>
+<td><strong>RP-5</strong></td>
+<td>C13 (the CLEAN conditional, conditional-bridge) ⇒ C10 (mass gap as proved, G2)</td>
+<td>The conditional proves <em>implication</em>, with <strong>both</strong> antecedents (S-I clustering and OS/RP/nontriviality) OPEN. Discharging it would require proving the antecedents — which is exactly the wall. Citing C13 as if the gap were established is the headline failure mode and is rejected. The conditional is CLEAN; the gap is OPEN.</td>
+</tr>
+</tbody>
+</table>
+<p>No promotion is accepted. The program remains G0+G1-supported, G2-open, G3-unclaimed.</p>
+<h3>6.5 Reviewer-safe statement (binding)</h3>
+<blockquote>
+<p>The program claims constraint granularity (G0) and sector-label granularity (G1), and asks — as an OPEN question — whether the physical Yang-Mills kernel has spectral granularity (G2): no arbitrarily soft vacuum-orthogonal physical directions. It does NOT claim spacetime discreteness (G3). Null-space physicality is not spacetime pixels.</p>
+</blockquote>
+<p>The continuum may be the arena, but not every continuum field configuration is physical. Gauge invariance, BRST/OS positivity, anomaly constraints, center-sector consistency, and the 13D admissibility rules carve out the physical state space. The mass gap says that this carved-out space has no arbitrarily soft physical excitation above the vacuum. The program does not assume spacetime is pixelated; it tests whether physical reality is the constraint-selected kernel inside the continuum field space, and whether the Hamiltonian on that kernel has a discrete first excitation. That is the open-problem-relevant meaning of granularity.</p>
+<h3>6.6 What is supported and what remains open</h3>
+<p><strong>Supported:</strong>
+- The G0/G1/G2/G3 tier definitions are fixed and binding; the forbidden implication $G0/G1\not\Rightarrow G2/G3$ (sans theorem) is the firewall.
+- The G0 support (GUT fail-closed selector → discrete surviving branch) and the G1 support (center sectors, projectors $\Pi_i$, $\chi=-3$, $\mathbb Z_6$, rep weights, winding/parity) are concretely enumerated and each tied to a verified corpus anchor.
+- The M4D conditional (C13) is CLEAN as a conditional.</p>
+<p><strong>Open:</strong>
+- <strong>G2 entirely:</strong> the mass gap C10 ($\operatorname{Spec}\cap(0,\Delta)=\varnothing$), the coercivity C11 (inf $>0$, <strong>the wall</strong>, at exactly-critical margin), and full nonperturbative positivity C12 — all <strong>recognized-open</strong>. The antecedents of the CLEAN conditional C13 (uniform gauge-invariant exponential clustering; OS construction + RP-survival + nontriviality) are OPEN.
+- Track-A residual: the twisted bordism group $\Omega_5^{\mathrm{Spin}^c}(B(PSU(3));\tau_{K_6}))$ is uncomputed.</p>
+<hr />
+<h2>7. Granularity and the cosmological constant: an honest synthesis</h2>
+<p>A separate exploration asks whether the <em>same</em> granularity also explains the cosmological constant $\Lambda$. This section records that attempt as <strong>exploration</strong>, not closure; it changes no target status. Gap 02 (Yang–Mills mass gap) stays <strong>Precisely-OPEN</strong>, $\Lambda$ stays <strong>open</strong>.</p>
+<h3>7.1 The unified granularity hypothesis</h3>
+<blockquote>
+<p><strong>Hypothesis (Granular Kernel).</strong> The physical state space is the constraint-selected kernel <code>H_phys = ker(constraints) / gauge-null</code>, taken as a <strong>literally finite / discrete</strong> fundamental object — <em>not</em> a continuum to be approximated, and <em>not</em> a lattice regulator awaiting an <code>a → 0</code> removal. There is no continuum to take a limit OF.</p>
+<p><strong>The unification claim.</strong> Both walls are then spectra of <strong>one</strong> finite positive operator <code>H</code> on <code>H_phys</code>:
+- <strong>Mass gap</strong> = lowest nonzero eigenvalue <code>λ₁ &gt; 0</code> (generic for a finite positive operator).
+- <strong>Λ</strong> = vacuum/ground energy of the same finite structure — <strong>manifestly finite</strong>, no UV divergence.</p>
+<p><strong>The promised elegance.</strong> ONE granularity, fixed by the SINGLE frozen color-sector scale <code>R₀ = 1.592e-17 GeV⁻¹</code> (<code>M_cutoff ~ 1/R₀ ~ 6.3e16 GeV</code>), explains BOTH numbers — the gap and Λ — as the bottom-eigenvalue and the trace of the same object, with <strong>no new knob</strong>.</p>
+</blockquote>
+<p><strong>The trap the hypothesis must escape.</strong> A naive granular cutoff gives <code>Λ ~ M_cutoff⁴</code> — the catastrophe restated. So the real question is whether the <em>specific</em> frozen granular structure (the one that already fixes the Standard Model via 4 anchors) <em>also</em> fixes the granularity scale so that it yields <strong>both</strong> <code>Λ_YM ~ 0.2 GeV</code> (gap) <strong>and</strong> <code>Λ ~ (meV)⁴ ~ 10⁻¹²² M_Pl⁴</code> (dark energy) — with NO new knob.</p>
+<h3>7.2 All reframes with adversarial verdicts</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Angle</th>
+<th>One-line idea</th>
+<th style="text-align: center;">Elegance</th>
+<th style="text-align: center;"><strong>Verdict</strong></th>
+<th>Where it dies (or partially lives)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>granularity</td>
+<td>One granularity, two spectra: gap = <code>λ₁</code>, Λ = <code>Tr(Hρ_vac)</code> of same finite <code>H</code></td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;"><strong>RELOCATES</strong> (split)</td>
+<td>Gap half = partial reduction; Λ half reproduces the 10¹¹³ catastrophe as a no-knob suppression — strictly harder (counterterm freedom gone)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>granularity</td>
+<td>SUSY-of-the-finite-spectrum: Λ = residual of ⊕-rulebook pairing, suppressed by a derived breaking scale</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;"><strong>NEEDS-TUNING</strong> (→RELOCATES)</td>
+<td>Kills UV divergence honestly, but meV needs <code>exp(−N)</code>, <code>N ≈ 64–71</code>; nothing in frozen data forces <code>N</code> into that window</td>
+</tr>
+<tr>
+<td>3</td>
+<td>what-must-be-true</td>
+<td>Backward axiom: confinement = gap = mass gap; Λ = ground eigenvalue; minimal axiom = compact-resolvent positive <code>H</code></td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;"><strong>RELOCATES</strong></td>
+<td>Better <em>language</em>, not a solution. Gap-02 = verbatim restatement (zero reduction). Λ: dimensionally incoherent (mass vs density); repair reintroduces a ~0.1mm cell length</td>
+</tr>
+<tr>
+<td>4</td>
+<td>what-must-be-true</td>
+<td>Ground/gap half-power law: <code>meV ~ Λ_YM^(3/2)/M_Pl^(1/2)</code></td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;"><strong>NEEDS-TUNING</strong> (→RELOCATES)</td>
+<td>Right <em>shape</em> (amplitude not probability), but 3 soft knobs (imported Λ_YM = open Gap-02, imported meV, hand-asserted 1/4π that is 12% off &amp; Λ_YM-dependent); "0.553≈½" is numerology over a 20-decade lever arm</td>
+</tr>
+<tr>
+<td>5</td>
+<td>both-ends</td>
+<td>Two granularities: gap at UV cell, Λ at IR horizon mode-count <code>ρ = M_Pl⁴/N</code>, <code>N = 7.9e122</code></td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;"><strong>RELOCATES</strong> (split)</td>
+<td>Gap half promising; Λ half = holographic-DE / cosmic-coincidence problem. <code>N</code> is fitted (no frozen invariant = 10¹²²); the "2.017 power" is actually <strong>1.008</strong> (plain area law) — conservation of tuning is exact</td>
+</tr>
+<tr>
+<td>6</td>
+<td>both-ends</td>
+<td>Quotient disjointness: gap on gauged spectrum, Λ on the gauge-null directions the kernel quotients out</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;"><strong>RELOCATES</strong></td>
+<td>Explains the frozen package's <em>silence</em> on Λ (keep that lemma), but regulating the null sector = original Λ problem + a new exact-cancellation burden</td>
+</tr>
+<tr>
+<td>7</td>
+<td>selector</td>
+<td>D1: granularity = KK spectral truncation already implied by compact <code>K6</code>; <code>λ₁(K6) ~ 1/R_K6²</code></td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;"><strong>RELOCATES</strong></td>
+<td>The positive eigenvalue lives in the <strong>discarded UV sector</strong> (heavy KK gluons); the actual 4D zero-mode gap is left in the continuum, untouched. And <code>1/R_K6</code> is the <em>worst</em> scale for Λ — restores ~112-order catastrophe</td>
+</tr>
+<tr>
+<td>8</td>
+<td>selector</td>
+<td>D2 (falsifier): no frozen scale equals meV; granular Λ is finite but magnitude is undetermined</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;"><strong>RELOCATES</strong> (+ small legal reduction)</td>
+<td>The <strong>finiteness</strong> sub-claim survives as a low-value constraint; the <strong>magnitude</strong> sub-claim relocates — meV needs H0 (circular) or a new scale (knob)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>No reframe earns SURVIVES. No reframe is INCOHERENT outright</strong> (reframe 3 has a units-incoherence <em>as stated</em> but is repairable into NEEDS-TUNING). The honest distribution: <strong>5 RELOCATES, 2 NEEDS-TUNING (both leaning RELOCATES), 1 RELOCATES-with-a-salvageable-lemma.</strong></p>
+<h3>7.3 Survivors — stated honestly as exploration</h3>
+<p><strong>HEADLINE: NOTHING survives as a UNIFICATION. All eight relocate on the Λ axis.</strong></p>
+<blockquote>
+<p><strong>The common failure mode (one sentence):</strong> One granularity scale fixes <strong>one</strong> transmutation exponent (the gap's, <code>≈ 40</code> in mass / <code>≈ 161</code> in density, plausibly knob-free from the frozen coupling); but Λ demands a <strong>second, independent <code>≈ 262</code>-in-density exponent</strong> that the single granularity does not supply — so "one structure, two spectra" is <strong>arithmetically false</strong>, and every reframe that claims the unification secretly re-imports the unsolved Λ hierarchy as a fitted number (<code>N ≈ 65 e-folds</code>, or <code>N = 7.9e122</code> cells, or a 0.1mm cell length, or a hand-picked 1/4π). <strong>Granularity makes Λ <em>finite</em>, which was never the scandal; it does not make Λ <em>small</em>, which always was.</strong></p>
+</blockquote>
+<p>What survives, and only at sub-claim granularity (exploration / conjecture):</p>
+<p><strong>S1 — The GAP-FINITENESS half (from reframes 1, 5; conceptual core).</strong> <em>EXPLORATION → CONJECTURE.</em>
+Making <code>H_phys</code> literally finite-dimensional genuinely dissolves the <strong>hard half of Gap 02</strong> — the constructive <code>a → 0</code> continuum limit at <code>d=4</code> marginal coupling simply does not exist if the fundamental object is finite. This is a legitimate axiom-swap, not a relabel, <em>because there is no limit to take</em>. It is <strong>NOT a solution</strong> (the scale and the no-accidental-zero-mode property are still owed).
+- <strong>The ONE concrete next test:</strong> Build the finite positive operator <code>H</code> restricted to the pure-glue (Z6-center, non-Coulomb) projection of <code>K6 = SU(3)/T²</code>, in the smallest faithful truncation <code>R₀</code> dictates. Compute the two lowest eigenvalues <code>λ₀ = 0</code> (vacuum) and <code>λ₁</code>. <strong>PASS requires, no new knob:</strong> (a) <code>λ₁ &gt; 0</code> strictly <strong>and</strong> <code>λ₁</code> stays bounded below (does NOT close) as the finite dimension grows toward the <code>R₀</code>-fixed cutoff — proving the gap is structural, not a truncation artifact; <strong>and</strong> (b) <code>λ₁ = M_cutoff · exp(−2π/(b₀ α(M_cutoff)))</code> lands in <code>[0.1, 0.3] GeV</code> using ONLY frozen <code>α(M_U)</code> and SU(3) <code>b₀</code> — no fitted prefactor. <strong>If <code>λ₁</code> fails to stabilize → it WAS the continuum problem in disguise (relocation). If it needs an O(1) fitted prefactor → that is the knob (killed).</strong>
+- <strong>CRITICAL CAVEAT (the deeper objection from reframes 5 &amp; 7):</strong> "discrete ⇒ positive" is the <em>easy</em> direction. The actual recognized open continuum wall is the <strong>uniform-in-<code>a</code> lower bound surviving the continuum limit AND landing on ordinary SU(3)_c</strong>. The finite-positivity argument silently <em>assumes</em> the uniformity it must prove. So S1 reduces the <em>conceptual</em> burden (positivity = default) but does not yet touch the <em>technical</em> wall. Treat it as PROMISING-but-not-free, never "solved."</p>
+<p><strong>S2 — The FINITENESS-of-Λ constraint (from reframe 8; low value but legal).</strong> <em>EXPLORATION (constraint, not mechanism).</em>
+A finite/discrete kernel has no UV integral <code>∫d⁴k k³</code>, so the divergent <code>M_cutoff⁴</code> term is structurally <strong>absent</strong>, not cancelled — this categorically dissolves the catastrophe-<em>as-divergence</em> and explains <em>why the corpus cancellation route was refuted</em>. Keep it as a constraint. <strong>But do not oversell it:</strong> finiteness was never the hard part of Λ — even EFT gives a finite answer once you pick a regulator. The scandal was always <em>magnitude/naturalness</em>, and on that axis this reframe is silent.
+- <strong>The ONE concrete next test:</strong> Compute <code>ρ_vac = ½ Σ λ_n</code> over the <em>actual</em> finite spectrum of the frozen operator, no free regulator. <strong>Falsifiable prediction:</strong> a structure scaled by <code>Λ_YM ~ 0.2 GeV</code> gives <code>ρ_vac ~ Λ_YM⁴ ~ 1.6e-3 GeV⁴</code>, which is <code>~10⁴⁴</code> too LARGE vs <code>(meV)⁴</code>. If the explicit sum lands near <code>Λ_YM⁴</code> → magnitude DEAD by ~44 orders → confirmed RELOCATES. <strong>Only</strong> if the frozen spectrum carries a built-in suppression (e.g. the spin-C index −3 or the kernel dimension entering as a huge knob-free multiplicative cancellation, with NO H0) driving <code>Λ_YM⁴</code> down toward <code>10⁻¹²² M_Pl⁴</code> does the magnitude half earn CONJECTURE status.</p>
+<p><strong>S3 — The lemma that the frozen package is <em>silent</em> on Λ (from reframe 6).</strong> <em>EXPLORATION (clarifying lemma only.)</em>
+All rigid geometric content (<code>K6=SU(3)/T²</code>, χ=−3, Z6, R₀) lives in the gauged color/flavor sector and pins the <strong>gapped</strong> spectrum via <code>Λ_YM</code>; Λ would be the residual energy of the gauge-<em>null</em> directions the kernel quotients away — which the frozen package, by construction, does not carry. This <em>structurally explains why the SM-fixing data says nothing about Λ.</em> Keep the lemma; reject the mechanism (regulating the null sector = the original Λ problem + a new gauged-condensate cancellation burden).
+- <strong>The ONE concrete next test:</strong> Compute the <em>gauged</em> sector's own vacuum energy in the frozen branch. The partition needs it <strong>exactly zero</strong>; if it gives the generic <code>(0.2 GeV)⁴</code>, the disjointness story is killed. Only a center / χ=−3 / coset rule forcing it to zero with no knob earns CONJECTURE.</p>
+<blockquote>
+<p><strong>Nothing above is a unification, and nothing closes either wall.</strong> S1 attacks Gap 02 only; S2 and S3 are constraints/lemmas, not Λ mechanisms. The promised "one granularity → both numbers" claim has <strong>no survivor.</strong></p>
+</blockquote>
+<h3>7.4 The decisive quantitative test</h3>
+<p><strong>The test (the line between solution and relocation):</strong> Does ONE granularity scale, fixed by the frozen branch with NO new knob, yield BOTH <code>Λ_YM ~ 0.2 GeV</code> (gap) AND <code>Λ ~ (2.3 meV)⁴ ~ 10⁻¹²² M_Pl⁴</code> (dark energy)?</p>
+<p><strong>The arithmetic that settles it (verified):</strong>
+- <code>M_cutoff = 1/R₀ = 6.28e16 GeV</code> → naive <code>Tr ~ M_cutoff⁴ = 1.56e67 GeV⁴</code>.
+- Target <code>(2.3 meV)⁴ = 2.80e-47 GeV⁴</code>.
+- Miss = <strong>10^113.7</strong> (equivalently <code>10⁻¹²²·⁹</code> vs <code>M_Pl⁴</code>).
+- <strong>Two different exponents required:</strong> gap suppression <code>exp(−x)</code>, <code>x ≈ 40</code> (mass) / <code>≈ 161</code> (density); Λ suppression <code>x ≈ 262</code> (density). <strong>One scale cannot supply two independent exponents.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Survivor</th>
+<th>Stands on the decisive test as…</th>
+<th>Pass status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>S1</strong> (gap-finiteness)</td>
+<td>Addresses ONLY the gap half. Stands on the <strong>gap exponent (≈40)</strong> which is plausibly knob-free from frozen <code>α(M_U)</code>+<code>b₀</code>. <strong>Makes no claim on Λ</strong> and therefore does not pretend to pass the unified test.</td>
+<td><strong>Partial (gap only); unified test N/A — does not attempt Λ</strong></td>
+</tr>
+<tr>
+<td><strong>S2</strong> (finiteness constraint)</td>
+<td>Passes the <em>divergence</em> sub-question (Λ is finite) but FAILS the <em>magnitude</em> sub-question: predicts <code>~Λ_YM⁴</code>, off by ~10⁴⁴.</td>
+<td><strong>FAILS magnitude (the part that matters)</strong></td>
+</tr>
+<tr>
+<td><strong>S3</strong> (silence lemma)</td>
+<td>Explains <em>why no frozen scale = meV</em> (the gauged data carries only the gap). Does not produce meV.</td>
+<td><strong>FAILS (by design — it is a lemma, not a mechanism)</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>No survivor passes the unified decisive test. The single best honest result of the entire attack is the <em>negative</em>:</strong> the meV magnitude is provably <strong>not</strong> in the frozen data <code>{M_U, M_Pl, Λ_YM, R₀, δ}</code> — every knob-free seesaw misses by 5.8–28.6 dex (closest <code>Λ_YM²/M_Pl = 3.3e-21</code>, off −8.8 dex), and the only landing combination <code>(H0² M_Pl²)^(1/4) = 4.2e-12 GeV</code> <strong>contains H0</strong> (circular — it presupposes the horizon scale that IS the answer).</p>
+<h3>7.5 No-promotion boundary</h3>
+<ul>
+<li><strong>Gap 02 / Yang–Mills mass gap:</strong> stays <strong>Precisely-OPEN.</strong> S1 is a CONJECTURE that, at best, reduces the <em>conceptual</em> burden; the <em>technical</em> wall (uniform-in-<code>a</code> gap surviving the continuum limit and landing on ordinary SU(3)_c) is <strong>untouched and unproven.</strong></li>
+<li><strong>Gap 05 / Λ:</strong> stays <strong>open.</strong> All eight reframes relocate on the magnitude axis. Granularity makes Λ finite (real but low-value) and does NOT make it small.</li>
+<li><strong>Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>:</strong> unchanged. Every selector/dimension experiment above is exploratory only. The 4 anchors <code>{M_Pl, α_i(M_Z), y_t, |V_us|}</code>, the UV package, <code>R₀</code>, the threshold triple <code>(+4.8424, −3.1112, −1.7313)</code>, Z6, and the spin-C index −3 are carried, not altered.</li>
+<li><strong>This section is EXPLORATION, not closure.</strong> Conjecture ≠ proof. No target status changes.</li>
+</ul>
+<h3>7.6 One-sentence verdict</h3>
+<blockquote>
+<p><strong>The universe being granular dissolves the <em>finiteness/divergence</em> difficulty of both walls honestly, but the cosmological-constant <em>magnitude</em> is a second, independent ~262-decade exponent that one granularity scale provably cannot supply from frozen data — so on the number that actually matters, granularity RELOCATES rather than reduces, and the only thing that survives to conjecture is the gap-finiteness half of Gap 02, conditional on a continuum-uniformity proof it has not yet given.</strong></p>
+</blockquote>
+<hr />
+<h2>8. The honest ceiling</h2>
+<p>Across every route, the ceiling for the granularity root is the same: <strong>co-fundamentality, not strict irreducibility.</strong></p>
+<ul>
+<li>Granularity is a serious candidate root, <strong>not</strong> a validated theorem. Dissolved is not solved.</li>
+<li>The values $\hbar$, $k_B$, the Bekenstein constant, and the cell size $\Delta_0$ remain residues. The result is about <em>structure</em>, not magnitude.</li>
+<li>The axiom count does not drop — granularity stays one root. No physics gap closes.</li>
+<li>The Finite Operational Cell Law is <strong>named, not derived</strong>; finite resources do not by themselves force it (decisive countermodel), and the certification route is circular inside QM.</li>
+<li>For the constraint-kernel boundary: G0 and G1 are supported; G2 (the Yang–Mills mass gap and the coercivity wall) is <strong>recognized-open</strong>; G3 (spacetime discreteness) is <strong>not claimed</strong>.</li>
+<li>For the cosmological constant: granularity makes $\Lambda$ finite but <strong>not</strong> small; the magnitude relocates.</li>
+</ul>
+<p>The sharpest honest endpoint: <strong>reality is granular because stable records require positive operational cells; the cell's existence is the root, its value ($\hbar$) is a residue.</strong> That standing is argued, precise, and internally consistent — and it is not a closed theorem.</p>
+</body></html>

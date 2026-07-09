@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>W01 — UV-completion / strong-coupling quantum gravity</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 250px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9679; Closure paths</a></div>
+<div class="ann-sub"><a href="/closure/">&#8592; Closure system</a> &nbsp; <a href="/walls/">The Walls</a> &nbsp; <a href="/anchors/">The Anchors</a></div>
+<div class="ann-group">One closure path per wall</div>
+<a href="W01_UV_COMPLETION_CLOSURE_PATH.html" class="current">W1 UV completion</a>
+<a href="W02_CONTINUUM_EXISTENCE_CLOSURE_PATH.html">W2 continuum existence</a>
+<a href="W03_A6_COEFFICIENT_CLOSURE_PATH.html">W3 a6 coefficient</a>
+<a href="W04_GRANULARITY_MDL_CLOSURE_PATH.html">W4 granularity to MDL</a>
+<a href="W05_GIVEN_E_BUNDLE_CLOSURE_PATH.html">W5 given-E / bundle</a>
+<a href="W06_FLAVOR_RULEBOOK_CLOSURE_PATH.html">W6 flavor F+ rulebook</a>
+<a href="W07_ANOMALY_DESCENT_CLOSURE_PATH.html">W7 anomaly descent</a>
+<a href="W08_CUSTODIAL_RHO_CLOSURE_PATH.html">W8 custodial rho=1</a>
+<a href="W09_MODULI_STABILIZATION_CLOSURE_PATH.html">W9 moduli stabilization</a>
+<a href="W10_LAMBDA_STABILITY_CLOSURE_PATH.html">W10 Lambda stability</a>
+<a href="W11_LAMBDA_VALUE_CLOSURE_PATH.html">W11 Lambda value</a>
+<a href="W12_BARYOGENESIS_CP_CLOSURE_PATH.html">W12 baryogenesis CP</a>
+<a href="W13_DARK_MATTER_PORTAL_CLOSURE_PATH.html">W13 dark-matter portal</a>
+<a href="W14_INFLATION_SPECTRUM_CLOSURE_PATH.html">W14 inflation spectrum</a>
+<a href="W15_BORN_WEIGHT_CLOSURE_PATH.html">W15 Born-rule weight</a>
+<a href="W16_BH_MICROSTATES_CLOSURE_PATH.html">W16 BH microstates</a>
+<a href="W17_PROTON_OPERATORS_CLOSURE_PATH.html">W17 proton operators</a>
+<a href="W18_YM_UNIFORM_GAP_CLOSURE_PATH.html">W18 YM uniform gap</a>
+<a href="W19_THRESHOLD_MAGNITUDES_CLOSURE_PATH.html">W19 threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">W01 — UV-completion / strong-coupling quantum gravity — rendered package. Rendered from <code>W01_UV_COMPLETION_CLOSURE_PATH.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>W01 — UV-completion / strong-coupling quantum gravity</h1>
+<p><strong>Wall:</strong> <a href="/walls/w1-uv-completion.html">The UV-completion / strong-coupling quantum-gravity wall</a> · <strong>Closure routing via</strong> <a href="/closure/wall-routing-protocol.html">/closure</a></p>
+<h2>Routing decision</h2>
+<p><strong>WALL-RECORD, not derivation, reduction, or dissolution.</strong></p>
+<h2>Deep-root link(s)</h2>
+<ul>
+<li><strong>Scale</strong></li>
+<li><strong>Nonseparability</strong></li>
+<li><strong>Shape</strong></li>
+<li><strong>Invariance</strong></li>
+<li><strong>Record Interface</strong></li>
+<li><strong>Granularity</strong></li>
+</ul>
+<h2>Reduction / dissolution verdict</h2>
+<p>Cannot honestly reduce or dissolve. The missing object is a real shared frontier: constructive non-perturbative UV completion, or a defensible non-continuum replacement, of the interacting graviton. Granularity may reframe continuum divergences, but it does not construct the UV theory.</p>
+<h2>Steps to the endpoint</h2>
+<ol>
+<li>Name the exact missing object: constructive non-perturbative UV completion of the interacting graviton.</li>
+<li>Separate banked wins: frozen geometry supplies operator; gauge/ghost structure is accounted; curvature bugs/refuted magnitudes are quarantined.</li>
+<li>Record shared ownership: UQF-5C, UQF-9, UQF-14, UQF-3, Gap-13.</li>
+<li>Move bounded subproblems to their own walls, especially W3.</li>
+<li>Forbid any local coefficient, including $a_6$, from closing W1.</li>
+</ol>
+<h2>Success criterion / falsifier</h2>
+<p>Wall-record success: every dependent gate names the same missing object and no page claims quantum-gravity closure. Physics success, not required for terminal endpoint: a target-blind constructive UV completion, or a defensible non-continuum replacement with the correct low-energy limit. Falsifier: proof no such completion/replacement can exist for the frozen geometry.</p>
+<h2>Terminal status assigned</h2>
+<p><code>WALL-RECORDED / TERMINAL-ANCHORED / PHYSICS-OPEN</code></p>
+<h2>Residual work</h2>
+<p>Constructive QG remains open and shared; do not re-solve it inside per-gate pages.</p>
+<h2>Anti-claims</h2>
+<ul>
+<li>$a_6$ is not a UV completion.</li>
+<li>UQF-5C is not physics-closed.</li>
+<li>No gate closes quantum gravity.</li>
+<li>Wall-recording is not physics closure.</li>
+</ul>
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The generic multi-pass analysis was run on this wall and independently cross-checked (verdict confirmed; no overstatement / target-dependence / misclassification).</p>
+<pre><code>Verdict: WALL_RECORDED
+Smallest missing rule (the precise hole):
+  R4 — the constructive, target-blind, non-perturbative UV-completion rule for the INTERACTING graviton on the frozen B_active: a map segment that takes L_grav^{d=13} = -(nabla^2 + E) into a truncation-INDEPENDENT non-Gaussian fixed point (Predicate A) with a non-tachyonic KK spectrum running UV -&gt; M_*, OR a defensible non-continuum replacement with the correct low-energy limit. No such rule is exhibited by this program or any other; AXIOM-COSTFLOOR dissolves only Predicate B (the a-&gt;0 counterterm-tower class), which makes a fixed point unnecessary but does NOT supply one.
+Terminal status: WALL-RECORDED / TERMINAL-ANCHORED / PHYSICS-OPEN — SHARED-GLOBAL frontier wall (co-owned UQF-5C + UQF-9; inherited by UQF-5A/5B, UQF-14, UQF-3, Gap-13). Operator supplied DERIVED-GIVEN-E as structure; one continuum-divergence class (Predicate B) DISSOLVED by one value-free non-atomic axiom (AXIOM-COSTFLOOR); the constructive non-perturbative strong-coupling completion (Predicate A / rule R4) is OPEN everywhere. Anchored, not closed. No gate on this wall is CLOSED.
+</code></pre>
+<hr />
+<h2>Shared closure invariant</h2>
+<p>A gate is terminal when its wall has the correct endpoint: derived, reduced to a root, dissolved, anchored, or wall-recorded. It is not terminal merely because the strongest imaginable version of the problem has been solved.</p>
+<p>Status-inflation guardrails:
+- DISSOLVED does not mean SOLVED.
+- SELECTED does not mean FORCED.
+- GIVEN-E does not mean DERIVED-E.
+- MEASURED-ANCHOR does not mean DERIVED VALUE.
+- WALL-RECORDED does not mean PHYSICS-CLOSED.
+- A bounded local certificate does not become global completion.</p>
+<h2>Completion tests for this wall file</h2>
+<p>This wall file is complete only if:
+- The wall is named exactly.
+- The routing decision is explicit.
+- At least one deep-root link is listed.
+- The endpoint status is explicit.
+- Local/banked wins are separated from the missing object.
+- The success criterion or falsifier is target-blind.
+- The anti-claims block prevents status inflation.
+- Any failure to reduce or dissolve is stated honestly.
+- Residual work is finite where possible; unicorn work is wall-recorded.</p>
+<h2>Completion report</h2>
+<p>Tests passed:
+- Wall named exactly.
+- Routing decision assigned.
+- Deep-root links listed.
+- Endpoint status assigned.
+- Honest failure to reduce/dissolve stated where applicable.
+- Success criterion/falsifier included.
+- Anti-claims included.</p>
+<p>Tests failed:
+- None in this handoff draft.</p>
+<p>Open items:
+- Execute the residual work listed above.</p>
+<p>Assumptions made:
+- Uses the uploaded wall register and the /closure endpoint strategy.</p>
+<h2>See also</h2>
+<ul>
+<li>Wall page: <a href="/walls/w1-uv-completion.html">W1 — UV-completion / strong-coupling quantum gravity</a></li>
+<li>Closure routing protocol: <a href="/closure/wall-routing-protocol.html">/closure/wall-routing-protocol.html</a></li>
+<li>Deep roots: <a href="/closure/deep-roots.html">/closure/deep-roots.html</a></li>
+<li>Dissolutions: <a href="/closure/dissolutions.html">/closure/dissolutions.html</a></li>
+<li>Closure index: <a href="./INDEX.html">./INDEX.html</a></li>
+</ul>
+</main>
+</div>
+</body></html>

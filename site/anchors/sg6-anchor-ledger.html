@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SG-6 — Moduli stabilization</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 252px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 10px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:14px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9670; The Anchors</a></div>
+<div class="ann-group">Start</div>
+<a href="index.html">Overview — how we judge</a>
+<a href="anchor-hierarchy-overview.html">Anchor hierarchy — map</a>
+<div class="ann-group">The method</div>
+<a href="a0-master-anchor.html">A0 — the master anchor</a>
+<a href="layer-1-metric.html">Layer 1 — MDL metric</a>
+<a href="layer-2-no-unpaid-labels.html">Layer 2 — no unpaid labels</a>
+<a href="layer-3-search-grammars.html">Layer 3 — search grammars</a>
+<a href="layer-4-carrier-forcing.html">Layer 4 — carrier-forcing</a>
+<a href="shape-minimality-challenge.html">Shape minimality challenge</a>
+<div class="ann-group">The hierarchy</div>
+<a href="deep-roots.html">The seven deep roots</a>
+<a href="master-anchors.html">Master anchors</a>
+<a href="logical-endpoint-proof.html">Logical endpoint proof</a>
+<a href="gate-traceability-template.html">Gate traceability template</a>
+<a href="blind-spots.html">Blind spots</a>
+<a href="ai-agent-completion-protocol.html">AI completion protocol</a>
+<div class="ann-group">Gate ledgers · GUT spine</div>
+<a href="sg1-anchor-ledger.html">SG-1 geometry</a>
+<a href="sg2-anchor-ledger.html">SG-2 gauge recovery</a>
+<a href="sg3-anchor-ledger.html">SG-3 generations</a>
+<a href="sg4-anchor-ledger.html">SG-4 hypercharge &amp; anomaly</a>
+<a href="sg5-anchor-ledger.html">SG-5 electroweak</a>
+<a href="sg6-anchor-ledger.html" class="current">SG-6 moduli stabilization</a>
+<a href="sg7-anchor-ledger.html">SG-7 threshold unification</a>
+<a href="sg8-anchor-ledger.html">SG-8 flavor closure</a>
+<a href="sg9-anchor-ledger.html">SG-9 proton safety</a>
+<a href="sg10-anchor-ledger.html">SG-10 claim boundary</a>
+<div class="ann-group">Gate ledgers · quantum/gravity/UV</div>
+<a href="uqf3-anchor-ledger.html">UQF-3 reflection positivity</a>
+<a href="uqf4-anchor-ledger.html">UQF-4 BRST / descent</a>
+<a href="uqf5a-5b-anchor-ledger.html">UQF-5A/5B linearized graviton</a>
+<a href="uqf5c-anchor-ledger.html">UQF-5C interacting graviton</a>
+<a href="uqf7-anchor-ledger.html">UQF-7 fermion chirality</a>
+<a href="uqf9-anchor-ledger.html">UQF-9 UV completion</a>
+<a href="uqf10-anchor-ledger.html">UQF-10 compactification</a>
+<a href="uqf14-anchor-ledger.html">UQF-14 unitarity / causality</a>
+<div class="ann-group">Gate ledgers · cosmology/BH/foundations</div>
+<a href="gap01-anchor-ledger.html">Gap-01 a6 Seeley-DeWitt</a>
+<a href="gap02-anchor-ledger.html">Gap-02 Yang-Mills mass gap</a>
+<a href="gap05-value-anchor-ledger.html">Gap-05 Lambda value</a>
+<a href="gap05-stability-anchor-ledger.html">Gap-05 Lambda stability</a>
+<a href="gap08-anchor-ledger.html">Gap-08 inflation</a>
+<a href="gap10-bg10-anchor-ledger.html">Gap-10/BG-10 baryogenesis</a>
+<a href="gap11-anchor-ledger.html">Gap-11 dark matter</a>
+<a href="gap13-anchor-ledger.html">Gap-13 BH entropy / Page</a>
+<a href="born-anchor-ledger.html">Born rule</a>
+<div class="ann-group">Gate ledgers · deep roots &amp; dissolutions</div>
+<a href="deeproot-granularity-anchor-ledger.html">Deep root — granularity</a>
+<a href="deeproot-shape-anchor-ledger.html">Deep root — structural form</a>
+<a href="lambda-catastrophe-anchor-ledger.html">Lambda-catastrophe (dissolved)</a>
+<a href="blackhole-singularity-anchor-ledger.html">Black-hole singularity (dissolved)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">SG-6 — Moduli stabilization: the gate anchor ledger — rendered package. Rendered from <code>sg6-anchor-ledger.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>SG-6 — Moduli stabilization: the gate anchor ledger</h1>
+<p><strong>The honest one-line: SG-6 proves the <em>easy</em> half of moduli stabilization — that symmetry pins <em>where</em> the hidden dimensions sit (criticality), target-blind and for free — and refuses to fake the hard half. The gate as a whole is OPEN — the stability sign is undecided: the moduli-mass Hessian sign is not decided, the shape sector <em>leans</em> stable (the earlier $-1$ saddle is retired as an artifact), the breathing singlet is route-inconsistent, and the electroweak-hierarchy carrier is read from a minimum, not derived.</strong></p>
+<p>This page is the gate-specific instantiation of the <a href="./index.html">anchoring method</a>: it takes the master anchor and the four bridges and applies them, object by object, to one gate. Every exact thing SG-6 touches gets its own row — its status, what it is <em>allowed</em> to claim, and what it is <em>forbidden</em> to claim. It follows the same eleven-part shape and the same universal table as the <a href="./sg4-anchor-ledger.html">SG-4 ledger</a>.</p>
+<p>Moduli stabilization is a genuine <strong>SHARED-OPEN</strong> wall: no higher-dimensional framework — string, M-theory, F-theory, noncommutative geometry, lattice — has delivered a controlled, global, positive-definite moduli mass matrix. SG-6's contribution is to split the question into a half it can prove and a half it honestly cannot, and to decline the one circular move that would let it cheat the hard half.</p>
+<blockquote>
+<p><strong>selection ≠ derivation · given-E ≠ derivation-of-E · frozen/reproducible ≠ proven-unique.</strong></p>
+</blockquote>
+<hr />
+<h2>1. Gate status header</h2>
+<ul>
+<li><strong>Gate-level SG-6 roll-up:</strong> <strong>OPEN — stability-sign-undecided (reduction FINISHED, status honestly OPEN).</strong> Shape sector leans stable; breathing singlet route-inconsistent. The earlier "saddle" reading is retired (see the retired $-1$ artifact below).</li>
+<li><strong>Taxonomy reconciliation (2026-07-05):</strong> under the current two-axis taxonomy the gate-level grading is <strong>DERIVED-GIVEN-E on the criticality / location leg</strong>, read as <strong>TERMINAL + RESIDUALS-SHOWN</strong> — the location result is banked and target-blind, while the stability-sign residual family (R3/R5/R6/R7/R1, the Hessian sign) remains listed and carried unchanged below. The stability sign itself is <strong>not</strong> certified: it leans stable but is undecided. The facts are unchanged — the earlier "OPEN — stability-sign-undecided" roll-up reflects the superseded least-closed-residual rule (any open residual rolls the whole gate up to OPEN), not different facts. No residual is deleted, closed, or re-graded.</li>
+<li><strong>Criticality leg (the proven half):</strong> closed <em>only</em> as criticality — at the symmetric chamber point $(t,t,t)$, the gradient of any $S_3$-invariant functional vanishes:
+$$\nabla V\big|_{(t,t,t)} = 0 \quad\Longrightarrow\quad O_{\rm SG6,\,crit}(E_{\rm frozen}) = 0 .$$</li>
+<li><strong>Status of the criticality leg:</strong> <strong>DERIVED-GIVEN-E (target-blind)</strong> — and it carries <strong>zero stability burden.</strong></li>
+<li><strong>Stability leg (the open half):</strong> the moduli-mass Hessian sign is <strong>OPEN.</strong> The full gate obstruction
+$$O_{\rm SG6}(E) = \big(O_{\rm crit}(E),\,O_{\rm shape}(E),\,O_{\rm breathing}(E),\,O_{\theta_H}(E)\big)$$
+is <strong>not</strong> asserted to vanish: shape <em>leans</em> stable but is not certified, the breathing singlet is route-inconsistent, and $\theta_{H\star}$ is read, not derived.</li>
+</ul>
+<p>The criticality leg is a genuine result: location is symmetry, free and target-blind. What stays open is everything the sign carries — whether the critical point is a minimum, a saddle, or has flat directions. <strong>Location is symmetry; sign is spectrum.</strong></p>
+<hr />
+<h2>2. Frozen inputs (what SG-6 stands on, not what it produces)</h2>
+<ul>
+<li><strong>Frozen branch hashes</strong> <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code>, three Cartan radii <code>634438ce0776</code> / <code>2381d472c62e</code> / <code>0e8b8dba2cf0</code>, chamber-center $(1,1,1)$ (A1.2), $\tau=\omega$ <code>03b30a9c931a</code>, $\eta_{BK}=0.009721281516312$ <code>84e94518d3f5</code>, RG transport <code>f531205a9159</code>, $M_Z$ <code>a6852c7a6b00</code>, spin-$\mathbb{C}$ index $\chi=-3$ <code>0fd19c9ae0c1</code>. The branch is read-only. <strong>These hashes are audit anchors — they certify <em>which object</em> was tested and that it cannot be quietly retuned. They do not validate the physics.</strong></li>
+<li><strong>No SG-6 hash exists</strong> for $\theta_{H\star}$, $\mu_{\rm cell}/\Delta_0$, $c_{\rm loop}$, the admissible-rep multiplicity table, or $M_R$ — these are <strong>read / uncomputed / ABSENT.</strong></li>
+<li><strong>Upstream spectrum</strong> $E_{\rm frozen}$ (SM chiral content + $\chi=-3$) is <strong>given / charged / inherited</strong> from SG-2/SG-3. <strong>SG-6 does not derive $E$.</strong> Every verdict below is <em>about this $E$</em>, not a derivation <em>of</em> it.</li>
+<li><strong>Measured second ruler</strong> $v_{\rm EW}=246\ \mathrm{GeV}$ is <strong>consumed as an anchor</strong>, never produced — same category as $\Lambda$ and $\eta_B$.</li>
+</ul>
+<hr />
+<h2>3. The object anchors (given-E / upstream)</h2>
+<p>The moduli SG-6 acts on, with their structural witnesses (the witness-TYPE predicate, not minimize-at-answer):</p>
+<ul>
+<li><strong>Shape moduli</strong> $u_1,u_2,u_3$ — the three $K_6$ Cartan radii; chamber center $(1,1,1)$ is the $S_3$-fixed point.</li>
+<li><strong>Complex structure</strong> $\tau=\omega=e^{2\pi i/3}$ — an order-three modular fixed point of $\mathrm{PSL}(2,\mathbb{Z})$.</li>
+<li><strong>Wilson-line winding</strong> $n_H=\tfrac{1}{2\pi}\oint_\gamma F=1$ — a topological invariant.</li>
+<li><strong>$\mathbb{Z}_2/\mathbb{Z}_6$ topology</strong> — discrete identifications; no continuous knob.</li>
+<li><strong>Wilson-line cycle length</strong> $R_\gamma\sim R_0\cdot(\text{chamber factor})$ — frozen geometric length, set by unification geometry not by $v_{\rm EW}$.</li>
+</ul>
+<p><strong>Status: GIVEN-E / upstream-inherited</strong> — the moduli and their witnesses fix the configuration <em>inside</em> the already-selected chamber; they are not SG-6-derived.</p>
+<hr />
+<h2>4. Root and master-anchor traceability</h2>
+<p><strong>Deep roots that are load-bearing for SG-6:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Deep root</th>
+<th>Role in SG-6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Shape</strong></td>
+<td>supplies the $K_6$ moduli space, the $S_3$ Weyl symmetry, and the chamber being tested</td>
+</tr>
+<tr>
+<td><strong>Granularity</strong></td>
+<td>the uniform operational cell $N\le B/\Delta_0$ dissolves the continuum UV divergence; enforces no unpaid scale labels</td>
+</tr>
+<tr>
+<td><strong>Physical equivalence / invariance</strong></td>
+<td>makes the $S_3$ criticality theorem and the Hessian a frame-independent object; the $3=\mathbf{1}\oplus\mathbf{2}$ split is symmetry-exact</td>
+</tr>
+<tr>
+<td><strong>Record interface</strong></td>
+<td>makes the 12-row witness ledger and the sympy checks reproducible and reviewable</td>
+</tr>
+<tr>
+<td><strong>Nonseparability</strong></td>
+<td>explains <em>why</em> criticality (location) does <strong>not</strong> equal stability (the Hessian sign)</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td>the loop scale $\mu_{\rm cell}$ and the second ruler $v_{\rm EW}$ are scale objects; the Buckingham-π no-go is a scale argument</td>
+</tr>
+</tbody>
+</table>
+<p><em>Causal order</em> is not a primary load-bearing anchor for SG-6.</p>
+<p><strong>Master anchors in play:</strong> finite invariant ledgers · no unpaid labels (the witness-TYPE predicate) · the frozen branch · given-$E$ · the <em>declared</em> axiom floors (the second ruler, the cell value, the modular fixed point) · open-residual discipline.</p>
+<hr />
+<h2>5. The SG-6 anchor ledger (the universal table)</h2>
+<table>
+<thead>
+<tr>
+<th>Gate anchor</th>
+<th>Exact object</th>
+<th>Deep-root link</th>
+<th>Master-anchor link</th>
+<th>Status</th>
+<th>Allowed claim</th>
+<th>Forbidden claim</th>
+<th>Open residual / closure task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gate roll-up</td>
+<td>SG-6</td>
+<td>Shape, Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN — stability-sign-undecided</strong></td>
+<td>criticality proven; stability open (shape leans stable, singlet route-inconsistent)</td>
+<td>"SG-6 is closed" / "minimum proven" / "the gate leans saddle"</td>
+<td>close §9 residuals</td>
+</tr>
+<tr>
+<td>Frozen branch</td>
+<td>hashes <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code></td>
+<td>Record interface</td>
+<td>frozen branch</td>
+<td><strong>AUDIT ONLY</strong></td>
+<td>the tested object is frozen/read-only</td>
+<td>"hashes validate the physics"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Upstream spectrum</td>
+<td>$E_{\rm frozen}$ ($\chi=-3$)</td>
+<td>Shape</td>
+<td>given-$E$</td>
+<td><strong>GIVEN-E</strong></td>
+<td>witnesses fix moduli <em>in</em> this chamber</td>
+<td>"SG-6 derives $E$ / the geometry"</td>
+<td>(see SG-1/SG-3 for $E$, chamber)</td>
+</tr>
+<tr>
+<td>Witness-TYPE predicate</td>
+<td>type-check over $\{$Weyl-rigid, modular fp, integer winding, discrete topology, BC pin$\}$</td>
+<td>Granularity</td>
+<td>no unpaid labels</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>"minimize-at-answer" fails by construction</td>
+<td>"the witnesses <em>select</em> the geometry"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Shape moduli</td>
+<td>$u_1,u_2,u_3$; center $(1,1,1)$</td>
+<td>Shape</td>
+<td>finite invariant ledger</td>
+<td><strong>GIVEN-E / admissible</strong></td>
+<td>$S_3$-fixed point, Weyl-rigid chamber</td>
+<td>"the radii are derived absolutely"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Modular fixed point</td>
+<td>$\tau=\omega=e^{2\pi i/3}$</td>
+<td>Invariance</td>
+<td>declared modular fixed point</td>
+<td><strong>AXIOM-OPEN / reduced</strong></td>
+<td>order-3 fixed point (generic PSL$(2,\mathbb{Z})$ proven)</td>
+<td>"$\tau=\omega$ unique on the realized group is proven"</td>
+<td>R7: prove realized-generator uniqueness</td>
+</tr>
+<tr>
+<td>Wilson-line winding</td>
+<td>$n_H=\tfrac{1}{2\pi}\oint_\gamma F=1$</td>
+<td>Invariance</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>pure topology, reproduces by hand</td>
+<td>"winding sets the hierarchy"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>$\mathbb{Z}_2/\mathbb{Z}_6$ topology</td>
+<td>discrete identifications</td>
+<td>Shape</td>
+<td>declared structure</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>chirality filter + charge quantization</td>
+<td>"the orbifold is forced absolutely"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Cycle length</td>
+<td>$R_\gamma$</td>
+<td>Shape</td>
+<td>given-$E$</td>
+<td><strong>GIVEN-E</strong></td>
+<td>frozen geometric length</td>
+<td>"$R_\gamma$ is fixed by $v_{\rm EW}$"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Criticality theorem</td>
+<td>$\nabla V\!\mid_{(t,t,t)}=0$, $S_3$-invariant $V$</td>
+<td>Invariance</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>location is symmetry, target-blind, free</td>
+<td>"criticality implies a minimum"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Hessian split</td>
+<td>$3=\mathbf{1}\oplus\mathbf{2}$</td>
+<td>Invariance</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>singlet ⊕ doublet decouple exactly</td>
+<td>"the split decides stability"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Shape doublet</td>
+<td>irrep $\mathbf{2}$, isotropic Hessian</td>
+<td>Invariance, Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN (LEANING STABLE)</strong></td>
+<td>tree-level mass² $\{+1,+1\}$; saddle structurally impossible</td>
+<td>"shape minimum is certified"</td>
+<td>R3/R6: Casimir net sign + two completeness theorems</td>
+</tr>
+<tr>
+<td>Retired shape saddle</td>
+<td>the artifact $-1$ (raw) / $-\tfrac12$ (unit)</td>
+<td>Invariance</td>
+<td>open-residual discipline</td>
+<td><strong>RETIRED / artifact</strong></td>
+<td>reproduces exactly; diagnosed as volume-contaminated, non-critical ray</td>
+<td>"the $-1$ is the shape eigenvalue" / "SG-6 is a saddle"</td>
+<td>— (retracted)</td>
+</tr>
+<tr>
+<td>Breathing singlet</td>
+<td>irrep $\mathbf{1}$; $c_{\rm loop}=\mathrm{tr}[a_6]$ → $\mu_{\rm cell}$</td>
+<td>Scale, Granularity</td>
+<td>declared cell value</td>
+<td><strong>OPEN / route-inconsistent</strong></td>
+<td>UV divergence dissolved by finite cell-sum</td>
+<td>"$c_{\rm loop}$ is computed" / "boson rescue banked"</td>
+<td>R5: reconcile two $a_6$ routes</td>
+</tr>
+<tr>
+<td>Loop scale</td>
+<td>$\mu_{\rm cell}$ (log-scheme residue)</td>
+<td>Scale</td>
+<td>declared cell value</td>
+<td><strong>AXIOM-OPEN</strong></td>
+<td>existence of $\Delta_0$ transfers (granularity root)</td>
+<td>"$\mu_{\rm cell}$ has a $v$-independent value"</td>
+<td>reduce to AXIOM-UNIFORM-CELL-VALUE</td>
+</tr>
+<tr>
+<td>Casimir net sign</td>
+<td>graded supertrace over admissible $(p,q)$</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / computation debt</strong></td>
+<td>per-sector signs LOCKED; net sign undecided</td>
+<td>"boson-dominance rescues" ($\chi=-3$ opposes)</td>
+<td>R6: mount multiplicity table + s=−1 zeta</td>
+</tr>
+<tr>
+<td>Hosotani phase</td>
+<td>$\theta_{H\star}\approx 2.46\times10^{-14}$</td>
+<td>Scale, Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / RELOCATION</strong></td>
+<td>read from one-loop $V_{\rm Hos}$ minimum</td>
+<td>"$\theta_{H\star}$ is derived-small"</td>
+<td>R1: derive target-blind or concede ruler</td>
+</tr>
+<tr>
+<td>Second ruler</td>
+<td>$v_{\rm EW}=246\ \mathrm{GeV}=\theta_{H\star}/(2\pi R_\gamma)$</td>
+<td>Scale</td>
+<td>declared second anchor</td>
+<td><strong>MEASURED-ANCHOR</strong></td>
+<td>irreducible measured ruler (like $\Lambda$, $\eta_B$)</td>
+<td>"SG-6 derives the EW hierarchy"</td>
+<td>reduce to AXIOM-VEW-SECOND-ANCHOR</td>
+</tr>
+<tr>
+<td>Buckingham-π no-go</td>
+<td>no 2nd mass from $\{M_{\rm Pl},\hbar,$ dimensionless geom$\}$</td>
+<td>Scale</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED</strong></td>
+<td>a second mass needs a $\sigma$-carrying length</td>
+<td>"the hierarchy can be deduced from $M_{\rm Pl}$"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Cell-sum dissolution</td>
+<td>finite $N\le B/\Delta_0$ kills $a\to0$ divergence</td>
+<td>Granularity</td>
+<td>finite invariant ledger</td>
+<td><strong>DISSOLVED</strong></td>
+<td>continuum-as-divergence assumption is false</td>
+<td>"finiteness implies a unique $\mu_{\rm cell}$"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Global stabilization</td>
+<td>all flat directions removed everywhere</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>DISCLOSED NON-CLAIM</strong></td>
+<td>off-chamber rejected by <em>admissibility</em></td>
+<td>"no flat directions anywhere (dynamical)"</td>
+<td>shared-open; no SG-6 axiom flips it</td>
+</tr>
+<tr>
+<td>Threshold vector</td>
+<td>$(\delta_1,\delta_2,\delta_3)=(+4.8424,-3.1112,-1.7313)$</td>
+<td>Record interface</td>
+<td>open-residual discipline</td>
+<td><strong>AUDIT (owned by SG-7)</strong></td>
+<td>signs geometric</td>
+<td>"the $\delta$ magnitudes are derived"</td>
+<td>R9: mount SG-7 reproducer</td>
+</tr>
+<tr>
+<td>No-tachyon verdict</td>
+<td>AND over eigenvalue rows</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN (conditional)</strong></td>
+<td>inherits R3/R5</td>
+<td>"no-tachyon is certified"</td>
+<td>R8: closes when R3 + R5 close</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. The arithmetic — the proven half, in full</h2>
+<p><strong>The criticality theorem (sympy-verified, target-blind).</strong> The Weyl group $S_3$ permutes $(u_1,u_2,u_3)$. For any $S_3$-invariant functional $V$, $V(\sigma\!\cdot\!u)=V(u)$ for every permutation $\sigma$. Differentiating along the totally-symmetric direction at $(t,t,t)$, the chain rule plus invariance force $\partial V/\partial u_i$ equal for all $i$, and the antisymmetric shape-gradient combinations cancel. Hence
+$$\nabla V\big|_{(t,t,t)} = 0 \quad\text{for *any* } S_3\text{-invariant } V .$$
+Location is fixed by symmetry, independent of the form of $V$ — and this carries <strong>zero stability content.</strong></p>
+<p><strong>The symmetry decomposition $3=\mathbf{1}\oplus\mathbf{2}$.</strong> The perturbation space splits exactly by $S_3$ into a breathing/volume <strong>singlet</strong> ($u_1=u_2=u_3$) and a traceless shape <strong>doublet</strong>. $(1,1,1)$ is a minimum <strong>iff both eigenvalues are positive</strong>, and they decouple by symmetry.</p>
+<p><strong>The shape doublet — corrected analysis.</strong> Along the shape ray $u=(1+\varepsilon,1-\varepsilon,1)$ with the normal metric,
+$$R(\varepsilon)=\tfrac32-\tfrac{\varepsilon^2}{2}.$$
+The raw second derivative is $+4-5=-1$; the unit-normalized coefficient is $+2-\tfrac52=-\tfrac12$. <strong>This $-1$ is reproduced exactly — and it is an artifact:</strong> it is the raw 3-space Hessian of $+R$ along a <em>volume-contaminated</em> ray ($\mathrm{Vol}=1-\varepsilon^2$) at a <strong>non-critical point</strong>, since
+$$\nabla R(1,1,1)=\big(-\tfrac12,-\tfrac12,-\tfrac12\big)\neq 0 .$$
+The full $3\times3$ Hessian of $R$ at $(1,1,1)$ has eigenvalues $\{+1\ (\text{volume}),\,-\tfrac12,\,-\tfrac12\ (\text{shape})\}$. Once the shape doublet is properly isolated (orthonormal trace-free log basis, fixed volume, shape-critical), it is an $S_3$ <strong>irrep</strong>, so its Hessian is <strong>isotropic</strong> ($\propto I$) — two equal eigenvalues cannot have opposite signs, so <strong>a saddle is structurally impossible at the symmetric point.</strong></p>
+<p><strong>The decisive datum — the Einstein-frame sign.</strong> The physical mass² is $M=G^{-1}\,\mathrm{Hess}(V)$ on the doublet, and the verdict is fixed entirely by the sign of the Einstein-frame shape-sector potential:
+$$V=+R\ \Rightarrow\ \text{mass}^2\{-1,-1\}\ (\text{MAX/unstable}),\qquad V=-R\ \Rightarrow\ \text{mass}^2\{+1,+1\}\ (\text{MIN/stable}).$$
+The frozen-branch derivation finds $V_{\rm phys}\sim -R_{K_6}$ target-blind, hence physical mass² $\{+1,+1\}$ → the symmetric flag <strong>leans STABLE at tree level.</strong></p>
+<p><strong>Diagnostic — the test can fail.</strong> A capability-to-fail control on $S^2\times S^2$ fires the <em>opposite</em> sign $(+16)$, confirming the sign test is not trivially rigged; the Weyl step is sign-neutral. This is what makes the $\{+1,+1\}$ a real fact about $E_{\rm frozen}$ rather than an artifact.</p>
+<p><strong>The obstruction map.</strong> Collect the legs:
+$$O_{\rm SG6,\,crit}(E_{\rm frozen})=0\ \text{(proven)},\qquad O_{\rm SG6}(E)=\big(O_{\rm crit},\,O_{\rm shape},\,O_{\rm breathing},\,O_{\theta_H}\big).$$
+We do <strong>not</strong> assert $O_{\rm SG6}(E_{\rm frozen})=0$: shape leans stable but is uncertified, the breathing singlet is route-inconsistent, and $\theta_{H\star}$ is read.</p>
+<hr />
+<h2>7. Declared-structure splits — phrases hiding multiple claims</h2>
+<p><strong>"The moduli are stabilized"</strong> hides three different claims with three different statuses:</p>
+<ol>
+<li><strong>Location</strong> (criticality): $\nabla V\!\mid_{(t,t,t)}=0$. <strong>Status: DERIVED-GIVEN-E</strong> (target-blind, from $S_3$).</li>
+<li><strong>Stability</strong> (the Hessian sign): shape mass² $\{+1,+1\}$ leans stable; breathing singlet route-inconsistent. <strong>Status: OPEN.</strong></li>
+<li><strong>Global stabilization</strong> (no flat directions anywhere, dynamically): <strong>Status: DISCLOSED NON-CLAIM</strong> — off-chamber configurations are rejected by <em>admissibility</em>, not dynamically stabilized.</li>
+</ol>
+<p><strong>"$\tau=\omega$"</strong> also splits:
+1. <strong>Generic order-three fixed point</strong> of $\mathrm{PSL}(2,\mathbb{Z})$ — the element $M=\begin{psmallmatrix}0&-1\\1&-1\end{psmallmatrix}$ fixes exactly $\omega=e^{2\pi i/3}$. <strong>Status: DERIVED</strong> (reproduces symbolically).
+2. <strong>Uniqueness on the realized $F^+$ Cartan-torus generator inside the chamber.</strong> <strong>Status: AXIOM-OPEN / reduced</strong> — theorem-debt (R7).</p>
+<p>So <em>location</em> is DERIVED-GIVEN-E, <em>stability</em> is open, and <em>global</em> stabilization is an explicit non-claim. The criticality theorem is load-bearing for location, but it is <strong>not</strong> a stability theorem.</p>
+<hr />
+<h2>8. The $\mu_{\rm cell}$ / heat-kernel core, in full</h2>
+<p>The two genuine-physics fronts — the hierarchy ($\theta_{H\star}$) and the breathing-singlet sign — collapse onto <strong>one shared object</strong>, $\mu_{\rm cell}$, the log-scheme residue of $c_{\rm loop}=\mathrm{tr}[a_6]$ (the Seeley–DeWitt heat-kernel coefficient of the $\sigma$-fluctuation determinant on $K_6$).</p>
+<ul>
+<li><strong>The continuum divergence is dissolved (banked).</strong> Replacing the continuum mode integral by a finite cell-sum under $N\le B/\Delta_0$ genuinely kills the $a\to0$ divergence — a value-free win (the granularity root). But <strong>finiteness does not imply uniqueness:</strong> a finite supertrace of a log-running 6-D determinant still carries one log-scheme degree of freedom, $\mu_{\rm cell}$.</li>
+<li><strong>The object is route-INCONSISTENT — a <em>stronger</em> blocker than "uncomputed."</strong> Two routes for the scale-free $K_6$ vector/ghost $a_6/a_0$ disagree by $|31/48|\approx0.65$ (~6 orders outside the $10^{-6}$ tolerance), so the two-route value rule <strong>FAILED.</strong> At the $K_6$-bundle anchor, Route B reproduces the canonical $a_6/a_0=-16/315$ Gilkey-free (diff $2.7\times10^{-9}$, CORRECT) while Route A returns $-43/504$ (MATCH = False) — <strong>Route A is anchor-falsified.</strong> Route B dissolved the ghost ($a_6/a_0=149/1008$) but the graviton $\mathrm{Sym}^2(T)$ sector is still missing.</li>
+<li><strong>A retraction owned plainly.</strong> An earlier $a_6$-dependent value $-2.817995812\times10^{94}\ \mathrm{GeV}^6$ was <strong>RETRACTED as $31/147$-contaminated</strong>; the corrected coefficient $-2.995681680\times10^{94}\ \mathrm{GeV}^6$ is <strong>scheme-anchored only.</strong> The correct Bianchi-exact curvature input is $|{\rm Riem}|^2/{\rm Scal}^2=23/75$ (residual $\sim3\times10^{-16}$), not the Bianchi-violating $31/147$.</li>
+</ul>
+<p><strong>The forbidden save.</strong> $\theta_{H\star}$ would follow if $\mu_{\rm cell}$ had a $v$-independent readout — but its only anchor is $\partial_\sigma V=0$, which <strong>is</strong> the electroweak hierarchy. Using it is circular by construction ($\mu_{\rm cell}\to v$ is invertible-by-construction $\Rightarrow$ $\mu_{\rm cell}$ IS the knob). The <strong>Buckingham-π no-go</strong> confirms a second mass cannot be built from $\{M_{\rm Pl},\hbar,$ dimensionless geometry$\}$ without a $\sigma$-carrying length. SG-6 declines the circular save and concedes $v_{\rm EW}$ as a measured ruler.</p>
+<hr />
+<h2>9. Open residuals — the two genuine fronts + the disclosed family</h2>
+<p>The criticality leg is one face of SG-6. These distinct residuals make up the rest, and none is closed by criticality:</p>
+<p><strong>Genuine-physics fronts (closeable, target-blind):</strong>
+- <strong>R3/R6 — the Hessian sign (saddle-vs-minimum).</strong> <strong>OPEN.</strong> Shape leans stable; the decisive remaining datum is the graded <strong>Casimir net sign</strong>, blocked on the ABSENT admissible-rep multiplicity table and a regularization-stable $s=-1$ zeta continuation. $\chi=-3$ opposes the boson-dominance rescue.
+- <strong>R5 — the breathing-singlet $c_{\rm loop}$ / $a_6$ wall.</strong> <strong>OPEN / route-inconsistent.</strong> Route A anchor-falsified; the graviton $\mathrm{Sym}^2(T)$ sector missing. Shared with Gap-01 and SG-7.
+- <strong>R7 — modular uniqueness.</strong> <strong>AXIOM-OPEN / reduced.</strong> Generic PSL$(2,\mathbb{Z})$ fact proven; realized-generator uniqueness on the chamber is theorem-debt. The single cleanly-upgradable leg.
+- <strong>R1 — $\theta_{H\star}$ derived target-blind.</strong> <strong>OPEN / RELOCATION.</strong> Path A circular at $\partial_\sigma V=0$; Path B is the wrong mechanism (a periodic-potential minimum location, not a running coupling).</p>
+<p><strong>Disclosed residuals (kept honest, no flip available):</strong>
+- <strong>R2 — global stabilization.</strong> <strong>DISCLOSED NON-CLAIM.</strong> The shared-open textbook problem; off-chamber rejected by admissibility, not dynamics.
+- <strong>R4 — given-E / within-chamber.</strong> <strong>DISCLOSED-CONSISTENT / relocation.</strong> Witnesses fix moduli <em>inside</em> the selected chamber; selection relocates to SG-1/SG-3, not closeable at SG-6.
+- <strong>R8 — no-tachyon.</strong> <strong>DISCLOSED-CONSISTENT, conditional on R3/R5.</strong> The AND of the two eigenvalue rows; cannot be made target-blind without the R6 table and R5 $c_{\rm loop}$.
+- <strong>R9 — phenomenological sufficiency.</strong> <strong>AUDIT (owned by SG-7).</strong> Relies on the SG-7 threshold harness, itself AUDIT ($\delta$ magnitudes injected; <code>reproduce_all.py</code> confirmed absent corpus-wide).</p>
+<p>The retired $-1$ shape saddle is <strong>not</strong> an open residual — it is a retracted artifact, named in the ledger for honesty.</p>
+<hr />
+<h2>10. Anti-claims (what this page refuses to say)</h2>
+<ul>
+<li>SG-6 does <strong>not</strong> derive $E$, nor the chamber/geometry. The witnesses fix moduli <em>within</em> the already-selected chamber: control, not selection.</li>
+<li><strong>Criticality is not stability.</strong> A symmetry-forced critical point carries <strong>zero</strong> stability burden. Location is symmetry; sign is spectrum.</li>
+<li>The <strong>shape minimum is not certified</strong> — only LEANING STABLE (mass² $\{+1,+1\}$ at tree level), blocked on two completeness theorems plus the Casimir net sign.</li>
+<li>The <strong>$-1$ shape "saddle" is retired</strong> as a volume-contaminated, non-critical-point artifact. SG-6 is <strong>not</strong> shown to be a saddle — and is <strong>not</strong> shown to be a minimum either.</li>
+<li><strong>Casimir boson-dominance does not rescue the saddle</strong> — the multiplicity table is ABSENT and $\chi=-3$ opposes it; no rescue is banked.</li>
+<li><strong>$c_{\rm loop}$ is not computed</strong> — the $a_6$ object is route-inconsistent (Route A anchor-falsified), a stronger blocker than uncomputed.</li>
+<li><strong>$\mu_{\rm cell}$ has no $v$-independent value.</strong> Anchoring it at $\partial_\sigma V=0$ to "predict" $v_{\rm EW}$ is <strong>forbidden as circular by construction.</strong></li>
+<li><strong>The electroweak hierarchy is not derived.</strong> $v_{\rm EW}=246\ \mathrm{GeV}$ is a measured second ruler (consumed, not produced); $\theta_{H\star}$ is read from a minimum.</li>
+<li><strong>No global stabilization</strong> is claimed — no flat directions anywhere is an explicit non-claim and a shared-open problem for <em>every</em> framework.</li>
+<li>The frozen-branch hashes are audit anchors; they do <strong>not</strong> validate the physics.</li>
+<li><strong>Dissolved $\ne$ solved:</strong> the cell-sum dissolves the continuum UV divergence, but a finite supertrace still carries the open $\mu_{\rm cell}$.</li>
+</ul>
+<hr />
+<h2>11. Specialist closure plan</h2>
+<p>Each open residual is a concrete, finite, target-blind work-package. Every $\mu_{\rm cell}$-touching path carries the explicit falsification test: <strong>the $\partial_\sigma V=0$ anchor is forbidden.</strong> No DERIVED-CLOSED is promised; the single most valuable <em>likely</em> outcome is a NEGATIVE — a confirmed instability firing the no-minimum falsifier.</p>
+<ol>
+<li><strong>R3/R6 — Hessian sign.</strong> Mount the admissible-rep multiplicity table; form the graded doublet-weighted supertrace $\sum (-1)^F\,d\,n\,(w_1^2+w_2^2)$ with a regularization-stable $s=-1$ continuation; decide the net sign and magnitude $\mu_{\rm cell}\!\cdot\! q$. Compute on the <em>isolated</em> trace-free doublet at a <em>critical</em> point (do not repeat the volume-contaminated ray). Success: net $>0$ and $\mu_{\rm cell}\!\cdot\! q\gtrsim 0.5$ → minimum. Falsifier: net $\le0$ → SADDLE-CONFIRMED, the no-minimum falsifier fires. (The closed-form multiplicity $m_0(p,q)=\min(p,q)+1$ if $(p-q)\equiv0\bmod3$ else $0$ verifies against textbook values — one step done; blocked on the regularized zeta.)</li>
+<li><strong>R5 — $c_{\rm loop}$ / $a_6$ wall.</strong> Fix Route A's $K_6$-bundle $a_6$ against a spectral peel; deliver Route B's graviton $\mathrm{Sym}^2(T)$ LC $a_6$ via spectral-zeta resummation (ghost already dissolved); re-run the two-route value rule. Use the Bianchi-exact $23/75$, not $31/147$. Success: routes agree within $10^{-6}$ → singlet sign decided. Falsifier: a definite wrong-sign $c_{\rm loop}$ → breathing singlet unstable. Honest endpoint short of that: Reduced-to-Axiom at <strong>AXIOM-UNIFORM-CELL-VALUE.</strong></li>
+<li><strong>R7 — modular uniqueness.</strong> Enumerate fixed points of the realized $F^+$ Cartan-torus generator; characterize uniqueness within the chamber — pure group theory, inject no flavor/hierarchy number. Success: uniqueness proven → R7 upgrades to <strong>DERIVED.</strong> Also hardens SG-8.</li>
+<li><strong>R1 — $\theta_{H\star}$.</strong> Write $V_{\rm Hos}(\theta_H)$ from frozen $\{\gamma, n_H, \eta_{BK}, R_\gamma\}$; locate its minimum without consulting $v_{\rm obs}$; check whether it lands at $\sim10^{-14}$. Realistic endpoint (Buckingham-π blocks it): Reduced-to-Axiom at <strong>AXIOM-VEW-SECOND-ANCHOR.</strong> Falsifier: a chamber-only $\theta_{H\star}$ that <em>misses</em> $10^{-14}$ → a genuine prediction-vs-data failure.</li>
+<li><strong>R9 — phenomenological sufficiency.</strong> Mount the SG-7 reproducer (<code>reproduce_all.py</code> + ledger CSVs); propagate an SG-6 radius/threshold perturbation through Gates 1–10. Closes when SG-7's $\delta$-harness AUDIT closes — shared, not independent.</li>
+</ol>
+<p>Closing R3/R6 + R5 decides the Hessian sign and upgrades SG-6 from "criticality closed, stability open" toward a verdict — and even then, only <em>given</em> $E$, and possibly to a confirmed instability.</p>
+<hr />
+<h2>Completion tests for this page</h2>
+<p><strong>Tests passed (required presence, all met):</strong> gate roll-up OPEN — stability-sign-undecided · the criticality leg $\nabla V\!\mid_{(t,t,t)}=0$ as DERIVED-GIVEN-E · "$E$ not derived" · frozen hashes (AUDIT ONLY) · every exact object as its own row · the $3=\mathbf{1}\oplus\mathbf{2}$ split · the corrected shape mass² $\{+1,+1\}$ · the retired $-1$ artifact named · the route-inconsistent $a_6$ ($|31/48|$, Route A $-43/504$ falsified) · the retracted $-2.818\times10^{94}\ \mathrm{GeV}^6$ named · the specificity diagnostic ($S^2\times S^2$ fires $+16$) · every open residual (R1, R3/R6, R5, R7) + disclosed (R2, R4, R8, R9) as its own row · the anti-claims (criticality≠stability, no boson rescue, $\mu_{\rm cell}$ not $v$-anchorable, hierarchy read not derived, hashes don't validate).</p>
+<p><strong>Tests failed (required absence, all held):</strong> no claim that SG-6 is closed · no minimum certified · no $E$ or geometry derived · no boson-dominance rescue · no $\mu_{\rm cell}$ value · no $\theta_{H\star}$ derived · no global stabilization · no claim the $-1$ is the shape eigenvalue · hashes do not validate physics · criticality does not equal stability · no reader-visible build-process vocabulary.</p>
+<p><strong>Open items:</strong> R3/R6 Casimir net sign (multiplicity table absent) · R5 $a_6$ route reconciliation (Route A falsified) · R7 realized-generator uniqueness · R1 $\theta_{H\star}$ target-blind · R9 downstream SG-7 audit.</p>
+<p><strong>Assumptions made:</strong> $v_{\rm EW}=246\ \mathrm{GeV}$ consumed as a measured second ruler; the $\hbar$-footing for $\mu_{\rm cell}$ (a floor-value invariant, not measured $\hbar$); spectrum-$E$ with $\chi=-3$ inherited from SG-2/SG-3.</p>
+<hr />
+<p><em>This gate follows the same eleven-part shape and universal table as the canonical <a href="./sg4-anchor-ledger.html">SG-4 anchor ledger</a>.</em></p>
+<p><strong>See also:</strong> <a href="./index.html">the anchoring method</a> · <a href="./a0-master-anchor.html">the master anchor</a> · <a href="./layer-2-no-unpaid-labels.html">Layer 2 — no unpaid exact labels</a> (why the witness-TYPE predicate makes minimize-at-answer inadmissible) · <a href="./layer-4-carrier-forcing.html">Layer 4 — carrier-forcing &amp; the given-E wall</a> · <a href="./shape-minimality-challenge.html">the shape-minimality challenge</a> · <a href="./sg4-anchor-ledger.html">SG-4 anomaly ledger</a> · the full <a href="../articles/DOSSIER_SG6_FULL.html">SG-6 dossier</a>.</p>
+</main>
+</div>
+</body></html>

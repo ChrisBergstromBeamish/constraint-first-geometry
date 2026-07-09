@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SG-6 — Moduli Stabilization (GUT Gate 6): Per-Gate Closure-Attack Dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">SG-6 — Moduli Stabilization (GUT Gate 6): Per-Gate Closure-Attack Dossier — rendered package. Rendered from <code>DOSSIER_SG6_MODULI_STABILIZATION_CLOSURE_ATTACK.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>SG-6 — Moduli Stabilization (GUT Gate 6): Per-Gate Closure-Attack Dossier</h1>
+<blockquote>
+<p><strong>What this is.</strong> The closure-attack packet for <strong>SG-6 (Moduli stabilization / Gate 6)</strong> on the <strong>frozen
+13D K₆ branch ONLY</strong>. It recaps how our geometry controls the downstream-used moduli (concise; the full
+derivation lives on the published site), verifies where the status actually stands, names every open
+residual, and lays out the attack plan to push the gate further. It is <strong>not</strong> a rival comparison (that is
+<code>BATTLE_GATES/</code>), <strong>not</strong> the one-line status ledger, <strong>not</strong> a reprint of the manuscript.</p>
+<p><strong>Binding discipline (carry verbatim).</strong> No status was ever upgraded. Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>
+READ-ONLY. Honest throughout: the gate certifies <strong>admissibility-restriction + LOCAL stability at the
+chamber-center witness + phenomenological sufficiency</strong> for Gates 1–10 — <strong>global stabilization is an
+explicit NON-claim</strong> (F.9.4 / F.10.1); the <strong>positive-definite moduli-mass Hessian is DIAGNOSTIC-ONLY</strong>
+(F.9.5, the named most-natural attack surface); witnesses fix the moduli <strong>WITHIN the already-selected
+chamber</strong> (given-E, given-the-selected-geometry). The acute soft spot is <strong>θ_H⋆ ≈ 2.46×10⁻¹⁴</strong> (the
+Hosotani phase), <strong>READ from the chamber one-loop V_Hos minimum</strong>, carrying <strong>~85% of the electroweak
+hierarchy</strong> via v_EW = θ_H⋆/(2πR_γ) — a value extracted from a minimum, not independently derived.
+Closure paths must be <strong>non-target-loaded</strong> (the κ³/π falsification test: a proposed axiom counts only if it would
+be written WITHOUT knowing the target). <strong>given-E ≠ derivation of E.</strong> AXIOM-CLOSED ≠ proven; selection ≠
+derivation; dissolved ≠ solved. <strong>The broader four-term V(σ) discharge lives only in downstream Paper IV
+(EXTERNAL; its own caveats) and changes NOTHING in this gate's certificate.</strong></p>
+</blockquote>
+<hr />
+<h2>0. Header &amp; Verdict</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gate id</strong></td>
+<td>SG-6 — Moduli stabilization (the Weyl-rigid chamber-center witness)</td>
+</tr>
+<tr>
+<td><strong>GUT manuscript gate</strong></td>
+<td>Gate 6 (§6.6; narrative §5.5; certificate <code>certificates/G06_stabilization/</code>; authority <strong>Appendix F</strong>)</td>
+</tr>
+<tr>
+<td><strong>Status label (binding)</strong></td>
+<td><strong>PARTIAL</strong></td>
+</tr>
+<tr>
+<td><strong>Manuscript card status</strong></td>
+<td><em>Claimed certificate pass under declared admissibility and moduli-control assumptions</em> (the manuscript's own conditional phrasing; PARTIAL is the honest scoped-GUT roll-up of it)</td>
+</tr>
+<tr>
+<td><strong>Frozen hashes it rides</strong></td>
+<td>Branch <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code>. Moduli primitives: three Cartan radii of $K_6$ R1.2 <code>634438ce0776</code> / <code>2381d472c62e</code> / <code>0e8b8dba2cf0</code>; chamber-center $\vec u=(1,1,1)$ (A1.2); modular fixed point $\tau=\omega$ <code>03b30a9c931a</code>; Higgs winding $n_H=1$ + cycle $\gamma$ (A1.12); finite chamber determinant $\eta_{BK}=0.009721281516312$ <code>84e94518d3f5</code>; RG-transport rule <code>f531205a9159</code>; comparison scale $M_Z$ <code>a6852c7a6b00</code>; threshold spectrum $(\delta_1,\delta_2,\delta_3)=(+4.8424,-3.1112,-1.7313)$; species normalizations $N_{u,d,e}$ <code>20dc4e0b8220</code>; chamber angle $\theta_F$ <code>1ff57f48d45a</code>; spin-ℂ index / family count $\chi(K_6,E)=-3$ (R1.4) <code>0fd19c9ae0c1</code>. <strong>θ_H⋆ (Hosotani minimum) and $M_R$: no SG-6 hash — read/uncomputed.</strong></td>
+</tr>
+<tr>
+<td><strong>Target anchor(s)</strong></td>
+<td><strong>No new anchor.</strong> Witness ledger terminates on <strong>spectrum-E</strong> (given-E, AXIOM-CLOSED) and the <strong>ℏ-footing only</strong> (μ_cell, SCHEME-ANCHORED/BLOCKED); <strong>global stabilization = explicit NON-claim</strong> (terminates on no number). The one acute open leg, <strong>θ_H⋆</strong> (read from the V_Hos minimum, ~85% of the EW hierarchy), must reproduce <strong>v_EW = 246 GeV</strong> — here <strong>measured-but-irreducible</strong>; θ_H⋆-as-derived stays <strong>OPEN</strong>. Hardening move = the <strong>θ_H⋆ / Hessian derivation</strong>, not a new datum. See §A target-anchor block. No status was ever upgraded.</td>
+</tr>
+</tbody>
+</table>
+<h3>0.1 Abstract — established / open / what would close it</h3>
+<p><strong>Established (given-E, given the selected &amp; frozen chamber).</strong> Gate 6 is the <em>curve-not-a-number</em> discipline
+made operational (§6.6 "$y=R^2$" toy): <strong>every modulus an output reads must carry a structural witness of a
+declared TYPE</strong> — Weyl-rigid chamber for $K_6$'s three Cartan shape moduli (chamber-center $\vec u=(1,1,1)$),
+modular fixed point $\tau=\omega$ for the $F^+$ Cartan-torus, integer winding $n_H=1$ for the Wilson-line
+Higgs, discrete $\mathbb{Z}_2/\mathbb{Z}_6$ topology for the orbifold/identification, plus
+boundary-condition pins for the $S^2/S_Y^1$ radii and the threshold spectrum — <strong>not a scalar potential whose
+minimum was placed at the answer.</strong> The witness-type <strong>predicate</strong> tests the <em>type</em> of the witness, so "a
+potential we minimized at $R_0$" <strong>fails by construction</strong>. The deliverables are the <strong>12-row witness ledger
+(F.3)</strong>, a <strong>no-tachyon check (F.4)</strong>, a <strong>witness-coverage lint</strong>, and the five-concept claim-type ledger
+(F.9.1 / F.10.1) that explicitly separates what is proved from what is not. This is genuinely strong
+discipline and is the program's honest answer to the "hidden-knob" attack.</p>
+<p><strong>Open (the honest deductions).</strong> (1) <strong>Global stabilization is an explicit NON-claim</strong> (F.9.4 row 1 /
+F.10.1) — outside-chamber branches are <em>rejected by admissibility, not stabilized</em>. (2) The <strong>positive-definite
+moduli-mass Hessian is DIAGNOSTIC-ONLY</strong> (F.9.5); a precise positive-definite Hessian is "out-of-scope
+refinement" — and the <strong>named most-natural attack surface</strong> is F.9.7(2): <em>show the chamber-center witness is a
+saddle, not a minimum</em>. (3) The acute soft spot is <strong>θ_H⋆ ≈ 2.46×10⁻¹⁴</strong> — the Hosotani-phase minimum that
+carries <strong>~85% of the EW hierarchy</strong> via $v_{\rm EW}=\theta_H^\star/(2\pi R_\gamma)$ — <strong>read from a one-loop
+$V_{\rm Hos}$ minimum, not derived-small</strong> (frozen $\eta_{BK}=0.009721$ gives only $\sqrt{\eta_{BK}}/2\pi\sim
+10^{-2}$, ~12 orders short). (4) The witnesses fix the moduli <strong>WITHIN the already-selected chamber</strong>
+(given-E): the gate certifies the selected geometry is internally controlled, <strong>not</strong> that the witnesses
+determine the geometry. (5) Stabilization is a <strong>SHARED-OPEN</strong> hard problem — rivals (string/M/F/NCG/lattice)
+also struggle (Battle verdict: TIE/SHARED-OPEN, <strong>not</strong> a Fable win).</p>
+<p><strong>What would close it (the ladder).</strong> DERIVED-CLOSED would require either (a) the <strong>four-term V(σ) discharge</strong>
+turning the breathing/volume modulus from witness into a <em>derived</em> positive-Hessian minimum with no new knob,
+or (b) a <strong>target-blind derivation of θ_H⋆</strong> (the small Hosotani phase from chamber data, not read from
+$V_{\rm Hos}$), or (c) a <strong>positive-definite Hessian certificate</strong> at $(1,1,1)$. The realistic ceiling per
+residual is <strong>AXIOM-CLOSED</strong>: name one explicit, target-blind posit (the modular-fixed-point uniqueness; the
+uniform operational cell value $\Delta_0$ that pins the loop scale; the second-dimensionful-anchor irreducibility
+of $v_{\rm EW}$). The honest expected outcome on the two genuine-physics fronts (shape-doublet Hessian, θ_H⋆)
+is <strong>sharper-OPEN</strong> — and on the shape doublet, on current Λ-free perturbative geometry, <strong>a SADDLE</strong> (a
+falsifier-grade negative, not a closure).</p>
+<h3>0.2 Website source-of-truth (link, don't duplicate)</h3>
+<p>The full construction, the witness ledger, and the claim-type discipline are the <strong>published manuscript</strong>,
+Paper I:</p>
+<ul>
+<li><strong>GUT.html §6.6</strong> (Gate-6 card) — <a href="https://physics.magflowmeters.com/articles/GUT.html">https://physics.magflowmeters.com/articles/GUT.html</a></li>
+<li><strong>§5.5</strong> narrative module; the <strong>$y=R^2$ curve-not-a-number</strong> discipline; <strong>Appendix F</strong> (Stabilization —
+  the binding authority): <strong>F.1/F.2</strong> witness structure, <strong>F.3</strong> the 12-row moduli ledger, <strong>F.4</strong> tachyon
+  check, <strong>F.5</strong> sensitivity, <strong>F.9</strong> Stabilization-vs-Admissibility five-concept distinction (<strong>F.9.4</strong>
+  NON-claim, <strong>F.9.5</strong> Hessian diagnostic, <strong>F.9.7</strong> falsification paths), <strong>F.10</strong> claim-type ledger +
+  required-vocabulary substitution rule; <strong>Appendix CR module CR6</strong> reader companion. Same public article.</li>
+<li>Downstream cross-reference (does <strong>not</strong> touch this gate's certificate): the four-term $V(\sigma)$ discharge
+  in <strong>Paper IV, TOE.html</strong> — <a href="https://physics.magflowmeters.com/articles/TOE.html">https://physics.magflowmeters.com/articles/TOE.html</a> (EXTERNAL; its own
+  caveats). The θ_H⋆ / $v_{\rm EW}$ leg is the Gate-8 Hosotani object (§6.8 / Appendix H) on which SG-6's
+  acute soft spot rides.</li>
+</ul>
+<p>This dossier recaps only what is needed to attack; the site controls all common material.</p>
+<hr />
+<h2>1. How OUR geometry controls the moduli — the closure claim (concise)</h2>
+<blockquote>
+<p>Full derivation: <strong>GUT.html §6.6 + §5.5 + Appendix F (F.1–F.10) + CR6</strong>. This section is the attack-grade
+recap, not the derivation.</p>
+</blockquote>
+<h3>1.1 The mechanism end-to-end</h3>
+<p>Gate 6 answers a single plain fact: <strong>a predictive compactification cannot have its hidden shape and size
+drifting freely — every modulus any later gate reads must be pinned before a number is compared</strong> (§5.5; the
+$y=R^2$ toy, §6 "Curve-not-a-number"). The Fable mechanism is <strong>not</strong> "write a scalar potential, minimize it,
+read off the value." It is a <strong>witness-type predicate</strong>: each downstream-used modulus must carry a witness
+drawn from a declared set of <em>structural</em> mechanisms, and the predicate tests the <strong>type</strong> of the witness, so
+a tuned potential whose minimum was <em>placed</em> at the answer fails by construction (R1.6 forbids exactly this).</p>
+<p>The load-bearing factors, named so a reader can attack each:</p>
+<ol>
+<li><strong>The Weyl-rigid $K_6$ chamber</strong> (the three Cartan shape moduli $\vec u=(u_1,u_2,u_3)$ of
+   $K_6=SU(3)/T^2$). Witness type = <strong>admissibility / no-runaway on the spin-ℂ bundle data</strong>: off-chamber
+   moduli fail the A0 admissibility check and the branch is <em>eliminated by the selector</em>
+   (Appendix B1.6), not stabilized. The chamber is $\vec u\in[1/2,3/2]^3$ with center pinned at $(1,1,1)$.
+   <em>(Attack handle: the Weyl group $S_3$ permutes $(u_1,u_2,u_3)$, so $(1,1,1)$ is the $S_3$-fixed point —
+   automatically a </em><em>critical point</em><em> of any $S_3$-invariant functional, but the </em><em>Hessian sign</em><em> is the open
+   object; see §3 R3.)</em></li>
+<li><strong>The modular fixed point $\tau=\omega=e^{2\pi i/3}$</strong> (<code>03b30a9c931a</code>) for the $F^+$ Cartan-torus modulus.
+   Witness type = <strong>residual modular symmetry forces the order-three fixed point</strong>; small perturbations off
+   $\omega$ acquire a non-zero potential under the chamber's RG transport, restoring $\tau\to\omega$.
+   <em>(Attack handle: this is the cleanest witness — a symmetry-protected fixed point, not a minimum read off a
+   curve. But the manuscript's own F.2 wording ("produce a non-zero potential off the fixed point") leans on a
+   potential it does not compute; the symmetry-uniqueness leg is the strengthening target, R7.)</em></li>
+<li><strong>Integer Wilson-line winding $n_H=1$</strong> on $K_{\rm gauge}$, on the declared homology cycle $\gamma$.
+   Witness type = <strong>topological invariant</strong> — $\delta n_H\notin\mathbb{Z}$ is forbidden; integer winding is the
+   only allowed value. <em>(Attack handle: the winding </em><em>count</em><em> is protected, but the </em><em>phase</em><em> $\theta_H$ that
+   the Wilson line settles at is a continuous modulus on the cycle — and </em><em>that is θ_H⋆, the acute soft spot</em><em>;
+   see §3 R1.)</em></li>
+<li><strong>Discrete $\mathbb{Z}_2$ / $\mathbb{Z}_6$ topology.</strong> The $S_Y^1/\mathbb{Z}_2$ orbifold action $y\mapsto-y$
+   and the global $\mathbb{Z}_6$ identification have <strong>no continuous deformation parameter to drift</strong> — fixed
+   by topology, no witness-potential needed.</li>
+<li><strong>Boundary-condition pins for the $S^2/S_Y^1$ radii and the threshold spectrum.</strong> $R_{S^2}$ by KK /
+   Wilson-line balance against the threshold-unification target $M_U$; $R_{S_Y^1}$ by the hypercharge
+   gauge-coupling boundary condition at $M_Z$; the threshold vector
+   $(\delta_1,\delta_2,\delta_3)=(+4.8424,-3.1112,-1.7313)$ from the KK tower. <em>(Attack handle: these are
+   </em><em>threshold-pinned</em><em>, i.e. their witness is consistency with Gate 7 — they inherit Gate 7's open status,
+   notably the δ-triple reproducibility gap; given-E, given the frozen scheme.)</em></li>
+<li><strong>The 12-row witness ledger (F.3) + no-tachyon check (F.4) + coverage lint.</strong> Every modulus / Wilson-line /
+   chamber coordinate / threshold spectrum that any Gate 1–10 reads is listed with its witness, pinned value,
+   downstream consumer, and the effect of a small perturbation $\delta$. The certificate JSON (F.6) reports
+   <code>stabilized_object_count: 6</code> "potential/witness" classes covering the 12 ledger rows, <code>tachyon_check: no
+   tachyon on the active branch</code>.</li>
+</ol>
+<p>The pipeline is one discipline, not one computation:</p>
+<pre><code> every downstream-used modulus
+   --witness-type predicate--&gt;  {Weyl-rigid | modular fixed pt | integer winding | discrete topology | BC pin}
+     --type test (NOT minimize-at-answer)--&gt;  PASS (witnessed) / FAIL (tuned-or-floating)
+       --12-row ledger + no-tachyon + coverage lint--&gt;  Claimed certificate pass (given-E, in-chamber)
+</code></pre>
+<h3>1.2 What "closed" means here, and its conditionality</h3>
+<p>"Closed" for SG-6 is <strong>moduli-control by structural witness under declared assumptions</strong> — strictly <strong>not</strong>
+global stabilization, <strong>not</strong> a proven positive-definite Hessian, <strong>not</strong> a derivation of the chamber. It is
+the conjunction of exactly three claim types (F.9.3 / F.10.3):</p>
+<ul>
+<li><strong>(i) Admissibility restriction</strong> — non-chamber configurations rejected by $\mathcal{C}_{\rm admiss}$
+  (Appendix C6). <em>Proven</em> (it is an $\oplus$-layer rulebook rule).</li>
+<li><strong>(ii) Local stability at the chamber-center witness $\vec u=(1,1,1)$</strong> — small in-chamber perturbations
+  return to the center. <em>Claimed</em> at tree-plus-one-loop within the declared scheme.</li>
+<li><strong>(iii) Phenomenological sufficiency</strong> — the remaining moduli do not move any Gate 1–10 output beyond its
+  published tolerance. <em>Claimed</em> under the Weyl-rigid chamber + freeze discipline.</li>
+</ul>
+<p>It is conditional on:</p>
+<ul>
+<li><strong>given-E</strong> — the SM chiral content and the family index $\chi=-3$ are supplied as input from SG-2/SG-3; the
+  witnesses operate <em>on the selected bundle</em>, they do not derive it.</li>
+<li><strong>given-the-selected-geometry</strong> — the witnesses fix the moduli <strong>inside</strong> the already-selected chamber. SG-6
+  certifies the selected geometry is internally controlled; it does <strong>not</strong> prove the witnesses determine the
+  geometry. <em>(This is the load-bearing conditionality of the whole gate.)</em></li>
+</ul>
+<p><strong>What the gate explicitly does NOT claim</strong> (F.9.4 / F.10.1, carried verbatim):</p>
+<table>
+<thead>
+<tr>
+<th>Concept (F.9.1)</th>
+<th>Claimed?</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Admissibility restriction</td>
+<td><strong>Yes</strong></td>
+<td>proven (rulebook)</td>
+</tr>
+<tr>
+<td>Local stability at $(1,1,1)$</td>
+<td><strong>Yes</strong></td>
+<td>claimed, tree+1-loop, declared scheme</td>
+</tr>
+<tr>
+<td>Moduli mass generation (positive-definite Hessian of $V(\vec u)$)</td>
+<td><strong>Partial → Diagnostic only</strong></td>
+<td>F.9.5; <strong>the named attack surface (F.9.7-2)</strong></td>
+</tr>
+<tr>
+<td>Global stabilization (no flat directions anywhere)</td>
+<td><strong>NOT claimed</strong></td>
+<td>F.9.4 row 1 explicit non-claim</td>
+</tr>
+<tr>
+<td>Phenomenological sufficiency for Gates 1–10</td>
+<td><strong>Yes</strong></td>
+<td>claimed</td>
+</tr>
+</tbody>
+</table>
+<p>So the precise statement of closure: <strong>the gate certifies that every downstream-used modulus carries a
+structural witness (not a tuned potential), that small in-chamber perturbations are controlled at the
+chamber-center, and that the residual moduli do not spoil Gates 1–10 — given the SM content and the selected
+geometry. It does NOT prove a positive-definite Hessian, does NOT claim global stabilization, and the one
+modulus carrying the electroweak hierarchy (θ_H⋆) is READ from a minimum, not derived.</strong></p>
+<hr />
+<h2>2. Verify the status — is PARTIAL real?</h2>
+<p>This is the verification a skeptic would run. Each witness gets a grade — <strong>hand-checkable</strong> / <strong>symbolic</strong> /
+<strong>machine-lane</strong> — and an honest <strong>reproduces?</strong> flag.</p>
+<h3>2.1 The witness ledger</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Witness</th>
+<th>What it asserts</th>
+<th>Grade</th>
+<th>Reproduces?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1</td>
+<td><strong>Witness-type predicate</strong> (R1.6: "no tuned potential whose minimum was chosen at the answer")</td>
+<td>every downstream modulus carries a witness of declared TYPE; "minimize-at-answer" fails by construction</td>
+<td>symbolic/audit</td>
+<td><strong>Yes</strong> — the predicate is a type-check, hand-auditable against F.3; it is the strongest, most defensible leg</td>
+</tr>
+<tr>
+<td>W2</td>
+<td><strong>12-row moduli ledger (F.3)</strong></td>
+<td>every modulus/Wilson-line/chamber coord/threshold spectrum used by Gates 1–10 is listed with witness + pinned value + downstream consumer + $\delta$-response</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — the table is complete and self-consistent; coverage lint passes (no floating downstream modulus)</td>
+</tr>
+<tr>
+<td>W3</td>
+<td><strong>Weyl-rigid chamber + center $\vec u=(1,1,1)$</strong></td>
+<td>admissibility rejects off-chamber; center is the $S_3$-fixed point</td>
+<td>hand-checkable</td>
+<td><strong>Yes for admissibility + critical-point</strong>; the <em>Hessian sign</em> is NOT asserted here (it is the diagnostic)</td>
+</tr>
+<tr>
+<td>W4</td>
+<td><strong>Modular fixed point $\tau=\omega$</strong></td>
+<td>residual modular symmetry forces the order-three fixed point</td>
+<td>hand-checkable</td>
+<td><strong>Yes (as a fixed point)</strong>; the "non-zero potential off $\omega$" claim is symbolic, not computed</td>
+</tr>
+<tr>
+<td>W5</td>
+<td><strong>Integer winding $n_H=1$</strong></td>
+<td>topological invariant; non-integer forbidden</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — pure topology</td>
+</tr>
+<tr>
+<td>W6</td>
+<td><strong>Discrete $\mathbb{Z}_2/\mathbb{Z}_6$</strong></td>
+<td>no continuous deformation parameter</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — pure topology</td>
+</tr>
+<tr>
+<td>W7</td>
+<td><strong>No-tachyon check (F.4)</strong></td>
+<td>no tachyonic mode on the active branch at the declared witnesses</td>
+<td>symbolic</td>
+<td><strong>Conditional</strong> — asserted for the declared spectrum; a deformation away from a witness <em>could</em> produce one (then the certificate fails)</td>
+</tr>
+<tr>
+<td>W8</td>
+<td><strong>Phenomenological sufficiency</strong></td>
+<td>residual moduli leave Gates 1–10 within tolerance</td>
+<td>machine-lane</td>
+<td><strong>AUDIT</strong> — depends on the same per-gate harnesses (e.g. the Gate-7 threshold pipeline) that are themselves AUDIT</td>
+</tr>
+<tr>
+<td>W9</td>
+<td><strong>Positive-definite Hessian of $V(\vec u)$</strong></td>
+<td>$(1,1,1)$ is a minimum, not a saddle</td>
+<td>machine-lane</td>
+<td><strong>DIAGNOSTIC-ONLY (F.9.5)</strong> — <em>not</em> computed in-gate; the named attack surface. <strong>An out-of-gate Λ-free computation gives a SADDLE in the shape sector (see §3 R3).</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>2.2 What reproduces, plainly</h3>
+<ul>
+<li><strong>The witness-type discipline reproduces by inspection.</strong> The predicate is a <em>type</em> test; a reader can walk
+  F.3 row by row and confirm each witness is structural (admissibility / symmetry fixed-point / integer
+  winding / discrete topology / BC pin) and not "a number we minimized to." This is the genuine, strong leg of
+  the gate, and it is exactly the $y=R^2$ curve-not-a-number toy applied to every dial the certificates touch.</li>
+<li><strong>The discrete/topological witnesses reproduce by hand.</strong> $n_H=1$, the $\mathbb{Z}_2$ orbifold, the
+  $\mathbb{Z}_6$ identification, the cycle $\gamma$ — all are topological invariants with no continuous knob;
+  nothing to reproduce numerically and nothing to drift.</li>
+<li><strong>The $S_3$-fixed-point structure reproduces by hand.</strong> Because the Weyl group $S_3$ permutes
+  $(u_1,u_2,u_3)$, the center $(1,1,1)$ is automatically a <strong>critical point</strong> of any $S_3$-invariant
+  functional ($\partial V=0$ for free). This upgrades the manuscript's "fixed by fiat" wording to "fixed by
+  symmetry <strong>as a critical point</strong>" — a genuine, free, target-blind structural fact (TEST 2).</li>
+</ul>
+<h3>2.3 What does NOT yet reproduce (honest gaps in the status)</h3>
+<ul>
+<li><strong>The positive-definite Hessian does NOT reproduce — it is diagnostic-only, and the one Λ-free piece that
+  CAN be computed gives a SADDLE.</strong> F.9.5 explicitly declines the Hessian computation as "out-of-scope
+  refinement." When the chamber Hessian is decomposed by symmetry into $3=\mathbf{1}\oplus\mathbf{2}$ (TEST 2),
+  the <strong>shape doublet</strong> ($S_3$-doublet, traceless) is computable Λ-free from the flag-manifold scalar
+  curvature — and the result is $\partial^2 R/\partial\varepsilon^2|_{(1,1,1)}=-1<0$, <strong>a saddle</strong> (the
+  structure-constant triangle term $-5/2$ overwhelms the diagonal $+2$). The <strong>breathing/volume singlet</strong> rides
+  the uncomputed $c_{\rm loop}$ (the 13D FRG-2 wall). So the F.9.7(2) saddle attack surface is not merely
+  <em>open</em> — on current perturbative geometry it <strong>leans toward saddle</strong>, rescuable only by a Casimir term whose
+  net sign needs the absent admissible-rep multiplicity table (TEST_CASIMIR_RESCUE).</li>
+<li><strong>θ_H⋆ does NOT reproduce as a derivation — it is read from a minimum.</strong> The Hosotani phase
+  $\theta_H^\star\approx2.46\times10^{-14}$, which carries ~85% of the EW hierarchy via
+  $v_{\rm EW}=\theta_H^\star/(2\pi R_\gamma)$, is <strong>extracted from the one-loop $V_{\rm Hos}$ minimum</strong>, not
+  computed-small from chamber data. The frozen $\eta_{BK}=0.009721$ gives only $\sqrt{\eta_{BK}}/2\pi\sim
+  10^{-2}$ — ~12 orders short. The lightness-of-$v$ leg leans on a read modulus.</li>
+<li><strong>Global stabilization does NOT reproduce — it is not claimed.</strong> F.9.4 row 1 says so explicitly;
+  outside-chamber branches are <em>rejected by admissibility, not stabilized</em>. There is no all-loop
+  positive-definite Hessian and no claim of "no flat directions anywhere."</li>
+<li><strong>Phenomenological sufficiency inherits downstream AUDIT.</strong> The "residual moduli don't spoil Gates 1–10"
+  claim is only as machine-real as the downstream harnesses it relies on — and the Gate-7 threshold pipeline
+  (which consumes the SG-6 radii/spectrum) is itself AUDIT (δ-triple injected reals, <code>reproduce_all.py</code>
+  absent). SG-6's sufficiency claim is therefore declared-not-independently-verified at the numerical level.</li>
+</ul>
+<h3>2.4 Why PARTIAL (not higher, not lower)</h3>
+<ul>
+<li><strong>Not DERIVED-GIVEN-E</strong> (the SG-2/SG-3 tier): SG-6 is not a rigid integer/representation recovery. It has a
+  diagnostic-only Hessian (with a Λ-free saddle in the shape sector), a read-from-minimum θ_H⋆ carrying the
+  hierarchy, an explicit global-stabilization non-claim, and downstream-inherited AUDIT — too many open
+  residuals for the DERIVED tier.</li>
+<li><strong>Not OPEN/DECLARED-FROZEN:</strong> the witness-type discipline is real, strong, and non-trivial; the
+  discrete/topological witnesses and the $S_3$-critical-point structure are genuine target-blind facts; the
+  claim-type ledger honestly fences what is and is not proved. The gate is well clear of "unfixed knobs."</li>
+<li><strong>PARTIAL is exactly right:</strong> genuine structural moduli-control under declared assumptions, a diagnostic-only
+  Hessian named as the most-natural attack surface, an explicit non-claim on global stabilization, and a
+  read-from-minimum acute soft spot. This matches the SCOPED_GUT ledger SG-6 line verbatim.</li>
+</ul>
+<hr />
+<h2>3. The attack surface — what to attack (ranked by leverage)</h2>
+<p>Every open residual as a named object with its precise obstruction. <strong>Leverage</strong> = how much closing it moves
+the gate (and, for SG-6, how much of the electroweak hierarchy / how much of the certificate it touches).</p>
+<h3>3.1 The residual register</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Residual (named object)</th>
+<th>Precise obstruction</th>
+<th>Status</th>
+<th>Leverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R1</strong></td>
+<td><strong>θ_H⋆ ≈ 2.46×10⁻¹⁴ read from the $V_{\rm Hos}$ minimum</strong></td>
+<td>The Hosotani phase carries <strong>~85% of the EW hierarchy</strong> ($v_{\rm EW}=\theta_H^\star/(2\pi R_\gamma)$) yet is <strong>read from a one-loop minimum, not derived-small</strong>; $\sqrt{\eta_{BK}}/2\pi\sim10^{-2}$ is ~12 orders short. The lightness-of-$v$ leg leans on a read modulus.</td>
+<td>OPEN (acute soft spot)</td>
+<td><strong>HIGHEST</strong> — it carries the bulk of the hierarchy and is the gate's single most attackable physics object</td>
+</tr>
+<tr>
+<td><strong>R2</strong></td>
+<td><strong>Global stabilization is an explicit NON-claim</strong></td>
+<td>F.9.4 row 1 / F.10.1: outside-chamber configurations are <em>rejected by admissibility, not stabilized</em>; no all-loop positive-definite Hessian; no "no flat directions anywhere."</td>
+<td>DISCLOSED (explicit non-claim)</td>
+<td><strong>MEDIUM</strong> — honesty/claim-boundary; the SHARED-OPEN hard problem; closing it is a known no-go-adjacent program</td>
+</tr>
+<tr>
+<td><strong>R3</strong></td>
+<td><strong>Positive-definite Hessian is DIAGNOSTIC-ONLY (the named attack surface)</strong></td>
+<td>F.9.5 / F.9.7(2): "show the chamber-center witness is a saddle, not a minimum." The Λ-free shape-doublet Hessian = <strong>−1 (SADDLE)</strong> on perturbative geometry; the breathing singlet rides the uncomputed $c_{\rm loop}$.</td>
+<td>OPEN — <strong>saddle-leaning</strong></td>
+<td><strong>HIGH</strong> — this is the explicitly-named falsification path; the shape sector is <em>already</em> computed to a saddle</td>
+</tr>
+<tr>
+<td><strong>R4</strong></td>
+<td><strong>Witnesses fix moduli WITHIN the selected chamber (given-E)</strong></td>
+<td>The gate certifies internal control of the <em>selected</em> geometry; it does not prove the witnesses <em>determine</em> the geometry. Selection ≠ derivation; given-E ≠ derivation of E.</td>
+<td>OPEN (inherited from SG-1/SG-3)</td>
+<td><strong>MEDIUM</strong> — conditions every SG-6 claim; shared with SG-1</td>
+</tr>
+<tr>
+<td><strong>R5</strong></td>
+<td><strong>$c_{\rm loop}$ / breathing-mode singlet = the 13D FRG-2 β-vector wall</strong></td>
+<td>The volume/breathing direction's Hessian sign rides the uncomputed $c_{\rm loop}$ (the $e^{-6\sigma}$ coefficient = $a_6$ of the σ-fluctuation determinant). $c_{\rm loop}$ is <code>BLOCKED_MISSING_FRG_MATCHING</code>; even a finite cell-sum leaves one log-scheme factor $\mu_{\rm cell}$ free.</td>
+<td>OPEN / BLOCKED_INPUTS</td>
+<td><strong>MEDIUM-HIGH</strong> — shared deep wall with Gap-04 / hierarchy / a6; closing it decides the singlet Hessian sign</td>
+</tr>
+<tr>
+<td><strong>R6</strong></td>
+<td><strong>Casimir net sign needs the absent admissible-rep multiplicity table</strong></td>
+<td>The shape-doublet saddle can be rescued by a graded Casimir term; per-sector sign is LOCKED (bosons stabilize, fermions destabilize), but the <strong>net sign</strong> needs the multiplicity table (ABSENT) and a magnitude $\mu_{\rm cell}\cdot q\gtrsim0.5$.</td>
+<td>BLOCKED_INPUTS / NEEDS-TUNING</td>
+<td><strong>MEDIUM</strong> — the only route that could flip R3 from saddle to minimum; gated on a missing owner artifact</td>
+</tr>
+<tr>
+<td><strong>R7</strong></td>
+<td><strong>$\tau=\omega$ "non-zero potential off the fixed point" leans on an uncomputed potential</strong></td>
+<td>F.2 asserts perturbations off $\omega$ "produce a non-zero potential," but the potential is not computed; the leg should rest on <strong>modular-symmetry uniqueness</strong> of $\omega$, which is not proven in-gate.</td>
+<td>OPEN</td>
+<td><strong>LOW-MEDIUM</strong> — the cleanest witness; strengthening it from "potential" to "symmetry-protected" is a contained group-theory win</td>
+</tr>
+<tr>
+<td><strong>R8</strong></td>
+<td><strong>No-tachyon check is conditional on the declared spectrum</strong></td>
+<td>F.4: no tachyon "on the active branch"; a deformation away from a witness could produce one. The check is asserted for the frozen spectrum, not proven stable under the deformation classes the gate exposes.</td>
+<td>DISCLOSED (conditional)</td>
+<td><strong>LOW</strong> — disclosed; the deformation classes are bounded by admissibility</td>
+</tr>
+<tr>
+<td><strong>R9</strong></td>
+<td><strong>Phenomenological sufficiency inherits downstream AUDIT (Gate-7 radii/spectrum)</strong></td>
+<td>The "residual moduli don't spoil Gates 1–10" claim relies on the Gate-7 threshold pipeline (which consumes the SG-6 radii + threshold spectrum), which is itself AUDIT (δ-triple injected, <code>reproduce_all.py</code> absent).</td>
+<td>AUDIT (inherited)</td>
+<td><strong>LOW-MEDIUM</strong> — required for the sufficiency leg to be machine-real; the artifact is owned by SG-7</td>
+</tr>
+</tbody>
+</table>
+<h3>3.2 Leverage ranking (attack order)</h3>
+<ol>
+<li><strong>R1</strong> (θ_H⋆ read from a minimum) — carries ~85% of the hierarchy; the single highest-value physics target.</li>
+<li><strong>R3</strong> (the diagnostic Hessian — the named saddle attack surface) — already computed to a saddle in the
+   shape sector; the explicit F.9.7 falsification path.</li>
+<li><strong>R5</strong> (the $c_{\rm loop}$ / breathing-mode singlet wall) — decides the singlet Hessian sign; the shared
+   deep 13D FRG-2 wall.</li>
+<li><strong>R6</strong> (the Casimir rescue) — the only route that could flip R3; gated on the missing multiplicity table.</li>
+<li><strong>R4</strong> (given-E / within-chamber) — conditions everything; honesty residual shared with SG-1/SG-3.</li>
+<li><strong>R2 / R7 / R8 / R9</strong> — disclosed non-claim / cleanest-witness strengthening / conditional tachyon /
+   inherited AUDIT.</li>
+</ol>
+<blockquote>
+<p><strong>The cardinal honest point.</strong> R1 and R5 are where the "85% hierarchy" and the "singlet Hessian" live, and
+<strong>both reduce to the same single object: $\mu_{\rm cell}$, the spectral value of the uniform operational
+cell $\Delta_0$</strong> (the log-scheme / cell-scale factor of the 6-D $a_6$ determinant). The decisive,
+already-run firewall verdict (CLOSURE_CAMPAIGN §3) is that <strong>$\mu_{\rm cell}$ has no $v$-independent
+readout</strong> — its only available anchor is $\partial_\sigma V=0$, which <strong>IS</strong> the hierarchy — so anchoring
+$\mu_{\rm cell}$ there to "predict" $v$ is <strong>circular by construction (the κ³/π signature)</strong>. Any closure
+path that pins $\mu_{\rm cell}$ from the EW hierarchy has <strong>RELOCATED</strong>, not removed, the input. The κ³/π
+falsification test applies in full force here. R2/R7/R8/R9 are the <em>non-physics-flip</em> residuals (claim-boundary /
+symmetry-strengthening / conditional-check / inherited reproducibility); closing them improves honesty and
+machine-reality but <strong>does not derive the hierarchy or flip the Hessian</strong>.</p>
+</blockquote>
+<hr />
+<h2>4. THE ATTACK PLAN — closure paths (the core)</h2>
+<p>For each residual: the <strong>technique</strong> (closure playbook T1 axiom-floor / T4 no-go / T5 firewall / T6
+all-operator-conditional / T7 eliminative / T10 selector), the <strong>named axiom it could reduce to</strong> (stated so it
+would be written WITHOUT the target value — the κ³/π falsification test), the <strong>specialist target</strong> (theorem to hand
+off) or the <strong>owner artifact</strong> (CSV/ruling/computation) needed, the <strong>math to attempt</strong>, and the <strong>success
+ladder</strong> (DERIVED-CLOSED rare → AXIOM-CLOSED likely → sharper-OPEN → REFUTED).</p>
+<hr />
+<h3>4.1 R1 — θ_H⋆ ≈ 2.46×10⁻¹⁴ read from the $V_{\rm Hos}$ minimum (the acute soft spot)</h3>
+<p><strong>Why first.</strong> This single modulus carries <strong>~85% of the electroweak hierarchy</strong>. If θ_H⋆ could be <em>derived</em>
+target-blind from chamber data instead of read off the one-loop Hosotani potential, the lightness-of-$v$ leg
+would stop leaning on a read number and SG-6 would deliver the hierarchy's dominant factor. If it provably
+cannot, the gate's honest standing tightens to "the hierarchy is a second irreducible anchor."</p>
+<p><strong>Technique: T5 (no tuning to the known answer firewall) + T7 (eliminative) — is θ_H⋆ a derivation or a relocation?</strong>
+This is exactly the SCALE firewall, pointed at the Hosotani phase.</p>
+<p><strong>The two routes, and which the firewall kills:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Statement</th>
+<th>Firewall verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Path A — exact $v$ via $\mu_{\rm cell}$</strong></td>
+<td>derive the loop scale $\mu_{\rm cell}$ from $\{ \hbar, M_U/M_{\rm Pl}, \text{frozen geometry}\}$ at a fixed UV reference, then read $\theta_H^\star$ off $V_{\rm Hos}$</td>
+<td><strong>CIRCULAR / RELOCATION</strong> — $\mu_{\rm cell}$ must be a <em>mass</em>; the only σ-independent mass is $M_{\rm Pl}$ (an anchor), the rest is dimensionless shape; turning shape into a mass needs an inverse length, and the only one available is $R_{K_6}(\sigma)$ — σ-carrying. Buckingham-π: a <em>second</em> mass cannot be built from $\{M_{\rm Pl},\hbar,\text{dimensionless geometry}\}$. $\mu_{\rm cell}\to v$ is invertible-by-construction (exponential) ⇒ $\mu_{\rm cell}$ IS the knob.</td>
+</tr>
+<tr>
+<td><strong>Path B — structural "huge" via transmutation</strong></td>
+<td>bound $\theta_H^\star$ small by a dimensional-transmutation exponent $t_*=2\pi/(b\alpha)$</td>
+<td><strong>WRONG MECHANISM</strong> — θ_H⋆ is the <strong>location of a stationary point of a periodic potential</strong>, NOT a running coupling, so there is <em>no</em> transmutation exponent to bound. The field-count bound governs only $\ln(M_{\rm Pl}/M_U)$ (the frozen ~15%), never the ~85% in θ_H⋆. (Bonus genuine sub-result: Gate-8 Hosotani protection <em>does</em> remove the Higgs-mass quadratic destabilization, but only to ~$10^{14}$ GeV — 12 orders short.)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Named axiom it could reduce to (κ³/π-clean).</strong> The honest reduction is <strong>not</strong> a closure but a precise
+statement of what R1 reduces to once the two routes are killed:</p>
+<blockquote>
+<p><strong>AXIOM-VEW-SECOND-ANCHOR</strong> (target-blind form): <em>"the electroweak scale $v_{\rm EW}$ is a second
+independent dimensionful anchor on the same footing as $M_{\rm Pl}$, irreducible in this geometry because no
+second mass can be built from $\{M_{\rm Pl}, \hbar, \text{dimensionless frozen geometry}\}$ without a
+σ-carrying length (Buckingham-π), and because the carrier θ_H⋆ is a periodic-minimum location, not a
+transmutation exponent."</em></p>
+</blockquote>
+<p>This is writable with <strong>no</strong> value of $v$ or θ_H⋆ in sight — it is a <em>dimensional + mechanistic</em> statement
+about what kind of object the hierarchy is. <strong>It PASSES the κ³/π falsification test</strong> (it carries no reverse-engineered
+coefficient). It does <strong>not</strong> derive θ_H⋆; it names <em>why</em> θ_H⋆ must be read, not computed, in this structure.</p>
+<p><strong>Specialist target (to hand off).</strong> A <strong>target-blind θ_H⋆ derivation theorem</strong>: "Given only the frozen
+chamber data (cycle $\gamma$, $n_H=1$, $\eta_{BK}$, $R_\gamma$) and a UV reference frozen <em>before and
+independently of</em> $v_{\rm obs}$, compute $\theta_H^\star$ and check whether it returns
+$\approx2.46\times10^{-14}$ with no $v$ in the inputs." If a specialist can produce such a derivation, R1
+closes (DERIVED) and the hierarchy's dominant factor is delivered; if the derivation provably requires
+$\partial_\sigma V=0$ (the hierarchy itself), R1 is confirmed RELOCATION and AXIOM-VEW-SECOND-ANCHOR stands.</p>
+<p><strong>Math to attempt.</strong> (1) Write $V_{\rm Hos}(\theta_H)$ from the frozen cycle/winding/$\eta_{BK}$ data. (2)
+Locate its minimum θ_H⋆ <strong>without</strong> consulting $v_{\rm obs}$. (3) Check whether the minimum lands at
+$\sim10^{-14}$ from chamber data alone, or only after a scale is pinned by $v$. (4) Run the
+$v$-independence audit: does the threshold-weight swing across the σ-band ($\sim34\times$, the documented
+forbidden count-only "35" stationarity) confirm $\mu_{\rm cell}$ is the knob?</p>
+<p><strong>Success ladder.</strong>
+- DERIVED-CLOSED: θ_H⋆ computed target-blind from chamber data, returning $\sim10^{-14}$ with no $v$ input →
+  the hierarchy's dominant factor delivered. <strong>Unlikely</strong> — the dimensional near-no-go (Buckingham-π) blocks a
+  second mass from $\{M_{\rm Pl},\hbar,\text{shape}\}$.
+- <strong>AXIOM-CLOSED (likely):</strong> AXIOM-VEW-SECOND-ANCHOR named; θ_H⋆/$v_{\rm EW}$ conceded as a second irreducible
+  dimensionful anchor with a <em>principled</em> (dimensional + mechanistic) reason, not "we failed to reduce it."
+  This is the honest ceiling and is essentially where the SCALE frontier already stands.
+- sharper-OPEN: the derivation attempt returns fail-closed on $\mu_{\rm cell}$ (the FRG-2 wall) without
+  deciding circularity.
+- REFUTED: a chamber-only computation gives a θ_H⋆ that <em>misses</em> $10^{-14}$ → the lightness-of-$v$ leg is a
+  genuine prediction-vs-data failure.</p>
+<p><strong>Honest disposition: AXIOM-CLOSED at AXIOM-VEW-SECOND-ANCHOR; θ_H⋆ as "derived-small" stays OPEN/RELOCATION.</strong>
+The firewall has already confirmed Path A circular and Path B wrong-mechanism; the genuine banked sub-result is
+the Higgs-mass quadratic protection (proven, finite, 12-orders-short). Saying precisely "the hierarchy is a
+second anchor, here is the structural reason it must be" is the closure — <strong>not</strong> a higher claim.</p>
+<hr />
+<h3>4.2 R3 — The diagnostic Hessian: the named saddle attack surface (F.9.7-2)</h3>
+<p><strong>Why second.</strong> F.9.5 grades the positive-definite moduli-mass Hessian DIAGNOSTIC-ONLY and F.9.7(2) names the
+single most-natural falsifier: <em>show the chamber-center witness is a saddle, not a minimum.</em> This is the
+explicitly-named attack surface, and it is <strong>already partially executed against the gate.</strong></p>
+<p><strong>Technique: T7 (eliminative) by symmetry decomposition — split the Hessian, compute the computable piece.</strong>
+The Weyl group $S_3$ permutes $(u_1,u_2,u_3)$, so the 3-dim perturbation space splits exactly into
+$3=\mathbf{1}\oplus\mathbf{2}$ (TEST 2):</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Irrep</th>
+<th>Stability controlled by</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>breathing / volume</strong> ($u_1=u_2=u_3$)</td>
+<td>singlet $\mathbf{1}$</td>
+<td>$V''(\sigma)$, the $e^{-6\sigma}$ term → $c_{\rm loop}$</td>
+<td><strong>= the FRG-2 wall (R5)</strong></td>
+</tr>
+<tr>
+<td><strong>shape</strong> ($u_1-u_2$, ×2 degenerate)</td>
+<td>doublet $\mathbf{2}$</td>
+<td>flag-manifold curvature / Casimir</td>
+<td><strong>Λ-free, $c_{\rm loop}$-free, computable</strong></td>
+</tr>
+</tbody>
+</table>
+<p>$(1,1,1)$ is a minimum <strong>iff both eigenvalues &gt; 0</strong>, and they decouple by symmetry.</p>
+<p><strong>The Λ-free computation, already run (TEST_SHAPE_DOUBLET_STABILITY).</strong> The flag-manifold scalar curvature
+$R(u)=\sum_i 1/u_i - \tfrac12 T(u)$, $T(u)=\sum_k u_k/(u_iu_j)$, along the doublet ray
+$u=(1+\varepsilon,1-\varepsilon,1)$ gives:
+- diagonal $\sum 1/u_i$: $\to +2$ to the $\varepsilon^2$ coefficient (convexity of $1/u$),
+- structure-constant triangle $T$: $\to -5/2$,
+- net $\partial^2 R/\partial\varepsilon^2|_{(1,1,1)} = +2 - 5/2 = \mathbf{-1} < 0$ → <strong>SADDLE.</strong></p>
+<p>The boundary (Gibbons–Hawking) term is small and mildly destabilizing; the Wilson-line term is exactly zero in
+the doublet direction. <strong>On purely perturbative geometry, the shape doublet is a SADDLE</strong> — the
+structure-constant coupling between the three root planes makes the equal-scale flag metric unstable to shape
+deformation. (This is the well-documented fact that $SU(3)/T^2$ carries three invariant Einstein metrics and
+the normal one is not the shape-sector extremizer.)</p>
+<p><strong>The only rescue, and its falsification test (TEST_CASIMIR_RESCUE).</strong> A graded Casimir / KK vacuum-energy term can
+flip the doublet sign. The per-sector sign is <strong>LOCKED</strong> (bosons stabilize, fermions destabilize, by
+convexity $g''(0)=2(w_1^2+w_2^2)>0$ and $f'(m^2)>0$, scheme-independent). The <strong>net</strong> sign is
+$\mathrm{sgn}(\text{boson-surplus}-\text{fermion-surplus})$ over admissible $(p,q)$ at $(1,1,1)$ — which <strong>needs
+the admissible-rep multiplicity table (ABSENT from the corpus)</strong> and a magnitude $\mu_{\rm cell}\cdot q\gtrsim
+0.5$. The frozen heat-kernel ledger (G.3.2a) <em>weakly</em> favors boson dominance (adjoint gauge+ghost
+$-2.49/-4.02$ vs matter $+0.79/+0.92$, ~3:1) → conjectured rescue — <strong>but the opposing frozen fact is
+$\chi=-3$ (a low-lying fermionic chiral surplus that destabilizes)</strong>, and banking boson-dominance without the
+multiplicity table is NEEDS-TUNING.</p>
+<p><strong>Named axiom it could reduce to (κ³/π-clean).</strong> Not a closure, but the precise reduction of the doublet
+question:</p>
+<blockquote>
+<p><strong>AXIOM-SHAPE-DOUBLET-CASIMIR</strong> (target-blind form): <em>"the shape-doublet Hessian at the chamber center is
+$-1_{\rm curvature} + q\,\mu_{\rm cell}\,(+2_{\rm convexity})$, with the convexity factor $+2$ and the
+per-sector sign locked by geometry; the net sign is fixed by the graded boson−fermion surplus of the
+admissible-rep spectrum."</em> Writable with <strong>no</strong> Λ and <strong>no</strong> target value — it references only the
+root-system curvature and the graded multiplicity. PASSES the falsification test as a <em>statement</em>; the test is then
+whether the multiplicity table <em>yields</em> a net positive.</p>
+</blockquote>
+<p><strong>Specialist target / owner artifact.</strong> (1) <strong>Owner artifact:</strong> the <strong>admissible-rep multiplicity table</strong> at
+$(1,1,1)$ + the regularized zeta (from <code>certificates/</code> + <code>reproduce_all.py</code> / the KK eigenvalue file R0.7) —
+this is the single missing input that decides the net Casimir sign. (2) <strong>Specialist target:</strong> "Given the
+multiplicity table, compute $\mathrm{sgn}(\text{boson-surplus}-\text{fermion-surplus})$ and the magnitude
+$\mu_{\rm cell}\cdot q$, and report whether the doublet net Hessian is $>0$ (rescue) or $\le 0$ (saddle
+persists)."</p>
+<p><strong>Math to attempt.</strong> (1) The doublet curvature $-1$ is <strong>done</strong> (banked, target-blind). (2) Mount the
+multiplicity table; form the graded doublet-weighted sum $\sum (-1)^F d\,n\,(w_1^2+w_2^2)$. (3) Decide the net
+sign. (4) Combine the singlet (R5) and doublet results for the full Hessian signature.</p>
+<p><strong>Success ladder.</strong>
+- DERIVED-CLOSED: both eigenvalues (singlet via R5, doublet via the multiplicity table) proven $>0$
+  target-blind → the Hessian is positive-definite, F.9.7(2) defeated, the diagnostic upgrades to a derived
+  minimum. <strong>Gated on both the multiplicity table AND the FRG-2 $c_{\rm loop}$ — unlikely in one step.</strong>
+- AXIOM-CLOSED: AXIOM-SHAPE-DOUBLET-CASIMIR named and the multiplicity table <em>yields</em> a net positive doublet →
+  the shape sector reduced to one symmetry/spectral posit. <strong>Best realistic outcome for the doublet.</strong>
+- <strong>sharper-OPEN / saddle-leaning (current standing):</strong> doublet curvature is a saddle ($-1$); the rescue needs
+  the absent table; the singlet rides the FRG-2 wall. The honest current state is "saddle on perturbative
+  geometry, conditional rescue pending owner artifacts."
+- REFUTED: multiplicity table computed and the net doublet stays negative → the chamber-center is a <strong>saddle</strong>,
+  F.9.7(2) succeeds, and the moduli-mass-generation row of F.9.2 downgrades (per F.10.4-2, to <em>Open / not
+  claimed</em>).</p>
+<p><strong>Honest disposition: sharper-OPEN, saddle-leaning.</strong> The named falsification path is the <em>closest to firing</em>
+of any SG-6 residual: the one Λ-free piece that can be computed is a saddle, and the rescue is gated on a
+missing multiplicity table and the $\mu_{\rm cell}$ value (shared with R1/R5). <strong>Do not bank the boson-dominance
+rescue without the table.</strong></p>
+<hr />
+<h3>4.3 R5 — $c_{\rm loop}$ / breathing-mode singlet = the 13D FRG-2 β-vector wall</h3>
+<p><strong>The obstruction.</strong> The breathing/volume singlet eigenvalue rides $V''(\sigma)$ at the $e^{-6\sigma}$ term —
+i.e. $c_{\rm loop}$, the coefficient of the σ-fluctuation one-loop determinant, equivalently the <strong>$a_6$
+Seeley–DeWitt heat-kernel coefficient</strong> on the 6-manifold $K_6$. $c_{\rm loop}$ is
+<code>BLOCKED_MISSING_FRG_MATCHING</code> — the uncomputed 13D FRG-2 β-vector, the deep core shared with Gap-04 and a6.</p>
+<p><strong>Technique: T7 (eliminative) — is the wall the continuum or the scale?</strong> Replace the continuum mode integral
+by a <strong>finite cell-sum</strong> under the uniform operational cell law $N\le B/\Delta_0$
+(TEST_CLOOP_CELLSUM_ATTACK).</p>
+<p><strong>What the cell-sum genuinely buys, and what it does not.</strong> The cell-sum <strong>does</strong> kill the UV ($a\to0$)
+divergence — the continuum-as-source-of-divergence assumption is genuinely false, and dropping it is banked
+(ROOT-1). But finiteness does <strong>not</strong> imply uniqueness: a finite supertrace of a log-running 6-D determinant
+still carries a <strong>log-scheme degree of freedom</strong> $\mu_{\rm cell}$. Three residual ambiguities survive:
+(3a) the cutoff is a mode-<strong>COUNT</strong>, but $a_6$ needs a mode-<strong>SCALE</strong>; (3b) the η-dependence the ledger flagged
+IS the scheme knob; (3c) supertrace ordering / sign is not fixed by a count. So:</p>
+<p>$$ c_{\rm loop} = f(\text{frozen }K_6\text{ spectrum},\ \chi=-3,\ e^{-6\sigma}\text{ scaling}) \times [\text{one log-scheme factor fixed by }\mu_{\rm cell}]. $$</p>
+<p><strong>Named axiom it could reduce to (κ³/π-clean).</strong> This is exactly the GRANULARITY root's residue:</p>
+<blockquote>
+<p><strong>AXIOM-UNIFORM-CELL-VALUE</strong> (target-blind form): <em>"there exists a single uniform operational cell
+$\Delta_0>0$ on the operational distinguishability metric (existence is the GRANULARITY root,
+<code>AXIOM-COSTFLOOR</code>; the spectral VALUE of $\Delta_0$ is a FLOOR-VALUES-RESIDUE on the same footing as
+$\hbar, k_B$), and $\mu_{\rm cell}$ is its spectral value at the $K_6$ scale."</em> Writable with no Λ and no
+hierarchy value. PASSES the falsification test as an <em>existence + value-residue</em> statement.</p>
+</blockquote>
+<p><strong>The κ³/π pivot (the firewall, already run).</strong> The single anchor that would pin $\mu_{\rm cell}$ is <strong>one
+measurement fixing $\Delta_0$ in spectral units at the $K_6$ scale</strong> — and the <em>only</em> such anchor available is
+the moduli-stabilization point $\partial_\sigma V=0$. <strong>But $\partial_\sigma V=0$ IS the electroweak
+hierarchy</strong>, so anchoring $\mu_{\rm cell}$ there and then "predicting" the hierarchy is <strong>tuning to the known answer —
+explicitly FORBIDDEN</strong> (the CLOSURE_CAMPAIGN firewall designated $\partial_\sigma V=0$ the forbidden anchor;
+the earlier TEST_CLOOP suggestion to use it is superseded). The honest anchor is $\Delta_0$'s spectral value as
+an <em>independent</em> floor-value input, on the footing of $\hbar$ — which the corpus does <strong>not</strong> supply.</p>
+<p><strong>Specialist target / owner artifact.</strong> (1) <strong>Owner artifact:</strong> the KK eigenvalue file / <code>reproduce_all.py</code>
+(R0.7) that would pin $\mu_{\rm cell}$ <em>if</em> an independent floor-value for $\Delta_0$ existed. (2) <strong>Specialist
+target (the deep one):</strong> "Compute the 13D FRG-2 β-vector and hence $c_{\rm loop}=\mathrm{tr}[a_6]$ of the
+σ-fluctuation determinant on the frozen $K_6$ branch, target-blind." This is the shared Gap-04 / hierarchy /
+a6 wall.</p>
+<p><strong>Success ladder.</strong>
+- DERIVED-CLOSED: the FRG-2 β-vector computed → $c_{\rm loop}$ sign decided → the singlet Hessian eigenvalue
+  fixed. <strong>Blocked on the deep 13D FRG wall; not reachable here.</strong>
+- AXIOM-CLOSED: AXIOM-UNIFORM-CELL-VALUE named, with $\mu_{\rm cell}$ conceded as a floor-value residue (no new
+  knob, no target). <strong>Honest ceiling; already the GRANULARITY root's standing.</strong>
+- <strong>sharper-OPEN / BLOCKED_INPUTS (current standing):</strong> the cell-sum lowers the wall (finite, single-parameter)
+  but does not remove it; the one residual $\mu_{\rm cell}$ has no $v$-independent readout.
+- REFUTED: the FRG computation gives a definite $c_{\rm loop}$ with the wrong sign → the breathing singlet is a
+  saddle → chamber-center is not a minimum.</p>
+<p><strong>Honest disposition: BLOCKED_INPUTS, reducible to AXIOM-UNIFORM-CELL-VALUE.</strong> The breathing-singlet Hessian is
+the same FRG-2 wall as the hierarchy; the cell-sum converts "uncomputed continuum determinant" into "finite
+cell-sum + one named floor-value anchor," which closes nothing but names the bottom precisely. <strong>The
+$\partial_\sigma V=0$ anchor is forbidden</strong> (it is the hierarchy).</p>
+<hr />
+<h3>4.4 R6 — The Casimir net sign (the only route that could flip R3)</h3>
+<p><strong>This is the dependent of R3, broken out because it is the single decision that flips saddle→minimum.</strong> Fully
+covered as the rescue analysis under §4.2: per-sector sign LOCKED (bosons +, fermions −, scheme-independent);
+<strong>net sign = boson-surplus − fermion-surplus over the absent admissible-rep multiplicity table</strong>; magnitude
+threshold $\mu_{\rm cell}\cdot q\gtrsim0.5$.</p>
+<p><strong>Technique: owner artifact (machine-lane) + T7.</strong> Mount the multiplicity table + regularized zeta; form the
+graded doublet-weighted sum; decide the net sign and magnitude.</p>
+<p><strong>The κ³/π guard.</strong> The frozen heat-kernel ledger weakly favors boson dominance (~3:1), but the opposing frozen
+fact is $\chi=-3$. <strong>Banking "boson-dominated rescue" without the table is NEEDS-TUNING</strong> — the conjecture
+$q>0$ is exactly the kind of plausible-but-unverified sign that the falsification test forbids until the table is
+computed. The magnitude carries $\mu_{\rm cell}$ (shared with R1/R5), which has no $v$-independent readout.</p>
+<p><strong>Success ladder.</strong> <strong>BLOCKED_INPUTS until the multiplicity table is mounted</strong> → then <strong>VERIFIED-RESCUE</strong> (net
+$>0$, $\mu_{\rm cell}\cdot q\gtrsim0.5$ → minimum) or <strong>SADDLE-CONFIRMED</strong> (net $\le0$ → F.9.7(2) fires).
+<strong>Highest value-per-effort <em>physics</em> item if the table exists</strong> — it converts the named saddle attack surface
+from "leaning saddle" into a decided verdict with no new tuning.</p>
+<p><strong>Honest disposition: BLOCKED_INPUTS / NEEDS-TUNING.</strong> The rescue is conditionally available but unbankable
+without the absent multiplicity table; do not assert boson dominance as a result.</p>
+<hr />
+<h3>4.5 R2 — Global stabilization is an explicit NON-claim</h3>
+<p><strong>This is a claim-boundary residual, not a physics flip.</strong> Global stabilization (no flat directions anywhere in
+the active-branch moduli space) is <strong>explicitly NOT claimed</strong> (F.9.4 row 1 / F.10.1) — outside-chamber
+configurations are <em>rejected by admissibility, not stabilized</em>. The task is not to "solve" it but to keep the
+boundary honest and to state what <em>would</em> close it.</p>
+<p><strong>Technique: T6 (all-operator-conditional) via the manuscript's own F.10.2 vocabulary rule.</strong> The
+required-vocabulary substitution rule already bans "full stabilization" / "no flat directions" / "all moduli
+stabilized" in body text without the chamber-restriction qualifier. Compliance is mechanical.</p>
+<p><strong>Named principle (κ³/π-clean):</strong> <strong>AXIOM-CHAMBER-RESTRICTION</strong> — <em>"outside-chamber configurations are
+rejected by the admissibility rulebook $\mathcal{C}_{\rm admiss}$ (an $\oplus$-layer rule), not dynamically
+stabilized; the stabilization claim is scoped to the moduli used downstream by Gates 1–10."</em> This is the
+F.9.4/F.10.3 statement; it carries no target value and is the honest scope wall.</p>
+<p><strong>What would close it (and why it is SHARED-OPEN).</strong> Global stabilization is the textbook hard problem on which
+<strong>all</strong> rivals struggle (Battle verdict: TIE/SHARED-OPEN — <em>not</em> a Fable win). The downstream four-term
+$V(\sigma)$ discharge (Paper IV) is the only object that even attempts the volume modulus globally, and it is
+EXTERNAL with its own caveats and "promotions: zero" discipline; it changes <strong>nothing</strong> in this gate's
+certificate (the F.8 downstream-corpus pointer says so explicitly).</p>
+<p><strong>Success ladder.</strong> AXIOM-CLOSED is not applicable as a <em>flip</em> (no axiom closes global stabilization here). The
+endpoint is <strong>DISCLOSED-CONSISTENT</strong>: the non-claim is explicit, the vocabulary rule is enforced, and the
+SHARED-OPEN status is stated honestly. <strong>The cleanest, lowest-risk honesty item.</strong></p>
+<p><strong>Honest disposition: DISCLOSED non-claim; keep it disclosed.</strong> Do not let any downstream cross-reference
+(Paper IV) be cited to upgrade this gate's certificate.</p>
+<hr />
+<h3>4.6 R4 — Witnesses fix moduli WITHIN the selected chamber (given-E)</h3>
+<p><strong>The obstruction.</strong> The witnesses certify that the <em>selected</em> geometry is internally controlled; they do
+<strong>not</strong> prove the witnesses <em>determine</em> the geometry. The chamber, the bundle $E$, and the family index
+$\chi=-3$ are inputs (from SG-1/SG-3). Selection ≠ derivation; given-E ≠ derivation of E.</p>
+<p><strong>Technique: T1 (axiom-floor), shared with SG-1/SG-3.</strong> The honest reduction names the inheritance:</p>
+<blockquote>
+<p><strong>AXIOM-GIVEN-E-CHAMBER</strong> (κ³/π-clean): <em>"the stabilization witnesses operate on the selected 13D K₆ branch
+and the supplied SM chiral content E; SG-6 certifies internal moduli-control of that selected geometry, not
+a cross-geometry determination."</em> Writable with no target value — it is a scope statement inherited from
+SG-1 (DECLARED-FROZEN, SHAPE selected-not-forced-absolute, ~9–10 injected reals beyond the 4 anchors) and
+SG-3 (DERIVED-GIVEN-E).</p>
+</blockquote>
+<p><strong>Specialist target.</strong> None unique to SG-6 — this is the SG-1 SHAPE-minimality / SG-3 given-E conditionality
+flowing downstream. The contained SG-6 strengthening is R7 (the modular-fixed-point uniqueness), which is the
+one witness that <em>could</em> be promoted from "selected" to "symmetry-forced."</p>
+<p><strong>Success ladder.</strong> AXIOM-CLOSED (AXIOM-GIVEN-E-CHAMBER named) is essentially already standing via the SG-1/SG-3
+labels. DERIVED-CLOSED is not available at SG-6 (it would require closing SG-1's SHAPE-forcedness, which is
+SELECTED-not-forced-absolute). <strong>Honest disposition: AXIOM-CLOSED at the inherited scope axiom; the
+within-chamber conditionality is the load-bearing caveat of the gate.</strong></p>
+<hr />
+<h3>4.7 R7 — $\tau=\omega$: strengthen "non-zero potential" to symmetry-uniqueness</h3>
+<p><strong>The obstruction.</strong> F.2 asserts that perturbations off $\tau=\omega$ "produce a non-zero potential" restoring
+$\tau\to\omega$, but the potential is <strong>not computed</strong>. The leg should rest on <strong>modular-symmetry uniqueness</strong>
+of $\omega$ — a fixed point of an order-three modular symmetry is <em>symmetry-protected</em>, not tuned — which is
+stronger than "a potential we did not compute."</p>
+<p><strong>Technique: T1 (axiom-floor) — name the symmetry, prove the uniqueness.</strong></p>
+<blockquote>
+<p><strong>AXIOM-MODULAR-FIXED-POINT</strong> (κ³/π-clean): <em>"the $F^+$ Cartan-torus modulus sits at the order-three modular
+fixed point $\tau=\omega=e^{2\pi i/3}$, the unique modular-symmetric / Weyl-rigid point of the chamber."</em>
+Writable with no flavor or hierarchy number — a symmetry statement. <strong>Stronger than "read from a minimum"</strong>
+because an order-three fixed point is symmetry-protected.</p>
+</blockquote>
+<p><strong>Specialist target.</strong> Hand the moduli specialist: "Show $\tau=\omega$ is the <strong>unique</strong> fixed point of the
+$F^+$ Cartan-torus modular group, independent of any one-loop potential." A clean, bounded group-theory claim.</p>
+<p><strong>Math to attempt.</strong> Enumerate the fixed points of the chamber's modular group on the upper half-plane;
+confirm $\omega$ is the order-three fixed point and characterize uniqueness within the chamber.</p>
+<p><strong>Success ladder.</strong> AXIOM-CLOSED (AXIOM-MODULAR-FIXED-POINT named; symmetry-protected) is the realistic
+endpoint; DERIVED-CLOSED (uniqueness theorem proven) closes R7 outright and converts the $\tau$-witness from
+"potential we did not compute" to "symmetry-forced point." sharper-OPEN if the fixed point is non-unique.
+<strong>Honest disposition: AXIOM-CLOSED likely, DERIVED if uniqueness is proven; this is the one witness that can be
+genuinely strengthened by a contained computation.</strong> (Note: this also strengthens SG-8's inherited
+$\tau=\omega$ soft spot.)</p>
+<hr />
+<h3>4.8 R8 — No-tachyon check is conditional on the declared spectrum</h3>
+<p><strong>The obstruction.</strong> F.4 asserts no tachyonic mode "on the active branch" at the declared witnesses, but a
+deformation away from a witness could produce one (and then the certificate fails). The check is for the frozen
+spectrum, not proven stable under the deformation classes the gate exposes it to.</p>
+<p><strong>Technique: T6 (all-operator-conditional) within the admissibility-bounded deformation class.</strong> The
+deformations the gate must survive are bounded by admissibility (off-chamber ⇒ branch eliminated). The honest
+statement is conditional, and the F.5 sensitivity analysis already bounds the in-chamber responses.</p>
+<p><strong>Named principle (κ³/π-clean):</strong> <strong>AXIOM-NO-TACHYON-IN-CHAMBER</strong> — <em>"on the active branch at the declared
+witnesses, and under admissibility-bounded in-chamber deformations, no tachyonic mode appears."</em> Carries no
+target value; it is the F.4 statement scoped to the admissible deformation class.</p>
+<p><strong>Success ladder.</strong> <strong>DISCLOSED-CONSISTENT</strong> (already substantially in place via F.4 + F.5). The residual is a
+consistency sweep over the admissibility-bounded deformations, not a closure. (Note: R3's saddle finding is the
+<em>spatial</em> (Hessian) analog of the tachyon check — a saddle direction is a flat/negative mass direction in field
+space; R8 and R3 are linked, and a confirmed shape-doublet saddle would put pressure on R8 in that direction.)</p>
+<p><strong>Honest disposition: DISCLOSED-CONSISTENT, conditional on the declared spectrum; dependent on R3.</strong></p>
+<hr />
+<h3>4.9 R9 — Phenomenological sufficiency inherits the downstream AUDIT (Gate-7 radii/spectrum)</h3>
+<p><strong>The obstruction.</strong> The "residual moduli don't spoil Gates 1–10" claim relies on the downstream harnesses that
+consume the SG-6 radii and threshold spectrum — chiefly the <strong>Gate-7 threshold pipeline</strong>, which is itself
+AUDIT (the three δ are injected reals quoted to five sig figs but not regenerated; the G.3.2a row formulas do
+not reproduce the decimals; <code>reproduce_all.py</code> + the ledger CSVs are ABSENT). SG-6's sufficiency leg is only as
+machine-real as those harnesses.</p>
+<p><strong>Technique: owner artifact (machine-lane), not an axiom.</strong> A fail-closed reproducibility task, not a physics
+closure.</p>
+<p><strong>Owner artifact needed.</strong> (1) Mount the Gate-7 ledger CSVs (<code>appendix_F_heat_kernel_ledger.csv</code>,
+<code>appendix_F_threshold_outputs.csv</code>). (2) Run <code>reproduce_all.py</code> against the frozen radii + spectrum,
+target-blind. (3) Confirm the threshold vector + unification residual regenerate. (4) Confirm a small
+$\delta$ on the SG-6 radii moves the Gate-7 output within the F.3 $\delta$-response column.</p>
+<p><strong>Math to attempt.</strong> None new — execution + verification. Mechanical and fail-closed: if a perturbation of an
+SG-6 radius moves a Gate 1–10 output beyond tolerance and is not bounded by F.3, phenomenological sufficiency
+fails (F.10.4-3) and the offending downstream gate downgrades.</p>
+<p><strong>Success ladder.</strong> <strong>BLOCKED_INPUTS until the Gate-7 CSVs/script are mounted</strong> → then <strong>VERIFIED</strong> (sufficiency
+machine-real) or <strong>REFUTED</strong> (a perturbation breaches tolerance → downgrade). <strong>Value-per-effort high, but the
+artifact is owned by SG-7</strong> — closing SG-7's δ-harness AUDIT closes this too.</p>
+<p><strong>Honest disposition: AUDIT, inherited from SG-7; closes when SG-7's reproduction harness is mounted.</strong></p>
+<hr />
+<h3>4.10 Attack-plan roll-up</h3>
+<table>
+<thead>
+<tr>
+<th>Residual</th>
+<th>Technique</th>
+<th>Named axiom (κ³/π-clean)</th>
+<th>Specialist target / owner artifact</th>
+<th>Realistic endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1 θ_H⋆ read from minimum</td>
+<td>T5 + T7</td>
+<td>AXIOM-VEW-SECOND-ANCHOR</td>
+<td>target-blind θ_H⋆ derivation; $v$-independence audit</td>
+<td>AXIOM-CLOSED (2nd anchor, principled); derived-small OPEN/RELOCATION</td>
+</tr>
+<tr>
+<td>R3 diagnostic Hessian (saddle surface)</td>
+<td>T7 (symmetry split)</td>
+<td>AXIOM-SHAPE-DOUBLET-CASIMIR</td>
+<td>admissible-rep multiplicity table + zeta</td>
+<td>sharper-OPEN, <strong>saddle-leaning</strong> ($-1$ curvature)</td>
+</tr>
+<tr>
+<td>R5 $c_{\rm loop}$ / breathing singlet</td>
+<td>T7 (cell-sum)</td>
+<td>AXIOM-UNIFORM-CELL-VALUE</td>
+<td>13D FRG-2 β-vector; KK eigenvalue file</td>
+<td>BLOCKED_INPUTS → AXIOM-CLOSED (floor-value residue)</td>
+</tr>
+<tr>
+<td>R6 Casimir net sign (R3 flip)</td>
+<td>owner artifact + T7</td>
+<td>(uses AXIOM-SHAPE-DOUBLET-CASIMIR)</td>
+<td>multiplicity table</td>
+<td>BLOCKED_INPUTS / NEEDS-TUNING</td>
+</tr>
+<tr>
+<td>R2 global-stabilization non-claim</td>
+<td>T6 (vocab rule)</td>
+<td>AXIOM-CHAMBER-RESTRICTION</td>
+<td>F.10.2 vocabulary sweep</td>
+<td>DISCLOSED-CONSISTENT (SHARED-OPEN)</td>
+</tr>
+<tr>
+<td>R4 given-E / within-chamber</td>
+<td>T1</td>
+<td>AXIOM-GIVEN-E-CHAMBER</td>
+<td>(inherited SG-1/SG-3)</td>
+<td>AXIOM-CLOSED (scope axiom)</td>
+</tr>
+<tr>
+<td>R7 $\tau=\omega$ strengthening</td>
+<td>T1</td>
+<td>AXIOM-MODULAR-FIXED-POINT</td>
+<td>modular-fixed-point uniqueness</td>
+<td>AXIOM-CLOSED → DERIVED if unique</td>
+</tr>
+<tr>
+<td>R8 no-tachyon conditional</td>
+<td>T6</td>
+<td>AXIOM-NO-TACHYON-IN-CHAMBER</td>
+<td>in-chamber deformation sweep</td>
+<td>DISCLOSED-CONSISTENT (dep. R3)</td>
+</tr>
+<tr>
+<td>R9 sufficiency AUDIT</td>
+<td>machine-lane</td>
+<td>(none)</td>
+<td>mount Gate-7 CSVs + <code>reproduce_all.py</code></td>
+<td>BLOCKED_INPUTS → VERIFIED</td>
+</tr>
+</tbody>
+</table>
+<p><strong>REDUCE-vs-RELOCATE verdict on the plan.</strong> The plan does <strong>not</strong> turn one hard problem into three harder ones.
+Crucially, the two genuine-physics fronts collapse onto <strong>one shared object</strong>: $\mu_{\rm cell}$, the spectral
+value of the uniform operational cell $\Delta_0$. R1 (the hierarchy via θ_H⋆), R3/R6 (the doublet Casimir
+magnitude), and R5 (the breathing-singlet $c_{\rm loop}$) <strong>all</strong> reduce to "what is $\mu_{\rm cell}$, and can
+it be read $v$-independently?" — and the already-run firewall answers: <strong>no $v$-independent readout exists; the
+only anchor ($\partial_\sigma V=0$) IS the hierarchy.</strong> So the plan <em>reduces</em> the gate to a single named
+floor-value residue plus a SADDLE-or-rescue verdict gated on one absent multiplicity table — it does not
+multiply the difficulty. Each path either (a) names a single target-blind axiom that pays a debt in plain
+sight (R1, R2, R4, R5, R7, R8), (b) is a bounded owner-artifact computation that decides a sign (R3/R6 the
+multiplicity table; R9 the Gate-7 CSVs), and every $\mu_{\rm cell}$-touching path carries the explicit κ³/π
+falsification test (the $\partial_\sigma V=0$ anchor is forbidden) so a circular closure cannot be banked. The honest
+expected outcome of a full campaign: <strong>~4 AXIOM-CLOSED (R1 as 2nd-anchor, R4, R5 to the cell residue, R7), ~2
+DISCLOSED-CONSISTENT (R2, R8), 1 sharper-OPEN/saddle-leaning (R3), and 2 BLOCKED_INPUTS pending owner artifacts
+(R6 multiplicity table, R9 Gate-7 CSVs).</strong> No DERIVED-CLOSED is promised; the gate would move from
+PARTIAL-with-diagnostic-Hessian to <strong>PARTIAL-with-a-named-axiom-floor + a decided-or-saddle Hessian verdict</strong> —
+a real honesty/structural gain, <strong>not</strong> a promotion. <strong>The single most likely <em>negative</em> — and the most
+valuable one — is R3 firing: the shape-doublet saddle, if the Casimir rescue fails, REFUTES the
+moduli-mass-generation row and downgrades it per F.10.4-2. That is the gate working as designed.</strong></p>
+<hr />
+<h2>A. Anchoring &amp; Hardening Map</h2>
+<p>This section runs SG-6 through <strong>our internal honesty methodology</strong> — the same hardening method that produced the live
+<strong><a href="https://physics.magflowmeters.com/articles/GAPS_AND_WALLS_REGISTER.html">Gaps &amp; Walls Register</a></strong>: <strong>classify each residual as a <em>gap</em> (a route
+exists; what is missing is a finished computation or a measured input) or a <em>wall</em> (the route itself is the
+problem) → hunt the implicit assumption it hides → name the measured-invariant truth it must terminate on → assign
+the most conservative defensible disposition</strong> — exactly that method (the framework, the gap-vs-wall split, and the
+disposition vocabulary are defined in the linked Register). The discipline is honest bookkeeping, not closure: <em>no theorem breaks a wall</em>, and
+the ceiling on every line below is <strong>serious candidate / NOT validated</strong>. The only existing measured anchors a
+residual may terminate on are <strong>{ℏ, M_Pl, spectrum-E, α_i(M_Z), y_t, |V_us|}</strong>; anything else must name a NEW
+invariant, hinge on a SCHEME-anchor, be a COMPUTATION-DEBT, or have NO witness → OPEN. Disposition words are used
+exactly as the Register defines them: <strong>DERIVED / DERIVED-GIVEN-E / AXIOM-CLOSED / DISSOLVED / SCHEME-ANCHORED /
+OPEN / BLOCKED / measured-but-irreducible</strong>.</p>
+<h3>A.1 Per-residual anchoring map (one row per §3.1 residual)</h3>
+<table>
+<thead>
+<tr>
+<th>Residual (§3.1)</th>
+<th>Gap or Wall (+kind)</th>
+<th>Measured-invariant truth it must terminate on</th>
+<th>Honest disposition</th>
+<th>What would HARDEN it (concrete next step)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R1 — θ_H⋆ ≈ 2.46×10⁻¹⁴ read from the V_Hos minimum</strong></td>
+<td><strong>WALL</strong> (SCALE / hierarchy wall; the only anchor <em>is</em> the answer)</td>
+<td><strong>No existing anchor reaches it; needs a NEW named invariant.</strong> Carries ~85% of the EW hierarchy via v_EW = θ_H⋆/(2πR_γ); v_EW is a <em>second dimensionful anchor</em> that cannot be built from {M_Pl, ℏ, dimensionless frozen geometry} without a σ-carrying length (Buckingham-π). It is <strong>measured-but-irreducible</strong> — v_EW=246 GeV is a datum, not a deduction here.</td>
+<td><strong>AXIOM-CLOSED</strong> at <strong>AXIOM-VEW-SECOND-ANCHOR</strong>; θ_H⋆ as "derived-small" stays <strong>OPEN/RELOCATION</strong> (Path A circular, Path B wrong-mechanism — firewall already run).</td>
+<td>Hand a specialist the <em>target-blind θ_H⋆ derivation theorem</em>: compute θ_H⋆ from {γ, n_H=1, η_BK, R_γ} + a UV reference frozen <strong>before</strong> v_obs; if it provably needs ∂_σV=0 (the hierarchy), R1 is confirmed RELOCATION and the axiom stands.</td>
+</tr>
+<tr>
+<td><strong>R2 — Global stabilization is an explicit NON-claim</strong></td>
+<td><strong>WALL</strong> (textbook SHARED-OPEN; rivals also struggle)</td>
+<td><strong>Terminates on nothing measurable here</strong> — it is a <em>claim-boundary</em> statement, not a number. No anchor; disclosure only.</td>
+<td><strong>DISSOLVED-as-non-claim → DISCLOSED-CONSISTENT.</strong> Not AXIOM-CLOSED as a flip; no axiom closes global stabilization. Outside-chamber configs are rejected by admissibility, <em>not stabilized</em>.</td>
+<td>Mechanical: enforce the F.10.2 vocabulary rule (ban "full stabilization"/"no flat directions" without the chamber qualifier) and keep any Paper-IV V(σ) cross-reference from being cited to upgrade this certificate (F.8).</td>
+</tr>
+<tr>
+<td><strong>R3 — Positive-definite Hessian is DIAGNOSTIC-ONLY (named saddle attack surface)</strong></td>
+<td><strong>GAP</strong> (computation-debt; one Λ-free piece already done)</td>
+<td><strong>SCHEME-anchored + COMPUTATION-DEBT.</strong> The Λ-free shape-doublet curvature is already <strong>−1 (SADDLE)</strong> target-blind; the breathing singlet rides the uncomputed c_loop. No existing measured anchor; the rescue magnitude carries μ_cell (a scheme object).</td>
+<td><strong>OPEN — saddle-leaning</strong> (sharper-OPEN). The named F.9.7(2) falsifier is the <em>closest to firing</em> of any SG-6 residual.</td>
+<td>Mount the <strong>admissible-rep multiplicity table</strong> (ABSENT) + regularized zeta; compute sgn(boson−fermion surplus) and the magnitude μ_cell·q≳0.5 → decide rescue vs SADDLE-CONFIRMED. <strong>Do NOT bank boson-dominance without the table.</strong></td>
+</tr>
+<tr>
+<td><strong>R4 — Witnesses fix moduli WITHIN the selected chamber (given-E)</strong></td>
+<td><strong>WALL</strong> (inherited SHAPE/given-E wall from SG-1/SG-3)</td>
+<td><strong>Terminates on spectrum-E</strong> — the SM chiral content + χ=−3 are supplied as input; witnesses operate <em>on</em> E, they do not derive it. given-E ≠ derivation of E.</td>
+<td><strong>AXIOM-CLOSED</strong> at <strong>AXIOM-GIVEN-E-CHAMBER</strong> (already standing via SG-1 DECLARED-FROZEN / SG-3 DERIVED-GIVEN-E). This is the load-bearing conditionality of the whole gate.</td>
+<td>Nothing closes it at SG-6 (it is SG-1 SHAPE-forcedness, SELECTED-not-forced-absolute). The only contained SG-6 strengthening is R7 (promote one witness from "selected" to "symmetry-forced").</td>
+</tr>
+<tr>
+<td><strong>R5 — c_loop / breathing-mode singlet = the 13D FRG-2 β-vector wall</strong></td>
+<td><strong>WALL</strong> (GRANULARITY-root residue; shared deep FRG-2 wall w/ Gap-04, a6)</td>
+<td><strong>Terminates on a NEW invariant</strong> — the spectral VALUE of the uniform operational cell Δ₀ (μ_cell), a floor-value residue <em>on the footing of ℏ</em> but <strong>not supplied by the corpus</strong>. The only available anchor (∂_σV=0) IS the hierarchy → <strong>forbidden</strong> (circular).</td>
+<td><strong>BLOCKED_INPUTS</strong>, reducible to <strong>AXIOM-CLOSED</strong> at <strong>AXIOM-UNIFORM-CELL-VALUE</strong>. The cell-sum kills the continuum divergence (DISSOLVED leg) but leaves one log-scheme factor μ_cell → <strong>SCHEME-ANCHORED</strong> residue.</td>
+<td>The deep specialist target: compute the <strong>13D FRG-2 β-vector</strong> → c_loop = tr[a₆] of the σ-fluctuation determinant, target-blind. Short of that, supply an <em>independent</em> floor-value for Δ₀ (footing of ℏ) — <strong>never</strong> anchor μ_cell at ∂_σV=0.</td>
+</tr>
+<tr>
+<td><strong>R6 — Casimir net sign (the only route that could flip R3)</strong></td>
+<td><strong>GAP</strong> (BLOCKED-INPUTS; one machine-lane decision)</td>
+<td><strong>SCHEME-anchored</strong> (per-sector sign LOCKED by geometry; net sign = graded boson−fermion surplus over the <strong>ABSENT</strong> multiplicity table; magnitude carries μ_cell, no v-independent readout).</td>
+<td><strong>BLOCKED_INPUTS / NEEDS-TUNING.</strong> The rescue is conditionally available but <strong>unbankable</strong> — banking boson-dominance (~3:1 heat-kernel) without the table is the κ³/π-forbidden plausible-sign. χ=−3 is the opposing frozen fact.</td>
+<td>Mount the multiplicity table → form Σ(−1)^F d·n·(w₁²+w₂²) → VERIFIED-RESCUE (net&gt;0, μ_cell·q≳0.5) or SADDLE-CONFIRMED (net≤0 → F.9.7(2) fires). Highest physics value-per-effort <em>if</em> the table exists.</td>
+</tr>
+<tr>
+<td><strong>R7 — τ=ω "non-zero potential" leans on an uncomputed potential</strong></td>
+<td><strong>GAP</strong> (bounded group-theory; cleanest witness)</td>
+<td><strong>Terminates on a symmetry invariant</strong> — order-three modular fixed-point uniqueness, <em>not</em> a measured number. Symmetry-protected, not read from a curve.</td>
+<td><strong>AXIOM-CLOSED</strong> at <strong>AXIOM-MODULAR-FIXED-POINT</strong>, → <strong>DERIVED</strong> if uniqueness is proven. The one witness genuinely upgradable by a contained computation.</td>
+<td>Prove τ=ω is the <strong>unique</strong> fixed point of the F⁺ Cartan-torus modular group, independent of any one-loop potential — converts the leg from "potential we did not compute" to "symmetry-forced point." (Also hardens SG-8's inherited τ=ω soft spot.)</td>
+</tr>
+<tr>
+<td><strong>R8 — No-tachyon check is conditional on the declared spectrum</strong></td>
+<td><strong>GAP</strong> (consistency sweep; admissibility-bounded)</td>
+<td><strong>No new anchor</strong> — conditional on the frozen spectrum + admissibility-bounded in-chamber deformations; F.5 already bounds in-chamber responses.</td>
+<td><strong>DISCLOSED-CONSISTENT</strong> at <strong>AXIOM-NO-TACHYON-IN-CHAMBER</strong>; dependent on R3 (a confirmed shape-doublet saddle is the field-space analog of a tachyon and would put pressure here).</td>
+<td>Run the consistency sweep over the admissibility-bounded deformation class; couple the verdict to R3's Hessian-sign outcome (saddle ⇒ pressure on the no-tachyon leg in that direction).</td>
+</tr>
+<tr>
+<td><strong>R9 — Phenomenological sufficiency inherits downstream AUDIT (Gate-7 radii/spectrum)</strong></td>
+<td><strong>GAP</strong> (COMPUTATION-DEBT; owned by SG-7)</td>
+<td><strong>Hinges on a SCHEME-anchor inherited from SG-7</strong> — Gate-7 is now <strong>Diagnostic-only</strong>, its threshold vector (+4.8424, −3.1112, −1.7313) <strong>fitted-to-target, not formula-derived</strong>; signs geometric, magnitudes SCHEME-ANCHORED. SG-6's sufficiency is only as machine-real as that harness.</td>
+<td><strong>AUDIT</strong>, inherited from SG-7 (<strong>SCHEME-ANCHORED / BLOCKED_INPUTS</strong>). Closes when SG-7's reproduction harness is mounted; cannot be more real than its upstream.</td>
+<td>Mount the Gate-7 ledger CSVs + <code>reproduce_all.py</code> (ABSENT); regenerate the threshold vector + unification residual target-blind; confirm a small δ on the SG-6 radii moves Gate-7 output within the F.3 δ-response column. (Owned by SG-7 — closing SG-7's δ-harness AUDIT closes this.)</td>
+</tr>
+</tbody>
+</table>
+<h3>A.2 Gate-level rollup</h3>
+<ul>
+<li><strong>Overall disposition.</strong> SG-6 is <strong>PARTIAL → conservatively OPEN</strong> (matching the live Register's SG-6 line). The
+  genuine, strong content is the <strong>witness-type predicate</strong> (a <em>type</em> test that makes "a potential we minimized at
+  the answer" fail by construction) plus the discrete/topological witnesses and the S₃-critical-point structure —
+  these are real, target-blind facts, not promotions. The open surface terminates as <strong>3 AXIOM-CLOSED</strong> (R1 as a
+  second irreducible anchor, R4 the given-E scope, R7 the modular fixed point — likely DERIVED), <strong>1 reducible-to-
+  AXIOM-CLOSED but BLOCKED</strong> (R5 → AXIOM-UNIFORM-CELL-VALUE, gated on the FRG-2 wall), <strong>2 DISCLOSED-CONSISTENT</strong>
+  (R2 global-stabilization non-claim, R8 conditional no-tachyon), <strong>1 OPEN/saddle-leaning</strong> (R3 — the named
+  F.9.7(2) falsifier, <em>already</em> −1 on Λ-free geometry), and <strong>2 BLOCKED_INPUTS pending owner artifacts</strong> (R6 the
+  multiplicity table, R9 the SG-7 reproduction harness). <strong>No DERIVED-CLOSED is promised; No status was ever upgraded.</strong></li>
+<li><strong>Anchors it depends on.</strong> <strong>spectrum-E</strong> (R4: the gate certifies internal moduli-control <em>given</em> the supplied
+  chiral content + χ=−3, never derives it) and <strong>ℏ-footing only</strong> (R5: μ_cell is a floor-value residue <em>on the
+  footing of</em> ℏ, but its spectral value is <strong>not supplied</strong> — it is a NEW invariant, not the measured ℏ itself).
+  It depends on <strong>no</strong> clean termination on M_Pl / α_i(M_Z) / y_t / |V_us|; the one residual that touches a
+  <em>number</em> (R1, the hierarchy) terminates on <strong>measured-but-irreducible v_EW</strong>, not on an existing anchor. R9
+  inherits SG-7's <strong>SCHEME-anchor</strong>, not a measured one.</li>
+<li><strong>Single highest-leverage hardening move.</strong> <strong>Mount the admissible-rep multiplicity table</strong> (currently ABSENT).
+  It is the one owner artifact that decides the net Casimir sign and thereby flips the named saddle attack surface
+  (R3/R6) from "leaning saddle" to a <em>decided verdict</em> — VERIFIED-RESCUE (minimum) or SADDLE-CONFIRMED (F.9.7(2)
+  fires, the moduli-mass-generation row downgrades per F.10.4-2). It is the highest physics value-per-effort step
+  and the only one that converts a diagnostic into a falsifiable result <strong>without new tuning</strong>. The deeper twin
+  wall (R1/R5, the hierarchy and the breathing singlet) collapses onto a <strong>single object — μ_cell</strong> — which the
+  already-run firewall confirms has <strong>no v-independent readout</strong> (its only anchor ∂_σV=0 IS the hierarchy; the
+  κ³/π falsification test fires), so that front hardens only to a <em>named axiom floor</em>, never to a derivation.</li>
+</ul>
+<h3>🎯 Target anchor(s) for this gate</h3>
+<p>The body of SG-6 carries <strong>no new measured anchor</strong> and terminates on nothing of its own: the chamber witnesses
+fix the moduli <strong>WITHIN the already-selected chamber, given-E</strong> (witness-<em>type</em> test, <strong>not</strong> a tuned potential
+minimized at the answer) — so the witness ledger terminates on <strong>spectrum-E</strong> (R4, <strong>AXIOM-CLOSED</strong> at
+AXIOM-GIVEN-E-CHAMBER) and on the <strong>ℏ-footing only</strong> (R5: μ_cell is a NEW invariant on the footing of ℏ, not the
+measured ℏ — <strong>SCHEME-ANCHORED / BLOCKED</strong>), and <strong>global stabilization is an explicit NON-claim</strong> (R2,
+DISCLOSED-CONSISTENT — it terminates on no number). The <strong>one acute open leg is θ_H⋆ ≈ 2.46×10⁻¹⁴</strong>, <em>read from the
+chamber one-loop V_Hos minimum</em> and carrying <strong>~85% of the EW hierarchy</strong> via v_EW = θ_H⋆/(2πR_γ): its target anchor
+is <strong>v_EW = 246 GeV</strong>, which here is <strong>measured-but-irreducible</strong> (a second dimensionful anchor, not deducible from
+{M_Pl, ℏ, dimensionless frozen geometry}) — θ_H⋆ as "derived-small" stays <strong>OPEN/RELOCATION</strong>, AXIOM-CLOSED at
+AXIOM-VEW-SECOND-ANCHOR. <strong>No new anchor is introduced; No status was ever upgraded.</strong> The hardening move is <strong>not</strong> a new datum
+but the <strong>θ_H⋆ / Hessian derivation</strong> — a target-blind θ_H⋆ from {γ, n_H=1, η_BK, R_γ} + a pre-v_obs UV reference,
+plus the positive-definite Hessian decision at (1,1,1) gated on the ABSENT admissible-rep multiplicity table (R3/R6).</p>
+<hr />
+
+<section class="card" id="sg6-pressure-test">
+  <h2>What this gate reduces to &mdash; and its honest status</h2>
+
+  <p class="callout" style="border-left:4px solid #0b5;background:#f7fdf9;border-radius:4px;padding:.55rem .9rem"><strong>Status: OPEN (saddle-leaning &rarr; minimum-leaning).</strong> Honest ceiling:
+  serious candidate, not validated. The one cleanly computable stability direction is a stable minimum at
+  tree level, so the stability worry leans stable. The gate stays OPEN for the
+  independent reasons below.</p>
+
+  <h3>What this gate reduces to</h3>
+  <p>SG-6 asks whether the hidden shape and size of the compact geometry are <em>pinned</em> before any
+  physical number is read off them. Its load-bearing inputs are:</p>
+  <ul>
+    <li>The measured electroweak scale itself, \(v_{\rm EW}=246\,\mathrm{GeV}\), which enters as a measured
+    input rather than as something the gate produces. A dimensional no-go argument shows a second
+    independent mass scale cannot be built from the Planck mass, \(\hbar\), and dimensionless geometry
+    alone, so \(v_{\rm EW}\) is honestly a second measured ruler.</li>
+    <li>A <em>structural</em> witness for each modulus &mdash; a symmetry-fixed point, an integer winding
+    number, a discrete topological identification, or a boundary-condition pin.</li>
+    <li>A canonically-normalized, reproducible rule mapping each internal object (radii, phases, curvatures,
+    thresholds) to a physical observable.</li>
+  </ul>
+  <p>A symmetry-fixed point is automatically a <em>critical</em> point, but that is not the same as a stable
+  minimum, and admissibility (rejecting off-chamber configurations) is not the same as global
+  stabilization.</p>
+
+  <h3>Honest endpoint</h3>
+  <p>What is established (given the observed inputs and the selected geometry): the integer-winding and
+  discrete-topology witnesses and the symmetry critical-point lemma hold by inspection; and \(v_{\rm EW}\)
+  is correctly handled as a measured-but-irreducible anchor. What is precisely open: the small Wilson-line
+  phase \(\theta_H^\star\approx2.5\times10^{-14}\) carrying roughly 85% of the electroweak hierarchy is
+  <em>read</em> from the minimum of a one-loop potential, not computed small from geometry; the one
+  directly-computable stability eigenvalue is a stable minimum at tree level, with a full verdict still
+  awaiting a representation-multiplicity (Casimir) table that is not yet built; of the ten internal-to-
+  observable readout rules, five are clean (geometry / topology / symmetry) and five depend on artifacts not
+  yet in hand; and the only available place to anchor the remaining loop-scale is the very condition that
+  <em>is</em> the hierarchy, which is forbidden as circular. The stability worry leans stable rather than
+  established as stable, but moduli stabilization is not established. We make no claim of moduli stabilization, no
+  derivation of the electroweak hierarchy, and no upgrade beyond serious candidate.</p>
+</section>
+
+<h2>5. References &amp; source map</h2>
+<h3>5.1 Website source-of-truth (common material — link, don't duplicate)</h3>
+<ul>
+<li><strong>Paper I, GUT.html</strong> — <a href="https://physics.magflowmeters.com/articles/GUT.html">https://physics.magflowmeters.com/articles/GUT.html</a></li>
+<li><strong>§6.6</strong> Gate-6 card (binding status: <em>Claimed certificate pass under declared admissibility and
+    moduli-control assumptions</em>); <strong>§6.12</strong> falsification map (Gate 6 row: <em>Diagnostic only</em> if Hessian
+    falsified / <em>Open</em> if phenomenological sufficiency falsified); <strong>§6.13</strong> certificate summary.</li>
+<li><strong>§5.5</strong> narrative module; the <strong>$y=R^2$ curve-not-a-number</strong> discipline (§6 opening of the gate index).</li>
+<li><strong>Appendix F</strong> (Stabilization — the binding authority for Gate 6): <strong>F.1</strong> stabilization claim; <strong>F.2</strong>
+    potential/witness structure; <strong>F.3</strong> the 12-row moduli ledger; <strong>F.4</strong> spectrum + tachyon check; <strong>F.5</strong>
+    sensitivity; <strong>F.6</strong> certificate JSON; <strong>F.9</strong> Stabilization-vs-Admissibility (F.9.1 five concepts, F.9.2
+    what is proved, <strong>F.9.4 the NON-claim</strong>, <strong>F.9.5 the Hessian diagnostic</strong>, F.9.6 required vocabulary,
+    <strong>F.9.7 falsification paths</strong>); <strong>F.10</strong> claim-type ledger (F.10.1 ledger, <strong>F.10.2 vocabulary substitution
+    rule</strong>, F.10.3 binding statement, F.10.4 reviewer falsification path).</li>
+<li><strong>Appendix CR module CR6</strong> — reader companion (explanatory only; mints no status).</li>
+<li><strong>§6.8 / Appendix H</strong> — the Gate-8 Hosotani object on which R1 (θ_H⋆ / $v_{\rm EW}$) rides; <strong>Appendix G</strong>
+    — the Gate-7 threshold pipeline on which R9 (sufficiency) depends.</li>
+<li><strong>Paper IV, TOE.html</strong> — <a href="https://physics.magflowmeters.com/articles/TOE.html">https://physics.magflowmeters.com/articles/TOE.html</a> (the four-term $V(\sigma)$
+  discharge; EXTERNAL; cross-reference only — changes nothing in this gate's certificate per F.8).</li>
+</ul>
+<p>This dossier recaps only what is needed to attack; the site controls all common material.</p>
+<h3>5.2 Corpus locations (authoritative inputs to this dossier)</h3>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Path</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Per-gate dossier spec</td>
+<td><code>…/rendered/TOE/PER_GATE_DOSSIER_SPEC.md</code></td>
+<td>structure (sections 0–5)</td>
+</tr>
+<tr>
+<td>SG-6 status line</td>
+<td><code>…/rendered/TOE/SCOPED_GUT_PER_GATE_STATUS_LEDGER.md</code></td>
+<td>the PARTIAL label + honest caveats (carried verbatim)</td>
+</tr>
+<tr>
+<td><strong>Λ-anchored moduli test</strong></td>
+<td><code>…/rendered/TOE/TEST1_LAMBDA_ANCHORED_MODULI_STABILIZATION_2026-06-23.md</code></td>
+<td>Step A/B/C verdict; chamber V(u) is fiat-not-minimized; the four-term V(σ) is σ-only; counting/under-determination wall</td>
+</tr>
+<tr>
+<td><strong>Λ-free chamber potential (S₃ split)</strong></td>
+<td><code>…/rendered/TOE/TEST2_LAMBDA_FREE_CHAMBER_POTENTIAL_2026-06-23.md</code></td>
+<td>the $3=\mathbf1\oplus\mathbf2$ decomposition; $(1,1,1)$ = $S_3$-critical-point free; singlet=wall, doublet=computable</td>
+</tr>
+<tr>
+<td><strong>Shape-doublet Hessian</strong></td>
+<td><code>…/rendered/TOE/TEST_SHAPE_DOUBLET_STABILITY_2026-06-23.md</code></td>
+<td>the Λ-free doublet curvature Hessian $=-1$ (SADDLE); structure-constant triangle is the destabilizer</td>
+</tr>
+<tr>
+<td><strong>Casimir rescue test</strong></td>
+<td><code>…/rendered/TOE/TEST_CASIMIR_RESCUE_SHAPE_DOUBLET_2026-06-23.md</code></td>
+<td>per-sector sign LOCKED; net sign needs the ABSENT multiplicity table; $\mu_{\rm cell}\cdot q\gtrsim0.5$</td>
+</tr>
+<tr>
+<td><strong>Cell-sum c_loop attack</strong></td>
+<td><code>…/rendered/TOE/TEST_CLOOP_CELLSUM_ATTACK_2026-06-23.md</code></td>
+<td>c_loop = finite cell-sum + one log-scheme factor $\mu_{\rm cell}$; uniform-$\Delta_0$ residue</td>
+</tr>
+<tr>
+<td><strong>SCALE/hierarchy final verdict</strong></td>
+<td><code>…/rendered/TOE/SCALE_HIERARCHY_FINAL_VERDICT_2026-06-23.md</code></td>
+<td>θ_H⋆ ≈ 2.46e-14 carries 85% hierarchy; Path A circular (Buckingham-π), Path B wrong-mechanism; $v_{\rm EW}$ a 2nd anchor; $\partial_\sigma V=0$ forbidden</td>
+</tr>
+<tr>
+<td>Closure campaign (R1)</td>
+<td><code>…/rendered/TOE/CLOSURE_CAMPAIGN_RESULT_2026-06-24.md</code></td>
+<td>the decisive SCALE-firewall verdict (μ_cell no $v$-independent readout); κ³/π falsification test; AXIOM_CLOSED ≠ proven</td>
+</tr>
+<tr>
+<td>Closure campaign (R2)</td>
+<td><code>…/rendered/TOE/CLOSURE_CAMPAIGN_ROUND2_2026-06-24.md</code></td>
+<td>demotion-on-verify norm; relabel-fail falsification test discipline</td>
+</tr>
+<tr>
+<td>Axiom ledger</td>
+<td><code>…/rendered/TOE/AXIOM_LEDGER.md</code></td>
+<td>ROOT-1 <code>AXIOM-COSTFLOOR</code> (existence not value) + FLOOR-VALUES-RESIDUE ($\Delta_0$ value); ROOT-2 SHAPE (selection ≠ derivation)</td>
+</tr>
+<tr>
+<td>GUT manuscript</td>
+<td><code>…/rendered/GUT/GUT.md</code></td>
+<td>§5.5 / §6.6 (Gate-6 card); Appendix F (F.1–F.10); R1.6 witness predicate; F.3 12-row ledger</td>
+</tr>
+</tbody>
+</table>
+<h3>5.3 Frozen-object hash index (load-bearing; READ-ONLY)</h3>
+<p>Branch <code>dcc66f1b2685</code> · manifest meta <code>a5b1e6f9d951</code> · three Cartan radii <code>634438ce0776</code> / <code>2381d472c62e</code> /
+<code>0e8b8dba2cf0</code> · chamber-center $\vec u=(1,1,1)$ (A1.2) · $\tau=\omega$ <code>03b30a9c931a</code> · $\eta_{BK}$
+<code>84e94518d3f5</code> · RG transport <code>f531205a9159</code> · $M_Z$ <code>a6852c7a6b00</code> · $N_{u,d,e}$ <code>20dc4e0b8220</code> · $\theta_F$
+<code>1ff57f48d45a</code> · spin-ℂ index / $\chi=-3$ (R1.4) <code>0fd19c9ae0c1</code> · threshold vector
+$(\delta_1,\delta_2,\delta_3)=(+4.8424,-3.1112,-1.7313)$. <strong>θ_H⋆ (Hosotani minimum), $\mu_{\rm cell}$ /
+$\Delta_0$ spectral value, $c_{\rm loop}$, the admissible-rep multiplicity table, and $M_R$: no SG-6 hash —
+read / uncomputed / ABSENT.</strong></p>
+<hr />
+<h3>Closing honest statement</h3>
+<p>SG-6 is <strong>PARTIAL</strong>. Its genuine, defensible content is real and strong: the <strong>witness-type predicate</strong> — every
+downstream-used modulus carries a structural witness of declared TYPE (Weyl-rigid chamber / modular fixed point
+/ integer winding / discrete topology / boundary-condition pin), with "a potential we minimized at the answer"
+failing <strong>by construction</strong> — backed by the <strong>12-row witness ledger</strong>, a <strong>no-tachyon check</strong>, a
+<strong>coverage lint</strong>, and the honest <strong>claim-type ledger</strong> that fences exactly what is proved. Its open surface is
+equally clear: <strong>global stabilization is an explicit NON-claim</strong> (F.9.4/F.10.1); the <strong>positive-definite
+Hessian is DIAGNOSTIC-ONLY</strong> (F.9.5) — and on current Λ-free perturbative geometry the <strong>shape-doublet Hessian
+is a SADDLE</strong> ($-1$, the named F.9.7(2) attack surface leaning toward firing, rescuable only by a Casimir term
+whose net sign needs an ABSENT multiplicity table); the acute soft spot is <strong>θ_H⋆ ≈ 2.46×10⁻¹⁴</strong>, carrying
+<strong>~85% of the EW hierarchy</strong>, <strong>read from a one-loop minimum, not derived-small</strong>; and the witnesses fix the
+moduli <strong>within the selected chamber</strong> (given-E). The attack plan reduces these to named, target-blind axioms
+and bounded owner-artifact computations — and crucially collapses the two genuine-physics fronts (the hierarchy
+and the Hessian sign) onto <strong>one shared object $\mu_{\rm cell}$</strong>, which the already-run firewall confirms has
+<strong>no $v$-independent readout</strong> ($\partial_\sigma V=0$, its only anchor, <strong>IS</strong> the hierarchy — the forbidden,
+circular anchor; the κ³/π falsification test fires). The realistic ceiling is a named axiom floor (AXIOM-VEW-SECOND-ANCHOR,
+AXIOM-UNIFORM-CELL-VALUE, AXIOM-MODULAR-FIXED-POINT) plus a <strong>decided-or-saddle Hessian verdict</strong> — <strong>not</strong> a
+promotion; and the most valuable likely outcome is a <em>negative</em>: the shape-doublet saddle firing F.9.7(2) if
+the Casimir rescue fails. <strong>No status was ever upgraded; frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> READ-ONLY; given-E ≠
+derivation of E; selection ≠ derivation; dissolved ≠ solved; nothing applied, nothing deployed.</strong></p>
+<p><em>Dossier built 2026-06-24. Our geometry (13D K₆ branch) only. Common material referenced to the published
+website source-of-truth, not duplicated.</em></p>
+</body></html>

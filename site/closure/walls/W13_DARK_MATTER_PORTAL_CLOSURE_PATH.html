@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>W13 — Dark-matter portal normalization</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 250px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9679; Closure paths</a></div>
+<div class="ann-sub"><a href="/closure/">&#8592; Closure system</a> &nbsp; <a href="/walls/">The Walls</a> &nbsp; <a href="/anchors/">The Anchors</a></div>
+<div class="ann-group">One closure path per wall</div>
+<a href="W01_UV_COMPLETION_CLOSURE_PATH.html">W1 UV completion</a>
+<a href="W02_CONTINUUM_EXISTENCE_CLOSURE_PATH.html">W2 continuum existence</a>
+<a href="W03_A6_COEFFICIENT_CLOSURE_PATH.html">W3 a6 coefficient</a>
+<a href="W04_GRANULARITY_MDL_CLOSURE_PATH.html">W4 granularity to MDL</a>
+<a href="W05_GIVEN_E_BUNDLE_CLOSURE_PATH.html">W5 given-E / bundle</a>
+<a href="W06_FLAVOR_RULEBOOK_CLOSURE_PATH.html">W6 flavor F+ rulebook</a>
+<a href="W07_ANOMALY_DESCENT_CLOSURE_PATH.html">W7 anomaly descent</a>
+<a href="W08_CUSTODIAL_RHO_CLOSURE_PATH.html">W8 custodial rho=1</a>
+<a href="W09_MODULI_STABILIZATION_CLOSURE_PATH.html">W9 moduli stabilization</a>
+<a href="W10_LAMBDA_STABILITY_CLOSURE_PATH.html">W10 Lambda stability</a>
+<a href="W11_LAMBDA_VALUE_CLOSURE_PATH.html">W11 Lambda value</a>
+<a href="W12_BARYOGENESIS_CP_CLOSURE_PATH.html">W12 baryogenesis CP</a>
+<a href="W13_DARK_MATTER_PORTAL_CLOSURE_PATH.html" class="current">W13 dark-matter portal</a>
+<a href="W14_INFLATION_SPECTRUM_CLOSURE_PATH.html">W14 inflation spectrum</a>
+<a href="W15_BORN_WEIGHT_CLOSURE_PATH.html">W15 Born-rule weight</a>
+<a href="W16_BH_MICROSTATES_CLOSURE_PATH.html">W16 BH microstates</a>
+<a href="W17_PROTON_OPERATORS_CLOSURE_PATH.html">W17 proton operators</a>
+<a href="W18_YM_UNIFORM_GAP_CLOSURE_PATH.html">W18 YM uniform gap</a>
+<a href="W19_THRESHOLD_MAGNITUDES_CLOSURE_PATH.html">W19 threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">W13 — Dark-matter portal normalization — rendered package. Rendered from <code>W13_DARK_MATTER_PORTAL_CLOSURE_PATH.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>W13 — Dark-matter portal normalization</h1>
+<p><strong>Wall:</strong> <a href="/walls/w13-dark-matter-portal.html">The dark-matter portal-normalization wall</a> · <strong>Closure routing via</strong> <a href="/closure/wall-routing-protocol.html">/closure</a></p>
+<h2>Routing decision</h2>
+<p><strong>DERIVE portal normalization if possible; otherwise OPEN-ANCHORED.</strong></p>
+<h2>Deep-root link(s)</h2>
+<ul>
+<li><strong>Shape</strong></li>
+<li><strong>Nonseparability</strong></li>
+<li><strong>Record Interface</strong></li>
+<li><strong>Granularity</strong></li>
+<li><strong>Scale</strong></li>
+</ul>
+<h2>Reduction / dissolution verdict</h2>
+<p>Cannot reduce/dissolve. Dark matter is an empirical gravitational/cosmological record. The portal operator and finite overlap integral are real missing objects.</p>
+<h2>Steps to the endpoint</h2>
+<ol>
+<li>Name the dark-matter candidate and stabilizing structure.</li>
+<li>Define the portal operator.</li>
+<li>Compute finite overlap $N_{portal}$.</li>
+<li>Derive relic/interaction normalization.</li>
+<li>Compare with null forecast $\sigma_{SI}$ around $10^{-55}$ to $10^{-60}\ \mathrm{cm}^2$.</li>
+<li>State detectable, secluded, or falsified.</li>
+</ol>
+<h2>Success criterion / falsifier</h2>
+<p>Success: portal operator and $N_{portal}$ emitted target-blind; relic/cross-section ledger computed without fitted normalization. Falsifier: portal absent when required, wrong relic abundance, or excluded interaction strength.</p>
+<h2>Terminal status assigned</h2>
+<p><code>OPEN-ANCHORED / PORTAL-BOUNDED</code></p>
+<h2>Residual work</h2>
+<p>Portal operator, finite overlap, relic normalization.</p>
+<h2>Anti-claims</h2>
+<ul>
+<li>Structural selection is not abundance derivation.</li>
+<li>A null forecast is not portal computation.</li>
+<li>Do not tune $N_{portal}$ to observed density.</li>
+</ul>
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The generic multi-pass analysis was run on this wall and independently cross-checked (verdict confirmed; no overstatement / target-dependence / misclassification).</p>
+<pre><code>Verdict: NOT_EXHAUSTED_BLOCKED
+Smallest missing rule (the precise hole):
+  The target-blind inventory-fork adjudication rule (R8) that decides whether N_portal is even the right object BEFORE any operator is named or any integral is run: a Shape/Granularity-internal rule that evaluates the trichotomy (geometric-abundance branch i -&gt; N_portal is a non-object; correction branch iii -&gt; N_portal demotes to a correction; unique-operator freeze-in branch ii -&gt; N_portal is the single block) and the single-component fork on the frozen ⊗-ledger, discharging AXIOM-OPERATOR-ORDERING from inside (it is currently REFUTED AS STATED by two verified theorems — a count-vs-mass-dimension type mismatch — so the state-side 17/18 razor does NOT transfer to operator selection). Until this rule exists, R1 (operator) has no forced survivor, R2 (N_portal) fails the object-identity check (EXISTENCE-&gt;IDENTITY-&gt;VALUE), and the observable test cannot be run.
+Terminal status: OPEN-ANCHORED / PORTAL-BOUNDED. Gap-11 is ANCHOR-CLOSED / WALL-RECORDED, physics-status OPEN by the least-closed-residual rule. Banked given-E: C-iii identity + dual stability legs (DERIVED-GIVEN-E, selector-CANDIDATE) and the one-sided KK-overclosure bound (DERIVED-GIVEN-E, one-sided). Open: structural fork (R8, UNRUN), portal operator (R1, UNNAMED / AXIOM-OPEN, AXIOM-OPERATOR-ORDERING undischarged), N_portal (R2, UNRUN overlap integral), relic abundance (R3, downstream-gated), sigma_SI point value (R5, gated on R2). T_RH is INHERITED-CONDITIONAL (paid input, exported to Gap-09). 0.12 is a MEASURED-ANCHOR, compared-to-only. No gate here is physics-CLOSED. Falsifier is refute-only (sigma_SI ~6-11 OOM below the neutrino floor; no null can confirm).
+</code></pre>
+<hr />
+<h2>Shared closure invariant</h2>
+<p>A gate is terminal when its wall has the correct endpoint: derived, reduced to a root, dissolved, anchored, or wall-recorded. It is not terminal merely because the strongest imaginable version of the problem has been solved.</p>
+<p>Status-inflation guardrails:
+- DISSOLVED does not mean SOLVED.
+- SELECTED does not mean FORCED.
+- GIVEN-E does not mean DERIVED-E.
+- MEASURED-ANCHOR does not mean DERIVED VALUE.
+- WALL-RECORDED does not mean PHYSICS-CLOSED.
+- A bounded local certificate does not become global completion.</p>
+<h2>Completion tests for this wall file</h2>
+<p>This wall file is complete only if:
+- The wall is named exactly.
+- The routing decision is explicit.
+- At least one deep-root link is listed.
+- The endpoint status is explicit.
+- Local/banked wins are separated from the missing object.
+- The success criterion or falsifier is target-blind.
+- The anti-claims block prevents status inflation.
+- Any failure to reduce or dissolve is stated honestly.
+- Residual work is finite where possible; unicorn work is wall-recorded.</p>
+<h2>Completion report</h2>
+<p>Tests passed:
+- Wall named exactly.
+- Routing decision assigned.
+- Deep-root links listed.
+- Endpoint status assigned.
+- Honest failure to reduce/dissolve stated where applicable.
+- Success criterion/falsifier included.
+- Anti-claims included.</p>
+<p>Tests failed:
+- None in this handoff draft.</p>
+<p>Open items:
+- Execute the residual work listed above.</p>
+<p>Assumptions made:
+- Uses the uploaded wall register and the /closure endpoint strategy.</p>
+<h2>See also</h2>
+<ul>
+<li>Wall page: <a href="/walls/w13-dark-matter-portal.html">/walls/w13-dark-matter-portal.html</a></li>
+<li>Wall routing protocol: <a href="/closure/wall-routing-protocol.html">/closure/wall-routing-protocol.html</a></li>
+<li>Deep roots: <a href="/closure/deep-roots.html">/closure/deep-roots.html</a></li>
+<li>Dissolutions: <a href="/closure/dissolutions.html">/closure/dissolutions.html</a></li>
+<li>Closure index: <a href="./INDEX.html">./INDEX.html</a></li>
+</ul>
+</main>
+</div>
+</body></html>

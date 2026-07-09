@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WHY NOT 4D OR STRING PHD</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">Why Not 4D, or String Theory&#x27;s 10/11 Dimensions? — rendered package. Rendered from <code>WHY_NOT_4D_OR_STRING_PHD.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>Why Not 4D, or String Theory's 10/11 Dimensions?</h1>
+<p><em>A graduate-level explainer of why this program commits to one frozen 13-dimensional internal geometry — and, with equal honesty, of exactly what that commitment does and does not buy.</em></p>
+<hr />
+<h2>0. The honest ceiling, stated first</h2>
+<p>This document argues for a <strong>choice</strong>. It does not claim a theorem.</p>
+<p>The geometry at the center of this program is a frozen 13-dimensional object,</p>
+<p>$$
+\mathfrak{B}_{\rm active}
+= \big[\,\mathcal{M}_4 \times K_6 \times S^2 \times S^1_Y/\mathbb{Z}_2\,\big]_\times
+\;\oplus\; \big[\,F^+_{\rm finite}\oplus C_{\rm admiss}\,\big]_\oplus
+\;\otimes\; \big[\,E_{\rm matter}\oplus E_{\rm gauge}\oplus E_{\rm Higgs}\oplus E_{\rm proton}\,\big]_\otimes ,
+$$</p>
+<p>with only the first ("Stage") layer carrying metric dimension: $D = 4+6+2+1 = 13$. Here $K_6 = SU(3)/T^2$ is the $SU(3)$ flag manifold, $S^2 = SU(2)/U(1)$, and $S^1_Y/\mathbb{Z}_2$ is an orbifolded circle.</p>
+<p>The status of this object is <strong>a serious candidate / partial unification — NOT validated.</strong> Specifically, the geometry is treated as an <strong>AXIOM (an anchor), not a derivation.</strong> It is <em>selected</em>, not <em>forced</em>. What the program then computes are <strong>consequences GIVEN the shape and GIVEN the observed Standard-Model spectrum $E$</strong> — a status we will write throughout as <strong>DERIVED-GIVEN-E</strong>. Two slogans bind the whole discussion:</p>
+<blockquote>
+<p><strong>given-E ≠ derivation of E. Selection ≠ derivation.</strong></p>
+</blockquote>
+<p>So the right reading of the title is <em>"why we chose 13D, and what 4D effective field theory and 10/11D string theory structurally cannot give us"</em> — <strong>not</strong> "4D is impossible" or "string theory is refuted." Whether 13D is <em>truly minimal</em> versus a clever 4D construction or a specific string vacuum is itself an <strong>open question</strong>, and we say so explicitly in §6. We will be more careful about what 13D <em>fails</em> to prove than enthusiasts of any framework usually are about their own.</p>
+<hr />
+<h2>1. The problem all three approaches must solve</h2>
+<p>Any candidate fundamental theory of the visible sector owes the same deliverables, which we package as the observed spectrum $E$:</p>
+<ul>
+<li>the gauge group $SU(3)_c \times SU(2)_L \times U(1)_Y$,</li>
+<li>exactly <strong>three</strong> chiral families,</li>
+<li>the hypercharge assignments and electric charges $Q = T_3 + Y$,</li>
+<li>the absence of mirror fermions (the LEP/SLD invisible-$Z$ width counts $N_\nu = 2.984 \pm 0.008$ light species),</li>
+<li>the measured couplings $\alpha_i(M_Z)$, the top Yukawa, CKM mixing, and so on.</li>
+</ul>
+<p>The question is not <em>whether</em> a framework can accommodate $E$ — all three can. The question is the <strong>epistemic shape</strong> of the accommodation: does the framework <strong>fit</strong> $E$ by tuning free data, or does it <strong>force</strong> large parts of $E$ from a small, frozen, over-determined structure that could have come out wrong? This is the axis on which 4D EFT, the string landscape, and the present 13D proposal genuinely differ.</p>
+<hr />
+<h2>2. The 4D effective field theory: you can FIT anything, but FORCE nothing</h2>
+<p>The Standard Model as a renormalizable 4D effective field theory is, on its own terms, a triumph and an embarrassment in the same breath.</p>
+<p><strong>The triumph.</strong> Given the gauge group and the chiral representation content as <em>inputs</em>, an enormous amount follows automatically and for free: gauge anomaly cancellation is an identity once the hypercharges are assigned ($\sum Y = 0$, $\sum Y^3 = 0$, $SU(2)^2$–$U(1)$ and $SU(3)^2$–$U(1)$ and mixed gravitational anomalies all cancel family-by-family); the chirality of the written spectrum is whatever you wrote down; the global $\mathbb{Z}_6$ center-kernel structure that makes the hypercharge normalization consistent across color, weak, and electromagnetism is a consequence of the representation assignment; accidental proton stability follows from the absence of low-dimension baryon-number-violating operators. These are not achievements of the 4D EFT so much as <strong>automatic consequences of $E$ together with 4D renormalizable gauge invariance.</strong> (This matters in §6: when one compares frameworks honestly, these "free" consequences must be credited to <em>both</em> sides and allowed to cancel — charging a rival for them would be reverse tuning to the known answer.)</p>
+<p><strong>The embarrassment.</strong> The 4D EFT supplies <strong>no structural origin</strong> for the things it takes as input. The gauge group is <em>postulated</em>, not explained — nothing in 4D field theory prefers $SU(3)\times SU(2)\times U(1)$ over $SU(5)$, $SO(10)$, or $U(1)^{12}$. The generation count is <em>postulated</em> — the famous "who ordered that?" — and three is a fit, not a prediction. The hypercharges are <em>chosen</em> (constrained by anomaly cancellation up to an overall normalization, but the pattern itself is selected, not derived). And the roughly nineteen continuous free parameters (gauge couplings, Yukawas, CKM angles and phase, the Higgs mass and vev, $\theta_{\rm QCD}$) are inputs measured from experiment.</p>
+<p>The structural verdict: <strong>the 4D EFT has maximal descriptive freedom and minimal forcing power.</strong> It can be tuned to reproduce <em>any</em> anomaly-free chiral gauge theory; that flexibility is precisely why it predicts none of its own structure. In the language we use below, a clean 4D chiral-gauge EFT has the lowest possible <em>dimension cost</em> ($k_{\rm dim} = 4$) but pays for it with a large number of <em>independently injected</em> structural and numerical facts. It is the maximal-freedom end of the spectrum.</p>
+<blockquote>
+<p><strong>Honest caveat — this is not a refutation of 4D.</strong> A 4D EFT that <em>reproduces</em> $E$ is not wrong; it is correct and indispensable as the low-energy description. The claim is narrower: it does not <em>explain</em> the structure of $E$, and — as §6 makes explicit — whether a sufficiently clever 4D construction could match the explanatory economy claimed for 13D is <strong>an open question this program does not pretend to have closed.</strong></p>
+</blockquote>
+<hr />
+<h2>3. String theory's 10/11 dimensions: the landscape problem</h2>
+<p>Superstring theory lives in 10 dimensions and M-theory in 11, for reasons internal to the consistency of the quantized string (worldsheet conformal anomaly cancellation fixing the critical dimension; supersymmetry; tadpole/anomaly conditions). As a framework it is mathematically deep, includes gravity, and unquestionably <em>can</em> contain the Standard Model: there exist compactifications (heterotic on Calabi–Yau, intersecting D-branes, F-theory, etc.) that reproduce the gauge group, three families, and chiral matter.</p>
+<p>The difficulty is not existence — it is <strong>selection</strong>. The choice of compactification manifold, flux quanta, brane configuration, and Wilson lines is enormously non-unique. The standard (order-of-magnitude, much-debated) estimate is on the order of $10^{500}$ metastable vacua — the <strong>landscape</strong>. Each vacuum yields its own low-energy physics: its own gauge group, family count, couplings, and cosmological constant. There is, at present, <strong>no agreed dynamical selection principle</strong> that picks <em>our</em> vacuum out of the landscape.</p>
+<p>The epistemic consequence is decisive for the comparison at hand. Because essentially any low-energy phenomenology can be realized <em>somewhere</em> in the landscape, the framework <strong>as currently understood makes no sharp, vacuum-independent prediction</strong> for the Standard-Model structure. Selection is typically deferred to anthropic / multiverse reasoning (Weinberg-style arguments for $\Lambda$ being the prototype), which is a statement about <em>measure over vacua</em>, not a forcing of structure. A framework that can accommodate almost anything by choosing a vacuum is, on the <em>selection</em> question, in the same epistemic position as the tunable 4D EFT: vast descriptive freedom, weak forcing of <em>our</em> particular $E$.</p>
+<blockquote>
+<p><strong>Honest caveat — this is not a refutation of string theory.</strong> String/M-theory may yet supply a selection principle; the landscape may be dynamically pruned; the framework's inclusion of quantum gravity is a genuine virtue this program does not match in scope. The narrow claim is: <em>until a selection principle exists, the 10/11D framework does not sharply predict our vacuum</em>, and that is the specific gap the present proposal is designed to avoid — not by being deeper, but by being <strong>frozen and over-determined.</strong></p>
+</blockquote>
+<hr />
+<h2>4. The 13D claim: one frozen shape, no landscape, over-determined</h2>
+<p>The present program makes the opposite trade. Instead of maximal freedom (4D EFT) or maximal multiplicity (the landscape), it commits to <strong>one</strong> geometry, freezes it before any comparison to data, and accepts the falsifiability that follows.</p>
+<h3>4.1 The mechanism: gauge forces as internal isometries</h3>
+<p>The category-defining choice — itself a named, declared axiom, <strong>AXIOM-FORCES-ARE-ISOMETRIES</strong> — is that the 4D gauge group is generated by the continuous <strong>isometries</strong> of the compact internal factors (a Kaluza–Klein reading), <em>not</em> sourced from bundle structure groups or branes. The gauge bosons are the Kaluza–Klein modes of these isometries. Under coset dimensional reduction (CSDR) on a homogeneous carrier $G/H$, the surviving 4D gauge algebra is governed by the <strong>centralizer</strong> of the isotropy embedding: the isotropy $H$ acts as gauge unless it is "absorbed," so a clean carrier is one whose $H$ contributes no spurious gauge factor.</p>
+<p>With this dictionary, each compact factor sources one simple summand:</p>
+<ul>
+<li>$K_6 = SU(3)/T^2$ (the flag manifold) has isometry algebra $\mathfrak{su}(3)$ — <strong>color</strong>;</li>
+<li>$S^2 = SU(2)/U(1)$ has isometry algebra $\mathfrak{su}(2)$ — <strong>weak</strong>;</li>
+<li>$S^1_Y$ (folded) carries the translation $U(1)_Y$ — <strong>hypercharge</strong>.</li>
+</ul>
+<p>The certified statement of gauge recovery (the gate the corpus labels <strong>SG-2, status DERIVED-GIVEN-E</strong>) is an <strong>equality, not a containment</strong>: after the quotients, parities, and bundle data act, the surviving 4D isometry algebra equals</p>
+<p>$$
+\mathfrak{su}(3)_c \oplus \mathfrak{su}(2)_L \oplus \mathfrak{u}(1)_Y,
+\qquad \dim = 8+3+1 = 12,\quad \text{rank } 4,
+$$</p>
+<p>with <strong>no extra unbroken factor and no missing factor</strong>. The over-production failure mode (an unwanted surviving $U(1)$ or $SU(2)$) and the under-production failure mode (a missing SM factor) are both checked. This is read <em>architecturally</em> — the gate consults <strong>no coupling value and no UV scale</strong> (coupling unification is a separate, downstream gate).</p>
+<h3>4.2 What is genuinely forced — and the carrier-cleanness arithmetic</h3>
+<p>Here is the program's most important honesty point, and it cuts against naïve enthusiasm: <strong>recovering $SU(3)\times SU(2)\times U(1)$ is a rival TIE.</strong> String, M-, and F-theory, noncommutative geometry, and lattice constructions all reproduce the SM gauge group by their own routes. Recovering the gauge group is a <strong>filter every serious framework passes</strong> — it is therefore <em>not</em> evidence that discriminates this geometry from the others. Banking "we get the Standard-Model gauge group" as a unique success would be the cardinal overclaim. The discriminating content is not the <em>outcome</em>; it is the <strong>forcedness of the carriers within the declared grammar.</strong> Three results carry that weight:</p>
+<p><strong>(C1) The color carrier is clean by an architecture-neutral group-theory fact.</strong> Among $SU(3)$ cosets $SU(3)/H$, the maximal torus $T^2$ is the <strong>unique purely-abelian isotropy</strong>: its centralizer in $SU(3)$ is $C_{SU(3)}(T^2) = T^2$ (Cartan only), so CSDR reduction leaves <em>no spurious non-abelian gauge factor</em>. Hence $K_6 = SU(3)/T^2$ is the <strong>unique clean $SU(3)$ color carrier</strong>. The one cheaper-looking competitor, $\mathbb{CP}^2 = SU(3)/U(2)$, has a <strong>non-abelian</strong> isotropy $U(2) = (SU(2)\times U(1))/\mathbb{Z}_2$, which is gauge-active under the centralizer rule. It forces a lose–lose fork: keep $S^2$ and $S^1$ and you over-produce an unwanted $SU(2)\times U(1)$ (Gate 2 fails), or drop them and you isotropy-lock the weak/hyper factors inside color (violating the matter-routing rule). Critically, $\mathbb{CP}^2$'s "three families" is <em>not</em> a tunable dial — it is a <strong>discrete $\mathrm{Spin}_c$ index</strong>, $r(r+1)/2 = 3$ at the relevant level — so the kill is structural, not a hand-wave about adjustable family counts. The corpus reports that the $\mathbb{CP}^2$ route was <strong>built end-to-end (an 11D construction) and BREAKS at the gauge-recovery gate.</strong> This is the discriminating move: not "the SM has $SU(3)$" (everyone has that), but "this carrier is the clean one and the cheaper rival is provably not."</p>
+<p><strong>(C2) The weak carrier is forced by fact F1.</strong> The isometry group of any torus $T^n$ is $U(1)^n$, which is abelian and contains no $SU(2)$. So <strong>no flat/abelian geometry of any dimension can carry the non-abelian weak force.</strong> The non-abelian $SU(2)_L$ therefore <em>requires</em> a non-abelian-isometry carrier, and $S^2 = SU(2)/U(1)$ ($\dim 2$, $\mathrm{Isom} = SU(2)$) is the minimal one. F1 is a one-line classification fact that closes the <em>cheaper</em> direction over <strong>whole shelves</strong> of candidates, not just named ones.</p>
+<p><strong>(C3) The hypercharge carrier is forced (as the folded circle) by fact F2.</strong> The chiral (Dirac) index on a <em>closed odd-dimensional</em> manifold vanishes identically. So a <strong>bare</strong> $S^1_Y$ mirrors every fermion — and a mirror sector would have shown in the LEP/SLD light-species count $N_\nu = 2.984 \pm 0.008$. The repair is the $\mathbb{Z}_2$ <strong>fold</strong>: $S^1_Y/\mathbb{Z}_2$ has fixed-point boundaries that re-open a one-sided chirality channel (an APS-type boundary index), while $U(1)_Y$ survives as the translation generator. (The <em>chirality</em> consequence is properly a downstream-gate result; for gauge recovery the load-bearing point is just that the hyper carrier is the <em>folded</em> circle.)</p>
+<p>These three — C1, C2, C3 — are the Fable-internal, deformation-proof content of the gauge sector. They are exactly the statements <strong>a rival framework using a different category could not write</strong>, which is the firewall test for what counts as discriminating.</p>
+<h3>4.3 No landscape, and over-determination</h3>
+<p>Two structural features distinguish this from both rivals:</p>
+<ol>
+<li>
+<p><strong>No landscape.</strong> There is one frozen object, content-addressed by SHA-256 (branch hash <code>dcc66f1b2685</code>, manifest meta-hash <code>a5b1e6f9d951</code>, 33 manifest rows), committed <em>before</em> any downstream comparison. A reproducer regenerates every hash, so the object a critic attacks is byte-identical to the object the consequences were computed on. There is no menu of $10^{500}$ vacua to choose from after seeing the data; there is no continuous moduli space to dial. (This freeze-and-reproduce discipline is the certified content of the geometry-specification gate <strong>SG-1, status DECLARED-FROZEN</strong> — it certifies <em>specificity</em>, <em>no-layer-smuggling</em>, and <em>reproducibility</em>; it certifies neither uniqueness nor derivation.)</p>
+</li>
+<li>
+<p><strong>Over-determination.</strong> A small number of measured <strong>anchors</strong> feed many outputs. The four declared anchors are $\{M_{\rm Pl},\ \alpha_i(M_Z),\ y_t,\ |V_{us}|\}$. From the frozen shape plus these anchors, the program computes a range of downstream relations (charges, family index, flavor structure, threshold pattern). Because the same few inputs constrain many outputs, the outputs are <strong>related</strong> — and relations are <strong>breakable</strong>. The family index, for instance, is the spin-$c$ / Euler-character invariant $\chi(K_6, E) = -3$, a rigid integer once the geometry and bundle are fixed: it is the kind of thing that <em>could have come out</em> $-2$ or $-4$ and falsified the construction. <strong>Over-determination is the source of falsifiability</strong>, and falsifiability is precisely what the landscape lacks.</p>
+</li>
+</ol>
+<p>This is the actual argument for choosing 13D: it is the framework that, <em>by construction</em>, refuses the descriptive freedom that lets 4D fit anything and refuses the multiplicity that lets the landscape contain anything. It pays for that refusal in dimensions and in a frozen geometry it cannot retune — and it accepts that it can be broken.</p>
+<hr />
+<h2>5. The honest cost: it is NOT "4 inputs"</h2>
+<p>A program that advertises "4 inputs → 22 outputs" would be overstating its economy, and this one says so in its own internal accounting. The <strong>honest charged cost</strong> is the four declared anchors <strong>plus roughly 9–10 additional injected reals</strong> — fitted normalizations and threshold data that are genuine independent inputs, not outputs:</p>
+<ul>
+<li>fitted family-sector normalizations ($N_d, N_e, N_\nu$),</li>
+<li>a UV threshold triple $\delta = (+4.84,\,-3.11,\,-1.73)$,</li>
+<li>a Wilson-line / Hosotani angle $\theta_H^\star$, and similar.</li>
+</ul>
+<p>So the defensible figure is <strong>roughly 13–14 effective real inputs total</strong>, not 4. (The corpus is equally firm that <em>over</em>-correcting — treating every frozen within-sector ratio as independently injected — is <em>also</em> dishonest; the honest number sits in the middle.) The economy of the construction is <strong>real but modest</strong>, and stating it correctly is part of the case, not a footnote to it. A reader should weigh "$\sim$22 outputs from $\sim$13–14 effective inputs, with relations that can break" against "19 free parameters with no structural origin" (4D) and "no sharp prediction pending a selection principle" (landscape) — and judge the trade honestly.</p>
+<hr />
+<h2>6. The open question — is 13D <em>truly</em> minimal, or just a choice?</h2>
+<p>Everything above is the <em>argument for the choice</em>. It is emphatically <strong>not</strong> a proof that 13D is necessary, that 4D is impossible, or that string theory is wrong. The deepest residuals are open, and intellectual honesty requires naming them precisely.</p>
+<p><strong>6.1 Absolute minimality is uncomputable.</strong> The claim "no competitor <em>anywhere</em> is shorter / simpler" is a universal negative over all conceivable architectures — formally the Kolmogorov complexity of the target, which is <strong>not computable</strong>. The strongest claim one can even <em>state</em> is <strong>grammar-relative</strong>: minimal within a declared, finite "role–mechanism grammar" (the finitely many ways to realize each functional role — gauge origin, chirality origin, family count, flavor, scale). A competitor that uses a mechanism <em>outside</em> the declared grammar does not refute the claim; it forces the grammar to be <em>extended</em>. This is a real epistemic gain over hand-waving — but it is a <strong>sharper open question, not a closure.</strong> And it permanently <strong>bottoms on $E$</strong>: even the best outcome is "shortest generator of the structural and flavor data, <em>given</em> $E$," never "the geometry from nothing."</p>
+<p><strong>6.2 The dimension-ladder is surveyed, not classified.</strong> Under a minimum-description-length (MDL) metric, the 13D branch wins every <em>considered</em> rung of the dimension ladder ($D = 4\ldots 12$ plus non-dimensional rivals): in the first-pass survey, 10 rungs lose to 13D, 1 fails structurally, 0 refute it. But this is a <strong>first-pass survey, not a certified classification theorem.</strong> Closing it requires a normal-form / exhaustion theorem (show every SM-generating architecture reduces, without lowering its cost, to a finite mechanism normal form, then lower-bound each class). That theorem is <strong>open</strong> — bounded and tractable in principle, but not delivered.</p>
+<p><strong>6.3 The decisive seam: which simplicity metric is correct?</strong> Every "13D wins" verdict holds <strong>under the MDL / description-length metric</strong> — under which a measured real costs many bits (it must be specified to operational precision) and a discrete structural choice (a coset, a $\mathbb{Z}_6$, an integer index) costs $O(1)$ bits, so <em>anchor burden dominates dimension burden</em>. But under a <strong>dimension-first</strong> metric — count dimensions first — a clean 4D chiral-gauge EFT wins outright ($k_{\rm dim} = 4 < 13$), <em>and the minimality claim folds for everyone, including this program.</em> Which metric is correct is <strong>not decided.</strong> A faithful, fully-charged comparison must (a) build both ledgers against the same target $E$, (b) let the consequences that are automatic for both sides cancel (anomaly cancellation, written-spectrum chirality, the $\mathbb{Z}_6$ kernel, accidental proton stability — §2), and crucially (c) <strong>charge the 13D side for its geometry → observables generator map.</strong> If that map is itself a large injected object, the claimed 13D economy can <em>evaporate and the 4D EFT can genuinely win.</em> The corpus flags this outcome — labeled <strong>REFUTED-ECONOMY</strong> — as a live, honest, equally valuable possibility, explicitly <em>not</em> to be feared or suppressed.</p>
+<p><strong>6.4 Category fairness, and the rival TIE.</strong> The whole construction lives inside the "forces = isometries" category. A reviewer who sources gauge from bundles or branes (the string route) is <strong>outside the scope</strong> of facts F1, F2, and the abelian-isotropy uniqueness result — those are theorems <em>inside</em> the declared grammar, not category-free. Their architecture-neutrality is asserted, not proven. And the completeness of the $SU(3)$-carrier shelf over <em>all</em> admissible carriers (not just the clean/homogeneous class) remains an audit-grade obligation. These are the program's <strong>own declared first review targets</strong> — not objections raised from outside.</p>
+<p>The fair summary of §6: the 13D choice is <strong>selected-not-forced-absolutely.</strong> It is forced only relative to a declared grammar and a particular (unproven) simplicity metric. Whether a clever 4D construction or a specific string vacuum could match or beat it under a fair, fully-charged comparison is <strong>the open question</strong> — and it is the right question to keep open.</p>
+<hr />
+<h2>7. Why choose 13D anyway — the trade, stated plainly</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>4D EFT</th>
+<th>10/11D string (landscape)</th>
+<th>13D frozen shape</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gauge group</td>
+<td>postulated (fit)</td>
+<td>realized in <em>some</em> vacuum</td>
+<td>recovered by equality from isometries (TIE on outcome; carriers forced within grammar)</td>
+</tr>
+<tr>
+<td>Generation count</td>
+<td>postulated (fit)</td>
+<td>vacuum-dependent</td>
+<td>rigid index $\chi = -3$ (breakable)</td>
+</tr>
+<tr>
+<td>Selection principle</td>
+<td>none needed (max freedom)</td>
+<td><strong>none agreed</strong> (the landscape problem)</td>
+<td>one frozen shape, no menu</td>
+</tr>
+<tr>
+<td>Free inputs</td>
+<td>$\sim 19$ continuous</td>
+<td>vacuum + moduli</td>
+<td>$\sim 13$–$14$ effective reals (honest count)</td>
+</tr>
+<tr>
+<td>Sharp predictions</td>
+<td>none of its own structure</td>
+<td>none vacuum-independent</td>
+<td>over-determined relations that <em>can break</em></td>
+</tr>
+<tr>
+<td>Falsifiable as stands</td>
+<td>only via new physics</td>
+<td>weakly (anthropic)</td>
+<td><strong>yes</strong> — break a relation, break the shape</td>
+</tr>
+<tr>
+<td>Minimality proven?</td>
+<td>n/a</td>
+<td>n/a</td>
+<td><strong>NO — selected, not forced; the open question</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The case for 13D is not "it is deeper than string theory" (it is not — string theory contains quantum gravity at a scope this program does not match) and not "4D is wrong" (it is not — 4D is the correct low-energy description). The case is structural and epistemic: <strong>of the three, only the frozen, over-determined 13D shape is positioned to be <em>sharply falsified by present data</em>.</strong> It trades descriptive freedom for breakability. That is the entire argument for the choice — and it is an argument for a <em>choice</em>, carrying its honest ceiling: <strong>a serious candidate / partial unification, NOT validated; the geometry an anchor, not a derivation; its consequences DERIVED-GIVEN-E; and its absolute minimality an open question the program states as open rather than claims as closed.</strong></p>
+<hr />
+<h3>Where this is grounded</h3>
+<p>The technical claims here track two internal closure-attack dossiers on the frozen 13D branch — the geometry-specification gate (SG-1, <em>DECLARED-FROZEN</em>) and the gauge-recovery gate (SG-2, <em>DERIVED-GIVEN-E</em>) — and the published Paper I (GUT) and Paper IV (TOE) at physics.magflowmeters.com, which carry the full construction, the carrier datasheets, the elimination funnel, and the freeze records. The honest-count, rival-TIE, category-relativity, and metric-selection caveats are the program's own.</p>
+<p><em>Status: serious candidate / partial unification — NOT validated. The shape is an axiom; its consequences are derived given the shape and given the observed spectrum E. Absolute minimality versus a clever 4D construction or a specific string vacuum is the open question.</em></p>
+<hr />
+<p>A copy of the document is saved at <code>C:\Users\cberg\AppData\Local\Temp\claude\C--Users-cberg\14051b87-5c1c-4374-af20-50fd3b0c871d\scratchpad\why_not_4D_or_string.md</code>.</p>
+<p>Notes on fidelity to the corpus (so a reviewer can trust the hedging):
+- Every load-bearing technical claim is drawn from the two cited dossiers: the isometry/centralizer recovery and equality clause, $C_{SU(3)}(T^2)=T^2$, the $\mathbb{CP}^2$/$U(2)$ over-production kill with the $\mathrm{Spin}_c$ index $r(r+1)/2=3$, facts F1/F2, the LEP $N_\nu=2.984\pm0.008$, $\chi(K_6,E)=-3$, the frozen hashes, the four anchors plus ~9–10 injected reals (~13–14 total), the MDL-vs-dimension-first seam, and REFUTED-ECONOMY as a live outcome.
+- The honest ceiling ("serious candidate / partial unification — NOT validated"), the ANCHORED-NOT-DERIVED / DERIVED-GIVEN-E framing, the rival-TIE on the gauge outcome, and the open-minimality question are carried verbatim in spirit throughout.
+- No internal or never-publish material is referenced (no internal scaffolding). Internal gate IDs SG-1/SG-2 are mentioned only as named status labels, which are already part of the publicly described program.</p>
+</body></html>

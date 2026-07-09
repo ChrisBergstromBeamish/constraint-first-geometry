@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deep root — granularity / cost floor</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 252px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 10px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:14px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9670; The Anchors</a></div>
+<div class="ann-group">Start</div>
+<a href="index.html">Overview — how we judge</a>
+<a href="anchor-hierarchy-overview.html">Anchor hierarchy — map</a>
+<div class="ann-group">The method</div>
+<a href="a0-master-anchor.html">A0 — the master anchor</a>
+<a href="layer-1-metric.html">Layer 1 — MDL metric</a>
+<a href="layer-2-no-unpaid-labels.html">Layer 2 — no unpaid labels</a>
+<a href="layer-3-search-grammars.html">Layer 3 — search grammars</a>
+<a href="layer-4-carrier-forcing.html">Layer 4 — carrier-forcing</a>
+<a href="shape-minimality-challenge.html">Shape minimality challenge</a>
+<div class="ann-group">The hierarchy</div>
+<a href="deep-roots.html">The seven deep roots</a>
+<a href="master-anchors.html">Master anchors</a>
+<a href="logical-endpoint-proof.html">Logical endpoint proof</a>
+<a href="gate-traceability-template.html">Gate traceability template</a>
+<a href="blind-spots.html">Blind spots</a>
+<a href="ai-agent-completion-protocol.html">AI completion protocol</a>
+<div class="ann-group">Gate ledgers · GUT spine</div>
+<a href="sg1-anchor-ledger.html">SG-1 geometry</a>
+<a href="sg2-anchor-ledger.html">SG-2 gauge recovery</a>
+<a href="sg3-anchor-ledger.html">SG-3 generations</a>
+<a href="sg4-anchor-ledger.html">SG-4 hypercharge &amp; anomaly</a>
+<a href="sg5-anchor-ledger.html">SG-5 electroweak</a>
+<a href="sg6-anchor-ledger.html">SG-6 moduli stabilization</a>
+<a href="sg7-anchor-ledger.html">SG-7 threshold unification</a>
+<a href="sg8-anchor-ledger.html">SG-8 flavor closure</a>
+<a href="sg9-anchor-ledger.html">SG-9 proton safety</a>
+<a href="sg10-anchor-ledger.html">SG-10 claim boundary</a>
+<div class="ann-group">Gate ledgers · quantum/gravity/UV</div>
+<a href="uqf3-anchor-ledger.html">UQF-3 reflection positivity</a>
+<a href="uqf4-anchor-ledger.html">UQF-4 BRST / descent</a>
+<a href="uqf5a-5b-anchor-ledger.html">UQF-5A/5B linearized graviton</a>
+<a href="uqf5c-anchor-ledger.html">UQF-5C interacting graviton</a>
+<a href="uqf7-anchor-ledger.html">UQF-7 fermion chirality</a>
+<a href="uqf9-anchor-ledger.html">UQF-9 UV completion</a>
+<a href="uqf10-anchor-ledger.html">UQF-10 compactification</a>
+<a href="uqf14-anchor-ledger.html">UQF-14 unitarity / causality</a>
+<div class="ann-group">Gate ledgers · cosmology/BH/foundations</div>
+<a href="gap01-anchor-ledger.html">Gap-01 a6 Seeley-DeWitt</a>
+<a href="gap02-anchor-ledger.html">Gap-02 Yang-Mills mass gap</a>
+<a href="gap05-value-anchor-ledger.html">Gap-05 Lambda value</a>
+<a href="gap05-stability-anchor-ledger.html">Gap-05 Lambda stability</a>
+<a href="gap08-anchor-ledger.html">Gap-08 inflation</a>
+<a href="gap10-bg10-anchor-ledger.html">Gap-10/BG-10 baryogenesis</a>
+<a href="gap11-anchor-ledger.html">Gap-11 dark matter</a>
+<a href="gap13-anchor-ledger.html">Gap-13 BH entropy / Page</a>
+<a href="born-anchor-ledger.html">Born rule</a>
+<div class="ann-group">Gate ledgers · deep roots &amp; dissolutions</div>
+<a href="deeproot-granularity-anchor-ledger.html" class="current">Deep root — granularity</a>
+<a href="deeproot-shape-anchor-ledger.html">Deep root — structural form</a>
+<a href="lambda-catastrophe-anchor-ledger.html">Lambda-catastrophe (dissolved)</a>
+<a href="blackhole-singularity-anchor-ledger.html">Black-hole singularity (dissolved)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">DeepRoot-granularity — Deep root - granularity / cost floor: the gate anchor ledger — rendered package. Rendered from <code>deeproot-granularity-anchor-ledger.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>DeepRoot-granularity — Deep root - granularity / cost floor: the gate anchor ledger</h1>
+<p><strong>The honest one-line: reality having a smallest operational step is no longer a vague confession — the granularity root has been compressed to <em>one</em> named, value-free posit (a positive operational cell, $\Delta_0 > 0$), with $\hbar$ pinned as the <em>size</em> of that step (a residue, never an added knob). That reduction is real and largely <em>proved</em> around the posit; it is not a derivation of the floor. Under the ratified two-axis taxonomy the combined Deep-Roots gate reads as its banked terminal <strong>RESOLVED / ANCHORED (terminal reached; residual family shown)</strong>: the granularity sub-root is REDUCED-TO-AXIOM and the sibling SHAPE root is FORCED-RELATIVE-TO-RECORDS, each resting on a named anchor floor rather than on an open wall. The residual family below (the pre-quantum reconstruction Holes 1&ndash;6, and the SHAPE root's owed numeric exhibit) remains listed and carried unchanged.</strong></p>
+<p>This page is the gate-specific instantiation of the <a href="./index.html">anchoring method</a>: it takes the master anchor and applies it, object by object, to one gate. Every exact thing the granularity root touches gets its own row — its status, what it is <em>allowed</em> to claim, and what it is <em>forbidden</em> to claim. It follows the same eleven-part shape and the same universal table as the <a href="./sg4-anchor-ledger.html">canonical SG-4 ledger</a>.</p>
+<p>This gate is unusual: it has no anomaly ledger and no spectrum to admit. Its exact objects are a <em>reduction chain</em> — metric, theorems, countermodels, and a single named posit. The honest status word is <strong>REDUCED-TO-AXIOM</strong>, not OPEN, for the granularity sub-root itself.</p>
+<hr />
+<h2>1. Gate status header</h2>
+<ul>
+<li><strong>Granularity sub-root (R1) roll-up:</strong> <strong>REDUCED-TO-AXIOM / AXIOM-CLOSED</strong> — reduced to exactly one named, value-free posit (the Uniform Operational Cell Law, $\Delta_0 > 0$) plus one genuinely atomic measured anchor ($\hbar$, the measured action spacing).</li>
+<li><strong>Combined Deep-Roots gate roll-up:</strong> <strong>RESOLVED / ANCHORED</strong> (terminal reached; residual family shown) — under the ratified two-axis grading, both sub-roots rest on named anchor floors: granularity is REDUCED-TO-AXIOM (this page) and the sibling SHAPE sub-root is FORCED-RELATIVE-TO-RECORDS (absolute geometric minimality being an uncomputable shortest-description unicorn that no theory owes; the SHAPE root has its own page and its own owed numeric exhibit). The SHAPE anchor is a terminal, not an open wall.</li>
+<li><strong>Taxonomy reconciliation (2026-07-05):</strong> the gate-level grading under the current two-axis taxonomy is <strong>RESOLVED / ANCHORED</strong>, read as <em>terminal reached + residuals shown</em>, matching the live gate board. The residual family in this ledger (the granularity Holes 1&ndash;6 pre-quantum reconstruction, the completeness hypothesis, and the SHAPE root's owed record-cost exhibit) remains listed and carried unchanged; the economy / record-cost (MDL) leg of this deep root is argued on the gate board and the SHAPE root ledger, not restated here, and is settled as FORCED-RELATIVE-TO-RECORDS. The facts are unchanged &mdash; the earlier OPEN roll-up reflected the superseded least-closed-residual rule, not different facts.</li>
+<li><strong>The closed <em>local/partial</em> leg, as a formula.</strong> Given a compact distinguishable-record space, the floor exists by a proved theorem:
+$$ G_{\rm gran,local} : \quad \big(D \text{ compact},\; c \text{ continuous},\; c(x)=0 \Rightarrow x \notin D\big) \;\Longrightarrow\; \varepsilon = \min_{D} c > 0 . $$</li>
+<li><strong>Status, split so it cannot be misread:</strong><ul>
+<li><strong>The floor-from-compactness theorem (T5):</strong> <strong>DERIVED</strong> — clean, unconditional <em>given its hypotheses</em> (extreme value theorem + pointwise positivity).</li>
+<li><strong>The reduction to one posit:</strong> <strong>REDUCED-TO-AXIOM</strong> — the granularity root is named, not faked; $\hbar$ is its residue value.</li>
+<li><strong>The Uniform Operational Cell Law ($\Delta_0 > 0$) itself:</strong> <strong>AXIOM-OPEN / declared</strong> — posited, <em>not</em> derived from a strictly weaker premise.</li>
+<li><strong>The pre-quantum reconstruction that would derive the floor:</strong> <strong>OPEN.</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>selection ≠ derivation · given-E ≠ derivation-of-E · frozen/reproducible ≠ proven-unique.</strong></p>
+</blockquote>
+<hr />
+<h2>2. Frozen inputs (what this gate stands on, not what it produces)</h2>
+<ul>
+<li><strong>Frozen branch hashes</strong> <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>. The 13D branch is read-only and unmutated. <strong>These hashes are audit anchors — they certify <em>which object</em> was tested and that it cannot be quietly retuned. They do not validate the physics.</strong></li>
+<li><strong>The measured action anchor $\hbar$</strong> is <strong>given / charged</strong>: it enters as the <em>value</em> of the floor, not as something this gate derives. <strong>The gate does not derive $\hbar$, $k_B$, the Bekenstein constant, or $\Delta_0$</strong> — these are residues by construction. Every "the floor exists" below is a statement about <em>structure</em>, never about <em>magnitude</em>.</li>
+</ul>
+<hr />
+<h2>3. Object anchors — the operational structures the gate acts on (pre-Hilbert, given)</h2>
+<p>The gate is built entirely on operational primitives — records, admissible tests, outcome frequencies — with <strong>no</strong> Hilbert space, Born rule, or trace distance in any root statement. The root metric is the operational total-variation distance
+$$ d_{\rm op}(r,s) \;=\; \sup_{T,e} \big| P(e \mid r, T) - P(e \mid s, T) \big| . $$
+This is well-posed pre-quantumly (a classical witness on a measurable space reduces it to total variation, with indicator tests giving $d_{\rm op}=1$ for distinct points). <strong>Status: GIVEN / pre-Hilbert primitive</strong> — it matches Hardy / CDP operational distinguishability and is not derived here; Hilbert orthogonality is a <em>downstream representation</em> of $d_{\rm op}$, not its definition.</p>
+<hr />
+<h2>4. Root and master-anchor traceability</h2>
+<p><strong>Deep roots that are load-bearing for this gate:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Deep root</th>
+<th>Role in DeepRoot-granularity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Granularity</strong></td>
+<td>this <em>is</em> the root under reduction — the positive cost floor on distinguishable action</td>
+</tr>
+<tr>
+<td><strong>Record interface</strong></td>
+<td>supplies records, admissible tests, and outcome frequencies — the only ingredients of $d_{\rm op}$</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td>the floor is a floor on a <em>Lorentz-scalar</em> cost (action/information), not on a length — this is what keeps it frame-independent</td>
+</tr>
+<tr>
+<td><strong>Physical equivalence / invariance</strong></td>
+<td>a floor on a scalar picks no preferred frame; this is the Lorentz corollary that lets the route decline a length floor</td>
+</tr>
+<tr>
+<td><strong>Nonseparability</strong></td>
+<td>explains why per-system finiteness (total boundedness) does <strong>not</strong> equal a substrate-universal uniform floor</td>
+</tr>
+</tbody>
+</table>
+<p><em>Shape</em> and <em>causal order</em> are sibling roots, not primary load-bearing anchors for the granularity reduction (causal order supplies only the "bounded" in <em>bounded causal resources</em>).</p>
+<p><strong>Master anchors in play:</strong> finite invariant ledgers · no unpaid labels (every constant on the residue ledger) · the frozen branch · the residue-vs-structure split · open-residual discipline.</p>
+<hr />
+<h2>5. The DeepRoot-granularity anchor ledger (the universal table)</h2>
+<table>
+<thead>
+<tr>
+<th>Gate anchor</th>
+<th>Exact object</th>
+<th>Deep-root link</th>
+<th>Master-anchor link</th>
+<th>Status</th>
+<th>Allowed claim</th>
+<th>Forbidden claim</th>
+<th>Open residual / closure task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Granularity sub-root roll-up</td>
+<td>R1 (cost floor)</td>
+<td>Granularity</td>
+<td>open-residual discipline</td>
+<td><strong>REDUCED-TO-AXIOM</strong></td>
+<td>one named posit + $\hbar$ as residue</td>
+<td>"granularity is derived"</td>
+<td>promote via Holes 1/3</td>
+</tr>
+<tr>
+<td>Combined gate roll-up</td>
+<td>Deep-Roots gate</td>
+<td>Shape, Granularity</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN</strong></td>
+<td>granularity reduced; SHAPE wall open</td>
+<td>"the Deep-Roots gate is closed"</td>
+<td>SHAPE root (separate page)</td>
+</tr>
+<tr>
+<td>Frozen branch</td>
+<td>hashes <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code></td>
+<td>Record interface</td>
+<td>frozen branch</td>
+<td><strong>AUDIT ONLY</strong></td>
+<td>the tested object is frozen/read-only</td>
+<td>"hashes validate the physics"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Measured action anchor</td>
+<td>$\hbar$</td>
+<td>Scale</td>
+<td>residue-vs-structure</td>
+<td><strong>MEASURED-ANCHOR</strong></td>
+<td>$\hbar$ is the floor's <em>size</em> (residue)</td>
+<td>"the gate derives $\hbar$"</td>
+<td>(value outside reconstruction)</td>
+</tr>
+<tr>
+<td>Pre-Hilbert metric</td>
+<td>$d_{\rm op}=\sup_{T,e}|P(e|r,T)-P(e|s,T)|$</td>
+<td>Record interface</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED / well-posed</strong></td>
+<td>breaks the <em>surface</em> distinguishability circle</td>
+<td>"$d_{\rm op}$ closes the deeper circle"</td>
+<td>(deeper circle = Hole 3)</td>
+</tr>
+<tr>
+<td>Cost-not-length reframe</td>
+<td>L1/L2 (overlap free, orthogonality dear)</td>
+<td>Scale, Invariance</td>
+<td>residue-vs-structure</td>
+<td><strong>DERIVED</strong></td>
+<td>floor on a Lorentz scalar, no preferred frame</td>
+<td>"spacetime is discrete (a length floor)"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Floor-from-compactness</td>
+<td>T5: $\varepsilon=\min_D c>0$</td>
+<td>Granularity</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED</strong></td>
+<td>floor follows <em>given</em> compactness</td>
+<td>"T5 derives compactness"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Compactness reduction</td>
+<td>Theorem B: FTC + completeness $\Rightarrow$ compact</td>
+<td>Granularity, Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>DERIVED-GIVEN</strong> (conditional)</td>
+<td>compact via explicit $3\eta$-net</td>
+<td>"compactness proved unconditionally"</td>
+<td>discharge FTC + completeness</td>
+</tr>
+<tr>
+<td>Completeness hypothesis</td>
+<td>$R_{\rm phys}$ closed under $d_{\rm op}$-Cauchy limits</td>
+<td>Nonseparability</td>
+<td>no unpaid labels</td>
+<td><strong>AXIOM-OPEN / declared</strong></td>
+<td>carried openly on the residue ledger</td>
+<td>"total boundedness alone gives compactness"</td>
+<td>derive or keep ledgered</td>
+</tr>
+<tr>
+<td>Sufficiency lemma</td>
+<td>basin-packing: $\Delta>0 \Rightarrow N\le\lfloor B/\Delta\rfloor$</td>
+<td>Granularity</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED-GIVEN</strong> (conditional on $\Delta$)</td>
+<td>grounds FTC, no QM/thermal import</td>
+<td>"basin-packing derives the grain"</td>
+<td>— (gives count, not grain)</td>
+</tr>
+<tr>
+<td>The named posit</td>
+<td>Uniform Operational Cell Law, $\Delta_0>0$</td>
+<td>Granularity</td>
+<td>open-residual discipline</td>
+<td><strong>AXIOM-OPEN / declared</strong></td>
+<td>one value-free posit, named not faked</td>
+<td>"$\Delta_0>0$ is derived" / "zero posits"</td>
+<td>derive FTC from below (Hole 1)</td>
+</tr>
+<tr>
+<td>Loss: FTC not free</td>
+<td>delta-test countermodel $f_x(r)=\mathbb 1[r=x]$ on $[0,1]$</td>
+<td>Granularity</td>
+<td>open-residual discipline</td>
+<td><strong>DERIVED (banked loss)</strong></td>
+<td>finite resources $\nRightarrow$ FTC</td>
+<td>"finite resources imply the floor"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Loss: uniformity not free</td>
+<td>basin-shallowing $d_n=B\,2^{-n-1}$, $\inf=0$</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>DERIVED (banked loss)</strong></td>
+<td>finite resources $\nRightarrow$ <em>uniform</em> $\Delta_0$</td>
+<td>"finiteness gives uniformity"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Pontryagin relocation</td>
+<td>existence + discreteness $\Leftrightarrow$ phase compactness</td>
+<td>Granularity</td>
+<td>open-residual discipline</td>
+<td><strong>AUDIT (relocates)</strong></td>
+<td>iff relocates the posit</td>
+<td>"the iff eliminates the posit"</td>
+<td>derive phase compactness w/o unitarity</td>
+</tr>
+<tr>
+<td>Hole 1 (keystone)</td>
+<td>derive FTC pre-quantumly (ML / Landauer / Bekenstein as theorems)</td>
+<td>Granularity</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN</strong></td>
+<td>a named, finite reconstruction target</td>
+<td>"FTC is derived"</td>
+<td>§10 plan 1</td>
+</tr>
+<tr>
+<td>Hole 2</td>
+<td>T3 from bounded-causal-resource axioms alone</td>
+<td>Causal order, Granularity</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN</strong></td>
+<td>a named pre-quantum theorem target</td>
+<td>"T3 is proved standalone"</td>
+<td>§10 plan 2</td>
+</tr>
+<tr>
+<td>Hole 3</td>
+<td>co-fundamentality certificate (floor $\le$ QM)</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN</strong></td>
+<td>surface circle broken; deeper open</td>
+<td>"the implication order is proven"</td>
+<td>§10 plan 3</td>
+</tr>
+<tr>
+<td>Hole 4</td>
+<td>derive $\Delta_0$ from a deeper resource law</td>
+<td>Granularity</td>
+<td>no unpaid labels</td>
+<td><strong>OPEN</strong></td>
+<td>$\Delta_0$ ledgered, not eliminated</td>
+<td>"the reframe removed a constant"</td>
+<td>§10 plan 4</td>
+</tr>
+<tr>
+<td>Hole 5 (cross-gate)</td>
+<td>$\rho_{\rm vac}=\tfrac12\sum_n\lambda_n$ over the frozen spectrum</td>
+<td>Scale</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / computation debt</strong></td>
+<td>a named $\Lambda$-gate test surfaced here</td>
+<td>"granularity makes $\Lambda$ small"</td>
+<td>§10 plan 5</td>
+</tr>
+<tr>
+<td>Hole 6 (cross-gate)</td>
+<td>uniform-in-$a$ gap surviving the continuum limit</td>
+<td>Granularity</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN</strong></td>
+<td>discrete $\Rightarrow$ gap is the easy leg</td>
+<td>"the continuum gap is proved"</td>
+<td>§10 plan 6 (Gap-02)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. The construction — the reduction, in full</h2>
+<p>The granularity root was driven down a chain of theorems and reductions to a single named posit. Each link is marked exactly proved, conditional, or posited.</p>
+<p><strong>(1) Cost, not length.</strong> What is quantized is <em>action / cost</em> (a Lorentz scalar), not <em>space</em> (a length). In the L1/L2 form: gliding through a continuum of non-orthogonal (overlapping) states is free; only transitions to orthogonal (distinguishable) states cost, and an infinite chain of such, each costing $\ge$ a fixed floor, cannot complete under finite resource. So any completable process has finitely many costly steps. A length floor would pick a preferred frame (length contracts) and break Lorentz invariance; a floor on a scalar picks no frame. <strong>Status: DERIVED.</strong></p>
+<p><strong>(2) The floor from compactness — T5 (proved).</strong> Let $D$ be the space of distinguishable records and $c:D\to\mathbb R_{\ge 0}$ a cost.
+$$ \textbf{T5.}\quad D \text{ compact},\; c \text{ continuous},\; \big(c(x)=0\Rightarrow x\notin D\big) \;\Longrightarrow\; \varepsilon=\min_D c>0. $$
+<em>Proof.</em> A continuous function on a compact set attains its minimum; the minimizer $x^\*\in D$, so $c(x^\*)>0$ by pointwise positivity; hence $\varepsilon=c(x^\*)>0$. $\blacksquare$ T5 is unconditional <em>given its hypotheses</em>, which transfers the whole question onto: <strong>is $D$ (equivalently $R_{\rm phys}$) compact?</strong></p>
+<p><strong>(3) Compactness reduced to FTC — Theorem B (conditional, valid).</strong> With FTC (below) <strong>and</strong> $R_{\rm phys}$ closed under $d_{\rm op}$-Cauchy limits (completeness), $R_{\rm phys}$ is compact. <em>Proof sketch.</em> Fix $\eta>0$; FTC gives a finite test family, and the operational coordinate map $\Phi_\eta(r)=(P(e_j|r,T_j))_{j=1}^M\in[0,1]^M$ lands in a totally bounded cube; covering it by sup-norm cells of radius $\eta$ yields a finite $3\eta$-net with $d_{\rm op}\le 3\eta$, so $R_{\rm phys}$ is totally bounded; with completeness, compact. $\blacksquare$ <strong>The completeness hypothesis is a genuine extra assumption carried on the residue ledger — total boundedness alone does not give compactness without it.</strong></p>
+<p><strong>(4) The named target — FTC.</strong> For every bounded causal $R$ (budget $B$, duration $\tau$) and tolerance $\eta>0$ there is a <em>finite</em> family $\mathcal T_\eta=\{(T_j,e_j)\}_{j=1}^{M(B,\eta,\tau)}$ with
+$$ d_{\rm op}(r,s) \;\le\; \max_{1\le j\le M}\big|P(e_j|r,T_j)-P(e_j|s,T_j)\big| \;+\; \eta . $$
+Plain words: every operational distinction makeable with bounded causal resources is $\eta$-approximable by finitely many bounded-resource tests — the pre-quantum analogue of nuclearity, stated with no Hilbert space.</p>
+<p><strong>(5) The sufficiency lemma — basin-packing (conditional, sound).</strong> Assume finite total variation $\mathrm{Var}_{\rm op}(R)\le B$ and that each stable record requires a robustness basin of depth $\ge\Delta$. Pairwise-resolvable records have disjoint depth-$\ge\Delta$ basins, so
+$$ N\cdot\Delta \le B \;\Rightarrow\; N\le\lfloor B/\Delta\rfloor<\infty , $$
+hence FTC follows with $M\lesssim (B/\Delta)^2$. <strong>No QM, Bekenstein, or thermal import enters.</strong> This is conditional on the cell law $\Delta>0$ — exactly the irreducible posit — so it grounds the <em>count</em>, never the <em>grain</em>.</p>
+<p><strong>(6) The hard attack, reported as a loss.</strong> Finite resources do <strong>not</strong> force FTC. Take $R=[0,1]$ with delta-tests $f_x(r)=\mathbb 1[r=x]$; for distinct $r\ne s$, $d_{\rm op}(r,s)=1$, while any finite family $\{f_{x_1},\dots,f_{x_M}\}$ returns $0$ on a pair $r,s\notin\{x_j\}$, so $\max_j|f_{x_j}(r)-f_{x_j}(s)|=0$ and FTC fails for every $\eta<1$. $\blacksquare$ A sharper attack tests <em>uniformity</em>: basins of depth $d_n=B\,2^{-n-1}$ give $\sum_n d_n=B/2<B$ (finite resource respected) yet $\inf_n d_n=0$ — infinitely many robust records with arbitrarily fine grain. <strong>So finite causal support + finite duration + finite action/energy-time do NOT imply a uniform $\Delta_0$; they imply at most per-system total boundedness.</strong></p>
+<p><strong>Diagnostic — the reduction is specific, not trivial.</strong> The two banked losses are exactly what makes the posit honest: a <em>uniform</em> floor is provably <strong>not</strong> a free consequence of finiteness. The gap between $\{\eta$-dependent floor$\}$ and $\{$uniform $\Delta_0\}$ is a <em>theorem</em> (a counterexample to the uniform claim under the stated premises), so the posit names a real primitive rather than restating an available implication. Were uniformity free, there would be no posit to name; the countermodels show there is.</p>
+<p><strong>The obstruction split.</strong> Collect the closed leg vs the full root:
+$$ G_{\rm gran,local}(\text{compact}) : \;\varepsilon>0\;\text{(DERIVED via T5)}, \qquad G_{\rm gran}(\text{from below}) : \;\Delta_0>0\;\text{(AXIOM-OPEN; Holes 1/3)} . $$
+We do <strong>not</strong> assert $G_{\rm gran}$ is closed: the uniform floor is named, not derived.</p>
+<hr />
+<h2>7. Declared-structure splits — the "smallest step" phrase, split into honest objects</h2>
+<p>The single phrase "reality has a smallest step" hides several claims with different statuses:</p>
+<ol>
+<li><strong>The floor <em>exists</em> given compactness</strong> ($\varepsilon=\min_D c>0$). <strong>DERIVED</strong> (T5).</li>
+<li><strong>Compactness itself.</strong> <strong>DERIVED-GIVEN FTC + completeness</strong> (Theorem B) — conditional, not unconditional.</li>
+<li><strong>The completeness ($d_{\rm op}$-Cauchy closure) hypothesis.</strong> <strong>AXIOM-OPEN / declared</strong> — carried on the residue ledger, never silently folded into the conditional.</li>
+<li><strong>The grain is <em>uniform</em> ($\Delta_0$ system-independent).</strong> <strong>AXIOM-OPEN / declared</strong> — the Uniform Operational Cell Law; the basin-shallowing countermodel proves it is not forced by finiteness.</li>
+<li><strong>The grain equals $\hbar$.</strong> <strong>MEASURED-ANCHOR / residue</strong> — value, not structure; outside any reconstruction.</li>
+</ol>
+<p>So the floor's <em>existence given compactness</em> is DERIVED, <em>compactness</em> is conditional, <em>uniformity</em> is the one named posit, and the <em>value</em> is a residue. Conflating these is exactly the overclaim this page refuses.</p>
+<hr />
+<h2>8. Open residuals — the pre-quantum reconstruction family</h2>
+<p>The reduction above is one face. These distinct residuals make up the rest, and none is closed by the reduction:</p>
+<ul>
+<li><strong>Hole 1 — derive FTC from strictly weaker primitives (the keystone).</strong> <strong>OPEN.</strong> From a distinguishability test-space + additive-cost axiom set (no Hilbert orthogonality, no trace distance, no Bekenstein, no nuclearity), derive the Hilbert structure so Margolus–Levitin $\tau\ge\pi\hbar/(2E)$, Landauer $kT\ln 2$, and the Bekenstein bound all fall out as <em>theorems</em>. Estimated $\sim$15–20% odds to flip the arrow on a single framework.</li>
+<li><strong>Hole 2 — prove T3 (or FTC) from bounded-causal-resource axioms alone.</strong> <strong>OPEN.</strong> Defeat the live circularity that the finite budget $B$ must not secretly <em>be</em> the per-milestone floor; keep $B=$ action/energy$\cdot$time ($B=$ finite information capacity is an illegitimate relabel giving $N\le 2^B$ trivially).</li>
+<li><strong>Hole 3 — the co-fundamentality certificate.</strong> <strong>OPEN.</strong> The <em>surface</em> distinguishability circle is broken ($d_{\rm op}$ needs no QM); the deeper certification circle — that the floor sits <em>at-or-below</em> QM in the implication order — is the recognized-open object, the same reconstruction as Hole 1.</li>
+<li><strong>Hole 4 — derive $\Delta_0$ from a deeper resource law.</strong> <strong>OPEN.</strong> $\Delta_0$ is a <em>new</em> residue introduced alongside $\hbar,k_B$; the reframe trades $\{$cost floor $\varepsilon\}$ for $\{$resolution floor $\Delta$ + compactness$\}$. If it cannot be derived, the close is documentary: state that one residue replaced another (better-motivated, not eliminated).</li>
+<li><strong>Hole 5 — $\Lambda$-magnitude (cross-gate, RELOCATES).</strong> <strong>OPEN / computation debt.</strong> Compute $\rho_{\rm vac}=\tfrac12\sum_n\lambda_n$ over the actual finite frozen spectrum with no free regulator. <em>A $\Lambda$-gate test surfaced by granularity, not the granularity root itself.</em></li>
+<li><strong>Hole 6 — S1 gap-finiteness (cross-gate, Gap-02).</strong> <strong>OPEN.</strong> "Discrete $\Rightarrow$ positive gap" is the easy direction; the open wall is a uniform-in-$a$ lower bound surviving the continuum limit and landing on ordinary $SU(3)_c$.</li>
+</ul>
+<p>Holes 1, 2, and 3 are <em>separate rows</em> under one top-level family: <strong>the pre-quantum reconstruction.</strong> Holes 5 and 6 are cross-gate tests, correctly scoped as surfaced-here, not the granularity root.</p>
+<hr />
+<h2>9. Anti-claims (what this page refuses to say)</h2>
+<ul>
+<li>The gate does <strong>not</strong> derive the granularity floor from a strictly weaker principle. Fork A (a derivation) is ruled out from the stated premises by the delta-test and basin-shallowing countermodels; the floor is <strong>named</strong> (Fork B), not derived.</li>
+<li><strong>"Zero posits" is forbidden.</strong> The gate-specific granularity posit count is <strong>ONE</strong> (the Uniform Operational Cell Law). The Pontryagin iff <em>relocates</em> the uniformity posit onto phase compactness; it does not eliminate it, and deriving uniformity from unitarity is circular (it would put granularity downstream of QM).</li>
+<li>The gate does <strong>not</strong> derive the <em>value</em> of $\hbar$, $k_B$, the Bekenstein constant, or $\Delta_0$ — these are residues by construction; the program is about structure, not magnitude.</li>
+<li><strong>No spacetime discreteness.</strong> A smallest <em>length</em> is explicitly not claimed; only a floor on the Lorentz-scalar cost (the G3 firewall).</li>
+<li><strong>No strict irreducibility.</strong> "No deeper principle anywhere is more fundamental than this floor" is a universal negative, unprovable for any root in any field; the honest ceiling is <em>co-fundamentality</em> (the floor sits at-or-below QM/thermodynamics/gravity in the implication order).</li>
+<li><strong>Conditional ≠ unconditional.</strong> Theorem B gives compactness only <em>with</em> completeness; total boundedness alone does not. The completeness hypothesis stays on the residue ledger.</li>
+<li>The frozen-branch hashes are audit anchors; they do <strong>not</strong> validate the physics.</li>
+<li><strong>The granularity reduction is not physics-closure.</strong> REDUCED-TO-AXIOM on R1 is a two-axis terminal (terminal reached + residuals shown), not a physics-closed claim; the combined Deep-Roots gate reads RESOLVED / ANCHORED because both sub-roots rest on named anchor floors (granularity here, SHAPE FORCED-RELATIVE-TO-RECORDS on its own page), with the residual family shown, not eliminated.</li>
+</ul>
+<hr />
+<h2>10. Specialist closure plan</h2>
+<p>Each open residual is a concrete, finite, target-blind work-package:</p>
+<ol>
+<li><strong>Hole 1 / FTC keystone</strong> — a pre-quantum reconstruction theorem deriving (a) the Hilbert structure so Margolus–Levitin falls out, (b) Landauer $kT\ln 2$, (c) the Bekenstein bound, from the additive-cost axiom set, passing every auto-fail guard (no imported orthogonality, no equal-strength parent principle, no re-injecting $\varepsilon>0$ by hand, no pre-quantum Margolus–Levitin pinned only by $\hbar$). <em>Success:</em> the derived structure reproduces $N\approx V/\hbar^{n}$ and the uncertainty relation as outputs. <em>Refuting close (equally valid):</em> a clean no-go that no such axiom set can derive FTC without re-importing orthogonality/finite-dimension terminally confirms Fork B.</li>
+<li><strong>Hole 2 / T3 standalone</strong> — prove FTC (then Theorem B gives compactness) or T3 directly from bounded-causal-resource axioms alone, keeping $B=$ action/energy$\cdot$time. <em>Success:</em> a finite $3\eta$-net from resource bounds alone. <em>Refuting close:</em> a sharper countermodel that resource bounds provably cannot bound resolution strengthens the banked loss.</li>
+<li><strong>Hole 3 / co-fundamentality certificate</strong> — show the cost floor is derivable from a strictly weaker premise than QM (QM $\Rightarrow$ floor but not conversely), with no $\hbar$-graining input. <em>Refuting close:</em> a proof that floor and QM are mutually derivable establishes strict co-fundamentality, also publishable. (Do not invent a finite-register countermodel, do not assert "QM $\Rightarrow$ Cell-Law" as a standard fact, do not assert the implication ordering as proven — all three were flagged as fabrications and are excluded.)</li>
+<li><strong>Hole 4 / $\Delta_0$</strong> — derive a single universal $\Delta_0$ from a deeper substrate law; if it cannot be derived, document explicitly that one residue ($\Delta_0$) replaced another ($\varepsilon$), keeping the ledger $\{\hbar, k_B, \text{Bekenstein constant}, \Delta_0, \text{completeness}\}$ complete and honest.</li>
+<li><strong>Hole 5 / $\Lambda$-magnitude (cross-gate)</strong> — compute $\rho_{\rm vac}=\tfrac12\sum_n\lambda_n$ via a canonical regularization (the $\zeta_{K_6}(-1)$ continuation or the $d=6$ scalar $a_4$ Seeley–DeWitt coefficient), <em>plus</em> a referenced zero-weight multiplicity rule, <em>plus</em> the graded sign. The predicted $\sim\Lambda_{\rm YM}^4\sim 1.6\times 10^{-3}$ GeV$^4$ misses $(\text{meV})^4$ by $\sim 10^{44}$ and <em>confirms RELOCATES</em> (a valid negative close). Coordinate with the $\Lambda$ gate and the $a_{K_6}$ blocker.</li>
+<li><strong>Hole 6 / S1 gap-finiteness (cross-gate)</strong> — build the finite positive operator $H$ on the pure-glue $\mathbb Z_6$-center projection of $K_6$ in the smallest $R_0$-fixed truncation; verify (a) $\lambda_1>0$ and bounded below as the dimension grows toward the cutoff, and (b) $\lambda_1=M_{\rm cutoff}\,\exp(-2\pi/(b_0\alpha))$ lands in $[0.1,0.3]$ GeV using only frozen $\alpha(M_U)$ and $SU(3)$ $b_0$, no fitted prefactor. <em>Refuting close:</em> $\lambda_1\to 0$ in the continuum limit, or a value outside $[0.1,0.3]$ GeV, is a clean negative. This is Gap-02 work; coordinate with the <a href="./gap02-anchor-ledger.html">Gap-02 ledger</a>.</li>
+</ol>
+<p>Closing Holes 1/3 (the same reconstruction object) is the single largest possible move on this root — it would upgrade granularity from REDUCED-TO-AXIOM toward DERIVED. Even then, the combined Deep-Roots gate stays OPEN until the SHAPE root is addressed.</p>
+<hr />
+<h2>11. Completion tests for this page</h2>
+<p><strong>Required presence (all met):</strong> granularity sub-root roll-up REDUCED-TO-AXIOM · combined gate roll-up OPEN · the closed local leg $G_{\rm gran,local}$ ($\varepsilon=\min_D c>0$) · T5 DERIVED · the reduction-to-one-posit · "$\hbar$ not derived" (residue) · frozen hashes (AUDIT ONLY) · the pre-Hilbert metric $d_{\rm op}$ · cost-not-length reframe · Theorem B conditional · completeness hypothesis AXIOM-OPEN · basin-packing $N\le\lfloor B/\Delta\rfloor$ · the Uniform Operational Cell Law AXIOM-OPEN · both banked losses (delta-test; basin-shallowing) · Pontryagin relocation · specificity diagnostic (uniformity provably not free) · Holes 1–6 each as its own row · the "one posit, not zero" anti-claim · the no-spacetime-discreteness anti-claim · the hashes-don't-validate anti-claim.</p>
+<p><strong>Required absence (all held):</strong> no claim the granularity floor is derived from below · no "zero posits" · no derivation of the <em>value</em> of $\hbar$/$\Delta_0$ · no spacetime discreteness · no strict irreducibility · no claim that total boundedness alone gives compactness · no claim that the combined Deep-Roots gate is closed · hashes validate physics · any open hole asserted proven/computed/closed · any reader-visible build-process vocabulary.</p>
+<hr />
+<p><em>This gate anchor ledger follows the same eleven-part shape and universal table as the <a href="./sg4-anchor-ledger.html">canonical SG-4 ledger</a>.</em></p>
+<p><strong>See also:</strong> <a href="./index.html">the anchoring method</a> · <a href="./a0-master-anchor.html">the master anchor (A0)</a> · <a href="./layer-1-metric.html">Layer 1 — the metric</a> (the operational distinguishability metric this gate rests on) · <a href="./gap02-anchor-ledger.html">the Gap-02 ledger</a> (Hole 6 cross-gate, the mass-gap survival) · the sibling <a href="../articles/DOSSIER_DEEPROOT_SHAPE_FULL.html">SHAPE deep-root dossier</a> (why the <em>combined</em> Deep-Roots gate stays OPEN) · the full <a href="../articles/DOSSIER_DEEPROOT_GRANULARITY_FULL.html">DeepRoot-granularity dossier</a>.</p>
+</main>
+</div>
+</body></html>

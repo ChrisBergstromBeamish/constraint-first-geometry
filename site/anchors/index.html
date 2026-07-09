@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Anchors — how we judge the theory honestly</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">The Anchors — how we judge the theory honestly — rendered package. Rendered from <code>index.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>The Anchors — how we judge the theory honestly</h1>
+<p><strong>We don't claim the shape is the only one that works. We do something more useful — and more honest: we say exactly what game it's winning, and what would settle the rest.</strong></p>
+<hr />
+<h2>The question this page answers</h2>
+<p>Most "theory of everything" pitches ask you to take their central object on faith and then admire what falls out. We invert the order. Before showing you a single downstream result, we hand you the <em>rule-set</em> by which the whole program is to be judged — the master anchor, the four-layer bridge that turns it into a usable simplicity metric, the catalogue of search games a competitor is allowed to play, and the formal contest in which the shape is benchmarked against rivals. This page is the map of that rule-set. The honesty is not a disclaimer bolted onto the physics; it <em>is</em> the methodology.</p>
+<p>The central object is a single 13-dimensional geometric shape,</p>
+<p>$$
+M_4 \times K_6 \times S^2 \times S^1_Y/\mathbb{Z}_2,
+\qquad K_6 = SU(3)/T^2 .
+$$</p>
+<p>Here is the strongest statement we will defend, stated up front and never quietly inflated:</p>
+<blockquote>
+<p>Given the frozen 13D shape (with $K_6 = SU(3)/T^2$) and given the observed Standard-Model matter content $E$, the framework reads off the SM gauge algebra $su(3)\oplus su(2)\oplus u(1)$, three chiral generations, and charge quantization from geometry. The shape itself remains a declared, frozen anchor — not a uniqueness theorem.</p>
+</blockquote>
+<p>Read that twice. It is a strong claim <em>and</em> a bounded one. The boundary is the methodology.</p>
+<hr />
+<h2>The three discipline lines</h2>
+<p>Every page in this section carries the same three guardrails. They are the difference between a result and an overclaim, and we never drop them:</p>
+<ul>
+<li><strong>selection ≠ derivation</strong> — the shape was <em>selected and frozen</em>, not derived from a void.</li>
+<li><strong>given-E ≠ derivation-of-E</strong> — downstream results follow <em>given</em> the observed spectrum $E$; they do not <em>produce</em> $E$.</li>
+<li><strong>frozen/reproducible ≠ proven-unique</strong> — the shape is hash-frozen and blindly reproducible, which is not the same as proven to be the only shape that works.</li>
+</ul>
+<p>Everything below is an attempt to make each of those lines as <em>sharp and as honest</em> as possible — to say precisely what is reached, and to name the exact theorem that would reach further.</p>
+<hr />
+<h2>Two counts, honestly separated — calibration anchors vs. total measured inputs</h2>
+<p><strong>An accounting update, not a physics update.</strong> Different tellings of this program have quoted different anchor counts — four, five, eight. Those numbers were not contradicting each other; they were answering different questions without saying so. This section fixes that by publishing both counts, each labeled with the question it answers. Nothing downstream changes: <strong>no gate closes, no gate opens, and the <a href="/gates/">scoreboard</a> is exactly what it was before this section existed.</strong></p>
+<p>$$\boxed{\text{Two counts, two questions: a small calibration set fixes the dials; a larger named set is everything the machinery actually consumes.}}$$</p>
+<p>One principle sits under both counts, and it binds every page in this section: <strong>no framework derives its measured inputs from nothing.</strong> The floor of measured inputs is never zero — not here, not anywhere. The honest questions are only: <em>how many</em>, <em>which ones</em>, and <em>are they all named?</em> This program's answer to the third question is the differentiator: <strong>every input is counted, including the ones a headline would rather omit.</strong></p>
+<h3>Tier 1 — the calibration anchors (4–5)</h3>
+<p>These are the measured values used to <em>calibrate</em> the frozen shape's dial settings, after which the framework's outputs are cross-checked against further data it was not tuned to — the over-determination discipline described across these pages.</p>
+<ul>
+<li>$M_{\rm Pl}$ — the dimensionful scale ruler (MEASURED).</li>
+<li>$\alpha_i$ — the gauge couplings at $M_Z$ (MEASURED).</li>
+<li>$y_t$ — the top Yukawa (MEASURED).</li>
+<li>$|V_{us}|$ — the Cabibbo entry (MEASURED; noted honestly: its standard extraction imposes CKM unitarity, so the extraction convention is visible, not hidden).</li>
+<li>$N_\nu = 3$ — the LEP light-neutrino <strong>count</strong> (MEASURED, value-free): an integer, not a magnitude. Counting it here is why the set reads "4–5."</li>
+</ul>
+<p>When earlier pages said "four anchors," this set — with $N_\nu$ sometimes tallied, sometimes not — is what was meant. That count is real and it stands. But it answers the narrow question <em>"how many measured values calibrate the shape?"</em> — not the full question <em>"how many measured inputs does the whole machinery run on?"</em> That question gets its own tier.</p>
+<h3>Tier 2 — total measured inputs consumed (~12–14)</h3>
+<p>This is the complete named floor: every measured (or charged) input any gate page consumes, each typed, each with its consumer named. Every row below is <strong>MEASURED / input-consumed</strong> — none is claimed derived, and none is new. Each was already being consumed by the pages that cite it; what is new is only that all of them now appear in one honest table.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Input</th>
+<th>Status</th>
+<th>Consumed by</th>
+<th>Counting note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>$M_{\rm Pl}$</td>
+<td>MEASURED</td>
+<td>scale normalization throughout</td>
+<td>dimensionful ruler #1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>$\alpha_i$ (gauge couplings at $M_Z$)</td>
+<td>MEASURED</td>
+<td><a href="./sg7-anchor-ledger.html">SG-7</a></td>
+<td>counted as one calibration set</td>
+</tr>
+<tr>
+<td>3</td>
+<td>$y_t$</td>
+<td>MEASURED</td>
+<td><a href="./sg8-anchor-ledger.html">SG-8</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td>4</td>
+<td>$</td>
+<td>V_{us}</td>
+<td>$</td>
+<td>MEASURED</td>
+</tr>
+<tr>
+<td>5</td>
+<td>$N_\nu = 3$ (LEP count)</td>
+<td>MEASURED, value-free</td>
+<td><a href="./sg3-anchor-ledger.html">SG-3</a> and consumers</td>
+<td>an integer; it can never pay for a mass <strong>scale</strong> — which is why row 9 exists separately</td>
+</tr>
+<tr>
+<td>6</td>
+<td>electroweak scale — $v_{\rm EW} \equiv M_Z \equiv G_F$ (one number)</td>
+<td>MEASURED</td>
+<td><a href="./sg5-anchor-ledger.html">SG-5</a> (input), <a href="./sg7-anchor-ledger.html">SG-7</a> ($M_Z$ window), <a href="./sg8-anchor-ledger.html">SG-8</a> (scheme conversions)</td>
+<td><strong>dimensionful ruler #2.</strong> The machinery runs on two rulers, not one; this row says so plainly</td>
+</tr>
+<tr>
+<td>7</td>
+<td>$m_b(M_Z)$</td>
+<td>MEASURED</td>
+<td><a href="./sg8-anchor-ledger.html">SG-8</a></td>
+<td>one degree of freedom</td>
+</tr>
+<tr>
+<td>8</td>
+<td>$m_\tau$</td>
+<td>MEASURED</td>
+<td><a href="./sg8-anchor-ledger.html">SG-8</a></td>
+<td>one degree of freedom</td>
+</tr>
+<tr>
+<td>9</td>
+<td>one neutrino mass-splitting scale ($\Delta m^2$)</td>
+<td>MEASURED</td>
+<td><a href="./sg8-anchor-ledger.html">SG-8</a>, <a href="./gap10-bg10-anchor-ledger.html">Gap-10/BG-10</a></td>
+<td>one scale, counted once — not two</td>
+</tr>
+<tr>
+<td>10</td>
+<td>$T_{\rm CMB}$</td>
+<td>MEASURED</td>
+<td><a href="./gap10-bg10-anchor-ledger.html">Gap-10/BG-10</a> (asymmetry denominator), <a href="./gap11-anchor-ledger.html">Gap-11</a> (relic conversion)</td>
+<td>conversion-only; never a terminal</td>
+</tr>
+<tr>
+<td>11</td>
+<td>$H_0$ (equivalently $\rho_{\rm crit}$)</td>
+<td>MEASURED</td>
+<td><a href="./gap05-value-anchor-ledger.html">Gap-05</a> ($\Lambda$ conversion), <a href="./gap11-anchor-ledger.html">Gap-11</a></td>
+<td>counted once, with the $\Lambda$/$M_{\rm Pl}$ de-duplication stated (row 12)</td>
+</tr>
+<tr>
+<td>12</td>
+<td>$\Lambda$</td>
+<td>MEASURED</td>
+<td>its own measured terminal</td>
+<td>counted once; consumed only against $M_{\rm Pl}$ in dimensionless comparison; it pays for nothing else</td>
+</tr>
+<tr>
+<td>13</td>
+<td>$\hbar$</td>
+<td>exact by definition (post-2019 SI)</td>
+<td>action-to-phase bridge</td>
+<td>its measured content enters through $G$, hence through $M_{\rm Pl}$; counted with the ruler, not as an extra row</td>
+</tr>
+<tr>
+<td>14</td>
+<td>$E$ — the observed matter content</td>
+<td>CHARGED (given-$E$)</td>
+<td>every spectrum-dependent gate</td>
+<td>not a number — the largest single paid input, always listed, never hidden</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why "~12–14" and not one integer:</strong> the range is a counting convention, stated rather than smoothed over. Count only the numeric measured rows with $\hbar$ folded into the ruler and $E$ set aside as a charged (non-numeric) input, and the tally is 12. Tally every named row above and it is 14. Either way, every row is on the table.</p>
+<h3>Why the count went up — and why that is the point</h3>
+<p>Nothing was added to the physics. Rows 6–11 were already load-bearing inside the gate pages that cite them; the electroweak scale, in particular, has always been the second dimensionful ruler the scheme conversions run on. What changed is the bookkeeping: the headline count (Tier 1) was doing double duty as a total-input count, and it isn't one. Declaring the full consumed set costs the framework nothing physical — these inputs were being spent all along — and it buys the only thing this section is for: <strong>a reviewer can now audit the complete bill, not the advertised one.</strong></p>
+<p>Most programs publish their calibration count. Very few publish their consumption count. The claim defended here is not "this framework has few inputs" — it is the sharper, checkable claim: <strong>this framework has <em>named</em> inputs, all of them, with consumers attached.</strong> If a reviewer finds a measured value consumed anywhere in these pages that is missing from the table above, that is a defect in this section, and the table gets the row.</p>
+<h3>What this update does not do</h3>
+<ul>
+<li><strong>It closes nothing.</strong> No gate status changes in either direction; the <a href="/gates/">scoreboard</a> is untouched.</li>
+<li><strong>It derives nothing.</strong> Every Tier-2 row is MEASURED or CHARGED — consumed, not produced. No row here is a new result, and none is claimed as one.</li>
+<li><strong>It does not shrink the floor.</strong> The floor of measured inputs is never zero, here or in any framework; this section makes the floor <em>visible</em>, not smaller.</li>
+<li><strong>It makes no prediction.</strong> No numbers are forecast, no dates, no new physics.</li>
+</ul>
+<hr />
+<hr />
+<h2>The anchor hierarchy — roots, master anchors, and the audit discipline</h2>
+<p>Beneath A0 and the four bridges sits the full <strong>anchor hierarchy</strong>: the seven deep roots the framework bottoms out in, the master anchors that carry them into gate evaluation, the proof that a finite theory <em>must</em> terminate in such roots, the reusable per-gate traceability method, an honest blind-spots register, and the completion protocol that keeps every page tested.</p>
+<ul>
+<li><a href="./anchor-hierarchy-overview.html">The anchor hierarchy — overview</a> — the map: deep roots → master anchors → gate anchors → status.</li>
+<li><a href="./deep-roots.html">The seven deep roots</a> — Invariance · Record Interface · Causal Order · Granularity · Scale · Shape · Nonseparability, each status-labeled.</li>
+<li><a href="./master-anchors.html">Master / fundamental anchors</a> — how the roots become the observable, auditable anchors that gates use.</li>
+<li><a href="./logical-endpoint-proof.html">The logical endpoint proof</a> — why physics must terminate in declared/measured roots, and why "just is" is not immunity from review.</li>
+<li><a href="./gate-traceability-template.html">Gate traceability — method &amp; template</a> — the reusable per-gate ledger method (the shape every gate ledger below follows).</li>
+<li><a href="./blind-spots.html">Blind spots &amp; implicit assumptions</a> — the named risks and how each is contained.</li>
+<li><a href="./ai-agent-completion-protocol.html">The AI-agent completion protocol</a> — how each page is decomposed into atomic, test-verified tasks.</li>
+</ul>
+<hr />
+<h2>A0 — the master anchor</h2>
+<p>Everything rests on one rule for what counts as physics at all:</p>
+<blockquote>
+<p><strong>A0.</strong> Physical law is the minimal observer-invariant generator of finite physical observables.</p>
+</blockquote>
+<p>A theory earns physical status by generating finite observables that stay invariant across admissible frames, gauges, coordinates, and descriptions; and it is <em>stronger</em> when it generates <strong>more</strong> invariant observables from <strong>fewer explicitly-charged primitives</strong>, with no hidden labels and no post-hoc retuning. A0 is not a claim about our shape — it is the scoring rule that grades our shape <em>and every competitor</em> identically.</p>
+<p>Its status is honest and specific: A0 is a <strong>meta-axiom / audit-theorem, conditionally validated</strong> — we argue it is the <em>correct</em> way to score any candidate, and that it beats the obvious alternatives (dimension-counting, mathematical beauty, shape-first reasoning, raw granularity).</p>
+<p>→ <a href="./a0-master-anchor.html">A0 — The Master Anchor</a></p>
+<hr />
+<h2>The proof chain — four bridges from A0 to "13D minimal, given E"</h2>
+<p>A0 is a principle. To turn it into a verdict about a 13-dimensional shape you have to cross four bridges, each a <em>named, statable theorem-target</em>. Some are reached; some are open. Stating which is which is the whole point.</p>
+<p>$$
+\text{A0} \;\Rightarrow\;
+\underbrace{\text{MDL metric}}_{L1}
+\;\Rightarrow\;
+\underbrace{\text{no unpaid exact labels}}_{L2}
+\;\Rightarrow\;
+\underbrace{\text{finite grammar ledger}}_{L3}
+\;\Rightarrow\;
+\underbrace{\text{carrier-forcing}}_{L4A}
+\;\Rightarrow\;
+\text{13D minimal in Grammar A, given } E .
+$$</p>
+<p>Separately, a <strong>bundle-uniqueness theorem</strong> ($L4B$) is the only route that could ever remove the "given $E$" qualifier.</p>
+<h3>Layer 1 — why "simplest" means description-length</h3>
+<p>Is 13 dimensions "simpler" than 4? It depends entirely on how you measure. Under a <strong>dimension-first</strong> ruler, a clean 4D effective theory wins outright ($4 < 13$). Under <strong>minimum description length (MDL)</strong>, every injected real anchor and selector rule costs bits — and the 13D branch can win because it <em>generates</em> what the 4D theory must <em>write in by hand</em>. The theorem that would pick MDL as the correct order (finite operational granularity $\Rightarrow$ MDL) is <strong>open</strong>. Until it is proven, "13D is minimal" is metric-relative — and a result showing the 4D theory is genuinely cheaper would be just as valuable.</p>
+<p>→ <a href="./layer-1-metric.html">Layer 1 — Why "simplest" means description-length</a></p>
+<h3>Layer 2 — no unpaid exact labels</h3>
+<p>Given the MDL ruler, the anti-smuggling theorem follows cleanly: every exact Standard-Model label a candidate uses must be <strong>generated</strong> by declared structure, <strong>charged</strong> as a primitive input, or <strong>left open</strong>. There is no free label. The sharpest consequence: <strong>anomaly cancellation is a filter, not a selector.</strong> The observed spectrum <em>passes</em> $A(E_{\rm SM}) = 0$; it is not <em>picked out</em> by it. So $E$ stays primitive.</p>
+<p>→ <a href="./layer-2-no-unpaid-labels.html">Layer 2 — No unpaid exact labels</a></p>
+<h3>Layer 3 — the allowed search grammars</h3>
+<p>You may only call a theory "simpler" inside a <em>declared game</em>. We name four — (A) internal-isometry geometry, (B) bundle / brane / singularity, (C) 4D effective field theory, (D) algebraic / noncommutative / lattice — and one hard rule: <strong>you may never compare across grammars without an explicit bridge theorem and a common metric.</strong> Grammar B <em>ties</em> the gauge outcome; Grammar C is cheaper only under dimension-first. The closure target is a <strong>role-mechanism normal-form / exhaustion theorem</strong> that would turn a survey of games into a classification.</p>
+<p>→ <a href="./layer-3-search-grammars.html">Layer 3 — The allowed search grammars</a></p>
+<h3>Layer 4 — carrier-forcing and the given-E wall</h3>
+<p>This is the strongest current result and the hard limit, side by side. <strong>Inside Grammar A</strong>, the three carriers are <em>forced</em>: no abelian/torus carrier of any dimension hosts non-abelian $SU(2)$ (so the weak carrier must be $S^2$); a bare circle keeps both handednesses and produces mirror fermions excluded by the LEP $Z$-width (so hypercharge needs the $\mathbb{Z}_2$ fold); and the maximal torus is the <em>unique</em> purely-abelian $SU(3)$ isotropy, $C_{SU(3)}(T^2) = T^2$, fixing color to $K_6 = SU(3)/T^2$. The one cheaper rival, $CP^2 = SU(3)/U(2)$, was built end-to-end and <strong>breaks</strong> at the gauge gate. But the whole stack <strong>bottoms on $E$</strong>: the Euler-character count $\chi(K_6, E) = -3$ delivers three families <em>given a chosen bundle</em>, not a selection of $E$ itself.</p>
+<p>→ <a href="./layer-4-carrier-forcing.html">Layer 4 — Carrier-forcing and the given-E wall</a></p>
+<hr />
+<h2>The Shape Minimality Challenge — the synthesis</h2>
+<p>"Prove the shape is THE simplest" is not a target a serious program can adopt: "no simpler competitor <em>anywhere</em>" is a universal negative, a Kolmogorov-style uncomputable wall. So we replace the unicorn with a reviewable contest — a declared game, a declared cost, a scored competitor ledger, and target-blind failure tests — and we report the result in three honest levels:</p>
+<ul>
+<li><strong>Level 1 — Frozen candidate.</strong> Specified, hash-frozen ($dcc66f1b2685$ / $a5b1e6f9d951$), reproduced blind, with no silent retuning. <strong>Achieved.</strong></li>
+<li><strong>Level 2 — In-grammar minimality.</strong> Within "forces are isometries," cheaper shelves are eliminated and the one cheaper rival breaks. <strong>Partially achieved and still hardening</strong> — the flavor rulebook is the weakest remaining link.</li>
+<li><strong>Level 3 — Architecture-neutral minimality.</strong> No simpler competitor across <em>all</em> grammars. <strong>Open, and likely unprovable in full</strong> — this is the unicorn, and we say so.</li>
+</ul>
+<p><strong>Public claim: Level 1 achieved · Level 2 partial + hardening · Level 3 open.</strong></p>
+<p>→ <a href="./shape-minimality-challenge.html">The Shape Minimality Challenge</a></p>
+<hr />
+<h2>Gate anchor ledgers — the method applied, gate by gate</h2>
+<p>The anchors above are the <em>rule-set</em>. The gate anchor ledgers are the rule-set <strong>applied</strong> — one page per gate listing every exact object the gate touches, its honest status (derived-given-E, declared axiom, certificate, dissolved, or open), the arithmetic/construction in full, and a specialist closure plan for what remains. Each follows the same eleven-part shape and the same ledger table; <strong>SG-4</strong> is the canonical worked example.</p>
+<p><strong>GUT spine — the Standard Model read off geometry</strong></p>
+<ul>
+<li><a href="./sg1-anchor-ledger.html">SG-1 — Geometry specification</a></li>
+<li><a href="./sg2-anchor-ledger.html">SG-2 — Gauge recovery</a></li>
+<li><a href="./sg3-anchor-ledger.html">SG-3 — Three generations</a></li>
+<li><a href="./sg4-anchor-ledger.html">SG-4 — Hypercharge &amp; anomaly</a></li>
+<li><a href="./sg5-anchor-ledger.html">SG-5 — Electroweak embedding</a></li>
+<li><a href="./sg6-anchor-ledger.html">SG-6 — Moduli stabilization</a></li>
+<li><a href="./sg7-anchor-ledger.html">SG-7 — Threshold unification</a></li>
+<li><a href="./sg8-anchor-ledger.html">SG-8 — Flavor closure</a></li>
+<li><a href="./sg9-anchor-ledger.html">SG-9 — Proton safety</a></li>
+<li><a href="./sg10-anchor-ledger.html">SG-10 — Claim boundary &amp; scope</a></li>
+</ul>
+<p><strong>Quantum, gravity &amp; UV consistency</strong></p>
+<ul>
+<li><a href="./uqf3-anchor-ledger.html">UQF-3 — Reflection positivity</a></li>
+<li><a href="./uqf4-anchor-ledger.html">UQF-4 — BRST / anomaly descent</a></li>
+<li><a href="./uqf5a-5b-anchor-ledger.html">UQF-5A/5B — Linearized graviton</a></li>
+<li><a href="./uqf5c-anchor-ledger.html">UQF-5C — Interacting graviton</a></li>
+<li><a href="./uqf7-anchor-ledger.html">UQF-7 — Fermion chirality</a></li>
+<li><a href="./uqf9-anchor-ledger.html">UQF-9 — UV completion</a></li>
+<li><a href="./uqf10-anchor-ledger.html">UQF-10 — Compactification consistency</a></li>
+<li><a href="./uqf14-anchor-ledger.html">UQF-14 — Unitarity / causality</a></li>
+</ul>
+<p><strong>Cosmology, black holes &amp; foundations</strong></p>
+<ul>
+<li><a href="./gap01-anchor-ledger.html">Gap-01 — a₆ Seeley-DeWitt wall</a></li>
+<li><a href="./gap02-anchor-ledger.html">Gap-02 — Yang-Mills mass gap</a></li>
+<li><a href="./gap05-value-anchor-ledger.html">Gap-05 — Λ value</a></li>
+<li><a href="./gap05-stability-anchor-ledger.html">Gap-05 — Λ radiative stability</a></li>
+<li><a href="./gap08-anchor-ledger.html">Gap-08 — Inflation spectrum</a></li>
+<li><a href="./gap10-bg10-anchor-ledger.html">Gap-10/BG-10 — Baryogenesis η_B</a></li>
+<li><a href="./gap11-anchor-ledger.html">Gap-11 — Dark matter</a></li>
+<li><a href="./gap13-anchor-ledger.html">Gap-13 — Black-hole entropy / Page</a></li>
+<li><a href="./born-anchor-ledger.html">Born — Born rule</a></li>
+</ul>
+<p><strong>Deep roots</strong></p>
+<ul>
+<li><a href="./deeproot-granularity-anchor-ledger.html">Deep root — granularity / cost floor</a></li>
+<li><a href="./deeproot-shape-anchor-ledger.html">Deep root — structural form (the shape)</a></li>
+</ul>
+<p><strong>Dissolutions</strong></p>
+<ul>
+<li><a href="./lambda-catastrophe-anchor-ledger.html">Λ-catastrophe (dissolution)</a></li>
+<li><a href="./blackhole-singularity-anchor-ledger.html">Black-hole singularity (dissolution)</a></li>
+</ul>
+<hr />
+<h2>Status at a glance</h2>
+<table>
+<thead>
+<tr>
+<th>Anchor / bridge</th>
+<th>What it does</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A0</strong></td>
+<td>the scoring rule for any candidate theory</td>
+<td>meta-axiom / audit-theorem, conditionally validated</td>
+</tr>
+<tr>
+<td><strong>Layer 1</strong></td>
+<td>picks MDL over dimension-counting</td>
+<td><strong>open</strong> (metric-relative until proven)</td>
+</tr>
+<tr>
+<td><strong>Layer 2</strong></td>
+<td>forbids free exact labels</td>
+<td>reached (a clean accounting theorem, given L1)</td>
+</tr>
+<tr>
+<td><strong>Layer 3</strong></td>
+<td>declares the allowed games + no-cross-grammar rule</td>
+<td>reached; the exhaustion theorem is <strong>open</strong></td>
+</tr>
+<tr>
+<td><strong>Layer 4A</strong></td>
+<td>forces the three carriers inside Grammar A</td>
+<td><strong>strongest current result</strong></td>
+</tr>
+<tr>
+<td><strong>Layer 4B</strong></td>
+<td>the given-$E$ wall</td>
+<td><strong>the central open question</strong></td>
+</tr>
+<tr>
+<td><strong>Minimality Challenge</strong></td>
+<td>the synthesis: contest, not unicorn</td>
+<td>L1 ✓ · L2 partial · L3 open</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Why this is a strength</h2>
+<p>A program that only advertised its wins would leave you no way to check it. By naming each open bridge as a <em>sharp theorem-target</em> — the MDL-selection theorem, the role-mechanism exhaustion theorem, the bundle-uniqueness theorem — we hand a reviewer the exact places to push, and we make every downstream claim auditable against the same rule that grades the competition. That is the line worth keeping in mind across all of these pages:</p>
+<blockquote>
+<p><strong>The honesty is the methodology: we say exactly which game the shape is winning, which it is not yet winning, and what theorem would compare all games fairly.</strong></p>
+</blockquote>
+<hr />
+<h2>Continue</h2>
+<ul>
+<li><a href="./a0-master-anchor.html">A0 — The Master Anchor</a></li>
+<li><a href="./layer-1-metric.html">Layer 1 — Why "simplest" means description-length</a></li>
+<li><a href="./layer-2-no-unpaid-labels.html">Layer 2 — No unpaid exact labels</a></li>
+<li><a href="./layer-3-search-grammars.html">Layer 3 — The allowed search grammars</a></li>
+<li><a href="./layer-4-carrier-forcing.html">Layer 4 — Carrier-forcing and the given-E wall</a></li>
+<li><a href="./shape-minimality-challenge.html">The Shape Minimality Challenge</a></li>
+<li><a href="./sg4-anchor-ledger.html">SG-4 — Hypercharge &amp; anomaly: the gate anchor ledger</a> <em>(canonical gate ledger + template)</em></li>
+</ul>
+<p><strong>Related dossiers:</strong> <a href="../articles/DOSSIER_DEEPROOT_SHAPE_FULL.html">The shape, deep-root</a> · <a href="../articles/DOSSIER_SG2_FULL.html">Gauge recovery (SG-2)</a> · <a href="../articles/DOSSIER_SG3_FULL.html">Three generations (SG-3)</a> · <a href="../articles/DOSSIER_SG4_FULL.html">Hypercharge &amp; anomaly (SG-4)</a></p>
+</body></html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UQF-9 — UV completion / asymptotic-safety fixed point: full dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">UQF-9 — UV completion / asymptotic-safety fixed point: full dossier — rendered package. Rendered from <code>DOSSIER_UQF9_FULL.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>UQF-9 — UV completion / asymptotic-safety fixed point: full dossier</h1>
+<blockquote>
+<p><strong>Gate:</strong> UQF-9 (UV completion / is there a genuine high-energy completion — a non-Gaussian fixed point?). <strong>Frozen branch:</strong> <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code>, READ-ONLY.
+<strong>Honest status (matches the live popup, unchanged):</strong> <em>REFRAME / AXIOM-OPEN — the a→0 UV-divergence CLASS is dissolved Lorentz-cleanly by one established-physics floor; the finite obligation (a₆) and the fixed-point wall stay open. Dissolved ≠ solved.</em> Direction: held.
+<strong>STATUS-UPGRADES:0.</strong> Nothing in this dossier upgrades a grade. Every number is traced to a corpus file or a standard reference. Where a quantity is uncomputed, it is marked OPEN — no value, sign, or partial of a₆ is asserted.</p>
+</blockquote>
+<hr />
+<h2>1. Executive summary + honest status</h2>
+<p><strong>Headline.</strong> One established-physics fact — that every <em>distinguishable</em> step of any realizable process costs a minimum, and that this floor sits on a <strong>scalar</strong> (cost / action / information) rather than on a length — erases a whole <em>class</em> of high-energy infinities without breaking relativity. It does <strong>not</strong> finish quantum gravity, and we say so flat-out.</p>
+<p><strong>What this dossier establishes.</strong> The frozen 13-dimensional Fable geometry <em>poses</em> the UV question on a single, definite operator — the de-Donder gauge-fixed graviton Laplacian at \(d=13\) plus its Faddeev–Popov ghosts — whose short-distance behaviour is carried by one named heat-kernel datum, the Seeley–DeWitt coefficient \(a_6\). On top of that setup it banks exactly one genuine, non-promoting result: elevating the <strong>cost floor</strong> (Margolus–Levitin / Landauer / Bekenstein) to a root principle <strong>dissolves an entire class of continuum artifacts</strong> — the unbounded \(a_8, a_{10}, \dots\) Seeley–DeWitt counterterm tower and the associated \(a\to 0\) UV-divergence idealization — at the cost of <strong>one named, value-free axiom</strong>, and it does so <strong>Lorentz-invariantly</strong> because the floored quantity is a scalar. That class-dissolution (we call it T-CONT) is proved and <em>narrowly</em> scoped. The Lorentz-cleanliness (T-LI) is a theorem of the construction, not a posit.</p>
+<p><strong>What this dossier does NOT establish.</strong> It does <strong>not</strong> exhibit a non-Gaussian / asymptotically-safe fixed point: no truncation-independent fixed point has been mounted, and current functional-renormalization-group (FRG) evidence trends <em>against</em> the naive-truncation route. It does <strong>not</strong> compute the finite \(a_6\) trace (that obligation is only partially discharged: the dimensionful bulk magnitude is <em>route-inconsistent</em> and, per <code>GAP01.md</code>, <em>ill-posed at odd \(D=13\)</em> — admissible at most as a labeled consistency coefficient; the orbifold-defect piece — correctly the Donnelly graded \(c_3^{\gamma}\), not a missing boundary coefficient — is blocked; and the positivity test is unevaluated). It does <strong>not</strong> settle whether "finite answers everywhere" <em>constitutes</em> UV completion — that is a field-level definitional judgement we deliberately decline. The cost floor leaves the cosmological-constant radiative-stability wall and the finite \(\Lambda\) value <strong>entirely untouched</strong> (the wall-impact ledger grades exactly 1 of 11 walls DISSOLVES and 10 UNTOUCHED).</p>
+<p><strong>The honest grade, stated positively.</strong> This is a serious, over-determined, <em>falsifiable</em> reframe — anchored on at least one measured invariant (the cost floor) — that removes the <em>need</em> for a continuum limit in one well-defined class of obstructions. It is <strong>not</strong> a validated UV completion. The reframe makes a fixed point <em>unnecessary</em>; it does not <em>supply</em> one, and we will not pretend it does. The confident testable bet is sharp: compute the finite \(d=13\) graviton+ghost \(a_6\) coefficient and check its positivity functional. A positivity violation would refute the companion Gap-01 at decision grade. The deepest residual — whether finite-answers-everywhere <em>counts as</em> UV completion — is a definitional line that no theory in any program can settle for everyone; that limit binds the entire field, not just us.</p>
+<p>This grade is the <strong>least-closed residual</strong> across seven named residuals (R1–R7, §3, §6). With several non-terminal residuals open, the gate is <strong>AUDIT (OPEN)</strong>, exactly as the popup states.</p>
+<hr />
+<h2>2. The community gap</h2>
+<h3>2.1 The precise open problem</h3>
+<p>A predictive quantum theory of gravity has to remain sensible at arbitrarily high energy. There are only two defensible exits:</p>
+<ol>
+<li><strong>Exhibit a genuine high-energy completion</strong> — a truncation-independent, non-Gaussian (interacting) ultraviolet fixed point of the renormalization-group flow at which the dimensionless couplings approach finite values, so that the theory is <em>asymptotically safe</em> and predictive up to infinite energy with finitely many relevant directions; <strong>or</strong></li>
+<li><strong>Replace "all the way to infinite energy"</strong> with something physically defensible — e.g., a principled reason the continuum limit need not be taken at all.</li>
+</ol>
+<p>UQF-9 asks whether the frozen Fable geometry survives the ultraviolet by one of these two routes — and, honestly, whether the question is even <em>posed</em> correctly for a theory with a fundamental cost floor.</p>
+<h3>2.2 History and state of the art</h3>
+<p>The asymptotic-safety scenario for gravity originates with Weinberg's 1979 proposal that gravity might possess a non-trivial UV fixed point of the Wilsonian flow, with a finite-dimensional critical surface. The modern program is built on the functional / exact renormalization group (the Wetterich equation), and the bulk of the positive evidence comes from <strong>truncated</strong> flows: one projects the effective average action onto a finite operator basis (Einstein–Hilbert, then \(R^2\), then higher-curvature truncations) and finds an interacting fixed point with an apparently small number of relevant directions. The signature difficulty is that these fixed points are exhibited <em>only at a declared truncation</em>; <strong>truncation-independence — that the fixed point and its critical exponents survive as the operator basis is enlarged without bound — is the open object</strong>, and it is precisely what no construction in the field has delivered.</p>
+<p>State of the art, stated without spin:</p>
+<ul>
+<li><strong>Best positive bound:</strong> interacting fixed points are robust across many truncations with a stable count of relevant directions, which is genuine, suggestive evidence — but it is <em>within-truncation</em> evidence.</li>
+<li><strong>Best negative signal:</strong> as truncations grow, control of the scheme- and gauge-dependence becomes delicate; in the regime relevant here, current FRG evidence <em>trends against</em> the naive truncation route (recorded in this gate's residual ledger as a sharpening of R1, not a refutation).</li>
+<li><strong>The universal status:</strong> exhibiting a truncation-independent non-Gaussian fixed point for quantum gravity is a <strong>global open problem of the entire field</strong> — unsolved everywhere, not just on this branch. UQF-9 inherits that wall; it does not create it.</li>
+</ul>
+<h3>2.3 Prior attempts and why each falls short</h3>
+<ul>
+<li><strong>Pure asymptotic safety (truncated FRG).</strong> Falls short of <em>closure</em> because truncation-independence is unproved; a fixed point at a chosen truncation is evidence, not a certificate.</li>
+<li><strong>A literal smallest <em>length</em> (lattice / minimal-length) regulator.</strong> This is the classical way to stop infinite descent, but it picks out a preferred frame — the frame in which the length is measured — and therefore <strong>breaks Lorentz invariance</strong>. It pays the standard, expensive relativity-breaking bill, which is exactly why "spacetime is discrete at the smallest scale" has never been made to sit cleanly with relativity. (the framework's reframe sidesteps this; see §3.3.)</li>
+<li><strong>Perturbative counterterm bookkeeping.</strong> Gravity is perturbatively non-renormalizable; the Seeley–DeWitt counterterm tower \(a_8, a_{10}, \dots\) is unbounded, each order introducing new independent couplings. Treating that tower as a literal physical requirement is exactly the \(a\to 0\) idealization Fable declines as out of scope (the class T-CONT dissolves) — but declining it is a scoping move, not a fixed-point theorem.</li>
+</ul>
+<p>The honest position UQF-9 takes is therefore <em>neither</em> "we solved it" <em>nor</em> "we are stuck": it is "we dissolved one well-defined class of the difficulty Lorentz-cleanly, localized the finite remainder to one named refutable object, and we keep the global wall openly on the books."</p>
+<hr />
+<h2>3. The construction — rigorous math</h2>
+<h3>3.0 The pipeline at a glance</h3>
+<pre><code> frozen 13D branch  --de-Donder gauge-fix + FP ghosts--&gt;  L_grav^{d=13}   (the UV-deciding operator)
+        --short-time heat-kernel expansion--&gt;  Tr e^{-tL} = Σ_n a_n t^{(n-13)/2}
+        --the t^3 term--&gt;  a_6   (the finite short-distance datum;  necessary-not-sufficient)
+        --positivity test P(a_6) ≥ 0--&gt;  physical-Hilbert-space closure?   (criterion unselected)
+
+ cost-floor lens (ℏ&gt;0 on a SCALAR)  --declared root AXIOM-COSTFLOOR--&gt;  no a→0 limit is taken
+        ⟹  the unbounded counterterm tower a_8,a_10,…  and the a→0 UV-divergence class  DISSOLVE
+        ⟹  but a_6 (a finite term-by-term object) is UNTOUCHED;  no fixed point is exhibited
+</code></pre>
+<p><em>(Source: <code>…/PER_GATE_DOSSIERS/UQF9_COMPLETION_HANDOFF/01_DOSSIER.md</code> §1.)</em></p>
+<h3>3.1 The UV-deciding operator (geometry → operator)</h3>
+<p>The frozen active branch is
+\[
+\mathfrak{B}_{\rm active}=\big[\mathcal{M}_4 \times K_6 \times S^2 \times S_Y^1/\mathbb{Z}_2\big]_\times \;\oplus\; \big[F^+_{\rm finite}\oplus C_{\rm admiss}\big]_\oplus \;\otimes\; \big[E_{\rm matter}\oplus E_{\rm gauge}\oplus E_{\rm Higgs}\oplus E_{\rm proton}\big]_\otimes,
+\]
+with \(K_6 = SU(3)/T^2\) the flag manifold and total dimension \(D = 13 = 4+6+2+1\) (only the \(\times\)-layer factors carry metric dimension). <em>(Source: <code>03_FROZEN_GEOMETRY_CONTEXT.md</code> §1.)</em></p>
+<p>Gauge-fixing the metric fluctuation in <strong>de-Donder (harmonic) gauge</strong> and adding Faddeev–Popov ghosts produces the de-Donder graviton Laplacian \(L_{\rm grav}^{d=13}\) on \(\mathcal{M}_4\times K_6\times S^2\times S_Y^1/\mathbb{Z}_2\), in canonical Laplace-type form
+\[
+L = -(\nabla^2 + E),
+\]
+where \(E\) is the endomorphism (bundle "potential"), \(\nabla\) carries a connection \(\omega\), and \(\Omega\) is the bundle curvature. The 4D massless spin-2 mode of this operator is the physical graviton; above it sits the heavy Kaluza–Klein tower. <em>(Sources: <code>gap_01_uv_quantum_gravity/subsystems/S1.1_dedonder_graviton_operator.md</code>, <code>S1.3_laplace_type_data.md</code>; GATE_REGRADE 5A linearized-certificate stanza.)</em></p>
+<p>The named missing objects on the operator side are catalogued precisely in Gap-01:
+- <strong>MO-1</strong> — the de-Donder graviton operator at \(d=13\) in Laplace form (the endomorphism \(E_{MN}{}^{PQ}\));
+- <strong>MO-2</strong> — the ghost-sector operators (FP vector ghost + any third ghost) with the subtraction sign and multiplicity;
+- <strong>MO-3</strong> — the canonical \((E,\omega,\Omega)\) data plus the background Riemann tensor of the frozen geometry;
+- <strong>MO-4</strong> — the holonomy / representation decomposition of the graviton+ghost fibers under \(K_6\times S^2\times S^1_Y\).</p>
+<p><em>(Source: <code>gap_01_uv_quantum_gravity/01_named_missing_objects.md</code>.)</em> These are all "certificate (symbolic)" grade — definite computations, not undecided existence problems. The ghost/BRST subtraction is well-posed (its sign and multiplicity are forced by BRST nilpotency), but — important honesty flag — it has <strong>not yet been verified against an actual computed \(a_6\)</strong> (residual R5 of the graviton sector). <em>(Source: GATE_REGRADE 5A/5B stanza.)</em></p>
+<h3>3.2 The a₆ heat-kernel datum (operator → short-distance number)</h3>
+<p>For a Laplace-type operator \(L\), the heat trace has the short-time asymptotic expansion
+\[
+\mathrm{Tr}\,e^{-tL} \;\sim\; \sum_{n\ge 0} a_n(L)\, t^{(n-D)/2}, \qquad t\to 0^+,
+\]
+where the \(a_n\) are the Seeley–DeWitt (Gilkey) coefficients — integrals of local curvature invariants built from \((E,\Omega,\text{Riem})\). The UV-deciding short-distance datum here is the \(t^3\) coefficient, <strong>\(a_6\)</strong> (the \(n=6\) term). It is the <strong>finite</strong> \(t^3\) term of a short-time expansion — it exists term-by-term at any spacing <em>and</em> identically in the continuum; there is no \(a\to 0\) infinity inside \(a_6\) itself. <em>(Sources: <code>00_decomposition.md</code> §0 disambiguation; <code>COST_FLOOR_WALL_IMPACT_LEDGER.md</code> §1 Gap-01 row.)</em></p>
+<blockquote>
+<p>⚠ <strong>Disambiguation (carried verbatim from the corpus).</strong> Gap-01's "\(a_6\)" is the Seeley–DeWitt / heat-kernel coefficient (the \(t^3\) term). It is <strong>not</strong> the same object as the \(\sigma^{-6}\) higher-derivative operator the Gap-04 stanza also calls "\(a_6\)" ("\(a_6\) beats \(a_4\)" in the internal-volume effective potential). They are related only in spirit and must never be cross-cited as the same object. <em>(Source: <code>00_decomposition.md</code> §0.)</em></p>
+</blockquote>
+<p><strong>The universal machinery.</strong> The coefficient functional that multiplies each curvature invariant exists in closed form in the literature: <strong>Gilkey 1995, Theorem 3.3.1</strong> (general second-order Laplace-type operator) and <strong>Avramidi 2000, Chapter 4</strong> (covariant non-recursive technique). The coefficients are exact rationals (powers of small primes / factorials) that must be transcribed verbatim and checked on a known case (e.g., reduction to the textbook scalar-field \(a_6\) when \(E,\Omega\to\) scalar values). <em>(Source: <code>S2.2_gilkey_avramidi_functional.md</code>.)</em></p>
+<p><strong>The basis.</strong> At \(d=13\) on the cubic-curvature (mass-dimension-6) sector, the invariants form the <strong>~46-term Gilkey basis</strong> — \(R^3\)-type, \(R\,\Box R\), \((\nabla R)^2\)-type, \(E^3\), \(\Omega^3\), and their contractions. <em>(Sources: <code>00_decomposition.md</code> S2.1; <code>S2.1_cubic_curvature_basis.md</code>.)</em></p>
+<p><strong>The trace (the actual missing number, MO-9).</strong> The named blocker is
+\[
+\boxed{\;\mathrm{tr}\!\left[a_6\!\left(L_{\rm grav}^{d=13,\ \text{de-Donder}}\right)\right]\ \text{on the cubic-curvature basis, holonomy-projected over }K_6\times S^2\times S^1_Y\;}
+\]
+It is assembled as: fiber-trace the endomorphism factors (\(\mathrm{tr}\,E^3,\ \mathrm{tr}\,E\Omega^2,\ \mathrm{tr}\,\Omega^3,\dots\)) over the graviton+ghost bundles (MO-7), evaluate the base-curvature invariants on \(K_6\times S^2\times S^1_Y\) (MO-8), then assemble and project onto the cubic basis (MO-9). The corpus grades this <strong>"perturbative but heavy"</strong> — a definite, finite (if enormous) symbolic computation, hence <strong>[S] / set-up-able, NOT [X] / Clay</strong>. <em>(Sources: <code>00_decomposition.md</code> §0 fact 2, §2 tree; <code>01_named_missing_objects.md</code>.)</em></p>
+<blockquote>
+<p><strong>Hard rule (carried):</strong> No value, sign, or partial entry of MO-9 may ever be asserted by this program. Fabricating it would be the worst possible outcome. <em>(Source: <code>01_named_missing_objects.md</code>.)</em></p>
+</blockquote>
+<p><strong>What partial \(a_6\) work exists — and exactly how it is caveated.</strong> Two clean, <em>dimensionless</em> and <em>scale-free</em> facts have been extracted, and they must be reported at the right honesty tier:</p>
+<ul>
+<li>The <strong>dimensionless color ratio 124/315</strong> was extracted and dual-validated against independent sphere cross-checks, but it must carry <strong>two</strong> caveats, not be sold as "the derived ratio." (i) Its current label is <strong>DERIVED-PENDING-INDEPENDENT-TARGET-BLIND-REPRODUCTION</strong>, because the same engine that carried the ~31% curvature error (below) also produced it; until reproduced on an independent target-blind route it is not counted as an independently-derived win. (ii) <strong>It is metric-SELECTED, not the clean target-blind invariant:</strong> 124/315 holds only at the special value Scal\(_{K_6}=7.5\); the corpus's own declared curvature gives \(\approx 0.0252\) instead. So 124/315 is <em>not</em> a route-independent scale-free win — that caveat is load-bearing and must not be dropped. <em>(Sources: Gap-01 brief / <code>GAP01.md</code> handoff "What we did"; GATE_REGRADE lines 1022–1023, 1036–1037.)</em></li>
+<li>The geometric ratio <strong>\(|\mathrm{Riem}|^2/\mathrm{Scal}^2 = 23/75\)</strong> is established by <strong>two independent exact routes</strong> that agree (an independent SU(3)/T² structure-constant computation and the spectrum-demanded value from the exact heat-trace \(a_4\); Bianchi-exact, residual \(\sim 3\times 10^{-16}\)); the engine's earlier <strong>31/147 was Bianchi-violating and is RETRACTED</strong>. <em>(Honesty note: the corpus's own audit flags "PROVED by three independent methods (Theorem L)" as an overclaim — the verifiable artifact <code>11_a6_BLIND.md</code> shows two routes, and no "Theorem L" proof doc exists outside a summary label; so we say two routes.)</em> <em>(Sources: <code>02_RESIDUAL_LEDGER.md</code> R2/B1 overlap; GATE_REGRADE lines 1094, 1096.)</em></li>
+</ul>
+<p>And the <em>dimensionful</em> magnitude is explicitly <strong>not</strong> a UV result:</p>
+<ul>
+<li>A bulk value \(\mathrm{tr}[a_6] = -2.817995812\times 10^{94}\ \mathrm{GeV}^6\) was computed and independently reproduced, <strong>admissible only as a labeled consistency coefficient</strong> (necessary-not-sufficient). It was <strong>RETRACTED</strong> as 31/147-Bianchi-contaminated; the Bianchi-exact-corrected re-run gives \(-2.995681680\times 10^{94}\ \mathrm{GeV}^6\) (\(+6.305\%\), sign preserved). <strong>But even the corrected value is NEVER gap-closing, and the deeper finding is stronger than "scheme-anchored":</strong> per the authoritative <code>GAP01.md</code> handoff the dimensionful magnitude is <strong>DISSOLVED-AS-ILL-POSED at odd \(D=13\)</strong> — there is no finite local \(t^0\) slot, hence <strong>no GeV\(^6\) \(a_6\) value exists</strong> to anchor at all. So "rides an injected scale" understates it: it is not a number pending a scheme choice, it is an object the corpus says does not exist; <strong>no TOTAL is emitted, and none should be.</strong> <em>(Sources: GATE_REGRADE line 602; <code>GAP01.md</code> handoff "What we did" + residual R1/R3; <code>02_RESIDUAL_LEDGER.md</code> R2/B1 overlap; GATE_REGRADE lines 379, 1195.)</em></li>
+</ul>
+<blockquote>
+<p><strong>Anti-cascade caution (carried verbatim).</strong> The threshold-vector / \(c_{\rm loop}\) / <strong>\(a_6\) magnitude</strong> are SCHEME-ANCHORED: blind runs recover <strong>signs</strong> but not <strong>magnitudes</strong>; the corpus \(a_6\) engine carried a real <strong>~31% (more precisely ~31.2%) Riemann-norm curvature error</strong> found in audit (a correction the corpus must make, <strong>not</strong> a closure). The clean scale-free content (124/315) is genuinely derived; the dimensionful \(a_6\) magnitude rides an injected scale → SCHEME-ANCHORED. <strong>No promotion of any blind value.</strong> Even the partial \(a_6\) work that exists is half-right / half-wrong and scheme-anchored, not a closure. <em>(Source: <code>01_DOSSIER.md</code> §4 anti-cascade box; GATE_REGRADE line 379.)</em></p>
+</blockquote>
+<p>There is a stronger flag still: the two computation routes for the comparable scale-free \(K_6\) vector/ghost \(a_6/a_0\) <strong>disagreed</strong> at the value/sign level — by \(|31/48|\approx 0.65\) (about six orders outside tolerance) — with Route A <strong>anchor-falsified</strong> (it returned \(-43/504\) against the canonical \(-16/315\)). So "the bulk number is route-INCONSISTENT," which is a <strong>stronger</strong> blocker than "merely uncomputed" or "off by ~31%." <em>(Source: GATE_REGRADE line 379; SPECIALIST_HOLE_QUEUE Gap-01 hole 1.)</em> This is recorded here so no reader mistakes the partial work for a settled bulk value.</p>
+<h3>3.3 The cost-floor reframe (the one genuine non-promoting win)</h3>
+<p>The reframe is the owner's two-line physics statement:</p>
+<blockquote>
+<p><strong>(L1)</strong> Infinite <em>subdivision</em> is harmless. <strong>(L2)</strong> Infinite <em>prerequisite chains</em> with a nonzero lower cost are impossible. <strong>⟹</strong> Any completable (finite-resource) process has <em>finitely many</em> costly (distinguishable) steps.</p>
+</blockquote>
+<p>The conclusion <strong>reframes "the atom."</strong> What is quantized is not <em>space</em> — it is <strong>cost / action</strong>. The smallest irreducible thing is a <em>quantum of cost</em>, not a smallest length. The L1-vs-L2 line is exactly the <strong>non-orthogonal / indistinguishable vs orthogonal / distinguishable</strong> line: gliding through a continuum of non-orthogonal states is free (no distinguishable milestone is reached); only transitions to <em>orthogonal</em> (distinguishable) states cost, and each such transition costs at least a fixed positive floor. <em>(Source: <code>ROOT_AXIOM_COST_FLOOR_REALIZABILITY.md</code> §0.)</em></p>
+<p><strong>The floor is established physics, in three independent currencies</strong> <em>(Source: <code>ROOT_AXIOM_COST_FLOOR_REALIZABILITY.md</code> §1)</em>:</p>
+<ul>
+<li><strong>(a) Margolus–Levitin (1998) — time/action.</strong> A system with mean energy \(E\) above its ground state cannot reach an orthogonal (distinguishable) state faster than
+\[
+\tau \ \ge\ \frac{\pi\hbar}{2E},
+\]
+so in time \(T\) it passes through at most \(N_\perp \le 2ET/(\pi\hbar)\) distinguishable transitions — finitely many for finite \(E,T\). <em>(Margolus &amp; Levitin, Physica D 120 (1998) 188.)</em></li>
+<li><strong>(b) Landauer — energy/bit.</strong> Any logically irreversible bit operation dissipates at least \(\Delta E \ge k_B T \ln 2\), experimentally confirmed (single-bit erasure, 2012 on). <em>(Landauer, IBM J. Res. Dev. 5 (1961) 183; Bérut et al., Nature 483 (2012) 187.)</em></li>
+<li><strong>(c) Bekenstein — info/region.</strong> A bounded region of radius \(R\) with energy \(E\) holds at most \(S \le 2\pi k_B R E/(\hbar c)\) nats — finite information in a bounded region with finite energy. <em>(Bekenstein, Phys. Rev. D 23 (1981) 287.)</em></li>
+</ul>
+<p><strong>The Lorentz-invariance theorem (T-LI).</strong> A length floor breaks Lorentz invariance because length contracts — it picks the frame in which the length is measured. But <strong>cost, action, and information are Lorentz scalars</strong>: every observer agrees on the action of a process, on whether a bit was erased, on the entropy in an invariantly-defined region. A floor on a scalar selects <strong>no preferred frame</strong>. The cost-floor reframe therefore delivers the <em>regulating</em> effect of "a smallest something" (an irreducible quantum that stops infinite descent) <strong>without</strong> paying spatial-granularity's relativity-breaking bill. This is a proved property of the construction (the floored quantity <em>is</em> a scalar), not an additional posit. <em>(Source: <code>ROOT_AXIOM_COST_FLOOR_REALIZABILITY.md</code> §2; <code>COST_FLOOR_WALL_IMPACT_LEDGER.md</code> §0.)</em></p>
+<p><strong>The class-dissolution theorem (T-CONT).</strong> Adopt <strong>AXIOM-COSTFLOOR</strong>: reality has a nonzero cost floor per distinguishable transition, so no operationally meaningless \(a\to 0\) limit is taken. The discriminator that decides what this does to any standing wall is sharp:</p>
+<blockquote>
+<p>Is the wall a continuum-limit / \(a\to 0\) / UV-divergence idealization? <strong>Yes</strong> → declining the continuum can <strong>DISSOLVE</strong> it (the continuum form is out of scope by choice). <strong>No</strong> (an unmade observation, a dynamical value, a discrete rep-theory fact, a selection principle, or a finite-but-uncomputed quantity) → the axiom is the <strong>wrong shape of object</strong> and the wall is <strong>UNTOUCHED</strong>.</p>
+</blockquote>
+<p>Under this discriminator the <strong>\(a\to 0\) continuum-limit class</strong> — including the <strong>unbounded \(a_8, a_{10}, \dots\) Seeley–DeWitt counterterm tower</strong> and the \(a\to 0\) UV-divergence idealization — <strong>DISSOLVES</strong>, Lorentz-invariantly, paid for by <strong>one</strong> named, value-free axiom. <em>(Source: <code>COST_FLOOR_WALL_IMPACT_LEDGER.md</code> §0, §2A; <code>ROOT_AXIOM_…</code> §5.)</em></p>
+<p><strong>The narrow scope, stated without hedging.</strong> The wall-impact ledger is explicit and disciplined: of the eleven standing walls it accounts for, the cost floor <strong>DISSOLVES exactly 1</strong> (Gap-02's mass-gap <em>existence</em>, a <em>different</em> gap) and leaves <strong>10 UNTOUCHED</strong>. For UQF-9's own input, <strong>Gap-01 (\(a_6\)) is graded UNTOUCHED</strong> — "\(a_6\) is the finite \(t^3\) term of a short-time expansion; it exists term-by-term at any spacing and identically in the continuum; there is no \(a\to 0\) infinity for a floor to tame, only unperformed symbolic labor." So the cost floor's effect on UQF-9 is real but <strong>narrow</strong>: it dissolves the <em>class the \(a_6\) obligation does not belong to</em>. <em>(Source: <code>COST_FLOOR_WALL_IMPACT_LEDGER.md</code> §1 tally, §2C Gap-01 row; <code>01_DOSSIER.md</code> W7.)</em></p>
+<h3>3.4 The two readings (both true, neither a closure)</h3>
+<p>This is the central structural fact of UQF-9, and the dossier must carry both. <em>(Source: <code>01_DOSSIER.md</code> §2; <code>02_CURRENT_STATE.md</code> §0.)</em></p>
+<ul>
+<li><strong>Standalone gate (conservative): AUDIT (OPEN).</strong> As one of the eight UQF audit rows, UQF-9 stays at AUDIT. Established: a candidate fixed point exists <em>at a declared truncation</em>. Open: a full UV completion is a global open problem shared with all of quantum gravity; the missing input (a 6th heat-kernel coefficient) is necessary-not-sufficient and itself uncomputed. <strong>No fixed point has been exhibited.</strong></li>
+<li><strong>Granularity / cost-floor leg: AXIOM-CLOSED — and DISSOLVED, not solved.</strong> AXIOM-COSTFLOOR dissolves the \(a\to 0\) / counterterm-tower class at the cost of one value-free axiom. It does <strong>not</strong> exhibit a fixed point; it does <strong>not</strong> compute the finite \(a_6\); it leaves a genuine finite obligation open.</li>
+</ul>
+<h3>3.5 The predicate split (do NOT combine into one "UV solved" claim)</h3>
+<p>The converged closure path forbids merging two genuinely different predicates <em>(Source: <code>07_CONVERGED_CLOSURE_PATH.md</code>)</em>:</p>
+<ul>
+<li><strong>Predicate A — fixed-point UV completion:</strong> \(\exists\) a <em>truncation-independent</em> non-Gaussian fixed point. <strong>Status: OPEN / global-wall</strong> (Clay-class; a truncation fixed point is evidence, NOT closure; FRG evidence trends against the naive truncation route).</li>
+<li><strong>Predicate B — cost-floor continuum-dissolution:</strong> reality does not require an operationally meaningless \(a\to 0\) limit. <strong>Status: DISSOLVED one class</strong> (AXIOM-COSTFLOOR) / <strong>AXIOM-OPEN (not atomic)</strong>. <em>DISSOLVED ≠ SOLVED: it exhibits no fixed point, computes no \(a_6\), leaves R2 untouched, does not solve UV completion.</em></li>
+</ul>
+<h3>3.6 The positivity criterion (necessary-not-sufficient adjudication)</h3>
+<p>Even a finite \(a_6\) must pass a positivity test for physical-Hilbert-space closure: a functional \(P(\mathrm{tr}[a_6]) \ge 0\). The corpus has laid out three candidate readings and <strong>selected none</strong> (selecting is owner-physics) <em>(Source: <code>S4.1_positivity_functional.md</code>)</em>:</p>
+<ul>
+<li><strong>(a) spectral / heat-kernel positivity</strong> — the ghost-corrected physical heat kernel has no negative-norm contribution (i.e., \(a_6\) on the BRST-cohomology subspace respects positivity of the one-loop measure);</li>
+<li><strong>(b) effective-action / higher-derivative sign</strong> — the \(a_6\)-induced \(\sigma^6\)-type term must not produce a wrong-sign (ghost/tachyon) higher-derivative kinetic term that breaks unitarity;</li>
+<li><strong>(c) counterterm / renormalization positivity</strong> — the \(a_6\) divergence coefficient must be consistent with a positive-norm renormalized state space.</li>
+</ul>
+<p>The <strong>falsifier</strong> is sharp: a computed \(a_6\) violating positive-definiteness for physical-Hilbert-space closure <strong>refutes Gap-01 at decision grade</strong>. Because the functional \(P\) is itself unselected <em>and</em> \(P(a_6)\ge 0\) is unrun, the decision-grade falsifier is <strong>doubly open</strong>. <em>(Sources: <code>00_decomposition.md</code> §0 falsifier; <code>01_named_missing_objects.md</code> MO-10/11; GATE_REGRADE 5C R4 line 276.)</em></p>
+<blockquote>
+<p>A specific number must NOT be fabricated here: the graviton-minus-ghost coefficient has been quoted in working notes as \(C \sim -6.39\), but it is <strong>unreproduced</strong> and must never be axiomatized as a pass. <em>(Source: GATE_REGRADE line 999, line 298 "do NOT fabricate C ~ −6.39 or axiomatize a pass.")</em></p>
+</blockquote>
+<h3>3.7 Floor location (a verified geometry read, NOT a promotion)</h3>
+<p><em>Where</em> the granularity floor sits is fixed by Kaluza–Klein reduction of the frozen 13D geometry as a dimensionless ratio \(M_*/M_{\rm Pl}\). The verified result: \(M_* \approx 6.01\times 10^{16}\) GeV (\(\approx 6\,M_U\), \(= \tfrac{1}{40.5}\,\bar M_{\rm Pl}\)) ⇒ the floor sits at <strong>compactification, not Planck</strong>; the verdict is convention-PROOF (the \(1/11\) power), the exact value convention-SOFT, and the absolute dimensionful scale stays the irreducible "just is" \(= M_{\rm Pl}\), conditional on the load-bearing identification floor \(= M_*\). This pins <em>where</em>, not a UV certificate. <em>(Source: <code>ROOT_AXIOM_COST_FLOOR_REALIZABILITY.md</code> §6 floor-location box.)</em></p>
+<hr />
+<h2>4. The insights we used</h2>
+<p>These are the moves that produced the progress — now shareable at working-physicist depth, because sharing them is what lets a reader both check and extend the result.</p>
+<p><strong>Insight 1 — quantize the <em>scalar</em>, not the length.</strong> The deep move is recognizing that the regulating <em>job</em> of a smallest length (stop infinite descent) and its <em>cost</em> (a preferred frame) are separable. Place the floor on cost/action/information — a Lorentz scalar — and you keep the job while dropping the cost. This is <em>why</em> the dissolution is Lorentz-clean: T-LI is not an extra assumption, it is a property of the object being floored. The reframe automatically pays spatial-granularity's biggest bill.</p>
+<p><strong>Insight 2 — distinguishability is the right partition.</strong> L1 (free subdivision) vs L2 (costed prerequisite) is the non-orthogonal vs orthogonal distinction. The three established floors (Margolus–Levitin, Landauer, Bekenstein) all apply <em>precisely</em> to orthogonal milestones and <em>precisely to nothing</em> in the non-orthogonal continuum. That is the structural reason infinite subdivision is harmless while infinite prerequisite chains are impossible — and the reason the floor is established physics, not a new posit.</p>
+<p><strong>Insight 3 — "one deep root removes a whole class," not one wall at a time.</strong> The payoff of elevating an established floor to a root principle is that it acts on a <em>class</em> (every \(a\to 0\) continuum-limit / UV-divergence artifact) rather than a single obstruction. That is genuine leverage — and the discipline that keeps it honest is the wall-impact ledger's binary discriminator, which forces you to grade each wall DISSOLVES / UNTOUCHED and prevents over-dissolution (only 1 of 11 dissolves).</p>
+<p><strong>Insight 4 — reify the remainder into one named, refutable object.</strong> Rather than gesturing at "quantum gravity is hard," the program localizes the finite remainder to exactly <strong>MO-9 = \(\mathrm{tr}[a_6]\)</strong>, with a named falsifier (positivity). A reader can attack precisely that object; a positivity violation would refute it. Sharpening the gap to a single refutable computation is itself a result (a sharpening win, not a promotion).</p>
+<p><strong>Insight 5 — separate "given-E setup" from "derivation."</strong> The geometry <em>poses</em> the UV question on a definite operator (genuine setup), but having the operator is not having its spectrum's UV behaviour. The linearized graviton certificate (5A) holds <em>as structure, given-E</em> — the observed gravity limit is the input, not a derived output. Keeping this line bright prevents the signature mis-close of reporting setup as closure.</p>
+<p><strong>Insight 6 — the κ³/π falsification test (no target-loading).</strong> Every proposed axiom is admitted only if it would have been written <em>without</em> knowing the UV answer. AXIOM-COSTFLOOR <strong>passes</strong> (the floor is established physics, elevated, never reverse-engineered to a number). Any "\(a_6\) normalization that makes the UV question vanish" would <strong>fail</strong> (RELABEL_FAIL) — the \(a_6\) value must come from the target-blind trace, never from a scheme reverse-engineered to a desired outcome. "A fixed point exists at our truncation ⇒ gate closed" is <strong>rejected</strong> — truncation-dependence is the open object. <em>(Source: <code>01_DOSSIER.md</code> §5.)</em></p>
+<p><strong>Insight 7 — the Donnelly equivariant-defect route is the <em>correct object</em> for the orbifold piece.</strong> The \(\mathbb{Z}_2\) orbifold-defect contribution to the total \(a_6\) is a <strong>Donnelly equivariant defect</strong>, \(\mathrm{tr}[a_6]^{\mathbb{Z}_2} = \tfrac{1}{2}\,c_3^{\gamma}\) — a graded coefficient \(c_3^{\gamma}\) that an independent computation could in principle supply. The insight is precisely the <strong>object-identity correction</strong>: the earlier "missing order-6 mixed Neumann/Dirichlet boundary coefficient (tower stops at \(a_5\))" framing was a <strong>wrong-object artifact</strong>; the real blocker is the graded numeric \(c_3^{\gamma}\) (plus the missing graviton \(\mathrm{Sym}^2(T)\) LC \(a_6\)), not an absent boundary-tower term. <em>(Sources: <code>GAP01.md</code> handoff "What we did"/"The edge"; <code>02_RESIDUAL_LEDGER.md</code> R2/B1 overlap.)</em></p>
+<hr />
+<h2>5. Evidence &amp; reproducibility</h2>
+<h3>5.1 Established / banked (terminal-as-physics or value-free)</h3>
+<table>
+<thead>
+<tr>
+<th>Fact</th>
+<th>Status</th>
+<th>Source file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cost floor in three currencies (Margolus–Levitin \(\tau\ge\pi\hbar/2E\); Landauer \(k_BT\ln2\); Bekenstein \(S\le 2\pi k_B RE/\hbar c\))</td>
+<td>ESTABLISHED physics</td>
+<td><code>ROOT_AXIOM_COST_FLOOR_REALIZABILITY.md</code> §1</td>
+</tr>
+<tr>
+<td>T-LI: floored quantity is a Lorentz scalar ⇒ no preferred frame</td>
+<td>PROVED theorem (not a posit)</td>
+<td><code>ROOT_AXIOM_…</code> §2; <code>01_DOSSIER.md</code> W8</td>
+</tr>
+<tr>
+<td>T-CONT: \(a\to 0\) UV-divergence class (incl. \(a_8/a_{10}\) tower) dissolves under AXIOM-COSTFLOOR</td>
+<td>PROVED, narrowly scoped</td>
+<td><code>COST_FLOOR_WALL_IMPACT_LEDGER.md</code> §2A; <code>01_DOSSIER.md</code> §2.2</td>
+</tr>
+<tr>
+<td>Wall-impact tally: 1 DISSOLVES (Gap-02) / 10 UNTOUCHED</td>
+<td>Disciplined scope claim</td>
+<td><code>COST_FLOOR_WALL_IMPACT_LEDGER.md</code> §1 tally, §4</td>
+</tr>
+<tr>
+<td>Bulk \(d=13\) \(a_6\) trace computed/reproduced as a <strong>labeled consistency coefficient</strong> (necessary-not-sufficient); dimensionful value <strong>ill-posed at odd \(D=13\)</strong> + route-INCONSISTENT</td>
+<td>Consistency coefficient only — NOT a closure; no value emitted</td>
+<td><code>GAP01.md</code>; <code>01_DOSSIER.md</code> R2; UQF9 ledger R2</td>
+</tr>
+<tr>
+<td>Color ratio 124/315 (dual-validated, but <strong>metric-SELECTED at Scal\(_{K_6}=7.5\)</strong> — NOT the clean target-blind invariant)</td>
+<td>DERIVED-PENDING-INDEPENDENT-TARGET-BLIND-REPRODUCTION (+ metric-selected caveat)</td>
+<td>Gap-01 brief / <code>GAP01.md</code>; GATE_REGRADE 1022–1023</td>
+</tr>
+<tr>
+<td>\(|\mathrm{Riem}|^2/\mathrm{Scal}^2 = 23/75\) (Bianchi-exact, residual \(\sim3\times10^{-16}\))</td>
+<td>Two independent exact routes agree; 31/147 RETRACTED</td>
+<td>GATE_REGRADE 1094/1096; <code>02_RESIDUAL_LEDGER.md</code></td>
+</tr>
+<tr>
+<td>Floor location \(M_*\approx 6.01\times10^{16}\) GeV (compactification, not Planck)</td>
+<td>Verified geometry read; NOT a promotion</td>
+<td><code>ROOT_AXIOM_…</code> §6</td>
+</tr>
+</tbody>
+</table>
+<h3>5.2 The frozen hashes it rides</h3>
+<p>Branch <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code>. Operator sector: the de-Donder graviton Laplacian \(L_{\rm grav}^{d=13}\) on \(\mathcal{M}_4\times K_6\times S^2\times S_Y^1/\mathbb{Z}_2\) + FP ghosts. <strong>\(a_6\) trace: no first-principles value/hash — uncomputed (MO-9).</strong> <em>(Source: <code>01_DOSSIER.md</code> §0 header.)</em></p>
+<h3>5.3 Numerical checks, with honest pulls</h3>
+<ul>
+<li>The dimensionful \(a_6\) magnitude is at best <strong>scheme-anchored</strong>, and per <code>GAP01.md</code> is more fundamentally <strong>DISSOLVED-AS-ILL-POSED at odd \(D=13\)</strong> (no finite local \(t^0\) slot ⇒ no GeV\(^6\) value exists): blind runs recover <em>signs</em> but not <em>magnitudes</em>. The banked \(-2.818\times10^{94}\ \mathrm{GeV}^6\) was <strong>retracted</strong> (31/147-Bianchi-contaminated); the Bianchi-exact-corrected value is \(-2.995681680\times10^{94}\ \mathrm{GeV}^6\) — <strong>admissible only as a labeled consistency coefficient, never gap-closing</strong>, not a UV result. <em>(Sources: <code>GAP01.md</code>; <code>02_RESIDUAL_LEDGER.md</code>; GATE_REGRADE lines 379, 602, 1195.)</em></li>
+<li>The two routes for the comparable scale-free \(K_6\) vector/ghost \(a_6/a_0\) <strong>disagreed</strong> by \(|31/48|\approx0.65\) (~6 orders outside tolerance), Route A anchor-falsified (\(-43/504\) vs canonical \(-16/315\)) — route-INCONSISTENT, stronger than "uncomputed." <em>(Source: GATE_REGRADE line 379.)</em></li>
+<li>The graviton+ghost coefficient \(C\sim-6.39\) appears in working notes but is <strong>unreproduced</strong>; it must not be treated as a pass. <em>(Source: GATE_REGRADE lines 298, 999.)</em></li>
+</ul>
+<h3>5.4 How a reader re-runs / re-derives</h3>
+<ol>
+<li><strong>Re-derive the operator.</strong> From <code>03_FROZEN_GEOMETRY_CONTEXT.md</code> build \(L_{\rm grav}^{d=13}\) in de-Donder gauge + FP ghosts; extract \((E,\omega,\Omega)\) per <code>S1.3_laplace_type_data.md</code>.</li>
+<li><strong>Transcribe the functional.</strong> Copy the universal \(a_6\) functional from Gilkey 1995 Th. 3.3.1 / Avramidi 2000 Ch. 4 (every rational coefficient cited), and check it reduces to the textbook scalar-field \(a_6\) (<code>S2.2</code>).</li>
+<li><strong>Build the basis.</strong> The ~46-term cubic-curvature Gilkey basis at \(d=13\) (<code>S2.1</code>).</li>
+<li><strong>Trace and project.</strong> Fiber-trace over the graviton+ghost bundles (MO-7), evaluate base curvatures on \(K_6\times S^2\times S^1_Y\) (MO-8), assemble and project (MO-9). <strong>Run target-blind.</strong> Do not back-solve to any desired UV outcome.</li>
+<li><strong>Verify the scale-free outputs independently.</strong> Reproduce 124/315 on an engine that does <em>not</em> route through the ~31% R2 engine; confirm \(23/75\) (not \(31/147\)).</li>
+<li><strong>Cross-check.</strong> The binding rule is <strong>two structurally-different routes</strong>, not two runs of one engine (a captured log ≠ an independent reproduction).</li>
+</ol>
+<h3>5.5 Certificate disposition (audit certification, NOT physical closure)</h3>
+<p>The audit certificate <code>…/certificates/UQF9_AUDIT_COMPLETE/05_FINAL_ROLLUP.md</code> records governance disposition <code>AUDIT_OPEN_GLOBAL_WALL</code>, <code>promotion_violation = FALSE</code>. Three adversarial lenses (binding-wall / predicate-split, dissolution-both-directions, over-claim) all <strong>agree</strong> with the endpoint; their findings are <em>sharpenings</em>, not reversals. The claim budget (<code>04_CLAIM_BUDGET.md</code>) tags every sentence and records: new axioms introduced <strong>0</strong>; physics-closure claims <strong>0</strong>; \(a_6\) values/signs/partials emitted <strong>0</strong>. A do-not-propagate guardrail flags two stronger phrasings in <code>specialist_reply.txt</code> ("M* ATOMIC: YES", "bulk a6 = COMPLETE_CROSSCHECKED") that the conservative governing docs reject. <em>(Sources: <code>05_FINAL_ROLLUP.md</code>; <code>04_CLAIM_BUDGET.md</code>.)</em></p>
+<hr />
+<h2>6. Open gaps + closure path (the specialist work plan)</h2>
+<p>Seven residuals. The gate status is the <strong>least-closed</strong> one. Each open hole below is a work-package: precise statement (a), why it is hard + traps (b), exactly what closes it including the refuting outcome (c), machinery &amp; inputs (d), and leverage (e). Physics only; device engineering firewalled.</p>
+<h3>Residual map (starting line)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Named object</th>
+<th>Pre-attack status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R1</strong></td>
+<td>Truncation-independent non-Gaussian fixed point</td>
+<td>OPEN / global-wall (binding; FRG trends against the naive route)</td>
+</tr>
+<tr>
+<td><strong>R2</strong></td>
+<td>The finite \(d=13\) de-Donder \(a_6\) trace (MO-9), cubic basis</td>
+<td>OPEN / computation-debt (necessary-not-sufficient; overlaps Gap-01/B1)</td>
+</tr>
+<tr>
+<td><strong>R3</strong></td>
+<td>Cost-floor dissolution of the \(a\to 0\) counterterm-tower class</td>
+<td>DISSOLVED (one named value-free axiom) — terminal as reframe</td>
+</tr>
+<tr>
+<td><strong>R4</strong></td>
+<td>Atomicity of AXIOM-COSTFLOOR</td>
+<td>AXIOM-OPEN (not atomic)</td>
+</tr>
+<tr>
+<td><strong>R5</strong></td>
+<td>Positivity \(P(a_6)\ge 0\) + decision-grade falsifier</td>
+<td>OPEN / decision-grade (dep R2)</td>
+</tr>
+<tr>
+<td><strong>R6</strong></td>
+<td>Sufficiency: does finite+positive \(a_6\) <em>constitute</em> UV completion?</td>
+<td>OPEN / external-field-judgement</td>
+</tr>
+<tr>
+<td><strong>R7</strong></td>
+<td>Downstream: UQF-10, UQF-14 blocked-by UQF-9</td>
+<td>EXPORTED (typed contracts)</td>
+</tr>
+</tbody>
+</table>
+<p><em>(Sources: <code>01_DOSSIER.md</code> §3; <code>02_CURRENT_STATE.md</code>; <code>02_RESIDUAL_LEDGER.md</code>; <code>07_CONVERGED_CLOSURE_PATH.md</code>.)</em></p>
+<p>R3 is DISSOLVED-as-reframe (terminal, value-free) and R7 is exported, so the work-packages are R1, R2, R4, R5, R6, plus the curvature-engine fix and the normalization disclosure that R2 rides on.</p>
+<hr />
+<h3>Hole A (R1) — the truncation-independent non-Gaussian fixed point (single highest-value next move)</h3>
+<p><strong>(a) Precise statement.</strong> Exhibit (or prove the non-existence of) a <strong>truncation-independent</strong> non-Gaussian UV fixed point for the \(d=13\) gravitational sector of the frozen branch — a fixed point of the FRG flow whose existence and critical exponents survive enlarging the operator basis without bound, with a finite-dimensional critical surface.</p>
+<p><strong>(b) Why it is hard / traps.</strong> This is a <strong>global open problem of quantum gravity</strong>, shared with the whole field; UQF-9 inherits it, does not create it. Current FRG evidence <strong>trends against</strong> the naive truncation route (a Lens-1 sharpening that <em>strengthens</em> the wall). The signature mis-close to refuse: reporting "a fixed point exists at our declared truncation" as if it closed the gate — truncation-dependence is the <em>whole</em> question. Do <strong>not</strong> present the cost-floor reframe as supplying a fixed point: it makes one <em>unnecessary</em> by declining the continuum, which is a scoping move, not a fixed-point theorem (the F3 demotion, DISSOLVED ≠ SOLVED).</p>
+<p><strong>(c) Exactly what closes it.</strong> Two valid terminal outcomes — a positive and a negative both close:
+- <em>Positive:</em> a genuine truncation-independent non-Gaussian fixed point for the \(d=13\) gravitational sector (this would turn the EFT stance into an actual UV completion — a genuine promotion, not promised).
+- <em>Negative (also a close):</em> a proof of its non-existence within the asymptotic-safety framework (this would definitively rule out the asymptotic-safety route).
+Bounded only in the sense that the <em>object</em> is named; whether a route exists is open. State as a WALL RECORD if it can be named but not run. <em>(Source: SPECIALIST_HOLE_QUEUE UQF-10 hole 8, UQF-9 hole 3.)</em></p>
+<p><strong>(d) Machinery &amp; inputs.</strong> FRG / Wetterich exact-flow machinery; the de-Donder \(L_{\rm grav}^{d=13}\) operator from §3.1; the frozen radii / chamber data (\(M_U\sim1.0\times10^{16}\) GeV, \(R_0=1.592\times10^{-17}\,\mathrm{GeV}^{-1}\), witness \(\vec u=(1,1,1)\)) from <code>03_FROZEN_GEOMETRY_CONTEXT.md</code> §4; the Minimum-tier pass = fixed-point existence + Dai–Freed boundary checklist; the Strong-tier pass = full FRG trajectory with a non-tachyonic KK spectrum verified along the flow UV → \(M_*\). <em>(Source: SPECIALIST_HOLE_QUEUE UQF-10 holes 5–8.)</em> Two structurally-different routes are required, not two runs of one engine.</p>
+<p><strong>(e) Leverage.</strong> R1 is <strong>B3, the universal deepest wall</strong> — UQF-10 (compactification stability), UQF-14 (above-cutoff graviton unitarity, R1/R3), the shape-sector loop level, GRAVITON 5C/P0, Gap-01 sufficiency, and Gap-05 R7 all route here. <strong>Count the wall once.</strong> Closing R1 positively lifts the above-cutoff graviton unitarity / Froissart-bound / Landau-pole sub-claims of UQF-14, and lifts UQF-10's S-5/S-6/S-7 rows within truncation. <em>(Sources: <code>07_CONVERGED_CLOSURE_PATH.md</code>; SPECIALIST_HOLE_QUEUE UQF-14 hole 1.)</em></p>
+<hr />
+<h3>Hole B (R2) — the finite \(d=13\) \(a_6\) trace (computation-debt; orbifold defect blocked)</h3>
+<p><strong>(a) Precise statement.</strong> Form the <strong>TOTAL</strong> \(d=13\) de-Donder graviton+ghost \(a_6\) trace over the ~46-term cubic-curvature Gilkey basis, holonomy-projected over \(K_6\times S^2\times S^1_Y\), as <strong>bulk + orbifold-defect</strong>. <em>(Object-identity flag — carried from the authoritative <code>GAP01.md</code> handoff.)</em> The defect's <strong>correct</strong> identity is the <strong>Donnelly equivariant defect</strong> \(\mathrm{tr}[a_6]^{\mathbb{Z}_2}=\tfrac12 c_3^{\gamma}\), <strong>not</strong> a missing "order-6 mixed Neumann/Dirichlet boundary heat-kernel coefficient" — that latter framing (boundary tower stops at \(a_5\), still used in the dated SPECIALIST_HOLE_QUEUE) is graded in <code>GAP01.md</code> as a <strong>dissolved wrong-object artifact</strong>. The live blocker is therefore the <strong>graded numeric \(c_3^{\gamma}\)</strong> (ABSENT) plus the <strong>MISSING graviton \(\mathrm{Sym}^2(T)\) Levi-Civita \(a_6\) on \(K_6\)</strong> (the graviton does not inherit the ghost-sector collapse; brute-force peel diverges).</p>
+<p><strong>(b) Why it is hard / traps.</strong> Three live obstructions, each a named trap:
+1. <strong>The graviton \(\mathrm{Sym}^2(T)\) Levi-Civita \(a_6\) on \(K_6\) is MISSING</strong> (the graviton does not inherit the ghost-sector collapse — the ghost LC \(a_6/a_0=149/1008\) is done; the brute-force graviton peel diverges, Kostant quasi-polynomial multiplicity deficits), and the graded numeric defect \(c_3^{\gamma}\) is ABSENT — so the TOTAL cannot be assembled. <strong>Trap:</strong> do <strong>not</strong> chase "a missing order-6 mixed-boundary coefficient"; <code>GAP01.md</code> records that as a dissolved wrong-object artifact (see (a)).
+2. <strong>The bulk is route-INCONSISTENT, not merely uncomputed.</strong> Two routes disagreed at value/sign by \(|31/48|\approx0.65\) on the comparable scale-free \(K_6\) vector/ghost \(a_6/a_0\) (~6 orders outside the pre-fixed \(10^{-6}\) tolerance), Route A anchor-falsified (\(-43/504\) vs canonical \(-16/315\)); on the graviton comparable object Route A returns \(-251/504\) vs Route B \(149/1008\). Do not treat the bulk as settled. <em>(Trap: the do-not-propagate guardrail flags "bulk a6 = COMPLETE_CROSSCHECKED" as a rejected over-claim.)</em>
+3. <strong>No value/sign/partial of \(a_6\) may ever be asserted</strong> (F6 FORBIDDEN). Do not fabricate \(C\sim-6.39\) or any magnitude. Stronger still: per <code>GAP01.md</code> the dimensionful magnitude is <strong>DISSOLVED-AS-ILL-POSED at odd \(D=13\)</strong> (no finite local \(t^0\) slot, so no GeV\(^6\) \(a_6\) value exists to anchor) — "rides an injected scale" <em>understates</em> this; no TOTAL is to be emitted.</p>
+<p><strong>(c) Exactly what closes it.</strong> (i) Deliver the <strong>MISSING graviton \(\mathrm{Sym}^2(T)\) Levi-Civita \(a_6\) on \(K_6\)</strong> (the bounded-but-heavy graviton-sector piece; the ghost sector \(149/1008\) is already done); (ii) supply the <strong>graded numeric \(c_3^{\gamma}\)</strong> of the Donnelly equivariant defect \(\mathrm{tr}[a_6]^{\mathbb{Z}_2}=\tfrac12 c_3^{\gamma}\) — <strong>not</strong> a "missing mixed-boundary coefficient" (dissolved wrong-object); (iii) fix Route A's \(K_6\)-bundle LC/derivative sector against a spectral peel and <strong>re-run the 2-route agreement within the pre-fixed \(10^{-6}\) tolerance</strong> (the binding VALUE rule, currently UNMET). Note the odd-\(D\) ill-posedness flag in (b)3: the <em>dimensionful</em> TOTAL may have no finite value to emit; what closes the gate's R2 leg is the scale-free assembly plus 2-route reconciliation, target-blind. <strong>A positivity violation (see Hole D) refutes Gap-01 at decision grade</strong> — a refuting result is a valid close. <em>(Sources: <code>GAP01.md</code> handoff "The edge"; SPECIALIST_HOLE_QUEUE UQF-9 hole 1; <code>02_RESIDUAL_LEDGER.md</code>.)</em></p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Gilkey 1995 Th. 3.3.1 / Avramidi 2000 Ch. 4 functional; the cubic basis (<code>S2.1</code>); the fiber-trace + base-curvature evaluation (<code>S3.1</code>–<code>S3.3</code>); the Bianchi-exact input \(|\mathrm{Riem}|^2/\mathrm{Scal}^2=23/75\) (use this, <strong>not</strong> the retracted 31/147); the SU(3) Gelfand–Tsetlin off-diagonal matrix elements gating the 5-class Levi-Civita Lichnerowicz graviton hopping on \(K_6\) (the load-bearing reconciliation object). <em>(Sources: <code>S2.2</code>, <code>S3.3</code>; SPECIALIST_HOLE_QUEUE Gap-01 hole 1.)</em></p>
+<p><strong>(e) Leverage.</strong> R2 <strong>overlaps Gap-01/B1's bulk \(a_6\)</strong>; it inherits B1's value only when B1 is BUILT and PRESENT-AND-MOUNTED under all five invariants (current mount state: MISSING). The single GT off-diagonal fix is load-bearing for <strong>three gates</strong> (Gap-01 R1, SG-6 R5, SG-7 R2). Discharging R2 is <em>necessary-not-sufficient</em> for UQF-9 (closing R2 does <strong>not</strong> close R1 or R6). <em>(Sources: <code>02_RESIDUAL_LEDGER.md</code> R2/B1 overlap; SPECIALIST_HOLE_QUEUE Gap-01 hole 1.)</em></p>
+<hr />
+<h3>Hole C — the ~31% curvature-input error in the corpus \(a_6\) engine</h3>
+<p><strong>(a) Precise statement.</strong> Two independent \(a_6\) routes disagree because the engine carries a confirmed <strong>~31.2% Riemann-norm curvature-input deficit</strong> (the engine is half-right — the derivative-sector ratio is confirmed — and half-wrong on the curvature input). Even the bulk number is not yet trustworthy.</p>
+<p><strong>(b) Why it is hard / traps.</strong> The error is localized to the Riemann-norm sector and was masked because the derivative-sector ratio looked correct. The earlier banked \(-2.818\times10^{94}\ \mathrm{GeV}^6\) value was contaminated by the Bianchi-violating 31/147 input and had to be <strong>retracted</strong> — do not reuse it. Do not "reconcile" the routes by back-solving to a known \(a_6\) (κ³/π discipline).</p>
+<p><strong>(c) Exactly what closes it.</strong> Owner code-fix to the localized Riemann-norm sector of the engine, retaining the confirmed derivative-sector ratio and the now-PROVED \(23/75\) input; re-run and re-validate the bulk coefficient against the sphere cross-checks <strong>before any downstream use</strong>. Success: the two independent routes agree. <em>(Sources: SPECIALIST_HOLE_QUEUE Gap-01 hole 2, UQF-9 hole 2; GATE_REGRADE line 275.)</em></p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The corpus \(a_6\) engine; the sphere cross-checks; the Bianchi-exact \(23/75\); the GT off-diagonal matrix elements (Hole B(d)).</p>
+<p><strong>(e) Leverage.</strong> Until this is fixed, <strong>no \(a_6\) magnitude is trustworthy</strong> and 124/315 cannot be promoted past DERIVED-PENDING (it rode the same engine, <strong>and</strong> it is metric-selected at Scal\(_{K_6}=7.5\), so it is not yet a clean target-blind invariant). Fixing the engine is the gate to trusting R2's bulk and re-validating 124/315 on an independent route.</p>
+<hr />
+<h3>Hole D (R5) — the positivity functional \(P(a_6)\ge 0\) and its falsifier</h3>
+<p><strong>(a) Precise statement.</strong> Select the precise positivity functional \(P\) required for physical-Hilbert-space closure, and specify its decision-grade adjudication rule, then evaluate \(P\) on the computed (total) \(a_6\). Currently <strong>doubly open</strong>: \(P\) is unselected (three competing readings, §3.6) and \(P(a_6)\ge0\) is unrun.</p>
+<p><strong>(b) Why it is hard / traps.</strong> Selecting \(P\) is owner-physics, not a mechanical step. Do <strong>not</strong> axiomatize a pass; do <strong>not</strong> fabricate \(C\sim-6.39\). The pass semantics must be honest: PASS = one consistency-check satisfied (necessary-not-sufficient), <strong>not</strong> closure (MO-11). The falsifier rides on the uncomputed R2 trace, so it cannot be run before Hole B.</p>
+<p><strong>(c) Exactly what closes it.</strong> Select \(P\) from the (a)/(b)/(c) menu (spectral / higher-derivative-sign / counterterm positivity), justify it as THE physical-Hilbert-space-closure test, define its threshold and pass-semantics, then evaluate it on the computed \(a_6\). <strong>A violation REFUTES the gate (and Gap-01) at decision grade</strong> — a valid close. A pass lifts the graviton 5A/5B legs toward certificate-grade <em>conditional on UQF-9</em>; it does <strong>not</strong> close R1 or R6. <em>(Sources: <code>S4.1</code>, <code>S4.2</code>; <code>01_named_missing_objects.md</code> MO-10/11; GATE_REGRADE lines 276, 298.)</em></p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The three candidate functionals (<code>S4.1</code>); the BRST/ghost subtraction (well-posed, but verify it against the actual computed \(a_6\) — this is the separate graviton R5 obligation); the computed total \(a_6\) from Hole B.</p>
+<p><strong>(e) Leverage.</strong> Closes the decision-grade falsifier for Gap-01; gates the graviton-sector 5A/5B promotion (conditional on UQF-9); feeds UQF-14's unitarity sub-claims.</p>
+<hr />
+<h3>Hole E (R6) — the sufficiency / scope theorem (external-field-judgement)</h3>
+<p><strong>(a) Precise statement.</strong> A named theorem, <code>THEOREM-UQF9-A6-SUFFICIENCY</code> (currently <strong>unbuilt</strong>): does a finite + positive \(a_6\) <em>constitute</em> UV completion, or is it one necessary coefficient in the unbounded tower \(a_8, a_{10}, \dots\) with the full UV problem untouched?</p>
+<p><strong>(b) Why it is hard / traps.</strong> This is the <strong>deepest</strong> residual and is <strong>external / field-judgement</strong>: even a flawless positive \(a_6\) passes <em>one</em> consistency coefficient among an unbounded tower (MO-12). The corpus deliberately says \(a_6\) is the missing object <em>for</em> UV completion, carefully <strong>not</strong> that \(a_6\) <em>is</em> UV completion (F2 FORBIDDEN). This is why R2 closing does <strong>not</strong> close R1. The strong form — "finite answers everywhere <em>constitutes</em> UV completion for everyone" — is a definitional unicorn no theory in any program can settle for the whole field; do not claim it as proven and do not list it as an open weakness — it is a shared ceiling.</p>
+<p><strong>(c) Exactly what closes it.</strong> Either build the named sufficiency theorem (a defensible argument that finite+positive \(a_6\), in this floored setting, earns the term UV completion), <strong>or</strong> make the definitional decline explicit and bounded (the EFT/floored stance is the ceiling). The bounded, honest endpoint is the latter: a field-level definitional judgement the program declines to make <em>for everyone</em>. <em>(Sources: <code>S6_uv_completion_scope.md</code>; <code>01_named_missing_objects.md</code> MO-12; <code>02_RESIDUAL_LEDGER.md</code> R6.)</em></p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The MO-12 scope analysis (<code>00_decomposition.md</code> S6); the all-orders tower structure; the EFT/Wilsonian framing.</p>
+<p><strong>(e) Leverage.</strong> Settling R6 is what would let a <em>closed</em> R2+R5 mean "UV completion" rather than "one consistency coefficient passed." It is the gate between "necessary" and "sufficient."</p>
+<hr />
+<h3>Hole F — disclose / derive the dimensionful normalization (scheme anchor)</h3>
+<p><strong>(a) Precise statement.</strong> The dimensionful \(a_6\) magnitude rides an injected scale (scheme-anchored, the same decision family as \(c_{\rm loop}\) / SG-7-\(\delta\)), not derived.</p>
+<p><strong>(b) Why it is hard / traps.</strong> A scheme reverse-engineered to a desired magnitude <strong>RELOCATES, it does not close</strong> (RELABEL_FAIL). The cleanest derived content is the <em>dimensionless</em> sphere cross-checks (S²=4/315, S⁴=74/63, S⁶=1139/63, conformal 5/63), which are route-independent; the much-quoted 124/315 color ratio is <strong>metric-selected (Scal\(_{K_6}=7.5\)) and not yet target-blind-reproduced</strong>, so it is not a clean invariant either. The dimensionful magnitude is not clean.</p>
+<p><strong>(c) Exactly what closes it.</strong> Either derive the dimensionful normalization from frozen geometry data (no injected scale), or settle the shared heat-kernel scheme object — or explicitly name-and-verify <code>AXIOM-HEATKERNEL-SCHEME-OBJECT</code> as value-free under the κ³/π falsification test, with the dependence made traceable. Until then, keep it disclosed as a scheme anchor. <em>(Sources: SPECIALIST_HOLE_QUEUE UQF-9 hole 5, 5C hole 5; <code>01_DOSSIER.md</code> §5.)</em></p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The frozen radii / \(M_*\approx6.01\times10^{16}\) GeV floor-location read; the heat-kernel scheme family; the 124/315 independent-reproduction route.</p>
+<p><strong>(e) Leverage.</strong> Disclosing/deriving the normalization is what lets any dimensionful \(a_6\) output be reported as more than a labeled consistency coefficient.</p>
+<hr />
+<h3>R4 — atomicity of AXIOM-COSTFLOOR (named, not a closeable hole)</h3>
+<p>For completeness: the <em>elevation</em> of the established floor to a root axiom is <strong>AXIOM-OPEN, not atomic</strong>. Any deeper "physics must be operationally realizable" principle is an <strong>equal-strength relocation</strong> of the same axiom — an irreducible \(\ge 1\) measured-invariant floor that cannot be eliminated, only relocated (Prime Truth: anchored ≠ derived). Demanding a proof that the granularity premise is <em>forced by reality</em> is therefore the trap of "anchoring on the target": it cannot be discharged for anyone. The measured floor itself is terminal-as-physics; its elevation is not atomic. Naming this is precision, not a defect. <em>(Sources: <code>02_CURRENT_STATE.md</code> §0; <code>01_DOSSIER.md</code> R4.)</em></p>
+<hr />
+<h2>7. Honest ceiling &amp; scope</h2>
+<p><strong>What is claimed (and at what rung).</strong> <em>(Source: <code>04_CLAIM_BUDGET.md</code>.)</em>
+- The frozen geometry <em>poses</em> the UV question on a definite operator \(L_{\rm grav}^{d=13}\) + ghosts; \(a_6\) carries the short-distance datum — <strong>ESTABLISHED (setup)</strong>.
+- The cost floor (Margolus–Levitin / Landauer / Bekenstein) is <strong>ESTABLISHED</strong> physics on a Lorentz scalar.
+- AXIOM-COSTFLOOR dissolves the \(a\to 0\) / \(a_8,a_{10},\dots\) counterterm-tower <strong>class</strong>, Lorentz-invariantly, by one named value-free axiom (κ³/π passes) — <strong>DISSOLVED (banked, scoped)</strong>.
+- The elevation of the floor to a root principle is declared, not proven irreducible — <strong>AXIOM-OPEN</strong>.
+- No truncation-independent non-Gaussian fixed point is mounted; UQF-9 = AUDIT/OPEN — <strong>OPEN (R1, binding)</strong>.
+- The \(d=13\) \(a_6\) trace is necessary-not-sufficient, uncomputed, overlapping Gap-01/B1 — <strong>OPEN (R2)</strong>.
+- Positivity and sufficiency are unsettled — <strong>OPEN (R5, R6)</strong>.
+- UQF-10 / UQF-14 carry typed BLOCKED_BY_UQF9 contracts — <strong>EXPORTED (R7)</strong>.
+- UQF-9 is <strong>audit-complete but physically OPEN</strong> — about the audit, <strong>not</strong> about physics closure.</p>
+<p><strong>What is explicitly NOT claimed — the bright lines.</strong> <em>(Sources: handoff bright-line block; <code>04_CLAIM_BUDGET.md</code> F1–F7.)</em>
+- NOT claimed: the cost-floor reframe SOLVES UV completion / closes UQF-9. <em>DISSOLVED ≠ SOLVED.</em>
+- NOT claimed: a finite, positive \(a_6\) constitutes or proves UV completion. It passes <em>one</em> heat-kernel consistency coefficient (necessary-not-sufficient); whether that constitutes UV completion is an external judgement deliberately not made.
+- NOT claimed: the granularity floor dissolves the finite \(a_6\) or the \(\Lambda\) walls. The floor leaves \(a_6\) UNTOUCHED (it exists term-by-term at any spacing and in the continuum), and leaves the \(\Lambda\) value / \(\Lambda\) radiative-stability walls untouched (1 DISSOLVES / 10 UNTOUCHED).
+- NOT claimed: a non-Gaussian / asymptotically-safe fixed point has been exhibited for this geometry. Candidate fixed points exist only within declared truncations; FRG evidence trends against the naive route.
+- NOT claimed: a truncation fixed point ⇒ closure; "audit-complete" ⇒ physically closed; "exported" ⇒ inherited; any \(a_6\) value/sign/partial; AXIOM-COSTFLOOR is atomic.</p>
+<p><strong>The dissolved unicorns (shared ceilings, never open weaknesses, never claimed as proven).</strong>
+- <em>Whether "finite answers everywhere" CONSTITUTES UV completion</em> (E1) — a field-level definitional judgement; no theory in any program can settle the definition for everyone, so the bounded EFT/floored stance is the ceiling, not a hedge.
+- <em>The strong form of N1</em> — "no future theory could ever do better / no fixed point exists under ANY possible mathematics." The bounded version (exhibit one, or prove non-existence within asymptotic safety) is a real listed hole (R1); the open-ended universal-negative is unprovable for everyone.
+- <em>Demanding a proof that the cost-floor premise is FORCED by reality</em> — any deeper "must be realizable" principle is an equal-strength relocation; the \(\ge1\) measured-invariant floor cannot be eliminated, only relocated.</p>
+<p><strong>The anchors paid.</strong> UQF-9 terminates on <strong>no measured invariant that closes it</strong>. A fixed point (R1) has no anchor — a global open problem. The finite \(a_6\) (R2) anchors on a heavy-but-finite symbolic computation, uncomputed, refutable by the positivity falsifier (R5). The cost floor (R3/R4) is established physics, but its <em>elevation to a root axiom</em> is declared, not measured of the UV sector, and is not atomic. R6 anchors on an unmade external/field judgement. The floor the gate honestly rests on (the \(\ge1\) genuine anchor) is the <strong>established cost-floor physics</strong> — and that anchors the <em>reframe</em>, not a UV-completion certificate. <strong>ANCHORED ≠ DERIVED; given-E ≠ derivation-of-E; selection ≠ derivation; DISSOLVED ≠ SOLVED; AXIOM-CLOSED ≠ atomic; a captured log ≠ an independent reproduction.</strong></p>
+<p><strong>One-sentence honest endpoint.</strong> UQF-9 is audit-complete but physically OPEN: Predicate A (a truncation-independent non-Gaussian fixed point) is the binding global wall (R1, FRG trending against the naive truncation route); Predicate B (the cost-floor dissolution of the \(a\to 0\) counterterm-tower class) is a genuine scoped, value-free, Lorentz-invariant, non-atomic win that DISSOLVED-not-SOLVED UV completion; the \(d=13\) \(a_6\) trace (R2) is necessary-not-sufficient computation-debt overlapping Gap-01/B1 (inherits only when B1 is BUILT-and-MOUNTED) with unresolved positivity (R5) and sufficiency (R6); UQF-10/UQF-14 carry typed BLOCKED_BY_UQF9 contracts. <strong>STATUS-UPGRADES:0.</strong> Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> READ-ONLY.</p>
+<hr />
+<p><em>Sources synthesized (all under <code>…/Fable_Version/rendered/TOE/</code>): <code>PER_GATE_DOSSIERS/UQF9_COMPLETION_HANDOFF/{01_DOSSIER, 02_CURRENT_STATE, 03_FROZEN_GEOMETRY_CONTEXT, 07_CONVERGED_CLOSURE_PATH}.md</code> and <code>certificates/UQF9_AUDIT_COMPLETE/{02_RESIDUAL_LEDGER, 04_CLAIM_BUDGET, 05_FINAL_ROLLUP}.md</code>; <code>ROOT_AXIOM_COST_FLOOR_REALIZABILITY.md</code>; <code>COST_FLOOR_WALL_IMPACT_LEDGER.md</code>; <code>gap_01_uv_quantum_gravity/{00_decomposition, 01_named_missing_objects}.md</code> + subsystems <code>S2.2</code>, <code>S4.1</code>; <code>SPECIALIST_HOLE_QUEUE_2026-06-29.md</code>; <code>GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md</code>; and the published brief <code>articles/GATE_BRIEF_UQF9</code>. Every number is traceable to one of these; no \(a_6\) value/sign/partial is asserted as a result. STATUS-UPGRADES:0.</em></p>
+</body></html>

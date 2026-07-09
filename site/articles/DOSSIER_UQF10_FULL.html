@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UQF-10 — Compactification consistency: full dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">UQF-10 — Compactification consistency: full dossier — rendered package. Rendered from <code>DOSSIER_UQF10_FULL.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>UQF-10 — Compactification consistency: full dossier</h1>
+<blockquote>
+<p><strong>Gate status (binding): OPEN (AUDIT) — certificate-conditional within the declared truncation; BLOCKED by the shared UQF-9 / FRG UV-completion wall.</strong> This dossier reflects the gate's honest current standing and <strong>upgrades nothing</strong> (STATUS-UPGRADES:0). UQF-10 asks a survival question, not a measurement question: does the <em>already-frozen</em> 13D compactification $K_6 \times S^2 \times S^1_Y/\mathbb{Z}_2$ remain a consistent quantum theory once loops are turned on — no unstable moduli directions, no tachyonic Kaluza–Klein or orbifold mode, controlled vacuum energy, no runaway volume modulus — all the way down the trajectory from the UV to the four-force interface scale. The honest answer today: two genuine <strong>certificate-within-truncation</strong> legs stand (the single-modulus reduction S-1, scoped to admissibility; the perturbative no-tachyon result S-3); four load-bearing stability rows (S-2/S-5/S-6/S-7) are <strong>computation-debt</strong> behind an FRG calculation that has not been performed; the FRG calculation is in turn <strong>blocked</strong> by the un-built UV-completion wall (UQF-9 / B3) shared with all of quantum gravity; the induced 4D cosmological constant (S-4) is a <strong>computed honest FAIL</strong>; and the gate's one UV-independent computable stability piece — the shape-doublet Hessian — currently returns a <strong>saddle, leaning REFUTED</strong>. Frozen branch <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code>, READ-ONLY.</p>
+<p><em>Source synthesis.</em> This dossier expands the UQF-10 completion-handoff packet — <code>rendered/TOE/PER_GATE_DOSSIERS/UQF10_COMPLETION_HANDOFF/01_DOSSIER.md</code>, <code>02_CURRENT_STATE.md</code>, <code>07_CONVERGED_CLOSURE_PATH.md</code>, the wall record at <code>certificates/UQF10_UQF9_wall_record/{00_WALL_RECORD_FIRST,01_RESIDUAL_LEDGER,02_CLAIM_BUDGET,03_NEXT_HIGHEST_LEVERAGE}.md</code>, <code>03_FROZEN_GEOMETRY_CONTEXT.md</code> — the executable c_loop spec <code>rendered/TOE/C_LOOP_COMPUTATION_SPEC.md</code>, the master spine <code>rendered/TOE/PER_GATE_DOSSIERS/MASTER_AXIOM_FLOOR_AND_WALL_LEDGER.md</code>, and the regrade/hole-queue ledgers <code>GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md</code> / <code>SPECIALIST_HOLE_QUEUE_2026-06-29.md</code>. Every number, hash, sign, coefficient, and equation below traces to one of those files (cited inline); uncomputed quantities are marked OPEN, never invented.</p>
+</blockquote>
+<hr />
+<h2>1. Executive summary + honest status</h2>
+<h3>1.1 Headline</h3>
+<p><strong>The frozen 13D shape stands as a quantum theory <em>within its declared truncation</em> — and where it cannot yet stand, the program names the exact computation that would settle it, the exact wall that blocks that computation, and the one cheap UV-independent check that is already leaning against it.</strong></p>
+<p>A geometry written on paper is cheap. The expensive question — the one that separates a consistent extra-dimensional theory from a hopeful picture — is whether <em>quantization leaves it standing</em>. Turn on loops and four things can kill a compactification: the moduli effective potential can develop an unstable (tachyonic) direction; a Kaluza–Klein or orbifold mode can go tachyonic; the induced vacuum energy can run out of control; or the overall volume modulus can run away (potential unbounded below), decompactifying the universe. UQF-10 is the gate that audits all four, on the <em>specific</em> frozen branch the rest of the program is built on, along the <em>whole</em> trajectory from the UV down to the scale where the four forces meet.</p>
+<p>The honest headline is positive and bounded at once. The geometry does survive perturbatively where the program has actually done the work, and the survival is written as <em>real certificates</em> — not gestures. But full quantum closure is not reached, and the program says so in the sharpest available terms: zero of the seven failure-mode rows reaches full quantum closure, the load-bearing rows wait on one named FRG computation, and that computation is gated behind the same UV-completion problem that blocks all of quantum gravity. This is not a hedge. It is the gate doing its job: a survival audit that refuses to certify survival it has not earned.</p>
+<h3>1.2 The honest grade — OPEN (AUDIT), certificate-conditional within truncation</h3>
+<p>The live popup chip reads <strong>CERTIFICATE-CONDITIONAL (within-truncation) / OPEN</strong>, and this dossier holds that line exactly (<code>GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md:39</code>). The gate's own published landing phrase is <em>"quantum compactification stability is certificate-complete only within the declared truncation"</em> (<code>01_DOSSIER.md:11–12</code>). The binding internal label is <strong>AUDIT (OPEN)</strong> by the least-closed-residual rule (<code>02_CURRENT_STATE.md:9–13</code>).</p>
+<p>Why this grade and not something stronger or weaker:</p>
+<ul>
+<li><strong>Not DERIVED / not closed.</strong> Zero of the seven manuscript rows S-1…S-7 reaches full quantum closure (<code>01_DOSSIER.md:12, 60–61</code>). Four of them (S-2/S-5/S-6/S-7) terminate on an FRG calculation that has literally not been run. Naming the gate closed would be the textbook over-promotion the program is built to refuse.</li>
+<li><strong>Not a blank OPEN either.</strong> Two legs are genuine within-truncation wins (S-1 admissibility-scope; S-3 perturbative no-tachyon), banked as first-class certificates (<code>01_RESIDUAL_LEDGER.md:28–30</code>). The closure path is concrete and named, not a mystery. So the gate is <em>partial-with-real-content</em>, captured by "certificate-conditional within truncation / OPEN."</li>
+<li><strong>The least-closed residual sets the headline.</strong> By the grading rubric, gate status = the status of its weakest residual (<code>02_CURRENT_STATE.md:58–61</code>). With R1 (computation-debt), R2 (shared global wall / BLOCKED), and the four FRG rows all non-terminal, one open piece forces the gate to OPEN. "PARTIAL / AUDIT-as-progress" is retired language; the honest roll-up is OPEN.</li>
+</ul>
+<p>A survival gate has a different ceiling from a measurement gate. There is no measured invariant that "closes" UQF-10 — it audits a <em>stability property</em> of a frozen geometry, not a number (<code>01_DOSSIER.md:30</code>). The achievable top within the program's current reach is <strong>certificate-within-truncation on every row, plus a proven composition theorem, plus a built UV completion</strong> — and even that is "DERIVED-GIVEN-E within truncation," never "DERIVED-CLOSED" (<code>01_DOSSIER.md:66–69</code>).</p>
+<h3>1.3 What this dossier establishes and what it does not</h3>
+<p><strong>Establishes.</strong> UQF-10 genuinely delivers: (1) a clean decomposition of "quantum survival" into seven explicit, named failure-mode rows S-1…S-7; (2) a real <strong>single-modulus (breathing-mode) reduction</strong> S-1 that holds within the declared truncation, with the shape moduli frozen by the residual isometry / spin-c structure of the frozen branch — banked as an admissibility-scope certificate <code>AXIOM-FROZEN-BRANCH-ADMISSIBILITY</code> (<code>01_RESIDUAL_LEDGER.md:18, 60</code>); (3) a real <strong>perturbative no-tachyon</strong> result S-3, banked as <code>CERT-S3-PERTURBATIVE-NO-TACHYON</code> (<code>01_RESIDUAL_LEDGER.md:28</code>); (4) a fully specified, executable computation of the one missing coefficient — <code>c_loop</code>, the $\sigma^{-6}$ term of the moduli potential — down to the regulator, the normalization $1/(4(4\pi)^2)$, and the five input spectra (<code>C_LOOP_COMPUTATION_SPEC.md</code>); (5) an honest, named dependency map: the gate is <em>coupled to and not independent of</em> UQF-9, the UV-completion wall (<code>01_DOSSIER.md:110–116</code>); and (6) a first-class <strong>negative</strong> result — the shape-doublet Hessian saddle — that the program banks rather than buries (<code>01_RESIDUAL_LEDGER.md:31–45</code>).</p>
+<p><strong>Does not establish.</strong> UQF-10 does <strong>not</strong> prove the compactification quantum-stable. It does not control the 4D cosmological constant — S-4/Λ is a disclosed computed FAIL with <strong>no live cancellation mechanism</strong> (<code>01_DOSSIER.md:52–53</code>). It does not assert any value, sign, or bound for <code>c_loop</code>; the current banked state is <code>c_loop = BLOCKED_MISSING_FRG_MATCHING</code>, <code>sign = UNDETERMINED</code> (<code>C_LOOP_COMPUTATION_SPEC.md:131–135</code>). It does not promote the inherited compactification-<em>existence</em> result into this gate's certificate — that result is <strong>cited input only</strong> and closes no FRG row (<code>01_DOSSIER.md:53–56</code>). And it does not claim the frozen geometry is the one nature picks: a stable spectrum <em>given</em> the geometry is not proof of <em>selection</em> (<code>01_DOSSIER.md:142–143</code>).</p>
+<h3>1.4 The edge, stated as the bet it is</h3>
+<p>The honest edge is a confident, testable bet, not a soft hedge. The single most destructive falsifier is sharp and named: <strong>S-7 runaway.</strong> If the moduli potential turns out unbounded below in the operating range, it does not merely fail this gate — it breaks the Einstein-frame caveat of the geometry paper and <strong>downgrades the gravity interface itself</strong> (<code>01_DOSSIER.md:62–65</code>). That is a falsifier with teeth: a definite, structural FINDING, not a soft "we couldn't show it."</p>
+<p>There is a second, even cheaper falsifier already on the table. The program computed the one Λ-free, μ_cell-free, UV-completion-<em>independent</em> piece of moduli stability it could compute below the wall — the <strong>shape-doublet Hessian</strong> at the chamber center — and it came back a <strong>saddle</strong>: $d^2 R/d\varepsilon^2|_0 = +4 - 5 = -1 < 0$ along the doublet ray $u = (1+\varepsilon, 1-\varepsilon, 1)$ on $SU(3)/T^2$ (<code>01_RESIDUAL_LEDGER.md:32–34</code>; <code>00_WALL_RECORD_FIRST.md:70–76</code>). This is leaning REFUTED, target-blind, sympy-reproduced, and cross-confirmed in the SG-6 certificate. UV completion would <em>not</em> rescue it. The honest bet is therefore not "trust us, it's stable" but the opposite: "here is the cheapest place the theory could die, and it is currently leaning the wrong way — resolve the full $2\times 2$ Hessian signature <em>first</em>, before spending effort on the expensive UV build."</p>
+<p>The one part of UQF-10 that is unprovable <strong>for everyone</strong> — a complete nonperturbative compactification-stability proof with no UV completion in hand, over the open-ended space of all possible frameworks — is a limit on all of quantum gravity, not a defect unique to this program (<code>01_DOSSIER.md:12</code>). That universal negative is dissolved as the shared ceiling it is. The <em>specific</em> UQF-9 fixed-point construction this branch needs, by contrast, stays a bounded, named, open computation — a real work-package, not a unicorn.</p>
+<hr />
+<h2>2. The community gap</h2>
+<h3>2.1 The precise open problem</h3>
+<p>Compactification is the central trick of every higher-dimensional unification: take a theory in $D > 4$ dimensions, curl up the extra $D - 4$ dimensions into a small compact internal space, and the gauge structure and matter content of the 4D world fall out of the geometry and topology of that internal space. Kaluza–Klein theory, string compactifications, M-theory on $G_2$ manifolds, and the present program's $K_6 \times S^2 \times S^1_Y/\mathbb{Z}_2$ branch all share this skeleton.</p>
+<p>The hard part is not writing down a compact space that gives the right gauge group at tree level. The hard part is <strong>stability under quantization</strong>. Concretely, a realistic compactification must clear four quantum hurdles, all at once and all along the renormalization-group trajectory:</p>
+<ol>
+<li><strong>Moduli stabilization.</strong> The size and shape of the internal space are described by scalar fields — <em>moduli</em>. Their effective potential $V$ must have a genuine minimum (positive-definite Hessian) at the desired geometry, or the geometry is not a vacuum at all.</li>
+<li><strong>No tachyons.</strong> No Kaluza–Klein mode, no orbifold/twisted mode, can acquire a negative mass-squared — perturbatively <em>or</em> nonperturbatively (via tunneling to a competing vacuum).</li>
+<li><strong>Controlled vacuum energy.</strong> The induced 4D cosmological constant must not blow up; ideally it lands near the observed value.</li>
+<li><strong>No runaway.</strong> No modulus — most dangerously the overall volume — may have a potential unbounded below, which would drive the internal space to decompactify ($V \to 0$ at infinite volume) or collapse.</li>
+</ol>
+<h3>2.2 State of the art — and why no one has a full proof</h3>
+<p><strong>No accepted theory has a full nonperturbative compactification-stability proof for a realistic compact space</strong> (<code>GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md:732</code>). This is the genuine, field-wide gap, and it is worth being precise about <em>why</em> it is open rather than merely unsolved:</p>
+<ul>
+<li><strong>Moduli potentials are loop-sensitive.</strong> The leading classical potential can have a minimum that one-loop and higher corrections destabilize, or vice versa. Controlling those corrections to <em>all orders</em> requires controlling the theory in the deep UV — a UV completion.</li>
+<li><strong>String theory has the most developed machinery and still no general proof.</strong> Flux compactifications (e.g. the KKLT and Large Volume Scenario constructions) stabilize moduli in specific corners, but they rely on ingredients (anti-branes, non-perturbative superpotentials) whose full quantum consistency remains debated, and they do not constitute a general nonperturbative stability theorem for a realistic space. The "swampland" program is, in effect, a catalogue of conjectured obstructions to exactly the stability one would want to prove.</li>
+<li><strong>The volume modulus is the perennial villain.</strong> Dine–Seiberg–type runaway arguments show that, generically, the scalar potential of a modulus controlling a weak-coupling/large-volume limit slopes to zero at infinity, so any minimum is at best metastable and often absent. Defeating runaway is precisely the hard, model-specific work.</li>
+<li><strong>The deepest obstruction is shared with all of quantum gravity.</strong> Controlling the moduli potential at higher loops needs a UV completion that nobody has in general — a genuine ultraviolet definition of quantum gravity coupled to the matter sector (<code>GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md:732</code>). This is the same wall — asymptotic safety's non-Gaussian fixed point, or its string-theoretic analogue — that blocks essentially every quantitative quantum-gravity question. The program names it B3 in its shared-blocker ledger (<code>MASTER_AXIOM_FLOOR_AND_WALL_LEDGER.md:144</code>).</li>
+</ul>
+<h3>2.3 Where this program sits, honestly</h3>
+<p>This program does not claim to have solved the field-wide gap; it could not, because part of that gap is a universal negative (§7). What it claims — and what this dossier documents — is narrower and more useful:</p>
+<ul>
+<li>It has <strong>decomposed</strong> the survival question into seven concrete, checkable rows, so that "is the compactification stable?" becomes a finite checklist rather than a vibe.</li>
+<li>It has <strong>closed two rows within truncation</strong> (S-1 admissibility, S-3 perturbative) with banked certificates.</li>
+<li>It has <strong>reduced the remaining stability question to one named coefficient</strong> (<code>c_loop</code>) plus one named wall (UQF-9 / B3), and written the <code>c_loop</code> computation as an executable spec.</li>
+<li>It has <strong>found and banked a live negative</strong> (the shape-doublet saddle) that a less honest program would have hidden, and it ranks resolving that negative <em>ahead</em> of the expensive UV build.</li>
+</ul>
+<p>That is the legitimate contribution: not a stability proof, but a fully-mapped, honestly-graded, specialist-ready <em>route</em> to one, with the open objects named to the coefficient and the wall.</p>
+<hr />
+<h2>3. The construction — rigorous math</h2>
+<blockquote>
+<p>Full treatment lives in the published Quantum manuscript (Paper III, §8.3 / §15 for UQF-10; §8.4 / §14 for the coupled UV-completion gate UQF-9) and in the executable <code>C_LOOP_COMPUTATION_SPEC.md</code>. This section is the attack-grade reconstruction, with the actual equations and intermediate results.</p>
+</blockquote>
+<h3>3.1 The object being audited: the frozen 13D branch</h3>
+<p>UQF-10 is a <em>survival/consistency</em> gate evaluated on the frozen survivor — no new geometry is searched (<code>01_DOSSIER.md:91–95</code>). The audited object is the active branch (<code>03_FROZEN_GEOMETRY_CONTEXT.md:13–22</code>):</p>
+<p>$$
+\mathfrak{B}_{\rm active}\;=\;\big[\,\mathcal{M}_4 \times K_6 \times S^2 \times S^1_Y/\mathbb{Z}_2\,\big]\ \oplus\ \big[\,F^+_{\rm finite} \oplus C_{\rm admiss}\,\big]\ \otimes\ \big[\,E_{\rm matter} \oplus E_{\rm gauge} \oplus E_{\rm Higgs} \oplus E_{\rm proton}\,\big]
+$$</p>
+<p>with $K_6 = SU(3)/T^2$ (the flag manifold), content hash <code>dcc66f1b2685</code>, manifest hash <code>a5b1e6f9d951</code>. Only the $\times$-layer factors carry metric dimension: $D = 13 = 4 + 6 + 2 + 1$. The gauge routing is by isometry (<code>03_FROZEN_GEOMETRY_CONTEXT.md:28–32</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Internal factor</th>
+<th>Routes to</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$K_6 = SU(3)/T^2$</td>
+<td>$SU(3)_c$ color</td>
+<td>left-isometry algebra $\mathfrak{su}(3)$</td>
+</tr>
+<tr>
+<td>$S^2$</td>
+<td>$SU(2)_L$ weak</td>
+<td>isometry $\mathfrak{su}(2)$</td>
+</tr>
+<tr>
+<td>$S^1_Y/\mathbb{Z}_2$</td>
+<td>$U(1)_Y$ hypercharge</td>
+<td>isometry + orbifold chirality filter (no mirrors)</td>
+</tr>
+</tbody>
+</table>
+<p>The radii are pinned at the Weyl-rigid chamber center $\vec u = (1,1,1)$; $R_{K_6}(\vec u) = R_0 \vec u$ with $R_0 \equiv (2\pi M_U)^{-1} = 1.592\times10^{-17}\,\mathrm{GeV}^{-1}$ and unification scale $M_U \sim 1.0\times10^{16}$ GeV (<code>03_FROZEN_GEOMETRY_CONTEXT.md:49–51</code>). The Cartan-torus modulus $\tau = \omega$ is <em>absorbed</em> into the $F^+$ chamber data (Option B) and is <strong>not</strong> a separately stabilized propagating modulus (<code>C_LOOP_COMPUTATION_SPEC.md:24–26, 62–66</code>).</p>
+<p><strong>The cardinal scope discipline.</strong> The geometry enters <em>frozen and unchanged</em> as the <strong>input the gate audits</strong> — never as a result the gate validates. A stable spectrum given the geometry is not proof the geometry is the one nature picks; that is an upstream SHAPE / SG-1 question (<code>01_DOSSIER.md:142–143</code>). "Given-the-geometry $\neq$ derivation of the geometry" travels with every claim below.</p>
+<h3>3.2 The seven failure-mode rows</h3>
+<p>The survival predicate decomposes into seven rows (<code>01_DOSSIER.md:36–56</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Row</th>
+<th>Object</th>
+<th>What must hold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>S-1</strong></td>
+<td>single-modulus reduction</td>
+<td>the many would-be moduli reduce to one (overall volume), shape moduli frozen by residual isometry / spin-c</td>
+</tr>
+<tr>
+<td><strong>S-2</strong></td>
+<td>moduli mass-matrix positivity</td>
+<td>the Hessian of $V$ has no negative eigenvalue (no unstable direction)</td>
+</tr>
+<tr>
+<td><strong>S-3</strong></td>
+<td>no tachyonic compact mode</td>
+<td>no KK / orbifold mode has $m^2 < 0$ (perturbatively, and — beyond truncation — nonperturbatively)</td>
+</tr>
+<tr>
+<td><strong>S-4</strong></td>
+<td>induced 4D $\Lambda$</td>
+<td>the vacuum energy is controlled</td>
+</tr>
+<tr>
+<td><strong>S-5</strong></td>
+<td>KK spectrum stable along trajectory</td>
+<td>the KK tower stays non-tachyonic along the RG flow UV → $M_*$</td>
+</tr>
+<tr>
+<td><strong>S-6</strong></td>
+<td>orbifold / boundary stability</td>
+<td>the $S^1_Y/\mathbb{Z}_2$ boundary conditions stay consistent (Dai–Freed boundary-anomaly checklist)</td>
+</tr>
+<tr>
+<td><strong>S-7</strong></td>
+<td>no runaway volume modulus</td>
+<td>$V_{\rm eff}(\sigma)$ is bounded below / has a stable minimum at the frozen radii</td>
+</tr>
+</tbody>
+</table>
+<h3>3.3 S-1: the single-modulus (breathing-mode) reduction</h3>
+<p>The many geometric moduli of $K_6 \times S^2 \times S^1_Y/\mathbb{Z}_2$ are reduced to a <strong>single modulus</strong> $\sigma$ — the overall internal volume / "breathing mode" — by freezing the shape moduli with the residual isometry / spin-c structure of the frozen branch (<code>01_DOSSIER.md:97–101</code>). Within the declared truncation this is a genuine certificate; the freeze is, however, a <strong>declared scope choice</strong>, not a forcing theorem. The honest banking is therefore as an admissibility-scope axiom <code>AXIOM-FROZEN-BRANCH-ADMISSIBILITY</code>, <strong>never</strong> as "frozen by a positive-definite Hessian" — that reading is a claim-boundary violation (<code>01_RESIDUAL_LEDGER.md:18</code>; <code>02_CLAIM_BUDGET.md:12</code>). Upgrading S-1 from scope to DERIVED requires a forcing theorem, named and decidable: <code>THEOREM-TARGET-RESIDUAL-ISOMETRY-FORCES-HESSIAN-SIGN</code>, whose current status is <strong>LEANING REFUTED</strong> (<code>01_RESIDUAL_LEDGER.md:61–63</code>) — see §3.7.</p>
+<h3>3.4 The breathing-mode potential and the one open coefficient <code>c_loop</code></h3>
+<p>The single-$\sigma$ stabilization object is the corpus's four-term potential (<code>C_LOOP_COMPUTATION_SPEC.md:36</code>, citing <code>Scoped_TOE_ST1_main_statement.md:556</code> and <code>GUT.md:12341</code>):</p>
+<p>$$
+V(\sigma) = c_{\rm KK}\, e^{-4\sigma} + c_{\rm bdry}\, e^{-2\sigma} + c_{\rm Wilson}\cos\theta_W\, e^{-4\sigma} + c_{\rm loop}\, e^{-6\sigma}
+$$</p>
+<p>One term from bulk KK-tower energetics, one from the boundary the fold creates, one from the Wilson/Hosotani sector, and one from loops. A genuine well at the frozen radii requires the <em>computed</em> signs to add to upward curvature on both sides of the native point (<code>C_LOOP_COMPUTATION_SPEC.md:38–42</code>).</p>
+<p>Three of the four coefficients are computed and banked (carried only to define the well <code>c_loop</code> sits in; <strong>none is combined into <code>c_loop</code></strong> — that combination is a forbidden shortcut) (<code>C_LOOP_COMPUTATION_SPEC.md:71–83</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Coefficient</th>
+<th>Banked value</th>
+<th>Grade / record</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$c_{\rm KK}$</td>
+<td>$-8.892\times10^{1} / R_Y^4$</td>
+<td>decision-grade; record <code>ba0ba266d7315f71</code></td>
+</tr>
+<tr>
+<td>$c_{\rm KK}^{\rm wind}$ (fold-winding Casimir)</td>
+<td>$+3.701826\times10^{-2}\, R_Y^{-4}$</td>
+<td>closed-by-computation</td>
+</tr>
+<tr>
+<td>$c_{\rm Wilson}$ integer sums</td>
+<td>$S(0) = +4$, $S(\pi) = +92$</td>
+<td>exact integer arithmetic</td>
+</tr>
+<tr>
+<td>$\kappa_0'$ (branch pin)</td>
+<td>$-3/(64\pi^6) < 0$ (branch B)</td>
+<td>GUT App H Gate-8</td>
+</tr>
+<tr>
+<td>$c_{\rm bdry}$</td>
+<td>$-1.08\times10^{-2}$ (negative, full band)</td>
+<td>closed-by-computation, v10</td>
+</tr>
+<tr>
+<td><strong>$c_{\rm loop}$</strong></td>
+<td><strong>OPEN</strong></td>
+<td>the single still-open coefficient</td>
+</tr>
+</tbody>
+</table>
+<p><code>c_loop</code> is the coefficient of the $e^{-6\sigma}$ ($\sigma^{-6}$) term: a one-loop / threshold-resolved (FRG-2-equivalent) radiative residue of the compact residual vacuum energy — <strong>not</strong> a count-only Casimir, and a <em>distinct object from</em> $c_{\rm KK}$ (<code>C_LOOP_COMPUTATION_SPEC.md:46–52</code>).</p>
+<h3>3.5 The decision-grade well and its honest scope (the inherited existence result)</h3>
+<p>A separate corpus result closes the compactification <strong>existence</strong> question at decision grade (<code>C_LOOP_COMPUTATION_SPEC.md:88–110</code>, citing <code>Scoped_TOE_ST1_main_statement.md:546, 629, 647</code>):</p>
+<ul>
+<li>$A = c_{\rm KK} + \kappa_0'\cdot S(0) < 0$ across the full variant band $\Rightarrow$ the well exists; the central reading clears the operative curved-share falsifier ($c_{\rm KK}^{[\text{curved+graviton-internal}]} < -3.682\times10^{-2}\, R_Y^{-4}$) by $\sim 2.4\times10^{3}$, the weakest accepted variant by $35\times$.</li>
+<li>The <strong>v10 Amendment</strong> (verbatim, <code>ST1:629</code>): <em>"Gap 04's well now exists UNCONDITIONALLY in c_loop."</em> With $c_{\rm bdry} = -1.08\times10^{-2}$ negative across its full band, <strong>no value of <code>c_loop</code> in the declared FRG-2 lane can threaten the well.</strong> The earlier windows ($0 < c_{\rm loop} < A^2/(4 c_{\rm bdry})$, v8; $c_{\rm loop} < 0.05\, A^2/c_{\rm bdry}$, v9) are vacated/superseded.</li>
+</ul>
+<p><strong>Two firewalls travel with this result, and they are load-bearing.</strong> First, the existence result bounds <code>c_loop</code>'s effect <em>on the well only</em>; it supplies <strong>no</strong> value, sign, or magnitude for <code>c_loop</code> (<code>C_LOOP_COMPUTATION_SPEC.md:107–109</code>). Second — and this is the gate's signature mis-close risk — the existence result is inherited as <strong>cited input ONLY</strong>, explicitly <strong>NOT promoted</strong> into this gate's FRG certificate; it closes <strong>no</strong> FRG row (<code>01_DOSSIER.md:53–56, 135–139</code>). Existence of <em>a</em> consistent compactification is not the same as quantum-stability of <em>this</em> one along the FRG trajectory. And the well is <strong>half-anchored</strong>: the no-fifth-force null (Eöt-Wash / MICROSCOPE) tethers it; the CMB scalar amplitude $A_s \sim 2\times10^{-9}$ is a <em>downstream</em> tether, not a co-anchor (<code>GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md:742, 784</code>). This dossier therefore states the existence result as inherited context, never as load-bearing closure progress for UQF-10.</p>
+<h3>3.6 The FRG computation of <code>c_loop</code> (the executable spec)</h3>
+<p>The computation that would convert the decision-grade well to certificate grade — and feed UQF-10's stability rows — is a <strong>Functional Renormalization Group (FRG-2)</strong> matching, not a bare Coleman–Weinberg sum. The flow of the effective potential is the Wetterich equation projected onto constant fields (<code>C_LOOP_COMPUTATION_SPEC.md:143–164</code>, citing <code>frg2_loop_matching_derivation.md §1</code>):</p>
+<p>$$
+k\,\frac{d}{dk} U_k = \tfrac{1}{2}\,\mathrm{STr}\!\left[\frac{d_k R_k}{\Gamma_k^{(2)} + R_k}\right]
+$$</p>
+<p>Projecting onto the compact residual vacuum energy and integrating the flow from the UV down to the native compactification scale $M_*$, the $\sigma^{-6}$ coefficient takes the threshold-resolved supertrace form:</p>
+<p>$$
+c_{\rm loop} = \frac{1}{4(4\pi)^2}\,\sum_{\rm levels}\Big[\,\deg_B(\ell)\, l^0_B\!\big(m_B^2(\ell)/k^2\big) - \deg_F(\ell)\, l^0_F\!\big(m_F^2(\ell)/k^2\big)\,\Big]
+$$</p>
+<p>(FRG-2, LPA, Litim). The normalization $1/(4(4\pi)^2)$ is <strong>fixed</strong> (the same one-loop measure as $c_{\rm KK}$) and multiplies a <em>threshold-resolved</em> supertrace — not the count-only Casimir combination, and <code>c_loop</code> is <strong>not</strong> combined with $c_{\rm KK}$.</p>
+<p>The scheme is fixed <em>before any number</em> to guard against tuning (<code>C_LOOP_COMPUTATION_SPEC.md:191–217</code>):</p>
+<ul>
+<li><strong>Truncation:</strong> FRG-2 = strict Local Potential Approximation (LPA), with $Z_k = 1$ (wavefunction renormalization frozen) and $\eta = 0$ (anomalous dimension). Higher operators (Z_k running, $R^2$-type, $\eta$) are <strong>excluded</strong> from FRG-2 and deferred to the FRG-4 sensitivity layer.</li>
+<li><strong>Regulator:</strong> Litim optimized, $R_k(q^2) = (k^2 - q^2)\,\theta(k^2 - q^2)$, chosen on truncation-quality grounds <em>only</em>; threshold form $l^d_0(w) \sim (2/d)\cdot 1/(1+w)$, $w = m^2/k^2$.</li>
+<li><strong>FRG-4 layer:</strong> Z_k running, $\eta$, $R^2$-type — declared, sensitivity-scanned, and <strong>never promoted</strong> into the FRG-2 number.</li>
+</ul>
+<p>The supertrace runs over the <strong>retained compact mass spectrum</strong> — bosonic towers on $K_6$, $S^2$, $S^1_Y$ plus the <strong>twisted-Dirac</strong> tower on $K_6 = SU(3)/T^2$ — supplied by five source-hashed CSVs (<code>C_LOOP_COMPUTATION_SPEC.md:166–189</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Mode set</th>
+<th>Source CSV</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bosonic $m_B^2$, $\deg_B$</td>
+<td><code>k6_spectrum.csv</code>, <code>s2_spectrum.csv</code>, <code>s1y_spectrum.csv</code></td>
+<td>$K_6$, $S^2$, $S^1_Y$ towers</td>
+</tr>
+<tr>
+<td>fermionic $m_F^2$, $\deg_F$</td>
+<td><code>k6_dirac_spectrum.csv</code></td>
+<td>twisted-Dirac $K_6$ tower</td>
+</tr>
+<tr>
+<td>retained per-level enumeration</td>
+<td><code>retained_field_ledger.csv</code></td>
+<td>retained field ledger</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The standing blocker, verbatim.</strong> All five CSVs are <strong>MISSING</strong> in the inherited package; the scheme is declared but the supertrace is not yet evaluable (<code>C_LOOP_COMPUTATION_SPEC.md:186–189, 462–464</code>). Certificate criterion <strong>CC-1 (spectra present + source-hashed) is presently FALSE</strong> (<code>C_LOOP_COMPUTATION_SPEC.md:286–288, 313–314</code>).</p>
+<p><strong>The count diagnostic — and the forbidden shortcut it must not become.</strong> The retained content has $n_B = 35$ bosons and $n_F = 90$ fermions, so the <em>count-only</em> combination $\mathrm{Str}[1] = n_B - n_F = 35 - 90 = -55$ is negative (the same spectral object tied to Λ-hardness) (<code>C_LOOP_COMPUTATION_SPEC.md:181–184</code>). <strong>The threshold-resolved supertrace can have either sign.</strong> Reading a sign off the bare count $-55$ is a forbidden count-only shortcut; the current banked state is <code>sign = UNDETERMINED_PENDING_RETAINED_SPECTRUM</code> (<code>C_LOOP_COMPUTATION_SPEC.md:131–135, 184</code>).</p>
+<h3>3.7 The shape-doublet Hessian — the one UV-independent stability piece, computed</h3>
+<p>The wall record's most important content is <strong>not</strong> the wall; it is a <em>live, UV-completion-independent falsifier computed below the wall</em> (<code>00_WALL_RECORD_FIRST.md:62–76</code>; <code>01_RESIDUAL_LEDGER.md:31–45</code>). The shape-doublet moduli-potential Hessian at $\vec u = (1,1,1)$ is Λ-free, μ_cell-free, and computable <em>without</em> the FRG run. Along the doublet ray $u = (1+\varepsilon, 1-\varepsilon, 1)$ on $SU(3)/T^2$:</p>
+<p>$$
+\left.\frac{d^2 R}{d\varepsilon^2}\right|_0 = +4 - 5 = -1 < 0
+$$</p>
+<p>— diagonal convexity $+4$ versus the structure-constant triangle $-5$. Unit-normalized, the $\varepsilon^2$-coefficient is $+2 - 5/2 = -1/2$. <strong>Curvature is negative in both conventions</strong> (the sign is direction- and normalization-invariant). This was reproduced independently in sympy on this pass and <strong>cross-confirmed in SG-6 certificate <code>04_R3_SHAPE_DOUBLET_SADDLE.md</code></strong>.</p>
+<p>The honest disposition is <strong>LIVE FALSIFIER — leaning REFUTED</strong>, banked as a first-class <em>negative</em> certificate <code>CERT-SHAPE-DOUBLET-SADDLE</code> (<code>01_RESIDUAL_LEDGER.md:31–45</code>). Two watch-items keep it from being over-read: it is a <em>single-slice</em> computation that refutes positive-definiteness (one negative direction suffices) but is <strong>not yet a full $2\times2$ shape-doublet Hessian-signature certificate</strong>; and the saddle → mass² map needs (i) canonical moduli kinetic normalization and (ii) the R6 graded-Casimir net sign (magnitude $\mu_{\rm cell}\cdot q \gtrsim 0.5$ would be required to overcome the $-1$) — <strong>both absent</strong>. Hence <em>leaning</em> refuted, not fully refuted. Critically: <strong>UV completion would not rescue a confirmed saddle</strong> — this object outranks "blocked upstream" as the load-bearing current content (<code>03_NEXT_HIGHEST_LEVERAGE.md:40–47</code>).</p>
+<h3>3.8 S-3: the perturbative no-tachyon certificate</h3>
+<p>S-3 establishes that no KK or orbifold mode on the frozen $K_6 \times S^2 \times S^1_Y/\mathbb{Z}_2$ space acquires a negative mass-squared <strong>perturbatively</strong>, within the locked truncation/scheme. This is a genuine within-truncation win, banked as <code>CERT-S3-PERTURBATIVE-NO-TACHYON</code> (<code>01_RESIDUAL_LEDGER.md:28</code>). The scope caveat that must travel: it excludes only <em>perturbative</em> tachyons. <strong>Nonperturbative exclusion — vacuum tunneling / decay to a competing vacuum — remains OPEN</strong> (beyond truncation) (<code>01_DOSSIER.md:51–52, 198–200</code>).</p>
+<h3>3.9 S-4 / Λ: the computed honest FAIL</h3>
+<p>The induced 4D cosmological constant is a <strong>computed honest FAIL</strong>, scoped to a later paper, staying <strong>Weinberg-OPEN</strong> (<code>01_DOSSIER.md:52–53, 126–129</code>). This is the single most important bright-line in the gate: there is <strong>no live cancellation mechanism</strong> here. The $\mathrm{Str}[1] = -55$ consilience is banked as <em>structural consilience</em>, explicitly <strong>NOT</strong> an adopted axiom (<code>GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md:775</code>). The measured Λ value ($\approx (2.3\,\mathrm{meV})^4$) is a separate measured-but-irreducible terminal anchor (<code>MASTER_AXIOM_FLOOR_AND_WALL_LEDGER.md:86</code>, A9); the gate's own Λ line is the FAIL. <strong>The two are never laundered into each other</strong> (<code>01_RESIDUAL_LEDGER.md:51–54</code>). Presenting Λ as controlled would be the gate's worst overclaim.</p>
+<h3>3.10 The blocking dependency: UQF-9 / B3</h3>
+<p>The four AUDIT rows (S-2/S-5/S-6/S-7) do <strong>not</strong> pose four independent questions. They collapse onto one missing object: the <strong>FRG-controlled moduli effective potential</strong>, which requires UV control — i.e. UQF-9 (<code>01_DOSSIER.md:110–116</code>). Without a UV completion, the moduli effective potential at higher loops is not controllable, so the AUDIT rows cannot be lifted. UQF-10 is <em>coupled to and not independent of</em> UQF-9 and cannot close ahead of it. The named wall is <code>UQF9-FRG-BRANCH-STABILITY-CONSTRUCTION</code> = <strong>B3</strong> (UV-completion / asymptotic-safety non-Gaussian fixed point), the universal deepest wall in the shared-blocker ledger (<code>00_WALL_RECORD_FIRST.md:16–22</code>; <code>MASTER_AXIOM_FLOOR_AND_WALL_LEDGER.md:144</code>).</p>
+<p><strong>Verified READ-ONLY this pass:</strong> B3 is <strong>UN-BUILT</strong> — <code>SHARED_BLOCKER_BUILDS/</code> contains only <code>B1_heatkernel</code> and <code>B2_daifreed</code>, no B3 build (<code>00_WALL_RECORD_FIRST.md:24–26</code>). UQF-9 is independently OPEN/global-wall (no non-Gaussian fixed point exhibited; the heat-kernel coefficient $a_6$ uncomputed). The dependency is mutually and faithfully recorded: UQF-9 R7 exports the <code>blocked-by</code> edge → UQF-10 (and UQF-14); UQF-10 R2 imports it. <strong>No theorem is stretched across the wall.</strong></p>
+<p>The unproven bridge B3 would have to supply (<code>00_WALL_RECORD_FIRST.md:36–41</code>):</p>
+<pre><code>formal frozen branch 𝔅_active
+   → UV-controlled FRG trajectory            (un-run; needs the non-Gaussian fixed point)
+      → physical moduli effective potential   (finite, loop-controlled)
+         → quantum-stability certificate      (S-2/S-5/S-6/S-7 positivity/boundedness)
+</code></pre>
+<p>Each arrow is an undischarged obligation under the program's 5-invariant floor: OBJECT IDENTITY + FAITHFUL BRIDGE (the FRG stability object is named, not built — "FRG calculation" is a name, not yet the right branch-specific physical object), COMPOSITION (row-basis completeness), and MODAL STATUS (within-truncation ↛ full).</p>
+<h3>3.11 The residual register (R1–R11 + P0)</h3>
+<p>Built from the seven rows plus the cross-cutting dependency, scope, and predicate residuals; status set by the least-closed-residual rule (<code>01_RESIDUAL_LEDGER.md:9–22</code>):</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Residual (named object)</th>
+<th>Disposition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R1</strong></td>
+<td>FRG calculation NOT performed (loop-controlled moduli potential)</td>
+<td><strong>OPEN / computation-debt.</strong> Gate-defining; blocks R3–R6. Axiomatizing an un-run calc = target-loading (the cardinal sin).</td>
+</tr>
+<tr>
+<td><strong>R2</strong></td>
+<td>UQF-10 coupled to UQF-9 / UV completion (= <strong>B3</strong>)</td>
+<td><strong>OPEN / BLOCKED — shared global wall.</strong> B3 un-built. Cannot close ahead of UQF-9. Faithful mutual edge UQF-9 R7 ⇄ UQF-10 R2.</td>
+</tr>
+<tr>
+<td><strong>R3</strong></td>
+<td><strong>S-2</strong> moduli mass-matrix positivity</td>
+<td><strong>OPEN / computation-debt.</strong> Volume-singlet half B3-blocked + μ_cell self-anchoring firewall (T1); shape-doublet half <strong>leaning REFUTED</strong> (CERT-SHAPE-DOUBLET-SADDLE).</td>
+</tr>
+<tr>
+<td><strong>R4</strong></td>
+<td><strong>S-5</strong> KK spectrum stable along trajectory</td>
+<td><strong>OPEN / computation-debt.</strong> Lifts within-truncation iff B3 (Min-tier) is run.</td>
+</tr>
+<tr>
+<td><strong>R5</strong></td>
+<td><strong>S-6</strong> orbifold/boundary stable (Dai–Freed)</td>
+<td><strong>OPEN / computation-debt.</strong> Lifts iff Dai–Freed checklist run (B2 exists as a shared build; the branch-pullback row is un-run).</td>
+</tr>
+<tr>
+<td><strong>R6</strong></td>
+<td><strong>S-7</strong> no runaway volume modulus</td>
+<td><strong>OPEN / computation-debt — most consequential falsifier.</strong> Unbounded-below ⇒ downgrades gravity interface. Behind B3.</td>
+</tr>
+<tr>
+<td><strong>R7</strong></td>
+<td><strong>S-3</strong> no tachyonic compact mode</td>
+<td><strong>SCOPED WIN (within-truncation, perturbative)</strong> + <strong>OPEN (non-pert. tunneling).</strong> Banked <code>CERT-S3-PERTURBATIVE-NO-TACHYON</code>.</td>
+</tr>
+<tr>
+<td><strong>R8</strong></td>
+<td><strong>S-1</strong> single-modulus reduction, shape moduli frozen</td>
+<td><strong>SCOPED — <code>AXIOM-FROZEN-BRANCH-ADMISSIBILITY</code> (scope/admissibility ONLY).</strong> Stability content <strong>LEANING REFUTED</strong> (saddle). Never "frozen by a positive-definite Hessian."</td>
+</tr>
+<tr>
+<td><strong>R9</strong></td>
+<td><strong>S-4</strong> induced 4D Λ</td>
+<td><strong>DISCLOSED computed honest FAIL</strong> (Weinberg-OPEN). No live cancellation mechanism. No controlled-Λ claim.</td>
+</tr>
+<tr>
+<td><strong>R10</strong></td>
+<td>Inherited compactification <strong>existence</strong> result</td>
+<td><strong>FIREWALL — cited input only, NOT promoted.</strong> Existence ≠ stability. Closes no FRG row.</td>
+</tr>
+<tr>
+<td><strong>R11</strong></td>
+<td>Given-the-geometry scope</td>
+<td><strong>FIREWALL — stable-given-geometry ≠ geometry selection.</strong> Upstream uniqueness exported to SHAPE / SG-1 (OPEN).</td>
+</tr>
+<tr>
+<td><strong>P0</strong></td>
+<td>Predicate-completeness: S-1…S-7 a necessary + sufficient failure-mode basis</td>
+<td><strong>OPEN / theorem-debt.</strong> Never proved. <strong>Co-equal wall with B3</strong> — B3-BUILT alone does not close the gate.</td>
+</tr>
+</tbody>
+</table>
+<p>By the rubric, status = least-closed residual ⇒ <strong>GATE OPEN.</strong> STATUS-UPGRADES:0.</p>
+<hr />
+<h2>4. The insights we used</h2>
+<p>These are the moves that made the progress believable and reproducible — shared so a reader can both check them and build on them.</p>
+<h3>4.1 Decompose survival into a finite, named row basis</h3>
+<p>The first and most reusable insight is to refuse to answer "is the compactification stable?" as a single yes/no. Instead, decompose it into <strong>seven explicit failure modes</strong> S-1…S-7, each a checkable object with its own certificate or its own honest OPEN. This turns a vibe into a checklist and makes the gate's status <em>the status of its weakest row</em>, which is exactly the discipline that prevents a true-in-spirit overclaim. The cost of the move is honest too: the decomposition is only as good as its <strong>completeness</strong>, which is why P0 (predicate-completeness) is itself a tracked open residual rather than an unstated assumption (§6, Hole 9).</p>
+<h3>4.2 Collapse the four hard rows onto one missing object</h3>
+<p>The four AUDIT rows look like four problems; the insight is that they are <strong>one</strong> problem wearing four hats — they all need loop control of the moduli effective potential, which needs UV control (<code>01_DOSSIER.md:110–116</code>). Recognizing this prevents wasted effort (you do not attack S-2, S-5, S-6, S-7 independently) and it correctly localizes the blockage to a single shared wall (B3 / UQF-9). "Build B3 once, upstream; UQF-10 then inherits" is the leverage thesis that falls out (<code>03_NEXT_HIGHEST_LEVERAGE.md:6–12</code>).</p>
+<h3>4.3 Falsifier-first ordering</h3>
+<p>Rather than build the expensive UV machinery and <em>then</em> check stability, the program computes the <strong>most destructive, cheapest falsifier first</strong>. Two falsifiers dominate: S-7 runaway (the most consequential — it downgrades the gravity interface) and the shape-doublet Hessian (the cheapest — Λ-free, μ_cell-free, computable below the wall). The shape-doublet check came back a saddle. The insight: <em>there is no point building B3 to certify a moduli sector that a cheap UV-independent check is already failing</em> (<code>03_NEXT_HIGHEST_LEVERAGE.md:40–47</code>). This is the EXISTENCE → IDENTITY → VALUE discipline applied to stability.</p>
+<h3>4.4 Negative success is first-class</h3>
+<p>When the shape-doublet Hessian returned $-1$, the program <strong>banked it as a certificate</strong> (<code>CERT-SHAPE-DOUBLET-SADDLE</code>) rather than hiding it (<code>01_RESIDUAL_LEDGER.md:31–45</code>). A structural no-go beats a forced closure: a result that <em>refutes</em> positive-definiteness is real, checkable physics and is recorded as such. This is the move that converts an honest program from "we hope it's stable" into "here is exactly where it might not be, computed in the open."</p>
+<h3>4.5 The no-self-anchoring firewall (κ³/π discipline)</h3>
+<p>The volume-singlet bottom eigenvalue of the moduli Hessian rides the quantity $\mu_{\rm cell}$, whose only would-be anchor is the electroweak hierarchy via $\kappa^3/\pi$ — which is <strong>circular</strong> (the would-be anchor is the very scale the modulus is supposed to help set) (<code>00_WALL_RECORD_FIRST.md:62–67</code>). Recognizing this circularity is itself a derived result — <code>T1 = OBSTRUCTION-NO-SELF-ANCHORING</code>, a DERIVED no-go (demoted axiom → derived, so it does <strong>not</strong> inflate the axiom floor) (<code>01_RESIDUAL_LEDGER.md:47–49</code>). The lesson generalizes: any posit reverse-engineered to make the moduli potential bounded-below, or to make the FRG trajectory land on stability, is <em>true-by-construction</em> and <strong>relocates</strong> — it does not close.</p>
+<h3>4.6 The scheme is frozen before any number (No-Hidden-Knob)</h3>
+<p>The <code>c_loop</code> computation fixes its truncation (LPA, $Z_k=1$, $\eta=0$), its regulator (Litim, on truncation-quality grounds only), and its normalization ($1/(4(4\pi)^2)$) <em>before</em> any evaluation (<code>C_LOOP_COMPUTATION_SPEC.md:191–217</code>). The regulator cannot have been chosen to improve Λ because Λ is comparison-only, never an input. Forbidden actions are listed explicitly: no reverse-fit of <code>c_loop</code>, no regulator tuning toward Λ, no hidden FRG-4 promotion, no combination with $c_{\rm KK}$, no observed Λ/H₀/Ω_Λ/dark-energy/S8/BAO/CMB (or $A_s$) as input (<code>C_LOOP_COMPUTATION_SPEC.md:266–273</code>). This is the discipline that lets a future computed number be believed.</p>
+<hr />
+<h2>5. Evidence &amp; reproducibility</h2>
+<h3>5.1 Frozen anchors (hashes)</h3>
+<ul>
+<li>Content hash <code>dcc66f1b2685</code>; manifest meta-hash <code>a5b1e6f9d951</code> (<code>03_FROZEN_GEOMETRY_CONTEXT.md:6</code>). Gate 1 fails if any layer, primitive, or hash is missing.</li>
+<li>$K_6 = SU(3)/T^2$; $D = 13 = 4+6+2+1$; radii pinned at chamber center $\vec u = (1,1,1)$; $M_U \sim 1.0\times10^{16}$ GeV; $R_0 = 1.592\times10^{-17}\,\mathrm{GeV}^{-1}$ (<code>03_FROZEN_GEOMETRY_CONTEXT.md:49–51</code>).</li>
+</ul>
+<h3>5.2 Banked numbers and their sources (every number traceable)</h3>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Value</th>
+<th>Source file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$c_{\rm KK}$</td>
+<td>$-8.892\times10^{1}/R_Y^4$ (record <code>ba0ba266d7315f71</code>)</td>
+<td><code>C_LOOP_COMPUTATION_SPEC.md:78</code></td>
+</tr>
+<tr>
+<td>$c_{\rm KK}^{\rm wind}$</td>
+<td>$+3.701826\times10^{-2}\,R_Y^{-4}$</td>
+<td><code>C_LOOP_COMPUTATION_SPEC.md:79</code></td>
+</tr>
+<tr>
+<td>$c_{\rm Wilson}$ sums</td>
+<td>$S(0)=+4$, $S(\pi)=+92$</td>
+<td><code>C_LOOP_COMPUTATION_SPEC.md:80</code></td>
+</tr>
+<tr>
+<td>$\kappa_0'$</td>
+<td>$-3/(64\pi^6) < 0$</td>
+<td><code>C_LOOP_COMPUTATION_SPEC.md:81</code></td>
+</tr>
+<tr>
+<td>$c_{\rm bdry}$</td>
+<td>$-1.08\times10^{-2}$ (negative, full band)</td>
+<td><code>C_LOOP_COMPUTATION_SPEC.md:82</code></td>
+</tr>
+<tr>
+<td>curved-share falsifier</td>
+<td>$c_{\rm KK}^{[\text{curved+grav-int}]} < -3.682\times10^{-2}\,R_Y^{-4}$</td>
+<td><code>C_LOOP_COMPUTATION_SPEC.md:96, 417</code></td>
+</tr>
+<tr>
+<td>well-clearance margins</td>
+<td>central $\sim 2.4\times10^{3}$; weakest $35\times$</td>
+<td><code>C_LOOP_COMPUTATION_SPEC.md:97</code></td>
+</tr>
+<tr>
+<td>retained content counts</td>
+<td>$n_B = 35$, $n_F = 90$</td>
+<td><code>C_LOOP_COMPUTATION_SPEC.md:181</code></td>
+</tr>
+<tr>
+<td>bare count diagnostic</td>
+<td>$\mathrm{Str}[1] = n_B - n_F = -55$</td>
+<td><code>C_LOOP_COMPUTATION_SPEC.md:182–184</code></td>
+</tr>
+<tr>
+<td>FRG-2 normalization</td>
+<td>$1/(4(4\pi)^2)$</td>
+<td><code>C_LOOP_COMPUTATION_SPEC.md:163–164</code></td>
+</tr>
+<tr>
+<td>shape-doublet Hessian</td>
+<td>$d^2R/d\varepsilon^2|_0 = +4-5 = -1$; unit-norm $+2-5/2 = -1/2$</td>
+<td><code>01_RESIDUAL_LEDGER.md:32–34</code></td>
+</tr>
+<tr>
+<td>inherited well anchor</td>
+<td>no-fifth-force null (Eöt-Wash/MICROSCOPE); $A_s \sim 2\times10^{-9}$ downstream</td>
+<td><code>GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md:742, 784</code></td>
+</tr>
+<tr>
+<td>Λ value (measured anchor)</td>
+<td>$\approx (2.3\,\mathrm{meV})^4$, Weinberg-OPEN</td>
+<td><code>MASTER_AXIOM_FLOOR_AND_WALL_LEDGER.md:86</code></td>
+</tr>
+<tr>
+<td><code>c_loop</code> value / sign</td>
+<td><strong>OPEN</strong> / <strong>UNDETERMINED</strong></td>
+<td><code>C_LOOP_COMPUTATION_SPEC.md:83, 131–135</code></td>
+</tr>
+</tbody>
+</table>
+<h3>5.3 Banked certificates</h3>
+<ol>
+<li><strong><code>CERT-S3-PERTURBATIVE-NO-TACHYON</code></strong> — perturbative spectral no-tachyon, within the locked truncation/scheme. Scoped within-truncation WIN; nonperturbative leg OPEN.</li>
+<li><strong><code>CERT-SHAPE-DOUBLET-SADDLE</code></strong> — first-class <em>negative</em> certificate; $d^2R/d\varepsilon^2|_0 = -1$, target-blind, sympy-reproduced, SG-6 cross-confirmed; <strong>LIVE FALSIFIER, leaning REFUTED</strong> (watch-items: single-slice; full $2\times2$ signature + canonical kinetic normalization + R6 Casimir net sign absent).</li>
+<li><strong><code>T1 = OBSTRUCTION-NO-SELF-ANCHORING</code></strong> — DERIVED no-go (does not inflate the axiom floor): the volume-singlet bottom eigenvalue rides $\mu_{\rm cell}$, whose only would-be anchor (EW hierarchy via $\kappa^3/\pi$) is circular.</li>
+</ol>
+<h3>5.4 How a reader re-runs / re-derives</h3>
+<ul>
+<li><strong>The shape-doublet saddle (cheapest, runnable now, UV-independent).</strong> Compute the second derivative of the relevant geometric quantity $R$ along the doublet ray $u = (1+\varepsilon, 1-\varepsilon, 1)$ on $SU(3)/T^2$. The result is diagonal convexity $+4$ versus structure-constant triangle $-5$ ⇒ $-1$. Reproduce in sympy; cross-check against SG-6 <code>04_R3_SHAPE_DOUBLET_SADDLE.md</code>. The sign is direction- and normalization-invariant (<code>01_RESIDUAL_LEDGER.md:32–34</code>).</li>
+<li><strong>The <code>c_loop</code> computation (blocked at STEP 0).</strong> The runbook (<code>C_LOOP_COMPUTATION_SPEC.md:219–238</code>): STEP 0 — supply + source-hash the five spectrum CSVs at the frozen radii; STEP 1 — load $m_B^2$, $m_F^2$ + degeneracies per level; STEP 2 — evaluate $l^0_B(w)$, $l^0_F(w)$ in the Litim regulator; STEP 3 — sum the supertrace and integrate the Wetterich flow UV → $M_*$ via <code>compute_cloop_frg2.py</code>, applying $1/(4(4\pi)^2)$; STEP 4 — report the sign with an FRG-4 sensitivity interval (<code>frg4_sensitivity_scan.py</code>); STEP 5 — run <code>validate_cloop.py</code>, pre-register via the v15 c_loop prereg runner. <strong>CC-1 is currently FALSE (spectra MISSING), so STEP 0 is the literal blocker.</strong></li>
+<li><strong>Certificate criteria (stated symbolically, not asserted to hold).</strong> CC-1 spectra present + source-hashed; CC-2 convergent value; CC-3 controlled sign, stable under the FRG-4 scan; CC-4 magnitude in lane / No-Hidden-Knob clean; CC-5 prereg PASS (<code>C_LOOP_COMPUTATION_SPEC.md:280–314</code>).</li>
+<li><strong>Manuscript + artifacts.</strong> Quantum.html §8.3/§15 (UQF-10), §8.4/§14 (UQF-9), the S-1…S-7 table, the falsification map; reproducibility artifacts at physics.magflowmeters.com/scripts/; measured comparisons cited per-listing to PDG 2024.</li>
+</ul>
+<h3>5.5 Honest pulls</h3>
+<p>There is no model-vs-measured table to report for this gate, because <strong>no measured invariant closes it</strong> — it audits a stability property, not a number (<code>01_DOSSIER.md:30</code>). The one measured comparison it ultimately touches, the 4D Λ, is a <strong>computed honest FAIL</strong>, not a value-match. The not-documented flags surfaced in recon are recorded honestly: the exact numeric $M_*$ used as the lower flow bound is referenced symbolically but not transcribed as a frozen numeral; the explicit closed forms of $l^0_B(w)$ / $l^0_F(w)$ (and the fermionic statistical factor and the exact volume measure $d = d_V$) are stated to be fixed by the $K_6\times S^2\times S^1_Y$ geometry but not tabulated term-by-term in the read docs (<code>C_LOOP_COMPUTATION_SPEC.md:460–481</code>).</p>
+<hr />
+<h2>6. Open gaps + closure path (the specialist work plan)</h2>
+<p>This is the most load-bearing section. Each open hole is a work-package a specialist can pick up and start closing immediately. <strong>Physics only; firewall the device applications.</strong> Ordering follows the converged closure path: <strong>falsifier-first, shared-blocker-first, predicate-first, wall-first</strong> (<code>07_CONVERGED_CLOSURE_PATH.md:30–53</code>).</p>
+<blockquote>
+<p><strong>Decision-tree discipline (carry verbatim, fail-closed):</strong> P0 not proved → OPEN/theorem-debt. UQF-9/UV missing → AUDIT(OPEN)/BLOCKED — export. FRG object not EXISTS/identity → BLOCKED/object-identity debt. FRG not run → OPEN/computation-debt (no axiom). $V_{\rm eff}$ unbounded → FINDING: S-7 runaway. Any row lacks a passing 2-route certificate → OPEN/computation-debt. Nonpert/shape missing → certificate-within-truncation only. Λ FAIL → disclosed. Composition not proved → OPEN/composition-debt. Only if ALL terminal + composition proved → promote (<code>07_CONVERGED_CLOSURE_PATH.md:61–66</code>).</p>
+</blockquote>
+<h3>Hole 1 (HIGHEST PRIORITY, runnable now) — Resolve the shape-doublet Hessian signature</h3>
+<p><strong>(a) Precise statement.</strong> The shape-doublet sub-block of the moduli mass-matrix at $\vec u = (1,1,1)$ currently shows a single negative curvature ($d^2R/d\varepsilon^2 = -1$) along one slice. The open object is the <strong>full $2\times2$ shape-doublet Hessian signature</strong> in canonical (kinetic-normalized) coordinates, plus the R6 graded-Casimir net sign, to decide whether the sector is a genuine saddle (refuted) or whether a large enough positive Casimir contribution ($\mu_{\rm cell}\cdot q \gtrsim 0.5$) lifts it to a minimum.</p>
+<p><strong>(b) Why it's hard / traps.</strong> The computed $-1$ refutes <em>positive-definiteness</em> but is a single-slice result (<code>01_RESIDUAL_LEDGER.md:43–45</code>). Two traps: (i) over-reading — do <strong>not</strong> claim "the full shape Hessian is a saddle" or "the moduli sector is refuted/closed" from one slice (<code>02_CLAIM_BUDGET.md:13</code>); (ii) rescue-by-tuning — do <strong>not</strong> tune the Casimir magnitude $q$ to clear the $-1$; the κ³/π precedent forbids reverse-fitting a posit to make stability come out (<code>07_CONVERGED_CLOSURE_PATH.md:48</code>).</p>
+<p><strong>(c) Exactly what closes it.</strong> Build the full $2\times2$ shape-doublet Hessian with (i) canonical moduli kinetic normalization and (ii) the R6 graded-Casimir net sign computed target-blind. Success = a definite signature. <strong>A confirming negative signature is a valid close</strong> — it hardens the endpoint to a structural moduli-stability FINDING that UV completion would <em>not</em> rescue (<code>03_NEXT_HIGHEST_LEVERAGE.md:46–47</code>). A positive-definite signature lifts the shape-doublet half of S-2.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The doublet-ray construction on $SU(3)/T^2$ (<code>01_RESIDUAL_LEDGER.md:32–34</code>); the SG-6 cross-confirmation <code>04_R3_SHAPE_DOUBLET_SADDLE.md</code>; the graded-Casimir machinery from R6; sympy for the Hessian. UV-completion-independent — runnable below the B3 wall, today.</p>
+<p><strong>(e) Leverage.</strong> Resolves the shape-doublet half of S-2/R3 and removes the live shadow on S-1; if confirmed negative, it sets the gate's honest endpoint regardless of whether B3 is ever built — the single highest-value move.</p>
+<h3>Hole 2 — Produce the five source-hashed spectrum CSVs (CC-1)</h3>
+<p><strong>(a) Precise statement.</strong> <code>retained_field_ledger.csv</code>, <code>k6_spectrum.csv</code>, <code>s2_spectrum.csv</code>, <code>s1y_spectrum.csv</code>, <code>k6_dirac_spectrum.csv</code> — the bosonic towers, the <strong>twisted-Dirac</strong> $K_6$ tower, and the retained per-level enumeration at the frozen radii — are MISSING; CC-1 is FALSE (<code>C_LOOP_COMPUTATION_SPEC.md:186–189, 313–314</code>). The supertrace is not evaluable until they exist.</p>
+<p><strong>(b) Why it's hard / traps.</strong> The twisted-Dirac spectrum on $K_6 = SU(3)/T^2$ requires reading the line-bundle twist $c_1(L_{K_6})$ off the geometry correctly. Trap: do not back-fill the spectra to a desired sign — produce them <strong>BLIND</strong> from the frozen bundle data. The exact volume measure $d = d_V$ and fermionic statistical factor must be written out explicitly (a documented gap — <code>C_LOOP_COMPUTATION_SPEC.md:466–475</code>).</p>
+<p><strong>(c) Exactly what closes it.</strong> Generate the five CSVs at chamber center $\vec u = (1,1,1)$, source-hash them (replacing all MISSING/PENDING_HASH_* entries in <code>frg_operator_ledger.csv</code> / <code>frg_threshold_terms.csv</code>). Success = CC-1 TRUE. There is no "refuting" outcome here — it is a prerequisite artifact.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Frozen bundle data $E_{\rm gauge} = (P, \mathrm{ad}(P), A, F, \rho_{\rm rep}, \text{KK})$; twisted-Dirac operator on the flag manifold; $c_1(L_{K_6})$ from the geometry; the chamber radii. Runbook STEP 0 (<code>C_LOOP_COMPUTATION_SPEC.md:222–226</code>).</p>
+<p><strong>(e) Leverage.</strong> Unblocks Hole 3 (the <code>c_loop</code> value) and Hole 4 (its sign); also feeds Gap-08/Gap-09 absolute-$A_s$ numerics downstream (<code>C_LOOP_COMPUTATION_SPEC.md:318–404</code>).</p>
+<h3>Hole 3 — Compute <code>c_loop</code> to a convergent number (CC-2)</h3>
+<p><strong>(a) Precise statement.</strong> The σ⁻⁶ coefficient $c_{\rm loop} = \frac{1}{4(4\pi)^2}\int_{\rm UV}^{M_*}\sum_{\rm levels}[\deg_B\, l^0_B(w_B) - \deg_F\, l^0_F(w_F)]$ is uncomputed; banked state <code>BLOCKED_MISSING_FRG_MATCHING</code>.</p>
+<p><strong>(b) Why it's hard / traps.</strong> Threshold-crossing order matters as $k$ runs UV → $M_*$; heavier modes are threshold-suppressed. Traps: do <strong>not</strong> combine <code>c_loop</code> with $c_{\rm KK}$ (forbidden shortcut); do <strong>not</strong> promote any FRG-4 operator into the FRG-2 number; do <strong>not</strong> assert a value before convergence.</p>
+<p><strong>(c) Exactly what closes it.</strong> Run <code>compute_cloop_frg2.py</code> (Wetterich/LPA/Litim, normalization $1/(4(4\pi)^2)$) to a convergent number. Success = CC-2 (convergent value). <strong>A non-convergent result is a valid finding</strong> — it leaves Gap-04 at decision grade rather than refuting the well (<code>C_LOOP_COMPUTATION_SPEC.md:425–429</code>).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The five CSVs (Hole 2); the Wetterich flow integrator; the fixed Litim threshold functions $l^d_0(w)\sim (2/d)/(1+w)$; the frozen scheme (<code>C_LOOP_COMPUTATION_SPEC.md:139–238</code>).</p>
+<p><strong>(e) Leverage.</strong> Converts Gap-04 decision → certificate grade; supplies the boolean stabilization-existence flag UQF-10 consumes (note: this <strong>does NOT auto-promote UQF-10</strong> — promotion is reserved to the owner's Return-YAML countersign and is additionally gated by UQF-9) (<code>C_LOOP_COMPUTATION_SPEC.md:338–349</code>).</p>
+<h3>Hole 4 — Determine the SIGN of <code>c_loop</code>, FRG-4-stable (CC-3)</h3>
+<p><strong>(a) Precise statement.</strong> $\mathrm{sign}(c_{\rm loop}) = \mathrm{sign}(\sum_{\rm levels}[\deg_B\, l^0_B(w_B) - \deg_F\, l^0_F(w_F)])$ is UNDETERMINED. It hinges on whether the line-bundle twist $c_1(L_{K_6})$ lifts the retained fermions toward $M_*$ strongly enough that the threshold-resolved supertrace <strong>departs from the forbidden bare count</strong> $\mathrm{Str}[1] = -55$, with a determined, FRG-4-stable sign.</p>
+<p><strong>(b) Why it's hard / traps.</strong> The headline trap, named twice in the frozen docs: <strong>reading the sign off the bare count $-55$ is a forbidden count-only shortcut</strong> — the threshold-resolved supertrace can have <em>either</em> sign (<code>C_LOOP_COMPUTATION_SPEC.md:182–184</code>). Second trap: do not tune the twist to force a sign (κ³/π precedent). Third: the FRG-4 scan must not flip the FRG-2 sign or the sign cannot be carried.</p>
+<p><strong>(c) Exactly what closes it.</strong> Compute the twisted-Dirac eigenvalue shifts on $K_6$, evaluate the Litim threshold supertrace level-by-level, verify the sign is stable under the declared FRG-4 sensitivity scan ($Z_k$ running, $\eta$, $R^2$-type) <em>without</em> tuning. <strong>A legitimate terminal outcome is "sign UNDETERMINED / supertrace tracks $-55$ / FRG-4-unstable"</strong> — this is a real bounded result that leaves Gap-04 at decision grade (certificate NOT reached), not a step on the way to closure (<code>GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md:785</code>). Do not frame the sign computation as plug-able-toward-closure only.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Twisted-Dirac spectrum (Hole 2); <code>frg4_sensitivity_scan.py</code>; the Litim threshold functions. (<code>C_LOOP_COMPUTATION_SPEC.md:233–238, 296–301</code>.)</p>
+<p><strong>(e) Leverage.</strong> With Hole 3, completes the <code>c_loop</code> certificate (Gap-04); feeds the absolute-$A_s$ normalization for Gap-08/09.</p>
+<h3>Hole 5 — S-2 moduli mass-matrix positivity (volume-singlet half)</h3>
+<p><strong>(a) Precise statement.</strong> Positivity of the full moduli mass matrix within truncation. The shape-doublet half is Hole 1; the <strong>volume-singlet</strong> half is B3-blocked and additionally rides the $\mu_{\rm cell}$ self-anchoring firewall (T1).</p>
+<p><strong>(b) Why it's hard / traps.</strong> The volume-singlet bottom eigenvalue rides $\mu_{\rm cell}$, whose only would-be anchor (EW hierarchy via κ³/π) is circular — this is the DERIVED no-go T1 (<code>01_RESIDUAL_LEDGER.md:47–49</code>). Trap: do not anchor the eigenvalue on the EW hierarchy. Trap: verify by <strong>two structurally-different routes</strong>, not two runs of one engine (single-engine ⇒ provisional only) (<code>07_CONVERGED_CLOSURE_PATH.md:44–46</code>).</p>
+<p><strong>(c) Exactly what closes it.</strong> Run the Strong-tier UQF-9 FRG trajectory (requires B3) and verify positivity by two independent routes. Success lifts S-2 to certificate-within-truncation. A negative eigenvalue is a valid FINDING (instability).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> B3 / UQF-9 (Hole 8); the FRG trajectory; the stability-independent $\mu_{\rm cell}$ readout that B3 would supply to retire T1.</p>
+<p><strong>(e) Leverage.</strong> With Holes 1, 6, 7 jointly establishes the moduli/spectral stability needed for the composition theorem (Hole 10).</p>
+<h3>Hole 6 — S-5 KK-tower spectral stability along the trajectory</h3>
+<p><strong>(a) Precise statement.</strong> The full KK tower stays non-tachyonic along the RG flow UV → $M_*$ (not merely at a single scale).</p>
+<p><strong>(b) Why it's hard / traps.</strong> Stability at one scale does not imply stability along the flow; a mode can go tachyonic mid-trajectory. Trap: do not infer trajectory-stability from the perturbative S-3 snapshot.</p>
+<p><strong>(c) Exactly what closes it.</strong> Run the Minimum-tier UQF-9 pass (fixed-point existence + Dai–Freed checklist) and verify the KK spectrum stays non-tachyonic along the flow. Success lifts S-5 within truncation. A tachyonic crossing is a valid FINDING.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> B3 / UQF-9 Minimum-tier (Hole 8); the KK spectra (Hole 2); the flow integrator.</p>
+<p><strong>(e) Leverage.</strong> Closes the UQF-14 full-tower cluster-decomposition dependence that inherits from UQF-10 (<code>SPECIALIST_HOLE_QUEUE_2026-06-29.md:212–213</code>).</p>
+<h3>Hole 7 — S-6 orbifold / boundary stability (Dai–Freed checklist)</h3>
+<p><strong>(a) Precise statement.</strong> The $S^1_Y/\mathbb{Z}_2$ orbifold boundary conditions stay consistent under quantization — the Dai–Freed boundary-anomaly checklist, split into S-6A (anomaly), S-6B (boundary-flow stability), S-6C (boundary ↔ KK/moduli composition) (<code>07_CONVERGED_CLOSURE_PATH.md:44–45</code>).</p>
+<p><strong>(b) Why it's hard / traps.</strong> The shared Dai–Freed build B2 exists, but the <strong>branch-pullback row is un-run</strong> (<code>01_RESIDUAL_LEDGER.md:15</code>) — having the general construction is not having it applied to this branch. Trap: do not treat "anomaly-free" as "physically absent" (forbidden inheritance of B2, <code>MASTER_AXIOM_FLOOR_AND_WALL_LEDGER.md:54</code>). Each sub-row by two independent routes.</p>
+<p><strong>(c) Exactly what closes it.</strong> Execute S-6A/S-6B/S-6C, each by two independent routes, pulling B2 back to the frozen branch. Success lifts S-6 within truncation. A boundary-anomaly obstruction is a valid FINDING.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> B2 (<code>SHARED_BLOCKER_BUILDS/B2_daifreed</code>); the branch boundary data; the Dai–Freed eta-invariant machinery.</p>
+<p><strong>(e) Leverage.</strong> Shared with UQF-3/UQF-4/SG-4 (all route into B2); a branch-pullback here is reusable.</p>
+<h3>Hole 8 — S-7 no runaway volume modulus (the most consequential falsifier)</h3>
+<p><strong>(a) Precise statement.</strong> $V_{\rm eff}(\sigma)$ is bounded below / has a stable minimum at the frozen radii across the operating range.</p>
+<p><strong>(b) Why it's hard / traps.</strong> This is the headline falsifier: an unbounded-below $V_{\rm eff}$ breaks the Einstein-frame caveat and <strong>downgrades the gravity interface itself</strong>, not merely this gate (<code>01_DOSSIER.md:62–65</code>). Trap: do not treat an unbounded-below result as a soft fail — it is a definite FINDING with cross-gate consequences.</p>
+<p><strong>(c) Exactly what closes it.</strong> Compute $V_{\rm eff}(\sigma)$ under FRG control across the operating range; show it is bounded below with a stable minimum at the frozen radii. <strong>An unbounded-below result is a valid (and consequential) FINDING</strong> — compute the falsifier first (PHASE 2 of the closure path).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The four-term $V(\sigma)$ with <code>c_loop</code> filled in (Holes 3, 4); B3 / UQF-9 for higher-loop control (Hole 8 depends on the UV build for full-trajectory boundedness).</p>
+<p><strong>(e) Leverage.</strong> Resolves the single most destructive falsifier; its outcome conditions the gravity interface across the corpus.</p>
+<h3>Hole 9 — Nonperturbative tunneling exclusion (lifts S-3 beyond truncation)</h3>
+<p><strong>(a) Precise statement.</strong> S-3 excludes only <em>perturbative</em> tachyons. Nonperturbative exclusion — vacuum tunneling / false-vacuum decay to a competing vacuum — is open.</p>
+<p><strong>(b) Why it's hard / traps.</strong> A perturbatively-stable vacuum can still be metastable with a short lifetime. Trap: do not let the perturbative S-3 win read as a nonperturbative closure (<code>01_DOSSIER.md:198–200</code>).</p>
+<p><strong>(c) Exactly what closes it.</strong> A bounce / false-vacuum-decay computation showing the frozen vacuum is sufficiently long-lived in the operating range. A short-lifetime result is a valid FINDING.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Euclidean bounce machinery; the four-term $V(\sigma)$; competing-vacuum enumeration.</p>
+<p><strong>(e) Leverage.</strong> Completes the S-3 row beyond truncation; contributes to the full survival predicate.</p>
+<h3>Hole 10 — Build UQF-9 / B3 (the shared global wall)</h3>
+<p><strong>(a) Precise statement.</strong> <code>UQF9-FRG-BRANCH-STABILITY-CONSTRUCTION</code> = B3: a genuine non-Gaussian asymptotic-safety fixed point for the frozen branch, currently <strong>un-built</strong> (<code>SHARED_BLOCKER_BUILDS/</code> = {B1, B2} only).</p>
+<p><strong>(b) Why it's hard / traps.</strong> This is a global open problem shared with all of quantum gravity — but the <em>specific</em> branch construction is bounded and named, not a universal negative (§7). Traps: (i) do not build a branch-local UV story inside UQF-10 (same calculation done worse + violates the no-self-anchoring firewall) (<code>03_NEXT_HIGHEST_LEVERAGE.md:9–12</code>); (ii) the construction must be <strong>target-blind</strong> with passing <strong>negative controls</strong> — it must FAIL on ≥3 known-bad inputs (admitted tachyon / known runaway / known anomaly), else TARGET-BLINDNESS FAIL with zero evidential weight (<code>03_NEXT_HIGHEST_LEVERAGE.md:18–22</code>).</p>
+<p><strong>(c) Exactly what closes it.</strong> Exhibit the non-Gaussian fixed point (UQF-9 currently shows none; $a_6$ uncomputed) and mount it as the <strong>four</strong> FRG object-certificates: theory-space, branch-pullback, projection/readout, scheme-robustness (EXISTENCE + IDENTITY both pass). Minimum-tier (fixed-point existence + Dai–Freed) lifts S-5/S-6 and the volume-singlet half of S-2/S-7 within truncation; Strong-tier (full FRG trajectory) promotes S-2/S-5/S-7 to certificate-within-truncation. A no-fixed-point result is a valid (and field-significant) FINDING.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The Wetterich FRG; the heat-kernel coefficient $a_6$ (the B1 build, currently AUDIT_UNVERIFIED — two routes disagreed); the frozen branch as theory-space input. See the UQF-9 dossier.</p>
+<p><strong>(e) Leverage.</strong> Universal: a single BUILT B3 discharges the UV-control prerequisite for UQF-10, UQF-9, Gap-01, Graviton, and every gate that imports UV control (<code>MASTER_AXIOM_FLOOR_AND_WALL_LEDGER.md:144</code>). Highest cross-gate leverage of any hole — but, per the falsifier-first ordering, <em>do Hole 1 first</em>: there is no point building B3 to certify a sector a cheap UV-independent check is already failing.</p>
+<h3>Hole 11 — Predicate-completeness P0 (co-equal wall with B3)</h3>
+<p><strong>(a) Precise statement.</strong> It is not proven that S-1…S-7 are a <strong>necessary + sufficient</strong> failure-mode basis for the scoped quantum-survival predicate. <strong>A BUILT B3 alone would still NOT close the gate</strong> without this (<code>00_WALL_RECORD_FIRST.md:78–80</code>).</p>
+<p><strong>(b) Why it's hard / traps.</strong> A missing failure mode would silently invalidate the whole row-by-row strategy. The regrade flagged a candidate: the <strong>Gap-15 state-space measure</strong> $\mu$ — the measure on the space of states is undeclared and genuinely-open-no-route; the survival predicate's modal-status/composition leg presumes a state space (<code>GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md:785</code>). Trap: do not assume the seven rows are complete because they are the ones we thought of.</p>
+<p><strong>(c) Exactly what closes it.</strong> A formal definition of the scoped survival predicate + a failure-mode inventory + a no-missing-mode proof that the seven rows exhaust quantum-survival within the declared scope. A discovered eighth mode is a valid FINDING (predicate-incomplete).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The formal predicate definition; the modal-status floor invariant; the Gap-15 measure register.</p>
+<p><strong>(e) Leverage.</strong> Together with Hole 12, licenses joint-row → predicate promotion; without it the gate cannot close even with every row certified.</p>
+<h3>Hole 12 — The row-composition theorem</h3>
+<p><strong>(a) Precise statement.</strong> Even if every row certificate passes, it is not proven they <strong>jointly</strong> imply the scoped survival predicate (PHASE-6 composition theorem) (<code>07_CONVERGED_CLOSURE_PATH.md:51–52</code>).</p>
+<p><strong>(b) Why it's hard / traps.</strong> Per-row certificates can each hold while cross-terms (boundary ↔ KK ↔ moduli) spoil the conjunction. Trap: do not treat "all rows green" as "predicate proven."</p>
+<p><strong>(c) Exactly what closes it.</strong> Prove the composition theorem: the row certificates <strong>plus</strong> the boundary ↔ KK ↔ moduli cross-terms compose to the scoped survival predicate. A counterexample (rows hold, predicate fails) is a valid FINDING (composition-debt).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The S-6C boundary↔KK/moduli composition row; the row certificates from Holes 1, 5–9.</p>
+<p><strong>(e) Leverage.</strong> The final gate before promotion: only if ALL residuals terminal <strong>and</strong> composition proved may the gate promote.</p>
+<h3>Hole 13 — S-1 freeze: forcing theorem vs. scope axiom</h3>
+<p><strong>(a) Precise statement.</strong> The shape-moduli freeze is currently a declared scope choice (<code>AXIOM-FROZEN-BRANCH-ADMISSIBILITY</code>). The decidable upgrade object is <code>THEOREM-TARGET-RESIDUAL-ISOMETRY-FORCES-HESSIAN-SIGN</code>: does the residual isometry / spin-c structure <em>force</em> the freeze (and the Hessian sign)?</p>
+<p><strong>(b) Why it's hard / traps.</strong> Its status is <strong>LEANING REFUTED</strong> — the shape-doublet saddle (Hole 1) is evidence <em>against</em> the isometry forcing a positive Hessian (<code>01_RESIDUAL_LEDGER.md:61–63</code>). Trap: do not bank this as an axiom (it is leaning refuted); do not claim S-1 "frozen by a positive-definite Hessian."</p>
+<p><strong>(c) Exactly what closes it.</strong> Prove (or refute) the forcing theorem. A proof upgrades S-1 scope → DERIVED; a refutation (the current lean) keeps S-1 at admissibility-scope only and reinforces the structural-instability reading. Either is a valid terminal.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The residual-isometry analysis of the frozen branch; Hole 1's full Hessian signature.</p>
+<p><strong>(e) Leverage.</strong> Tied to Hole 1; resolving the Hessian signature largely resolves this.</p>
+<hr />
+<h2>7. Honest ceiling &amp; scope</h2>
+<h3>7.1 What is explicitly NOT claimed</h3>
+<ul>
+<li><strong>NOT</strong> that the compactification is proven quantum-stable. Zero of the seven rows reaches full quantum closure (<code>01_DOSSIER.md:12</code>).</li>
+<li><strong>NOT</strong> that the 4D cosmological constant is controlled or cancelled. S-4/Λ is a computed honest FAIL with no live cancellation mechanism (<code>01_DOSSIER.md:52–53</code>).</li>
+<li><strong>NOT</strong> that <code>c_loop</code> has a known value or sign. <code>BLOCKED_MISSING_FRG_MATCHING</code> / <code>UNDETERMINED</code>; reading the sign off $-55$ is forbidden (<code>C_LOOP_COMPUTATION_SPEC.md:131–135, 182–184</code>).</li>
+<li><strong>NOT</strong> that the inherited existence result certifies this gate. Cited input only; closes no FRG row (<code>01_DOSSIER.md:53–56</code>).</li>
+<li><strong>NOT</strong> that the frozen geometry is the one nature picks. Stable-given-geometry ≠ geometry selection; uniqueness is upstream SHAPE/SG-1, OPEN (<code>01_DOSSIER.md:142–143</code>).</li>
+<li><strong>NOT</strong> that "full quantum closure is one named computation away." It is a <strong>ladder</strong>: P0 predicate-completeness + the composition theorem + nonperturbative tunneling exclusion + shape-moduli activation + the un-run FRG + the UQF-9 shared wall — all must be discharged (<code>07_CONVERGED_CLOSURE_PATH.md:55–59</code>; <code>GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md:784</code>). This dossier deliberately refuses the gate's signature mis-close.</li>
+</ul>
+<h3>7.2 The dissolved unicorns (shared ceilings, never claimed as proven, never listed as our weakness)</h3>
+<ul>
+<li><strong>"No accepted theory has a full nonperturbative compactification-stability proof for <em>any</em> realistic compact space."</strong> This is a universal negative over an open-ended space of frameworks — unprovable in principle for everyone. A UV-conditional within-truncation certificate is therefore the <strong>ceiling</strong>, not a hedge. <em>Distinction that must travel:</em> the SPECIFIC UQF-9 fixed-point construction this gate needs is bounded and stays in the work plan (Hole 10); only the absolute "no framework could ever" version is the unicorn (<code>GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md</code> dissolved-unicorns; <code>01_DOSSIER.md:12</code>).</li>
+<li><strong>"The frozen geometry is THE one nature picks."</strong> A stable spectrum given the geometry is not proof of uniqueness/selection over the open-ended space of geometries; selection is an upstream SHAPE/SG-1 question, not provable inside UQF-10 (<code>GATE_REGRADE_BESTCASE_AND_HOLES_2026-06-29.md:771</code>).</li>
+</ul>
+<h3>7.3 The anchors paid</h3>
+<p>UQF-10 consumes no new measured calibration anchor to <em>close</em> — it is a survival audit. The measured invariant it ultimately touches is the <strong>Λ value</strong> ($\approx (2.3\,\mathrm{meV})^4$, measured-but-irreducible / Weinberg-OPEN; A9 in the master floor), and that anchor sits on a <strong>computed FAIL</strong>, not a win (<code>02_CURRENT_STATE.md:31–37</code>). The S-1 freeze is paid as one value-free scope posit, <code>AXIOM-FROZEN-BRANCH-ADMISSIBILITY</code> (admissibility only). The T1 no-self-anchoring obstruction is DERIVED, not an axiom, so it does <strong>not</strong> inflate the floor.</p>
+<h3>7.4 The discipline distinctions (carry verbatim)</h3>
+<p>ANCHORED ≠ DERIVED · AXIOM-CLOSED ≠ atomic · dissolved ≠ solved · selection ≠ derivation · given-the-geometry ≠ derivation of the geometry · within-truncation ↛ full · perturbative ↛ nonperturbative · existence ↛ stability · a stable spectrum given the geometry ≠ proof the geometry is the one nature picks · a captured log ≠ an independent reproduction.</p>
+<h3>7.5 The honest one-sentence endpoint</h3>
+<blockquote>
+<p><strong>UQF-10 = OPEN (AUDIT), BLOCKED by the UQF-9 / FRG UV-completion shared wall (B3, un-built); S-3 (perturbative) and S-1 (admissibility-scope) are scoped within-truncation wins; S-2/S-5/S-6/S-7 are computation-debt behind the un-run FRG; S-4/Λ is a disclosed computed FAIL; the one Λ-free computable stability piece (the shape-doublet Hessian) is leaning REFUTED; P0/composition is a co-equal open wall — serious candidate, NOT validated; quantum compactification stability is certificate-complete only within the declared truncation. STATUS-UPGRADES:0.</strong></p>
+</blockquote>
+<hr />
+<p><em>Dossier built from the UQF-10 completion-handoff packet, the executable <code>c_loop</code> spec, the master axiom-floor &amp; wall ledger, and the 2026-06-29 regrade/hole-queue ledgers. Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> READ-ONLY. Every number traceable to a cited source; uncomputed quantities marked OPEN. No QC-chip or Mars-drive engineering is included. STATUS-UPGRADES:0.</em></p>
+</body></html>

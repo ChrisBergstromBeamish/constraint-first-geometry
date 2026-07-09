@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Axiom Floor as Gates (complete coverage)</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">AXIOM-GATES (AI) — the axiom floor presented as additional TOE gates — rendered package. Rendered from <code>AXIOM_GATES_AI.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>AXIOM-GATES (AI) — the axiom floor presented as additional TOE gates</h1>
+<blockquote>
+<p><strong>Document class:</strong> Axiom-floor gate sheet (additive to the standard GUT/TOE §6 gate checklist).
+<strong>Date:</strong> 2026-06-24.
+<strong>No status was ever upgraded.</strong> No gap closes, no number is derived, no finite object is dissolved, no axiom is certified or removed here.
+<strong>Frozen 13D branch <code>dcc66f1b2685</code> / manifest <code>a5b1e6f9d951</code> — READ-ONLY, confirmed unmutated.</strong>
+COMMITTED: NO · DEPLOYED: NO.</p>
+</blockquote>
+<hr />
+<h2>0. What this sheet is — and the one sentence that must survive blind review</h2>
+<p>The standard GUT/TOE checklist grades the <em>physics gates</em> (unification, Λ stability, mass gap, Born rule, baryogenesis, …). This sheet adds four <strong>axiom-floor gates</strong> — the meta-gates that grade <strong>how many irreducible brute facts the program still confesses, and how honestly that count is kept.</strong> Every axiom on the floor is a <em>confession</em> ("could not derive this"), not a result.</p>
+<p><strong>The load-bearing honesty statement (read first, do not paraphrase away):</strong></p>
+<blockquote>
+<p>The root-class compaction (12 rows → 7 root classes → 3 deep roots) is <strong>LEDGER RE-ACCOUNTING, NOT a physics reduction.</strong> It re-organizes how the <em>same irreducible content</em> is counted at different granularities. It does <strong>not</strong> derive the universe from fewer assumptions. <strong>Do NOT say "12 reduced to 7 (or 3) axioms" as if a derivation happened.</strong> The ONLY thing genuinely discharged is <code>N_eff</code> (effective neutrino number, inherited 1:1 from SM physics, never a framework brute fact). One further row (<code>CONSERVATION-MASS-ENERGY-PENCIL</code>) is <em>conditionally</em> erasable once a dynamical-action layer S₁₃ is built — route known, not yet built. Everything else is re-organized, not reduced.</p>
+<p><code>selection ≠ derivation</code>. A reduction counts ONLY if the smaller set genuinely <strong>implies</strong> the larger; relocating an axiom into an equal-strength premise is the κ³/π + Born-rule smuggling error and is REJECTED, never banked.</p>
+</blockquote>
+<p><strong>Two numbers travel together, always, so bundles are never silently atomic:</strong></p>
+<ul>
+<li><strong>12-row headline meter</strong> (the anti-inflation convention figure: bundled rows counted once each).</li>
+<li><strong>~22–26 itemized degrees of freedom</strong> (the honest figure: the two bundle rows expanded into their primitive sub-choices).</li>
+</ul>
+<p>Both are stated on every gate that touches the count.</p>
+<hr />
+<h2>GATE AX-1 — The 12-row irreducible-axiom meter (+ the ~22–26 itemized DoF)</h2>
+<p><strong>Requirement.</strong> State the live irreducible-axiom count exactly, broken into its three buckets, with every bundle row's itemized sub-choices exposed so no bundle is treated as a single atomic posit.</p>
+<p><strong>Honest status: GREEN as a meter / accounting object</strong> — the count is internally consistent, anti-inflation-disciplined, and the itemized figure is published alongside the headline. (GREEN means "the meter is honestly kept," NOT "the axioms are derived" — they are confessions.)</p>
+<p><strong>The argument (what is actually counted).</strong></p>
+<p>Headline meter:</p>
+<table>
+<thead>
+<tr>
+<th>Meter</th>
+<th>Count</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IRREDUCIBLE AXIOMS (live)</strong></td>
+<td><strong>12</strong></td>
+<td>DEEP-ROOT (2) + PROVABLY-IRREDUCIBLE NUMBERS (5) + DECLARED-OPEN-not-yet-reduced (5)</td>
+</tr>
+<tr>
+<td>DISSOLVED pseudo-axioms</td>
+<td>1 (continuum-existence artifact only; Gap-02 OPEN; floored z_* inequality OPEN)</td>
+<td>continuum-limit artifact removed by the discreteness/cost-floor lens (mass-gap EXISTENCE-in-the-continuum only)</td>
+</tr>
+<tr>
+<td>LIVE REDUCTION TARGETS</td>
+<td>2</td>
+<td>posits with a <em>known</em> derivation route, awaiting instantiation (NOT in the irreducible-12)</td>
+</tr>
+</tbody>
+</table>
+<p>The 12, by bucket:</p>
+<ul>
+<li><strong>2 DEEP-ROOT</strong> — <code>AXIOM-COSTFLOOR</code> (the GRANULARITY root; dissolves the continuum-artifact class at +1 count), <code>TIER2-STRUCTURAL-FORM</code> (the SHAPE root; a labelled BUNDLE carried as 1 row per anti-inflation convention).</li>
+<li><strong>5 PROVABLY-IRREDUCIBLE NUMBERS</strong> (the headline <strong>N = 5</strong>) — <code>ANCHOR-MPL</code>, <code>ANCHOR-ALPHA-I-MZ</code>, <code>ANCHOR-YT</code>, <code>ANCHOR-VUS</code>, <code>LAMBDA-VALUE</code>.</li>
+<li><strong>5 DECLARED-OPEN</strong> brute facts not yet reduced — <code>BG10-AXIOM-SPINC-QP</code>, <code>BG10-FROZEN-MR</code>, <code>BORN-A1-OBSERVABLE-PROBABILITY</code>, <code>BORN-A2-SELECTOR-MEASURE</code>, <code>OWNER-DECLARED-RULINGS-BUNDLE</code>.</li>
+</ul>
+<p><strong>The ~22–26 itemized DoF (the two bundle rows expanded — this is the honest figure).</strong></p>
+<ul>
+<li><code>TIER2-STRUCTURAL-FORM</code> is <strong>~4</strong> still-primitive SHAPE choices (was ~5 before the 2026-06-23 Z₆ sub-reduction): (a) factor set <code>[M₄ × K₆ × S² × S¹_Y/Z₂]</code>, K₆=SU(3)/T², D=13=4+6+2+1; (b) the global <strong>Z₆</strong> quotient <em>choice</em> (the Z₆ <strong>group content</strong> is now E-derived — see AX-2 — but the <em>finest-quotient</em> selection, sub-claim B, stays an open choice); (c) <strong>spin-C structure + bundle E</strong> (χ(K₆,E)=−3 is COMPUTED from {K₆, E, spin-C}, but spin-C + E remain residual primitives); (d) the <strong>×/⊕/⊗ three-layer</strong> architecture; (e) <strong>n_H = 1</strong> Wilson-line winding integer.</li>
+<li><code>OWNER-DECLARED-RULINGS-BUNDLE</code> is <strong>~7–9</strong> localized owner micro-rulings (pass/fail semantics, falsifier thresholds, provenance, promotion locks, normalization conventions, countersignature, reserved gates).</li>
+<li>The other 10 rows are each a single DoF.</li>
+</ul>
+<p>→ Itemized irreducible-DoF count = <strong>~22–26</strong>. The <strong>12-row headline</strong> is the convention figure. <strong>Both are stated so bundles are never silently atomic.</strong></p>
+<p><strong>Separately tracked, deliberately NOT folded into N (so the meter is neither inflated nor double-counted):</strong> <code>FLOOR-VALUES-RESIDUE</code> (the relocated floor <em>values</em> ħ, k_B, Bekenstein const, c·Λ_YM, ℓ_min, ρ&lt;1-ASSERTED — a new sharper "just is" tier); <code>GAP02-FLOORED-CERTIFICATE-INEQUALITY-RESIDUE</code> (the finite object z_* &lt; 1/(E_conn·A_fluc) the mass-gap dissolution leaves behind, DECLARED-OPEN); <code>B-UQFC-14-UV-1-NOT-ADOPTED</code> (explicitly NOT adopted).</p>
+<p><strong>The exact caveat.</strong> The 12 are <strong>confessions, not theorems</strong>. Of the 5 NUMBERS, only <code>ANCHOR-MPL</code> carries a true theorem-certificate (Buckingham-π); the other four are "no reduction route survived audit," which is strictly weaker. The DISSOLVED row is <strong>NOT a closure</strong> — Gap-02 stays Precisely-OPEN; only mass-gap EXISTENCE-in-the-continuum dissolved, and the floored inequality remains a live OPEN target. The two LIVE REDUCTION TARGETS (<code>CONSERVATION-MASS-ENERGY-PENCIL</code>, <code>N_EFF-INHERITED</code>) are <em>outside</em> the 12 and must never be cited as already-banked reductions. The Born rows and BG-10 rows being "tracked" does not mean they are near closure — BG-10 is 0/4, Born is OPEN.</p>
+<p><strong>Evidence.</strong> <code>AXIOM_LEDGER.md</code> §(1) HEADLINE METER (lines 15–36) + §(2)/(3)/(4)/(5). Itemized DoF + anti-inflation convention: <code>AXIOM_LEDGER.md</code> line 36 ("Itemized honestly, the irreducible-degree-of-freedom count is ~22–26").</p>
+<blockquote>
+<p><strong>Footnote (range provenance, ~22–26).</strong> The range endpoints are reproducible from the bundle expansions, not a fudge: 10 single-DoF rows + ~4 <code>TIER2-STRUCTURAL-FORM</code> SHAPE sub-choices (a)–(e, with the Z₆ group-content sub-reduction) + ~7–9 <code>OWNER-DECLARED-RULINGS-BUNDLE</code> micro-rulings = ~21–23; counting the separately-tracked residues (<code>FLOOR-VALUES-RESIDUE</code>, <code>GAP02-FLOORED-CERTIFICATE-INEQUALITY-RESIDUE</code>) when included pushes the upper end to ~26. (Documentation nicety only; the source carries ~22–26 without arithmetic and the target is faithful as-is.)</p>
+</blockquote>
+<hr />
+<h2>GATE AX-2 — The root-class compression is RE-ACCOUNTING, not reduction</h2>
+<p><strong>Requirement.</strong> State the 12-row → 7-root-class → 3-deep-root compaction and grade it <strong>honestly</strong>: what genuinely moved vs. what was merely re-organized. Forbid the overclaim "N axioms reduced to M."</p>
+<p><strong>Honest status: GREEN-on-honesty / the compaction is a CONVENTION view, NOT a physics reduction.</strong> It survives only because it is <em>labelled as</em> re-accounting and keeps the itemized DoF visible. It would be RED the instant it were stated as "12 → 7 axioms derived."</p>
+<p><strong>The argument (what genuinely moved vs. what was re-organized).</strong></p>
+<p>Every old row gets exactly one verdict — <strong>TRULY IMPLIED</strong> (new root genuinely implies it → may count as a reduction once the implication theorem is <em>instantiated</em>), <strong>MERELY ORGANIZED</strong> (made explicit, NOT derived → does NOT count), <strong>STILL INDEPENDENT</strong> (remains a primitive itemized DoF).</p>
+<table>
+<thead>
+<tr>
+<th>Old row / target</th>
+<th>Root class</th>
+<th>Verdict</th>
+<th>Ledger effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AXIOM-COSTFLOOR</code></td>
+<td>R1</td>
+<td>STILL INDEPENDENT</td>
+<td>no count change</td>
+</tr>
+<tr>
+<td><code>TIER2-STRUCTURAL-FORM</code></td>
+<td>R2 (+R3)</td>
+<td>MERELY ORGANIZED (+ Z₆ group-content sub-reduction onto E)</td>
+<td>itemized SHAPE ~5→~4; headline unchanged</td>
+</tr>
+<tr>
+<td><code>ANCHOR-MPL / -ALPHA-I-MZ / -YT / -VUS</code></td>
+<td>R6</td>
+<td>STILL INDEPENDENT</td>
+<td>no count change</td>
+</tr>
+<tr>
+<td><code>LAMBDA-VALUE</code></td>
+<td>R6 (with warning)</td>
+<td>STILL INDEPENDENT</td>
+<td>no count change; GSC must NOT become a disguised Λ measure</td>
+</tr>
+<tr>
+<td><code>BG10-AXIOM-SPINC-QP</code></td>
+<td>R3</td>
+<td>MERELY ORGANIZED</td>
+<td>still open</td>
+</tr>
+<tr>
+<td><code>BG10-FROZEN-MR</code></td>
+<td>R3+R4+R6</td>
+<td>STILL INDEPENDENT / PARTLY ORGANIZED (least clean)</td>
+<td>still open</td>
+</tr>
+<tr>
+<td><code>BORN-A1-OBSERVABLE-PROBABILITY</code></td>
+<td>R5</td>
+<td>MERELY ORGANIZED</td>
+<td>still open (no-I₂ ≠ non-contextuality)</td>
+</tr>
+<tr>
+<td><code>BORN-A2-SELECTOR-MEASURE</code></td>
+<td>R3+R5</td>
+<td>MERELY ORGANIZED</td>
+<td>still open</td>
+</tr>
+<tr>
+<td><code>OWNER-DECLARED-RULINGS-BUNDLE</code></td>
+<td>R7</td>
+<td>MERELY ORGANIZED</td>
+<td>possible future compression</td>
+</tr>
+<tr>
+<td><code>CONSERVATION-MASS-ENERGY-PENCIL</code></td>
+<td>R4</td>
+<td><strong>TRULY IMPLIED, conditional on S₁₃</strong></td>
+<td>erasure waits on the (unbuilt) action layer</td>
+</tr>
+<tr>
+<td><code>N_EFF-INHERITED</code></td>
+<td>provenance cleanup</td>
+<td><strong>TRULY DISCHARGED AS INHERITED</strong></td>
+<td>not a TOE axiom or prediction</td>
+</tr>
+</tbody>
+</table>
+<p>The seven root classes (the CONVENTION view, owner-adopted with itemized DoF preserved): <strong>R1</strong> Cost-Floor / Physical Realizability · <strong>R2</strong> Local Structural Form · <strong>R3</strong> Global Sector Completion (posited selector, not derived) · <strong>R4</strong> Dynamical Action Principle (S₁₃ posited, not instantiated) · <strong>R5</strong> Probability / Observer Functor (Born A1/A2 organized, not derived) · <strong>R6</strong> Calibration Anchor Vector (the 5 numbers, itemized, not derived) · <strong>R7</strong> Certificate Adjudication / Governance Protocol.</p>
+<p><strong>What genuinely moved — the entire honest yield of the compaction:</strong></p>
+<ol>
+<li><strong><code>N_eff</code> = 3.044 — GENUINELY DISCHARGED.</strong> Inherited 1:1 from SM physics (3 light ν + 0.044 decoupling); its "irreducibility" lives upstream in SM physics, not in this framework. Not a TOE prediction, not a framework brute fact. This is the <em>only</em> immediate discharge.</li>
+<li><strong><code>CONSERVATION-MASS-ENERGY-PENCIL</code> — conditionally erasable, route known, NOT yet erased.</strong> Textbook Noether reduction from an M₄ time-translation isometry; exists <em>in principle</em>; only the dynamical-action layer S₁₃ is unbuilt. Written in PENCIL. Counts as a reduction ONLY after S₁₃ is instantiated.</li>
+<li><strong>Z₆ group content</strong> became E-dependent (intra-R2; lands ON E, a SHAPE primitive — see AX-3/AX-4). Relocated <em>within</em> the SHAPE root, did not exit it.</li>
+</ol>
+<p>Everything else: <strong>MERELY ORGANIZED or STILL INDEPENDENT.</strong> The five anchors do not collapse. R3/R4/R5/R7 are existence <strong>posits</strong>, not theorems (<code>Sel_GSC</code>, <code>S₁₃</code>, <code>𝒫⋆</code>, <code>𝔙⋆</code> are <em>posited to exist</em>, R3/R5 posited <em>unique</em> — none is in hand or derived).</p>
+<p><strong>The exact caveat (the sentence that must survive blind review).</strong> <strong>Do NOT write "12 axioms reduced to 7" (or "to 3").</strong> The 7-root and the 12-row / ~22–26-itemized meters are the <strong>same content at different granularities</strong> — a coarser bookkeeping of identical assumptions, NOT a reduction of physical debt. The Minimal Root-Class Compression Theorem is <strong>PROVED AS A RE-ACCOUNTING THEOREM</strong>, explicitly not a derivation; it is a PROPOSED after-ledger, NOT automatically adopted. The official 12-row meter remains authoritative. The corpus's own count language: <em>"The 12-row axiom ledger is reorganized into 7 root classes. This is a re-accounting, not a closure. Only N_EFF-INHERITED is discharged immediately… The five anchors remain itemized. No status was ever upgraded."</em></p>
+<p><strong>Evidence.</strong> <code>MINIMAL_ROOT_CLASS_COMPRESSION_THEOREM_AND_LEDGER_DIFF.md</code> §0 (executive verdict), §4 (ledger diff), §5–6 (theorem + honest count language, lines 104–114), §7 (what did not change). <code>AXIOM_LEDGER.md</code> "LEDGER RE-ACCOUNTING — ROOT-CLASS OVERLAY" (lines 63–101) + "THREE-TARGET REDUCTION SWEEP" (lines 51–59, all three targets land <code>false</code>, 0 banked). <code>SEVEN_ROOT_CLASS_AXIOMS.md</code> reconciliation header (lines 9–24) + per-row compression-quality table (lines 169–187).</p>
+<hr />
+<h2>GATE AX-3 — The three deep ROOT classes (granularity / scale / shape) with per-root honest verdict</h2>
+<p><strong>Requirement.</strong> Reduce the floor to its three deepest acceptances and grade each: is it a theorem, or a declared posit with (at best) a near-no-go argument? State that the three are INDEPENDENT (no silent collapse).</p>
+<p><strong>Honest status: MIXED — exactly one root is theorem-grade; the other two are declared posits.</strong></p>
+<ul>
+<li><strong>SCALE — GREEN (theorem-grade, the safest verdict on the ledger).</strong></li>
+<li><strong>GRANULARITY — AMBER (declared posit; reduction is a confirmed relabel, certification is circular).</strong></li>
+<li><strong>SHAPE — AMBER (declared posit; compressible but irreducible; the swing root).</strong></li>
+</ul>
+<p><strong>The argument (the three roots = the honest floor).</strong></p>
+<table>
+<thead>
+<tr>
+<th>Root</th>
+<th>Object</th>
+<th>What it buys</th>
+<th>Honest verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GRANULARITY</strong> (R1)</td>
+<td><code>AXIOM-COSTFLOOR</code> — a nonzero cost floor per distinguishable (orthogonal) transition</td>
+<td>EXISTENCE / finiteness (ħ&gt;0, finite-a gap, a minimum scale) — NOT the value, NOT the scale, NOT the shape</td>
+<td><strong>DECLARED POSIT.</strong> "A confession, not a theorem."</td>
+</tr>
+<tr>
+<td><strong>SCALE</strong></td>
+<td><code>ANCHOR-MPL</code> — the one dimensionful anchor</td>
+<td>the single irreducible dimensionful "just is"</td>
+<td><strong>PROVEN IRREDUCIBLE</strong> — Buckingham-π THEOREM.</td>
+</tr>
+<tr>
+<td><strong>SHAPE</strong> (R2)</td>
+<td><code>TIER2-STRUCTURAL-FORM</code> — the frozen 13D geometry + bundle E</td>
+<td>the irreducible "just is" of shape (not number)</td>
+<td><strong>DECLARED POSIT</strong> — compressible toward "E + layering," but irreducible there.</td>
+</tr>
+</tbody>
+</table>
+<p>Per-root honest verdict:</p>
+<ul>
+<li><strong>SCALE — THEOREM-GRADE.</strong> Buckingham-π is a <em>theorem</em> that ≥1 dimensionful anchor is required: no set of dimensionless ratios fixes an absolute scale; you cannot derive existence/scale from nothing. Below-1 is <strong>PROVEN IMPOSSIBLE</strong> — not no-route-found. Every candidate "deeper principle" (relationalism → unit, Coleman–Weinberg → μ+ħ, anthropic → regulator, Sakharov → cutoff) provably re-injects exactly one dimensionful quantity under a new name: a <em>structurally guaranteed</em> relabel. Certification is non-circular (Buckingham-π is about dimensional analysis itself, independent of <em>which</em> scale is the anchor). <strong>The one root where "irreducible" rests on a theorem rather than on failed-search.</strong> ⚠ A deep audit retracts the stronger "exactly-one" sub-claim: in substance the dimensionful-anchor count is <strong>2 {M_Pl, v_EW}</strong>, because the EW scale enters as a second anchor and the hierarchy ~10⁻¹⁴ is undelivered. The ≥1 floor and below-1 impossibility stand unchanged; only "exactly one" is withdrawn.</li>
+<li><strong>GRANULARITY — DECLARED POSIT (near-no-go, both reduction and certification fail cleanly).</strong> It rests on three established, cited floors (Margolus–Levitin, Landauer, Bekenstein); the <em>elevation</em> of that floor to a ROOT principle is the declared axiomatic move. <strong>Reduction is a confirmed RELABEL:</strong> the "reality must be physically realizable" candidate (C4) is logically equal-strength with "there is a positive cost floor" — the standing cautionary trap; do NOT bank. The other candidates (finite-info C1, computability C2, well-foundedness C3) each smuggle the floor as a hidden hypothesis or reduce only one face. <strong>Certification is CIRCULAR as it must be run:</strong> the root bills cost "per distinguishable transition," and distinguishability is rigorous today only as Hilbert-space orthogonality — i.e. <em>inside</em> QM, making granularity look DOWNSTREAM of QM. The cleanest finding: the root is a CONJUNCTION of two faces — a finiteness face (Bekenstein/count, plausibly reducible ~15%) and an action-floor face (ML, ε&gt;0 per milestone, the irreducible heart). Both paths converge on the same obstruction — the distinguishability circle. The Lorentz-scalar leg is the one element that stands cleanly (structural support, not a reduction). <strong>Most likely IRREDUCIBLY A POSIT.</strong></li>
+<li><strong>SHAPE — DECLARED POSIT (the swing root; near-no-go in a different shape).</strong> Absolute certification of irreducibility is unreachable — it requires a <em>universal negative</em> over an open-ended quantifier, and the one certificate form that <em>would</em> be absolute ("the shape is the UNIQUE solution of constraint set C") self-defeats into a <em>reduction</em>. Reduction to a deeper principle has <strong>no surviving candidate</strong>: anomaly-freedom is necessary-not-sufficient (T3-refuted); "cost-floor ⇒ factor-set" is an explicit NON-implication; the Occam/MDL funnel is corpus-REJECTED (<code>selection ≠ derivation</code>); no forcing theorem (swampland / completion-uniqueness / bordism) is on the table. What IS real and banked is <strong>intra-R2 compression</strong> (Z₆ group content, spin-twist form, χ=−3 are all computable FROM E) — but every one lands ON E and presupposes it. <strong>The decisive obstruction is E</strong> — the SM chiral content (15 Weyl + Higgs, 3 generations), which no known principle forces. <strong>IRREDUCIBLY A POSIT, but compressible toward "E + layering"</strong> — and that compressibility is what makes SHAPE the swing root.</li>
+</ul>
+<p><strong>The exact caveat (no silent collapse).</strong> <strong>The three roots are INDEPENDENT acceptances.</strong> Cost-floor (GRANULARITY) buys EXISTENCE/finiteness — NOT the scale, NOT the shape. "cost-floor ⇒ factor-set" is an explicit NON-implication. Certifying or reducing any one root does NOT touch the other two. Therefore the honest expected terminal state is <strong>three independent irreducible posits</strong>, NOT one collapsed root: SCALE proven-permanent (≥1 forever), GRANULARITY a declared root (action-floor face irreducible), SHAPE a sharper-but-still-posited core. <strong>The absolute floor is ≥1 forever; the best case is a smaller, sharper posit set, never zero.</strong> Only SCALE's "≥1" is a theorem; GRANULARITY and SHAPE are declared posits backed only by near-no-go (relabel/circularity) arguments, which are strictly weaker than a proof.</p>
+<p><strong>Evidence.</strong> <code>THREE_ROOT_CLOSURE_PATHS_2026-06-23.md</code> §1 (GRANULARITY verdict, lines 82–84), §2 (SCALE verdict + the ⚠ exactly-one→2-anchor correction, lines 141–145), §3 (SHAPE verdict, lines 197–199), §4 THE HONEST FLOOR (lines 203–211), §5 THE SWING ROOT (lines 215–223), §6 BOTTOM LINE (lines 227–235). Buckingham-π certificate: <code>AXIOM_LEDGER.md</code> §(3) line 138. Non-implication: <code>AXIOM_LEDGER.md</code> ROOT-2 line 128/129.</p>
+<hr />
+<h2>GATE AX-4 — SHAPE-is-minimal (selector-minimal, NOT THE-unique-minimum)</h2>
+<p><strong>Requirement.</strong> Summarize the dedicated minimal-shape certificate suite and grade what it actually earns vs. what it does not — without upgrading "selector-minimal" into "the unique minimum."</p>
+<p><strong>Honest status: AMBER — PARTIAL certificate.</strong> The suite earns a <em>category-relative selector-minimal</em> + a <em>functional-role floor</em> + a <em>no-Tier-1-competitor-currently-survives</em> result. Selector-minimality is <strong>category-relative — voided by any competitor outside the enumerated category</strong> (REVIEW §1: "voided by any future principle outside the list"); "no Tier-1 competitor currently survives" is therefore never "none can." It does <strong>NOT</strong> earn realization-minimality (5 sub-lemmas OPEN; its printed "QED" is conditional only) and does <strong>NOT</strong> prove THE-unique-minimum.</p>
+<p><strong>The argument (summary of the result).</strong> The R2 theorem suite is a six-document set (the "minimal-shape suite"): selector-minimality certificate, functional-role-necessity theorem, realization-minimality theorem, competitor-audit matrix, Tier-1-competitor-elimination theorem, and an absolute-irreducibility fork theorem. Its framing is discipline-clean: No status was ever upgraded; selector = <strong>selection, not derivation</strong>; the absolute-irreducibility question is kept as a genuine two-branch fork (not silently resolved); "no Tier-1 competitor <em>currently</em> survives" is never upgraded to "none can."</p>
+<p><strong>EARNED:</strong>
+- category-relative <strong>selector-minimal</strong> shape (within the stated competitor category);
+- an architecture-neutral <strong>functional-role FLOOR</strong> (k ≥ 3 functional roles, necessary-not-sufficient);
+- <strong>no Tier-1 preferred competitor currently survives</strong> the audit matrix.</p>
+<p><strong>NOT EARNED:</strong>
+- <strong>realization-minimality</strong> — its 5 sub-lemmas are OPEN; the "QED" is conditional only;
+- <strong>THE-unique-minimum</strong> — selector-minimal ≠ unique minimum.</p>
+<p><strong>The exact caveat.</strong> <strong>Selector-minimal is NOT the-unique-minimum, and selection is NOT derivation.</strong> Four MAJOR review defects stand against over-reading the suite: (1) the functional-role-necessity argument is <strong>near-circular</strong> (role definitions restate the C_phys clauses, so C_phys ⇒ C_phys); (2) C_phys is <strong>not truly architecture-neutral</strong> (items C11/C12 are governance/programmatic, not physics); (3) a <strong>conditional-QED overclaim risk</strong> on realization-minimality; (4) a <strong>possible smuggle in GUT.md §3.5</strong> — it eliminates the cheaper 4-D CP²=SU(3)/U(2) carrier for 6-D K₆ by "paying two extra dimensions for functionality," which is a selection move, not a forcing proof. Crucially, the suite does <strong>NOT bottom on E</strong> in its own framing — it folds the irreducible core (E = SM chiral spectrum / 3 generations) into an <em>input constraint</em> (C4); the honest framing (AX-3) is that the reducible part bottoms out <strong>on E</strong>, which no known principle forces. So "SHAPE is minimal" means <em>minimal among enumerated competitors, given E and the measured spectrum</em> — a bounded negative, strictly weaker than SCALE's Buckingham-π theorem.</p>
+<p><strong>Evidence — POINTER to the suite (do not inline; it is the 31-page minimal-shape suite).</strong> <code>SHAPE_R2_CERTIFICATE_SUITE/</code> (six documents):
+<code>T_SHAPE_SELECTOR_MINIMALITY_CERTIFICATE_THEOREM.md</code>,
+<code>T_SHAPE_FUNCTIONAL_ROLE_NECESSITY_THEOREM.md</code>,
+<code>T_SHAPE_REALIZATION_MINIMALITY_THEOREM.md</code>,
+<code>SHAPE_COMPETITOR_AUDIT_MATRIX.md</code>,
+<code>T_SHAPE_TIER1_COMPETITOR_ELIMINATION_THEOREM.md</code>,
+<code>T_SHAPE_ABSOLUTE_IRREDUCIBILITY_FORK_THEOREM.md</code>.
+Review + earned/not-earned adjudication + the four defects: <code>REVIEW_SHAPE_SUITE_2026-06-23.md</code> (summarized in <code>THREE_ROOT_CLOSURE_PATHS_2026-06-23.md</code> §3.1 SHAPE SUITE REVIEW box, lines 157).</p>
+<hr />
+<h2>Gate roll-up (the AX gate sheet at a glance)</h2>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Requirement</th>
+<th>Honest status</th>
+<th>Theorem or posit?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AX-1</strong></td>
+<td>12-row meter + ~22–26 itemized DoF, bundles exposed</td>
+<td>GREEN (honesty-only; nothing derived) (meter honestly kept; axioms are confessions)</td>
+<td>meter is an accounting object; only <code>ANCHOR-MPL</code> is theorem-backed</td>
+</tr>
+<tr>
+<td><strong>AX-2</strong></td>
+<td>compaction = RE-ACCOUNTING, not reduction</td>
+<td>GREEN-on-honesty (honesty-only; nothing derived) (RED if stated as "12→7/3 derived")</td>
+<td>re-accounting theorem; only <code>N_eff</code> discharged, conservation conditional</td>
+</tr>
+<tr>
+<td><strong>AX-3</strong></td>
+<td>3 deep roots, per-root verdict</td>
+<td>MIXED — SCALE GREEN, GRANULARITY/SHAPE AMBER</td>
+<td>SCALE: ≥1 theorem; =2 in substance (M_Pl+v_EW), hierarchy OPEN; the other two = declared posits w/ near-no-go</td>
+</tr>
+<tr>
+<td><strong>AX-4</strong></td>
+<td>SHAPE-is-minimal, point to suite</td>
+<td>AMBER — PARTIAL certificate</td>
+<td>selector-minimal earned; realization-minimality + unique-minimum NOT earned</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Non-promotion footer.</strong> Gap 02 OPEN · finite z_<em> inequality OPEN · Gap 14/15 (Born) OPEN · BG-10 0/4 · Λ Weinberg-OPEN/irreducible · a6 uncomputed/OPEN · ξ_R4 OPEN · c_loop OPEN/data-gated · hierarchy (v_EW second anchor) UNSOLVED · headline IRREDUCIBLE AXIOMS = 12 (N=5) UNCHANGED · itemized DoF ~22–26 · </em><em>No status was ever upgraded</em>* · Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> READ-ONLY, unmutated · COMMITTED: NO · DEPLOYED: NO.</p>
+<hr />
+<h3>Sources (load-bearing, all under <code>…/Fable_Version/rendered/TOE/</code>)</h3>
+<p><code>AXIOM_LEDGER.md</code> · <code>MINIMAL_ROOT_CLASS_COMPRESSION_THEOREM_AND_LEDGER_DIFF.md</code> · <code>SEVEN_ROOT_CLASS_AXIOMS.md</code> · <code>THREE_ROOT_CLOSURE_PATHS_2026-06-23.md</code> · <code>GLOBAL_SECTOR_COMPLETION_AUDIT_THEOREM.md</code> · <code>SHAPE_R2_CERTIFICATE_SUITE/</code> (6 docs) · <code>REVIEW_SHAPE_SUITE_2026-06-23.md</code>.</p>
+</body></html>

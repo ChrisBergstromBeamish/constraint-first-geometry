@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SG-9 — Proton safety: full dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">SG-9 — Proton safety: full dossier — rendered package. Rendered from <code>DOSSIER_SG9_FULL.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>SG-9 — Proton safety: full dossier</h1>
+<blockquote>
+<p><strong>The 30-second spine.</strong> The reason grand-unified theories kill the proton — a heavy boson that turns quarks into leptons — <em>literally cannot be built</em> in the framework's geometry, and every proton-decay operator through the standard dimension-7 reach vanishes identically. The Standard-Model gauge backbone is a <strong>product</strong> of compact factors, not a single simple GUT group, so the two mediators that executed minimal SU(5) (the X/Y boson and the coloured-Higgs triplet) are structurally absent; and a sector-projector identity $\Pi_q M \Pi_\ell = 0$ makes every Wilson coefficient in the declared dangerous class an <em>exact zero</em>, not a tuned-small number.</p>
+<p><strong>Honest status (binding; matches the live popup — never upgrade).</strong> Gate <strong>OPEN</strong>. Operator-safety leg <strong>Reduced-to-Axiom on the d≤7 slice</strong>; the <strong>KK-mediator channel is DERIVED all-order in KK number</strong> (carried as a written theorem pending a machine-checked formal lemma in <code>theorems/</code>). <strong>STATUS-UPGRADES:0.</strong> Frozen branch <code>dcc66f1b2685</code> / manifest meta <code>a5b1e6f9d951</code> <strong>READ-ONLY</strong>.</p>
+<p><strong>What this is.</strong> A working physicist's deep version of the live closure-result — the rigorous math, the insights that produced it, the certificates that back it, and a concrete specialist work-plan for every open hole. It is target-blind throughout (no proton-lifetime number is ever an input or an output), and it shares the physics while saying plainly, at every turn, exactly what is and is not claimed.</p>
+</blockquote>
+<hr />
+<h2>§1. Executive summary and honest status</h2>
+<h3>1.1 The headline</h3>
+<p>Proton decay is the single most successful falsifier in beyond-Standard-Model physics. The simplest grand unified theory — minimal SU(5), Georgi–Glashow 1974 — predicted a proton lifetime of order $10^{30}$–$10^{31}$ years. Super-Kamiokande pushed the partial lifetime for $p \to e^+\pi^0$ past $\sim 1.6\times10^{34}$ years (Super-Kamiokande Collaboration, <em>Phys. Rev. D</em> 102, 112011 (2020)), and minimal SU(5) was executed. Every GUT-class theory inherits the same <em>dimension-6 baryon-number-violating pressure</em>: embed quarks and leptons in a single simple group, and you get off-diagonal generators (the X and Y bosons) and coloured-Higgs partners that mediate $p\to e^+\pi^0$, $p\to \mu^+ K^0$, and their relatives.</p>
+<p>the framework's claim for SG-9 is structural and exact: on the frozen 13-dimensional active branch, the gauge backbone is <strong>not</strong> a simple-group embedding at all. It is a <em>product</em>,
+$$K_{\rm gauge}=K_6 \times S^2 \times S^1_Y/\mathbb{Z}_2,\qquad K_6=SU(3)/T^2,$$
+whose zero-mode isometry algebra is the <strong>direct sum</strong> $\mathfrak{su}(3)_c \oplus \mathfrak{su}(2)_L \oplus \mathfrak{u}(1)_Y$ (<code>03_FROZEN_GEOMETRY_CONTEXT.md</code> §2). A direct sum has no off-diagonal generator connecting the colour and lepton sectors through one multiplet — so there is <strong>no X/Y boson</strong> — and the Higgs is a Wilson-line $SU(2)_L$ doublet on $K_{\rm gauge}$ whose bundle (<code>44516f6400ae</code>) carries <strong>no coloured-triplet partner</strong>. The two mediators that decayed SU(5) are absent by inspection.</p>
+<p>On top of that absence-of-mediator structure, the tenth load-bearing term of the active branch, $\mathcal{E}_{\rm proton}$, supplies sector projectors with macro-orthogonality $\Pi_q\Pi_\ell = 0$, which delivers the <strong>exact algebraic identity</strong> $\Pi_q M \Pi_\ell = 0$ for every sector-respecting mediator $M$. Therefore every Wilson coefficient in the declared dangerous operator class vanishes identically — a zero, not a number waiting for a large mediator mass to suppress it.</p>
+<h3>1.2 The honest grade (must match the live popup chip)</h3>
+<p><strong>Gate SG-9 = OPEN (hardened).</strong> By the program's gate-grading rubric — <em>a gate's status is its least-closed residual; a gate is OPEN if any piece is open</em> (<code>06_GATE_GRADING_RUBRIC.md</code>) — SG-9 is OPEN because several residuals remain non-terminal. But two legs are genuinely strong and worth stating precisely:</p>
+<ul>
+<li><strong>Operator-safety leg (the central content): Reduced-to-Axiom on the d≤7 slice.</strong> Through operator mass-dimension 7, the escapee bin is <strong>empty</strong>: every admissible perturbative local Standard-Model-zero-mode $\Delta B=1$ nucleon-decay operator through dimension 7 is either (a) sector-crossing and killed by $\Pi_q M \Pi_\ell = 0$, or (b) requires a mediator absent from the product spectrum. The declared-class Wilson zeros themselves are <strong>DERIVED-GIVEN-E</strong> (an algebraic theorem). The <em>physical-completeness</em> step on the bounded slice was demoted from AXIOM-CLOSED to AXIOM-OPEN/Reduced-to-Axiom by the 2026-06-25 atomicity sweep on the correct ground that <em>a finite census is not irreducible and not a measured invariant</em> — and a regenerated, target-blind machine certificate (R5/WS3) now carries it, reproducing its committed hash <code>15f5fc0834e2</code> with an empty escapee bin (<code>certificates/R5_R1_dle7_operator_ledger/</code>).</li>
+<li><strong>KK-mediator channel: DERIVED-on-channel, all-order in KK number (gauge tower; the <em>unrestricted</em> "no KK mediator" claim is DERIVED-on-channel <em>given R4</em>).</strong> A closed-form $SU(3)/T^2$ triality selection rule (Frobenius/Peter–Weyl selection plus a $\mathbb{Z}_3$ centre-charge homomorphism) proves that no Kaluza–Klein <em>gauge-tower</em> mode is a leptoquark at <em>any</em> level — not a census-to-cutoff, a genuine all-order theorem (<code>certificates/STEP4_KK_triality_no_go/THEOREM_ALL_ORDER.md</code> §A). The <em>unrestricted</em> statement ("no KK mediator of any kind") carries two named conditions inherited from R4 (every propagating zero-mode colour rep is triality-0; matter colour assignment $t(\text{quark})=1,\,t(\text{lepton})=0$) and is scoped to tree-level single-mediator exchange, <em>not</em> the separate $d>7$ local-operator channel (<code>THEOREM_ALL_ORDER.md</code> §B/§C). It is carried as a <strong>named condition pending a written-up, machine-checked formal lemma</strong> landing in <code>theorems/</code>; the supporting certificate already passes adversarially (0 fails / 2009 checks).</li>
+</ul>
+<p><strong>Direction: held.</strong> Nothing here was upgraded relative to the binding handoff. Where two dispositions are defensible, this dossier takes the weaker (the conservative-default rule).</p>
+<h3>1.3 What this dossier establishes — and what it does not</h3>
+<p><strong>It establishes</strong>, on the frozen branch and given the observed spectrum E: the structural absence of the SU(5)-class mediators; the exact-zero (not tuned-small) nature of every declared dangerous Wilson coefficient; a bounded, target-blind, machine-reproducible census proving no perturbative $\Delta B=1$ operator escapes through dimension 7; and a closed-form all-order no-go for KK leptoquark mediators.</p>
+<p><strong>It does not establish</strong> — and explicitly does not claim — a proof of <em>absolute</em> proton stability (no decay at any operator dimension under any admissible operator), a <em>prediction or bound</em> on the proton lifetime, or <em>cross-geometry uniqueness</em> (the dimension-6 baryon-violating pressure is <strong>shared-open</strong> across all GUT-class geometries; the product structure is a filter, not a determiner). It does not close the all-order ($d>7$) local-operator channel, does not reconstruct the full internal-sector projector labeling from scratch (R4 AUDIT), and does not supply the seesaw Majorana scale $M_R$ (the dim-5 Weinberg leg, kept strictly separate from the $\Delta B=1$ claim).</p>
+<p>Two of those non-claims are <em>unicorns</em> — universal negatives over open-ended axes that no theory in any framework can settle by enumeration (absolute stability; "no future theory could decay it"). We dissolve them as limits on all knowledge, not gaps in ours. The bounded d≤7 result plus the all-order KK no-go is the ceiling, and stating that ceiling precisely is the closure, not a hedge.</p>
+<hr />
+<h2>§2. The community gap</h2>
+<h3>2.1 The precise open problem</h3>
+<p>Why is the proton so stable? In the Standard Model, baryon number $B$ is an <strong>accidental</strong> global symmetry: there is simply no renormalizable, gauge-invariant, Lorentz-invariant operator built from SM fields that violates $B$. The leading $B$-violating operators are dimension-6 four-fermion operators suppressed by two powers of a heavy scale $\Lambda$:
+$$\mathcal{L}_{\Delta B=1} \supset \frac{c}{\Lambda^2}\,QQQL + \dots,\qquad \tau_p \sim \frac{\Lambda^4}{m_p^5}\cdot\frac{1}{|c|^2}.$$
+To clear the Super-K bound $\tau_p \gtrsim 10^{34}$ yr you need $\Lambda \gtrsim 10^{15}$–$10^{16}$ GeV (for $\mathcal{O}(1)$ coefficients). The <em>grand-unified</em> idea is precisely to supply such a scale: unify $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak{u}(1)$ into a single simple group ($SU(5)$, $SO(10)$, $E_6$, …) broken at $\Lambda = M_U$. But unification has a price: the off-diagonal generators of the simple group (the X/Y bosons) and the coloured partners of the GUT Higgs <em>are</em> the dimension-6 mediators. They are not optional — they are the very generators that make the group simple. So every GUT predicts a finite proton lifetime, and the model-builder's whole job becomes pushing $M_U$ and the coloured-Higgs mass high enough.</p>
+<p>The community gap is twofold. <strong>(1) There is no community-accepted derivation of why the proton is so stable.</strong> It is a live experimental constraint that has already executed the simplest models and continues to squeeze the survivors. <strong>(2) Within any given GUT-class geometry, dimension-6 baryon violation is generic</strong> — the question is never <em>whether</em> the pressure exists but <em>how</em> a particular construction suppresses it, and whether that suppression is a tuned mass or a structural zero.</p>
+<h3>2.2 State of the art and best bounds</h3>
+<ul>
+<li><strong>Experiment.</strong> Super-Kamiokande: $\tau(p\to e^+\pi^0) > 1.6\times10^{34}$ yr, $\tau(p\to \mu^+ K^0)$ and $\tau(p\to\bar\nu K^+)$ in the $10^{33}$–$10^{34}$ yr range (Super-K Collaboration, <em>Phys. Rev. D</em> 102, 112011 (2020) and companion analyses). Hyper-Kamiokande and DUNE will extend these by roughly an order of magnitude.</li>
+<li><strong>Minimal SU(5)</strong> (Georgi–Glashow, <em>Phys. Rev. Lett.</em> 32, 438 (1974)) predicted $\tau_p \sim 10^{30}$–$10^{31}$ yr — <em>excluded</em>.</li>
+<li><strong>Supersymmetric and SO(10) GUTs</strong> survive by raising $M_U$, splitting the coloured-Higgs triplet (doublet–triplet splitting), or invoking symmetries (e.g. a $\mathbb{Z}$ R-symmetry) that forbid the dimension-5 SUSY operators $QQQL/\Lambda$. These are <em>suppression</em> strategies: the dangerous operators exist; their coefficients are made small.</li>
+<li><strong>The SMEFT operator basis</strong> is the rigorous bookkeeping framework. The complete dimension-6 $B$-violating basis is the Weinberg / Wilczek–Zee set (Weinberg, <em>Phys. Rev. Lett.</em> 43, 1566 (1979); Wilczek &amp; Zee, <em>Phys. Rev. Lett.</em> 43, 1571 (1979)): the four operators $QQQL$, $u^c u^c d^c e^c$, $QL u^c d^c$, $QQ u^c e^c$. The complete dimension-7 basis was given by Lehman (<em>Phys. Rev. D</em> 90, 125023 (2014); arXiv:1410.4193). These bases are the state-of-the-art ground truth against which any claim of "we caught every dangerous operator" must be checked.</li>
+</ul>
+<h3>2.3 Prior attempts and why each falls short</h3>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Mechanism</th>
+<th>Why it falls short of a <em>structural</em> answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raise $M_U$ (minimal SU(5) → SUSY-GUT)</td>
+<td>suppress dim-6 coefficient with a large mass</td>
+<td>The dangerous mediators still exist; safety is a tuned-small number, lifetime-tied, and constantly re-pressured by improving bounds.</td>
+</tr>
+<tr>
+<td>Doublet–triplet splitting</td>
+<td>make the coloured Higgs heavy</td>
+<td>A fine-tuning (or symmetry) problem in its own right; the triplet is present in the spectrum.</td>
+</tr>
+<tr>
+<td>R-symmetry / discrete symmetry forbids dim-5</td>
+<td>impose a global/discrete symmetry by hand</td>
+<td>An <em>added</em> symmetry, not a geometric consequence; must be justified independently.</td>
+</tr>
+<tr>
+<td>Global $U(1)_B$</td>
+<td>forbid $B$-violation outright</td>
+<td>Forbids observed SM physics (electroweak sphalerons violate $B+L$); not viable.</td>
+</tr>
+</tbody>
+</table>
+<p>The honest community position: proton stability is achieved by every <em>viable</em> construction (that is what "viable" means), but in the standard GUT program it is achieved by <em>suppression</em> — a heavy mediator and a small coefficient. The Fable distinction, stated carefully in §1 and §4, is one of <strong>mechanism</strong>: an exact zero by selection rule, versus a tuned-small number by heavy mass. That mechanism is genuinely stronger; it is <strong>not</strong> a uniqueness claim, and dimension-6 baryon violation as a <em>pressure</em> remains shared by all GUT-class geometries.</p>
+<hr />
+<h2>§3. The construction — rigorous math</h2>
+<h3>3.1 The frozen object, named so each piece is attackable</h3>
+<p>The active branch is the frozen 13D object (<code>03_FROZEN_GEOMETRY_CONTEXT.md</code> §1):
+$$
+\mathfrak{B}_{\rm active} = \big[\,\mathcal{M}_4 \times K_6 \times S^2 \times S^1_Y/\mathbb{Z}_2\,\big]_\times \ \oplus\ \big[\,F^+_{\rm finite}\oplus C_{\rm admiss}\,\big]_\oplus \ \otimes\ \big[\,E_{\rm matter}\oplus E_{\rm gauge}\oplus E_{\rm Higgs}\oplus E_{\rm proton}\,\big]_\otimes,
+$$
+with $D=13=4+6+2+1$ (only the ×-layer carries metric dimension). The gauge routing is by isometry:</p>
+<table>
+<thead>
+<tr>
+<th>Internal factor</th>
+<th>Routes</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$K_6=SU(3)/T^2$</td>
+<td>$SU(3)_c$ colour</td>
+<td>left-isometry algebra $\mathfrak{su}(3)$</td>
+</tr>
+<tr>
+<td>$S^2$</td>
+<td>$SU(2)_L$ weak</td>
+<td>isometry $\mathfrak{su}(2)$</td>
+</tr>
+<tr>
+<td>$S^1_Y/\mathbb{Z}_2$</td>
+<td>$U(1)_Y$ hypercharge</td>
+<td>isometry + orbifold chirality filter</td>
+</tr>
+</tbody>
+</table>
+<p>Three generations come from the spin-$\mathbb{C}$ index $\chi(K_6,E)=-3$; charge quantization from the global $\mathbb{Z}_6$ centre identification; the Higgs from a Wilson-line / Hosotani construction ($E_{\rm Higgs}$). Proton safety lives in the tenth load-bearing term, $\mathcal{E}_{\rm proton}$. The relevant frozen hashes (<code>01_DOSSIER.md</code> §0): sector projectors $\Pi_u,\Pi_d,\Pi_e,\Pi_\nu$ <code>3b8d68559f5e</code> (R1.4); FCNC/mediator no-go theorem <code>fff4b433b7b3</code> (R1.6); operator-class declaration <code>551488d06011</code> (R1.6); Cartan-torus modulus $\tau=\omega$ <code>03b30a9c931a</code>; global $\mathbb{Z}_6$ centre <code>a68ee92a75be</code>; $\mathbb{Z}_2$ orbifold on $S^1_Y$ <code>ac4d2df3e708</code>; hypercharge bundle (no coloured-Higgs partner) <code>44516f6400ae</code>; proton-operator ledger CSV <code>bc1e4e84840a</code>. <strong>$M_R$ (seesaw Majorana scale): no hash — UNKNOWN/open</strong> (<code>BG10-FROZEN-MR</code>).</p>
+<h3>3.2 The implication chain (the spine)</h3>
+<pre><code> product geometry  K_gauge = K_6 × S² × S¹_Y/Z₂   (NOT a simple-group embedding)
+        ↓   no off-diagonal X/Y generator; no coloured-Higgs triplet
+ sector projectors  Π_q , Π_ℓ   on  E_matter
+        ↓   sector orthogonality of the chamber decomposition
+ Π_q Π_ℓ = 0
+        ↓   lift to the matter bundle; act with any sector-respecting mediator M
+ Π_q M Π_ℓ = 0          (no-mediator identity — a THEOREM given orthogonality)
+        ↓
+ C_dangerous = 0   identically,  for every operator in the DECLARED class
+        ↓
+ operator-level proton safety   (declared-class Wilson zeros: DERIVED-GIVEN-E)
+</code></pre>
+<h3>3.3 Ingredient 1 — the product structure removes X/Y and the coloured Higgs</h3>
+<p>The SM gauge algebra on the active branch is the surviving <strong>direct-sum</strong> isometry $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak{u}(1)$ of a <em>product</em> of compact factors, not the residual of breaking a larger simple group. A product of compact factors has a direct-sum isometry algebra; there is <strong>no off-diagonal generator</strong> connecting the colour and lepton sectors through a single multiplet. Concretely, in $SU(5)$ the X/Y bosons live in the off-diagonal $\mathbf{3}\times\mathbf{2}$ blocks of the $\mathbf{24}$ adjoint; in a direct sum those blocks do not exist as generators at all. Likewise the GUT Higgs $\mathbf{5}_H \supset (\mathbf{3},\mathbf{1})_{-1/3}$ contains a coloured triplet that mediates decay; on the active branch the Higgs is a Wilson-line $SU(2)_L$ doublet whose bundle <code>44516f6400ae</code> carries no coloured partner. <strong>This is a $\times$-layer fact</strong> — it is checkable by inspection given the selected product geometry, and it is exactly the move that dissolves the failure mode that executed minimal SU(5).</p>
+<p><em>Attack handle (carried honestly):</em> "product not simple" is a property of the <em>selected</em> geometry, not a proof that a product geometry is <em>forced</em> over a simple-group rival. The gauge-group outcome is itself a SHAPE-audit rival (selected, not forced; R7, inherited from SG-1/SG-2). The structural absence of X/Y is therefore a <strong>filter</strong>, not a determiner.</p>
+<h3>3.4 Ingredient 2 — the sector projectors and macro-orthogonality</h3>
+<p>The four sector projectors $\Pi_u,\Pi_d,\Pi_e,\Pi_\nu$ (<code>3b8d68559f5e</code>, R1.4) are the same projectors that give the flavour gate (SG-8) its chamber operators their domain — proton safety and flavour share the sector decomposition. The macro-projectors are
+$$\Pi_q = \Pi_u + \Pi_d + \Pi_{Q_L},\qquad \Pi_\ell = \Pi_e + \Pi_\nu + \Pi_{L_L},$$
+on the matter bundle $\mathcal{E}_{\rm matter}$. The doublet-component projectors $\Pi_{Q_L},\Pi_{L_L}$ come from the A2.3 matter-bundle factorisation. Macro-orthogonality $\Pi_q\Pi_\ell=0$ follows because the index sets $\{u,d,Q_L\}$ and $\{e,\nu,L_L\}$ are disjoint.</p>
+<p><strong>The crucial sharpening (R4′, DERIVED-GIVEN-E; <code>02_CLOSURE_RESULT.md</code> §0.0).</strong> The macro-orthogonality the no-mediator identity actually <em>needs</em> is forced by the $SU(3)_c$ colour Casimir / triality label that E carries: quarks sit in colour $\mathbf{3}$ (Casimir $C_2 = 4/3$), leptons in colour $\mathbf{1}$ (Casimir $0$), and $V_{\mathbf 3}\otimes V_{\mathbf 1}=0$ as eigenprojectors for distinct Casimir eigenvalues. This is <strong>independent of the $\mathbb{Z}_6/\mathbb{Z}_2$ chamber data and immune to generation mixing</strong>. No-orphan completeness $\Pi_q + \Pi_\ell = 1$ is an exhaustive triality partition resting on three named E-inputs: the observed colour reps $\{\mathbf{3},\bar{\mathbf{3}},\mathbf{1}\}$, the frozen chiral index $\chi=-3$, and the frozen $\nu^c$-lepton sector labeling. This upgrades the macro-orthogonality from AUDIT to DERIVED-GIVEN-E. The <em>full internal-sector</em> labeling ($\Pi_u/\Pi_d/\Pi_e/\Pi_\nu$ reconstructed from scratch) remains the R4 AUDIT residual (§6.3).</p>
+<p><em>A precision note carried from the corpus (<code>RESIDUAL_LEDGER.md</code> R4).</em> The literal A2.6 declaration — "four mutually-orthogonal rank-3 idempotents on a 3-dimensional generation space" — is algebraically impossible as a matrix identity (four rank-3 orthogonal idempotents cannot fit in a 3-dimensional space) and must be read as an <em>index/label delta</em> over the disjoint sector set, not as four literal $3\times3$ projectors. This is one of the things a from-scratch R4 reconstruction must clean up.</p>
+<h3>3.5 Ingredient 3 — the no-mediator identity (Lemma 2, DERIVED-GIVEN-E)</h3>
+<p>For any sector-respecting mediator $M=\sum_i \Pi_i M_i \Pi_i$,
+$$\Pi_q M \Pi_\ell = \sum_i (\Pi_q \Pi_i) M_i (\Pi_i \Pi_\ell) = \sum_i \delta_{qi}\,\delta_{i\ell}\,\Pi_i M_i \Pi_i = 0 \quad (q\neq\ell).$$
+This is a <strong>theorem given the projectors</strong>, not an axiom (the corpus is emphatic — asserting it without proof would collapse the certificate to a postulate; C10 §5, L.3.2). The consequence: every Wilson coefficient in the declared dangerous class — $QQQL$, $u^c u^c d^c e^c$, $QL u^c d^c$, $QQ u^c e^c$, their dim-7 single-field dressings, and the $\bar d^c\bar d^c\bar u^c$ $n$-side channel — is an <strong>exact zero</strong>, not a tuned-small number. The dangerous coefficients are zeros, not suppressed.</p>
+<h3>3.6 Closing the side doors — the two-channel decoupling</h3>
+<p>A mediator that <em>avoids</em> Lemma 2 must be a genuine cross-sector carrier. The FCNC/mediator no-go theorem (full hash <code>fff4b433b7b3</code>, R1.6) handles them in two channels:</p>
+<ul>
+<li><strong>Channel A — gauge-redundant spectator components.</strong> Longitudinal $A_\mu$ and scalar $A_5$ KK components are BRST-exact and decouple from physical S-matrix elements by Slavnov–Taylor identities. (Standard result.)</li>
+<li><strong>Channel B — physical transverse KK modes.</strong> These are <strong>not</strong> BRST-exact — the manuscript explicitly refuses the blanket "all KK are BRST-exact" claim. They are killed at tree level by KK-number conservation ($\sum n_{\rm ext}=0$, mediator $n\geq1$) and at loop level by projector orthogonality. Empty cross-sector cohomology: $\Pi_i \mathcal{G}_{\rm gen}\cap \Pi_j \mathcal{G}_{\rm gen}=\{0\}$ for $i\neq j$.</li>
+</ul>
+<h3>3.7 The bounded d≤7 census — Lemma 1 and the empty escapee bin</h3>
+<p>The hardening that takes R1 from "declared-class pass with a coverage residual" to "Reduced-to-Axiom on the d≤7 slice" is a <strong>bounded operator census through mass dimension 7</strong> on the frozen active-branch field content (<code>02_CLOSURE_RESULT.md</code> §2.2; machine-regenerated in <code>certificates/R5_R1_dle7_operator_ledger/</code>). The field content is exactly the SM Weyl multiplets $Q, u^c, d^c, L, e^c, \nu^c$, the Higgs doublet $H, H^\dagger$, and the covariant derivative $D$ — <strong>nothing else</strong> (no exotic mediator field is admissible on the frozen branch; that absence <em>is</em> the physics).</p>
+<p><strong>Lemma 1 (independently reproduced).</strong> A $\Delta B=1$ operator needs 3 net units of quark triality, hence an <strong>odd</strong> number of quark fields. A Lorentz scalar needs an <strong>even</strong> total number of Weyl fermions. Odd quarks + even total $\Rightarrow$ an <strong>odd</strong> number of lepton fields $\Rightarrow$ at least one lepton leg. Therefore <strong>every</strong> local perturbative $\Delta B=1$ Lorentz-scalar operator at $d\leq 7$ is a quark$\leftrightarrow$lepton <strong>sector crossing</strong>, and $\Pi_q M \Pi_\ell = 0$ kills its Wilson coefficient identically.</p>
+<p><strong>The census by dimension (<code>02_CLOSURE_RESULT.md</code> §2.2.2):</strong>
+- <strong>$d\leq 4$:</strong> no proton-decay operator (renormalizable SM conserves $B$ accidentally).
+- <strong>$d=5$:</strong> the Weinberg operator $(LH)(LH)/\Lambda$ has $\Delta B=0,\ \Delta L=2$ — <em>outside proton safety</em> (a lepton-number/Majorana issue; $\Lambda=M_R$ UNKNOWN). A coloured-Higgs-like $\bar Q L H_c/\Lambda$ needs an absent mediator.
+- <strong>$d=6$ — the complete core:</strong> $QQQL$, $u^c u^c d^c e^c$, $u^c d^c d^c \nu^c$ — all sector-crossing → killed. (This is the complete Weinberg/Wilczek–Zee basis.)
+- <strong>$d=7$ — single-field dressings:</strong> $HL d^c d^c u^c$, $H^\dagger L d^c d^c d^c$, $H^\dagger \nu^c Q^3$, $L Q^3 D$, $\nu^c d^c d^c u^c D$, $d^c e^c u^c u^c D$ — still sector-crossing → killed. (This is the complete Lehman d=7 basis.)</p>
+<p><strong>Result of the regenerated machine ledger (<code>certificates/R5_R1_dle7_operator_ledger/README_CERTIFICATE.md</code>):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gauge-singlet Lorentz-scalar operators through d≤7</td>
+<td><strong>68</strong></td>
+</tr>
+<tr>
+<td>candidates incl. odd-fermion (for the vacuous check)</td>
+<td>101</td>
+</tr>
+<tr>
+<td>physical $\Delta B=\pm1$ proton-decay operators (d≤7)</td>
+<td><strong>9</strong> — all <code>KILLED_PROJECTOR</code></td>
+</tr>
+<tr>
+<td>quark-only $\Delta B=1$ candidates</td>
+<td><strong>8</strong> — all <code>VACUOUS_NO_LORENTZ_SCALAR</code> (odd Weyl count)</td>
+</tr>
+<tr>
+<td>ESCAPEE bin</td>
+<td><strong>EMPTY (0)</strong></td>
+</tr>
+<tr>
+<td>L.2b coverage rows witnessed</td>
+<td><strong>10 / 10</strong></td>
+</tr>
+<tr>
+<td>injected-escapee falsifier</td>
+<td><strong>fires</strong></td>
+</tr>
+<tr>
+<td>known-basis cross-check</td>
+<td><strong>PASS</strong> (3 content classes = complete SM + $\nu^c$ set, all sector-crossing)</td>
+</tr>
+</tbody>
+</table>
+<p>The escapee bin is empty: $\text{Escapee}^{\rm perturbative,\,local,\,SM\text{-}zero\text{-}mode}_{d\le 7} = \varnothing$. The ledger committed hash <code>15f5fc0834e2</code> (the <code>ledger_output.json</code>) regenerates byte-stable, and the script reads no frozen file and takes no Super-K / $\tau_p$ input.</p>
+<h3>3.8 The KK-mediator all-order no-go (STEP4 — DERIVED all-order in KK number)</h3>
+<p>The one channel a finite census cannot touch is the Kaluza–Klein tower: could <em>some</em> level of the gauge KK tower carry the colour-$\mathbf{3}$ + isospin + lepton-number quantum numbers of a leptoquark and bypass the projector? The answer is a <strong>closed-form all-order theorem</strong>, not a census-to-cutoff (<code>certificates/STEP4_KK_triality_no_go/THEOREM_ALL_ORDER.md</code>).</p>
+<p><strong>Theorem (STEP4-gauge, all-order in KK number).</strong> On $\mathfrak{B}_{\rm active}$ with $K_6=SU(3)/T^2$, every KK excitation of a field whose $SU(3)_c$ representation is the adjoint $\mathbf{8}=V(1,1)$ (the higher-dimensional gauge field) carries $SU(3)_c$ <strong>triality 0</strong> at every level $n\geq0$. A leptoquark mediator must carry <strong>nonzero</strong> triality. Therefore no gauge-tower KK mode is an admissible leptoquark: $\Pi_Q M_{\rm KK}\Pi_L = 0$ for every gauge-tower KK mediator, all $n$.</p>
+<p>It rests on two closed-form facts, each true for <strong>all</strong> $(p,q)\in\mathbb{Z}_{\geq0}^2$ and each independently re-derived (not merely asserted):</p>
+<ul>
+<li><strong>(T1) Frobenius/Peter–Weyl selection on the flag coset.</strong> $V(p,q)$ appears in $L^2(SU(3)/T^2)$ iff it has a $T^2$-fixed (zero-weight) vector iff $3\mid(p-q)$ iff triality $(p-q)\bmod 3 = 0$; closed-form multiplicity $m_0(p,q)=\min(p,q)+1$ if $3\mid(p-q)$, else $0$. Independently re-derived from an exact-<code>Fraction</code> Freudenthal recursion; the frozen <code>spectrum_K6.csv</code> (57 scalar rows) contains <strong>only</strong> triality-0 irreps (residue histogram $\{0:57,\,1:0,\,2:0\}$). So $\mathbf{3},\bar{\mathbf{3}},\mathbf{6},\bar{\mathbf{6}}$ are absent at every level. <strong>A theorem (Frobenius reciprocity), machine-confirmed.</strong></li>
+<li><strong>(T2) Triality is the $SU(3)$-centre $\mathbb{Z}_3$ charge → an exact ring homomorphism.</strong> The centre element $\omega=e^{2\pi i/3}\cdot I$ acts on $V(p,q)$ by $\omega^{p-q}$, so $t(A\otimes B)=t(A)+t(B)\pmod 3$ identically. Re-checked on 7 certificate cases plus 40 random tensor products: 0 homomorphism violations, 0 dimension violations.</li>
+</ul>
+<p>Closure: gauge index $=$ adjoint $V(1,1)$ (triality 0) $\otimes$ $K_6$-harmonic (triality 0 by T1) $\otimes$ $S^2/S^1$ (no colour). Net colour triality $0$ for all $n$. The leptoquark predicate $(p-q)\bmod 3\neq 0$ is period-3, and only residue 0 ever appears, so a single full period is representative of all $n$. <strong>No cutoff is used.</strong></p>
+<p>The machine certificate (<code>certificates/STEP4_KK_triality_no_go/out/step4_certificate.json</code>, verdict PASS) records: L0 reproduces the frozen K6 spectrum (K6 csv sha256 <code>78c7baa0308f</code>, 0 rule mismatches); L1 Freudenthal certifies T1 on the window (57 triality-0 irreps and 112 triality-nonzero irreps checked, 0 mismatches); L2 the triality homomorphism (0 violations); L3 the all-order predicate over $(p,q)\in[0,200]^2$ (<strong>13,467 appearing modes, 0 leptoquark candidates</strong>, residue histogram $\{0:13467\}$); L4 the product-KK enumeration (<strong>540 gauge-KK modes, 0 leptoquark candidates</strong>); and L5 the injected-falsifier battery — planted $\mathbf{3},\bar{\mathbf{3}},\mathbf{6},\bar{\mathbf{6}},\mathbf{15}$ (nonzero triality) all flagged, genuine $\mathbf{1},\mathbf{8},\mathbf{10}$ (triality 0) not flagged, and injecting a planted $\mathbf{3}$ drives the leptoquark count $0\to1$. The checker has teeth and no false positives.</p>
+<p><strong>Disposition:</strong> the gauge-tower KK-mediator channel is <strong>DERIVED-ON-CHANNEL, all-order in KK number</strong> — a closed-form discharge, not re-banked as an axiom. It is carried as a written theorem pending the formal lemma write-up landing in <code>theorems/</code> (§6.4). It does <strong>not</strong> touch the separate $d>7$ local-operator channel.</p>
+<hr />
+<h2>§4. The insights we used</h2>
+<p>These are the moves that made the progress believable and reproducible — now shareable in full.</p>
+<h3>4.1 Product-not-simple as the structural dissolver</h3>
+<p>The deepest insight is that the proton-decay wall is <em>built into the simple-group hypothesis itself</em>. The X/Y bosons are not an add-on to be made heavy; they are the off-diagonal generators that make the group simple. So if the geometry routes the SM forces as <em>isometries of separate compact factors</em> — colour from $K_6$, weak from $S^2$, hypercharge from $S^1_Y/\mathbb{Z}_2$ — the algebra is a direct sum, and the off-diagonal generators <em>do not exist as objects</em>. You cannot make heavy a generator that is not there. This converts "suppress the dangerous coefficient" into "the dangerous mediator is structurally absent." It is the single strongest, most defensible leg, and it reproduces by inspection.</p>
+<h3>4.2 An exact zero by selection rule, not a tuned-small number</h3>
+<p>The second insight is that once the sectors are orthogonal subspaces, any <em>sector-respecting</em> operator is block-diagonal, and a cross-sector amplitude $\Pi_q M \Pi_\ell$ is identically zero by the same one-line algebra that makes orthogonal projectors annihilate. This is qualitatively different from a heavy-mediator suppression: there is no scale, no coefficient, no running — the coefficient is zero because the operator connects two orthogonal subspaces. The honesty discipline is to remember that this is a theorem <em>given</em> the orthogonality, so the orthogonality must itself be earned (R4′ earns the macro-version via the colour Casimir; R4 still owes the full internal reconstruction).</p>
+<h3>4.3 Triality as the complete quark↔lepton discriminator</h3>
+<p>The third insight makes the KK channel tractable. The $SU(3)$ centre $\mathbb{Z}_3$ charge (triality) is <em>the</em> colour quantum number that distinguishes quarks ($t=1$) from leptons ($t=0$). Any quark↔lepton transition demands a nonzero-triality mediator (centre charge is conserved per vertex). Because triality is a ring homomorphism (T2) and only triality-0 irreps live on the flag coset $SU(3)/T^2$ (T1, Frobenius), every KK gauge mode is triality-0 and can never be a leptoquark — irrespective of its $SU(2)/U(1)$ charges. The closed-form periodicity (mod 3) is what makes this <em>all-order</em>, not a census to some cutoff: one full period of the predicate represents all levels.</p>
+<h3>4.4 The bounded-vs-unbounded discriminator (why this reaches the ceiling A5 could not)</h3>
+<p>The fourth insight is methodological and is the reason the d≤7 result survives where an earlier attempt was demoted. The corpus precedent "A5-actor" was demoted from AXIOM_CLOSED to OPEN because its success criterion was a universal negative over an <em>unbounded</em> competitor matrix — genuinely unclosable by enumeration. SG-9's universal negative ("the escapee bin is empty") is <strong>bounded to d≤7</strong>, and a finite enumeration genuinely <em>can</em> close a bounded universal negative. The all-order ($d>7$) statement is the <em>unbounded</em> version and is honestly kept OPEN. Recognizing exactly where the boundedness lives is what separates an honest reduction from a target-loaded relabel.</p>
+<h3>4.5 Safety as operator algebra, not as a symmetry</h3>
+<p>The fifth insight is what the construction <em>refuses</em>: it does not invoke a global $U(1)_B$ (which would forbid observed SM physics — electroweak sphalerons violate $B+L$). Safety is secured by the operator algebra (orthogonal sectors), so SM sphalerons remain allowed because they act <em>intra</em>-sector ($Q_L\leftrightarrow L_L$ inside the same algebra), not as a cross-sector $\Pi_q M \Pi_\ell$ amplitude. Doing the harder, more honest thing — operator algebra instead of a forbidden global symmetry — is part of why the leg is defensible.</p>
+<hr />
+<h2>§5. Evidence and reproducibility</h2>
+<h3>5.1 The witness ledger</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Witness</th>
+<th>What it asserts</th>
+<th>Grade</th>
+<th>Reproduces?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1</td>
+<td>Product-factor $K_{\rm gauge}\to$ no X/Y, no coloured Higgs</td>
+<td>the SU(5)-class mediators are structurally absent</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — direct-sum isometry; no off-diagonal generator by inspection (given the selected product)</td>
+</tr>
+<tr>
+<td>W2</td>
+<td>No-mediator identity $\Pi_q M \Pi_\ell=0$</td>
+<td>every sector-respecting cross-block Wilson coefficient is identically zero</td>
+<td>hand-checkable</td>
+<td><strong>Yes given orthogonality</strong> — one-line proof</td>
+</tr>
+<tr>
+<td>W3</td>
+<td>Macro-orthogonality $\Pi_q\Pi_\ell=0$ (R4′)</td>
+<td>the orthogonality the identity needs holds, forced by colour Casimir</td>
+<td>symbolic</td>
+<td><strong>DERIVED-GIVEN-E</strong> — $V_{\mathbf3}\otimes V_{\mathbf1}=0$, mixing-immune</td>
+</tr>
+<tr>
+<td>W4</td>
+<td>d≤7 operator ledger (R5/WS3)</td>
+<td>escapee bin empty through d=7; 9 ops all <code>KILLED_PROJECTOR</code></td>
+<td>machine-lane</td>
+<td><strong>PASS</strong> — regenerates hash <code>15f5fc0834e2</code>, target-blind, falsifier fires</td>
+</tr>
+<tr>
+<td>W5</td>
+<td>Two-channel decoupling</td>
+<td>Channel A BRST-exact; Channel B KK-number + projector-killed</td>
+<td>symbolic</td>
+<td><strong>Yes (structurally)</strong> — refuses the blanket "all KK BRST-exact" claim</td>
+</tr>
+<tr>
+<td>W6</td>
+<td>STEP4 KK no-go</td>
+<td>no KK gauge mode is a leptoquark, all-order in KK number</td>
+<td>machine-lane + closed form</td>
+<td><strong>PASS</strong> — 0 candidates / 13,467 appearing + 540 product modes; T1+T2 closed form</td>
+</tr>
+<tr>
+<td>W7</td>
+<td>Lemma 1 (sector-crossing)</td>
+<td>every d≤7 $\Delta B=1$ Lorentz scalar has ≥1 quark + ≥1 lepton leg</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — Weyl-count parity argument; cross-checked vs Weinberg/Wilczek–Zee/Lehman</td>
+</tr>
+<tr>
+<td>W8</td>
+<td>Sphaleron-compatibility</td>
+<td>safety is operator-algebra; SM sphalerons remain allowed</td>
+<td>hand-checkable</td>
+<td><strong>Yes</strong> — sphalerons act intra-sector</td>
+</tr>
+<tr>
+<td>W9</td>
+<td>Lifetime diagnostic</td>
+<td>a numerical $\tau_p$, context only</td>
+<td>—</td>
+<td><strong>Diagnostic only</strong> — not frozen; cannot be a hard claim by design</td>
+</tr>
+<tr>
+<td>W10</td>
+<td>Freeze hashes + meta <code>a5b1e6f9d951</code></td>
+<td>every load-bearing object content-addressed</td>
+<td>machine-lane</td>
+<td><strong>Yes in principle</strong> — re-hash R1.4/R1.6 rows</td>
+</tr>
+</tbody>
+</table>
+<h3>5.2 The certificates on disk (exact paths)</h3>
+<ul>
+<li><strong>d≤7 operator ledger (R5/WS3):</strong> <code>…/SG9_COMPLETION_HANDOFF/certificates/R5_R1_dle7_operator_ledger/</code> — <code>enumerate_dle7_operators.py</code> (sha <code>935aa98d8891</code>), <code>ledger_output.json</code> (<code>15f5fc0834e2</code>), <code>dle7_operator_ledger.csv</code> (<code>d19f693feea8</code>), <code>README_CERTIFICATE.md</code>, <code>HASH_MANIFEST.txt</code>. Regenerate: <code>python enumerate_dle7_operators.py &gt; ledger_output.json</code> (deterministic; stdlib + field-content table only; reads no frozen file, no experimental input).</li>
+<li><strong>STEP4 KK no-go:</strong> <code>…/SG9_COMPLETION_HANDOFF/certificates/STEP4_KK_triality_no_go/</code> — <code>step4_kk_no_leptoquark.py</code>, <code>adversarial_break_test.py</code>, <code>out/step4_certificate.json</code> (verdict PASS), <code>out/kk_mode_census.csv</code> (sha <code>f3bb27ec…</code>), <code>THEOREM_ALL_ORDER.md</code>, <code>CERTIFICATE.md</code>. Frozen K6 spectrum sha256 <code>78c7baa0308f</code> (timestamp predates the certificates; read access only).</li>
+<li><strong>The merged closure record:</strong> <code>…/SG9_COMPLETION_HANDOFF/02_CLOSURE_RESULT.md</code> (specialist closure + independent refute-before-upgrade audit, verbatim-preserving).</li>
+<li><strong>The attack dossier (residual register R1–R9):</strong> <code>…/SG9_COMPLETION_HANDOFF/01_DOSSIER.md</code>.</li>
+<li><strong>Endpoint:</strong> <code>…/SG9_COMPLETION_HANDOFF/SG9_COMPLETION_ENDPOINT/</code> — <code>FINAL_GATE_STATUS.md</code>, <code>RESIDUAL_LEDGER.md</code>, <code>OPEN_RESIDUALS.md</code>, <code>EXPORTED_RESIDUALS.md</code>, <code>NO_TARGET_LOADING_SELF_CHECK.md</code>, <code>ONE_SENTENCE_ENDPOINT.md</code>.</li>
+</ul>
+<h3>5.3 What reproduces, plainly, and what does not</h3>
+<p><strong>Reproduces.</strong> (i) The structural absence of X/Y by inspection (W1). (ii) The identity by hand (W2). (iii) The macro-orthogonality from the colour Casimir (W3, DERIVED-GIVEN-E). (iv) The d≤7 ledger as a target-blind machine certificate with an empty escapee bin and a firing falsifier (W4). (v) The KK no-go as a closed-form all-order theorem with adversarial teeth (W6). (vi) The sphaleron-compatibility leg (W8).</p>
+<p><strong>Does not yet reproduce (honest gaps).</strong> (i) <strong>R4 full internal-sector reconstruction</strong> — the from-scratch reconstruction of $\Pi_u/\Pi_d/\Pi_e/\Pi_\nu$ independent of the frozen labeling is not built (no <code>certificates/R4_bundle_labeling/</code> on disk; only a VERDICT_STUB). The <em>macro</em>-orthogonality the identity needs is DERIVED-GIVEN-E (R4′); the <em>full internal</em> labeling stays AUDIT. (ii) <strong>All-order $d>7$ local-operator completeness</strong> — OPEN/computation-debt; an unbounded universal negative. (iii) <strong>The STEP4 formal lemma write-up</strong> — the math is done and machine-checked; the all-order theorem is not yet landed as a discharged lemma in <code>theorems/ADM_MORPHISM_COMPLETENESS/</code> (WS4 BLOCKED). (iv) <strong>$M_R$</strong> — no value, formula, or hash. (v) <strong>The lifetime</strong> — Diagnostic only, by design.</p>
+<h3>5.4 The no-target-loading self-check (PASS on every leg)</h3>
+<p>The proton lifetime / Super-K non-observation is a <em>measured boundary, never a construction input</em>. The d≤7 ledger generator and binner contain no Super-K bound and no $\tau_p$ — the only lifetime token is a docstring asserting blindness — and would run identically (and <em>expose</em> a real escapee) in a counterfactual world where the proton had been seen to decay. The KK certificate is pure colour-representation theory. Where experimental bounds appear ($p\to e^+\pi^0$, $p\to\mu^+ K^0$, $n$–$\bar n$), they sit only in an experimental-falsifier column. <strong>No $\tau_p$ is derived.</strong> Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> READ-ONLY; STATUS-UPGRADES:0 (<code>NO_TARGET_LOADING_SELF_CHECK.md</code>).</p>
+<h3>5.5 Two corpus-editorial defects (non-fatal; neither opens an escapee)</h3>
+<p>The independent census found exactly two presentational defects, both corpus-editorial, neither changing any status:
+- <strong>Defect 1 — "QQQL HH (dim-7)" is actually d=8.</strong> A d=6 core dressed by <em>two</em> scalars ($HH$) is mass-dimension 8; the genuine d=7 dressing is single-field ($QQQL\cdot H$ / $QQQL\cdot D$). L.2b ("QQQLΦ") and CR10 ("QQQL·Φ") get it right; the Appendix L ledger row is internally inconsistent. Both forms retain the quark–lepton crossing, so no escapee. <em>Fix:</em> relabel the ledger row to single-H d=7 (or move to a d=8 row).
+- <strong>Defect 2 — $\bar d^c\bar d^c\bar u^c$ is not a stand-alone Lorentz scalar.</strong> Three Weyl fermions cannot contract to spin 0; the operator closes only at higher dimension and is killed by Ingredient 1 (absent coloured triplet), not by the projector identity. The machine census routes it (and 7 cousins) to <code>VACUOUS_NO_LORENTZ_SCALAR</code> with a proof. <em>Fix:</em> footnote the row to name the correct mechanism.</p>
+<p>A third, separate item: GUT.md cites a machine certificate <code>certificates/G10_proton_safety/</code> that <strong>does not exist on disk</strong> — a phantom citation. The real backing is the bounded hand-census / regenerated R5 ledger. This must be demoted to the real certificate before the pass can be recorded as corpus-clean; it does not change the gate status (OPEN regardless).</p>
+<hr />
+<h2>§6. Open gaps and closure path (the specialist work plan)</h2>
+<p>The most load-bearing section: for each open hole, a concrete work-package a specialist can pick up and start closing immediately. Physics only; the firewall holds (no device engineering). The shared traps to avoid, named so they are not repeated: (T-a) <strong>target-loading</strong> — never reverse-engineer a posit to "no dangerous operators above d=7"; the script must remain runnable identically in a proton-decay world (the A5-actor demotion precedent). (T-b) <strong>the all-order unicorn</strong> — the <em>fully general</em> "no operator at any dimension" form is an unbounded universal negative, unprovable by enumeration for any theory; the plug-able target is a finite <em>structural</em> theorem, not an enumeration. (T-c) <strong>fabricated certificates</strong> — do not cite <code>certificates/G10_proton_safety/</code>; it does not exist. (T-d) <strong>uniqueness inflation</strong> — bounded-census confidence must never push the Battle verdict off SHARED-OPEN. (T-e) <strong>relocation</strong> — enlarging the declared class to "whatever vanishes" relocates the residual rather than closing it (the L.2a declare-then-prove-on-whatever-vanishes failure).</p>
+<h3>6.1 Hole A — all-order ($d>7$) local-operator completeness (the dominant residual)</h3>
+<p><strong>(a) Precise statement.</strong> Prove a dimension-independent structural selection rule: that <em>every</em> admissible $\Delta B=1$ local Lorentz-scalar operator at any mass dimension $d$ on the frozen field content is either sector-crossing (killed by $\Pi_q M \Pi_\ell=0$) or mediator-required (mediator absent). The proposed vehicle is a <strong>parity × triality</strong> argument extending Lemma 1 to all $d$.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> The fully general statement is an unbounded universal negative (trap T-b); it is a unicorn and must <em>not</em> be the target. An earlier same-day claim that R1 was DERIVED-GIVEN-E <em>all-order</em> was a one-rung over-promotion, demoted by independent second-pass audit under the conservative-default rule (the campaign's 7th earned demotion). The honest target is a <em>finite structural theorem</em>, not an enumeration to a cutoff (which can never close an unbounded axis — the A5 precedent, trap T-a).</p>
+<p><strong>(c) Exactly what closes it.</strong> Generalize Lemma 1's parity argument: a $\Delta B=1$ operator needs an odd number of quark fields (3 net units of quark triality) and a Lorentz scalar needs an even total Weyl count, forcing $\geq1$ lepton leg at <em>every</em> $d$. The piece that does <em>not</em> yet generalize cleanly is the dressing: at high $d$, derivative and scalar dressings, and possible higher-fermion completions, must be shown not to convert a sector-crossing structure into a sector-respecting one. Success criterion: a closed-form proof that the quark-count parity ⇒ lepton-leg conclusion holds for all $d$, with the dressing argument made dimension-independent. A <strong>refuting</strong> result — an admissible, gauge-invariant $d>7$ operator that is neither sector-crossing nor mediator-required — is a valid close: it would move the operator leg to OPEN/not-claimed and is the good kind of structure-first falsifier.</p>
+<p><strong>(d) Machinery and inputs.</strong> The triality/centre-charge homomorphism (T2) already proves quark↔lepton transitions need nonzero-triality mediators at all orders; couple it to the Weyl-count parity of Lemma 1. Start from <code>certificates/R5_R1_dle7_operator_ledger/enumerate_dle7_operators.py</code> (the binner logic), the Lemma-1 reproduction in <code>02_CLOSURE_RESULT.md</code> §2.2.4, and the closed-form triality machinery in <code>certificates/STEP4_KK_triality_no_go/THEOREM_ALL_ORDER.md</code> §A (T1/T2). The conditional structural theorem already exists in <em>reduction</em> form (parity × triality); its conditions inherit STEP4 (carried) + R4 (AUDIT) + R9 (out of scope), so discharging them (Holes B, C) is part of the path.</p>
+<p><strong>(e) Leverage.</strong> Closing this is what lets the gate roll off OPEN by computation rather than by axiom. It is the least-closed residual; everything else is reinforcing.</p>
+<h3>6.2 Hole B — STEP4 formal lemma write-up + machine certificate (carried condition → discharged lemma)</h3>
+<p><strong>(a) Precise statement.</strong> Promote the all-order KK-mediator no-go from a <em>carried named condition</em> (math done, certificate passing) to a <strong>discharged formal lemma</strong> in <code>theorems/</code>, with the Frobenius/Peter–Weyl triality selection rule on $K_6=SU(3)/T^2$ written as a formal all-order-in-KK lemma and a landed machine certificate (<code>theorems/ADM_MORPHISM_COMPLETENESS/</code> + a STEP4 verdict).</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> The physics is done — T1 (Frobenius selection) and T2 (centre-charge homomorphism) are closed forms, machine-re-checked (0 fails / 2009 checks). What remains is the <em>write-up</em> discipline: the unrestricted "no KK mediator" target rests on three carried conditions (<code>THEOREM_ALL_ORDER.md</code> §B) — (1) mediator-sector completeness (that <em>every</em> propagating field's zero-mode colour rep is triality-0, which is the content of R4); (2) the matter colour assignment $t(\text{quark})=1, t(\text{lepton})=0$ (also R4); (3) channel scope (it covers tree-level single-mediator exchange, <em>not</em> the $d>7$ local-operator channel — do not conflate "no KK mediator" with "no $\Delta B=1$ operator", the M7-rename trap). The lemma must state these conditions explicitly, not paper over them.</p>
+<p><strong>(c) Exactly what closes it.</strong> Write the lemma so the gauge-tower channel is DERIVED-ON-CHANNEL all-order, with conditions (1)–(2) named as "given R4" and condition (3) named as "gauge-mediator channel only; $d>7$ local channel separate." Land the certificate artifact. Success criterion: a reviewer can read the lemma and verify the all-order claim is closed-form (period-3 predicate) with its conditions explicit. A refuting result would be a propagating zero-mode field already in a nonzero-triality colour rep (a $\bar{\mathbf 3}$ scalar leptoquark, a $\mathbf 6$, etc.) on the branch — which is exactly what R4 / the R5 scalar-leptoquark search must rule out.</p>
+<p><strong>(d) Machinery and inputs.</strong> <code>certificates/STEP4_KK_triality_no_go/THEOREM_ALL_ORDER.md</code> (the theorem text + the three carried conditions), <code>out/step4_certificate.json</code> (the layer-by-layer PASS record), <code>step4_kk_no_leptoquark.py</code>, <code>adversarial_break_test.py</code>. The missing artifact path is named, not fabricated: <code>theorems/ADM_MORPHISM_COMPLETENESS/</code> (currently absent → WS4 BLOCKED).</p>
+<p><strong>(e) Leverage.</strong> Discharges the KK condition that Hole A's all-order theorem inherits; also discharges the WS4 master-functor BLOCKED leg on the KK channel.</p>
+<h3>6.3 Hole C — R4 internal-sector projector reconstruction (AUDIT → VERIFIED)</h3>
+<p><strong>(a) Precise statement.</strong> Reconstruct the active-branch matter bundle $\mathcal{E}_{\rm matter}$ target-blind and confirm $\Pi_i\Pi_j=\delta_{ij}\Pi_i$ and $\Pi_q\Pi_\ell=0$ for the full internal labeling $\{u,d,e,\nu\}$ to machine precision, independent of the frozen labeling, and re-hash <code>3b8d68559f5e</code>.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> The <em>macro</em>-orthogonality is already DERIVED-GIVEN-E via the colour Casimir (R4′) — so the identity's actual premise is earned. What remains is the <em>full internal</em> reconstruction: no <code>certificates/R4_bundle_labeling/</code> exists on disk (only a VERDICT_STUB). A trap specific to this hole: the literal A2.6 reading — "four rank-3 idempotents on a 3-dimensional generation space" — is algebraically impossible and must be read as an index/label delta over the disjoint sector set, not as four literal $3\times3$ projectors. A reconstruction that takes A2.6 literally will (correctly) find an impossibility; the task is to reconstruct the <em>bundle</em> labeling, not to enforce an impossible matrix identity.</p>
+<p><strong>(c) Exactly what closes it.</strong> Build $\mathcal{E}_{\rm matter}$ from the A2.3 matter-bundle factorisation + the R1.4 sector projectors + the global $\mathbb{Z}_6$ centre (<code>a68ee92a75be</code>) + the $\mathbb{Z}_2$ orbifold (<code>ac4d2df3e708</code>), confirm orthogonality from the $\mathbb{Z}_6/\mathbb{Z}_2$ assignments alone, and regenerate the projector hash. Success criterion: orthogonality confirmed from scratch (R4 AUDIT → VERIFIED) and the hash regenerates. A refuting result — a non-zero overlap $\langle\Pi_q\cdot\Pi_\ell\rangle$ — would downgrade Gate 10 (L.2a.4(2)); it is almost certainly true (it is group theory) but is currently asserted, not independently reconstructed.</p>
+<p><strong>(d) Machinery and inputs.</strong> A bounded linear-algebra-over-representations task. Start from the A2.3/A2.6/A2.8 appendix material referenced in <code>01_DOSSIER.md</code> §1.1, the colour-Casimir argument in <code>02_CLOSURE_RESULT.md</code> §0.0 (R4′), and the frozen $\mathbb{Z}_6$/$\mathbb{Z}_2$ hashes. Named missing artifact: <code>certificates/R4_bundle_labeling/</code>.</p>
+<p><strong>(e) Leverage.</strong> Discharges the shared premise that both Hole A (all-order) and Hole B (STEP4 conditions 1–2) inherit. R4 is the shared blocker — closing it unblocks two downstream legs at once.</p>
+<h3>6.4 Hole D — operator-ledger coverage harness with explicit mechanism witnesses (highest value-per-effort)</h3>
+<p><strong>(a) Precise statement.</strong> Regenerate the proton-operator ledger CSV (<code>bc1e4e84840a</code>) target-blind, confirm byte-equality, and attach an explicit mechanism witness (sector-crossing / coloured-triplet-absent / KK-no-go) to <strong>every</strong> "Covered" row of the L.2b coverage table; re-hash and fail-closed.</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> It is mostly execution + verification, no new physics — which is exactly why it is highest value-per-effort. The trap (T-c) is the phantom <code>certificates/G10_proton_safety/</code> citation: the regeneration must point at the real <code>R5_R1_dle7_operator_ledger</code>, not the non-existent G10 folder.</p>
+<p><strong>(c) Exactly what closes it.</strong> Mount the CSV, regenerate, confirm the committed hash <code>15f5fc0834e2</code> (already done for <code>ledger_output.json</code> in WS3), and add the per-row mechanism witness to each L.2b row (10/10 are already witnessed in <code>mechanism_rows</code> of the WS3 output — this hole is largely landing that into the published coverage table). Success criterion: every coverage row has a machine-checked mechanism witness; injected-escapee falsifier still fires. A refuting result would be a "Covered" row whose mechanism witness fails — i.e. a real escapee.</p>
+<p><strong>(d) Machinery and inputs.</strong> <code>certificates/R5_R1_dle7_operator_ledger/</code> (generator, <code>ledger_output.json</code> with <code>mechanism_rows</code>, CSV, hash manifest). The L.2b coverage rows live in Appendix L of the published GUT manuscript.</p>
+<p><strong>(e) Leverage.</strong> Converts "Covered" + "byte-equal" assertions into machine-checked rows; cheapest reproducibility win; supports Hole A's enumeration.</p>
+<h3>6.5 Hole E — the dim-5 Weinberg / seesaw Majorana scale $M_R$ (OPEN/UNKNOWN)</h3>
+<p><strong>(a) Precise statement.</strong> Supply a value, formula, or measured anchor for the seesaw Majorana scale $M_R$ (<code>BG10-FROZEN-MR</code>), so the dim-5 Weinberg leg $(LH)(LH)/\Lambda$ with $\Lambda=M_R$ becomes a bounded statement. <strong>Keep it strictly separate from the $\Delta B=1$ proton-decay claim</strong> — folding it in is a smuggle (trap: this is a $\Delta B=0, \Delta L=\pm2$ lepton-number object, not proton decay).</p>
+<p><strong>(b) Why it's hard / prior-attempt lessons.</strong> No value, formula, or hash exists; this is the same floating object that blocks the absolute neutrino scale (SG-8). The corpus records a parallel candidate $M_R=\kappa M_U$ that is ~231× off the corpus $\kappa^0$ — a candidate-in-tension; do not bank a tuned $\kappa$-power before the inversion.</p>
+<p><strong>(c) Exactly what closes it.</strong> Run the decisive inversion <em>first</em>: compute the <em>required</em> $M_R^{\rm req}=N_\nu^2/(\text{abs }\Delta m^2)$ from the frozen ratio $N_\nu$ + the measured splitting, then test whether $M_R^{\rm req}$ lands (within an order of magnitude) on a frozen scale the geometry already committed — $M_U\approx10^{16}$ GeV (SG-7), $R_0^{-1}$ ($R_0=1.592\times10^{-17}\,\mathrm{GeV}^{-1}$), or a clean chamber-flux scale $M_U\cdot f(N{=}1,\tau{=}\omega)$. κ³/π pivot: if it lands on $M_U$, AXIOM-MR-IS-MU is a genuine target-blind closure; if nowhere clean, every candidate relocates a new tuned scale (sharper-OPEN). DERIVED-CLOSED if a chamber computation yields $M_R$ parameter-free; REFUTED if a definite chamber $M_R$ misses $M_R^{\rm req}$.</p>
+<p><strong>(d) Machinery and inputs.</strong> Shared with SG-8 §4.3 (the same $M_R$). The chamber Cartan-torus modulus $\tau=\omega$ + $N=1$ flux as asserted in Appendix K.4. Note the dim-5 census line in <code>02_CLOSURE_RESULT.md</code> §2.2.2.</p>
+<p><strong>(e) Leverage.</strong> A computed $M_R$ pins the dim-5 Weinberg $\Lambda$ <em>and</em> closes SG-8's absolute-neutrino-scale leg — one inversion pays two debts. It does <strong>not</strong> touch the $\Delta B=1$ proton-safety claim.</p>
+<h3>6.6 Hole F — corpus-editorial fixes (owner edits; none opens an escapee)</h3>
+<p><strong>(a) Precise statement.</strong> Three editorial corrections: relabel the Appendix L "QQQL HH (dim-7)" row to single-H d=7 (or move to a d=8 row); footnote the $\bar d^c\bar d^c\bar u^c$ row's correct mechanism (Ingredient 1, not the projector); demote the phantom <code>certificates/G10_proton_safety/</code> citation in GUT.md to the real <code>R5_R1_dle7_operator_ledger</code> certificate.</p>
+<p><strong>(b)–(e).</strong> These are owner edits, not physics; none opens an escapee or changes any status. They are required for the pass to be recorded as corpus-clean (the phantom citation in particular, trap T-c). Inputs: <code>02_CLOSURE_RESULT.md</code> §1.5 (the two defects with confirmed line cites), <code>FINAL_GATE_STATUS.md</code> (the phantom-citation note).</p>
+<h3>6.7 Disclosed residuals (claim-boundary / inherited / outside scope — not "open holes" to plug)</h3>
+<ul>
+<li><strong>R2 — SHARED-OPEN.</strong> Dimension-6 baryon violation is a pressure shared by every GUT-class geometry. The product-routing pass is a <em>filter</em> given the selected branch, not a <em>determiner</em>. <strong>No Fable win.</strong> No closure path "solves" this; the task is to state the correct scope and never let bounded-census confidence inflate it (trap T-d). Endpoint: DISCLOSED-CORRECTED (the cleanest, lowest-risk honesty statement in the gate).</li>
+<li><strong>R6 — proton lifetime.</strong> Measured-but-irreducible / Diagnostic, exported as an observable. No derived $\tau_p$; Super-K non-observation is never a construction input. A permanent honest endpoint — bounded-but-terminal, not a derivation hole.</li>
+<li><strong>R7 — product-geometry selected, not forced.</strong> Inherited from SG-1/SG-2; "no X/Y" follows from $K_{\rm gauge}$ being a product, but product-vs-simple-group is a SELECTED shape feature. Selection ≠ forcing.</li>
+<li><strong>R8 — $\tau=\omega$ read from a one-loop $V$-minimum.</strong> Inherited from SG-6; shared with SG-8. Not unique to proton safety.</li>
+<li><strong>R9 — non-perturbative + Planck channels.</strong> Sphaleron/instanton ($B+L$) and Planck-suppressed gravitational baryon violation are outside the perturbative local-operator-class framework; honestly named and scoped, the Planck leg Gate-11-excluded.</li>
+</ul>
+<h3>6.8 Attack order (by leverage)</h3>
+<ol>
+<li><strong>Hole C (R4)</strong> — the shared blocker; unblocks Holes A and B. Bounded linear algebra; almost certainly true.</li>
+<li><strong>Hole E ($M_R$)</strong> — half-day inversion; could reach AXIOM-CLOSED and pays two debts (SG-8 too). Run the inversion before adopting any identity.</li>
+<li><strong>Hole B (STEP4 write-up)</strong> — math done; land the formal lemma + certificate.</li>
+<li><strong>Hole A (all-order $d>7$)</strong> — the dominant residual; needs the parity × triality generalization with Holes B/C discharged.</li>
+<li><strong>Hole D (ledger harness)</strong> — cheapest reproducibility win.</li>
+<li><strong>Hole F (editorial)</strong> — owner edits; required for corpus-clean.</li>
+<li><strong>R2/R6/R7/R8/R9</strong> — claim-boundary / Diagnostic / inherited / outside-scope.</li>
+</ol>
+<hr />
+<h2>§7. Honest ceiling and scope</h2>
+<p><strong>The verb is "Reduced," not "solved."</strong> The operator-safety leg is <em>Reduced-to-Axiom on the d≤7 slice</em>, hardened by a regenerated machine certificate, and the KK-mediator channel is <em>DERIVED all-order in KK number</em>. None of that is a proof of <em>absolute</em> proton stability. Reduced-to-Axiom means the residual is reduced to one named, target-blind, value-free posit on a bounded slice; <strong>the assumption count does not drop</strong>. AXIOM-anchoring is terminal and co-equal with DERIVED — all physics bottoms out at axioms or measured anchors — but a <em>finite census</em> is certificate-debt, dischargeable to DERIVED, not an irreducible posit, which is precisely why the d≤7 completeness was demoted from AXIOM-CLOSED and re-carried by the R5 machine certificate.</p>
+<p><strong>dissolved ≠ solved.</strong> Three claims are dissolved unicorns — shared ceilings, never open weaknesses and never claimed as proven:
+- A proof of <em>absolute</em> proton stability (no decay at any dimension under any admissible operator) — an unbounded universal negative over an open-ended dimension axis; unprovable by enumeration for any theory in any framework. The bounded d≤7 result plus the all-order KK no-go <em>is</em> the ceiling.
+- <em>Cross-geometry uniqueness</em> ("Fable is THE unique geometry that makes the proton safe") — dimension-6 baryon-violation pressure is SHARED-OPEN across all GUT-class geometries; the absence of X/Y and the coloured Higgs is a filter, not a determiner, and no "no other geometry could do better" claim is provable. Honestly disclosed, not a Fable win.
+- A "no-future-theory-can-decay-it" guarantee — a universal negative over all possible future operator content / mediators; unprovable in principle.</p>
+<p><strong>selection ≠ derivation; given-E ≠ derivation-of-E.</strong> The pass is evaluated <em>given the selected product geometry</em> and <em>given the observed spectrum E</em> (SM chiral content, family index $\chi=-3$, supplied from SG-2/SG-3). SG-9 acts on that content; it does not derive it. The product structure is selected, not forced (R7, inherited).</p>
+<p><strong>What is explicitly NOT claimed (the bright lines).</strong> NOT a proof of absolute proton stability. NOT a proton-lifetime prediction or bound (no $\tau_p$ derived; the Super-K bound is never an input). NOT a cross-geometry uniqueness result. NOT a claim on the Clay Yang–Mills mass gap. NOT all-order $d>7$ local-operator completeness. NOT a finished operator-safety leg / complete all-order theorem / fully discharged STEP4 (the 2026-06-25 consolidated status flags exactly this framing as a promotion risk requiring countersign; an earlier same-day all-order claim was demoted one rung). The d≤7 and KK sub-results are DERIVED-on-slice / DERIVED-on-channel and must never be rolled up into a "mass gap / proton stability solved" claim.</p>
+<p><strong>The anchors paid.</strong> The whole branch rides four irreducible anchors $\{M_{\rm Pl},\ \alpha_i(M_Z),\ y_t,\ |V_{us}|\}$; proton safety adds no new measured anchor (it is structural/given-E). The honest summary: <strong>serious candidate, NOT validated.</strong> The gate is <em>hardened</em> — the certified surface is larger and falsifiable — but remains <strong>OPEN</strong> by least-closed residual, because the all-order $d>7$ channel is OPEN/computation-debt, R4 is AUDIT, the master functor is BLOCKED, $M_R$ is UNKNOWN, and the lifetime is Diagnostic. STATUS-UPGRADES:0; frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> READ-ONLY and unchanged.</p>
+<hr />
+<p><em>Dossier built by synthesis + expansion of the SG-9 completion handoff package (<code>PER_GATE_DOSSIERS/SG9_COMPLETION_HANDOFF/</code>): <code>01_DOSSIER.md</code>, <code>02_CLOSURE_RESULT.md</code>, <code>03_FROZEN_GEOMETRY_CONTEXT.md</code>, the R5/WS3 and STEP4 certificates, and the <code>SG9_COMPLETION_ENDPOINT/</code> ledgers. Every number is traceable to a cited source. STATUS-UPGRADES:0. Per the build protocol, this dossier reflects the gate's honest current status (OPEN, hardened) and never upgrades a grade.</em></p>
+</body></html>

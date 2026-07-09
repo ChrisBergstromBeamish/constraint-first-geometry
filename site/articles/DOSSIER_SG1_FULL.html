@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SG-1 — Geometry specification: full dossier</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">SG-1 — Geometry specification: full dossier — rendered package. Rendered from <code>DOSSIER_SG1_FULL.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>SG-1 — Geometry specification: full dossier</h1>
+<blockquote>
+<p><strong>The 30–50 page treatment of the gate that commits the framework's starting object.</strong> This is the deep version of the live 30-second popup: the rigorous math behind the freeze, the insights that produced it, the certificates that witness it, and an honest, specialist-grade work plan for every open hole. It expands the brief closure-attack packet (<code>DOSSIER_SG1_GEOMETRY_SPEC_CLOSURE_ATTACK</code>) without contradicting it. <strong>STATUS-UPGRADES:0</strong> — this dossier reflects SG-1's honest current grade (<strong>DECLARED-FROZEN</strong>); it upgrades nothing.</p>
+<p><strong>Binding discipline, carried verbatim.</strong> No status was ever upgraded. The frozen branch (<code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>) is READ-ONLY. SG-1 is a <strong>freeze-and-reproduce certificate, NOT a derivation and NOT a uniqueness theorem.</strong> Minimality is <strong>selector-minimal inside the pre-declared search category</strong> — SHAPE is <em>selected, not forced absolutely</em>. The honest charged input cost is <strong>≈4 anchors + 9–10 injected reals (~13–14 measured reals)</strong>, NOT the old "4-input" / "4→22" headline. Carrier forcedness is <strong>mixed and explicitly graded</strong>. <code>given-E ≠ derivation of E; selection ≠ derivation; dissolved ≠ solved; AXIOM-CLOSED ≠ proven; category-relative ≠ absolute.</code></p>
+</blockquote>
+<hr />
+<h2>Table of contents</h2>
+<ol>
+<li>Executive summary + honest status</li>
+<li>The community gap</li>
+<li>The construction — rigorous math</li>
+<li>The insights we used</li>
+<li>Evidence &amp; reproducibility</li>
+<li>Open gaps + closure path (the specialist work plan)</li>
+<li>Honest ceiling &amp; scope</li>
+</ol>
+<hr />
+<h2>1. Executive summary + honest status</h2>
+<p><strong>Headline.</strong> Fable writes down its entire starting universe in public, to the last byte, and a machine rebuilds it from scratch with zero mismatches — so the one object every downstream prediction is tested against can never be quietly retuned after the fact.</p>
+<p><strong>The honest grade (matches the live popup chip): DECLARED-FROZEN.</strong> Direction: held. SG-1 is a <em>serious candidate geometry, frozen and reproducible, not yet proven unique.</em></p>
+<p>SG-1 is the <strong>gate that commits the object</strong>. Everything downstream — SG-2 (gauge-group recovery), SG-3 (the family index $-3$), SG-6/7/8 (Higgs, thresholds, flavor), and on through the GUT and TOE papers — is evaluated <em>against this one frozen branch</em>. SG-1 is therefore the load-bearing precondition of the entire program: if the starting object can be silently edited after the data is seen, no downstream claim means anything. The whole point of SG-1 is to make that editing impossible, in public, mechanically.</p>
+<p>The committed object is a <strong>three-layer active branch</strong> in which only the first ("Stage") layer carries metric dimension, with total dimension $D = 4 + 6 + 2 + 1 = 13$:</p>
+<pre><code> 𝔅_active = [ M₄ × K₆ × S² × S¹_Y/Z₂ ]_×                       ← STAGE   (metric geometry, 13 dims)
+          ⊕ [ F⁺_finite ⊕ C_admiss ]_⊕                         ← RULEBOOK (finite admissibility, 0 dims)
+          ⊗ [ E_matter ⊕ E_gauge ⊕ E_Higgs ⊕ E_proton ]_⊗     ← ACTORS   (bundle/operator, 0 dims)
+</code></pre>
+<p>with $K_6 = SU(3)/T^2$ the flag manifold (color source), $S^2$ the weak source, and $S^1_Y/\mathbb{Z}_2$ the hypercharge source with an orbifold chirality filter.</p>
+<p><strong>What this dossier establishes, and what it does not.</strong> It establishes three — and <em>only</em> three — certified things about $\mathfrak{B}_{\rm active}$: (1) <strong>specificity</strong> — the branch is a fully written, layer-complete object, pinned to the last index by a 33-row manifest, committed <em>before</em> any downstream gate is evaluated; (2) <strong>no-layer-smuggling</strong> — no gate is closed by content not declared in its proper layer (the $\times/\oplus/\otimes$ discipline, certificate B2); and (3) <strong>reproducibility</strong> — every primitive and derived object is content-addressed by SHA-256, and a regenerator rebuilds every hash byte-for-byte, <em>independently re-run target-blind</em> during the SG-1 completion (exit 0, all 33 hashes recomputed without the script's own comparator, both frozen hashes byte-equal, deterministic across reruns). It does <strong>not</strong> establish that the geometry is <em>derived</em>, that 13 dimensions are <em>forced</em>, or that the branch is <em>unique</em>. The technical witness is a freeze-and-reproduce certificate; it pins the object and closes no physics.</p>
+<p>On top of the freeze, the dossier carries the genuinely strong structural results the program <em>has</em> earned, each labelled at its true strength: the weak carrier $S^2$ is <strong>forced within the grammar</strong> by a hand-checkable theorem (F1); the hypercharge carrier $S^1_Y/\mathbb{Z}_2$ is forced by another (F2); and the color carrier $K_6=SU(3)/T^2$ is <strong>clean by an architecture-neutral representation-theory argument</strong> (abelian-isotropy uniqueness), with the one concrete cheaper rival — the $K_6 \to CP^2$ swap — <em>built end-to-end and shown to break</em> at the gauge gate.</p>
+<p><strong>The edge, stated as a confident bet, not a hedge.</strong> The freeze is a reproducibility certificate, not a uniqueness proof — and we say so flat out. There is exactly one way to prove us wrong, and we name it publicly: build a genuinely simpler theory — a clean 4D effective theory, or a cheaper $SU(3)$ carrier — that reproduces the same particle content while injecting <strong>fewer independent measured reals, once the geometry→observables generator map is fully charged on both sides</strong>. A bare dimension-count win ($4 < 13$) is <em>already inadmissible</em> as the record-cost metric (it calls "simpler" the theory that needs more finite records, and it is foreclosed by the granularity⇒MDL result up to one bridge axiom — do not waste effort there); the live escape is a smaller charged-information ledger with the generator charged — the <code>REFUTED-ECONOMY</code> outcome, which we would report as an equally valuable discovery. The one thing we can never claim — that <em>no</em> geometry under <em>any</em> possible mathematics is shorter — is uncomputable for everyone (it is a Kolmogorov universal negative); it is a hard limit on all of physics, not a gap in ours. The honest input cost is roughly <strong>13–14 measured real numbers</strong>, not the old 4-input headline, and we charge every one of them in the open.</p>
+<p><strong>One-line status table.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gate id</td>
+<td>SG-1 — Geometry specification (the frozen 13D active branch)</td>
+</tr>
+<tr>
+<td>Status (binding)</td>
+<td><strong>DECLARED-FROZEN</strong> (open-on-forcedness)</td>
+</tr>
+<tr>
+<td>Frozen hashes</td>
+<td>branch content <code>dcc66f1b2685</code>; manifest meta-hash <code>a5b1e6f9d951</code> (Appendix A0, 33 rows)</td>
+</tr>
+<tr>
+<td>Reproducibility leg</td>
+<td><strong>VERIFIED</strong> (machine, target-blind) — <em>self-witness only; lowers no assumption floor, closes no physics</em></td>
+</tr>
+<tr>
+<td>Charged input cost</td>
+<td><strong>≈4 anchors + 9–10 injected reals ≈ 13–14 measured reals</strong></td>
+</tr>
+<tr>
+<td>Terminates on</td>
+<td>the observed spectrum <strong>E</strong> (measured-but-irreducible; given-E ≠ derivation of E)</td>
+</tr>
+<tr>
+<td>What has no witness</td>
+<td><strong>absolute minimality</strong> — uncomputable in full (Kolmogorov) → OPEN</td>
+</tr>
+</tbody>
+</table>
+<p><em>(Sources: handoff <code>SG1.md</code>; existing article <code>DOSSIER_SG1_GEOMETRY_SPEC_CLOSURE_ATTACK.md</code> §0–§2; <code>SG1_COMPLETION_RESULT.md</code> §1–§3; <code>SHAPE_FINAL_STATUS_SPLIT_RESULT.md</code>.)</em></p>
+<hr />
+<h2>2. The community gap</h2>
+<h3>2.1 The precise open problem</h3>
+<p>Every candidate theory of everything must, before any prediction means anything, <strong>commit to one definite starting object</strong> — a geometry, an algebra, a vacuum. The field's standing failure mode is not a shortage of candidate objects; it is the <strong>moving target</strong>: the starting structure gets nudged <em>after</em> the data is seen, so apparent successes are unfalsifiable. The community gap SG-1 addresses is therefore twofold:</p>
+<ol>
+<li><strong>The commitment gap.</strong> No widely accepted framework commits its starting object, to the last index, in advance of the fit — in a form a third party can re-derive byte-for-byte and confirm was not edited later.</li>
+<li><strong>The selection gap.</strong> No framework anywhere <em>proves</em> its starting geometry is the one nature had to use. This is the deep, possibly-permanent half of the problem.</li>
+</ol>
+<p>These are different gaps with different difficulties. The first is a <em>discipline and reproducibility</em> gap — hard to do honestly, but mechanically closable. The second is a <em>uniqueness/forcedness</em> gap — and, in its absolute form, provably unreachable for everyone. SG-1 closes the first and is openly honest that it does not close the second.</p>
+<h3>2.2 History and state of the art</h3>
+<p><strong>String / M-theory and the landscape.</strong> The most developed TOE program hosts a vast <strong>landscape</strong> of vacua — by widely-quoted estimates of order $10^{500}$ flux compactifications — with <strong>no selected member</strong>. The structure (Calabi–Yau, flux integers, brane content, quotient) is chosen from enormous catalogs, and the absence of a selection principle is the defining open problem of the program. No string vacuum is committed, to the last index, in advance of matching the Standard Model; the moving target is structural.</p>
+<p><strong>Grand unified theories (4D GUTs).</strong> $SU(5)$, $SO(10)$, $E_6$ and their kin <em>do</em> commit a gauge group, and they buy real relations (e.g. $b$–$\tau$ unification). But the <strong>flavor sector remains injected</strong>: Yukawa textures, family replication, and mixing are put in by hand. A 4D GUT is a partial commitment with the hardest part (flavor) left as free input.</p>
+<p><strong>Noncommutative geometry (NCG, the spectral Standard Model).</strong> Connes' program commits an algebra and a finite spectral triple, and recovers the SM gauge group and much of its content with striking economy. But the <strong>finite Dirac operator carries the Yukawa couplings</strong> as input data — flavor is again injected, not generated. NCG is a serious, genuinely economical competitor on the <em>qualitative</em> gauge content and an honest one on its limits.</p>
+<p><strong>Lattice / causal-set / asymptotic-safety programs.</strong> Each commits a different starting object (a discretization, a partial order, a fixed-point action). None claims, or proves, that its starting object is forced over all alternatives; each leaves substantial SM content as input.</p>
+<p>The honest summary of the state of the art: <strong>every framework recovers the SM gauge group</strong> (so "we get $SU(3)\times SU(2)\times U(1)$" is a filter <em>every</em> framework passes — a TIE, not a discriminator), and <strong>every framework injects flavor data</strong> in some layer. What no framework has done is (a) commit its starting object reproducibly to the last byte in public, and (b) prove that object is selected over a declared competitor class. SG-1's contribution is (a) outright, plus a <em>bounded, category-relative</em> down-payment on (b), with the absolute version openly left as the shared ceiling.</p>
+<h3>2.3 Prior attempts and why each falls short — including ours</h3>
+<ul>
+<li><strong>Landscape scans</strong> fall short on selection: they enumerate vacua but supply no principle picking one; the moving target is the catalog index.</li>
+<li><strong>Anthropic / measure arguments</strong> attempt selection but require a probability measure on the landscape that is itself undefined; they convert a structural gap into a measure-theory gap.</li>
+<li><strong>4D GUT unification</strong> falls short on flavor: the economy is real in the gauge sector and absent in the flavor sector.</li>
+<li><strong>Our own first headline ("4 inputs → 22 outputs")</strong> <em>fell short on honesty</em> and we retired it. The true charged cost is ~13–14 measured reals (§2.4 below). Overstating the economy is exactly the moving-target failure in reverse — quietly <em>under</em>-counting inputs — and the program's own honesty pass caught and corrected it.</li>
+<li><strong>Our absolute-minimality ambition</strong> ("13D is the geometry nature had to use") falls short on computability: it is a universal negative over all conceivable architectures, equal to the Kolmogorov complexity $K(T)$ of the constant set, which is uncomputable. We do not claim it; we name the achievable, bounded substitute.</li>
+</ul>
+<h3>2.4 The honest cost, stated up front (the retired headline)</h3>
+<p>The public-facing economy claim was once "4 anchors → ~22 outputs." The corrected, authoritative figure is:</p>
+<blockquote>
+<p><strong>≈4 named anchors $\{M_{\rm Pl},\ \alpha_i(M_Z),\ y_t,\ |V_{us}|\}$ + ~9–10 independently fitted reals (the species normalizations $N_d, N_e, N_\nu$; the $\delta$ threshold triple; the Higgs-protection angle $\theta_H^\star$) ≈ 13–14 measured reals total.</strong></p>
+</blockquote>
+<p>Both wrong figures are retired: the <em>overstated</em> ~18-economy headline (which counted fitted injections as outputs) <strong>and</strong> a ~1.6× over-correction (which double-counted frozen within-sector ratios that the family-level-normalization ban forbids treating as independent). The middle figure — ~9–10 injected reals beyond the four anchors — is the binding one.</p>
+<p><em>(Sources: <code>SHAPE_FINAL_STATUS_SPLIT_RESULT.md</code> §"Honest caveats" items 1–2; <code>DIMENSION_LADDER_MDL_AUDIT_CERTIFICATE.md</code> Cert 1 target ledger ≈25 reals and Cert 4 note on $S_{13}$; <code>SG1_COMPLETION_RESULT.md</code> §2.)</em></p>
+<hr />
+<h2>3. The construction — rigorous math</h2>
+<p>This is where the pages live. We give the object end-to-end, the three-layer algebra and its necessity proof, the carrier-forcing theorems (F1, F2, abelian-isotropy uniqueness), the freeze/reproducer machinery, and the MDL scoring scaffold that turns "shortest" into a decidable statement. Common material lives on the published manuscript (GUT.html §2/§2B/§4/§6.1 and Appendices A0–A3, B1, B2, C1–C10, R0, GS, N.4); here we recap at attack/build depth.</p>
+<h3>3.1 The object, layer by layer</h3>
+<p>$$
+\mathfrak{B}_{\rm active}
+= \big[\,\mathcal{M}_4 \times K_6 \times S^2 \times S^1_Y/\mathbb{Z}_2\,\big]_\times
+\;\oplus\; \big[\,F^+_{\rm finite} \oplus C_{\rm admiss}\,\big]_\oplus
+\;\otimes\; \big[\,E_{\rm matter}\oplus E_{\rm gauge}\oplus E_{\rm Higgs}\oplus E_{\rm proton}\,\big]_\otimes .
+$$</p>
+<p><strong>The $\times$-layer (STAGE) — the metric geometry, 13 dimensions.</strong>
+- $\mathcal{M}_4$: the observed $(3{+}1)$ Lorentzian spacetime — an <strong>observational primitive</strong>, the external comparison surface KK reduction lands on. It is <em>declared</em>, not selected (this is residual R9; honest by design, not a defect).
+- $K_6 = SU(3)/T^2$: the <strong>flag manifold</strong> of $SU(3)$, a 6-dimensional compact homogeneous space. Its isometry group sources color $SU(3)$: in the coset-space dimensional-reduction (CSDR) picture, <strong>gauge forces are isometries of the internal factors</strong>. The isotropy subgroup is the maximal torus $T^2$.
+- $S^2$: the 2-sphere, isometry $SU(2)$ — the <strong>weak</strong> source.
+- $S^1_Y/\mathbb{Z}_2$: a circle for hypercharge $U(1)_Y$, with a $\mathbb{Z}_2$ <strong>orbifold</strong> identification that acts as the chirality filter (it projects out the mirror partners that an unorbifolded closed odd-dimensional factor would keep).</p>
+<p>The dimension ledger is $D = 4 + 6 + 2 + 1 = 13$. This is the rung whose <em>forcedness</em> is the entire SG-1 attack surface: $D=13$ is <strong>selected inside the declared search category</strong>, not derived (the headline residual, R1/R2/R5).</p>
+<p><strong>The $\oplus$-layer (RULEBOOK) — finite admissibility, 0 metric dimensions.</strong>
+- $F^+_{\rm finite}$: the flavor chamber — modulus pinned at $\tau=\omega$ (a cube root of unity), with projectors, action ladders, and operators. This is the SG-8 object; flagged by the program as its weakest link ($F^+$ is the highest-risk minimality lemma; see R10 and SG-8 R1).
+- $C_{\rm admiss}$: the admissibility set — the anti-fitting firewall, the selector, the freeze discipline, and the no-smuggling rule. It constrains <em>which</em> configurations and deformations are legal.</p>
+<p>The rulebook carries zero metric dimension; it is a constraint layer, not a geometry. A live hazard (R10): some of $C_{\rm admiss}$ is <strong>method/governance</strong> (freeze-before-compare, gate-status discipline), not architecture-neutral physics. Counting governance in the minimality burden risks F6 circularity (the constraint set presupposing the submitted architecture). Only the <em>physics</em> the rulebook enforces — anomaly admissibility, flavor closure, chamber constraints — may be charged.</p>
+<p><strong>The $\otimes$-layer (ACTORS) — bundle/operator content, 0 metric dimensions.</strong>
+- $E_{\rm matter}$: the matter bundle (chiral fermion content).
+- $E_{\rm gauge} = (P, \mathrm{ad}(P), A, F, \rho_{\rm rep}, \text{KK spectrum})$: the gauge bundle and its data.
+- $E_{\rm Higgs}$: the Wilson-line / Hosotani Higgs (symmetry breaking from boundary conditions on the internal space).
+- $E_{\rm proton}$: the proton-stability structure.</p>
+<p>A key actor-layer result that is <em>computed, not posited</em>: the $\mathbb{Z}_6$ <strong>center-kernel</strong> that identifies the centers of the $SU(3)$ and $SU(2)$ factors is read off the matter content as a discrete index,
+$$
+q \equiv 3 z_2 - 2 z_3 \pmod 6 ,
+$$
+i.e. the hypercharge assignment is fixed (mod 6) by the $SU(2)$ and $SU(3)$ center charges of each multiplet. This is a discrete integer relation <em>given E</em>, not a tuned real — which is exactly why the actor layer has real (if incomplete) support (R8).</p>
+<h3>3.2 The three-layer algebra and its necessity (certificate B2)</h3>
+<p>The $\times/\oplus/\otimes$ structure is not decorative; it is a <strong>load-bearing discipline</strong>. Each operator has a distinct role:
+- $\times$ (Stage): the metric product of factors — only this layer carries dimension.
+- $\oplus$ (Rulebook): the direct sum of admissibility constraints — finite, dimensionless.
+- $\otimes$ (Actors): the tensor of bundle/operator content over the stage.</p>
+<p>The <strong>no-smuggling</strong> claim is that no downstream gate is closed using content that was not declared in its proper layer. The certificate is <strong>B2: the proper-subset null-space theorem.</strong> Define, for any proper subset $L \subsetneq \{\times, \oplus, \otimes\}$ of the layers, the set $\mathcal{N}_L$ of branch configurations that close all scoped-GUT gates using only the layers in $L$. B2 proves
+$$
+\mathcal{N}_L = \varnothing \quad \text{for every proper } L \subsetneq \{\times,\oplus,\otimes\},
+$$
+<em>inside the declared category.</em> In words: you cannot drop any one layer and still close the gates — every layer is necessary. <strong>Crucial honest scoping (B2.0.3.4):</strong> this is an <em>in-category</em> null-space result, <strong>explicitly not a universal no-go.</strong> It asserts load-bearingness inside the declared category, not for any conceivable architecture. Upgrading it to architecture-neutral necessity is residual R7 (the functional-role necessity theorem).</p>
+<p>Complementing B2 at the term level, the <strong>C1–C10 failure-if-removed ledger</strong> records, for each named term, at least one Gate 1–10 that breaks if the term is deleted. These are <em>auditable conditional claims</em> — conditional on the declared term-construction and the failure ledgers — not theorems. They are hand-checkable and strong, but category-relative (R7).</p>
+<h3>3.3 Carrier forcing — the three internal rungs, graded honestly</h3>
+<p>Not all three internal dimensional choices are equally forced. This is the single most important honest refinement in the gate, and it is <em>stronger</em> than the blanket "all category-relative" claim because it says exactly where the program is strong and where it is exposed.</p>
+<p><strong>(a) Weak carrier $S^2$ — FORCED within the grammar by F1.</strong></p>
+<blockquote>
+<p><strong>Fact F1.</strong> No abelian / torus carrier of <em>any</em> dimension has non-abelian $SU(2)$ among its isometries.</p>
+</blockquote>
+<p>The isometry group of a flat torus $T^k$ is (up to discrete factors) $T^k \rtimes \text{(finite)}$ — abelian connected component. A non-abelian $SU(2)$ gauge factor <em>cannot</em> arise as the isometry of any abelian carrier, of any dimension. So any attempt to source the weak interaction from a "cheaper" abelian/torus factor fails for <strong>all</strong> such carriers at once — the cheaper direction is closed over a whole shelf, not against a named candidate. $S^2$ (the lowest-dimensional carrier with $SU(2)$ isometry) is the forced choice within the grammar. This is a hand-checkable general theorem. <strong>(Source: <code>SHAPE_FINAL_STATUS_SPLIT_RESULT.md</code> §"forcedness gradient", F1.)</strong></p>
+<p><strong>(b) Hypercharge carrier $S^1_Y/\mathbb{Z}_2$ — FORCED within the grammar by F2.</strong></p>
+<blockquote>
+<p><strong>Fact F2.</strong> A closed odd-dimensional factor keeps <em>both</em> handednesses, producing mirror fermions excluded by the LEP $Z$-width.</p>
+</blockquote>
+<p>A closed odd-dimensional internal factor (e.g. an unorbifolded $S^1$) admits a Dirac operator whose spectrum is non-chiral: it keeps left- and right-handed partners symmetrically, producing <strong>mirror fermions</strong>. Mirror fermions are excluded experimentally by the measured invisible $Z$ width at LEP (which counts exactly three light neutrino species and tightly constrains extra chiral matter). The $\mathbb{Z}_2$ orbifold projection on $S^1_Y$ is what removes the mirrors. So the <em>cheaper</em> direction (a bare circle, no orbifold) is closed for all closed odd-dimensional carriers. Hand-checkable. <strong>(Source: same, F2.)</strong></p>
+<p><strong>(c) Color carrier $K_6 = SU(3)/T^2$ — CLEAN by an architecture-neutral theorem (abelian-isotropy uniqueness); the cheaper rival was built and broke.</strong></p>
+<p>This was historically the <strong>weak link</strong> — the color rung is where a genuinely cheaper competitor lives. The minimal-dimension $SU(3)$ carrier is not $K_6$ (6D) but $CP^2 = SU(3)/U(2)$ (4D). A naive dimension-first reading says $CP^2$ wins ($4 < 6$). The corpus's <em>original</em> exclusion of $CP^2$ — "its 3-family count is a tunable bundle modulus, hence an injected real, hence a longer recipe" — turned out to be <strong>asymmetric and unsound as stated</strong>: $CP^2$'s 3 families are a <em>discrete</em> $\mathrm{Spin}_c$ index ($r(r+1)/2 = 3$ at $r=2$), not a continuous dial, and $K_6$ also needs its own bundle choice (Borel–Weil–Bott weight $(1,0)$) to land on 3 families. Treating one as tunable and the other as forced was a target-loading error, and the program caught it.</p>
+<p>The honest resolution came from <strong>building the cheaper competitor end-to-end</strong> (run <code>wsmnjvt55</code>) and watching where it actually breaks. The result is a <em>new, architecture-neutral exclusion principle</em>:</p>
+<blockquote>
+<p><strong>Abelian-isotropy uniqueness.</strong> Among $SU(3)$ cosets $SU(3)/R$, the maximal torus $T^2$ is the <strong>unique</strong> isotropy that is purely abelian. Its centralizer is $C_{SU(3)}(T^2) = T^2$ (the Cartan only) — so by the CSDR centralizer rule it injects <strong>no spurious non-abelian gauge factor</strong>, keeping color / weak / hyper separable. $CP^2$'s isotropy is $U(2) = (SU(2)\times U(1))/\mathbb{Z}_2$, which is <strong>non-abelian</strong> and a subgroup of color $SU(3)$. By the CSDR centralizer rule, $U(2)$ is <em>gauge-active</em>, forcing a lose-lose fork:
+- keep $S^2, S^1$ alongside $CP^2$ → <strong>over-produce</strong> an extra $SU(2)+U(1)$ → the Gate-2 gauge-group equality fails; or
+- drop $S^2, S^1$ → $SU(2)_L / U(1)_Y$ become isotropy-locked <em>inside</em> $SU(3)$ → binding A1.4 violated ($C_{SU(3)}(U(2)) = U(1)$ only, by Schur).</p>
+</blockquote>
+<p>So $K_6 = SU(3)/T^2$ is the <strong>unique clean $SU(3)$ color carrier</strong> — derived from $\mathrm{Rep}(T^2)$ vs $\mathrm{Rep}(U(2))$ and the centralizer rule alone, with no flavor or coupling number in sight. This is <strong>stronger</strong> than the original "tunable family count" reason, and it passes the target-blindness (κ³/π) falsification test by construction. Four independently-built sectors of the $CP^2$ swap converged on this one break. (An M-theory mesh check came back <strong>superficial</strong>: $CP^2 \times S^2 \times S^1$ is a legitimate 11D Freund–Rubin KK ansatz but <em>not</em> a $G_2$-holonomy compactification — a dimension coincidence, not a structural mesh.)</p>
+<p><strong>The honest residual on (c):</strong> abelian-isotropy uniqueness closes the <strong>named shelf</strong> $\{K_6, CP^2\}$. <strong>Full-shelf completeness</strong> — that <em>no other</em> admissible compact $SU(3)$-homogeneous carrier below 6D has a clean centralizer-surviving abelian isotropy — is <strong>corpus-uncertified</strong> (this is residual R4 / N.4). A partial classification already shows $\dim H \le 4 \Rightarrow \dim M \ge 4$, with $S^5$/Wu spaces killed by odd-dimensionality, so the shelf is <em>plausibly</em> the whole sub-6D $SU(3)$ story — but the certification is the work.</p>
+<p><strong>(Sources: <code>SHAPE_FINAL_STATUS_SPLIT_RESULT.md</code> UPDATE block 2026-06-24; <code>SHAPE_COLOR_RUNG_CP2_REFUTATION.md</code>; <code>ELEVEN_D_CP2_VARIANT_CONSTRUCTION.md</code>; existing article §2.1 W9 and §4.4.)</strong></p>
+<h3>3.4 The freeze and the reproducer (the certified core)</h3>
+<p>The branch and every derived object are <strong>content-addressed by SHA-256.</strong> The frozen artifacts are:
+- branch <strong>content hash</strong> <code>dcc66f1b2685</code> (the canonical string of the active branch);
+- manifest <strong>meta-hash</strong> <code>a5b1e6f9d951</code> (Appendix A0, <strong>33 rows</strong>, the roll-up over all per-item hashes in file order);
+- the orbifold-freeze sub-hash <code>ac4d2df3e708</code> (R1.3).</p>
+<p>The <strong>R0 reproducer</strong> (<code>reproduce_all.py</code> + <code>manifest_hashes.json</code>) regenerates each hash with no manual steps. Content-addressing plus a reproducer that regenerates every hash is the <strong>strongest, most defensible leg</strong> of the gate: it makes the object a reviewer attacks <strong>byte-identical</strong> to the object the gates ran on. The discipline (freeze-before-compare, no-smuggling) is the entire purpose of SG-1, and it is genuinely sound by construction.</p>
+<p>The frozen UV/boundary package the branch carries (load-bearing for downstream gates, recorded here for traceability, READ-ONLY):
+- unification scale $M_U \sim 10^{16}$ GeV;
+- compactification radius $R_0 = 1.592 \times 10^{-17}\ \mathrm{GeV}^{-1}$;
+- threshold triple $\delta = (+4.8424,\ -3.1112,\ -1.7313) \pm 1.6\times 10^{-3}$;
+- family index $\chi(K_6, E) = -3$.</p>
+<p><strong>(Sources: existing article §0 header and §5.3 hash index; <code>SG1_COMPLETION_RESULT.md</code> §3; GUT.md cited lines for $M_U$/$R_0$/$\delta$/$\chi$.)</strong></p>
+<h3>3.5 The MDL scoring scaffold — turning "shortest" into a decidable statement</h3>
+<p>The minimality claim needs a <em>metric</em>. The program uses <strong>minimum description length (MDL)</strong>: in a finite-record universe, admissible descriptions are finite bit-strings, and "simplest" = "shortest such string." The scaffold (Certificates 1–4 of the dimension-ladder audit) is:</p>
+<p><strong>Certificate 1 — the target ledger $T$ (architecture-neutral, $E$ cancels).</strong> Both the 13D branch and every competitor must reproduce the <em>same</em> $T$, stated with no geometry names. $E$ (chiral spectrum + gauge group + quantum numbers) is presupposed on <strong>both</strong> sides and <strong>cancels</strong> — it is not counted. What MDL counts is the number of <strong>independent measured reals</strong> each side must inject:</p>
+<table>
+<thead>
+<tr>
+<th>Block</th>
+<th>Reals</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gauge couplings at $M_Z$</td>
+<td>3</td>
+</tr>
+<tr>
+<td>charged-fermion masses ($u,d,s,c,b,t,e,\mu,\tau$)</td>
+<td>9</td>
+</tr>
+<tr>
+<td>CKM (3 angles + 1 phase)</td>
+<td>4</td>
+</tr>
+<tr>
+<td>neutrino ($\Delta m^2_{21}, \Delta m^2_{31}$ + 3 PMNS angles + 1 Dirac phase)</td>
+<td>6</td>
+</tr>
+<tr>
+<td>EW ($v$, $m_H$)</td>
+<td>2</td>
+</tr>
+<tr>
+<td>strong-CP $\bar\theta$ (bound)</td>
+<td>1</td>
+</tr>
+<tr>
+<td><strong>TOTAL countable $T$</strong></td>
+<td><strong>≈ 25</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Certificate 2 — the codebook (frozen before scoring).</strong> Fixed neutral bit-costs, chosen so <em>no</em> architecture is syntactically cheap: an independent measured real anchor costs $b = \log_2(1/\Delta_0)$ bits (<strong>large</strong> — set by the operational resolution $\Delta_0$); a manifold factor from a named catalog, a coset $G/H$, a bundle/representation, a finite quotient, or a named generator <em>rule</em> (RG running, heat-kernel, index theorem) each cost $O(1)$; a topological integer costs $O(\log)$; and a <strong>fitted table / tuned normalization is charged like anchors</strong> ($\approx$ entries $\times\, b$). The decisive consequence is the <strong>anti-fitting ⇄ MDL bridge</strong>: a <em>tunable</em> match is not free — the tuned value must be injected as a measured real, costing $\sim b$. So "adjustable = fail" <em>is</em> an MDL penalty, which is what makes a considered-class win non-circular.</p>
+<p><strong>Certificate 3 — the normal-form / exhaustion theorem (the hard, OPEN target).</strong> The claim to prove: every admissible architecture $B \models T$ reduces, <strong>without increasing $I(B)$</strong>, to a normal form determined by its choice of mechanism for each functional role, over a finite taxonomy of five axes:
+- <strong>gauge-origin</strong> ∈ {posited-4D · internal-isometry (KK/coset) · holonomy/Wilson-line · algebraic (NCG)}
+- <strong>chirality-origin</strong> ∈ {posited · index-theorem · domain-wall/overlap}
+- <strong>family-count</strong> ∈ {posited integer · topological index}
+- <strong>flavor-origin</strong> ∈ {posited Yukawas · geometric overlap · fitted normalization}
+- <strong>scale-origin</strong> ∈ {posited anchors · dynamical}</p>
+<p>The two proof obligations are (1) <strong>reduction-without-cost-increase</strong> (the no-smuggling metric: a role hidden in notation is charged after unfolding, so a rewrite cannot lower cost by hiding) and (2) <strong>taxonomy completeness, declared</strong> (a genuinely novel mechanism is <em>unconsidered</em> and extends the grammar; the theorem is exhaustion <em>relative to the declared taxonomy</em>). This is a classification theorem in the spirit of the classification of simple Lie groups: tractable iff the role-mechanism invariants cut the space into finitely many classes.</p>
+<p><strong>Certificate 4 — the lower-bound matrix (per class, the OPEN job).</strong> For each class $N_{D,j}$ prove a lower bound $I(B) \ge L_{D,j}$ from one of: (A) failure to generate $T$; (B) anchor floor $I \ge n_{D,j} b + O(1)$; (C) hidden-rule floor (projectors/tuned conditions/lookup tables add $I_{\rm hidden}$); (D) generator floor (the map {anchors+structure}$\to T$ must be supplied and <strong>fully charged</strong>). Writing $I(B_{13}) = S_{13} + 4b$ and $I(B_{D,j}) \ge S_{D,j} + n_{D,j} b$, the whole theorem is the boxed inequality
+$$
+\boxed{\ \forall\, D = 4..12,\ \forall j:\quad (n_{D,j} - 4)\, b \;+\; (S_{D,j} - S_{13}) \;>\; 0\ }
+$$
+where $S_{13}$ is the 13D branch's <strong>fully-charged</strong> structure+generator cost. <strong>Honest note from the audit:</strong> $B_{13}$ is <em>not</em> "$4b$" — it injects $\approx 9$–$10$ reals beyond the 4 anchors, so the honest $S_{13}$ carries those. The economy is real but modest; the matrix must use the honest $S_{13}$, not the "4-in" headline.</p>
+<p><strong>Where this stands today.</strong> A first-pass population of the matrix (ladder audit <code>wst99pv9j</code>) scored 11 considered competitors and gave <strong>0 REFUTED, 1 FAILS_TO_GENERATE_T (the 6D rung), 10 LOSE to 13D under MDL</strong> — the 13D branch beats the plain 4D EFT (~13–14$b$ vs ~25$b$), beats heterotic/M/F-theory on <em>structural</em> bits, and beats NCG and lattice. But this is a <strong>survey, not a certified classification</strong> (Certificate 3 is OPEN), so the correct verdict label is <code>CATEGORY_RELATIVE</code>: <em>13D wins every competitor considered, under MDL, inside the grammar.</em> Not "no competitor below 13D is shorter."</p>
+<p><strong>(Sources: <code>DIMENSION_LADDER_MDL_AUDIT_CERTIFICATE.md</code> Cert 1–4 verbatim; <code>SHAPE_LADDER_MDL_VERDICT.md</code> (10 LOSES / 1 FAILS / 0 REFUTED); <code>SHAPE_FINAL_STATUS_SPLIT_RESULT.md</code>.)</strong></p>
+<hr />
+<h2>4. The insights we used</h2>
+<p>The progress in SG-1 came from a small number of <em>reusable</em> moves. Sharing them is what makes the gate believable and the closure paths actionable.</p>
+<p><strong>Insight 1 — Freeze first, compare second; content-address everything.</strong> The deepest fix for the moving-target failure is not an argument, it is <em>mechanism</em>: hash the object before any gate is run, publish the hashes, and ship a regenerator. This converts "trust us, we didn't retune" into a byte-identity check anyone can re-run. It is the cheapest and strongest leg of the gate precisely because a self-witness asserts nothing about nature — it only pins the object — so it cannot be wrong about physics.</p>
+<p><strong>Insight 2 — Declare a finite grammar to tame an uncomputable question.</strong> "Is there <em>any</em> shorter geometry, under <em>any</em> possible mathematics?" is a universal negative equal to $K(T)$, the Kolmogorov complexity of the constant set — <strong>uncomputable</strong> for everyone. The move that rescues a real claim is to <strong>declare a finite role-mechanism grammar $\mathcal{G}$</strong> (the five mechanism axes). This converts the uncomputable universal negative into a <strong>finite, decidable</strong> problem: a lower-bound matrix over finitely many normal-form classes. The conversion is the achievement; it does not by itself close the matrix. The grammar is <em>living and extensible</em>: a genuinely novel mechanism extends $\mathcal{G}$, it does not refute the claim.</p>
+<p><strong>Insight 3 — Anti-fitting <em>is</em> an MDL penalty (the bridge that makes a win non-circular).</strong> The selector's anti-fitting rule ("adjustable = fail") looks like a separate discipline. Under the MDL codebook it is <em>the same thing</em>: a tunable match must inject the tuned value as a measured real, costing $\sim b$ bits. So a competitor that "matches the data by adjusting a knob" is automatically charged for that knob. This is what stops a considered-class win from being circular — you cannot beat the ledger by hiding fitted reals as "free" structure.</p>
+<p><strong>Insight 4 — Build the cheaper rival end-to-end, then watch where it breaks.</strong> The color rung was rescued not by a clever a-priori argument but by <em>constructing</em> the $K_6 \to CP^2$ swap fully and adversarially. It broke at the gauge gate, and the break <em>revealed</em> the right exclusion principle — abelian-isotropy uniqueness — which is architecture-neutral and far stronger than the asymmetric "tunable family count" reason it replaced. The lesson: a built-and-broken competitor yields a sounder exclusion than an unbuilt dismissal, and it self-corrects target-loading.</p>
+<p><strong>Insight 5 — Grade forcedness rung by rung, not in bulk.</strong> "All category-relative" was true but weak. Separating the three internal rungs — <em>weak forced by F1, hyper forced by F2, color clean by abelian-isotropy uniqueness with N.4 open</em> — is both stronger (two rungs are forced by general theorems) and more honest (it names the single exposed completeness obligation). Fine-grained grading beats blanket caveats.</p>
+<p><strong>Insight 6 — Charge the generator map (the guard against the easiest self-deception).</strong> The 13D win evaporates if the geometry→observables generator map is itself a large injected object. The discipline that protects the claim is <strong>guard G2</strong>: the generator map must be <em>fully charged</em> in the ledger. Symmetrically, the EFT competitor must be charged only for reals it must inject as <em>independent facts</em>, and anything that is an automatic consequence of $E$ + 4D renormalizable gauge invariance (anomaly cancellation, written-spectrum chirality, the $\mathbb{Z}_6$ center-kernel, accidental proton stability) is free-for-both-and-cancels — charging the EFT for those would be <em>reverse</em> tuning to the known answer.</p>
+<p><strong>Insight 7 — The cautionary precedent (a posit that looks derivable can be circular).</strong> The program's SCALE-firewall verdict found that the operational-cell scale $\mu_{\rm cell}$ has <em>no</em> $v$-independent readout, so anchoring it at $dV/d\sigma = 0$ is circular. That is the standing warning for SG-1's metric question: the granularity ⇒ MDL bridge must be derived <em>without</em> knowing 13D should win (guard G1), or it will be the same kind of circular self-confirmation. A root posit that <em>looks</em> derivable has already been caught being circular once.</p>
+<hr />
+<h2>5. Evidence &amp; reproducibility</h2>
+<h3>5.1 The witness ledger</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Witness</th>
+<th>What it asserts</th>
+<th>Grade</th>
+<th>Reproduces?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1</td>
+<td>Content hash <code>dcc66f1b2685</code></td>
+<td>the branch is content-addressed; one object, frozen before comparison</td>
+<td>machine-lane</td>
+<td><strong>Yes — re-run target-blind</strong>: the active-branch canonical string hashes to <code>dcc66f1b2685</code></td>
+</tr>
+<tr>
+<td>W2</td>
+<td>Manifest meta-hash <code>a5b1e6f9d951</code> (A0, 33 rows)</td>
+<td>every primitive is hashed; the meta-hash is the roll-up</td>
+<td>machine-lane</td>
+<td><strong>Yes — re-run</strong>: meta-hash over all 33 rows in file order = <code>a5b1e6f9d951</code></td>
+</tr>
+<tr>
+<td>W3</td>
+<td>A1 reconstruction (≥16 sig figs, all three layers)</td>
+<td>the branch is reconstructible directly (×), indexed (⊕), domain-routed (⊗)</td>
+<td>symbolic</td>
+<td>Yes — A1 carries the values in-manuscript</td>
+</tr>
+<tr>
+<td>W4</td>
+<td>B2 three-layer necessity ($\mathcal{N}_L = \varnothing$ for proper $L$)</td>
+<td>no proper layer subset closes the scoped gates <em>inside the declared category</em></td>
+<td>symbolic</td>
+<td>Yes within category — explicitly <strong>not</strong> a universal no-go (B2.0.3.4)</td>
+</tr>
+<tr>
+<td>W5</td>
+<td>C1–C10 failure-if-removed ledger</td>
+<td>each named term is load-bearing for ≥1 Gate 1–10</td>
+<td>hand-checkable</td>
+<td>Yes (conditional on declared term-construction)</td>
+</tr>
+<tr>
+<td>W6</td>
+<td>R0 reproducer</td>
+<td>regenerates every hash with no manual steps</td>
+<td>machine-lane</td>
+<td><strong>VERIFIED — independently re-run target-blind</strong> (exit 0; 33/33 hashes recomputed without the script's comparator; both hashes byte-equal; deterministic across reruns). <em>Self-witness only — see caveat.</em></td>
+</tr>
+<tr>
+<td>W7</td>
+<td>$S^2$ forced by F1</td>
+<td>no abelian/torus carrier of any dim has non-abelian $SU(2)$ isometries</td>
+<td>hand-checkable</td>
+<td>Yes — general theorem, closes the cheaper direction for all carriers</td>
+</tr>
+<tr>
+<td>W8</td>
+<td>$S^1_Y/\mathbb{Z}_2$ forced by F2</td>
+<td>closed odd-dim factor keeps both handednesses → mirror fermions → LEP $Z$-width exclusion</td>
+<td>hand-checkable</td>
+<td>Yes — general theorem</td>
+</tr>
+<tr>
+<td>W9</td>
+<td>Abelian-isotropy uniqueness (color)</td>
+<td>$T^2$ is the unique purely-abelian $SU(3)$ isotropy; $CP^2$'s $U(2)$ over-produces gauge at Gate 2 (built end-to-end, <code>wsmnjvt55</code>)</td>
+<td>symbolic</td>
+<td>Yes — rep theory ($C_{SU(3)}(T^2)=T^2$) + the CSDR centralizer rule</td>
+</tr>
+<tr>
+<td>W10</td>
+<td>MDL ladder verdict (<code>CATEGORY_RELATIVE</code>)</td>
+<td>13D wins every considered rung under MDL (10 LOSES, 1 FAILS, 0 REFUTED)</td>
+<td>symbolic</td>
+<td>Yes as a <strong>survey</strong>; NOT as a certified classification (Cert 3 OPEN)</td>
+</tr>
+<tr>
+<td>W11</td>
+<td>Honest input-count caveat</td>
+<td>charged cost ≈ 4 anchors + 9–10 injected reals (~13–14), not "4-in"</td>
+<td>hand-checkable</td>
+<td>Yes — the SHAPE packet carries this as the authoritative figure</td>
+</tr>
+</tbody>
+</table>
+<h3>5.2 The reproducibility leg, verified — and its load-bearing caveat</h3>
+<p>The one genuinely <strong>derived</strong> leg of SG-1 is <strong>reproducibility (R6)</strong>, and it was <strong>machine-verified by an independent re-run</strong> during the SG-1 completion, not merely asserted:
+- the regenerator (<code>reproduce_all.py</code> + <code>manifest_hashes.json</code>) was run <strong>target-blind</strong>: exit 0; it reports all 33 per-item hashes matching and the manifest meta-hash matching <code>a5b1e6f9d951</code>;
+- <strong>adversarial recheck</strong> (not trusting the script's own comparator): the SHA-256 of every canonical description was recomputed from scratch → 33 rows, <strong>zero mismatches</strong>; the active-branch canonical string hashes to <code>dcc66f1b2685</code>; the meta-hash over all 33 rows in file order is <code>a5b1e6f9d951</code>;
+- <strong>determinism</strong>: two fresh reruns produce byte-equal artifacts.</p>
+<blockquote>
+<p><strong>Caveat (load-bearing, carried verbatim from the completion result).</strong> This is a <em>content-addressed self-witness</em>: a SHA-256 of canonical English descriptions of the geometry. It commits the object a reviewer attacks to the object the gates ran on. <strong>It lowers no assumption floor and closes no physics.</strong> It is "derived" precisely <em>because</em> a self-witness asserts nothing about nature. Separately, the reproducer's physics CSV outputs (lepton ratios, $m_b$ target, NuFIT values, the threshold vector) are reverse-pinned to known targets and are <strong>outside</strong> the hash-verified self-witness — "the reproducer runs green" is <strong>not</strong> output validation.</p>
+</blockquote>
+<p>This is the cleanest honesty point in the gate: the strongest mechanical leg is verified, and its scope (object-commitment, not physics-validation) is stated plainly.</p>
+<h3>5.3 How a reader re-derives / re-runs</h3>
+<ol>
+<li><strong>Re-run the reproducer (R6).</strong> Mount <code>reproduce_all.py</code> + <code>manifest_hashes.json</code> + the A0 manifest (33 rows); run target-blind; confirm both hashes regenerate byte-equal and A1's ≥16-sig-fig reconstruction recomputes from the frozen primitives. Fail-closed: if any hash cannot be regenerated, the gate downgrades from <em>claimed certificate pass</em> to <em>open / not claimed</em>.</li>
+<li><strong>Hand-check F1 and F2.</strong> F1: write the isometry algebra of any torus and confirm it has no non-abelian $SU(2)$ subalgebra. F2: write the Dirac spectrum on a closed odd-dim factor and confirm both handednesses survive; cross-check against the LEP invisible-$Z$-width bound.</li>
+<li><strong>Hand-check abelian-isotropy uniqueness (W9).</strong> Compute $C_{SU(3)}(T^2) = T^2$ (Cartan only) and $C_{SU(3)}(U(2)) = U(1)$ (Schur); apply the CSDR centralizer rule; confirm the $CP^2$ lose-lose fork.</li>
+<li><strong>Re-score the MDL survey.</strong> Use the Cert 2 codebook and Cert 1 target ledger; reproduce the 10-LOSE / 1-FAILS / 0-REFUTED first pass with the honest $S_{13}$ ($n_{13} \approx 13$–$14$).</li>
+</ol>
+<h3>5.4 Numbers in this dossier and their sources</h3>
+<table>
+<thead>
+<tr>
+<th>Number</th>
+<th>Value</th>
+<th>Source file (read)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>branch content hash</td>
+<td><code>dcc66f1b2685</code></td>
+<td>existing article §0/§5.3; <code>SG1_COMPLETION_RESULT.md</code> §3</td>
+</tr>
+<tr>
+<td>manifest meta-hash</td>
+<td><code>a5b1e6f9d951</code> (33 rows)</td>
+<td>same</td>
+</tr>
+<tr>
+<td>orbifold-freeze sub-hash</td>
+<td><code>ac4d2df3e708</code></td>
+<td>existing article §0</td>
+</tr>
+<tr>
+<td>dimension ledger</td>
+<td>$D = 4+6+2+1 = 13$</td>
+<td>existing article §1.1; handoff spine</td>
+</tr>
+<tr>
+<td>charged input cost</td>
+<td>≈4 anchors + 9–10 injected reals ≈ 13–14</td>
+<td><code>SHAPE_FINAL_STATUS_SPLIT_RESULT.md</code> caveats; <code>SG1_COMPLETION_RESULT.md</code> §2</td>
+</tr>
+<tr>
+<td>target ledger $T$</td>
+<td>≈25 reals (3+9+4+6+2+1)</td>
+<td><code>DIMENSION_LADDER_MDL_AUDIT_CERTIFICATE.md</code> Cert 1</td>
+</tr>
+<tr>
+<td>anchor bit cost</td>
+<td>$b = \log_2(1/\Delta_0)$</td>
+<td>same, Cert 2</td>
+</tr>
+<tr>
+<td>MDL ladder verdict</td>
+<td>10 LOSES / 1 FAILS / 0 REFUTED</td>
+<td><code>SHAPE_LADDER_MDL_VERDICT.md</code>; <code>SHAPE_FINAL_STATUS_SPLIT_RESULT.md</code></td>
+</tr>
+<tr>
+<td>$I(B_{13})$ vs $I(B_{\rm EFT})$</td>
+<td>~13–14$b$ vs ~25$b$</td>
+<td><code>SHAPE_FINAL_STATUS_SPLIT_RESULT.md</code> status table</td>
+</tr>
+<tr>
+<td>$\mathbb{Z}_6$ center-kernel</td>
+<td>$q \equiv 3z_2 - 2z_3 \pmod 6$</td>
+<td>existing article §1.1 / §4.8</td>
+</tr>
+<tr>
+<td>$CP^2$ family index</td>
+<td>$r(r+1)/2 = 3$ at $r=2$ ($\mathrm{Spin}_c$)</td>
+<td><code>SHAPE_COLOR_RUNG_CP2_REFUTATION.md</code>; existing article §4.4</td>
+</tr>
+<tr>
+<td>$C_{SU(3)}(T^2)$</td>
+<td>$= T^2$ (Cartan only)</td>
+<td>existing article §4.4 W9</td>
+</tr>
+<tr>
+<td>family index</td>
+<td>$\chi(K_6,E) = -3$</td>
+<td>existing article §0/§5.3</td>
+</tr>
+<tr>
+<td>UV scale</td>
+<td>$M_U \sim 10^{16}$ GeV</td>
+<td>existing article §0</td>
+</tr>
+<tr>
+<td>compactification radius</td>
+<td>$R_0 = 1.592\times10^{-17}\ \mathrm{GeV}^{-1}$</td>
+<td>existing article §0</td>
+</tr>
+<tr>
+<td>threshold triple</td>
+<td>$\delta = (+4.8424,-3.1112,-1.7313)\pm1.6\times10^{-3}$</td>
+<td>existing article §0</td>
+</tr>
+<tr>
+<td>build run ids</td>
+<td><code>wsmnjvt55</code> ($CP^2$ swap), <code>wst99pv9j</code> (ladder audit)</td>
+<td>existing article §2.1; <code>SHAPE_FINAL_STATUS_SPLIT_RESULT.md</code></td>
+</tr>
+</tbody>
+</table>
+<p>Every number above is traceable to a file read for this dossier. Where a quantity is uncomputed (the certified lower-bound matrix; N.4 full-shelf completeness; the granularity ⇒ MDL theorem), it is marked <strong>OPEN</strong> in §6 — no fabricated value substitutes.</p>
+<hr />
+<h2>6. Open gaps + closure path — the specialist work plan</h2>
+<p>This is the most load-bearing section. Each open hole is a <strong>work-package</strong>: precise statement, why it's hard + traps the verifier already caught, exactly what closes it (with success <em>and</em> refuting criteria — a negative is a valid close), the machinery and corpus files to start from, and the cross-gate leverage. Physics only; the firewall holds throughout.</p>
+<p>The two decisive seams are <strong>R5</strong> (which metric is correct) and <strong>R2/R4</strong> (the classification and shelf completeness). R5 is a single theorem that can flip the entire ladder; close it the wrong way and SHAPE-minimality folds for everyone — which we would report honestly as <code>REFUTED-ECONOMY</code>.</p>
+<h3>6.1 R5 — the MDL-vs-dimension-first metric-selection theorem (the decisive seam)</h3>
+<p><strong>(a) Precise statement.</strong> Every "13D wins" verdict holds <em>under the MDL / description-length metric</em>. Under a <strong>dimension-first lexicographic order</strong> (with $k_{\rm dim}$ the leading key) a clean 4D chiral-gauge EFT beats 13D ($4 < 13$) <em>irrespective of injected reals</em>, and SHAPE-minimality folds for everyone. The open object is an <strong>architecture-neutral principle</strong> that selects MDL over dimension-first. Candidate: <strong>granularity ⇒ MDL</strong>, with three sub-claims:
+- <strong>(A) Granularity ⇒ MDL.</strong> <em>Derive</em> the description-length functional from the cost-floor / recordability — do not assume it. (A finite-record universe cannot specify infinite-precision continuum data; its admissible descriptions are finite bit-strings; "simplest" = shortest such string = MDL.)
+- <strong>(B) Anchors dominate dimension under $\mathcal{I}$.</strong> A measured real to cell resolution costs $\Theta(\log(1/\Delta_0))$ bits; a discrete structural choice (a coset, a $\mathbb{Z}_6$, an integer index) costs $O(1)$ bits.
+- <strong>(C) Economy-win, quantitative + symmetric.</strong> Build <em>both</em> ledgers $I(B_{13})$ and $I(B_{\rm EFT})$ against the <strong>same</strong> pre-declared target set $T$, with the geometry→observables <strong>generator map fully charged</strong>.</p>
+<p><strong>(b) Why it's hard / trap lessons.</strong> The first-pass plug <strong>[REDUCED]</strong> this and found the precise residual: granularity fixes the <em>domain</em> (finite bit-strings) and the per-anchor cost $b = \log_2(1/\Delta_0)$ (verified: <code>DIMENSION_LADDER_MDL_AUDIT_CERTIFICATE.md</code> Cert 2), but is <strong>silent on the aggregation rule.</strong> Both MDL (additive sum) and dimension-first lex ($k_{\rm dim}$ leading key) are well-defined on the <em>same</em> finite-bit-string space; the granularity premise $P$ does not discriminate between them. A lexicographic leading key is mathematically equivalent to an <em>unbounded / infinite weight ratio</em> on that field relative to an additive sum — and granularity (a finite common resolution $\Delta_0$ per record) provides <strong>no weight asymmetry</strong> between a dimension-bit and an anchor-bit. So the honest residual is <strong>one named axiom</strong>, AXIOM-COMMON-CURRENCY (equivalently AXIOM-GRANULARITY-MDL-BRIDGE): <em>"all brute-fact bits at the common operational resolution are charged additively; no theory-category, including dimension, carries infinite lexicographic weight over another."</em> Under it, MDL holds and 13D wins given $E$; reject it and the metric fork reopens and SHAPE folds.</p>
+<p>Traps the verifier flagged, name them so they are not repeated:
+- <strong>Do not</strong> let granularity enter as "the shape must geometrize / chirality must come from an internal index." That is <strong>F6 circularity</strong> — it renames the answer by narrowing the class to KK architectures. The metric must be architecture-neutral.
+- <strong>Do not</strong> reverse-engineer the metric to favor low anchor count. That is the κ³/π failure (guard <strong>G1</strong>: the metric counts only if it would be written <em>without</em> knowing 13D should win). The SCALE-firewall precedent ($\mu_{\rm cell}$ with no $v$-independent readout, circular at $dV/d\sigma=0$) is the cautionary case.
+- <strong>Do not</strong> leave the generator map uncharged (guard <strong>G2</strong>). If the geometry→observables map is a large injected object, the 13D win evaporates and the EFT wins.
+- <strong>Do not</strong> charge the EFT for $E$-automatic facts (anomaly cancellation, written-spectrum chirality, the $\mathbb{Z}_6$ kernel, accidental proton stability) — that is reverse tuning to the known answer (guard <strong>G5</strong>, symmetric ledgers).</p>
+<p><strong>(c) Exactly what closes it.</strong> Prove sub-claims A/B/C under guards G1/G2/G5. <strong>Success (DERIVED-CLOSED):</strong> A + B + C hold with the generator charged → the 4D EFT is excluded on a principled basis → SHAPE upgrades from "selected" to "realization-minimal under the granularity-induced information metric, given $E$." <strong>Refuting result (equally valuable, <code>REFUTED-ECONOMY</code>):</strong> under a fair $\mathcal{I}$ with the generator charged, the 4D EFT injects no more than 13D → the simpler 4D realization is correct → the 13D geometry is <em>selected, not minimal</em>. <strong>AXIOM-CLOSED (likely interim):</strong> A holds but the aggregation rule cannot be derived from granularity alone → name AXIOM-COMMON-CURRENCY as the single target-blind posit and stop. The first-pass plug already established this is the honest current ceiling.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Derive $\mathcal{I}$ from recordability (A); establish the bit-cost ordering (B); compute the two symmetric ledgers (C) with the honest $n_{13} \approx 13$–$14$. Start from: <code>SHAPE_REALIZATION_GRANULARITY_METRIC_TARGET.md</code> (the theorem target, guards G1/G2/G5); <code>SHAPE_METRIC_RESULT.md</code> (the five operational-record-cost axioms claiming MDL unique up to $O(1)$); <code>DIMENSION_LADDER_MDL_AUDIT_CERTIFICATE.md</code> Cert 2 (codebook); <code>SHAPE_LADDER_CONTEXT_WITH_SELECTOR.md</code> line ~238 (dimension-first defined as lex with $k_{\rm dim}$ leading); <code>SHAPE_LADDER_MDL_VERDICT.md</code> §2.3.</p>
+<p><strong>(e) Leverage.</strong> Closing R5 <strong>gates R2</strong> (the matrix is only meaningful under a justified metric), <strong>resolves R4's category-fairness sub-residual</strong> (the fairness question routes to the metric), and decides the headline forced-given-E vs merely-selected for the <em>whole</em> gate. This is the single highest-leverage object in SG-1.</p>
+<h3>6.2 R2 — the dimension-ladder lower-bound matrix / grammar exhaustion (the whole remaining job)</h3>
+<p><strong>(a) Precise statement.</strong> Under MDL the 13D branch wins every <em>considered</em> rung (10 LOSES / 1 FAILS / 0 REFUTED), but this is a <strong>first-pass survey, not a certified classification.</strong> The open object is <strong>Certificate 3</strong> (normal-form / exhaustion) + <strong>Certificate 4</strong> (per-class lower bound): prove every $B \models T$ reduces <em>cost-non-increasingly</em> to a role-mechanism tuple over the five axes, then prove the boxed inequality $\forall D=4..12, \forall j: (n_{D,j}-4)b + (S_{D,j}-S_{13}) > 0$ for each class.</p>
+<p><strong>(b) Why it's hard / trap lessons.</strong> It is a genuine classification theorem (Lie-group-classification-grade), bottlenecked on the two proof obligations: (O1) reduction-without-cost-increase (the no-smuggling metric — a role hidden in notation is charged after unfolding) and (O2) declared taxonomy completeness. Trap: <strong>do not</strong> give the 13D branch a privileged row — it is itself a tuple (gauge = isometry/coset; chirality = index; family = index; flavor = geometric overlap + fitted normalization; scale = posited anchors) and must be scored by the same Cert-2 codebook. Trap: <strong>do not</strong> use the "4-in" headline for $S_{13}$ — use the honest $n_{13} \approx 13$–$14$ (the audit explicitly flags this).</p>
+<p><strong>(c) Exactly what closes it.</strong> Prove O1 + O2. <strong>Success (DERIVED-CLOSED):</strong> grammar-relative <code>LADDER_FORCED</code> (still grammar-relative, still bottoms on $E$ — not absolute). <strong>AXIOM-CLOSED-as-survey (likely interim):</strong> name AXIOM-ROLE-MECHANISM-GRAMMAR and carry the first-pass matrix as a survey. <strong>Refuting result:</strong> a class is found with a strictly shorter MDL recipe → 13D is not minimal even in-grammar (valuable negative). <strong>sharper-OPEN:</strong> some classes lower-bounded, others surveyed → partial matrix.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> (1) Compress the 13D generator into pseudocode normal form and <em>measure</em> $S_{13}$ honestly. (2) For each $D=4..12$ + non-dim, prove (A) failure / (B) anchor floor / (C) hidden-rule floor / (D) generator floor. (3) Publish the completed matrix. Start from: <code>DIMENSION_LADDER_MDL_AUDIT_CERTIFICATE.md</code> Cert 3/4 (the scaffold + matrix template); <code>ROLE_MECHANISM_TAXONOMY_POSITS.md</code> (the grammar $\mathcal{G}$, five axes, the 13D branch as a tuple); <code>SHAPE_LADDER_MDL_VERDICT.md</code> (first-pass rows); <code>SHAPE_REALIZATION_DERIVATION_TARGETS.md</code> (Lemmas 1–5, Gate 0 / defeat-F6).</p>
+<p><strong>(e) Leverage.</strong> Closing R2 upgrades the ladder verdict from <code>CATEGORY_RELATIVE</code> to grammar-relative <code>LADDER_FORCED</code>. R2's normal-form subsumes R4's SU(3)-carrier seam (the sub-shelf must be <em>exhausted</em>, not enumerated). Conditional on R5.</p>
+<h3>6.3 R4 — search-category completeness (R2.5 fairness + the SU(3)-carrier shelf / N.4)</h3>
+<p><strong>(a) Precise statement.</strong> Two sub-residuals, both the corpus's own declared first review targets (GUT.md:382): (a) is the declared category R2.5 (forces = isometries, compact, classified structures, admissible bundles) a <em>fair</em> category, or does it exclude natural competitors (string bundle-sourced gauge, NCG spectral triples, 4D chiral-gauge EFT)? (b) Is the named $SU(3)$-carrier shelf $\{K_6, CP^2\}$ <strong>complete</strong> (N.4) — i.e. no <em>other</em> admissible compact $SU(3)$-homogeneous carrier below 6D has a clean centralizer-surviving abelian isotropy?</p>
+<p><strong>(b) Why it's hard / trap lessons.</strong> Category fairness is a <em>wall</em> (no canonical "fair-category" principle exists); the color sub-shelf is a <em>bounded gap</em>. Trap already caught: the original "CP² is tunable" exclusion was <strong>asymmetric and unsound</strong> — $CP^2$'s 3 families are a discrete $\mathrm{Spin}_c$ index $r(r+1)/2 = 3$, not a continuous dial, and $K_6$ needs its own BWB weight $(1,0)$ too. Do not reinstate an asymmetric exclusion. The sound replacement (abelian-isotropy uniqueness, W9) is architecture-neutral and passes the κ³/π falsification test — use it, and certify completeness <em>over the shelf</em>, not against a named rival.</p>
+<p><strong>(c) Exactly what closes it.</strong> Certify N.4: enumerate all admissible compact $SU(3)$-homogeneous carriers and prove none below 6D has a clean abelian isotropy other than the $K_6/CP^2$ pair, and that $CP^2$ breaks at Gate 2. <strong>Success (DERIVED-CLOSED):</strong> N.4 complete + abelian-isotropy uniqueness over the full shelf → the color rung is <em>forced within the grammar</em>. <strong>AXIOM-CLOSED (already standing):</strong> AXIOM-ABELIAN-ISOTROPY-COLOR as a theorem on the named shelf + CP²-built-and-broken — stronger than the original corpus position. <strong>Refuting result:</strong> a cheaper admissible $SU(3)$ carrier with a clean abelian isotropy is exhibited → the color rung folds. <strong>sharper-OPEN:</strong> N.4 stays uncertified → $K_6$ is the cheapest <em>clean</em> carrier on a named shelf only. For category-fairness (R2.5): state the claim as category-relative and route fairness to R5 — do <strong>not</strong> defend R2.5 as the unique fair category (that would be circular).</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> A bounded coset-classification + CSDR centralizer check. The partial classification already shows $\dim H \le 4 \Rightarrow \dim M \ge 4$, with $S^5$/Wu killed by odd-dimensionality. Start from: <code>SHAPE_COLOR_RUNG_CP2_REFUTATION.md</code> (CP² classification + the $r(r+1)/2$ index + the bundle-admissibility one-move); <code>ELEVEN_D_CP2_VARIANT_CONSTRUCTION.md</code> (the end-to-end build that broke); <code>SHAPE_FINAL_STATUS_SPLIT_RESULT.md</code> UPDATE block (abelian-isotropy uniqueness, the centralizer computations).</p>
+<p><strong>(e) Leverage.</strong> A natural in-category competitor strictly preferred under the metric is the standing reopen → documented downgrade to <em>category-relative diagnostic</em>. Closing N.4 hardens the one historically-exposed rung.</p>
+<h3>6.4 R8 — actor-layer minimality (SHAPE Lemma 3) + E un-forced (demoted-OPEN)</h3>
+<p><strong>(a) Precise statement.</strong> Is $E_{\rm matter}\oplus E_{\rm gauge}\oplus E_{\rm Higgs}\oplus E_{\rm proton}$ the <em>minimal</em> actor realization given $E$? Two undischarged obligations: the no-cheaper-competitor obligation (competitor matrix all Tier-1 "Unknown"; NCG's finite Dirac operator un-scored as a role-equivalent), and $E$ itself un-forced (the SM chiral content presupposed on both sides).</p>
+<p><strong>A sharper established finding to surface, not gloss: the generation count is $E$-forced, not geometry-forced.</strong> The corpus carries a concrete, bounded result (<code>SHAPE_FINAL_STATUS_SPLIT_RESULT.md</code> lines 57–59; <code>SHAPE_COLOR_RUNG_CP2_REFUTATION.md</code> §4): the index-3 family count requires a <strong>chosen bundle on <em>both</em> carriers</strong> — Borel–Weil–Bott weight $(1,0)$ on $K_6$, and the $\mathrm{Spin}_c$ choice $r=2$ on $CP^2$ — and the two carriers are <em>symmetric</em> under $E$. So the family number $3$ traces to $E$ (it is the bundle picked to reproduce the observed three generations), <strong>not</strong> to the geometry being forced. This is the bundle-admissibility symmetry that retired the asymmetric "$CP^2$ family count is tunable" exclusion (§3.3c); it deepens the bottoms-on-$E$ finding by localizing <em>which</em> observable (generation count) is $E$-derived. It is a falsifiable banked fact, carried here at its true strength — it does <strong>not</strong> make $\chi(K_6,E)=-3$ a forced rung.</p>
+<p><strong>(b) Why it's hard / trap lessons.</strong> The closure campaign <strong>DEMOTED</strong> an earlier AXIOM_CLOSED to OPEN under the overclaim test: Lemma 3's success criterion is a <strong>universal negative</strong> ("no admissible competitor supplies lower $k_{\rm actor}$"), which is UNMET. The trap (already caught): folding two open obligations (undischarged universal negative + un-forced $E$) into one axiom is overclaiming. Do <strong>not</strong> re-bank AXIOM_CLOSED here. The partial support in hand is genuine: the $\mathbb{Z}_6$ center-kernel is <em>computed</em> ($q \equiv 3z_2 - 2z_3 \bmod 6$, a discrete index given $E$), not posited.</p>
+<p><strong>(c) Exactly what closes it.</strong> Score the actor-layer competitor matrix target-blind — especially NCG's finite Dirac operator as a role-equivalent — and prove no competitor supplies lower $k_{\rm actor}$ given $E$. <strong>Success (DERIVED-CLOSED, unlikely — universal negative):</strong> matrix scored + no-alternative proven → actor-minimality given $E$. <strong>Refuting result:</strong> a lower-$k_{\rm actor}$ competitor (e.g. NCG) is scored cheaper → actor-minimality folds. <strong>sharper-OPEN (honest standing):</strong> reduced to AXIOM-ACTOR-MDL-MINIMALITY-GIVEN-E + un-forced $E$ + the undischarged audit. Note $E$ stays un-forced regardless — the corpus T3 (an attempt to force $E$) was REFUTED; do not present $E$ as derived.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> The narrowest layer — attack first (if actor-minimality fails, realization-minimality fails fast). Start from: <code>SHAPE_REALIZATION_DERIVATION_TARGETS.md</code> (Lemma 3); <code>CLOSURE_CAMPAIGN_RESULT_2026-06-24.md</code> (the demotion to OPEN; the κ³/π falsification test; AXIOM-CLOSED ≠ proven); the $\mathbb{Z}_6$ kernel computation (existing article §1.1/§4.8).</p>
+<p><strong>(e) Leverage.</strong> Cross-links to the bottoms-on-E finding shared with GEO-02 (is $E$ forced?) and to SG-3 (the family index, also $E$-forced). A cheaper-actor refutation would localize realization-minimality's failure to the narrowest layer.</p>
+<h3>6.5 R7 — B2 / C1–C10 are category-relative + conditional (the functional-role bridge)</h3>
+<p><strong>(a) Precise statement.</strong> B2 (three-layer necessity) is an in-category null-space result, <em>explicitly not</em> a universal no-go (B2.0.3.4); C1–C10 (term necessity) are conditional on the declared term-construction. They assert load-bearingness inside the declared category, not for any architecture. The open object: upgrade to a <strong>functional-role necessity theorem</strong> — any admissible architecture must carry functional equivalents of Stage + Rulebook + Actors ($k_{\rm role} \ge 3$), proven by contradiction per role with no hidden reference to the submitted factor set.</p>
+<p><strong>(b) Why it's hard / trap lessons.</strong> The bridge from category-relative to architecture-neutral must <strong>defeat F6 circularity per role</strong> (Gate 0): each role-requirement must be stated architecture-neutrally, with no hidden reference to the $\times/\oplus/\otimes$ notation. Trap: stating a role-requirement using the submitted factor set smuggles the answer.</p>
+<p><strong>(c) Exactly what closes it.</strong> Prove $\mathcal{C}_{\rm phys} \Rightarrow \mathrm{Stage} + \mathrm{Rulebook} + \mathrm{Actors}$ by contradiction on each role (a role-free admissible competitor is impossible). <strong>Success (AXIOM-CLOSED at the floor, essentially standing):</strong> name AXIOM-FUNCTIONAL-ROLE-FLOOR; B2 upgraded to architecture-neutral role-necessity — <em>necessary, not sufficient</em>. <strong>Refuting result:</strong> a role-free admissible competitor is exhibited → the floor fails. <strong>sharper-OPEN (likely):</strong> role-necessity holds but <em>realization</em>-minimality (the exact factor set is the unique minimum) stays open — that is R2/R8 territory.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Start from: <code>T_SHAPE_FUNCTIONAL_ROLE_NECESSITY_THEOREM.md</code> (the bridge, already PARTIAL); <code>SHAPE_REALIZATION_DERIVATION_TARGETS.md</code> (Gate 0, defeat F6); certificate B2 (the in-category result to upgrade).</p>
+<p><strong>(e) Leverage.</strong> Yields the architecture-neutral <em>floor</em> the corpus genuinely earns ($k_{\rm role} \ge 3$). Distinguishing the floor (necessary) from realization-minimality (sufficient) is what keeps the gate honest about what is proven.</p>
+<h3>6.6 R10 — rulebook physics-vs-governance separation (the F6 hazard)</h3>
+<p><strong>(a) Precise statement.</strong> Several $C_{\rm admiss}$ requirements (freeze-before-compare, gate-status discipline) are <em>governance/method</em> rules, not architecture-neutral physics. Counting them in the minimality burden risks F6 circularity (the constraint set presupposing the submitted architecture). The open object: restate $\mathcal{C}_{\rm phys}$ architecture-neutrally, separating the physics the rulebook enforces (anomaly admissibility, flavor closure, chamber constraints) from method discipline, and charge only the physics burden.</p>
+<p><strong>(b) Why it's hard / trap lessons.</strong> $F^+ \subset C_{\rm admiss}$ is flagged the program's <strong>weakest link</strong> (highest-risk minimality lemma; tied to SG-8 R1). Trap: charging method discipline to a candidate is double-dishonest — it inflates the burden <em>and</em> it presupposes the submitted architecture.</p>
+<p><strong>(c) Exactly what closes it.</strong> Restate $\mathcal{C}_{\rm phys}$ architecture-neutrally (Gate 0), formally splitting physics from governance. <strong>Success (AXIOM-CLOSED, realistic):</strong> name AXIOM-RULEBOOK-PHYSICS-ONLY; the physics/governance split made formal → the rulebook burden is countable non-circularly. <strong>Refuting result:</strong> the rulebook's physics burden is shown reducible by a cheaper competitor → Lemma 2 folds. <strong>sharper-OPEN:</strong> the split is partial; some requirements resist clean classification.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Start from: <code>CONSTRAINT_SET_CLASSIFICATION.md</code> (the $C_{\rm admiss}$ inventory); <code>SHAPE_REALIZATION_DERIVATION_TARGETS.md</code> (Gate 0); the SG-8 dossier (the $F^+$ weakest-link analysis, R1).</p>
+<p><strong>(e) Leverage.</strong> A prerequisite for <em>any</em> architecture-neutral minimality upgrade (R2/R7). Not a physics gap — a methodology guard — but it gates the rest.</p>
+<h3>6.7 R1 — absolute irreducibility (the Kolmogorov wall + bottoms-on-E)</h3>
+<p><strong>(a) Precise statement.</strong> "No competitor <em>anywhere</em>, under <em>any</em> conceivable architecture or math, is shorter" is a universal negative equal to $K(T)$, the Kolmogorov complexity of the constant set — <strong>uncomputable in principle, for any object in any field.</strong> And $T$ presupposes $E$ on both sides, so the strongest reachable claim is "shortest-recipe generator <em>given E</em>," never "geometry from nothing."</p>
+<p><strong>(b) Why it's hard.</strong> It is not a theorem to be proven — it is a <strong>wrong target.</strong> The catastrophe is not a math problem; it is a misframed demand (the Einstein-audit move). Trap: presenting any bounded result as the absolute claim is the over-promotion failure the program guards against most carefully.</p>
+<p><strong>(c) Exactly what closes it.</strong> Nothing closes it as stated — and that is the point. The closure is a <strong>reframe</strong>: declare the finite role-mechanism grammar $\mathcal{G}$ explicitly, which converts the uncomputable universal negative into the bounded R2, and state minimality as $\mathcal{G}$-relative + living/extensible. <strong>Honest endpoint (sharper-OPEN, essentially standing):</strong> name AXIOM-GRAMMAR-RELATIVE-FORCING — <em>"minimality is asserted only relative to the declared finite grammar $\mathcal{G}$; a competitor using a mechanism not in $\mathcal{G}$ forces $\mathcal{G}$ to extend, not the claim to refute."</em> This retires the wrong target and names the right one (R2). <strong>Refuting "result":</strong> a competitor outside $\mathcal{G}$ that is shorter → $\mathcal{G}$ extends (the certificate works as designed), not a refutation.</p>
+<p><strong>(d) Machinery &amp; inputs.</strong> Framing only; no new math. Start from: <code>T_SHAPE_ABSOLUTE_IRREDUCIBILITY_FORK_THEOREM.md</code> (the fork; CERTIFIED-SCOPED ≠ CERTIFIED-ABSOLUTE); <code>SHAPE_FINAL_STATUS_SPLIT_RESULT.md</code> (the uncomputability statement).</p>
+<p><strong>(e) Leverage.</strong> R1 is <em>defined down</em> into R2 — strictly easier — and bounds the honesty of every minimality statement SG-1 makes. given-E ≠ derivation of E binds here permanently.</p>
+<h3>6.8 R3 / R6 / R9 — the mechanical / honesty residuals (strictly easier)</h3>
+<ul>
+<li><strong>R3 (the ~9–10 injected reals).</strong> Not physics — an honesty/claim-boundary residual. Endpoint <strong>DISCLOSED-CORRECTED</strong>: state "~22 outputs from ~13–14 effective inputs (4 anchors + 9–10 injected reals)" wherever "4→22" appears; retire both wrong figures (the ~18-economy overclaim and the ~1.6× over-correction; the latter is forbidden by the family-level-normalization ban, SG-8 I.4). Owner countersign only. Named principle: AXIOM-HONEST-CHARGED-COST.</li>
+<li><strong>R6 (the reproducer).</strong> <strong>VERIFIED</strong> (machine, target-blind; §5.2) — the cheapest, highest-value-per-effort leg, now done. A re-runner confirms both hashes regenerate byte-equal and A1 recomputes. Fail-closed if any hash fails. <em>Self-witness only — closes no physics.</em></li>
+<li><strong>R9 ($\mathcal{M}_4$ as declared axiom).</strong> Endpoint <strong>DISCLOSED-CONSISTENT</strong>: keep $\mathcal{M}_4$ labelled an observational primitive (AXIOM-M4-OBSERVATIONAL-PRIMITIVE); never count it as a forced rung or cite it as a derivation. Labeling sweep only — honest by design.</li>
+</ul>
+<h3>6.9 Attack-order summary</h3>
+<ol>
+<li><strong>R5</strong> (metric-selection) — single theorem, flips the whole ladder; gates R2 and resolves R4's fairness.</li>
+<li><strong>R2</strong> (lower-bound matrix) — the bounded "whole remaining job"; conditional on R5.</li>
+<li><strong>R4</strong> (N.4 shelf completeness) — bounded coset-classification; hardens the historically-exposed color rung.</li>
+<li><strong>R8</strong> (actor-minimality) — narrowest layer; if it fails, realization-minimality fails fast.</li>
+<li><strong>R7 / R10</strong> (functional-role floor / rulebook F6 guard) — category-relative bridges, prerequisites for any architecture-neutral upgrade.</li>
+<li><strong>R1</strong> (absolute irreducibility) — reframe, not closure (sharper-OPEN).</li>
+<li><strong>R3 / R6 / R9</strong> — honesty + reproducibility + labeling (mechanical; R6 done).</li>
+</ol>
+<p><strong>REDUCE-vs-RELOCATE check.</strong> The plan does not turn one hard problem into three harder ones. R1 is <em>defined down</em> into R2. R4 (color) is a genuine REDUCE — abelian-isotropy uniqueness replaced an asymmetric hand-wave with a stronger, smaller theorem. R2 and R5 are each a <em>single bounded theorem</em> (a classification; a metric derivation), both carrying explicit κ³/π + G1/G2/G5 guards so a target-loaded or reverse-engineered win cannot be banked. R3/R6/R9 are mechanical. No DERIVED-CLOSED is promised on the forcedness question. A full campaign moves the gate from <em>DECLARED-FROZEN with asserted reproducibility</em> to <em>DECLARED-FROZEN with machine-verified reproducibility + a named axiom floor + an architecture-neutral color-carrier theorem</em> — a real honesty/reproducibility/forcedness gain, <strong>not a promotion</strong>. A <code>REFUTED-ECONOMY</code> (the simpler 4D realization wins) remains a live, honest, equally valuable outcome.</p>
+<hr />
+<h2>7. Honest ceiling &amp; scope</h2>
+<p><strong>What SG-1 is.</strong> A <strong>freeze-and-reproduce certificate</strong> for a fully specified, layer-complete, reproducible three-layer object — $\mathfrak{B}_{\rm active}$ frozen as content hash <code>dcc66f1b2685</code> / meta-hash <code>a5b1e6f9d951</code>, with no-layer-smuggling (B2), term-level load-bearing (C1–C10), and an R0 reproducer that regenerates every hash (now machine-verified target-blind). The weak ($S^2$, F1) and hypercharge ($S^1_Y/\mathbb{Z}_2$, F2) carriers are <strong>forced within the grammar</strong>; the color carrier is <strong>clean by an architecture-neutral theorem</strong> (abelian-isotropy uniqueness), and the one cheaper competitor ($CP^2$) was <em>built end-to-end and breaks</em> at Gate 2.</p>
+<p><strong>What SG-1 is not — stated flat out.</strong>
+- <strong>It is not a derivation.</strong> The gate declares and freezes an object; it derives no physics. <em>selection ≠ derivation; declared + frozen ≠ derived.</em>
+- <strong>It is not a uniqueness theorem.</strong> Minimality is <strong>selector-minimal, category-relative only</strong> (inside R2.5: forces = isometries, compact, classified structures, admissible bundles). <em>category-relative ≠ absolute.</em>
+- <strong>Absolute irreducibility is OPEN and uncomputable</strong> — the universal negative "no competitor anywhere is shorter" equals $K(T)$ and is unprovable for everyone. This is a hard limit on all of physics, not a gap in ours. <em>The bounded claim (grammar-relative forcing) is the ceiling, not a hedge.</em>
+- <strong>It bottoms on E.</strong> The target ledger $T$ has the SM chiral content $E$ on both sides; $E$ cancels. The strongest reachable claim is "shortest-recipe generator of the flavor/coupling data, given E." <em>given-E ≠ derivation of E.</em> $E$ itself stays un-forced (the corpus attempt to force it was REFUTED).
+- <strong>The dimension-ladder lower-bound matrix is a survey, not a certified classification</strong> (Certificate 3 OPEN).
+- <strong>The search category and the SU(3)-shelf completeness (N.4)</strong> are the corpus's own intended first review targets.
+- <strong>The MDL metric under which 13D wins is itself unproven</strong> against the dimension-first alternative — the decisive seam (R5). The first-pass plug pinned the residual to one named axiom (AXIOM-COMMON-CURRENCY / the granularity-MDL bridge); reject it and the metric fork reopens and SHAPE folds for everyone.</p>
+<p><strong>The anchors paid (charged in the open).</strong> SG-1 charges the four headline anchors $\{M_{\rm Pl},\ \alpha_i(M_Z),\ y_t,\ |V_{us}|\}$ <strong>plus ~9–10 injected reals</strong> ($N_d, N_e, N_\nu$; the $\delta$ triple; $\theta_H^\star$) — <strong>~13–14 measured reals total</strong>, not the retired "4-in" headline. It witnesses itself on the frozen-object hashes (the DERIVED reproducibility leg, a self-witness that closes no physics). The forcedness question additionally depends on the un-anchored GRANULARITY root (R5) and bottoms permanently on spectrum-E. It anchors on <strong>no new measured number</strong> — which is precisely why the forcedness claim is <em>selected, not forced</em>.</p>
+<p><strong>The single sentence.</strong> SG-1 freezes a fully specified, layer-complete, reproducible three-layer object and certifies it is the selector-minimal survivor inside the declared category — it does <strong>not</strong> prove the object is unique, forced, or derived, and the honest input cost is ~13–14 measured reals, not 4.</p>
+<p><strong>Dissolved unicorns — shared ceilings, never claimed as proven, never listed as weakness:</strong>
+- <em>Absolute irreducibility</em> (no competitor anywhere under any math is shorter) = $K(T)$, uncomputable for everyone — a limit on all knowledge.
+- <em>"The unique geometry nature could have used"</em> — an absolute-uniqueness claim over all possible geometries; no framework in physics can prove it, so the bounded claim (selector-minimal survivor inside the declared category) is the ceiling.
+- <em>"No future theory could do better"</em> — an open-ended universal negative over all future theories; unprovable in principle and correctly never claimed.</p>
+<p><strong>Binding close.</strong> No status was ever upgraded. Frozen branch <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code> READ-ONLY. given-E ≠ derivation of E; selection ≠ derivation; dissolved ≠ solved; AXIOM-CLOSED ≠ proven; category-relative ≠ absolute. Nothing applied, nothing deployed. SG-1 remains <strong>DECLARED-FROZEN</strong> — a serious candidate, frozen and reproducible, not yet proven unique.</p>
+<hr />
+<p><em>Full dossier built from the SG-1 handoff, the existing closure-attack article, the SHAPE realization packet (final-status split, dimension-ladder MDL audit certificate, color-rung CP² refutation, granularity-metric target), the SG-1 completion result, and the first-pass plug. Common material referenced to the published manuscript (GUT.html / TOE.html), not duplicated. Our geometry (the frozen 13D K₆ branch) only.</em></p>
+</body></html>

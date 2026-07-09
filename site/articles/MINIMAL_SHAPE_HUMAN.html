@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Is the Geometry Minimal? (plain language)</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+</head><body>
+<div class="render-banner">Is the Shape the Simplest One? — An Honest Plain-Language Account — rendered package. Rendered from <code>MINIMAL_SHAPE_HUMAN.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>Is the Shape the Simplest One? — An Honest Plain-Language Account</h1>
+<h3>In the spirit of <em>In Search of Nature's Elegance</em></h3>
+<blockquote>
+<p><strong>What this is.</strong> A plain-language companion to the technical "Minimal-Shape Suite." It carries the <em>same</em> honest conclusions as the technical version, in words a careful non-physicist can follow start to finish. It proves nothing new, changes nothing, and certifies no new number. It argues a <em>status</em> — and it argues it cautiously.
+<strong>The frozen object it discusses</strong> (the "13-dimensional geometry," labeled <code>dcc66f1b2685</code>) is <strong>read-only</strong>. Nothing here touches it.
+<strong>Promotions: 0.</strong> Translation: nothing in this document gets upgraded from "we think" to "we proved."</p>
+</blockquote>
+<hr />
+<h2>The one sentence we refuse to write</h2>
+<p>There is a tempting sentence that a less careful version of this work would put right at the top:</p>
+<blockquote>
+<p><em>"We proved the shape of the universe is the only one possible — it's forced."</em></p>
+</blockquote>
+<p>We will not write that sentence, anywhere, in any disguise, because it is not true. The honest claim is weaker, and the whole point of this document is the gap between the two. Here is the honest claim, in one breath:</p>
+<blockquote>
+<p>Among the candidate shapes we actually wrote down and checked, under a simplicity rule we fixed in advance, the frozen geometry is the <strong>simplest one that does the whole job</strong>. No serious rival currently beats it. And any workable theory of our world has to carry at least three basic "parts." But none of this <em>forces</em> the shape — it <strong>selects</strong> it from a menu. <strong>Choosing the best item on a menu is not the same as proving it's the only dish that could ever exist.</strong></p>
+</blockquote>
+<p>That distinction — <em>selecting</em> versus <em>forcing</em> — is the entire story. Everything below is the careful defense of what we genuinely earned, and the equally careful confession of what we did not. At the very end there is a real fork in the road, left genuinely open: either the shape stands, or someday something simpler shows up and the shape quietly folds into it. We do not pretend to know which.</p>
+<p>This document is written to survive a <em>hostile</em> reading — the kind of reviewer who trusts nobody, who hunts for the place where "we selected it" got dressed up as "we proved it," and who rejects any grand "nothing else could ever work" claim on sight. Where an earlier review already caught real weaknesses in this work, we repeat those weaknesses here in plain sight rather than hiding them.</p>
+<hr />
+<h2>1. Two things that share the word "minimal"</h2>
+<p>The word "minimal" is doing dangerous double duty. People use it for two completely different claims, and pretending they're the same is exactly the trap.</p>
+<p><strong>Claim A — "Forced" (the strong one).</strong> <em>Some deeper principle makes this shape unavoidable. Anyone who accepts the principle has to accept the shape.</em> To knock this down, you'd only need to find one example where the principle holds but the shape doesn't.</p>
+<p><strong>Claim B — "Cheapest on the menu" (the honest one).</strong> <em>Out of the candidate shapes we listed, and judged by a simplicity rule we set in advance, this one is the cheapest that still gets the full job done.</em> To knock this down, you'd find a cheaper candidate, on the same menu, that <em>also</em> does the full job.</p>
+<p>The difference is the word <strong>"all."</strong> Claim A quantifies over <em>every conceivable</em> structure in the universe. Claim B quantifies over <em>the menu we drew</em>. We earn Claim B (within the menu). We do <strong>not</strong> claim, and have <strong>not</strong> earned, Claim A.</p>
+<p>Why does the menu version still count for something? Because it isn't vibes — it's a precise, checkable, falsifiable statement: <em>given this list of candidates, this list of requirements, and this simplicity ranking, the frozen shape is the winner.</em> The honesty is in never quietly dropping the "given this list." We always say which menu we're standing on, and we tell hostile reviewers exactly where to attack it: don't attack the winner, attack the menu and the ranking rule.</p>
+<p><strong>The hard rule we live by:</strong> a search that returns one winner <em>feels</em> exactly like a proof. You run the machine, one option survives, and it's tempting to write "therefore it's forced." But "only one survivor" is only-one-survivor <em>relative to the menu and rule you chose</em>. Change the menu, and the survivor can change. A genuine proof has no such dependence — it survives no matter how big you make the universe of options. So: a unique survivor is always reported as "the selected winner," never as "forced." The moment a sentence says "therefore the shape <em>must</em> be...," it is wrong unless the "must" is openly tied to "...within this declared menu."</p>
+<hr />
+<h2>2. The menu, and the simplicity rule</h2>
+<h3>How the candidates get filtered</h3>
+<p>The shape is <strong>not</strong> picked by scanning every possible geometry and admiring one. It's picked by a funnel that runs the <em>other</em> way around: start from the known facts about the particles and forces we actually observe, then ask which candidate shapes survive <em>every</em> required test. The tests are things like: does it reproduce the known forces? the right electric charges? left/right-handedness done correctly? three families of matter? does it stay internally consistent (no fatal contradictions)? does it protect the proton from decaying too fast? and so on — ten tests in all.</p>
+<p>The crucial ordering: <strong>simplicity is applied last, and only to candidates that already passed every test.</strong> This is what stops "minimal" from collapsing into "the cheapest thing that barely does anything." The cheapest object imaginable is <em>empty space with nothing in it</em> — and it's thrown out immediately, because it fails the very first real test (it produces no forces). <strong>Cheap but incomplete is disqualified, by rule.</strong></p>
+<h3>Declared in advance — that's the whole trick</h3>
+<p>The menu is <strong>declared before</strong> the comparison, and then frozen with a fingerprint (a hash). This matters enormously for an honest result:</p>
+<ul>
+<li>A menu drawn <em>after</em> you already know which shape you wanted is just a fit — you rigged the contest.</li>
+<li>A menu drawn <em>before</em> the comparison, and locked, is a genuine hypothesis you can be held to.</li>
+</ul>
+<p>And there's an explicitly banned move, named out loud so a reviewer can check it didn't happen: <strong>you may not shrink the menu mid-contest to delete a rival that was beating you.</strong> ("Compare against everything... then quietly erase the competitor that won.") That's the classic cheat, and it is forbidden by a written rule.</p>
+<h3>The simplicity rule, in plain words</h3>
+<p>Here's the heart of it. The simplicity rule (Occam's razor, in the trade) has one absolute restriction stated up front:</p>
+<blockquote>
+<p><em>You may remove a part of the structure only if the building still stands once it's gone.</em></p>
+</blockquote>
+<p>In other words, the machine does <strong>not</strong> select the simplest theory. It selects the <strong>simplest theory that is still complete</strong> — and "complete" is decided by the ten tests, not by taste. After that one ironclad rule, the tie-breakers prefer: fewer dimensions, fewer free inputs you have to choose by hand, fewer independent knobs, one mechanism per job (no doing the same job twice), and no decorative parts that serve no test.</p>
+<p>Boiled down:</p>
+<blockquote>
+<p><strong>Completeness beats simplicity. Simplicity only gets to rank the options that are already complete.</strong></p>
+</blockquote>
+<p>What makes this a <em>real</em> rule and not a convenient excuse is that it cuts in <strong>both directions</strong> — and we show both:</p>
+<ul>
+<li><strong>Sometimes it keeps an "expensive" part.</strong> There's a flavor structure (call it the "rulebook chamber") that the simplicity tie-breaker, on its own, would happily delete to save complexity. But deleting it breaks one of the ten tests. So the ironclad rule keeps it — <em>by the razor's own logic</em>, not in spite of the razor.</li>
+<li><strong>Sometimes it pays for extra dimensions.</strong> As we'll see in the next section, the rule forces us to keep a 6-dimensional shape over a <em>cheaper</em> 4-dimensional one — because the cheaper one can't pass a test without cheating.</li>
+</ul>
+<p>A rule that <em>both</em> keeps an expensive part <em>and</em> pays for extra dimensions — driven by a single written priority — is behaving like a genuine constraint, not like something reverse-engineered to reach a desired answer. If it only ever cut toward the answer we wanted, that would be a red flag. It cuts both ways.</p>
+<h3>Why "completeness beats simplicity" is the anti-cheat, not the cheat</h3>
+<p>The obvious suspicion: <em>"'Completeness beats simplicity' sounds like a license to keep whatever you like, just by declaring it 'required.'"</em> The defense is that "required" is <strong>not</strong> a matter of taste here — it's a yes/no outcome of a re-runnable test. A part is "required" if and only if removing it makes a specific named test <em>fail</em>, and you can watch it fail by re-running the machine. Delete the flavor chamber, re-run, watch the flavor test break. That's a checkable fact, not an opinion. A <em>taste</em>-based "required" would be a cheat. A <em>test</em>-based "required" is a razor. This one is test-based.</p>
+<hr />
+<h2>3. The case that looks most suspicious — worked out in the open</h2>
+<p>There is exactly one place in this whole story where the rule makes us pay <em>more</em> (two extra dimensions) instead of less. A hostile reviewer will go straight there and say: <em>"They reverse-engineered a special bonus for 'forcedness' so that the answer would come out with three families of matter."</em> So let's work it completely, in the open.</p>
+<h3>Two candidates, side by side</h3>
+<p>Two internal shapes both reproduce the strong-force symmetry exactly. Both pass the early tests. They differ at exactly <strong>one</strong> test — the one that's supposed to deliver <strong>three families of matter</strong> — and only there:</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th style="text-align: right;">Dimensions</th>
+<th>Reproduces the symmetry?</th>
+<th>How many families does it give?</th>
+<th>Simpler?</th>
+<th>Passes the "three families" test?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The cheaper shape (call it CP²)</td>
+<td style="text-align: right;"><strong>4</strong></td>
+<td>Yes, exactly</td>
+<td><strong>Adjustable</strong> — you can dial it to anything</td>
+<td><strong>Yes</strong> (2 fewer dimensions)</td>
+<td><strong>No</strong> — the count isn't pinned; you'd have to <em>choose</em> it by hand</td>
+</tr>
+<tr>
+<td>The frozen shape (K₆)</td>
+<td style="text-align: right;"><strong>6</strong></td>
+<td>Yes, exactly</td>
+<td><strong>Three — locked in</strong>, no dial</td>
+<td>No (costs 2 dimensions)</td>
+<td><strong>Yes</strong> — three falls out, forced</td>
+</tr>
+</tbody>
+</table>
+<h3>The deciding move: "adjustable counts as a failure"</h3>
+<p>Here is the whole crux in one sentence: <strong>a number you can dial to the answer you want is not a pass — it's a fit.</strong> The cheaper 4-dimensional shape <em>can</em> produce three families, but only if you reach in and set a free dial to the right value after the fact. The frozen 6-dimensional shape produces three families with no dial at all — three is locked in by the shape's geometry.</p>
+<p>The rule that "adjustable = failure" is <strong>not</strong> invented for this one case. It's the same anti-fitting discipline applied everywhere in the program — the same rule that forces every other input to be declared and frozen in advance rather than quietly tuned to match reality. Because that rule already existed program-wide, when the cheaper shape can only hit three families by dialing a knob, it's offering a <em>fit</em>, and the pre-existing rule rejects fits.</p>
+<p>So, step by step, with nothing hidden:</p>
+<ol>
+<li>The simplicity tie-breaker prefers the cheaper 4-D shape. <strong>No argument.</strong></li>
+<li>The completeness rule then asks: does the cheaper shape pass the three-families test <em>without dialing a knob</em>? <strong>No</strong> — the only way to get three out of it is to set a free dial by hand, which the anti-fitting rule forbids. So the cheaper shape is <strong>incomplete</strong>.</li>
+<li>Therefore the simplicity tie-breaker never even gets to rank the cheaper shape — it was already removed for being incomplete. The 6-D shape wins as the cheapest <strong>complete</strong> survivor.</li>
+</ol>
+<p>This is <strong>exactly</strong> the same operation as keeping the "expensive" flavor chamber: the cheaper option is incomplete, so the dearer complete option wins. It is <strong>not</strong> a special prize handed to the 6-D shape for being "forced."</p>
+<h3>Saying it the honest way</h3>
+<p>You'll sometimes see this glossed casually as <em>"the selector pays two extra dimensions for forcedness."</em> That phrase is exactly the one a hostile reviewer pounces on, and rightly so. The honest reading — the one the manuscript itself now states — is this: <strong>the cheaper 4-D shape was dropped because it can't pin down three families without tuning a dial. That makes it incomplete. The dearer 6-D shape is kept because it's the cheapest <em>complete</em> option.</strong> "Forcedness" is not a new bonus being chased; it's just another name for "passes the test without cheating."</p>
+<h3>The strongest version of the objection — and the honest answer</h3>
+<blockquote>
+<p><strong>Objection (hostile reviewer):</strong> "The anti-fitting rule is doing all the work, and you only reach for it where it conveniently eliminates the one rival that could have given a <em>different</em> number of families. The answer you want is three families. 'Adjustable = fail' is a rule you invoke precisely when a rival's freedom would let it miss your target. That's loading the dice."</p>
+</blockquote>
+<p>This is the strongest form, and it deserves a straight answer in three parts.</p>
+<p><strong>Part 1 — Is the rule used only here? No.</strong> The anti-fitting rule is applied <em>everywhere</em> in the program, not just at this one fork. Every adjustable-after-the-fact quantity is barred by the same frozen discipline. So this isn't a one-off rule conjured to kill one rival. <em>On the narrow question of smuggling, this part of the objection is answered.</em></p>
+<p><strong>Part 2 — Does the rule only ever cut toward the answer? No.</strong> The same rule <em>keeps</em> an expensive part (the flavor chamber) and <em>pays</em> for expensive dimensions (the 6-D shape), and elsewhere it <em>cuts</em> cheaper shapes when they're redundant. A dice-loaded rule would only ever push toward the target; this one sometimes costs you simplicity to preserve completeness. That's a constraint behaving like a constraint. <em>On the narrow question of smuggling, this part is answered too.</em></p>
+<p><strong>Part 3 — The part that is NOT answered, and we say so.</strong> The objection has a true residue that no amount of "we apply it everywhere" can erase: <strong>the rule bottoms out on the fact that the world has three families.</strong> "Three families, locked in" is only a <em>requirement</em> because we are matching the three families we actually observe. If the world had two families, the test would demand a locked-in <em>two</em>. So the three-families count is an <strong>input</strong> — a fact about which particles exist — not something the geometry derives. Which means: the elimination of the cheaper shape is a clean, fair selection step <strong>given that the world has three families.</strong> It is <strong>not</strong>, and we do not claim it is, an explanation of <em>why</em> three. That residue stands, and we hand it to the reviewer rather than papering over it.</p>
+<p>So the bottom line on this contested case: it is <strong>earned as a selection move</strong>, and it is <strong>explicitly not a derivation</strong> of how many families exist.</p>
+<h3>One more witness that the funnel is a machine, not a story</h3>
+<p>To show this isn't a tale told once to reach a convenient answer, note the funnel runs the <em>ordinary</em> (cut-toward-cheaper) direction elsewhere too, by the same rule: a 3-sphere shape is dropped in favor of a 2-sphere ("one extra dimension, no test served"), and a more elaborate twisted-torus is dropped in favor of a simpler circle-fold ("everything it offers is already supplied more cheaply"). Those are ordinary simplicity cuts. The 6-D-over-4-D case is the <em>unusual</em> direction (paying more), run by the <em>same</em> machine with the completeness rule switched on. A reviewer who accepts the ordinary cuts as fair Occam reasoning has to accept that the unusual one is the same machine — with the only remaining thing to contest being the input (three families), which we already concede is unforced.</p>
+<hr />
+<h2>4. The "at least three parts" floor</h2>
+<h3>What it claims</h3>
+<p>Everything in sections 2–3 lives <em>inside the menu</em>. The next result reaches for something broader — a statement about <em>any</em> workable theory of our world, not just shapes of this particular family. The claim:</p>
+<blockquote>
+<p>Any theory that meets the real physical burden must contain functional versions of <strong>three basic parts</strong>:
+- a <strong>Stage</strong> — somewhere for things to live and propagate (the geometry / space part);
+- a <strong>Rulebook</strong> — what's allowed and what isn't (the selection / consistency part);
+- <strong>Actors</strong> — the actual stuff: matter, forces, the Higgs, the proton (the content part).</p>
+</blockquote>
+<p>A rival theory doesn't have to use our words or our notation. But it must carry these three <em>jobs</em> somehow — and if it tried to drop one, it would fail some part of the physical burden.</p>
+<h3>What this earns — and what it doesn't</h3>
+<p>The earned part: <strong>you need at least three parts.</strong> The argument is a simple three-way contradiction — drop the Stage and there's nowhere for anything to exist; drop the Rulebook and nothing constrains what's allowed; drop the Actors and there's no matter or forces. The frozen shape has exactly three parts, sitting right on the floor.</p>
+<p>But here's the careful limit: <strong>this says "at least three," not "these particular three are the cheapest."</strong> It rules out any rival that tries to win by having <em>fewer</em> than three parts. It says <strong>nothing</strong> about whether <em>our</em> filling of those three parts is the simplest possible filling. (That harder question is the open one — see section 6.) There's also a guard against a cheap dodge: you can't win by <em>fusing</em> parts to "have fewer pieces," because fewer pieces isn't fewer jobs — if you fuse two jobs into one piece, that piece is just secretly doing two jobs.</p>
+<h3>Two honest weaknesses we won't hide</h3>
+<p>An earlier hostile review caught two real problems here, and we state them plainly.</p>
+<p><strong>Weakness 1 — the argument is close to circular.</strong> The three "parts" are <em>defined</em> as restatements of the very requirements they're supposed to follow from. So "the requirements imply you need a Stage" is uncomfortably close to "these requirements imply a name for these requirements." That's true, but it's nearly saying the same thing twice. <em>What survives:</em> the <em>count</em> — that you genuinely can't do the job with fewer than three distinct jobs — carries a little real content. <em>What does not survive:</em> you cannot use this floor as a springboard to any grand "nothing simpler could ever exist" claim. A near-tautology can't be a gateway to a sweeping universal.</p>
+<p><strong>Weakness 2 — the "physical burden" smuggled in some house rules.</strong> The list of requirements was billed as universal — true of <em>any</em> workable theory. But two of the twelve items on the list are really <em>our program's own methodology</em> (things like "freeze your inputs before comparing" and "make everything reproducible"), not laws any theory must obey. A plain Standard Model with measured constants is a perfectly good description of the world — and it doesn't carry "freeze before comparing" as an internal property; that's a rule about <em>how we argue</em>, not about the theory itself. By baking our own house rules into the supposedly universal list, the requirement set quietly guarantees that only theories shaped like ours pass. <strong>The honest fix:</strong> the "three parts" floor is earned only over the <em>genuinely physical</em> requirements (the ten physics tests), with the two methodology items moved to where they belong — rules about how any theory must be <em>presented</em>, not what it must <em>be</em>.</p>
+<h3>The floor, netted out</h3>
+<p>The floor is real but modest. It tells you the shape isn't <em>over</em>-built in <em>number of parts</em> — three jobs, three parts, no waste. It tells you no rival can undercut it by carrying fewer than three parts. It tells you <strong>nothing</strong> about whether the specific <em>contents</em> of those parts are the leanest possible. That's the honest extent.</p>
+<hr />
+<h2>5. The rival audit — "nobody's beaten it yet," not "nothing ever could"</h2>
+<h3>What kind of claim this is</h3>
+<p>The strongest <em>negative</em> a selection can honestly carry is: <strong>"no preferred rival currently survives."</strong> This is <strong>failure-to-find across a list we checked</strong> — emphatically <strong>not</strong> a proof that no rival exists. We label it, repeatedly and deliberately, "current record, not a proof of nonexistence."</p>
+<p>To actually <em>beat</em> the shape, a rival has to: (1) meet the real physical burden; (2) come with a frozen, reproducible certificate — declared inputs, no hidden knobs, clear pass/fail; (3) be genuinely simpler once you break it into Stage / Rulebook / Actors; and (4) not cheat. A rival that is merely "a famous, respectable framework" but ships <em>no</em> such frozen, lower-cost certificate doesn't clear the bar — <strong>not because it's impossible, but because nobody has actually supplied the goods.</strong></p>
+<h3>The five most dangerous rivals</h3>
+<p>Five well-known frameworks are the serious threats. Each is currently set aside — but each remains a live future candidate, and we say why none currently wins:</p>
+<ul>
+<li><strong>Noncommutative geometry / spectral triples</strong> — the most naturally "three-parts" rival of all. Set aside for now only because no one has supplied a package that delivers exactly the Standard Model plus three families plus the rest, at lower cost, with a frozen certificate. A serious future candidate.</li>
+<li><strong>Traditional extra-dimension (Kaluza-Klein) alternatives</strong> — speak the same language as our shape; a leaner version would directly threaten it. Set aside only because no concrete leaner survivor has been supplied that passes all the tests without cheating. A direct future threat.</li>
+<li><strong>String / F-theory</strong> — carries forces, handedness, families, and more. Set aside because, once you account for all the hidden machinery (fluxes, branes, the vast landscape of options), the true cost is usually <em>large</em>, and no tuning-free frozen version has been supplied.</li>
+<li><strong>Finite / discrete ("the universe is fundamentally a finite structure") models</strong> — the most <em>interesting</em> threat, because they might merge two of our basic posits into one. Set aside as underdeveloped against the full set of tests — they can't win just by <em>sounding</em> philosophically simpler.</li>
+<li><strong>Grand-unified groups like SO(10)</strong> — elegant because they pack a whole family of matter into one neat object. Set aside because that elegance reappears as cost elsewhere (the breaking chain, proton issues, extra unobserved particles) once you account for everything.</li>
+</ul>
+<h3>The audit's real weaknesses — stated straight</h3>
+<p>A hostile reviewer must hear the audit's genuine limits, and here they are without softening:</p>
+<ul>
+<li><strong>The decisive column is mostly "Unknown."</strong> For these five rivals, the make-or-break question — <em>is it actually simpler once you break it down?</em> — honestly reads "Unknown" or "probably not." The most dangerous rivals are precisely the ones we <em>haven't fully adjudicated</em>. So the real statement is "nobody has handed us a winning package," not "we checked and they all lose." That's weaker, and it's the true one.</li>
+<li><strong>There's no finished scorecard yet.</strong> The "how complex is it, exactly?" measure has no agreed units and no rule for adding things up, so "simpler once broken down" isn't yet a question you can answer by pure mechanical check. The audit is, honestly, a <em>well-organized to-do list with priorities</em> — not yet a finished, fully objective instrument.</li>
+<li><strong>Breaking a rival into its three parts is done by hand, not by algorithm.</strong> There's no automatic procedure for it. Combined with a known escape hatch ("any rival that <em>looks</em> like it's missing a part is probably hiding that part somewhere"), the "three parts" idea becomes hard to <em>disprove in practice</em> — any apparent counterexample can be waved away as "secretly carrying" the missing part. A reviewer is right to flag this lopsidedness, and it caps how much the audit can claim.</li>
+</ul>
+<h3>What the audit nonetheless earns</h3>
+<p>Despite all that, the audit earns a real, bounded thing:</p>
+<blockquote>
+<p><strong>Earned:</strong> No top-tier preferred rival <em>currently</em> survives. "Currently" is never upgraded to "ever." The door to reopening is explicit and standing — every entry carries the condition under which it gets reopened.</p>
+</blockquote>
+<p>And it earns something procedurally useful even where it doesn't earn a verdict: it spells out <strong>exactly what a rival must do to win.</strong> That turns a vague "nobody's beaten us" into a precise target anyone can aim at. A hostile reviewer who wants to demolish the shape now knows precisely the package to build — which is exactly what a <em>falsifiable</em> claim should offer.</p>
+<h3>The reopen rule, as a live promise</h3>
+<p>This is not decoration. It's the operational meaning of "current record": <em>any</em> rival that meets the physical burden, is genuinely simpler once broken down, and comes with a frozen, reproducible, tuning-free certificate — <strong>immediately reopens the question and may fold the shape.</strong> A claim that a named, buildable object could overturn is a falsifiable claim. A claim that nothing could ever touch is dogma. This one is the former.</p>
+<hr />
+<h2>6. What we did NOT earn — said plainly</h2>
+<p>This section is the backbone of the document's honesty. Two things are not earned. One of them even has a "QED" printed over it in the technical work — and we explain exactly why that "QED" is conditional only.</p>
+<h3>6.1 "Our specific filling is the cheapest possible" — NOT earned</h3>
+<p>Section 4 earned "you need at least three parts." The natural next step would be to earn the stronger thing: "and <em>our particular contents</em> of those three parts are the cheapest contents possible." That step is <strong>not earned.</strong></p>
+<p>The technical proof of it rests on <strong>five supporting claims, and all five are currently open</strong> — none is proven:</p>
+<ol>
+<li><strong>Is our Stage the minimal stage?</strong> <em>Partly supported, not proven.</em></li>
+<li><strong>Is our Rulebook the minimal rulebook?</strong> <em>High-stakes and risky — the flavor chamber is a known weak link.</em></li>
+<li><strong>Is our set of Actors the minimal set?</strong> <em>A strong candidate, but still needs a real "no alternative exists" proof.</em></li>
+<li><strong>Can no rival cheat by fusing parts?</strong> <em>Needs a proper, formal definition of "cheating."</em></li>
+<li><strong>Does no simpler rival exist?</strong> <em>Open — this is just the rival audit from section 5, which is itself unfinished.</em></li>
+</ol>
+<p><strong>The "QED" problem, said for the reviewer.</strong> The technical proof prints "QED" — but all the proof actually does is chain those five open claims together: <em>if all five were true, then the conclusion follows.</em> Since all five are open, that "QED" proves only the empty thing "if A, then A." It adds no real new content. To its credit, the technical document <em>does</em> disclose this — the header says "not fully proven," and the "QED" was forced to read "QED (conditional on five claims, all currently open)." So this is <strong>not</strong> fabrication. But anyone who lifted that page out of context would see a clean "QED" sitting over an unfinished result. <strong>The honest label: this is a valid <em>skeleton</em> of a proof — an outline waiting to be filled — not a result. Any "QED" here is conditional only.</strong></p>
+<p>There's a compounding problem: the "how complex is it" measure isn't even well-defined yet (no units, no way to combine its parts into a single ranking). Until that's fixed, even the <em>statement</em> of "our filling is cheapest" isn't fully well-posed — let alone proven.</p>
+<h3>6.2 "Nothing simpler could ever exist" — NOT earned, and it's a genuine fork</h3>
+<p>The technical work includes a document whose <em>main result is a limitation</em>, on purpose:</p>
+<blockquote>
+<p><strong>The shape may be claimed as the menu-relative selected winner. It may NOT be claimed as absolutely irreducible — i.e., we cannot claim nothing simpler could ever exist.</strong></p>
+</blockquote>
+<p>Why not? Because "nothing simpler could <em>ever</em> exist" is a sweeping universal negative over an open-ended list of all possible theories — and that kind of claim is, in principle, never closable by search. (You can always wonder about the rival nobody has thought of yet.) Worse, the only kind of certificate that <em>would</em> establish it would actually be a <em>derivation in disguise</em> — which is the very thing this whole document refuses to claim.</p>
+<p>So we leave the fork genuinely open, with <strong>both</strong> roads live:</p>
+<ul>
+<li><strong>Road A — the shape stands.</strong> If, over time, no simpler workable rival ever appears (and ideally someone proves a real "no alternative" theorem), then the shape earns its place as a genuine basic fact about the world.</li>
+<li><strong>Road B — the shape folds.</strong> If someone <em>does</em> exhibit a simpler workable rival — the finite/discrete models are the most likely candidate, possibly merging two of our basic posits into one — then the shape is <strong>not</strong> irreducible after all. <strong>And this would not be a failure.</strong> It would be a <em>win</em> for the whole project's actual goal, which is to need <em>fewer</em>, <em>sharper</em> basic assumptions. Folding the shape into something deeper is the dream outcome, not a defeat.</li>
+</ul>
+<p>A project that names the exact scenario in which its own central object <em>disappears</em> — and calls that scenario a success — is not in the business of hype. That, more than anything, is the signal that this work is disciplined rather than self-serving.</p>
+<h3>6.3 A bookkeeping flag, for the careful reader</h3>
+<p>One citation in the technical work points to an internal "axiom ledger" with specific wording that does <strong>not</strong> actually appear in the main manuscript file when you search for it. The other citations on the same topic <em>do</em> check out. The missing one most likely lives in a separate companion file the authors can supply — but as written, it can't be verified against the named source. We flag this rather than hide it.</p>
+<hr />
+<h2>7. What it all really bottoms out on: which particles exist</h2>
+<h3>The decisive fact</h3>
+<p>Here is the deepest point, and the one the careful reader should walk away with. Every genuine simplification we banked under "the shape" is <strong>computed from, and assumes, the list of particles that actually exist</strong> — call that list <strong>E</strong>: which kinds of matter, and the fact that there are three families.</p>
+<p>The real simplifications the geometry achieves — pinning down a certain symmetry group, reading off the left/right-handedness pattern, getting "three families" as a locked-in geometric count — every one of them <em>takes E as input and hands back a tidy label.</em> None of them <em>produces</em> E. They consume it.</p>
+<p>So yes, the reducible part of the shape genuinely compresses — it really does get simpler and tidier. But it compresses <strong>down onto E, and stops there.</strong> E is the floor.</p>
+<h3>The wall: nothing forces E</h3>
+<p>The question that would turn this whole thing from a <em>selection</em> into a <em>derivation</em> is: <strong>what forces E? What makes those particular particles, and exactly three families, unavoidable?</strong> We checked the candidate principles that might force E, and every one of them fails:</p>
+<ul>
+<li><strong>"Consistency plus simplicity forces E"</strong> — refuted. Consistency is necessary but not sufficient; it leaves the number of families open and admits other solutions. And trying to use the "three families" count to force E is circular, because that count is computed <em>using</em> E in the first place.</li>
+<li><strong>"The cost-of-existence floor forces E"</strong> — explicitly does not follow. Having a smallest unit of action buys you the <em>existence</em> of finite, well-defined things; it never hands you specific particle charges or a specific particle list.</li>
+<li><strong>"The simplicity funnel forces E"</strong> — rejected, because that's the original sin all over again: selecting the winner is not deriving it. It just relocates the assumption.</li>
+<li><strong>A genuine forcing theorem</strong> — does not exist. This is the only road that could ever count, and there's nothing on it.</li>
+</ul>
+<p>And it's not merely that nobody has tried. Outside results make forcing E look genuinely <em>hard</em>, not just unattempted: there are <em>infinitely many</em> internally consistent ways to extend the Standard Model, and the number of families simply isn't fixed by consistency alone. So "no forcing theorem yet" isn't a gap that's obviously about to close — it's a wall with known structural reasons for standing.</p>
+<h3>The honest punchline</h3>
+<p>The competitor work labels the bottom of the stack "Shape." The more honest framing — which we adopt — is that <strong>E (the actual list of particles, with three families) is the irreducible core, and "Shape" is the compressible wrapper around it.</strong> This matters for a reader scanning for "what is <em>actually</em> being assumed here." The answer is: <strong>E.</strong> Not the geometry — the particle content the geometry is built to host.</p>
+<blockquote>
+<p><strong>In one breath:</strong> Accept E — which particles exist, and three families — and accept the three-part Stage / Rulebook / Actors architecture. Everything else about the shape is either <em>selected as cheapest given E</em>, or <em>computed from E</em>. Forcing E is the single decisive obstruction, and no principle on offer forces it.</p>
+</blockquote>
+<p>To keep ourselves honest, every candidate simplification is run through three tests before we bank it: (1) was the principle motivated independently, not invented to hit our answer? (2) does it genuinely <em>derive</em> the result, with no free dial left to set? (3) is it free of any disguised version of the answer being fed back in? Any failure means "this was just a relabeling" — rejected. The genuine simplifications <em>pass</em> all three — but they <em>land on E</em>, so they relocate <em>within</em> the problem rather than escaping it. Banking them as "Shape reduced" without naming the E-residue would be a soft overclaim, and we don't.</p>
+<hr />
+<h2>8. The honest verdict, and what would change it</h2>
+<h3>Where things stand</h3>
+<p><strong>The frozen 13-dimensional geometry — "the Shape" — as of today:</strong></p>
+<p><strong>EARNED (we state these as earned):</strong>
+1. <strong>It's the simplest one that does the whole job, among the options we checked.</strong> The cheapest <em>complete</em> survivor of a declared, frozen menu, under a simplicity rule where completeness comes first. And the contested "keep the 6-D shape over the cheaper 4-D one" call is a clean, even-handed application of that same rule — the cheaper shape was dropped because it can't pin three families without tuning a dial — <strong>not</strong> a reverse-engineered bonus.
+2. <strong>Any workable theory needs at least three basic parts</strong> (Stage, Rulebook, Actors). This is <em>necessary, not sufficient</em>, and it holds over the genuinely physical requirements only.
+3. <strong>No serious rival currently beats it</strong> — across five audited frameworks, as a <em>current record</em>, with the door to reopening explicitly live. "Currently" is never upgraded to "ever."</p>
+<p><strong>NOT EARNED (we say so plainly):</strong>
+- <strong>"Our specific filling is the cheapest possible"</strong> — five supporting claims all open; any "QED" is conditional only; the complexity measure isn't even well-defined yet.
+- <strong>"Nothing simpler could ever exist"</strong> — open, and a genuine fork: either the shape stands, or a simpler workable rival appears and the shape folds (which would be a <em>success</em>, not a failure).</p>
+<p><strong>WHAT IT ALL RESTS ON:</strong> <strong>E</strong> — which particles exist, and three families — <strong>which nothing forces.</strong> Every banked simplification is computed <em>from</em> E and assumes it. "Shape" is the compressible wrapper around E.</p>
+<p>Throughout: <strong>selecting the best option is not the same as deriving it.</strong> Treating the funnel's winner as "forced" is a relabeling we reject. <strong>Promotions: 0. The frozen object is read-only.</strong></p>
+<h3>Why the Shape is the <em>swinging</em> piece — and the <em>weakest</em> one</h3>
+<p>It's worth comparing the Shape to its two sibling assumptions, because the comparison is the honest punchline:</p>
+<ul>
+<li>The <strong>scale</strong> assumption (why there's a fundamental scale at all) rests on a genuine <em>impossibility theorem</em> — the strongest kind of result. You can prove certain alternatives are flat-out impossible.</li>
+<li>The <strong>graininess</strong> assumption (a smallest unit of action) is an honestly-labeled confession — a basic posit, not something removable.</li>
+<li>The <strong>Shape</strong> rests on a <em>selection plus an audit</em> — a failed search over a listed set of rivals. That is genuinely <em>weaker</em> than a theorem.</li>
+</ul>
+<p>We don't pretend these three are the same kind of thing. The scale claim has a proof of impossibility; the Shape claim has a best-on-the-menu plus "nobody's beaten it yet." The Shape is the piece whose status can still <em>move</em> — it could compress further toward "just E plus the three-part layering," or fold away entirely. That's exactly why it's both the swinging piece and the weakest link, and why the strongest honest claim about it is a <em>selection</em>, not a <em>derivation</em>.</p>
+<h3>What would actually upgrade each open item</h3>
+<p>Stated as concrete, buildable things, so the claims are falsifiable and the path forward is mechanical:</p>
+<ul>
+<li><strong>To turn "our filling is cheapest" from a skeleton into a result:</strong> first, give the complexity measure real units and a way to add things up (until then the statement isn't even well-posed); then prove the narrowest piece (the Actors are the minimal set) as a genuine "no alternative" result, not a "best we found"; then the known-weak Rulebook piece; then the Stage and the no-cheating piece, with an actual <em>algorithm</em> for breaking a theory into its parts.</li>
+<li><strong>To turn the rival audit from "current record" into a real bounded negative:</strong> actually fill in the "is it simpler once broken down?" verdicts for the five dangerous rivals — convert "Unknown" into adjudicated answers, turning the to-do list into a finished, falsifiable instrument.</li>
+<li><strong>To even attempt "nothing simpler exists":</strong> prove a genuine "any workable theory is at least as complex as ours" theorem — but this needs all of the above <em>and</em> a non-circular version of the three-parts argument, and it may be unreachable in principle (it's a universal negative). Honest odds: <strong>low</strong> for an absolute version; <strong>moderate</strong> for a bounded result about the core (E plus layering).</li>
+<li><strong>To turn the whole thing from selection into derivation:</strong> supply a genuine forcing theorem for E that passes all three honesty tests. None exists, and outside results suggest this is a wall, not a gap. Honest odds: <strong>low.</strong> The realistic best outcome is "E plus the three-part layering" as a sharper, smaller, still-<em>accepted</em> basic assumption — never zero.</li>
+</ul>
+<h3>The bottom line</h3>
+<p>The frozen geometry is the <strong>selected simplest</strong> shape, in the precise, menu-relative, honestly-fenced sense built up here: it's the cheapest <em>complete</em> survivor of a declared, frozen contest under a completeness-first simplicity rule; it sits exactly on the necessary three-part floor; and no top-tier rival currently beats it, with the door to reopening live. That's a real result, and it's stronger than merely "we picked it."</p>
+<p>But it is <strong>not</strong> a derivation, <strong>not</strong> proven to be the cheapest possible <em>filling</em> (that proof is a skeleton with a conditional "QED"), and <strong>not</strong> proven to be the only shape that could ever work (that's a genuine open fork in which the shape may legitimately fold). And the whole structure rests on E — which particles exist — which nothing we know of forces.</p>
+<p>The one-line summary we'll defend against any hostile reader:</p>
+<blockquote>
+<p><strong>The shape isn't forced. Inside the menu we drew, it's the simplest one that does the whole job; any workable theory needs at least three parts; and right now nothing beats it. But picking the best item on a menu isn't proving it's the only possible dish — the "cheapest filling" proof is only an outline, "nothing simpler could ever exist" is an open question, and the whole thing bottoms out on which particles exist, which we accept rather than explain.</strong></p>
+</blockquote>
+<hr />
+<p><strong>Promotions: 0.</strong> This document states an <em>acceptance and its honest defense</em>, not a discovery. It closes nothing, derives no number, and changes no frozen object. It carries the same honest content as the technical "Minimal-Shape Suite," in plain language. The frozen geometry (<code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>) is read-only and untouched.</p>
+</body></html>

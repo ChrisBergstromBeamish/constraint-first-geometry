@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gap-05 — Λ value</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 252px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 10px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:14px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9670; The Anchors</a></div>
+<div class="ann-group">Start</div>
+<a href="index.html">Overview — how we judge</a>
+<a href="anchor-hierarchy-overview.html">Anchor hierarchy — map</a>
+<div class="ann-group">The method</div>
+<a href="a0-master-anchor.html">A0 — the master anchor</a>
+<a href="layer-1-metric.html">Layer 1 — MDL metric</a>
+<a href="layer-2-no-unpaid-labels.html">Layer 2 — no unpaid labels</a>
+<a href="layer-3-search-grammars.html">Layer 3 — search grammars</a>
+<a href="layer-4-carrier-forcing.html">Layer 4 — carrier-forcing</a>
+<a href="shape-minimality-challenge.html">Shape minimality challenge</a>
+<div class="ann-group">The hierarchy</div>
+<a href="deep-roots.html">The seven deep roots</a>
+<a href="master-anchors.html">Master anchors</a>
+<a href="logical-endpoint-proof.html">Logical endpoint proof</a>
+<a href="gate-traceability-template.html">Gate traceability template</a>
+<a href="blind-spots.html">Blind spots</a>
+<a href="ai-agent-completion-protocol.html">AI completion protocol</a>
+<div class="ann-group">Gate ledgers · GUT spine</div>
+<a href="sg1-anchor-ledger.html">SG-1 geometry</a>
+<a href="sg2-anchor-ledger.html">SG-2 gauge recovery</a>
+<a href="sg3-anchor-ledger.html">SG-3 generations</a>
+<a href="sg4-anchor-ledger.html">SG-4 hypercharge &amp; anomaly</a>
+<a href="sg5-anchor-ledger.html">SG-5 electroweak</a>
+<a href="sg6-anchor-ledger.html">SG-6 moduli stabilization</a>
+<a href="sg7-anchor-ledger.html">SG-7 threshold unification</a>
+<a href="sg8-anchor-ledger.html">SG-8 flavor closure</a>
+<a href="sg9-anchor-ledger.html">SG-9 proton safety</a>
+<a href="sg10-anchor-ledger.html">SG-10 claim boundary</a>
+<div class="ann-group">Gate ledgers · quantum/gravity/UV</div>
+<a href="uqf3-anchor-ledger.html">UQF-3 reflection positivity</a>
+<a href="uqf4-anchor-ledger.html">UQF-4 BRST / descent</a>
+<a href="uqf5a-5b-anchor-ledger.html">UQF-5A/5B linearized graviton</a>
+<a href="uqf5c-anchor-ledger.html">UQF-5C interacting graviton</a>
+<a href="uqf7-anchor-ledger.html">UQF-7 fermion chirality</a>
+<a href="uqf9-anchor-ledger.html">UQF-9 UV completion</a>
+<a href="uqf10-anchor-ledger.html">UQF-10 compactification</a>
+<a href="uqf14-anchor-ledger.html">UQF-14 unitarity / causality</a>
+<div class="ann-group">Gate ledgers · cosmology/BH/foundations</div>
+<a href="gap01-anchor-ledger.html">Gap-01 a6 Seeley-DeWitt</a>
+<a href="gap02-anchor-ledger.html">Gap-02 Yang-Mills mass gap</a>
+<a href="gap05-value-anchor-ledger.html" class="current">Gap-05 Lambda value</a>
+<a href="gap05-stability-anchor-ledger.html">Gap-05 Lambda stability</a>
+<a href="gap08-anchor-ledger.html">Gap-08 inflation</a>
+<a href="gap10-bg10-anchor-ledger.html">Gap-10/BG-10 baryogenesis</a>
+<a href="gap11-anchor-ledger.html">Gap-11 dark matter</a>
+<a href="gap13-anchor-ledger.html">Gap-13 BH entropy / Page</a>
+<a href="born-anchor-ledger.html">Born rule</a>
+<div class="ann-group">Gate ledgers · deep roots &amp; dissolutions</div>
+<a href="deeproot-granularity-anchor-ledger.html">Deep root — granularity</a>
+<a href="deeproot-shape-anchor-ledger.html">Deep root — structural form</a>
+<a href="lambda-catastrophe-anchor-ledger.html">Lambda-catastrophe (dissolved)</a>
+<a href="blackhole-singularity-anchor-ledger.html">Black-hole singularity (dissolved)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">Gap-05-value — Lambda value (Tier-1 measured anchor): the gate anchor ledger — rendered package. Rendered from <code>gap05-value-anchor-ledger.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>Gap-05-value — Lambda value (Tier-1 measured anchor): the gate anchor ledger</h1>
+<p><strong>The honest one-line: Gap-05-value has a real, checkable win — the value of $\Lambda$ is recorded as a single directly measured number with <em>zero reverse-engineering from the measured value</em> (the frozen geometry produces no $\Lambda$ to fit), and the program's own best lever to fake a reduction was attacked and computed-refuted — but the value is a measured anchor, terminal <em>as an anchor</em>, never derived, and the gate as a whole rolls up OPEN.</strong></p>
+<p>This page is the gate-specific instantiation of the <a href="./index.html">anchoring method</a>: it takes the master anchor and the four bridges and applies them, object by object, to one gate. Every exact thing Gap-05-value touches gets its own row — its status, what it is <em>allowed</em> to claim, and what it is <em>forbidden</em> to claim. It follows the same eleven-part shape as the canonical <a href="./sg4-anchor-ledger.html">SG-4 ledger</a>, adapted honestly to a gate whose nature is a <strong>measured anchor</strong>, not an obstruction-cancellation: there is no "anomaly ledger" here, and the gate's one closed leg is a <em>no-reverse-engineering from the measured value</em> guarantee, not $O(E_{\rm frozen})=0$.</p>
+<hr />
+<h2>1. Gate status header</h2>
+<ul>
+<li><strong>Gate-level Gap-05-value roll-up:</strong> <strong>OPEN.</strong> An anchor is the floor, not a closure; the gate's other faces (the radiative-stability mechanism; the sequestering residual) are OPEN, so the gate rolls up OPEN.</li>
+<li><strong>Taxonomy reconciliation (2026-07-05):</strong> under the current two-axis taxonomy the gate-level grading is <strong>RESOLVED (value-leg) &mdash; REDUCED-TO-MEASURED-ANCHOR</strong>, read as <strong>TERMINAL + RESIDUALS-SHOWN</strong>. The residual family listed in this ledger (R-uniqueness, R5 condensate-shift sequestering, the T3 co-consumption ledger, citation hygiene, and the exported neighbor mechanisms) remains listed and carried unchanged. The facts are unchanged: the earlier <strong>OPEN</strong> roll-up above reflects the superseded least-closed-residual rule (a gate rolled up to its least-closed residual), not a different state of the work.</li>
+<li><strong>The value-leg itself:</strong> <strong>MEASURED ANCHOR · terminal-as-anchor (NOT derived).</strong> Direction: <strong>held</strong> (<code>AXIOM-OPEN</code> $\to$ <code>MEASURED ANCHOR</code>; a relabel to the honest floor, <strong>no upgrade of substance</strong>).</li>
+<li><strong>The exact closed <em>local</em> leg</strong> — not an obstruction vanishing, but the <strong>no-reverse-engineering from the measured value guarantee</strong>: the frozen 13D geometry produces no $\Lambda$, so the set of structure-side quantities comparable to the observed value is empty,
+$$\mathcal C_{\rm Gap05}(E_{\rm frozen}) = \varnothing .$$
+This is the gate's checkable win: with $\mathcal C_{\rm Gap05}=\varnothing$ there is structurally nothing to tune toward $(2.3\ \text{meV})^4$.</li>
+<li><strong>Status, split so it cannot be misread:</strong><ul>
+<li><strong>No-reverse-engineering from the measured value leg</strong> $\mathcal C_{\rm Gap05}(E_{\rm frozen})=\varnothing$: <strong>DERIVED-GIVEN-E</strong> — a structural fact about the frozen branch, given $E$. <em>This leg is not axiom-open.</em></li>
+<li><strong>The value</strong> $\Lambda=(2.3\ \text{meV})^4$: <strong>MEASURED ANCHOR · terminal-as-anchor</strong> — the program's ledger floor (the $\ge 1$ genuine anchor every honest theory must pay).</li>
+<li><strong>Gate-level Gap-05-value:</strong> <strong>OPEN.</strong></li>
+</ul>
+</li>
+</ul>
+<p>The chip word <strong>MEASURED ANCHOR</strong> is load-bearing and exact: it says the value is the program's ledger floor, and — by <em>not</em> saying "derived/closed/predicted" — it says the value-leg does <strong>not</strong> terminate its own gate. Calling a claimed-output a "measured anchor" to close its own gate is precisely the error this honest status is designed to avoid.</p>
+<blockquote>
+<p><strong>selection ≠ derivation · given-E ≠ derivation-of-E · frozen/reproducible ≠ proven-unique.</strong></p>
+</blockquote>
+<hr />
+<h2>2. Frozen inputs (what Gap-05-value stands on, not what it produces)</h2>
+<ul>
+<li><strong>Frozen branch hashes</strong> <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code>. The branch is read-only and unmutated. <strong>These hashes are audit anchors — they certify <em>which object</em> was tested and that it cannot be quietly retuned. They do not validate the physics.</strong> Note the <em>positive</em> fact here: $\Lambda$ has <strong>no per-value first-principles hash</strong>, because the framework derives no $\Lambda$ — the <em>absence</em> of a hash is itself the evidence the value is not derived.</li>
+<li><strong>Upstream spectrum</strong> $E_{\rm frozen}$ is <strong>given / charged / inherited.</strong> Gap-05-value does <strong>not</strong> derive $E$, and — unlike the other four ledger anchors — the geometry consumes <em>nothing</em> against $\Lambda$: there is no internal comparator at all.</li>
+</ul>
+<hr />
+<h2>3. Object anchors — the value and its ledger context (given-E / measured)</h2>
+<p>The framework declares exactly $N=5$ "just-is" inputs; $\Lambda$ is <strong>row 5</strong>:
+$$
+\text{row 1: } M_{\rm Pl},\quad
+\text{row 2: } \alpha_i(M_Z),\quad
+\text{row 3: } y_t = 0.9665,\quad
+\text{row 4: } |V_{us}| = 0.22436,\quad
+\boxed{\text{row 5: } \Lambda = (2.3\ \text{meV})^4 \approx 1\times10^{-122}\,M_{\rm Pl}^4 .}
+$$
+Two structural facts make row 5 special and force the honest grade:</p>
+<ol>
+<li><strong>$\Lambda$ is NOT a frozen-geometry output.</strong> The other four rows are consumed <em>against</em> internal structure; $\Lambda$ has nothing internal to be consumed against. <strong>Status: MEASURED ANCHOR.</strong></li>
+<li><strong>Exactly one row is dimensionful ($M_{\rm Pl}$); $\Lambda$ enters as the dimensionless ratio $\Lambda/M_{\rm Pl}^4$</strong> — anchored <em>against</em> $M_{\rm Pl}$, never terminal as its own output. This is the <strong>both-FORBIDDEN</strong> tiering (input-consumed only vs $M_{\rm Pl}$, never terminal) recorded in the master ledger (A9), and it is exactly why the value-leg may anchor but may not close.</li>
+</ol>
+<hr />
+<h2>4. Root and master-anchor traceability</h2>
+<p><strong>Deep roots that are load-bearing for Gap-05-value:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Deep root</th>
+<th>Role in Gap-05-value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Granularity</strong></td>
+<td>supplies the <em>deliberately-tripped negative control</em>: granularity cures divergences (continuum walls), not finite walls — so a finite supertrace lands ~113 OOM off</td>
+</tr>
+<tr>
+<td><strong>Shape</strong></td>
+<td>supplies the frozen 13D branch that produces <em>no</em> $\Lambda$ — the structural basis of zero reverse-engineering from the measured value</td>
+</tr>
+<tr>
+<td><strong>Record interface</strong></td>
+<td>makes the no-go witnesses (chamber $0.58$; ~113-OOM control) reproducible and reviewable</td>
+</tr>
+<tr>
+<td><strong>Physical equivalence / invariance</strong></td>
+<td>makes "the vacuum-energy operator is the identity" a frame-independent, checkable statement</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td>the ~122-order burden is a statement <em>across tower scales</em> ($M_{\rm Pl},\,m_t,\,v_{\rm EW},\,\Lambda_{\rm QCD}$) — characterizes the burden, never a derived result</td>
+</tr>
+</tbody>
+</table>
+<p><em>Causal order</em> and <em>nonseparability</em> are not primary load-bearing anchors for the value-leg.</p>
+<p><strong>Master anchors in play:</strong> finite invariant ledgers (the Tier-1 row-5 entry) · no unpaid labels (no internal $\Lambda$ to slide) · the frozen branch · given-$E$ · the <em>declared</em> measured anchor <code>ANCHOR-LAMBDA-MEASURED-VALUE</code> · open-residual discipline.</p>
+<hr />
+<h2>5. The Gap-05-value anchor ledger (the universal table)</h2>
+<table>
+<thead>
+<tr>
+<th>Gate anchor</th>
+<th>Exact object</th>
+<th>Deep-root link</th>
+<th>Master-anchor link</th>
+<th>Status</th>
+<th>Allowed claim</th>
+<th>Forbidden claim</th>
+<th>Open residual / closure task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gate roll-up</td>
+<td>Gap-05-value</td>
+<td>Shape, Granularity</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN</strong></td>
+<td>one terminal anchor + open neighbor residuals</td>
+<td>"Gap-05 is closed"</td>
+<td>the value-leg is terminal <em>as anchor</em>; neighbors stay open</td>
+</tr>
+<tr>
+<td>Frozen branch</td>
+<td>hashes <code>dcc66f1b2685</code> / <code>a5b1e6f9d951</code></td>
+<td>Record interface</td>
+<td>frozen branch</td>
+<td><strong>AUDIT ONLY</strong></td>
+<td>the tested object is frozen/read-only</td>
+<td>"hashes validate the physics"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Upstream spectrum</td>
+<td>$E_{\rm frozen}$</td>
+<td>Shape</td>
+<td>given-$E$</td>
+<td><strong>GIVEN-E</strong></td>
+<td>the value is recorded <em>against</em> this branch</td>
+<td>"Gap-05-value derives $E$"</td>
+<td>(see SG-2/SG-3 for $E$)</td>
+</tr>
+<tr>
+<td><strong>The value</strong></td>
+<td>$\Lambda=(2.3\,\text{meV})^4\approx 1\times10^{-122}M_{\rm Pl}^4$</td>
+<td>Shape</td>
+<td><code>ANCHOR-LAMBDA-MEASURED-VALUE</code></td>
+<td><strong>MEASURED ANCHOR · terminal-as-anchor</strong></td>
+<td>a single directly-measured input (SNe Ia + CMB + BAO), the ledger floor</td>
+<td>"$\Lambda$ is derived / predicted / explained"</td>
+<td>none — it is the floor (do <strong>not</strong> chase a value-derivation)</td>
+</tr>
+<tr>
+<td>No-reverse-engineering from the measured value</td>
+<td>$\mathcal C_{\rm Gap05}(E_{\rm frozen})=\varnothing$</td>
+<td>Shape</td>
+<td>no unpaid labels</td>
+<td><strong>DERIVED-GIVEN-E</strong></td>
+<td>the geometry produces no $\Lambda$ to compare</td>
+<td>"the value was fit to structure"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Hash-absence</td>
+<td>no per-$\Lambda$ first-principles hash</td>
+<td>Record interface</td>
+<td>frozen branch</td>
+<td><strong>AUDIT ONLY</strong></td>
+<td>absence is evidence of non-derivation</td>
+<td>"absence proves irreducibility"</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Granularity control</td>
+<td>finite supertrace $\sim M_{\rm cutoff}^4$, $M_{\rm cutoff}=1/R_0$</td>
+<td>Granularity</td>
+<td>open-residual discipline</td>
+<td><strong>DERIVED-GIVEN-E (tripped negative control)</strong></td>
+<td>lands ~113 OOM off; finite walls survive</td>
+<td>"granularity dissolves the value"; "no reduction is possible"</td>
+<td>— (method correctly reports "does not apply")</td>
+</tr>
+<tr>
+<td>Chamber no-go $\Lambda$-R1</td>
+<td>vacuum-energy operator $=$ identity / unit operator</td>
+<td>Invariance</td>
+<td>open-residual discipline</td>
+<td><strong>DERIVED-GIVEN-E (banked negative theorem)</strong></td>
+<td>the corpus's own cancellation lever is refuted (witness $0.58$ at $k=0$)</td>
+<td>"a chamber cancellation derives $\Lambda$"</td>
+<td>— (<code>THEOREM_REFUTED</code>, target-blind)</td>
+</tr>
+<tr>
+<td>Sequestering Thm-1 (L1)</td>
+<td>trace-free drop $T^{\rm vac}_{\mu\nu}-\tfrac14 g_{\mu\nu}T^{\rm vac}=0$</td>
+<td>Invariance</td>
+<td>finite invariant ledger</td>
+<td><strong>DERIVED (tree-level)</strong></td>
+<td>a constant vacuum energy of any size does not source curvature</td>
+<td>"L1 holds above tree level"</td>
+<td>(exported to Gap-05-catastrophe)</td>
+</tr>
+<tr>
+<td>Sequestering Thm-1 (L2)</td>
+<td>additive shift $\Lambda_0\to\Lambda_0+\delta V$</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>DERIVED — NEGATIVE</strong></td>
+<td>the bare separating premise is <em>insufficient</em> at one loop</td>
+<td>"an integration constant has no beta function" (true-but-irrelevant)</td>
+<td>do not re-lean on the no-$\beta$ slogan</td>
+</tr>
+<tr>
+<td>Sequestering Thm-1 (L3) / R6$'$</td>
+<td>Kaloper–Padilla residual $\Delta\Lambda$</td>
+<td>Nonseparability</td>
+<td>open-residual discipline</td>
+<td><strong>CONDITIONAL / PARTIAL</strong></td>
+<td>even the heaviest construction <em>relocates</em> the value 1:1 ("incalculable, set by measurement")</td>
+<td>"L3 derives $\Lambda$"; "L3 is order-by-order proven"</td>
+<td>conditional on smoothness assumption $S$ (unproven)</td>
+</tr>
+<tr>
+<td>Anchor tier</td>
+<td><code>ANCHOR-LAMBDA-MEASURED-VALUE</code> filed <strong>T3 (ΛCDM-laden)</strong></td>
+<td>Record interface</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / provenance debt</strong></td>
+<td>the value is model-laden, defaulted to weaker tier</td>
+<td>"$\Lambda$ is a pristine T1 invariant"</td>
+<td>enumerate the co-consumption ledger (§10, Hole 5)</td>
+</tr>
+<tr>
+<td>Over-tiering guard</td>
+<td>A9 both-FORBIDDEN flag</td>
+<td>Record interface</td>
+<td>open-residual discipline</td>
+<td><strong>AUDIT / guard owed</strong></td>
+<td>the anchor must never read as a closure</td>
+<td>"the measured value terminates Gap-05"</td>
+<td>enforce anchor-vs-target at every surface (§10, Hole 2)</td>
+</tr>
+<tr>
+<td>Citation hygiene</td>
+<td>misattributed <code>arXiv:2507.20073</code> (since removed; claim demoted to G4)</td>
+<td>Record interface</td>
+<td>open-residual discipline</td>
+<td><strong>AUDIT</strong></td>
+<td>the offending ID is removed; substance kept as open gap G4</td>
+<td>"the citation is verified"</td>
+<td>verify the real source or keep G4 (§10, Hole 1)</td>
+</tr>
+<tr>
+<td>R-uniqueness</td>
+<td>volume-mode freezing minimal?</td>
+<td>Shape</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN</strong></td>
+<td>the separating premise is <strong>NON-ATOMIC</strong></td>
+<td>"volume-mode freezing is the unique minimal modification"</td>
+<td>prove/refute over a declared candidate space (§10, Hole 3)</td>
+</tr>
+<tr>
+<td>R5 condensate-shift</td>
+<td>EW/QCD vacuum-condensate shifts $\sim 10^{44}\text{–}10^{55}\,\Lambda$</td>
+<td>Scale</td>
+<td>open-residual discipline</td>
+<td><strong>OPEN / computation debt</strong></td>
+<td>a named, finite sequestering obligation</td>
+<td>"the condensate shifts are sequestered"</td>
+<td>explicit no-per-scale-tuning computation (§10, Hole 4)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. The construction — the win is a refusal, made airtight</h2>
+<p>The value-leg has <strong>no derivation to show — that is the whole point.</strong> What it has is a set of rigorous, checkable structural facts and <em>negative</em> results that make "measured anchor, no reverse-engineering from the measured value" airtight rather than a bare assertion.</p>
+<p><strong>(1) The no-reverse-engineering from the measured value guarantee (the closed local leg).</strong> Most over-fit hazards exist because a theory has an internal quantity that <em>could</em> be slid toward the observed number. Here that lever does not exist: the frozen 13D geometry produces no $\Lambda$, so
+$$\mathcal C_{\rm Gap05}(E_{\rm frozen}) = \varnothing ,$$
+i.e. the comparison set is empty by construction. This converts "we promise we didn't tune" into "there is structurally nothing to tune."</p>
+<p><strong>(2) The granularity negative control — failed by ~113 OOM (a <em>diagnostic</em> that the result is specific, not trivial).</strong> The program's deepest reduction lever elsewhere is granularity, which dissolves <em>continuum</em> (divergent) walls. Run as a deliberate control on the <em>value</em> — a finite supertrace at the natural granular scale $M_{\rm cutoff}=1/R_0$:
+$$\rho_{\rm vac}^{\rm gran} \sim M_{\rm cutoff}^4 = (1/R_0)^4 \quad\Longrightarrow\quad \text{lands } \sim 113\ \text{OOM from } (2.3\,\text{meV})^4,\ \text{and predicts no value.}$$
+The value of $\Lambda$ is a <strong>finite</strong> wall, not a divergence; finite walls <em>survive</em> granularity. This is a genuine tripped negative control — the method correctly reporting "does not apply here," which is precisely what makes the win non-trivial rather than an artifact.</p>
+<p><strong>(3) The chamber-cancellation no-go $\Lambda$-R1 (the gate's one genuine negative win).</strong> The only positive corpus-internal idea was a sign-graded "chamber" sum over $K_6=SU(3)/T^2$. Attacked target-blind, it is refuted: a sign-grading can cancel a sum only if it <em>acts on labels</em> that distinguish terms, but the vacuum-energy operator is the <strong>identity / unit operator</strong> — grading-even and label-blind. The supertrace witness is honest-FAIL: ratio $0.58$ at $k=0$, $1.000$ at $k=1\text{–}8$ — the quantitative signature of the obstruction. Status <code>THEOREM_REFUTED</code>, banked at full strength. This is real recovered physics in the negative direction: the framework's own most promising lever for $\Lambda$ is dead, and the program says so.</p>
+<p><strong>The obstruction analog.</strong> There is no $O_{\rm Gap05}(E)=0$ to assert (this gate has no anomaly ledger). The gate's checkable content is the conjunction
+$$\big(\ \mathcal C_{\rm Gap05}(E_{\rm frozen})=\varnothing\ ,\quad \text{granularity-control} = \text{tripped}\ ,\quad \Lambda\text{-R1}=\text{REFUTED}\ \big),$$
+all <strong>DERIVED-GIVEN-E</strong>, none of which derives the value. We do <strong>not</strong> assert that any of this closes the gate; the value remains a measured anchor and the neighbors remain open.</p>
+<hr />
+<h2>7. The sequestering theorem, split into three honest objects (L1 / L2 / L3)</h2>
+<p>The single phrase "sequestering" hides three different claims with three different statuses (Theorem 1, R5$'$-SEQUESTERING-ALL-ORDERS):</p>
+<ol>
+<li><strong>(L1) Tree-level trace-drop.</strong> For a vacuum stress $T^{\rm vac}_{\mu\nu}=-V g_{\mu\nu}$, the trace-free combination vanishes identically,
+$$T^{\rm vac}_{\mu\nu}-\tfrac14 g_{\mu\nu}T^{\rm vac} = -V g_{\mu\nu}+V g_{\mu\nu} = 0 ,$$
+for vacuum energy $V$ of <strong>any</strong> magnitude (including $O(M_{\rm Pl}^4)$). <strong>Status: DERIVED (tree-level).</strong> This hardens the catastrophe-half from conjecture to a tree-level theorem — at tree level only.</li>
+<li><strong>(L2) The premise ALONE is insufficient at the quantum level.</strong> Under the premise, $\Lambda_{\rm grav}=\Lambda_0$ is an integration constant; an additive matter-loop shift $\delta V\sim M^4$ passes straight through,
+$$\Lambda_0 \;\to\; \Lambda_0 + \delta V \qquad(\text{the map is the identity}).$$
+<strong>Status: DERIVED — NEGATIVE.</strong> The gate's <em>own earlier</em> slogan — "an integration constant has no beta function" — is <strong>TRUE BUT IRRELEVANT</strong>: there is no running coupling, yet the boundary <em>value</em> that replaces it is shifted additively. This is a correction to this gate's own prior reasoning; it must not be re-leaned on.</li>
+<li><strong>(L3) All-orders sequestering, conditional.</strong> The Kaloper–Padilla augmented mechanism (rigid global scalars, $\theta R_{\rm GB}$, global 4-volume / flux constraints) makes the vacuum piece absorbable — but established <strong>in the action</strong>, not by an order-by-order proof, and conditional on a smoothness / non-degeneracy assumption $S$ (unproven). <strong>Status: CONDITIONAL / PARTIAL.</strong></li>
+</ol>
+<p><strong>The decisive consequence for the value (R6$'$).</strong> The surviving residual $\Delta\Lambda$ is, in Kaloper–Padilla's own words, <em>"radiatively stable, albeit with a value that is incalculable and should be set by measurement (just like the electron mass)"</em> — a <strong>verified 1:1 relocation</strong>. So even the heaviest available construction does <strong>not</strong> derive the value; it relocates it to an incalculable boundary datum. This is the rigorous reason the value-leg is graded MEASURED ANCHOR and not DISSOLVED or REDUCED.</p>
+<hr />
+<h2>8. The relocation map — every "explanation" relocates 1:1</h2>
+<p>The cardinal fact about the value's gap is that every known "explanation" relocates the number 1:1; none reduces it.</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>What it does to the value</th>
+<th>Net</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Unimodular gravity</strong></td>
+<td>$\Lambda$ becomes a boundary / integration constant</td>
+<td>1:1 relocation</td>
+</tr>
+<tr>
+<td><strong>Vacuum sequestering</strong></td>
+<td>$\Lambda$ becomes a global 4-volume constraint</td>
+<td>1:1 relocation ("incalculable, set by measurement")</td>
+</tr>
+<tr>
+<td><strong>Quintessence</strong></td>
+<td>$\Lambda$ becomes an initial condition + potential shape $V(\phi)$</td>
+<td>1:1 relocation</td>
+</tr>
+<tr>
+<td><strong>Anthropic / Weinberg bound</strong></td>
+<td>$\Lambda$ is environmentally selected</td>
+<td>restatement, not derivation (conditional on an unproven measure)</td>
+</tr>
+</tbody>
+</table>
+<p>The best published bound the value is measured against is <strong>Weinberg (1989)</strong>, <em>Rev. Mod. Phys.</em> <strong>61</strong>, 1 — the no-go foreclosing the easy routes to a naturally small $\Lambda$. The anthropic side (<strong>Weinberg 1987</strong>) is the canonical <em>restatement masquerading as a reduction</em>: selection, not derivation. Relocation must never be scored as reduction.</p>
+<hr />
+<h2>9. Open residuals — neighbor mechanism + provenance, none a value-derivation</h2>
+<p>The value-leg is <strong>terminal as an anchor</strong>, so these residuals are <em>not</em> "derive the value" (that is the dissolved unicorn of §10.6 — do not chase it). They are concrete, bounded obligations, grouped by family:</p>
+<p><strong>Provenance / hygiene family (value-leg's own):</strong>
+- <strong>Citation-hygiene defect</strong> — <code>arXiv:2507.20073</code> was misattributed; <strong>removed</strong> from the live prose, the substantive minimal-sequester-insufficiency claim <strong>demoted to open gap G4</strong>. <strong>AUDIT</strong> — independent verification of the real source still owed.
+- <strong>Anchor over-tiering guard</strong> — the master ledger (A9) flags the value for over-tiering; $\Lambda$ is tagged both-FORBIDDEN. <strong>AUDIT / guard owed.</strong>
+- <strong>Authenticity tier / co-consumption ledger</strong> — the value is filed <strong>T3 (ΛCDM-laden)</strong>; its co-consumption ledger ($H_0$, $\rho_{\rm crit}$, ΛCDM assumptions) is not yet enumerated. <strong>OPEN / provenance debt.</strong></p>
+<p><strong>Neighbor mechanism family (exported, bound the neighbors, not the value):</strong>
+- <strong>R-uniqueness</strong> — is volume-mode freezing the <em>unique</em> minimal trace-decoupling modification? <strong>OPEN</strong>; the separating premise stays NON-ATOMIC.
+- <strong>R5 finite condensate-shift sequestering</strong> — EW/QCD condensate shifts ($\sim 10^{44}\text{–}10^{55}\,\Lambda$) must be shown genuinely sequestered (no per-scale tuning). <strong>OPEN / computation debt.</strong></p>
+<p><strong>Exported (do not chase as value work):</strong> R2 (radiative-stability mechanism $\to$ Gap-05-stability), R6 (burden-predicate soundness), R7 (non-perturbative-QCD cascade $\to$ Gap-02 / UQF-11), R8 (boundary-only protection).</p>
+<hr />
+<h2>10. Specialist closure plan</h2>
+<p>Each open residual is a concrete, finite, target-blind work-package. <strong>None upgrades the value grade; they harden or correct it.</strong></p>
+<ol>
+<li><strong>Hole 1 — Citation hygiene.</strong> Verify the real identifier/authors for the minimal-sequester-insufficiency claim by independent literature search; then either cite the correct source or keep the claim as REMAINING-GAP G4 with no citation. Re-run the citation-hygiene check. <strong>Trap:</strong> do <strong>not</strong> invent a replacement citation. <strong>Falsifier:</strong> if no correct source exists, G4 stays open and is not asserted — the L1/L2/L3 disposition does not depend on it.</li>
+<li><strong>Hole 2 — Over-tiering guard.</strong> Confirm the public surface never uses the measured value to <em>terminate</em> Gap-05 (only to anchor vs $M_{\rm Pl}$); enforce the anchor-vs-target gate; confirm T3 / both-FORBIDDEN tiering across all copies. <strong>Success:</strong> every surface renders the roll-up OPEN and the value-leg MEASURED ANCHOR. <strong>Falsifier:</strong> any surface rendering $\Lambda$ as DERIVED/CLOSED/PREDICTED is a confirmed hit — fix it.</li>
+<li><strong>Hole 3 — R-uniqueness.</strong> Over a <em>declared</em> candidate space of minimal gravity-coupling modifications (unimodular / trace-free / sequestering / Gauss–Bonnet-augmented), prove or refute that volume-mode freezing is the unique minimal trace-decoupling change leaving local GR intact. <strong>Both outcomes valid:</strong> proof $\to$ named conditional theorem; refutation $\to$ one of many routes. Write the minimality metric <em>before</em> checking which wins.</li>
+<li><strong>Hole 4 — R5 condensate-shift sequestering.</strong> Carry out the explicit finite computation showing the EW/QCD condensate shifts are absorbed by the global 4-volume / flux constraints with <strong>no scale-dependent counterterm</strong>. <strong>Falsifier:</strong> if per-scale re-tuning is required, the sequestering is incomplete and the catastrophe-dissolution stays conjecture-grade — a valid negative. Track assumption $S$ as unproven.</li>
+<li><strong>Hole 5 — Co-consumption ledger.</strong> Enumerate everything measured along with $(2.3\,\text{meV})^4$ ($H_0$, $\rho_{\rm crit}$, the ΛCDM extraction assumptions); record the raw-record $\to$ as-consumed transform and the explicit tier (T3) + provenance. <strong>Default to weaker</strong> (T3) under uncertainty.</li>
+</ol>
+<p>Closing these hardens the value-leg and advances its neighbors; <strong>none</strong> makes the value derived — the value stays a measured anchor regardless.</p>
+<hr />
+<h2>11. Anti-claims (what this page refuses to say)</h2>
+<ul>
+<li>Gap-05-value does <strong>not</strong> derive, predict, or explain the value of $\Lambda$. There is no model value; formally there is no internal comparator: $\mathcal C_{\rm Gap05}(E_{\rm frozen})=\varnothing$.</li>
+<li>The measured value does <strong>not</strong> <em>close</em> Gap-05. An anchor terminates <em>itself</em>, not its gate; the roll-up is <strong>OPEN</strong>. Using a claimed-output as a measured anchor to close its own gate is the cardinal sin — refused here.</li>
+<li><strong>Granularity does not dissolve the value</strong> the way it dissolves continuum walls — the ~113-OOM control proves the opposite. And the ~113-OOM datum may <strong>not</strong> be promoted into "no reduction is possible" (that is a universal negative).</li>
+<li>$\Lambda$ is <strong>not</strong> <em>provably</em> irreducible. The honest form is <em>earned-irreducible under all known reductions</em>, never provably so (Weinberg-OPEN).</li>
+<li>The chamber-cancellation route does <strong>not</strong> derive $\Lambda$ — it is computed-refuted ($\Lambda$-R1, unit-operator obstruction).</li>
+<li>The "an integration constant has no beta function" slogan is <strong>true-but-irrelevant</strong> (L2) and must not be re-leaned on.</li>
+<li>The frozen-branch hashes are audit anchors; they do <strong>not</strong> validate the physics.</li>
+<li>The value is <strong>not</strong> a pristine T1 invariant — it is T3 (ΛCDM-laden) pending its co-consumption ledger.</li>
+</ul>
+<hr />
+<h2>12. Completion tests for this page</h2>
+<p><strong>Required presence (all met):</strong> gate roll-up OPEN · value-leg MEASURED ANCHOR · the no-reverse-engineering from the measured value leg $\mathcal C_{\rm Gap05}(E_{\rm frozen})=\varnothing$ as DERIVED-GIVEN-E · "$\Lambda$ not derived" · frozen hashes (AUDIT ONLY) · the Tier-1 row-5 entry $\Lambda=(2.3\,\text{meV})^4\approx 1\times10^{-122}M_{\rm Pl}^4$ · the granularity ~113-OOM negative control as a specificity diagnostic · the chamber no-go $\Lambda$-R1 (witness $0.58$ at $k=0$) · the L1/L2/L3 sequestering split with R6$'$ relocation · the relocation map · every open residual as its own row · T3 / both-FORBIDDEN tiering · the gate's anti-claims.</p>
+<p><strong>Required absence (all held):</strong> no claim that Gap-05-value is fully closed · $\Lambda$ derived/predicted/explained · the measured value selling the gate as closed · granularity dissolving the value · "no reduction is possible" (universal negative) · $\Lambda$ provably irreducible · a chamber cancellation that works · the no-$\beta$-function slogan re-leaned on · hashes validate physics · T1 treatment of the value · any reader-visible build-process vocabulary.</p>
+<hr />
+<p><em>This gate follows the same eleven-part shape and universal table as the canonical <a href="./sg4-anchor-ledger.html">SG-4 ledger</a>, adapted to a measured-anchor gate: its closed leg is a no-reverse-engineering from the measured value guarantee, its diagnostic is a tripped negative control, and its banked win is a refusal made airtight.</em></p>
+<p><strong>See also:</strong> <a href="./index.html">the anchoring method</a> · <a href="./a0-master-anchor.html">the master anchor</a> · <a href="./layer-2-no-unpaid-labels.html">Layer 2 — no unpaid exact labels</a> (why every constant must be writable without knowing the verdict) · <a href="./layer-1-metric.html">Layer 1 — the metric anchor $M_{\rm Pl}$</a> (the dimensionful row $\Lambda$ is anchored against) · the <a href="./gap02-anchor-ledger.html">Gap-02 ledger</a> (the granularity / non-perturbative-QCD neighbor) · the full <a href="../articles/DOSSIER_GAP05_VALUE_FULL.html">Gap-05-value dossier</a>.</p>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Closure paths — one routing per wall</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 250px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9679; Closure paths</a></div>
+<div class="ann-sub"><a href="/closure/">&#8592; Closure system</a> &nbsp; <a href="/walls/">The Walls</a> &nbsp; <a href="/anchors/">The Anchors</a></div>
+<div class="ann-group">One closure path per wall</div>
+<a href="W01_UV_COMPLETION_CLOSURE_PATH.html">W1 UV completion</a>
+<a href="W02_CONTINUUM_EXISTENCE_CLOSURE_PATH.html">W2 continuum existence</a>
+<a href="W03_A6_COEFFICIENT_CLOSURE_PATH.html">W3 a6 coefficient</a>
+<a href="W04_GRANULARITY_MDL_CLOSURE_PATH.html">W4 granularity to MDL</a>
+<a href="W05_GIVEN_E_BUNDLE_CLOSURE_PATH.html">W5 given-E / bundle</a>
+<a href="W06_FLAVOR_RULEBOOK_CLOSURE_PATH.html">W6 flavor F+ rulebook</a>
+<a href="W07_ANOMALY_DESCENT_CLOSURE_PATH.html">W7 anomaly descent</a>
+<a href="W08_CUSTODIAL_RHO_CLOSURE_PATH.html">W8 custodial rho=1</a>
+<a href="W09_MODULI_STABILIZATION_CLOSURE_PATH.html">W9 moduli stabilization</a>
+<a href="W10_LAMBDA_STABILITY_CLOSURE_PATH.html">W10 Lambda stability</a>
+<a href="W11_LAMBDA_VALUE_CLOSURE_PATH.html">W11 Lambda value</a>
+<a href="W12_BARYOGENESIS_CP_CLOSURE_PATH.html">W12 baryogenesis CP</a>
+<a href="W13_DARK_MATTER_PORTAL_CLOSURE_PATH.html">W13 dark-matter portal</a>
+<a href="W14_INFLATION_SPECTRUM_CLOSURE_PATH.html">W14 inflation spectrum</a>
+<a href="W15_BORN_WEIGHT_CLOSURE_PATH.html">W15 Born-rule weight</a>
+<a href="W16_BH_MICROSTATES_CLOSURE_PATH.html">W16 BH microstates</a>
+<a href="W17_PROTON_OPERATORS_CLOSURE_PATH.html">W17 proton operators</a>
+<a href="W18_YM_UNIFORM_GAP_CLOSURE_PATH.html">W18 YM uniform gap</a>
+<a href="W19_THRESHOLD_MAGNITUDES_CLOSURE_PATH.html">W19 threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">Closure paths — one routing per wall — rendered package. Rendered from <code>INDEX.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>Closure paths — one routing per wall</h1>
+<blockquote>
+<p>For each of the 19 frontier <a href="/walls/">walls</a>, this folder records a <strong>closure path</strong> built with the <a href="/closure/wall-routing-protocol.html"><code>/closure</code> routing protocol</a>: the wall is routed to one of the five legitimate endpoints — <strong>derive · reduce-to-root · dissolve · anchor · wall-record</strong> — with banked wins separated from the missing object, the terminal status assigned, the residual named, and anti-claims that stop status inflation. Where a wall <strong>cannot</strong> honestly be reduced or dissolved, it is routed instead to DERIVE / ANCHOR / OPEN-ANCHORED / WALL-RECORDED with the remaining gap stated explicitly.</p>
+</blockquote>
+<p><strong>The discipline, kept on every page:</strong> dissolved ≠ solved · selected ≠ forced · given-E ≠ derivation-of-E · measured-anchor ≠ derived value · wall-recorded ≠ physics-closed · a bounded local certificate is not global completion. <em>No wall is claimed physics-CLOSED.</em></p>
+<h2>Endpoint summary (all 19)</h2>
+<table>
+<thead>
+<tr>
+<th>Wall</th>
+<th>Routing</th>
+<th>Terminal status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="W01_UV_COMPLETION_CLOSURE_PATH.html">W1 — UV completion</a> · <a href="/walls/w1-uv-completion.html">wall</a></td>
+<td>WALL-RECORD</td>
+<td>WALL-RECORDED / TERMINAL-ANCHORED / PHYSICS-OPEN</td>
+</tr>
+<tr>
+<td><a href="W02_CONTINUUM_EXISTENCE_CLOSURE_PATH.html">W2 — Continuum existence</a> · <a href="/walls/w2-continuum-existence.html">wall</a></td>
+<td>REDUCE-TO-ROOT (Fable) · WALL-RECORD (continuum)</td>
+<td>REDUCED-TO-AXIOM · WALL-RECORDED / OPEN</td>
+</tr>
+<tr>
+<td><a href="W03_A6_COEFFICIENT_CLOSURE_PATH.html">W3 — a₆ coefficient</a> · <a href="/walls/w3-a6-coefficient.html">wall</a></td>
+<td>DERIVE (else OPEN-ANCHORED)</td>
+<td>OPEN-ANCHORED / KEYSTONE-BOUNDED</td>
+</tr>
+<tr>
+<td><a href="W04_GRANULARITY_MDL_CLOSURE_PATH.html">W4 — Granularity ⇒ MDL</a> · <a href="/walls/w4-granularity-mdl.html">wall</a></td>
+<td>REDUCE-TO-ROOT</td>
+<td>REDUCED-TO-AXIOM / AXIOM-OPEN bridge</td>
+</tr>
+<tr>
+<td><a href="W05_GIVEN_E_BUNDLE_CLOSURE_PATH.html">W5 — Given-E / bundle</a> · <a href="/walls/w5-given-e-bundle.html">wall</a></td>
+<td>ANCHOR (E) · DERIVE (bundle sub-target)</td>
+<td>MEASURED-ANCHOR / GIVEN-E · OPEN-BOUNDED</td>
+</tr>
+<tr>
+<td><a href="W06_FLAVOR_RULEBOOK_CLOSURE_PATH.html">W6 — Flavor F⁺ rulebook</a> · <a href="/walls/w6-flavor-rulebook.html">wall</a></td>
+<td>ANCHOR (OPEN bounded)</td>
+<td>OPEN-ANCHORED / RULEBOOK-BOUNDED</td>
+</tr>
+<tr>
+<td><a href="W07_ANOMALY_DESCENT_CLOSURE_PATH.html">W7 — Anomaly descent (BV-BRST)</a> · <a href="/walls/w7-anomaly-descent.html">wall</a></td>
+<td>ANCHOR · DERIVE if route found</td>
+<td>OPEN-ANCHORED / GLOBAL-DESCENT RESIDUAL</td>
+</tr>
+<tr>
+<td><a href="W08_CUSTODIAL_RHO_CLOSURE_PATH.html">W8 — Custodial ρ=1</a> · <a href="/walls/w8-custodial-rho.html">wall</a></td>
+<td>ANCHOR</td>
+<td>OPEN-ANCHORED / EW-BOUNDED</td>
+</tr>
+<tr>
+<td><a href="W09_MODULI_STABILIZATION_CLOSURE_PATH.html">W9 — Moduli stabilization</a> · <a href="/walls/w9-moduli-stabilization.html">wall</a></td>
+<td>ANCHOR</td>
+<td>OPEN-ANCHORED / MODULI-BOUNDED</td>
+</tr>
+<tr>
+<td><a href="W10_LAMBDA_STABILITY_CLOSURE_PATH.html">W10 — Λ radiative stability</a> · <a href="/walls/w10-lambda-stability.html">wall</a></td>
+<td>DISSOLVE (catastrophe-half) + OPEN</td>
+<td>DISSOLVED-CONDITIONAL / VALUE-OPEN / OPEN-ANCHORED</td>
+</tr>
+<tr>
+<td><a href="W11_LAMBDA_VALUE_CLOSURE_PATH.html">W11 — Λ value</a> · <a href="/walls/w11-lambda-value.html">wall</a></td>
+<td>ANCHOR (value) · DERIVE (R-uniqueness)</td>
+<td>MEASURED-ANCHOR / TERMINAL-ANCHORED · OPEN-BOUNDED</td>
+</tr>
+<tr>
+<td><a href="W12_BARYOGENESIS_CP_CLOSURE_PATH.html">W12 — Baryogenesis CP</a> · <a href="/walls/w12-baryogenesis-cp.html">wall</a></td>
+<td>DERIVE (else OPEN)</td>
+<td>OPEN-ANCHORED / BARYOGENESIS-BOUNDED</td>
+</tr>
+<tr>
+<td><a href="W13_DARK_MATTER_PORTAL_CLOSURE_PATH.html">W13 — Dark-matter portal</a> · <a href="/walls/w13-dark-matter-portal.html">wall</a></td>
+<td>DERIVE (else OPEN)</td>
+<td>OPEN-ANCHORED / PORTAL-BOUNDED</td>
+</tr>
+<tr>
+<td><a href="W14_INFLATION_SPECTRUM_CLOSURE_PATH.html">W14 — Inflation spectrum</a> · <a href="/walls/w14-inflation-spectrum.html">wall</a></td>
+<td>DERIVE (else OPEN)</td>
+<td>OPEN-ANCHORED / TESTABLE-CANDIDATE</td>
+</tr>
+<tr>
+<td><a href="W15_BORN_WEIGHT_CLOSURE_PATH.html">W15 — Born-rule weight</a> · <a href="/walls/w15-born-weight.html">wall</a></td>
+<td>REDUCE-TO-ROOT · DERIVE if proof</td>
+<td>REDUCED-TO-AXIOM / OPEN-ANCHORED</td>
+</tr>
+<tr>
+<td><a href="W16_BH_MICROSTATES_CLOSURE_PATH.html">W16 — BH microstates / Page</a> · <a href="/walls/w16-bh-microstates.html">wall</a></td>
+<td>ANCHOR (conditional on W3)</td>
+<td>OPEN-ANCHORED / CONDITIONAL-ON-W3</td>
+</tr>
+<tr>
+<td><a href="W17_PROTON_OPERATORS_CLOSURE_PATH.html">W17 — Proton operators</a> · <a href="/walls/w17-proton-operators.html">wall</a></td>
+<td>DERIVE (bounded)</td>
+<td>OPEN-ANCHORED / OPERATOR-COMPLETENESS</td>
+</tr>
+<tr>
+<td><a href="W18_YM_UNIFORM_GAP_CLOSURE_PATH.html">W18 — Yang–Mills uniform gap</a> · <a href="/walls/w18-ym-uniform-gap.html">wall</a></td>
+<td>REDUCE-TO-ROOT (Fable) · WALL-RECORD (Clay)</td>
+<td>REDUCED-TO-AXIOM internally · WALL-RECORDED / OPEN (Clay)</td>
+</tr>
+<tr>
+<td><a href="W19_THRESHOLD_MAGNITUDES_CLOSURE_PATH.html">W19 — Threshold magnitudes</a> · <a href="/walls/w19-threshold-magnitudes.html">wall</a></td>
+<td>ANCHOR (fitted) · DERIVE later</td>
+<td>OPEN-ANCHORED / FITTED-MAGNITUDE</td>
+</tr>
+</tbody>
+</table>
+<h2>How to read a closure path</h2>
+<p>Each file states, for its wall: the <strong>routing decision</strong>, the <strong>deep-root link(s)</strong>, the honest <strong>reduce/dissolve verdict</strong> (including where reduction or dissolution is <em>not</em> legitimate), the <strong>steps</strong> to the endpoint, a <strong>target-blind success criterion / falsifier</strong>, the <strong>terminal status</strong>, the <strong>residual work</strong>, and the <strong>anti-claims</strong>.</p>
+<h2>See also</h2>
+<ul>
+<li>The frontier wall register → <a href="/walls/">/walls/</a></li>
+<li>The routing protocol + deep roots + dissolutions → <a href="/closure/">/closure/</a></li>
+<li>One downloadable file with all walls + closure-path request stubs → <a href="/walls/ALL_WALLS_SPECIALIST_CLOSURE_REQUEST.md">/walls/ALL_WALLS_SPECIALIST_CLOSURE_REQUEST.md</a></li>
+</ul>
+</main>
+</div>
+</body></html>

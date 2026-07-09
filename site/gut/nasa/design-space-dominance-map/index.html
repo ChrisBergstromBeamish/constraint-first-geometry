@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design-Space Dominance Map - Relativistic Optics Lab</title>
+  <meta name="description" content="Find the active optical-link constraint before running high-fidelity simulations. Public engineering surrogate using a constraint-compression framework over open formulas, public constants, and public scenario anchors.">
+  <link rel="stylesheet" href="../shared/style.css">
+  <link rel="stylesheet" href="dominance.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script type="module" src="dominance.js"></script>
+</head>
+<body>
+
+<main class="container">
+
+  <!-- Top disclaimer banner is injected by dominance.js into this slot
+       so the long_disclaimer text stays a single source of truth. -->
+  <div id="disclaimer-slot"></div>
+
+  <h1>Design-Space Dominance Map</h1>
+  <p class="subtitle">Find the active optical-link constraint before running high-fidelity simulations.</p>
+
+  <div class="doc-links" style="margin:12px 0;display:flex;gap:8px;flex-wrap:wrap">
+    <a class="btn btn-outline" href="USER_GUIDE.md">📖 User Guide</a>
+    <a class="btn btn-outline" href="SAMPLE_NASA_SPEC.md">📋 Sample NASA Spec</a>
+  </div>
+
+  <!-- Scenario picker (top-of-page bar) -->
+  <div id="scenario-bar" class="scenario-bar"></div>
+  <p id="scenario-note" class="small mute" style="margin-top:-12px"></p>
+
+  <!-- Tab navigation -->
+  <div class="tabs" role="tablist">
+    <button class="tab-button active" data-tab="design">Design Space</button>
+    <button class="tab-button"        data-tab="invariants">Reduced Invariants</button>
+    <button class="tab-button"        data-tab="map">Dominance Map</button>
+    <button class="tab-button"        data-tab="closure">Closure Probability</button>
+    <button class="tab-button"        data-tab="boundary">Boundary Cases</button>
+    <button class="tab-button"        data-tab="recs">High-Fidelity Recommendations</button>
+    <button class="tab-button"        data-tab="validation">Validation</button>
+    <button class="tab-button"        data-tab="certificate">Certificate</button>
+    <button class="tab-button"        data-tab="research">Research geometry mapping</button>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- TAB 1: Design Space — 16-field input form      -->
+  <!-- ============================================== -->
+  <section id="tab-design" class="tab-panel active" role="tabpanel">
+    <p class="small mute">Enter SI engineering inputs. Defaults are pre-filled from the selected scenario. Enable "sweep this input" to mark a field for the 2D dominance-map sweep.</p>
+    <div id="design-form" class="design-grid"></div>
+    <div style="margin-top:14px">
+      <button class="btn" id="run-button">Evaluate point</button>
+      <span id="run-summary" class="small mute" style="margin-left:8px"></span>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 2: Reduced Invariants                      -->
+  <!-- ============================================== -->
+  <section id="tab-invariants" class="tab-panel" role="tabpanel">
+    <p class="small mute">Ten dimensionless burden ratios rho_* produced by the projection x -> z. rho ~ 1 marks the engineering boundary.</p>
+    <div id="invariants-warnings"></div>
+    <div id="invariants-table"></div>
+
+    <h3>Layer contributions</h3>
+    <p class="small mute">Each reduced invariant rho_* is attached to one active-branch layer; the engineering names below are the public mapping.</p>
+    <div id="layer-cards" class="layer-cards"></div>
+
+    <h3>Burden vector z (radar)</h3>
+    <div class="radar-container" id="radar-chart"></div>
+    <p class="small mute">log-scaled radius, clipped to z in [0, 10].</p>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 3: Dominance Map                           -->
+  <!-- ============================================== -->
+  <section id="tab-map" class="tab-panel" role="tabpanel">
+    <p class="small mute">Pick two sweep axes from the design vector; the other inputs stay at their Design-Space form values. Renders the dominance map (dominant limiter) and the continuous closure-margin G heatmap side by side.</p>
+
+    <div class="card">
+      <div class="form-grid">
+        <div class="field">
+          <label for="sweep-x-axis">X axis</label>
+          <select id="sweep-x-axis"></select>
+        </div>
+        <div class="field">
+          <label for="sweep-x-min">X min</label>
+          <input type="number" id="sweep-x-min" step="any">
+        </div>
+        <div class="field">
+          <label for="sweep-x-max">X max</label>
+          <input type="number" id="sweep-x-max" step="any">
+        </div>
+        <div class="field">
+          <label for="sweep-nx">N x</label>
+          <input type="number" id="sweep-nx" value="14" step="1" min="4" max="40">
+        </div>
+        <div class="field">
+          <label for="sweep-y-axis">Y axis</label>
+          <select id="sweep-y-axis"></select>
+        </div>
+        <div class="field">
+          <label for="sweep-y-min">Y min</label>
+          <input type="number" id="sweep-y-min" step="any">
+        </div>
+        <div class="field">
+          <label for="sweep-y-max">Y max</label>
+          <input type="number" id="sweep-y-max" step="any">
+        </div>
+        <div class="field">
+          <label for="sweep-ny">N y</label>
+          <input type="number" id="sweep-ny" value="14" step="1" min="4" max="40">
+        </div>
+      </div>
+      <div style="margin-top:8px">
+        <button class="btn" id="sweep-run">Run sweep</button>
+        <button class="btn btn-outline" id="sweep-csv">Export CSV</button>
+        <button class="btn btn-outline" id="sweep-svg">Export SVG</button>
+        <span id="sweep-status" class="small mute" style="margin-left:8px"></span>
+      </div>
+    </div>
+
+    <div class="limiter-legend" id="limiter-legend"></div>
+
+    <div class="heatmap-row">
+      <div class="heatmap-container" id="dominance-heatmap"></div>
+      <div class="heatmap-container" id="g-heatmap"></div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 4: Closure Probability                      -->
+  <!-- ============================================== -->
+  <section id="tab-closure" class="tab-panel" role="tabpanel">
+    <p class="small mute">Seeded Monte Carlo over per-input uncertainties; reports P(closure margin G >= 0), sigma_G_dB, percentile band, and the dominant-limiter share. Same seed always produces the same result.</p>
+
+    <div class="card">
+      <div class="form-grid">
+        <div class="field">
+          <label for="mc-N">Samples N</label>
+          <input type="number" id="mc-N" value="5000" min="100" max="50000" step="500">
+        </div>
+        <div class="field">
+          <label for="mc-seed">Seed (integer)</label>
+          <input type="number" id="mc-seed" value="3232552386" step="1">
+          <span class="hint">Default seed is 0xC0FFEE42 = 3232552386.</span>
+        </div>
+      </div>
+
+      <h4>Per-input fractional sigma</h4>
+      <div id="mc-inputs"></div>
+
+      <div style="margin-top:8px">
+        <button class="btn" id="mc-run">Run Monte Carlo</button>
+      </div>
+    </div>
+
+    <div id="mc-results"></div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 5: Boundary Cases                          -->
+  <!-- ============================================== -->
+  <section id="tab-boundary" class="tab-panel" role="tabpanel">
+    <p class="small mute">Grid points within 1 dB of the closure boundary G = 0, or in a mixed-limiter window. These are the scenarios most worth following up with high-fidelity simulation.</p>
+    <div id="boundary-list"></div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 6: High-Fidelity Recommendations           -->
+  <!-- ============================================== -->
+  <section id="tab-recs" class="tab-panel" role="tabpanel">
+    <p class="small mute">Top-ranked scenarios deserving a high-fidelity follow-up, with a recommended model class for each. The priority score combines closure-margin proximity, mixed-boundary windows, and dominant-limiter category.</p>
+    <div style="margin:10px 0">
+      <button class="btn" id="recs-build">Build recommendations</button>
+      <button class="btn btn-outline" id="recs-csv">Export CSV</button>
+    </div>
+    <div id="recs-table"></div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 7: Validation                              -->
+  <!-- ============================================== -->
+  <section id="tab-validation" class="tab-panel" role="tabpanel">
+    <p class="small mute">Local analytic test results plus a link to the lab-wide validation page.</p>
+    <div class="callout">
+      <strong>Method validation status</strong> - quick analytic sanity tests on the projection and limiter math.
+    </div>
+    <div id="validation-tests"></div>
+    <p>
+      <a class="btn btn-outline" href="../validation/">Open lab-wide Validation page</a>
+    </p>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 8: Certificate                             -->
+  <!-- ============================================== -->
+  <section id="tab-certificate" class="tab-panel" role="tabpanel">
+    <p class="small mute">Reproducible certificate. Same inputs + same version + same constants + same formulas always produce the same result_hash. The receipt_hash adds the export timestamp.</p>
+    <div class="field" style="max-width:540px">
+      <label for="cert-note">Scenario note (optional)</label>
+      <input type="text" id="cert-note" placeholder="e.g. baseline DSOC-class anchor">
+      <span class="hint">Free text. Will be sanitised against the public claim boundary before being embedded in the certificate.</span>
+    </div>
+    <div style="margin:8px 0">
+      <button class="btn" id="cert-build">Build certificate</button>
+      <button class="btn btn-outline" id="cert-json">Download JSON</button>
+      <button class="btn btn-outline" id="cert-md">Download Markdown</button>
+      <button class="btn btn-outline" id="cert-pdf">Print PDF</button>
+    </div>
+    <div id="cert-result"></div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 9: Research geometry mapping (opt-in)      -->
+  <!-- ============================================== -->
+  <section id="tab-research" class="tab-panel" role="tabpanel">
+    <div class="callout">
+      <strong>Optional advanced view.</strong> The public UI uses engineering names everywhere; this tab shows the manuscript's research mapping for readers who want it.
+    </div>
+    <details class="research-drawer" open>
+      <summary>Show active-branch mapping (research id -> public engineering name)</summary>
+      <div id="research-drawer-body"></div>
+    </details>
+  </section>
+
+  <hr>
+  <p class="small mute" style="text-align:center">
+    Public engineering surrogate - constraint-compression framework - not mission-certified.
+  </p>
+
+</main>
+
+</body>
+</html>

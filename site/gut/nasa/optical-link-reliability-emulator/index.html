@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Optical Link Reliability Emulator - Relativistic Optics Lab</title>
+  <meta name="description" content="Public engineering-surrogate reliability emulator. Estimates optical-link closure probability under declared assumptions and validation limits. Not mission-certified; does not reproduce internal NASA/JPL pipelines.">
+  <link rel="stylesheet" href="../shared/style.css">
+  <link rel="stylesheet" href="reliability.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script type="module" src="reliability.js"></script>
+</head>
+<body>
+
+<main class="container">
+
+  <!-- ============================================== -->
+  <!-- Mandatory disclaimer banner (verbatim copy)    -->
+  <!-- ============================================== -->
+  <div class="rel-disclaimer">
+    <h2>Public engineering surrogate</h2>
+    <p>Public engineering-surrogate reliability emulator. It estimates optical-link closure probability under declared assumptions and validation limits. It is not mission-certified and does not reproduce internal NASA/JPL pipelines.</p>
+  </div>
+
+  <h1>Optical Link Reliability Emulator</h1>
+
+  <div class="doc-links" style="margin:12px 0;display:flex;gap:8px;flex-wrap:wrap">
+    <a class="btn btn-outline" href="USER_GUIDE.md">📖 User Guide</a>
+    <a class="btn btn-outline" href="SAMPLE_NASA_SPEC.md">📋 Sample NASA Spec</a>
+  </div>
+
+  <p class="subtitle">Closure-probability emulator over the reliability constraint manifold, reliability-regime chamber, threshold layer, and safety layer. Public scenario anchors only.</p>
+
+  <!-- Scenario picker (top-of-page bar) -->
+  <div class="scenario-bar">
+    <span class="label">Scenario</span>
+    <select id="scenario-picker"></select>
+    <button class="btn" id="run-button">Run reliability emulator</button>
+    <button class="btn btn-outline" id="rerun-button">Re-run with new seed</button>
+    <span id="run-status" class="small mute" style="margin-left:8px"></span>
+  </div>
+  <p id="scenario-note" class="small mute" style="margin-top:-6px"></p>
+
+  <!-- Tab navigation (10 tabs + research) -->
+  <div class="tabs" role="tablist">
+    <button class="tab-button active" data-tab="summary">Summary</button>
+    <button class="tab-button"        data-tab="inputs">Scenario Inputs</button>
+    <button class="tab-button"        data-tab="uncertainty">Uncertainty Model</button>
+    <button class="tab-button"        data-tab="margin">Margin Distribution</button>
+    <button class="tab-button"        data-tab="closure">Closure Probability</button>
+    <button class="tab-button"        data-tab="failure">Failure Modes</button>
+    <button class="tab-button"        data-tab="sensitivity">Sensitivity</button>
+    <button class="tab-button"        data-tab="escalation">High-Fidelity Escalation</button>
+    <button class="tab-button"        data-tab="validation">Validation</button>
+    <button class="tab-button"        data-tab="certificate">Certificate</button>
+    <button class="tab-button"        data-tab="research">Research geometry mapping</button>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- TAB 1: Summary                                 -->
+  <!-- ============================================== -->
+  <section id="tab-summary" class="tab-panel active" role="tabpanel">
+    <p class="small mute">Headline reliability numbers under the public scenario anchor. P_close gauge, percentile margins, dominant failure mode, and escalation flag.</p>
+
+    <div class="summary-grid">
+      <div class="card gauge-card">
+        <h3>Closure probability P_close</h3>
+        <div id="pclose-gauge" class="gauge-container"></div>
+        <div id="pclose-readout" class="gauge-readout">—</div>
+      </div>
+
+      <div class="card">
+        <h3>Headline numbers</h3>
+        <table id="summary-table">
+          <tbody>
+            <tr><td>P_close</td><td class="num" id="s-pclose">—</td></tr>
+            <tr><td>P_outage</td><td class="num" id="s-poutage">—</td></tr>
+            <tr><td>Median margin M_50</td><td class="num" id="s-m50">—</td></tr>
+            <tr><td>5th percentile M_05</td><td class="num" id="s-m05">—</td></tr>
+            <tr><td>Dominant failure mode</td><td id="s-failmode">—</td></tr>
+            <tr><td>High-fidelity escalation</td><td id="s-escalation">—</td></tr>
+            <tr><td>Escalation reason</td><td id="s-escalation-why">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="summary-warnings"></div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 2: Scenario Inputs (16-field form)          -->
+  <!-- ============================================== -->
+  <section id="tab-inputs" class="tab-panel" role="tabpanel">
+    <p class="small mute">Sixteen-field scenario form. Defaults come from the selected public scenario anchor. Per-input range / distribution controls feed the uncertainty model on the next tab.</p>
+    <div id="input-form" class="design-grid"></div>
+    <div id="input-warnings"></div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 3: Uncertainty Model                        -->
+  <!-- ============================================== -->
+  <section id="tab-uncertainty" class="tab-panel" role="tabpanel">
+    <p class="small mute">Per-input distribution picker. Supported distributions: fixed, normal, lognormal, uniform, triangular, empirical. Correlations are recorded but not yet sampled.</p>
+    <div id="uncertainty-form"></div>
+    <div class="card">
+      <h4>Correlations</h4>
+      <p class="small mute">Independence is assumed across inputs unless a correlation list is supplied. The MVP records correlations but does not yet draw correlated samples.</p>
+      <div id="correlations-list" class="small">No correlations recorded.</div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 4: Margin Distribution                      -->
+  <!-- ============================================== -->
+  <section id="tab-margin" class="tab-panel" role="tabpanel">
+    <p class="small mute">Histogram of sampled link margin (dB) over the Monte Carlo run, and the cumulative distribution. About 50 bins; gauge can be re-rendered from the Summary tab.</p>
+    <div class="plot-row">
+      <div class="plot-container" id="margin-histogram"></div>
+      <div class="plot-container" id="margin-cdf"></div>
+    </div>
+    <div class="card">
+      <h4>Sample statistics</h4>
+      <table id="margin-stats-table">
+        <tbody>
+          <tr><td>Mean margin</td><td class="num" id="ms-mean">—</td></tr>
+          <tr><td>Std dev</td><td class="num" id="ms-std">—</td></tr>
+          <tr><td>p05</td><td class="num" id="ms-p05">—</td></tr>
+          <tr><td>p25</td><td class="num" id="ms-p25">—</td></tr>
+          <tr><td>p50</td><td class="num" id="ms-p50">—</td></tr>
+          <tr><td>p75</td><td class="num" id="ms-p75">—</td></tr>
+          <tr><td>p95</td><td class="num" id="ms-p95">—</td></tr>
+          <tr><td>Valid samples / total</td><td class="num" id="ms-counts">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 5: Closure Probability                      -->
+  <!-- ============================================== -->
+  <section id="tab-closure" class="tab-panel" role="tabpanel">
+    <p class="small mute">P_close gauge plus reliability-vs-range and reliability-vs-aperture sweeps (20 grid points each). Other inputs held at scenario values.</p>
+    <div class="plot-row">
+      <div class="plot-container" id="closure-gauge"></div>
+      <div class="plot-container" id="closure-vs-range"></div>
+    </div>
+    <div class="plot-row">
+      <div class="plot-container" id="closure-vs-aperture"></div>
+      <div class="plot-container" id="convergence-card"></div>
+    </div>
+    <p class="small">
+      <button class="btn btn-outline" id="closure-csv-range">Export range sweep CSV</button>
+      <button class="btn btn-outline" id="closure-csv-aperture">Export aperture sweep CSV</button>
+    </p>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 6: Failure Modes                            -->
+  <!-- ============================================== -->
+  <section id="tab-failure" class="tab-panel" role="tabpanel">
+    <p class="small mute">Failure-mode probability across the Monte Carlo samples. The dominant mode card shows which mechanism in the reliability constraint manifold was active most often.</p>
+    <div class="plot-container" id="failure-bars"></div>
+    <div class="card" id="dominant-mode-card">
+      <h3>Dominant failure mode</h3>
+      <div id="dominant-mode-body" class="small mute">Run the emulator to compute the dominant failure mode.</div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 7: Sensitivity                              -->
+  <!-- ============================================== -->
+  <section id="tab-sensitivity" class="tab-panel" role="tabpanel">
+    <p class="small mute">Tornado chart of linear sensitivity (delta margin per fractional input change). Largest-magnitude bars are the most-load-bearing inputs.</p>
+    <div class="plot-container" id="tornado-container"></div>
+    <div class="card">
+      <h4>Dominant uncertainty contributor</h4>
+      <div id="dominant-uncert" class="small mute">Run the emulator to compute the dominant uncertainty contributor.</div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 8: High-Fidelity Escalation                 -->
+  <!-- ============================================== -->
+  <section id="tab-escalation" class="tab-panel" role="tabpanel">
+    <p class="small mute">Escalation logic flags scenarios where the public engineering surrogate alone is insufficient and a high-fidelity model is recommended.</p>
+    <div class="card" id="escalation-card">
+      <h3>Escalation verdict</h3>
+      <div id="escalation-verdict" class="small mute">Run the emulator first.</div>
+    </div>
+    <div class="card">
+      <h4>Top-N escalation candidates</h4>
+      <div id="escalation-table-container">No scenarios ranked yet.</div>
+    </div>
+    <div class="card">
+      <h4>Recommended high-fidelity model</h4>
+      <div id="hf-model-card" class="small mute">No recommendation yet.</div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 9: Validation                               -->
+  <!-- ============================================== -->
+  <section id="tab-validation" class="tab-panel" role="tabpanel">
+    <p class="small mute">The reliability emulator inherits the lab-wide validation page. Method sanity tests below; full report under the link.</p>
+    <div class="callout">
+      <strong>Reliability emulator sanity checks</strong>
+    </div>
+    <div id="reliability-validation-tests"></div>
+    <p>
+      <a class="btn btn-outline" href="../validation/">Open lab-wide Validation page</a>
+    </p>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 10: Certificate                             -->
+  <!-- ============================================== -->
+  <section id="tab-certificate" class="tab-panel" role="tabpanel">
+    <p class="small mute">Reproducible reliability certificate. The deterministic result_hash pins inputs + constants + formulas + outputs. The receipt_hash adds the export timestamp.</p>
+    <div class="field" style="max-width:540px">
+      <label for="cert-note">Scenario note (optional)</label>
+      <input type="text" id="cert-note" placeholder="e.g. public scenario anchor stress test">
+      <span class="hint">Free text. Embedded into the certificate's assumptions list.</span>
+    </div>
+    <div style="margin:8px 0">
+      <button class="btn" id="cert-build">Build certificate</button>
+      <button class="btn btn-outline" id="cert-json">Download JSON</button>
+      <button class="btn btn-outline" id="cert-md">Download Markdown</button>
+      <button class="btn btn-outline" id="cert-pdf">Print PDF</button>
+      <button class="btn btn-outline" id="review-packet">Download review packet</button>
+    </div>
+    <div class="card">
+      <h4>Hashes</h4>
+      <div class="small">
+        <div><strong>result_hash:</strong> <code id="cert-result-hash">—</code></div>
+        <div><strong>receipt_hash:</strong> <code id="cert-receipt-hash">—</code></div>
+      </div>
+    </div>
+    <div id="cert-result"></div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TAB 11: Research geometry mapping (opt-in)      -->
+  <!-- ============================================== -->
+  <section id="tab-research" class="tab-panel" role="tabpanel">
+    <div class="callout">
+      <strong>Optional advanced view.</strong> The public UI uses engineering names everywhere; this tab carries the manuscript's research mapping for readers who want it.
+    </div>
+    <details class="research-drawer" open>
+      <summary>Show research mapping (research id - public engineering name)</summary>
+      <div id="research-drawer-body">
+        <p>The reliability emulator runs over a constraint-compression framework. The public UI uses these engineering names:</p>
+        <table>
+          <thead><tr><th>Research id</th><th>Public engineering name</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td><code>K_6</code></td><td>reliability constraint manifold</td><td>Limiter manifold over the link budget</td></tr>
+            <tr><td><code>F_plus</code></td><td>reliability-regime chamber</td><td>Regime classifier (which limiter is active)</td></tr>
+            <tr><td><code>L_threshold</code></td><td>threshold layer</td><td>Margin-vs-requirement test</td></tr>
+            <tr><td><code>L_safety</code></td><td>safety layer</td><td>False-safe risk + escalation projector</td></tr>
+            <tr><td><code>x, ⊕, ⊗</code></td><td>full geometry map</td><td>Active-branch geometry of the reliability problem</td></tr>
+          </tbody>
+        </table>
+        <p class="small mute">The active-branch architecture is used as a constraint-compression framework, not as a claim that high-dimensional physics is required for standard optical-link engineering.</p>
+      </div>
+    </details>
+  </section>
+
+  <hr>
+  <p class="small mute" style="text-align:center">
+    Public engineering surrogate - reliability emulator - not mission-certified.
+  </p>
+
+</main>
+
+</body>
+</html>

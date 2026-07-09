@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4PG8TTB6Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E4PG8TTB6Z');
+</script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formula Registry — Relativistic Optics Lab</title>
+  <meta name="description" content="Canonical formula registry: every equation used in the Relativistic Optics Lab, with inputs, outputs, assumptions, not-included terms, source IDs, and validation case IDs.">
+  <link rel="stylesheet" href="../shared/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    .formula-card {
+      background: var(--bg-card);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 14px 0;
+    }
+    .formula-card h3 {
+      margin: 0 0 6px;
+      font-size: 1.05em;
+    }
+    .formula-id {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.85em;
+      color: var(--ink-mute);
+      background: var(--code-bg);
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+    .equation-box {
+      background: var(--bg-soft);
+      border: 1px solid var(--rule-soft);
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin: 10px 0;
+      overflow-x: auto;
+    }
+    .io-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 10px 18px;
+      margin: 8px 0;
+    }
+    .io-block {
+      font-size: 0.9em;
+    }
+    .io-label {
+      font-weight: 600;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.78em;
+      margin-bottom: 3px;
+    }
+    .io-block code {
+      font-size: 0.85em;
+    }
+    .assumptions-list, .notincluded-list {
+      margin: 4px 0;
+      padding-left: 22px;
+      font-size: 0.92em;
+    }
+    .notincluded-list li { color: var(--ink-soft); }
+    .chip-row { margin: 6px 0; }
+    .chip {
+      display: inline-block;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.78em;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid #c7d8ee;
+      padding: 1px 8px;
+      border-radius: 10px;
+      margin: 2px 4px 2px 0;
+      text-decoration: none;
+    }
+    .chip:hover { text-decoration: underline; }
+    .chip.source     { background: var(--accent-soft); color: var(--accent); border-color: #c7d8ee; }
+    .chip.validation { background: var(--good-bg);     color: var(--good);   border-color: #bbf7d0; }
+    .chip.used-by    { background: var(--bg-soft);     color: var(--ink-soft); border-color: var(--rule); }
+    .chip.missing    { background: var(--bad-bg);      color: var(--bad);    border-color: #fecaca; }
+    .registry-meta {
+      font-size: 0.88em;
+      color: var(--ink-mute);
+      margin: 10px 0 20px;
+    }
+    .filter-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin: 14px 0;
+      flex-wrap: wrap;
+    }
+    .filter-row input {
+      flex: 1;
+      min-width: 220px;
+      padding: 6px 10px;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      font: inherit;
+    }
+    .no-match { padding: 30px; text-align: center; color: var(--ink-mute); font-style: italic; }
+  </style>
+</head>
+<body>
+
+<main class="container">
+  <h1>Formula Registry</h1>
+  <p>
+    Every equation used by the Relativistic Optics Lab calculators is defined once in
+    <code>shared/formula_registry.json</code> and cross-referenced by <code>formula_id</code>
+    from each calculator's certificate. This page renders the registry live — updates to
+    the JSON flow through here without a rebuild.
+  </p>
+
+  <div id="registry-meta" class="registry-meta"></div>
+
+  <div class="filter-row">
+    <input type="text" id="filter-input" placeholder="Filter formulas by id, name, or content…">
+    <span id="match-count" class="small mute"></span>
+  </div>
+
+  <div id="formula-list"></div>
+
+  <div class="callout" style="margin-top:28px">
+    <strong>How to cite a formula.</strong> Reference it by <code>formula_id</code> in any certificate.
+    Source IDs and validation cases are themselves entries in
+    <a href="../sources/">source_registry</a> and
+    <a href="../validation/">validation_report</a>.
+  </div>
+</main>
+
+<script type="module">
+import { bootstrap } from "../shared/shared.js";
+
+bootstrap({ activeKey: "" });
+
+function escapeHtml(s) {
+  return String(s ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[ch]));
+}
+
+// Map a calculator/used-by name to its href.
+const CALC_PAGES = {
+  "shapiro-delay":          "../shapiro-delay/",
+  "sagnac":                 "../sagnac/",
+  "light-deflection":       "../light-deflection/",
+  "frequency-clock-shift":  "../frequency-clock-shift/",
+  "deep-space-link":        "../deep-space-link/",
+  "correction-ranker":      "../correction-ranker/"
+};
+
+function renderList(items, kind) {
+  if (!items || items.length === 0) return `<div class="small mute">none</div>`;
+  return `<ul class="${kind === "notincluded" ? "notincluded-list" : "assumptions-list"}">
+    ${items.map(x => `<li>${escapeHtml(x)}</li>`).join("")}
+  </ul>`;
+}
+
+function renderChips(ids, type, hrefFn) {
+  if (!ids || ids.length === 0) return `<span class="small mute">—</span>`;
+  return ids.map(id => {
+    const href = hrefFn(id);
+    if (href) return `<a class="chip ${type}" href="${href}">${escapeHtml(id)}</a>`;
+    return `<span class="chip ${type}">${escapeHtml(id)}</span>`;
+  }).join("");
+}
+
+function renderFormulaCard(f) {
+  const eq = f.equation_latex ? `<div class="equation-box">$$${f.equation_latex}$$</div>` : "";
+
+  const inputs   = (f.inputs   || []).map(s => `<code>${escapeHtml(s)}</code>`).join(", ") || "<span class=\"small mute\">—</span>";
+  const outputs  = (f.outputs  || []).map(s => `<code>${escapeHtml(s)}</code>`).join(", ") || "<span class=\"small mute\">—</span>";
+
+  return `
+    <article class="formula-card" id="${escapeHtml(f.formula_id)}" data-search="${escapeHtml((f.formula_id + " " + (f.name||"") + " " + (f.equation_latex||"") + " " + (f.assumptions||[]).join(" ") + " " + (f.not_included||[]).join(" ")).toLowerCase())}">
+      <h3>${escapeHtml(f.name || "(unnamed)")}</h3>
+      <div><span class="formula-id">${escapeHtml(f.formula_id)}</span></div>
+      ${eq}
+      <div class="io-row">
+        <div class="io-block">
+          <div class="io-label">Inputs</div>
+          <div>${inputs}</div>
+        </div>
+        <div class="io-block">
+          <div class="io-label">Outputs</div>
+          <div>${outputs}</div>
+        </div>
+      </div>
+      ${f.assumptions && f.assumptions.length ? `
+        <div class="io-block">
+          <div class="io-label">Assumptions</div>
+          ${renderList(f.assumptions, "assumptions")}
+        </div>` : ""}
+      ${f.not_included && f.not_included.length ? `
+        <div class="io-block">
+          <div class="io-label">Not included</div>
+          ${renderList(f.not_included, "notincluded")}
+        </div>` : ""}
+      <div class="io-block">
+        <div class="io-label">Source IDs</div>
+        <div class="chip-row">
+          ${renderChips(f.source_ids, "source", id => `../sources/#${encodeURIComponent(id)}`)}
+        </div>
+      </div>
+      ${f.validation_cases && f.validation_cases.length ? `
+        <div class="io-block">
+          <div class="io-label">Validation cases</div>
+          <div class="chip-row">
+            ${renderChips(f.validation_cases, "validation", id => `../validation/#${encodeURIComponent(id)}`)}
+          </div>
+        </div>` : ""}
+      <div class="io-block">
+        <div class="io-label">Used by</div>
+        <div class="chip-row">
+          ${renderChips(f.used_by, "used-by", id => CALC_PAGES[id] || null)}
+        </div>
+      </div>
+    </article>`;
+}
+
+async function load() {
+  let registry;
+  try {
+    const res = await fetch("../shared/formula_registry.json");
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    registry = await res.json();
+  } catch (e) {
+    console.warn("formula_registry fetch failed:", e);
+    document.getElementById("formula-list").innerHTML =
+      `<div class="callout warn"><strong>Could not load formula registry.</strong> ${escapeHtml(String(e))}</div>`;
+    return;
+  }
+  const meta = document.getElementById("registry-meta");
+  meta.innerHTML = `
+    <strong>Registry version:</strong> <code>${escapeHtml(registry.schema_version || "?")}</code> ·
+    <strong>Formulas:</strong> ${registry.formulas?.length ?? 0} ·
+    Source file: <code>shared/formula_registry.json</code>
+  `;
+
+  const host = document.getElementById("formula-list");
+  host.innerHTML = (registry.formulas || []).map(renderFormulaCard).join("");
+
+  // KaTeX render
+  if (typeof window !== "undefined" && window.renderMathInElement) {
+    window.renderMathInElement(host, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$",  right: "$",  display: false }
+      ],
+      throwOnError: false
+    });
+  }
+
+  // Live filter
+  const input = document.getElementById("filter-input");
+  const counter = document.getElementById("match-count");
+  const cards = Array.from(host.querySelectorAll(".formula-card"));
+  const totalLabel = `${cards.length} formula${cards.length === 1 ? "" : "s"}`;
+  counter.textContent = totalLabel;
+  function applyFilter() {
+    const q = input.value.trim().toLowerCase();
+    let shown = 0;
+    for (const card of cards) {
+      const hay = card.getAttribute("data-search") || "";
+      const match = !q || hay.includes(q);
+      card.style.display = match ? "" : "none";
+      if (match) shown++;
+    }
+    counter.textContent = q ? `${shown} of ${cards.length} match` : totalLabel;
+    const empty = host.querySelector(".no-match");
+    if (shown === 0 && q) {
+      if (!empty) host.insertAdjacentHTML("beforeend", `<div class="no-match">No formulas match "${escapeHtml(q)}".</div>`);
+    } else if (empty) { empty.remove(); }
+  }
+  input.addEventListener("input", applyFilter);
+
+  // Anchor scroll for #formula_id links
+  if (location.hash) {
+    const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (el) el.scrollIntoView({ behavior: "instant", block: "start" });
+  }
+}
+
+load();
+</script>
+
+</body>
+</html>

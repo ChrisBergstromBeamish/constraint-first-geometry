@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blind Spots &amp; Implicit Assumptions</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 252px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.35;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 10px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:14px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9670; The Anchors</a></div>
+<div class="ann-group">Start</div>
+<a href="index.html">Overview — how we judge</a>
+<a href="anchor-hierarchy-overview.html">Anchor hierarchy — map</a>
+<div class="ann-group">The method</div>
+<a href="a0-master-anchor.html">A0 — the master anchor</a>
+<a href="layer-1-metric.html">Layer 1 — MDL metric</a>
+<a href="layer-2-no-unpaid-labels.html">Layer 2 — no unpaid labels</a>
+<a href="layer-3-search-grammars.html">Layer 3 — search grammars</a>
+<a href="layer-4-carrier-forcing.html">Layer 4 — carrier-forcing</a>
+<a href="shape-minimality-challenge.html">Shape minimality challenge</a>
+<div class="ann-group">The hierarchy</div>
+<a href="deep-roots.html">The seven deep roots</a>
+<a href="master-anchors.html">Master anchors</a>
+<a href="logical-endpoint-proof.html">Logical endpoint proof</a>
+<a href="gate-traceability-template.html">Gate traceability template</a>
+<a href="blind-spots.html" class="current">Blind spots</a>
+<a href="ai-agent-completion-protocol.html">AI completion protocol</a>
+<div class="ann-group">Gate ledgers · GUT spine</div>
+<a href="sg1-anchor-ledger.html">SG-1 geometry</a>
+<a href="sg2-anchor-ledger.html">SG-2 gauge recovery</a>
+<a href="sg3-anchor-ledger.html">SG-3 generations</a>
+<a href="sg4-anchor-ledger.html">SG-4 hypercharge &amp; anomaly</a>
+<a href="sg5-anchor-ledger.html">SG-5 electroweak</a>
+<a href="sg6-anchor-ledger.html">SG-6 moduli stabilization</a>
+<a href="sg7-anchor-ledger.html">SG-7 threshold unification</a>
+<a href="sg8-anchor-ledger.html">SG-8 flavor closure</a>
+<a href="sg9-anchor-ledger.html">SG-9 proton safety</a>
+<a href="sg10-anchor-ledger.html">SG-10 claim boundary</a>
+<div class="ann-group">Gate ledgers · quantum/gravity/UV</div>
+<a href="uqf3-anchor-ledger.html">UQF-3 reflection positivity</a>
+<a href="uqf4-anchor-ledger.html">UQF-4 BRST / descent</a>
+<a href="uqf5a-5b-anchor-ledger.html">UQF-5A/5B linearized graviton</a>
+<a href="uqf5c-anchor-ledger.html">UQF-5C interacting graviton</a>
+<a href="uqf7-anchor-ledger.html">UQF-7 fermion chirality</a>
+<a href="uqf9-anchor-ledger.html">UQF-9 UV completion</a>
+<a href="uqf10-anchor-ledger.html">UQF-10 compactification</a>
+<a href="uqf14-anchor-ledger.html">UQF-14 unitarity / causality</a>
+<div class="ann-group">Gate ledgers · cosmology/BH/foundations</div>
+<a href="gap01-anchor-ledger.html">Gap-01 a6 Seeley-DeWitt</a>
+<a href="gap02-anchor-ledger.html">Gap-02 Yang-Mills mass gap</a>
+<a href="gap05-value-anchor-ledger.html">Gap-05 Lambda value</a>
+<a href="gap05-stability-anchor-ledger.html">Gap-05 Lambda stability</a>
+<a href="gap08-anchor-ledger.html">Gap-08 inflation</a>
+<a href="gap10-bg10-anchor-ledger.html">Gap-10/BG-10 baryogenesis</a>
+<a href="gap11-anchor-ledger.html">Gap-11 dark matter</a>
+<a href="gap13-anchor-ledger.html">Gap-13 BH entropy / Page</a>
+<a href="born-anchor-ledger.html">Born rule</a>
+<div class="ann-group">Gate ledgers · deep roots &amp; dissolutions</div>
+<a href="deeproot-granularity-anchor-ledger.html">Deep root — granularity</a>
+<a href="deeproot-shape-anchor-ledger.html">Deep root — structural form</a>
+<a href="lambda-catastrophe-anchor-ledger.html">Lambda-catastrophe (dissolved)</a>
+<a href="blackhole-singularity-anchor-ledger.html">Black-hole singularity (dissolved)</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">Blind Spots &amp; Implicit Assumptions — rendered package. Rendered from <code>blind-spots.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>Blind Spots &amp; Implicit Assumptions</h1>
+<p><strong>The anchor hierarchy is only trustworthy if it names its blind spots. Every implicit assumption must be classified as closed, charged, declared, open, blocked, or assigned to a specialist closure task.</strong></p>
+<h2>Why this page exists</h2>
+<p>This is not a weakness page; it is a credibility page. A framework that lists its measured anchors, its derived-given-$E$ readouts, and its frozen shape is only as honest as its account of <em>the assumptions it may have made without proving them</em>. The purpose here is to drag every silent, load-bearing assumption into the open, give it an identifier, name the hidden assumption it smuggles, assign it an honest status using only the allowed status labels, and state the repair that contains the risk.</p>
+<p>The discipline throughout is the program's spine: <strong>selection ≠ derivation · given-E ≠ derivation-of-E · frozen / reproducible ≠ proven-unique.</strong> A blind spot is exactly a place where one of those three could be silently violated. Naming it is what prevents the violation.</p>
+<p>Every blind spot below is typed against the allowed status set. Nothing here is claimed to be closed unless the corpus actually closes it; most are <code>CHARGED</code>, <code>OPEN</code>, or <code>DECLARED ROOT</code>, and the few <code>ANTI-CLAIM</code> rows are statements the framework explicitly refuses to make.</p>
+<p><strong>Allowed status labels</strong> (the only labels used anywhere on this page):
+<code>DECLARED ROOT</code> · <code>GENERATED</code> · <code>DERIVED-GIVEN-E</code> · <code>MEASURED</code> · <code>CHARGED</code> · <code>AUDIT ONLY</code> · <code>OPEN</code> · <code>BLOCKED</code> · <code>ANTI-CLAIM</code>.</p>
+<hr />
+<h2>The blind spot register</h2>
+<p>Each row names the blind spot, the hidden assumption it would smuggle in if left unexamined, the honest status, and the required repair that contains it. The fifteen rows below are the mandatory register; the sections that follow expand the highest-risk five.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Blind spot</th>
+<th>Hidden assumption</th>
+<th>Status</th>
+<th>Required repair</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B1</td>
+<td>Root completeness risk</td>
+<td>the seven-root set is exhaustive</td>
+<td><code>OPEN</code></td>
+<td>test reduction or bank missing roots</td>
+</tr>
+<tr>
+<td>B2</td>
+<td>Granularity → MDL</td>
+<td>cost-floor proves MDL beats dimension-first</td>
+<td><code>OPEN</code></td>
+<td>mark as OPEN bridge theorem</td>
+</tr>
+<tr>
+<td>B3</td>
+<td>Shape bundling</td>
+<td>Shape includes metric, $E$, quotient, rulebook, observable map</td>
+<td><code>CHARGED</code></td>
+<td>split and charge subchoices</td>
+</tr>
+<tr>
+<td>B4</td>
+<td>Given-E wall</td>
+<td>downstream gates derive $E$</td>
+<td><code>DERIVED-GIVEN-E</code> (anti-claim on "derives $E$")</td>
+<td>mark $E$ as GIVEN-E / CHARGED</td>
+</tr>
+<tr>
+<td>B5</td>
+<td>Gate-local closure</td>
+<td>local closure equals whole-gate closure</td>
+<td><code>CHARGED</code></td>
+<td>separate local and global rows</td>
+</tr>
+<tr>
+<td>B6</td>
+<td>Hash overclaim</td>
+<td>frozen hash validates physics</td>
+<td><code>AUDIT ONLY</code></td>
+<td>label hashes AUDIT ONLY</td>
+</tr>
+<tr>
+<td>B7</td>
+<td>Grammar dependence</td>
+<td>internal-isometry grammar is necessary</td>
+<td><code>OPEN</code></td>
+<td>mark cross-grammar dominance open</td>
+</tr>
+<tr>
+<td>B8</td>
+<td>Invariance pre-root</td>
+<td>invariance is derived rather than required</td>
+<td><code>DECLARED ROOT</code> (meta-root)</td>
+<td>classify as meta-root</td>
+</tr>
+<tr>
+<td>B9</td>
+<td>Record interface</td>
+<td>observer means consciousness</td>
+<td><code>DECLARED ROOT</code> (meta-root)</td>
+<td>use physical record interface</td>
+</tr>
+<tr>
+<td>B10</td>
+<td>Causality / nonseparability</td>
+<td>nonseparability permits signalling</td>
+<td><code>ANTI-CLAIM</code></td>
+<td>include no-signalling guardrail</td>
+</tr>
+<tr>
+<td>B11</td>
+<td>Scale precision</td>
+<td>naked dimensionful number is invariant</td>
+<td><code>MEASURED</code> (value); existence <code>CHARGED</code></td>
+<td>use scale relations / dimensionless comparisons</td>
+</tr>
+<tr>
+<td>B12</td>
+<td>$k_B$ misuse</td>
+<td>$k_B$ is root of record cost</td>
+<td><code>CHARGED</code> (entropy bridge, not root)</td>
+<td>demote to entropy bridge</td>
+</tr>
+<tr>
+<td>B13</td>
+<td>Locality / unitarity / dynamics</td>
+<td>these are automatically derived</td>
+<td><code>OPEN</code> (reduction targets)</td>
+<td>track as reduction targets</td>
+</tr>
+<tr>
+<td>B14</td>
+<td>Collapse overclaim</td>
+<td>measurement physically signals everywhere</td>
+<td><code>ANTI-CLAIM</code></td>
+<td>use factorization / conditional state</td>
+</tr>
+<tr>
+<td>B15</td>
+<td>Page completion</td>
+<td>polished text means done</td>
+<td><code>CHARGED</code> (process control)</td>
+<td>require tests and completion report</td>
+</tr>
+</tbody>
+</table>
+<p>The remainder of the page hardens these. Each blind spot is written to a fixed template so the same questions are answered for every one:</p>
+<pre><code>Blind spot:
+Hidden assumption:
+Risk if left silent:
+Status:
+Required repair:
+Allowed claim:
+Forbidden claim (anti-claim where applicable):
+</code></pre>
+<hr />
+<h2>B1 — Root completeness risk</h2>
+<p><strong>Hidden assumption.</strong> The seven-root set (Invariance, Record Interface, Causal Order, Granularity, Scale, Shape, Nonseparability) is exhaustive — there is no eighth load-bearing root hiding in the background.</p>
+<p><strong>Risk if left silent.</strong> A principle the framework actually depends on (e.g. an ordered-dynamics root) gets used for free without being charged.</p>
+<p><strong>Status:</strong> <code>OPEN</code>. The seven-root list is a declared working floor, not a proven-complete basis.</p>
+<p><strong>Required repair.</strong> Either prove the candidate extra roots (locality, unitarity, ordered dynamics — see B13) <em>reduce</em> to the seven, or <strong>bank them as additional roots and charge them explicitly.</strong> No silent eighth root.</p>
+<p><strong>Allowed claim:</strong> the seven roots are the current declared floor.
+<strong>Forbidden claim:</strong> the root set is provably complete.</p>
+<hr />
+<h2>B2 — Granularity → MDL bridge</h2>
+<p><strong>Hidden assumption.</strong> The cost-floor (granularity) <em>proves</em> that the minimum-description-length (MDL) simplicity order is the right one — so that the 13D branch can win on "simplest" — beating a dimension-first metric under which a clean 4D EFT wins because $4<13$.</p>
+<p><strong>Risk if left silent.</strong> "13D is minimal" is quietly upgraded from <em>metric-relative</em> to <em>absolute</em>, smuggling in the very seam that decides the contest.</p>
+<p><strong>Status:</strong> <code>OPEN</code> — explicitly an open bridge theorem (Layer 1). The selecting theorem <em>finite operational reality / granularity $\Rightarrow$ MDL is the correct simplicity order</em> is <strong>not</strong> proven.</p>
+<p><strong>Required repair.</strong> Mark it <code>OPEN</code>. Derive the description-length functional from the cost-floor; show a measured real costs $\Theta(\log(1/\Delta_0))$ bits while a discrete structural choice costs $O(1)$; build <strong>both</strong> fully-charged ledgers $I(B_{13})$ and $I(B_{\rm EFT})$. A <em>refuted-economy</em> outcome (EFT genuinely cheaper) is an equally valid result.</p>
+<p><strong>Allowed claim:</strong> under MDL the 13D branch can win, <em>given</em> the metric.
+<strong>Forbidden claim:</strong> MDL / full-generator cost is absolutely proven against every competing metric.</p>
+<hr />
+<h2>B3 — Shape bundling risk</h2>
+<p><strong>Hidden assumption.</strong> "Shape" is a single atomic choice — so freezing one object pays for everything downstream.</p>
+<p><strong>Risk if left silent.</strong> A whole stack of independent subchoices (metric, the matter content $E$, the center quotient, the flavor rulebook, the observable map) rides for free inside one word.</p>
+<p><strong>Status:</strong> <code>CHARGED</code> — the bundle is acknowledged and its subchoices are charged separately, not folded into one free posit.</p>
+<p><strong>Required repair.</strong> Split "Shape" and charge each subchoice. The Shape generator unbundles to:</p>
+<p>$$
+\text{Shape}_{\rm metric},\quad E,\quad \text{rulebook},\quad \text{quotient/fold data},\quad \text{observable map}.
+$$</p>
+<p>Each of these is a separately-charged primitive. In particular $E$ is <code>DERIVED-GIVEN-E</code>-input (charged, not produced — see B4), the flavor rulebook $F^+$ is the weakest link and stays <code>OPEN</code>, and the observable map is part of the full-generator cost. Bundling them invisibly would be the single largest understatement of cost in the program.</p>
+<p><strong>Allowed claim:</strong> Shape is a charged bundle of separately-paid subchoices.
+<strong>Forbidden claim:</strong> the 13D shape is absolutely unique, or "Shape" is one free atomic posit.</p>
+<hr />
+<h2>B4 — Given-E wall</h2>
+<p><strong>Hidden assumption.</strong> The downstream gates <em>derive</em> the matter content $E$ (the SM chiral spectrum / exactly three generations).</p>
+<p><strong>Risk if left silent.</strong> "Three generations from geometry" reads as a derivation when it is a rigid integer <strong>given a chosen bundle</strong>: $\chi(K_6,E)=-3$ holds <em>given</em> the bundle on $E$, it does not select $E$.</p>
+<p><strong>Status:</strong> <code>DERIVED-GIVEN-E</code> for the readouts; <code>ANTI-CLAIM</code> on "the gates derive $E$." The spectrum $E$ is charged <code>DECLARED ROOT</code> / disclosed given-$E$ input.</p>
+<p><strong>Required repair.</strong> Mark $E$ as <strong>GIVEN-E / CHARGED</strong> everywhere, and qualify every downstream result with "given $E$." The only route that could remove "given-$E$" is a <strong>bundle-uniqueness theorem</strong> (enumerate admissible weights/lifts, apply the index machinery, show minimality uniquely selects a weight of index magnitude 3 <em>without</em> invoking "three generations" as input). That theorem is <code>OPEN</code>. "$E$ is forced" is currently <strong>refuted</strong>: anomaly-freedom is a filter with infinitely many solutions.</p>
+<p><strong>Allowed claim:</strong> given the frozen shape and given $E$, the framework reads off the gauge algebra, three generations, and charge quantization.
+<strong>Forbidden claim (anti-claim):</strong> $E$ is derived; anomaly cancellation selects the Standard Model.</p>
+<hr />
+<h2>B5 — Gate-local closure vs whole-gate closure</h2>
+<p><strong>Hidden assumption.</strong> Closing a gate <em>locally</em> (in-grammar, given the frozen shape and given $E$) equals closing the <em>whole</em> gate.</p>
+<p><strong>Risk if left silent.</strong> In-grammar carrier-forcing (the strongest current result) is silently promoted to full closure, hiding the open universal-negative residual.</p>
+<p><strong>Status:</strong> <code>CHARGED</code> — local and global closure are tracked as separate rows, never merged.</p>
+<p><strong>Required repair.</strong> Separate <strong>local</strong> and <strong>global</strong> closure rows for every gate. Local closure (e.g. the $S^2$, $S^1_Y/\mathbb Z_2$, $K_6$ carriers forced inside the internal-isometry grammar) is real and is <code>DERIVED-GIVEN-E</code>. Whole-gate / architecture-neutral closure (no simpler competitor across <em>all</em> grammars) is <code>OPEN</code>. The shape gate as a whole therefore remains <code>OPEN</code>.</p>
+<p><strong>Allowed claim:</strong> the carriers are forced <em>inside the grammar</em>, given $E$.
+<strong>Forbidden claim:</strong> local gate closure equals full gate closure.</p>
+<hr />
+<h2>B6 — Hash overclaim</h2>
+<p><strong>Hidden assumption.</strong> A frozen reproducible hash validates the <em>physics</em>.</p>
+<p><strong>Risk if left silent.</strong> "Hash-frozen, reproduced blind" is read as evidence the theory is correct, when it only proves the <em>object did not change</em>.</p>
+<p><strong>Status:</strong> <code>AUDIT ONLY</code>. The hashes $dcc66f1b2685$ / $a5b1e6f9d951$ are read-only audit artifacts.</p>
+<p><strong>Required repair.</strong> Label all hashes <strong>AUDIT ONLY</strong>. They validate frozen-object identity and audit integrity — that the generator was frozen before downstream comparison (freeze-before-compare) — and nothing about whether the geometry is true.</p>
+<p><strong>Allowed claim:</strong> the shape was frozen before comparison; the hash proves identity / audit integrity.
+<strong>Forbidden claim:</strong> the hash validates the physics.</p>
+<hr />
+<h2>B7 — Grammar dependence</h2>
+<p><strong>Hidden assumption.</strong> The internal-isometry grammar ("forces = isometries") is <em>necessary</em> — the only admissible way to explain gauge structure.</p>
+<p><strong>Risk if left silent.</strong> A "win" inside Grammar A is mistaken for a win across all grammars, ignoring bundle/brane (B), 4D EFT (C), and algebraic/NCG (D) classes.</p>
+<p><strong>Status:</strong> <code>OPEN</code> — cross-grammar dominance is open. Fable is strongest <em>within</em> Grammar A; the gauge outcome is a TIE with serious Grammar-B/D frameworks, and Grammar C is cheaper under dimension-first.</p>
+<p><strong>Required repair.</strong> Mark cross-grammar dominance <code>OPEN</code>. The closure target is a <strong>role-mechanism normal-form / exhaustion theorem</strong> plus a common-metric <strong>bridge theorem</strong>: show every admissible explanation reduces, cost-non-increasingly, to one of finitely many normal-form classes, then lower-bound each class. Until then, comparison is <em>in-grammar</em> only.</p>
+<p><strong>Allowed claim:</strong> strongest known survivor <em>within</em> the internal-isometry grammar.
+<strong>Forbidden claim:</strong> the internal-isometry grammar is necessary, or 13D dominates across all grammars.</p>
+<hr />
+<h2>B8 — Invariance treated as pre-root</h2>
+<p><strong>Hidden assumption.</strong> Physical-equivalence / invariance is something the framework <em>derives</em>, rather than a condition it <em>requires up front</em>.</p>
+<p><strong>Risk if left silent.</strong> A meta-admissibility condition gets booked as an achievement, inflating the derived reach.</p>
+<p><strong>Status:</strong> <code>DECLARED ROOT</code> — classified as a Tier-0 meta-root, an admissibility condition for anything to count as a physical claim, not a theorem.</p>
+<p><strong>Required repair.</strong> Classify invariance as a meta-root. It is the working content of relativity and gauge theory promoted to an admissibility rule: a <em>filter</em> on candidate claims, not a <em>generator</em> of them.</p>
+<p><strong>Allowed claim:</strong> invariance is a required meta-root; physical anchors must be invariant.
+<strong>Forbidden claim:</strong> invariance is a derived theorem of the framework.</p>
+<hr />
+<h2>B9 — Record interface vs "observer = consciousness"</h2>
+<p><strong>Hidden assumption.</strong> "Observer" / "record" imports a conscious or subjective mind.</p>
+<p><strong>Risk if left silent.</strong> The framework gets read as making a consciousness claim, which it does not make and does not need.</p>
+<p><strong>Status:</strong> <code>DECLARED ROOT</code> — the Record Interface is a Tier-0 meta-root: physics is tested through finite, reproducible, physically instantiated records.</p>
+<p><strong>Required repair.</strong> Use the <strong>physical record interface</strong> definition throughout: a record is a physically instantiated finite log (a measurement to finite precision, a detector count, a halting computation with finite output), never a conscious entity.</p>
+<p><strong>Allowed claim:</strong> finite physical records are the empirical interface.
+<strong>Forbidden claim:</strong> observer means consciousness or subjective mind.</p>
+<hr />
+<h2>B10 — Causality / nonseparability signalling</h2>
+<p><strong>Hidden assumption.</strong> Nonseparability (global-state correlation) permits usable faster-than-light signalling.</p>
+<p><strong>Risk if left silent.</strong> A correctly-stated nonseparability root tips into an FTL-signalling overclaim.</p>
+<p><strong>Status:</strong> <code>ANTI-CLAIM</code>. The framework explicitly refuses the claim that nonseparability sends a usable signal; it is guarded by Causal Order (R3) and the no-signalling guardrail.</p>
+<p><strong>Required repair.</strong> Include the <strong>no-signalling guardrail</strong> (see the dedicated section below): for ordinary local measurements whose outcome is not communicated, the local marginal at $B$ is unchanged.</p>
+<p><strong>Allowed claim:</strong> local records <em>condition</em> a nonseparable global state.
+<strong>Forbidden claim (anti-claim):</strong> measurement / nonseparability sends a usable superluminal signal.</p>
+<hr />
+<h2>B11 — Scale precision</h2>
+<p><strong>Hidden assumption.</strong> A naked dimensionful number (e.g. the value of $M_{\rm Pl}$) is itself frame/unit-invariant and can be treated as derived.</p>
+<p><strong>Risk if left silent.</strong> A measured input masquerades as a derived prediction, and a non-invariant quantity is treated as physical.</p>
+<p><strong>Status:</strong> existence <code>CHARGED</code>; <strong>value</strong> <code>MEASURED</code>. At least one absolute dimensionful scale is required (existence, argued); the specific number is supplied by measurement.</p>
+<p><strong>Required repair.</strong> Use <strong>scale relations / dimensionless comparisons.</strong> Only dimensionless ratios are invariant (R1); the scale is written as a relation, not a derived number:</p>
+<p>$$M_{\rm Pl}\sim\sqrt{\frac{\hbar c}{G}}.$$</p>
+<p>$M_{\rm Pl}$ is one of the small charged measured-anchor set $\{M_{\rm Pl},\,\alpha_i(M_Z),\,y_t,\,|V_{us}|\}$.</p>
+<p><strong>Allowed claim:</strong> a scale relation is needed; the value is a measured anchor.
+<strong>Forbidden claim:</strong> a naked dimensionful number is invariant / derived by itself.</p>
+<hr />
+<h2>B12 — $k_B$ misuse</h2>
+<p><strong>Hidden assumption.</strong> Boltzmann's constant $k_B$ is a <em>root</em> of the record-cost / specification floor.</p>
+<p><strong>Risk if left silent.</strong> A unit-conversion / entropy-bridge constant is mis-promoted into the granularity root, double-counting the cost-floor.</p>
+<p><strong>Status:</strong> <code>CHARGED</code> — $k_B$ is an entropy bridge, not a root. The granularity root bottoms on one declared uniformity posit plus one measured action spacing ($\hbar$), not on $k_B$.</p>
+<p><strong>Required repair.</strong> <strong>Demote $k_B$ to an entropy bridge.</strong> It converts between information (bits/nats) and thermodynamic entropy ($k_B\ln 2$ per bit); it is charged where used and is not the root of record cost.</p>
+<p><strong>Allowed claim:</strong> $k_B$ is the information$\leftrightarrow$entropy bridge constant, charged where used.
+<strong>Forbidden claim:</strong> $k_B$ is the root of record cost / the granularity floor.</p>
+<hr />
+<h2>B13 — Locality / unitarity / ordered dynamics</h2>
+<p><strong>Hidden assumption.</strong> Locality, unitarity (probability conservation), and ordered dynamics (time) are <em>automatically derived</em> and need no charging.</p>
+<p><strong>Risk if left silent.</strong> Three principles the framework leans on are assumed solved, silently violating root-completeness (B1).</p>
+<p><strong>Status:</strong> <code>OPEN</code> — all three are reduction targets / candidate roots, explicitly not claimed solved.</p>
+<p><strong>Required repair.</strong> <strong>Track them as reduction targets.</strong> Plausibly: low-energy locality reduces to Causal Order (R3) + cost-floor (R4); unitarity reduces to Record Interface (R2) + invariance (R1); ordered dynamics may reduce to Causal Order (R3). <strong>If they cannot be so reduced, bank them as additional roots or charge them explicitly</strong> — they must never be assumed solved.</p>
+<p><strong>Allowed claim:</strong> locality, unitarity, ordered dynamics are reduction targets / candidate roots.
+<strong>Forbidden claim:</strong> they are automatically derived and need no charging.</p>
+<hr />
+<h2>B14 — Collapse overclaim</h2>
+<p><strong>Hidden assumption.</strong> Measurement physically "collapses" and signals everywhere — a real physical broadcast.</p>
+<p><strong>Risk if left silent.</strong> The measurement update is read as a global physical signal, which would both overclaim and reintroduce FTL signalling (cf. B10).</p>
+<p><strong>Status:</strong> <code>ANTI-CLAIM</code>. The framework refuses "physical collapse signals everywhere" and uses factorization plus the conditional state instead.</p>
+<p><strong>Required repair.</strong> Use <strong>factorization / conditional state.</strong> Independence is the factorized case; correlation is generic; the post-record state of $B$ is the conditional state, and the no-signalling guardrail holds (see below).</p>
+<p><strong>Allowed claim:</strong> a local record yields a conditional state; the unconditioned marginal is unchanged.
+<strong>Forbidden claim (anti-claim):</strong> measurement physically signals / collapses everywhere.</p>
+<hr />
+<h2>B15 — Page-completion overclaim</h2>
+<p><strong>Hidden assumption.</strong> Polished, fluent prose means the work is done.</p>
+<p><strong>Risk if left silent.</strong> A page reads as complete while silently failing a completion test — the exact failure mode the completion protocol exists to catch.</p>
+<p><strong>Status:</strong> <code>CHARGED</code> — completion is a mechanical process control, not a vibe.</p>
+<p><strong>Required repair.</strong> <strong>Require tests and a completion report.</strong> Every page must pass its page-specific tests (P1..Pn) and the universal tests (U1..U8) and must end with a "Tests passed / Tests failed / Open items / Assumptions made" block. This page does so below.</p>
+<p><strong>Allowed claim:</strong> the page is complete because it passes its declared tests and reports them.
+<strong>Forbidden claim:</strong> polished text alone means the page is done.</p>
+<hr />
+<h2>Required formula — Shape bundling</h2>
+<p>The Shape generator is <strong>not</strong> atomic. It unbundles, and each component is charged separately:</p>
+<p>$$
+\text{Shape}_{\rm metric},\quad E,\quad \text{rulebook},\quad \text{quotient/fold data},\quad \text{observable map}.
+$$</p>
+<p>Folding these into one free posit would be the single largest understatement of cost in the program. They are split and charged (B3); in particular $E$ is given-$E$ input (B4) and the flavor rulebook is the weakest link.</p>
+<h2>Required formula + guardrail — Nonseparability</h2>
+<p>Exact independence is <strong>not</strong> fundamental. It holds <strong>iff</strong> the global state factorizes:</p>
+<p>$$
+\rho_{AB}=\rho_A\otimes\rho_B,
+$$</p>
+<p>which is exact independence; the generic case is correlation, $\rho_{AB}\neq\rho_A\otimes\rho_B$. After a local record $a$ at $A$, the conditional state of $B$ is</p>
+<p>$$
+\rho_{B|a}=\frac{\operatorname{Tr}_A\!\big[(M_a\otimes I_B)\,\rho_{AB}\,(M_a^\dagger\otimes I_B)\big]}{p(a)}.
+$$</p>
+<p><strong>No-signalling guardrail.</strong> For ordinary local measurements whose outcome is not communicated, the local marginal at $B$ is unchanged:</p>
+<p>$$
+\sum_a p(a)\,\rho_{B|a}=\rho_B.
+$$</p>
+<p>So <strong>no-signalling must be preserved</strong>: conditioning a nonseparable global state on a local record does not transport usable influence, and no usable superluminal signal is sent (B10, B14).</p>
+<hr />
+<h2>The most dangerous overclaims (what we explicitly do NOT claim)</h2>
+<p>These are the statements that would most damage the program's credibility if they slipped in. Each is listed as an <code>ANTI-CLAIM</code> — a claim the framework refuses to make — followed by the honest version.</p>
+<ul>
+<li><strong>"$E$ is derived."</strong> <code>ANTI-CLAIM</code>. Honest: $E$ is given / charged; downstream results are <code>DERIVED-GIVEN-E</code>.</li>
+<li><strong>"Shape is absolutely unique."</strong> <code>ANTI-CLAIM</code>. Honest: the 13D shape is selected / frozen / load-bearing; absolute uniqueness is <code>OPEN</code> (a Kolmogorov-style universal negative).</li>
+<li><strong>"Anomaly cancellation selects the SM."</strong> <code>ANTI-CLAIM</code>. Honest: anomaly-freedom is a <em>filter</em> with infinitely many solutions, not a <em>selector</em>.</li>
+<li><strong>"Local gate closure equals full gate closure."</strong> <code>ANTI-CLAIM</code>. Honest: local (in-grammar) closure is <code>DERIVED-GIVEN-E</code>; whole-gate closure is <code>OPEN</code>.</li>
+<li><strong>"MDL is fully proven."</strong> <code>ANTI-CLAIM</code>. Honest: the granularity $\Rightarrow$ MDL bridge is <code>OPEN</code>; minimality is metric-relative.</li>
+<li><strong>"Hashes validate physics."</strong> <code>ANTI-CLAIM</code>. Honest: hashes are <code>AUDIT ONLY</code> — frozen-object identity / audit integrity.</li>
+<li><strong>"Nonseparability permits signalling."</strong> <code>ANTI-CLAIM</code>. Honest: the no-signalling guardrail holds; no usable superluminal signal.</li>
+<li><strong>"All roots are theorem-grade."</strong> <code>ANTI-CLAIM</code>. Honest: some roots are <code>DECLARED ROOT</code> / proof targets; the deep-roots table says which.</li>
+</ul>
+<hr />
+<h2>Specialist closure questions</h2>
+<p>These are the open questions assigned to specialist closure tasks. Answering any one of them moves a blind spot from <code>OPEN</code>/<code>CHARGED</code> toward a stronger status.</p>
+<ol>
+<li><strong>Is the seven-root set complete?</strong> (B1) — prove the candidate roots reduce, or bank them.</li>
+<li><strong>Can Granularity prove MDL / full-generator scoring?</strong> (B2) — the Layer-1 bridge theorem.</li>
+<li><strong>Does Shape include $E$, quotient/fold, rulebook, and observable maps?</strong> (B3) — confirm the unbundling and charge each.</li>
+<li><strong>Can $E$ be derived by a bundle-uniqueness theorem?</strong> (B4) — select index-magnitude-3 <em>without</em> assuming three generations.</li>
+<li><strong>Is Causal Order independent or contained in Shape?</strong> — root-independence audit (B1, B3).</li>
+<li><strong>Are locality, unitarity, and dynamics reducible?</strong> (B13) — to which root combinations, or banked?</li>
+<li><strong>What exact theorem supports Scale?</strong> (B11) — prove <em>existence</em> of exactly one independent absolute scale from R1 + R4.</li>
+<li><strong>What exact status does Nonseparability have in the framework?</strong> (B10, B14) — is the no-signalling guardrail <em>forced</em> by R1 + R3, or only checked against the formalism?</li>
+<li><strong>What is the cleanest gate-local vs gate-global closure criterion?</strong> (B5) — a uniform local/global split for every gate.</li>
+<li><strong>Which claimed closures are only <code>DERIVED-GIVEN-E</code>?</strong> (B4, B5) — audit the gate ledger and qualify each.</li>
+</ol>
+<hr />
+<h2>Global discipline — forbidden overclaims this page obeys</h2>
+<ul>
+<li>The deep roots are <strong>not</strong> all theorem-grade — some are <code>DECLARED ROOT</code> / proof targets.</li>
+<li>The 13D shape is <strong>not</strong> claimed absolutely unique; absolute minimality is <code>OPEN</code>.</li>
+<li>$E$ is <strong>not</strong> claimed derived; it is given / charged / bundled into Shape unless a separate bundle-uniqueness proof is supplied.</li>
+<li>Local (in-grammar) gate closure is <strong>not</strong> equated with whole-gate closure.</li>
+<li>Hashes validate <strong>frozen-object identity / audit integrity only</strong>, not physics.</li>
+<li>Anomaly cancellation is a <strong>filter, not a selector</strong> of the Standard Model.</li>
+<li>The MDL / full-generator cost metric is <strong>not</strong> claimed absolutely proven against every competing metric.</li>
+<li>Measurement / nonseparability does <strong>not</strong> send a usable superluminal signal.</li>
+</ul>
+<hr />
+<h2>Completion report</h2>
+<p><strong>Tests passed.</strong>
+- P1 — Page includes all fifteen blind spots (B1–B15 in the register and as expanded sections).
+- P2 — Each blind spot states hidden assumption, risk, status, and required repair.
+- P3 — <code>Granularity → MDL</code> (B2) is explicitly flagged <code>OPEN</code> (open bridge theorem).
+- P4 — $E$ (B4) is explicitly flagged not derived (<code>DERIVED-GIVEN-E</code>; <code>ANTI-CLAIM</code> on "derives $E$").
+- P5 — Shape bundling risk (B3) is explicitly flagged and unbundled.
+- P6 — The no-signalling guardrail $\sum_a p(a)\,\rho_{B|a}=\rho_B$ is included for nonseparability.
+- P7 — The most-dangerous-overclaims box is included.
+- P8 — The specialist closure questions are included.
+- P9 — This completion report is included.
+- U1 — Status honesty: every major claim uses an allowed status label.
+- U2 — No floating anchors: every named anchor is typed (root, master anchor, gate anchor, measured input, audit artifact, open residual, or anti-claim).
+- U3 — No root inflation: the page does not claim every root is theorem-grade.
+- U4 — No E-smuggling: $E$ is given / charged / bundled into Shape, not separately derived.
+- U5 — No hash-overclaim: hashes are <code>AUDIT ONLY</code> (audit integrity only).
+- U6 — Local/global distinction: local closure is not whole-gate closure.
+- U7 — Forbidden claims absent: no absolute uniqueness, no anomaly-selector, no $\rho$/hierarchy overclaim, no FTL nonseparability claim.
+- U8 — Completion report present (this block).</p>
+<p><strong>Tests failed.</strong> None.</p>
+<p><strong>Open items.</strong>
+- B1 root completeness: <code>OPEN</code> — reduction of candidate roots not proven.
+- B2 Granularity $\Rightarrow$ MDL bridge: <code>OPEN</code> (Layer-1).
+- B4 bundle-uniqueness theorem that could remove "given-$E$": <code>OPEN</code>; "$E$ is forced" currently refuted.
+- B5 whole-gate / architecture-neutral closure: <code>OPEN</code>.
+- B7 cross-grammar dominance (role-mechanism normal-form / bridge theorem): <code>OPEN</code>.
+- B13 locality / unitarity / ordered-dynamics reductions: <code>OPEN</code> / candidate roots.</p>
+<p><strong>Assumptions made.</strong>
+- Adopted the handoff's fifteen-blind-spot register verbatim in substance, and mapped each to the corpus statuses in <code>ANCHORS_SOURCE.md</code> and the deep-roots dossier.
+- Treated in-grammar carrier-forcing as <code>DERIVED-GIVEN-E</code> and whole-gate closure as <code>OPEN</code>, per the source-of-truth.
+- Used <code>$...$</code> / <code>$$...$$</code> LaTeX for all math so it typesets, and used only the handoff's allowed status labels.</p>
+<hr />
+<h2>Cross-links</h2>
+<ul>
+<li><strong><a href="./anchor-hierarchy-overview.html">The Anchor Hierarchy — overview</a></strong> — where roots, master anchors, and gate anchors sit relative to one another.</li>
+<li><strong><a href="./deep-roots.html">The Seven Deep Roots</a></strong> — the irreducible operating floor these blind spots are meant to protect.</li>
+<li><strong><a href="./master-anchors.html">Master / Fundamental Anchors</a></strong> — A0 and the small set of measured anchors.</li>
+<li><strong><a href="./logical-endpoint-proof.html">The Logical Endpoint Proof</a></strong> — where the chain honestly terminates.</li>
+<li><strong><a href="./gate-traceability-template.html">Gate Traceability — method &amp; template</a></strong> — how each gate traces back to roots and anchors.</li>
+<li><strong><a href="./blind-spots.html">Blind Spots &amp; Implicit Assumptions</a></strong> — this page.</li>
+<li><strong><a href="./ai-agent-completion-protocol.html">The AI-Agent Completion Protocol</a></strong> — the discipline that enforces the honest status-labeling and completion tests this page relies on.</li>
+<li><strong><a href="./index.html">The Anchors — overview</a></strong> — the anchoring rule-set and the full bridge stack at a glance.</li>
+</ul>
+</main>
+</div>
+</body></html>

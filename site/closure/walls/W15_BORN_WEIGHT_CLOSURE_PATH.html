@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>W15 — Born-rule weight / measure</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 250px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:52rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:15px;margin:0 0 4px;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-sub a{color:#0b5;padding:0;font-size:12px;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="index.html">&#9679; Closure paths</a></div>
+<div class="ann-sub"><a href="/closure/">&#8592; Closure system</a> &nbsp; <a href="/walls/">The Walls</a> &nbsp; <a href="/anchors/">The Anchors</a></div>
+<div class="ann-group">One closure path per wall</div>
+<a href="W01_UV_COMPLETION_CLOSURE_PATH.html">W1 UV completion</a>
+<a href="W02_CONTINUUM_EXISTENCE_CLOSURE_PATH.html">W2 continuum existence</a>
+<a href="W03_A6_COEFFICIENT_CLOSURE_PATH.html">W3 a6 coefficient</a>
+<a href="W04_GRANULARITY_MDL_CLOSURE_PATH.html">W4 granularity to MDL</a>
+<a href="W05_GIVEN_E_BUNDLE_CLOSURE_PATH.html">W5 given-E / bundle</a>
+<a href="W06_FLAVOR_RULEBOOK_CLOSURE_PATH.html">W6 flavor F+ rulebook</a>
+<a href="W07_ANOMALY_DESCENT_CLOSURE_PATH.html">W7 anomaly descent</a>
+<a href="W08_CUSTODIAL_RHO_CLOSURE_PATH.html">W8 custodial rho=1</a>
+<a href="W09_MODULI_STABILIZATION_CLOSURE_PATH.html">W9 moduli stabilization</a>
+<a href="W10_LAMBDA_STABILITY_CLOSURE_PATH.html">W10 Lambda stability</a>
+<a href="W11_LAMBDA_VALUE_CLOSURE_PATH.html">W11 Lambda value</a>
+<a href="W12_BARYOGENESIS_CP_CLOSURE_PATH.html">W12 baryogenesis CP</a>
+<a href="W13_DARK_MATTER_PORTAL_CLOSURE_PATH.html">W13 dark-matter portal</a>
+<a href="W14_INFLATION_SPECTRUM_CLOSURE_PATH.html">W14 inflation spectrum</a>
+<a href="W15_BORN_WEIGHT_CLOSURE_PATH.html" class="current">W15 Born-rule weight</a>
+<a href="W16_BH_MICROSTATES_CLOSURE_PATH.html">W16 BH microstates</a>
+<a href="W17_PROTON_OPERATORS_CLOSURE_PATH.html">W17 proton operators</a>
+<a href="W18_YM_UNIFORM_GAP_CLOSURE_PATH.html">W18 YM uniform gap</a>
+<a href="W19_THRESHOLD_MAGNITUDES_CLOSURE_PATH.html">W19 threshold magnitudes</a>
+</nav>
+<main class="anchor-content">
+<div class="render-banner">W15 — Born-rule weight / measure — rendered package. Rendered from <code>W15_BORN_WEIGHT_CLOSURE_PATH.md</code>; frozen technical content unchanged by rendering.</div>
+<h1>W15 — Born-rule weight / measure</h1>
+<p><strong>Wall:</strong> <a href="/walls/w15-born-weight.html">The Born-rule weight / measure wall</a> · <strong>Closure routing via</strong> <a href="/closure/wall-routing-protocol.html">/closure</a></p>
+<h2>Routing decision</h2>
+<p><strong>REDUCE-TO-ROOT if measure assumptions are declared; DERIVE only if a non-circular proof is supplied.</strong></p>
+<h2>Deep-root link(s)</h2>
+<ul>
+<li><strong>Record Interface</strong></li>
+<li><strong>Nonseparability</strong></li>
+<li><strong>Invariance</strong></li>
+<li><strong>Granularity</strong></li>
+<li><strong>Causal Order</strong></li>
+</ul>
+<h2>Reduction / dissolution verdict</h2>
+<p>Can be reduced only honestly: if noncontextuality, additivity, and measure uniqueness are declared as paid assumptions. Without that, the wall remains open.</p>
+<p><strong>Leg A1 reconciliation — 2026-06-29.</strong> Leg A1 (non-contextuality / cross-context gluing $a=a'$) is <code>REDUCED-TO-AXIOM</code> onto a <strong>declared</strong> non-contextuality posit — the honest endpoint — carrying the standing anti-claim that this posit is <strong>import-forbidden <em>as a derivation</em></strong>: it is NOT forced by the $K_6$ admissibility-chamber algebra (invariance is provably silent on cross-context gluing). These are complementary, not contradictory: reduced-to-a-declared-axiom, with the explicit guard that the axiom is not claimed to be derived. <strong>Convertible path:</strong> computing the von Neumann algebra <strong>type</strong> on the chamber algebra (no type-$I_2$ central summand $\Rightarrow$ Gleason forces non-contextuality) would upgrade A1 to <code>ROOT-FORCED-GIVEN-the-algebra</code>; until then it is reduced-to-axiom, not derived.</p>
+<h2>Steps to the endpoint</h2>
+<ol>
+<li>Separate probability normalization, additivity, noncontextuality, and $|\psi|^2$ weight.</li>
+<li>Attempt derivation from framework roots only.</li>
+<li>If noncontextuality is imported, declare it.</li>
+<li>Prove A2 measure uniqueness or leave it open.</li>
+<li>Check no-signalling compatibility.</li>
+</ol>
+<h2>Success criterion / falsifier</h2>
+<p>Derivation success: non-circular $|\psi|^2$ proof from roots, not imported Born rule. Reduced endpoint success: all measure assumptions named and minimal. Falsifier: alternate admissible measure consistent with declared roots/records.</p>
+<h2>Terminal status assigned</h2>
+<p><code>REDUCED-TO-AXIOM / OPEN-ANCHORED; DERIVED only with proof</code></p>
+<h2>Residual work</h2>
+<p>Noncontextuality, A2 uniqueness, non-circular weight derivation.</p>
+<h2>Anti-claims</h2>
+<ul>
+<li>Born rule is not derived if noncontextuality is imported.</li>
+<li>Frequencies alone do not prove $|\psi|^2$.</li>
+<li>A declared measure axiom is not a theorem.</li>
+</ul>
+<h2>Systematic multi-pass analysis — 2026-06-29</h2>
+<p>The generic multi-pass analysis was run on this wall and independently cross-checked (verdict confirmed; no overstatement / target-dependence / misclassification).</p>
+<pre><code>Verdict: WALL_RECORDED
+Smallest missing rule (the precise hole):
+  A framework-internal rule that forces the cross-context gluing a=a&#x27; (i.e. non-contextuality of the frame function p on P(A)) from the frozen K6 admissibility-chamber operator algebra ALONE — with the von Neumann algebra TYPE (no type-I2 central summand; Z(A) and the mixed anomaly xi_R4 uncomputed, I2-DANGER-OPEN) DERIVED from the geometry rather than imported. Given that single rule, Gleason/Busch/Bunce–Wright deliver Tr(rho E); without it the geometry-&gt;non-contextuality-&gt;Tr(rho E) chain is broken at the first link. (The A2 sibling-rule: a framework-FORCED compact symmetry acting transitively/ergodically on C, which finite W=S3 provably cannot supply.)
+Terminal status: OPEN-ANCHORED / WALL-RECORDED — Born (Gap-14/Gap-15) is ANCHOR-CLOSED but physics-status OPEN by least-closed-residual. Genuine wins: A1 separation countermodel (DERIVED, terminal as a no-go) and the K6=SU(3)/T2 Weyl-chamber A2 existence-localization (DERIVED-GIVEN-E); (G1)/(G2) forcing and the non-contextuality=&gt;Tr(rho E) conditional theorem are DERIVED-GIVEN-E. Leg A1 functional form is AXIOM-OPEN / import-forbidden (NOT REDUCED-TO-AXIOM, NOT closed); vN algebra type / xi_R4 is OPEN / import-dependent (I2-DANGER-OPEN); Leg A2 selector measure is OPEN (uniqueness provably fails, point-mass disclosed, inter-sector weights silent); chamber uniqueness OPEN; CH-2 honest-halts; measured floor ANCHOR-BORN-QUANTUM-KINEMATICS is a MEASURED-ANCHOR (legitimate &gt;=1 floor). No gate physics-CLOSED. no status changes.
+</code></pre>
+<hr />
+<h2>Shared closure invariant</h2>
+<p>A gate is terminal when its wall has the correct endpoint: derived, reduced to a root, dissolved, anchored, or wall-recorded. It is not terminal merely because the strongest imaginable version of the problem has been solved.</p>
+<p>Status-inflation guardrails:
+- DISSOLVED does not mean SOLVED.
+- SELECTED does not mean FORCED.
+- GIVEN-E does not mean DERIVED-E.
+- MEASURED-ANCHOR does not mean DERIVED VALUE.
+- WALL-RECORDED does not mean PHYSICS-CLOSED.
+- A bounded local certificate does not become global completion.</p>
+<h2>Completion tests for this wall file</h2>
+<p>This wall file is complete only if:
+- The wall is named exactly.
+- The routing decision is explicit.
+- At least one deep-root link is listed.
+- The endpoint status is explicit.
+- Local/banked wins are separated from the missing object.
+- The success criterion or falsifier is target-blind.
+- The anti-claims block prevents status inflation.
+- Any failure to reduce or dissolve is stated honestly.
+- Residual work is finite where possible; unicorn work is wall-recorded.</p>
+<h2>Completion report</h2>
+<p>Tests passed:
+- Wall named exactly.
+- Routing decision assigned.
+- Deep-root links listed.
+- Endpoint status assigned.
+- Honest failure to reduce/dissolve stated where applicable.
+- Success criterion/falsifier included.
+- Anti-claims included.</p>
+<p>Tests failed:
+- None in this handoff draft.</p>
+<p>Open items:
+- Execute the residual work listed above.</p>
+<p>Assumptions made:
+- Uses the uploaded wall register and the /closure endpoint strategy.</p>
+<h2>See also</h2>
+<ul>
+<li>Wall page: <a href="/walls/w15-born-weight.html">/walls/w15-born-weight.html</a></li>
+<li>Wall routing protocol: <a href="/closure/wall-routing-protocol.html">/closure/wall-routing-protocol.html</a></li>
+<li>Deep roots: <a href="/closure/deep-roots.html">/closure/deep-roots.html</a></li>
+<li>Dissolutions: <a href="/closure/dissolutions.html">/closure/dissolutions.html</a></li>
+<li>Closure index: <a href="./INDEX.html">./INDEX.html</a></li>
+</ul>
+</main>
+</div>
+</body></html>
