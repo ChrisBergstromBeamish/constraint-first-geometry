@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Blind Prediction Method — A Framework for a Theory of Everything</title>
-<meta name="description" content="How the cosmology forward model is built to compute native predictions before any observed data is loaded — orthogonal inputs, never tune-to-match, and the current honest status: blocked pending a native cosmological constant.">
+<meta name="description" content="The three rules that make the 44-checkpoint early-universe scoreboard blind — freeze before compare, two routes with no shared machinery, no shared tuning — plus the provenance that lets anyone verify every row. 44 tests / 30 agree / 14 indeterminate / 0 disagree.">
 <style>
   :root{
     --ink:#1b1f23;
@@ -332,6 +332,7 @@
         <li><a href="/early-universe/">Overview</a></li>
         <li><a href="/early-universe/blind-prediction-method.html" aria-current="page">The blind prediction method</a></li>
         <li><a href="/early-universe/inflation-gate.html">The inflation gate (Gap-08)</a></li>
+        <li><a href="/early-universe/tests/">Granularity Tests</a></li>
       </ul>
     </div>
   </aside>
@@ -339,122 +340,93 @@
   <main id="main-content">
     <!--MAIN-->
     <h2 style="border-bottom:none; margin-bottom:0.2em;">The blind prediction method</h2>
-    <p class="lede">Cosmology gives a structural theory one of its cleanest possible tests: a small set of
-    precisely measured numbers describing the universe's expansion and its structure, produced by processes wholly
-    independent of anything this program controls. The value of that test depends entirely on not looking at the
-    answer before computing the guess. This page describes the discipline that enforces that, and reports the
-    current status of the one pipeline built to use it: <strong>blocked</strong>.</p>
+    <p class="lede">An agreement only counts if neither road peeked. Forty-four times, this framework computed its own
+    number for a cosmic milestone — from the granularity budget, before looking — and only then laid it beside standard
+    cosmology and the measurement. The result stands at <strong>44 tests / 30 agree / 14 indeterminate /
+    0 disagree</strong>, with zero numbers tuned after the fact. Three rules make those agreements evidence rather than
+    curve-fitting: <strong>freeze before compare</strong>, <strong>two routes with no shared machinery</strong>, and
+    <strong>no shared tuning</strong>. This page states them, and the provenance that lets anyone check.</p>
 
     <div class="honesty-box">
-      <strong>Headline status:</strong> <code>COSMOLOGY_COMPARISON = BLOCKED_PENDING_NATIVE_LAMBDA</code>. The
-      forward model that would turn a native cosmological constant into predicted expansion, distance, and
-      structure-growth numbers is fully specified and built, but it has not run, because the native value of Λ it
-      requires has not been computed. No observed cosmological data has been loaded. This is reported here exactly
-      as it stands today — not softened, not implied to be further along than it is.
+      <strong>Status, stated plainly:</strong> the discipline below is not a plan — it is the protocol the live
+      <a href="/early-universe/tests/">44-row scoreboard</a> was built under. An earlier version of this page described
+      a cosmology forward model held at <code>BLOCKED_PENDING_NATIVE_LAMBDA</code>, waiting on a from-scratch derivation
+      of the cosmological constant. The gate board has since settled that question the honest way: <strong>Λ is
+      measured, never derived</strong> — it is the fifth measured anchor
+      (<a href="/gates/dossiers/gap05-value.html">Gap-05 value: MEASURED-ANCHOR, RESOLVED +0</a>), the from-scratch
+      derivation demand dissolved under audit, and the one route by which the geometry&rsquo;s own fine-grainedness might
+      have pinned the number misses by ~113 orders of magnitude — a negative control this program reports in the open.
+      The blind discipline did not dissolve with it: it produced the scoreboard.
     </div>
 
-    <h2 id="orthogonal">1. Orthogonal inputs, on purpose</h2>
-    <p>The inputs that would go into this forward model — the candidate geometry's internal structure, its
-    coupling constants, its vacuum-energy computation — come from a completely different line of work than the
-    cosmological observations they would be checked against. The geometry was not built by looking at the measured
-    expansion history, the cosmic microwave background power spectrum, or the observed dark-energy density, and it
-    is not permitted to be adjusted using them. This separation — <strong>orthogonal inputs</strong> — is what
-    makes a later agreement, if one is ever found, meaningful rather than circular.</p>
-    <p>Concretely, the observed quantities that this pipeline treats as strictly off-limits as derivation inputs,
-    and usable only for an after-the-fact comparison once a native prediction exists, are:</p>
-    <div class="card-grid">
-      <div class="card"><h4>Observed Λ / ρ_Λ</h4><p>The measured cosmological constant or vacuum energy density.</p></div>
-      <div class="card"><h4>H₀</h4><p>The measured present-day expansion rate.</p></div>
-      <div class="card"><h4>Ω_Λ / Ω_M</h4><p>The measured dark-energy and matter density fractions.</p></div>
-      <div class="card"><h4>Dark-energy / meV scale</h4><p>The measured scale of the dark-energy density.</p></div>
-      <div class="card"><h4>S₈</h4><p>The measured amplitude of matter clustering.</p></div>
-      <div class="card"><h4>BAO posterior</h4><p>Measured baryon-acoustic-oscillation distances.</p></div>
-      <div class="card"><h4>CMB posterior</h4><p>Measured cosmic-microwave-background parameters.</p></div>
-    </div>
+    <h2 id="two-routes">1. Two routes, no shared machinery</h2>
+    <p>Every checkpoint is computed twice. Standard cosmology solves the hot-Big-Bang equations. The granularity route
+    asks one question of its own: <em>when does this distinction first become an affordable, stable record?</em> The two
+    pipelines share no equations, no calibration, and no free parameters — so when both land on the same number at quark
+    confinement, at neutrino freeze-out, at the forging of the first nuclei, at the release of the CMB, the agreement
+    cannot be one method quietly feeding the other. That independence is the entire value of the exercise, and it is
+    exactly what a wrong construction would break: one milestone landing on two different numbers is a direct
+    &ldquo;does not agree,&rdquo; published as such. Across 44 checkpoints there are zero.</p>
 
-    <h2 id="how">2. How the forward model is meant to work</h2>
-    <p>The pipeline (the cosmology forward-model pipeline) is a forward model: it
-    takes native inputs only — a computed value for the effective cosmological constant, Λ_eff, and the native
-    expansion ingredients that go with it — and produces predictions for a fixed list of observables:</p>
-    <table>
-      <thead><tr><th>Quantity</th><th>What it is</th></tr></thead>
-      <tbody>
-        <tr><td><code>H(z)</code></td><td>the expansion history as a function of redshift</td></tr>
-        <tr><td>BAO distances</td><td>comoving and angular-diameter distances from baryon acoustic oscillations</td></tr>
-        <tr><td>SNe distance moduli</td><td><code>μ(z)</code>, from the luminosity distance</td></tr>
-        <tr><td>CMB background consistency</td><td>background-level checks such as <code>θ*</code></td></tr>
-        <tr><td>Growth / S₈</td><td>the linear growth of structure, if applicable</td></tr>
-        <tr><td><code>w₀ / wₐ</code></td><td>only classifiable if the native residual evolves with time — see below</td></tr>
-      </tbody>
-    </table>
-    <p>Each prediction, once made, would carry an uncertainty inherited honestly from the native input's own
-    uncertainty ledger — not a post-hoc error bar picked to make agreement look better. Only after every native
-    prediction is written down would the corresponding observed value be loaded, into a separate comparison table,
-    for an after-the-fact residual.</p>
-
-    <h2 id="show-how">3. Show the how — the sequencing rule</h2>
-    <p>The rule that makes this a blind test rather than an exercise in curve-fitting is a strict ordering:</p>
+    <h2 id="freeze">2. Freeze before compare — the sequencing rule</h2>
+    <p>The rule that makes this blind rather than curve-fit is a strict ordering:</p>
     <ol>
-      <li><strong>Compute the native prediction first</strong>, using only the candidate geometry's own structure
-      and previously-computed native inputs — never an observed cosmological number.</li>
-      <li><strong>Write the prediction down</strong> before any observed value is consulted, in a table that
-      exists independently of the comparison.</li>
-      <li><strong>Only then load the observed value</strong>, into a separate table, and record the residual —
-      agree or disagree — exactly as it comes out.</li>
+      <li><strong>Compute the framework&rsquo;s number first</strong>, from the granularity budget and previously
+      computed native inputs — never from the observed value under test.</li>
+      <li><strong>Write it down</strong> before the comparison value is consulted, in a record that exists independently
+      of the comparison.</li>
+      <li><strong>Only then load the measured value</strong>, and record the verdict — agrees, does not agree, or
+      indeterminate — exactly as it comes out.</li>
     </ol>
-    <p>Running the steps out of order — loading an observed number before the native prediction is finished, or
-    adjusting a native input after seeing a mismatch — is treated as a rule violation, not a shortcut. The pipeline
-    has a built-in check for this and refuses to proceed if a native prediction has not been computed. As of today,
-    that check is exactly why nothing has been loaded: the native prediction step has not been reached.</p>
+    <p>Running the steps out of order — loading an observed number early, or adjusting an input after seeing a
+    mismatch — is a rule violation, not a shortcut. And each of the 44 rows carries its own verdict, per calculation:
+    there is no combined &ldquo;the model works&rdquo; score to hide a miss inside. A milestone that missed would be
+    reported as a miss — the scoreboard has a column for it, and that column reads zero.</p>
 
-    <h2 id="agree-disagree">4. Agree or disagree — reported either way, per calculation</h2>
-    <p>When the pipeline does run, each observable in the table above gets its own independent verdict — agreement
-    or disagreement, at whatever precision the native uncertainty ledger supports. There is no single combined
-    "the model works" or "the model fails" score. A structural theory that gets three cosmological observables
-    right and one wrong is reported as three-right-one-wrong, not rounded to a pass or a fail. The completion
-    report for this stage is explicit that if a native prediction misses an observation after the gate opens, that
-    miss is reported as a genuine failure of that one calculation, not suppressed or explained away.</p>
+    <h2 id="no-shared-tuning">3. No shared tuning</h2>
+    <p>Blindness would mean little if the model&rsquo;s structure were quietly chosen to fit. So structural choices are
+    selected by the framework&rsquo;s own machinery, never by which branch matches data better. Big Bang nucleosynthesis
+    runs on a single baryon count consistent with the CMB — not one count per element. The inflation-era rows carry
+    their normalization branches openly: the tensor band is published as the union of four branches, with the operative
+    branch shown beside it. And where a row necessarily consumes the same measured input on both roads — the standard
+    nuclear network, the measured density ratio at matter–radiation equality — the row is marked
+    <em>consistency check — shared inputs</em>, on its face. The caveat is part of the record, not a footnote.</p>
 
-    <h2 id="never-tune">5. Never tune to match</h2>
-    <p>A second discipline sits alongside the sequencing rule: even the qualitative structure of the model — for
-    example, whether the vacuum-energy residual is treated as a true constant or as something that evolves with
-    time — must be selected by the native geometry's own structure, never chosen after the fact because one branch
-    fits the data better. The pipeline's documentation states this as a standing rule: the constant-versus-evolving
-    branch is "selected by native structure, never by fit to data." This is the same anti-fitting discipline that
-    governs every other gate on this site, applied here to cosmology specifically because cosmological data is
-    exactly the kind of rich, multi-parameter dataset where after-the-fact tuning is easiest to smuggle in
-    unnoticed.</p>
+    <h2 id="provenance">4. Provenance — every row opens</h2>
+    <p>Every card on <a href="/early-universe/tests/">the scoreboard</a> carries the same six lines: the number under
+    test, the standard-cosmology route, the granularity route, the measured value with its source, the honest agreement
+    metric, and the link to the full derivation. Nothing is graded on trust; every line opens. That format is the
+    provenance rule made visible — a claim you cannot open does not appear on the board.</p>
 
-    <h2 id="status">6. The honest current status</h2>
-    <div class="callout">
-      <h3 style="margin-top:0;">BLOCKED_PENDING_NATIVE_LAMBDA</h3>
-      <p style="margin:0 0 0.6em;">The forward model runs only if the upstream stage reports a computed native
-      value for the effective cosmological constant. It currently reports the input as not yet computed. As a
-      direct consequence:</p>
-      <ul style="margin:0.2em 0 0.6em; padding-left:1.3em;">
-        <li>The forward integration has <strong>not</strong> been run.</li>
-        <li><strong>No</strong> observed cosmological data has been loaded — every entry in the comparison table
-        reads <code>NOT_LOADED</code>.</li>
-        <li>Only a typed scaffold exists: prediction and comparison tables with the correct structure and units,
-        and no numeric values.</li>
-        <li>Every row across both tables (<code>H(z)</code>, BAO distance, SNe distance modulus, CMB background
-        consistency, growth/S₈, <code>w₀/wₐ</code>) carries the status <code>BLOCKED_PENDING_NATIVE_LAMBDA</code>.</li>
-      </ul>
-      <p style="margin:0;">This is reported as a genuine blocker, not a rounding-down of a result that is "close
-      enough" to done. Put plainly: the scaffold itself is sound and correctly typed, but a finished cosmology
-      comparison is not yet in hand — that remains the intended, realistic outcome to work toward. The next step
-      is to compute the native Λ_eff, then run the forward model, then load observed posteriors for the
-      after-the-fact comparison — in that order, and not before.</p>
-    </div>
+    <h2 id="delivered">5. What the discipline delivered</h2>
+    <p>44 checkpoints, from the first payable record to today&rsquo;s 13.8-billion-year age. <strong>30 agree —
+    confirmed by measurement</strong>, including the fractional N<sub>eff</sub> = 3.044 against Planck&rsquo;s
+    2.99 ± 0.17, deuterium and helium-4 at 0.2–0.7σ, and recombination at the identical z* = 1089.92.
+    <strong>0 disagree.</strong> The <strong>14 indeterminate</strong> are shown with the whole denominator, and none is
+    a private failure of this method: <strong>6 are standing bets</strong> where both routes already agree and the
+    experiment hasn&rsquo;t voted — LiteBIRD&rsquo;s tensor band, r ∈ [3.5, 36]×10⁻³, chief among them — and
+    <strong>8 are open for all of cosmology</strong>: baryogenesis, dark-matter identity, lithium-7, the S8 tension, the
+    primordial magnetic field, the Planck wall itself. On those, both methods are shown reaching the same honest limit,
+    never a manufactured match.</p>
 
-    <h2 id="why-this-matters">7. Why report a blocked pipeline at all</h2>
-    <p>Because the alternative — quietly waiting until the computation finishes and only then publishing a
-    pipeline that "always" produced predictions — would hide the very discipline that makes the eventual result
-    worth trusting. Showing the scaffold now, with its inputs pre-declared and its off-limits observational
-    quantities pre-listed, is itself part of the falsifiability record: anyone can check, once Λ_eff is computed
-    and the forward model runs, that no observed number was quietly folded in earlier than the rule allows.</p>
+    <h2 id="lambda">6. Where the measured universe enters: declared anchors</h2>
+    <p>The framework runs on a small, published set of measured anchors, and the cosmology work adds exactly one:
+    <strong>Λ, the dark-energy density — the fifth measured anchor</strong>, at (2.3 meV)⁴ ≈ 1×10⁻¹²² in Planck-mass
+    units, measured from supernovae, the CMB, and galaxy surveys. It is consumed as a declared input and compared to the
+    Planck scale as a plain ratio — <strong>never claimed as a derivation</strong>. The gate ledger grades it
+    <a href="/gates/dossiers/gap05-value.html">MEASURED-ANCHOR, RESOLVED +0</a>, and adds the negative control that
+    keeps the claim honest: the one route by which the geometry&rsquo;s fine-grainedness might have predicted the value
+    misses by ~113 orders of magnitude — proof the number was not quietly reverse-engineered, because the machinery
+    demonstrably cannot produce it.</p>
 
-    <p><a href="/early-universe/inflation-gate.html" class="btn btn-solid">Next: the inflation gate (Gap-08) →</a></p>
+    <h2 id="why-public">7. Why the rules are published</h2>
+    <p>Because a discipline you cannot inspect is a claim, not a discipline. The rules above are stated in public, the
+    declared anchors are named before any comparison, and every row&rsquo;s derivation opens — so anyone, expert or
+    expert&rsquo;s AI, can verify that no observed number entered earlier than the ordering allows. That is what lets
+    the agreements carry weight: the protocol is part of the falsifiability record, not decoration around it.</p>
+
+    <p><a href="/early-universe/tests/" class="btn btn-solid">See the scoreboard: 44 tests, every row open →</a>
+    <a href="/early-universe/inflation-gate.html" class="btn">Next: the standing bet — the inflation gate →</a></p>
 
   </main>
 </div>

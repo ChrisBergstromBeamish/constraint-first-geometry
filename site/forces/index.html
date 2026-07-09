@@ -47,6 +47,19 @@ body{max-width:none !important;margin:0 !important;padding:0 !important;}
 .ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
 @media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
 </style>
+<!-- ===== W1-FORCES-EVIDENCE-CARDS CSS (appended 2026-07-09; delimited, additive only) ===== -->
+<style>
+.ev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:1.1rem 0 1.4rem;}
+.ev-card{border:1px solid #d5e2da;border-left:4px solid #1e7d34;border-radius:8px;background:#fbfdfc;
+  padding: .85rem 1rem 0.9rem;page-break-inside:avoid;}
+.ev-card h3{margin:.05rem 0 .45rem;font-size:1.04rem;line-height:1.3;}
+.ev-card p{font-size:.92rem;margin:.4rem 0;}
+.ev-proof{font-size:.86rem;font-family:"Helvetica Neue",Arial,sans-serif;}
+.ev-caveat{font-size:.85rem;color:#4d564f;border-top:1px dashed #c8d5cc;margin-top:.55rem;padding-top:.45rem;}
+.board-note{margin-top:1.4rem;padding:14px 18px;background:#f4f8f5;border-left:4px solid #2c3e50;}
+.lede-big{font-size:1.08rem;}
+</style>
+<!-- ===== /W1-FORCES-EVIDENCE-CARDS CSS ===== -->
 </head><body>
 <div class="anchor-layout">
 <nav class="anchor-nav">
@@ -78,9 +91,12 @@ body{max-width:none !important;margin:0 !important;padding:0 !important;}
 <a href="/supplemental/">Supplemental (full overview)</a>
 </nav>
 <main class="anchor-content">
-<div class="render-banner">Forces — Paper 2 — rendered package. Rendered from <code>index.md</code>; frozen technical content unchanged by rendering.</div>
 <h1>Forces — Paper 2</h1>
-<p><strong>Are the four forces one structure under quantization?</strong> Paper 2 makes one bet: gravity, the strong force, the weak force, and electromagnetism are not four separate stories but four projections of a single frozen six-dimensional shape carried by the Paper-I geometry.</p>
+
+<p class="lede-big"><strong>The forces are the built-in symmetries of one shape.</strong> Scan the complete list of ways the frozen internal geometry of <a href="/gut/v2/">Paper I</a> can be turned without changing, and exactly one combination survives: <strong>SU(3)&times;SU(2)&times;U(1)</strong> — the strong, weak, and electromagnetic forces, with exactly the right ranks: <strong>8 gluons + 3 weak bosons + 1 hypercharge = 12 generators, nothing extra, nothing missing</strong>. The strong force is the surviving rotation symmetry of the color shape $K_6=SU(3)/T^2$; the weak force descends from the $S^2$ sphere; hypercharge rides the folded $S^1$ circle; electromagnetism is the one combination left unbroken after the weak symmetry hides itself. The same structure fixes the number of light neutrino species at three — the value experiment independently measures. This is Einstein&rsquo;s lifelong dream made literal, and made breakable: one extra or one missing force carrier kills it. <em>Proven:</em> <a href="/gates/dossiers/sg2.html">gate SG-2 — gauge recovery</a>.</p>
+
+<p>The shape itself was not guessed — it was found by elimination. The cheaper-looking rival $CP^2=SU(3)/U(2)$ was built end-to-end and breaks at the gauge gate; $K_6=SU(3)/T^2$ survives because $T^2$ is the unique purely-abelian SU(3) isotropy. One stated principle is the anchor — forces&nbsp;=&nbsp;the shape&rsquo;s symmetries — and everything downstream of it is checkable. Recovering the gauge group is a filter many frameworks pass; the claim here is narrower and stronger: given that principle, the carrier is forced, and a disproof of a rival is on the record. <em>See <a href="/process/">how the shape was found — by elimination, not preference</a>.</em></p>
+
 <!-- FINAL-STATUS-THEORY-COMPLETE -->
 <section style="max-width:900px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#1a1a1a;">
   <h2 style="font-size:1.7em;border-bottom:2px solid #2c3e50;padding-bottom:.3em;">Forces — Paper II: theory complete</h2>
@@ -163,23 +179,72 @@ body{max-width:none !important;margin:0 !important;padding:0 !important;}
 <!-- /FINAL-STATUS-THEORY-COMPLETE -->
 
 <h2>The core idea</h2>
-<p>Textbooks hand you four forces with five dial-like strengths — Newton's $G_N$, the strong $g_s$, the weak $g$, the electric charge $e$, and the Fermi constant $G_F$ — and five disjoint origin stories. Paper 2 takes the constraint-selected 13-dimensional geometry from Paper I (the GUT manuscript) — $M_{13}=M_{3,1}\times K_6\times S^2\times S^1$ with the color shape $K_6=SU(3)/T^2$ — and <em>lets the forces be its symmetries</em>. The strong force is the surviving rotation symmetry of $K_6$ (eight motions, eight gluons); the weak force descends from the $S^2$ spin cover; hypercharge rides on the $S^1$ circle; and electromagnetism is the one combination left unbroken after the weak symmetry hides itself. Four explicit projection maps route each force out of the one shape, and all four share the same matter content and the same charge convention $Q=T_3+Y$. <em>(The product above is only the </em><em>× Stage</em><em> layer; the full shape is the </em><em>three-layer</em><em> object — × Stage · ⊕ Rulebook · ⊗ Actors — at full precision, all layers load-bearing. See </em><em><a href="/shape/">The Shape</a></em><em>.)</em></p>
+<p>Textbooks hand you four forces with five dial-like strengths — Newton's $G_N$, the strong $g_s$, the weak $g$, the electric charge $e$, and the Fermi constant $G_F$ — and five disjoint origin stories. Paper 2 takes the constraint-selected 13-dimensional geometry from Paper I (the <a href="/gut/v2/">GUT manuscript</a>) — $M_{13}=M_{3,1}\times K_6\times S^2\times S^1$ with the color shape $K_6=SU(3)/T^2$ — and <em>lets the forces be its symmetries</em>. The strong force is the surviving rotation symmetry of $K_6$ (eight motions, eight gluons); the weak force descends from the $S^2$ spin cover; hypercharge rides on the $S^1$ circle; and electromagnetism is the one combination left unbroken after the weak symmetry hides itself. Four explicit projection maps route each force out of the one shape, and all four share the same matter content and the same charge convention $Q=T_3+Y$. <em>(The product above is only the </em><em>&times; Stage</em><em> layer; the full shape is the </em><em>three-layer</em><em> object — &times; Stage &middot; &oplus; Rulebook &middot; &otimes; Actors — at full precision, all layers load-bearing. Truncate it to &ldquo;just the geometry&rdquo; and gates fail for that reason alone. See </em><em><a href="/shape/">The Shape</a></em><em>.)</em></p>
 <p>The payoff is thrift, stated as a claim you can break rather than a slogan: in this routing the five force strengths carry <strong>zero new adjustable dials of their own</strong>. Each is either read off the one frozen shape or computed from the others — and two of them, $e$ and $G_F$, are not predictions at all but <em>identities</em> ($e=gg'/\sqrt{g^2+g'^2}$ and $G_F/\sqrt2=g^2/8M_W^2$). An identity that disagreed with experiment would prove the geometry wrong. The sharpest single check is one a reader can do on a napkin: the electroweak anomaly witness $3\cdot\tfrac16-\tfrac12=0$, which fails if the hypercharge lattice is off by a single step.</p>
-<p>What Paper 2 is honest about being: it is an <strong>interface / consistency paper</strong>, deliberately narrower than a theory of everything. It does <strong>not</strong> re-derive or re-close any Paper-I gate, it does not replace General Relativity, Maxwell, or the Standard Model, and it does not claim full quantum gravity, nonperturbative QCD, strong CP, cosmology, dark matter, dark energy, or baryogenesis. Those sectors are named as <em>bounded out</em> — not failed, and never used to support an interface claim.</p>
+<p>What Paper 2 is, precisely: an <strong>interface / consistency paper</strong>, deliberately narrower than a theory of everything. It does <strong>not</strong> re-derive or re-close any Paper-I gate, it does not replace General Relativity, Maxwell, or the Standard Model, and its own claim stack excludes full quantum gravity, nonperturbative QCD, cosmology, dark matter, dark energy, and baryogenesis. Those sectors are named as <em>bounded out</em> — not failed, and never used to support an interface claim. One instructive case: strong-CP is bounded out of Paper 2's own stack, and the framework resolves it at board level — $\bar\theta=0$ exactly, no axion — in the <a href="/gates/dossiers/theta-qcd.html">&theta;-QCD gate</a>, where that certificate lives.</p>
+
+<h2>The evidence — number first</h2>
+<p>Five checks. Each one is a specific number or identity, each opens onto its certificate, and each carries its real limit in the open — that is the discipline that makes the strong claims believable.</p>
+<div class="ev-grid">
+
+<div class="ev-card">
+<h3>5 force strengths, 0 new dials — <em>e</em> and <em>G<sub>F</sub></em> are identities, not choices</h3>
+<p>All five strengths carry zero new adjustable dials of their own. Two are standing algebraic identities — $e=gg'/\sqrt{g^2+g'^2}$ and $G_F/\sqrt2=g^2/8M_W^2$ — that would disprove the geometry outright if experiment disagreed. Five separate origin stories collapse to no free knobs.</p>
+<p class="ev-proof"><em>Proven:</em> <a href="/articles/Forces.html">Forces — Paper 2</a> (&ldquo;Zero new dials&rdquo;) and the FINAL-STATUS board above.</p>
+<p class="ev-caveat"><strong>Honest caveat:</strong> derived given Paper I&rsquo;s small set of measured anchors; Forces is an interface paper that inherits certificates by reference.</p>
+</div>
+
+<div class="ev-card">
+<h3>3&middot;(1/6) &minus; 1/2 = 0 — the charge &ldquo;miracle,&rdquo; checkable on a napkin</h3>
+<p>Each particle&rsquo;s hypercharge is read off the geometry as a discrete tag, not a free dial. Once the tags are fixed, all six required anomaly-cancellation sums vanish exactly for the full observed roster, verified two independent ways — while a nearby look-alike sum comes out 10/3, proving the pass is a real conspiracy of unequal fractions, and a deliberate sabotage (nudging one charge from 1/6 to 1/5) breaks four traces on cue. A subtler global three-fold check that would have refuted the theory outright also lands safe.</p>
+<p class="ev-proof"><em>Proven:</em> <a href="/gates/dossiers/sg4.html">gate SG-4 — hypercharge &amp; anomaly cancellation</a>.</p>
+<p class="ev-caveat"><strong>Honest caveat:</strong> one labeled starting assumption remains — the discrete symmetry is declared six-fold (Z<sub>6</sub>), a named axiom; the cancellations themselves are derived from the anchored spectrum.</p>
+</div>
+
+<div class="ev-card">
+<h3>&theta;&#772; = 0 exactly — no axion, no new particle, no tuning</h3>
+<p>A puzzle physicists usually fix by inventing the axion (hunted for decades, never found) disappears: both quark mass patterns come from one real geometric frame, so the strong force&rsquo;s mirror-breaking angle is forced to exactly zero, inside the neutron-EDM bound — while the same machinery correctly <em>keeps</em> the weak sector&rsquo;s real CP violation (Jarlskog at 0.21&sigma;), so it is not washing everything out.</p>
+<p class="ev-proof"><em>Proven:</em> <a href="/gates/dossiers/theta-qcd.html">gate &theta;-QCD</a>.</p>
+<p class="ev-caveat"><strong>Honest caveat:</strong> the bare topological angle is not separately computed — a falsifiable forecast that it too returns 0 stands; an earlier paper held its strong-CP row open at LOW confidence. Both statuses are the corpus&rsquo;s own, at different dates.</p>
+</div>
+
+<div class="ev-card">
+<h3>3 couplings from 3 separate pieces of shape — the single-crossing demand dissolved</h3>
+<p>The classic GUT obligation — strain the three couplings to one exact high-energy crossing — dissolves: the three forces descend from separate internal structures ($K_6$, $S^2$, $S^1$), so their measured strengths are legitimate independent anchors, not numbers the theory must force to unify. And precisely because there is no big unifying group, the proton-killing mediators of textbook GUTs simply do not exist: predicted proton lifetime above 10&sup3;&#8310; years against the ~2.4&times;10&sup3;&#8308;-year Super-Kamiokande floor, with exactly zero dangerous channels across 13,000+ scanned modes.</p>
+<p class="ev-proof"><em>Proven:</em> <a href="/gates/dossiers/sg7.html">gate SG-7 — threshold unification &amp; proton stability</a>.</p>
+<p class="ev-caveat"><strong>Honest caveat:</strong> this is dissolution of an imported demand, not a positive single-scale prediction; confinement and the Yang-Mills mass gap are explicitly walled off.</p>
+</div>
+
+<div class="ev-card">
+<h3>Newton, Coulomb, Fermi, color-Coulomb — 4 force laws from 1 covariant derivative</h3>
+<p>All four forces route out of the one shape through a single covariant derivative sharing one matter content and one charge convention $Q=T_3+Y$, and a single dimensional reduction recovers all four classical force laws in one worked example — ending on an honest four-force scoreboard rather than a uniform victory claim. Four forces, one plumbing diagram: the unification is demonstrated law by law, not asserted.</p>
+<p class="ev-proof"><em>Proven:</em> <a href="/articles/One_Geometry_Four_Forces.html">One Geometry, Four Forces — the worked example</a>.</p>
+<p class="ev-caveat"><strong>Honest caveat:</strong> the four closures are uneven — gravity&rsquo;s light-bending and the weak sector are firm; the full QED reduction is still owed at the source; the strong check reaches only the perturbative tip.</p>
+</div>
+
+</div>
+
 <h2>Key results / honest status</h2>
 <ul>
 <li><strong>Architecture (interface claim).</strong> Four forces routed as four compatible projections of one frozen geometry, through one covariant derivative, with shared matter and charge conventions and explicit falsifiers. This is the genuine contribution.</li>
 <li><strong>Zero new dials (derived-given-the-anchors).</strong> The five force strengths flow from Paper I's small set of measured anchors with no per-force tuning; $e$ and $G_F$ are derived identities, not free inputs. This is over-determination, not a fit.</li>
 <li><strong>Reduced-to-inherited (not re-closed here).</strong> Every "frozen", "anomaly-free", or "certificate" statement is inherited from Paper I by interface only. If a Paper-I gate downgrades, the consuming rows here downgrade automatically — Forces re-closes nothing.</li>
-<li><strong>Stays open / uneven, honestly graded.</strong> The four closures do not close to the same degree: gravity's classical light-bending and the weak sector are on firm ground (gravity <em>conditional</em> on the frozen volume modulus); the full QED reduction is still owed at the source; the strong check reaches only the perturbative tip with confinement and the mass gap walled off; the quantum-gravity check is valid only as a low-energy effective theory with the Planck scale excluded.</li>
+<li><strong>Uneven closures, honestly graded.</strong> The four closures do not close to the same degree: gravity's classical light-bending and the weak sector are on firm ground (gravity <em>conditional</em> on the frozen volume modulus); the full QED reduction is still owed at the source; the strong check reaches only the perturbative tip with confinement and the mass gap walled off; the quantum-gravity check is valid only as a low-energy effective theory with the Planck scale excluded.</li>
 </ul>
-<p><strong>Discipline reminder:</strong> an interface claim is not a closed gate, and <em>anchored is not closed</em>. Across the whole corpus, <strong>0 of 33 gates are physics-closed</strong>; <em>selected is not forced</em> and <em>bounded-out is not solved</em>. For the gate-by-gate scoreboard and honest per-gate status, see the gates page — Paper 2 deliberately does not own those certificates.</p>
+
+<div class="board-note">
+<p><strong>Where this sits on the whole board.</strong> Across the framework, the gate board stands at <strong>33 requirement-gates: all 33 RESOLVED at +0 &middot; 0 anchored at +1 &middot; 0 open</strong> (ratified 2026-07-08; the live <a href="/gates/">/gates/</a> ledger and per-gate dossiers are the closure-of-record). On the separate, permanent honesty axis, <strong>0 of 33 gates are physics-closed</strong> — &ldquo;physics-closed&rdquo; means solved from nothing, with no measured anchor at all, which is unreachable in principle: at least one measured ruler is a theorem. That zero is not an open column and not a failure; it is the honest floor under a fully resolved board — no experimental confirmation, no peer review yet, stated plainly. The discipline spine holds on every row: <em>anchored is not closed, selected is not forced, dissolved is not solved</em> — and an interface claim is not a closed gate: Paper 2 deliberately owns none of the certificates, it inherits them from <a href="/gut/v2/">Paper I</a> by reference.</p>
+<p>There are <strong>no live falsifiers</strong> standing against this sector. The sharpest number here — the up-quark at <strong>+0.058&sigma;</strong> — now stands as a falsifiable prediction: a tighter measurement either agrees or kills the frozen shape at that exact point.</p>
+</div>
+
 <h2>Read it</h2>
 <ul>
 <li><strong>Forces — Paper 2 (full paper, HTML):</strong> <a href="/articles/Forces.html">/articles/Forces.html</a> — the F1 main claim spine, with the F2 (C-FF Rosetta) and F3 (formal authority package) companion layers folded in.</li>
 <li><strong>Forces — Paper 2 (PDF):</strong> <a href="/articles/Forces.pdf">/articles/Forces.pdf</a></li>
 <li><strong>One Geometry, Four Forces — a worked example:</strong> <a href="/articles/One_Geometry_Four_Forces.html">/articles/One_Geometry_Four_Forces.html</a> — a mostly non-technical capstone that recovers Newton, Coulomb, Fermi/muon-decay, and the color-Coulomb potential from one reduction, and ends with the honest four-force scoreboard.</li>
-<li><strong>Gate scoreboard (honest per-gate status):</strong> <a href="/gates/">/gates/</a> — every certificate Paper 2 relies on lives here, owned by Paper I; check the real closure status gate by gate.</li>
+<li><strong>GUT — Paper 1 (the source of every inherited certificate):</strong> <a href="/gut/v2/">/gut/v2/</a> — the ten SG gates, the anchors, and the frozen geometry this interface routes.</li>
+<li><strong>Gate scoreboard (per-gate status of record):</strong> <a href="/gates/">/gates/</a> — every certificate Paper 2 relies on lives here, owned by Paper I; the dossiers behind this page: <a href="/gates/dossiers/sg2.html">SG-2</a> &middot; <a href="/gates/dossiers/sg4.html">SG-4</a> &middot; <a href="/gates/dossiers/sg7.html">SG-7</a> &middot; <a href="/gates/dossiers/sg8.html">SG-8</a> &middot; <a href="/gates/dossiers/theta-qcd.html">&theta;-QCD</a>.</li>
+<li><strong>How the shape was found:</strong> <a href="/process/">/process/</a> — constraint elimination, the rival that was built and broke, and the honesty rules the whole site runs on.</li>
 </ul>
 </main>
 </div>

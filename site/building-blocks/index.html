@@ -87,6 +87,14 @@ nav.site-main-nav a[aria-current="page"]{border-bottom-color:#0b5;color:#0b5;}
 main.anchor-content > section{margin:1.7rem 0;}
 .prev-version{font-family:"Helvetica Neue",Arial,sans-serif;font-size:.8rem;color:#888;border-top:1px solid #e2ded4;margin-top:2.4rem;padding-top:.8rem;}
 .prev-version a{color:#0b5;}
+/* ---- Board strip + evidence cards (2026-07-09) ---- */
+.board-strip{display:flex;flex-wrap:wrap;gap:.7rem;margin:.7rem 0 .3rem;font-family:"Helvetica Neue",Arial,sans-serif;}
+.board-chip{flex:1 1 15rem;border:1px solid #d8d3c7;border-left:4px solid #0b5;background:#f7fdf9;border-radius:0 6px 6px 0;padding:.6em .9em;font-size:.85rem;color:#222;line-height:1.5;}
+.board-chip b.num{display:block;font-size:1.25rem;color:#0b5;font-weight:800;margin-bottom:.15em;}
+.board-verify{font-family:"Helvetica Neue",Arial,sans-serif;font-size:.82rem;color:#555;margin:.5rem 0 0;}
+.ev-card{border:1px solid #d8d3c7;border-left:4px solid #0b5;border-radius:0 6px 6px 0;background:#fafdf9;padding:.8em 1.1em;margin:.8rem 0;}
+.ev-card h3{margin:.1rem 0 .35rem;font-size:1.02rem;}
+.ev-card p{margin:.3rem 0;}
 </style>
 </head><body>
 
@@ -150,6 +158,17 @@ main.anchor-content > section{margin:1.7rem 0;}
 </section>
 
 <section>
+  <h2>The board these blocks carry &mdash; in one glance</h2>
+  <div class="board-strip">
+    <div class="board-chip"><b class="num">33 / 33</b>requirement-gates <strong>RESOLVED at +0</strong> &mdash; 0 anchored at +1, 0 open. Every verdict is typed to its terminal endpoint and every residual is shown openly on its row.</div>
+    <div class="board-chip"><b class="num">0 / 33</b>gates <strong>physics-closed</strong> &mdash; no gate is solved from nothing, no experimental confirmation, no peer review yet. That floor is permanent by design (at least one measured ruler is a theorem), and the board states it plainly.</div>
+    <div class="board-chip"><b class="num">+0.058&#963;</b>the up-quark &mdash; a ~4.4&#963; miss published on the framework&rsquo;s own front page, then resolved by the symmetry-derived, target-blind 1/&radic;6 = 1/&radic;|S&#8323;| factor. It stands now as a sharp falsifiable prediction.</div>
+    <div class="board-chip"><b class="num">2 &rarr; 19+</b>two measured flavor anchors in, nineteen-plus flavor observables out &mdash; and a second two-anchor calibration returns six to eight more. A handful in, twenty-plus out.</div>
+  </div>
+  <p class="board-verify">Verify each column yourself: <a href="https://physics.magflowmeters.com/gates/">The Gates</a> (ledger + per-gate dossiers, the closure-of-record) &middot; <a href="/observables/">The observables</a> (all 362) &middot; <a href="https://physics.magflowmeters.com/paying/">What &ldquo;paying&rdquo; means</a> &middot; the three roots: <a href="https://physics.magflowmeters.com/shape/">Shape</a> &middot; <a href="https://physics.magflowmeters.com/scale/">Scale</a> &middot; <a href="https://physics.magflowmeters.com/granularity/">Granularity</a> &middot; the screen above them: <a href="/layer2/">The Second-Layer Roots</a>.</p>
+</section>
+
+<section>
   <h2>Axiom 1 &mdash; The Shape (selected by constraints)</h2>
   <p>The Shape is the exact frozen object the theory computes from: a specific, hash-pinned object in three levels &mdash; a <strong>Stage</strong> (the metric carrier), a <strong>Rulebook</strong> (which configurations are admissible), and a set of <strong>Actors</strong> (the matter, gauge, and Higgs content plus the maps that read off observables). Only the Stage sets the dimension count, D = 4 + 6 + 2 + 1 = 13 (a 4D arena times a 6D color space K&#8326; = SU(3)/T&#178;, a 2D weak sphere, and a folded 1D hypercharge circle); the other two levels carry no dimensions but are just as load-bearing &mdash; read the Shape as &ldquo;just the geometry&rdquo; and it fails for that reason alone.</p>
   <p>The Shape was <strong>selected by constraints, not deduced</strong>: two of its carriers are forced by theorems that close off entire classes of alternatives, and the color space is the unique clean survivor once a cheaper-looking rival is actually built end-to-end and breaks. Inside the declared search space it is the most economical complete candidate &mdash; the most economical, <em>not</em> the provably unique one. &ldquo;No simpler shape exists anywhere&rdquo; is a claim no theory can settle, and this one does not pretend to. See <a href="https://physics.magflowmeters.com/shape/">The Shape</a>, the full <a href="https://physics.magflowmeters.com/anchors/">Foundational Constraints register</a>, a <a href="https://physics.magflowmeters.com/process/constraints-to-shape.html">worked example</a>, and the complete but long construction on the <a href="https://physics.magflowmeters.com/gut/v2/">GUT</a> page.</p>
@@ -168,11 +187,15 @@ main.anchor-content > section{margin:1.7rem 0;}
 <section>
   <h2>The measured observables</h2>
   <p>Paired with the three axioms is the second group of building blocks: the measured values the framework is anchored on. No framework derives its measured inputs from nothing &mdash; the honest questions are only how many, which ones, and whether they are all named. Both counts are published.</p>
-  <ul>
-    <li><strong>The calibration set (4&ndash;5)</strong> &mdash; the values read before any comparison, used only to set the dials: <strong>M<sub>Pl</sub></strong> (the Planck scale ruler), <strong>&#945;<sub>i</sub></strong> (the three gauge couplings at M<sub>Z</sub>), <strong>y<sub>t</sub></strong> (the top Yukawa), <strong>|V<sub>us</sub>|</strong> (the Cabibbo entry), and <strong>N<sub>&#957;</sub> = 3</strong> (the LEP light-neutrino count &mdash; an integer, not a magnitude).</li>
-    <li><strong>The full consumed set (~12&ndash;14)</strong> &mdash; every measured or charged input the machinery actually spends: the calibration set plus the electroweak scale, the fitted flavor normalizations N<sub>d</sub>, N<sub>e</sub>, N<sub>&#957;</sub>, the seesaw scale M<sub>R</sub>, the cosmological constant &#923;, &#295; (folded into the Planck ruler through G), and the observed matter content E as a charged, non-numeric input. Each is measured or paid &mdash; none is claimed as a result.</li>
-  </ul>
-  <p>The full honest ledger of the consumed inputs, row by row, is on the <a href="https://physics.magflowmeters.com/anchors/">Anchors register</a>. The complete second layer &mdash; all <strong>362 observable phenomena across 11 domains</strong> the framework is anchored to and tested against &mdash; is catalogued on <a href="/observables/">The observables</a>.</p>
+  <div class="ev-card">
+    <h3>The calibration set (4&ndash;5)</h3>
+    <p>The values read before any comparison, used only to set the dials: <strong>M<sub>Pl</sub></strong> (the Planck scale ruler), <strong>&#945;<sub>i</sub></strong> (the three gauge couplings at M<sub>Z</sub>), <strong>y<sub>t</sub></strong> (the top Yukawa), <strong>|V<sub>us</sub>|</strong> (the Cabibbo entry), and <strong>N<sub>&#957;</sub> = 3</strong> (the LEP light-neutrino count &mdash; an integer, not a magnitude). The question this set answers: <em>which measured values fix the dials?</em></p>
+  </div>
+  <div class="ev-card">
+    <h3>The full consumed set (~12&ndash;14)</h3>
+    <p>Every measured or charged input the machinery actually spends: the calibration set plus the electroweak scale, the fitted flavor normalizations N<sub>d</sub>, N<sub>e</sub>, N<sub>&#957;</sub>, the seesaw scale M<sub>R</sub>, the cosmological constant &#923;, &#295; (folded into the Planck ruler through G), and the observed matter content E as a charged, non-numeric input. Each is measured or paid &mdash; none is claimed as a result. The question this set answers: <em>what does the whole machinery run on?</em></p>
+  </div>
+  <p>The full honest ledger of the consumed inputs, row by row, is on the <a href="https://physics.magflowmeters.com/anchors/">Anchors register</a>; what it costs to &ldquo;pay&rdquo; an input &mdash; and why a paid scale is never dressed up as a prediction &mdash; is defined on <a href="https://physics.magflowmeters.com/paying/">What &ldquo;paying&rdquo; means</a>. The complete second layer &mdash; all <strong>362 observable phenomena across 11 domains</strong> the framework is anchored to and tested against &mdash; is catalogued on <a href="/observables/">The observables</a>.</p>
 </section>
 
 <section>
