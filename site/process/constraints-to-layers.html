@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Constraints to Layers — A Framework for a Theory of Everything</title>
-<meta name="description" content="How Shape, Scale, and Granularity are turned into enforcement layers that stop object drift, scale drift, and record drift — with worked examples for each root.">
+<meta name="description" content="The two layer ideas: Shape-internal layers (Stage, Rulebook, Actors) that define the object, versus claim-audit layers that grade a claim. Why metric-only Shape fails, with worked examples.">
 <style>
   :root{
     --ink:#1b1f23;
@@ -372,277 +372,234 @@
   <main id="main-content">
 
 <h2 style="border-bottom:none;margin-bottom:0.2em;">From constraints to layers</h2>
-<p class="lede">A constraint is only useful if it can be enforced. That is why this candidate framework turns each of its three deep roots into <strong>layers</strong>. Shape is not just "geometry" &mdash; it has an object identity, a frozen branch identity, and a source fingerprint. Scale is not just "a number" &mdash; it has a magnitude type, a scheme and comparison window, and a tolerance rule. Granularity is not just "finite" &mdash; it has a candidate class, a finite record, and a reproducer check. Layers are not decoration. They are the machinery that stops a claim from quietly sliding between meanings between one gate and the next.</p>
+<p class="lede">The biggest mistake is to call the Shape &ldquo;the geometry.&rdquo; Geometry is only the <strong>Stage</strong>. To make physics, the framework also needs a <strong>Rulebook</strong> &mdash; which configurations are admissible &mdash; and <strong>Actors</strong> &mdash; the fields, bundles, operators, connections, and readout maps that live on the Stage. The layers were not added for style. They were forced by failed gates: a metric without a rulebook cannot prevent hidden fitting; a metric without actors cannot specify which operator, bundle, or observable is being computed.</p>
 
-<h2>Why layers exist</h2>
-<p>Every root has a soft, everyday reading that a theory can lean on without noticing. "The geometry gives it," "the number matches," "it is finite so it is fine" &mdash; each of those is a place where a result can be smuggled in after the fact. Layers close those gaps by forcing each root to say exactly <em>which</em> object, <em>which</em> scale, and <em>which</em> finite record it is standing on. Concretely, layering stops three failures that otherwise look like success.</p>
+<div class="callout">
+  <h3>Shape = Stage &times; Rulebook &times; Actors</h3>
+  <p>The frozen object is a three-layer product, not a bare metric. Only the Stage carries metric dimensions; the Rulebook and Actors are zero-dimensional but load-bearing. In the boxed active branch this reads &#8477;<sub>active</sub> = [M<sub>4</sub> &times; K&#8326; &times; S&sup2; &times; S&sup1;<sub>Y</sub>] (the Stage) &oplus; [F<sup>+</sup><sub>finite</sub> &oplus; C<sub>admiss</sub>] (the Rulebook) &otimes; [E<sub>matter</sub> &oplus; E<sub>gauge</sub> &oplus; E<sub>Higgs</sub> &oplus; E<sub>proton</sub>] (the Actors). A metric-only Shape is incomplete.</p>
+</div>
+
+<h2>Two meanings of &ldquo;layer&rdquo;</h2>
+<p>The word &ldquo;layer&rdquo; is used two different ways on this site, and they must not be confused. One set of layers <em>defines the object</em>. The other set <em>grades a claim</em> about the object.</p>
 
 <div class="card-grid">
   <div class="card">
-    <h4>Object drift</h4>
-    <p>Changing the object after a result is known. If "the shape" can be re-read as a slightly different manifold, bundle, or actor once the target number is in view, any near-miss can be nudged onto the answer. Shape layers pin the abstract object, the frozen branch, and a source fingerprint <em>before</em> the comparison, so the actor that produced a number is the same actor that was declared.</p>
+    <h4>Shape-internal layers &mdash; they define the object</h4>
+    <p><strong>Stage</strong> = where fields may live and which symmetry sources exist. <strong>Rulebook</strong> = which configurations are admissible. <strong>Actors</strong> = what lives over the Stage and which operator / readout is used. These three, frozen together, are the Shape. Drop any one and the object is not yet specified.</p>
   </div>
   <div class="card">
-    <h4>Scale drift</h4>
-    <p>Comparing values in the wrong units, scheme, or window. A 13-dimensional ladder value is not a 4D running mass; a Planck-unit ratio is not a low-energy magnitude. Scale layers require the magnitude type, the scheme and comparison window, and the tolerance to be named, so nothing is judged against a ruler it was never built to meet.</p>
+    <h4>Claim-audit layers &mdash; they grade a claim</h4>
+    <p>A separate checklist for scoring a single claim: the <strong>observable / audit anchor</strong> (what is being tested), the <strong>root</strong> (its Shape / Granularity / Scale role), the <strong>rule / map</strong> (the mathematical map to the test object), the <strong>forcing</strong> (forced / supported / paid / dissolved / open), and the <strong>status</strong> (its endpoint label).</p>
+  </div>
+</div>
+
+<div class="honesty-box">
+  <strong>The claim-audit layers are a useful checklist &mdash; they do not replace Stage / Rulebook / Actors.</strong> Grading a claim as forced or dissolved says nothing until you can also name the Stage object it uses, the Rulebook rule that permits it, and the Actor operator that computes it. The audit stack scores claims; the Shape-internal stack builds the object. Neither substitutes for the other.
+</div>
+
+<h2>Why the Stage alone failed</h2>
+<p>Each of the following is a real place where a metric-only carrier looked sufficient and was not. The gap is exactly the missing Rulebook or Actor layer.</p>
+
+<div class="step-row"><span class="step-num">1</span><div class="step-body">
+  <h4>Isometries, but not the matter bundle</h4>
+  <p>A metric carrier supplies isometries &mdash; the symmetry sources that motivate the gauge group. It does not supply the matter bundle those fields live in. Without an Actor layer there is no chiral bundle, no spin/twist data, no operator domain to hand the isometries to.</p>
+</div></div>
+<div class="step-row"><span class="step-num">2</span><div class="step-body">
+  <h4>Multiple swappable operators without Actors</h4>
+  <p>The same geometry can host a Bochner ghost, a Casimir route, a Lichnerowicz graviton+ghost, or a boundary problem. Without Actors pinning the exact operator, connection, and ghost convention, these are freely swappable &mdash; and a numerical match on the wrong one confirms nothing. This is the Gap-01 lesson below.</p>
+</div></div>
+<div class="step-row"><span class="step-num">3</span><div class="step-body">
+  <h4>Flavor plausible, but target-selected without a Rulebook</h4>
+  <p>A geometry can make flavor structure look natural. Without a Rulebook &mdash; flavor chamber F<sup>+</sup>, sector projectors, finite ladder data, freeze-before-compare firewall &mdash; the flavor labels risk being chosen to fit the answer. The Rulebook is what prevents hidden fitting.</p>
+</div></div>
+<div class="step-row"><span class="step-num">4</span><div class="step-body">
+  <h4>Thresholds suggested, but no magnitude without Scale bridges</h4>
+  <p>A geometry can suggest that thresholds exist. It predicts no threshold <em>magnitude</em> until a Scale anchor, scheme, window, and bridge, plus the Actor spectra, are all named. A dimensionless readout is not a GeV number on its own.</p>
+</div></div>
+
+<h2>What each layer owns</h2>
+<div class="card-grid">
+  <div class="card">
+    <h4>The Stage owns</h4>
+    <p>The 4D Lorentzian arena M<sub>4</sub>; the color carrier K&#8326; = SU(3)/T&sup2;; the weak carrier S&sup2;; the folded hypercharge circle S&sup1;<sub>Y</sub>/&#8484;&#8322;. In short: the metric carrier, the quotient/fold domain, the symmetry sources, the topology, and the curvature object. <strong>Only the Stage counts toward the 13 metric dimensions.</strong></p>
   </div>
   <div class="card">
-    <h4>Record drift</h4>
-    <p>Treating a mathematical label as physical without a finite record. An exact zero-size point or an unpaid infinity can hide inside a "solution" and be read as real. Granularity layers demand a finite candidate class, a finite record or ledger, and a reproducible certificate &mdash; so a label only counts as physics if something finite actually records it.</p>
+    <h4>The Rulebook owns</h4>
+    <p>The admissibility constraints and the freeze-before-compare firewall; the flavor chamber F<sup>+</sup>, chamber modulus, generation basis, sector projectors and sector operators; no-mirror parity, Wilson-line winding, anomaly conditions, the FCNC/mediator no-go; and the target-blindness discipline. Zero-dimensional, but it is what stops hidden fitting.</p>
+  </div>
+  <div class="card">
+    <h4>The Actors own</h4>
+    <p>The matter / gauge / Higgs / proton bundles; spin and twist data; Hilbert spaces; connections; operator domains; the graviton/ghost operator choice; the Dirac/index operator; and the readout maps to observables. Zero-dimensional, but it is what decides <em>which object</em> is being computed.</p>
   </div>
 </div>
 
-<div class="callout">
-  <h3>Layers are enforcement, not style</h3>
-  <p>The point of layering is that every gate in this candidate framework must state, out loud, what object it uses, what scale it compares at, and what finite record verifies it. A root with all three layers filled in can be audited by a stranger; a root left as a single vague word cannot. That is the whole difference between a claim that can be checked and one that only sounds checked.</p>
-</div>
+<h2>How the roots apply across the layers</h2>
+<p>The three method roots &mdash; Shape, Granularity, Scale &mdash; do not each own a layer. Every root acts across all three layers at once.</p>
 
-<h2>The root-layer table</h2>
-<p>The three roots and their three layers, side by side. Read each row left to right: the abstract thing, the frozen version of it, and the finite artifact that proves the same thing was used.</p>
-
-<table>
-  <thead>
-    <tr><th>Root</th><th>Layer 1</th><th>Layer 2</th><th>Layer 3</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Shape</strong></td>
-      <td>Abstract object identity</td>
-      <td>Frozen branch / version identity</td>
-      <td>Executable / source fingerprint</td>
-    </tr>
-    <tr>
-      <td><strong>Scale</strong></td>
-      <td>Magnitude type</td>
-      <td>Scheme / normalization / comparison window</td>
-      <td>Predicate / tolerance / uncertainty</td>
-    </tr>
-    <tr>
-      <td><strong>Granularity</strong></td>
-      <td>Finite candidate class / no unpaid labels</td>
-      <td>Finite record / ledger</td>
-      <td>Reproducer / certificate</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>Shape layers</h2>
-<p>Shape layers keep the object fixed. Before any number is compared, the shape has to answer three questions, and the answers are frozen so they cannot be revised once the target is in view.</p>
-<div class="step-row">
-  <span class="step-num">1</span>
-  <div class="step-body">
-    <h4>What is the object?</h4>
-    <p>The abstract identity. For this framework the frozen internal carrier is the flag manifold K&#8326; = SU(3)/T&sup2;, together with a 2-sphere and a folded circle over four-dimensional spacetime &mdash; 4D &times; K&#8326; &times; S&sup2; &times; S&sup1;<sub>Y</sub>/Z<sub>2</sub>, thirteen dimensions in all. The object is named as a specific structure, not as "the geometry."</p>
+<div class="card-grid">
+  <div class="card">
+    <h4>Shape</h4>
+    <p>Supplies the full object across all three layers &mdash; the Stage carrier, the Rulebook admissibility set, and the Actor bundles/operators/readouts &mdash; frozen together as one branch.</p>
   </div>
-</div>
-<div class="step-row">
-  <span class="step-num">2</span>
-  <div class="step-body">
-    <h4>Which branch or version is frozen?</h4>
-    <p>The exact active branch. The carrier is frozen <em>once</em> as the boxed active branch and re-used downstream unchanged &mdash; the same shape carries the gauge recovery, the family count, the hypercharge and anomaly ledgers, the flavor readouts, and proton safety. There is no second, differently-tuned copy for a later gate.</p>
+  <div class="card">
+    <h4>Granularity</h4>
+    <p>Charges finite labels, candidate classes, object identity, and &ldquo;no hidden precision&rdquo; across all three layers: geometric distinctions on the Stage, admissibility choices in the Rulebook, and physical content in the Actors. A finite record is not proof of ontological discreteness, and a finite candidate list is not a closed class until exhaustion is proven.</p>
   </div>
-</div>
-<div class="step-row">
-  <span class="step-num">3</span>
-  <div class="step-body">
-    <h4>What source or executable record proves the same object was used?</h4>
-    <p>A fingerprint. Frozen ledger rows and a reproducible source artifact stand behind the object, so a reader can confirm that the shape which produced a number is byte-for-byte the shape that was declared, with no post-target modification.</p>
-  </div>
-</div>
-
-<h2>Scale layers</h2>
-<p>Scale layers keep the comparison honest about units. Before a value is called a match, scale has to answer three questions.</p>
-<div class="step-row">
-  <span class="step-num">1</span>
-  <div class="step-body">
-    <h4>Is this dimensionless or dimensionful?</h4>
-    <p>The magnitude type. A dimensionless structural ratio, an absolute measured magnitude, a running mass at a stated energy, a cosmological density, and a scale-free curvature invariant are five different kinds of quantity and cannot be compared as if they were one.</p>
-  </div>
-</div>
-<div class="step-row">
-  <span class="step-num">2</span>
-  <div class="step-body">
-    <h4>What scheme, normalization, and window apply?</h4>
-    <p>The comparison context. Running masses and couplings are compared at M<sub>Z</sub>; a &Lambda; ratio is stated in Planck units; the electroweak normalization runs through v<sub>EW</sub>; a projected 13D value is only comparable after its declared 13D-to-4D readout map. The window is named before the value is judged.</p>
-  </div>
-</div>
-<div class="step-row">
-  <span class="step-num">3</span>
-  <div class="step-body">
-    <h4>What tolerance or uncertainty defines success?</h4>
-    <p>The predicate. Success is spelled out as a measured uncertainty band, a &sigma; pull, an exact structural equality, a consistency check only, or a measured anchor taken from observation &mdash; never an unstated "close enough."</p>
-  </div>
-</div>
-
-<h2>Granularity layers</h2>
-<p>Granularity layers keep labels from posing as physics. It is a frame-independent floor on action, information, and record cost &mdash; <strong>not</strong> a smallest length, <strong>not</strong> a preferred frame, <strong>not</strong> a spacetime lattice. Before a mathematical feature is treated as real, granularity has to answer three questions.</p>
-<div class="step-row">
-  <span class="step-num">1</span>
-  <div class="step-body">
-    <h4>What is the finite candidate class?</h4>
-    <p>The admissible set. Only configurations that can be recorded at finite cost are allowed in; idealizations that require an exact continuum limit are excluded from the candidate class.</p>
-  </div>
-</div>
-<div class="step-row">
-  <span class="step-num">2</span>
-  <div class="step-body">
-    <h4>What labels are forbidden unless paid for?</h4>
-    <p>No unpaid labels. A quantity written as exactly zero size, or an infinity carried along for convenience, is not automatically physical. If a label is to count, a finite record or ledger has to pay for it.</p>
-  </div>
-</div>
-<div class="step-row">
-  <span class="step-num">3</span>
-  <div class="step-body">
-    <h4>What ledger or reproducer records the check?</h4>
-    <p>A certificate. A reproducible argument shows where the offending limit entered, why it violates the finite-cost floor, and what finite structure remains &mdash; and it keeps that check separate from neighboring questions it does not settle.</p>
+  <div class="card">
+    <h4>Scale</h4>
+    <p>Cashes dimensionless readouts into magnitudes only through anchors, schemes, windows, and bridges &mdash; and it does this across all three layers. A value is not Scale-derived unless the anchor, scheme, window, normalization, and bridge are all named.</p>
   </div>
 </div>
 
 <h2>Worked examples</h2>
-<p>One worked example per root, each showing the same discipline: name the object, the scale, or the record; apply the constraints in order; and read off the honest endpoint. Open a card for the full walk-through.</p>
+<p class="eyebrow">Worked example</p>
 
 <div class="card-grid">
   <div class="card">
-    <h4>Shape &mdash; freeze the actor before the number counts</h4>
-    <p>The up-quark correction only became admissible after the K&#8326; chamber, the S<sub>3</sub> Weyl group, the two-step A&#8322; actor, and the one-chamber shadow were named as the object being read. Without those layers, the 1/&radic;6 factor would look like a patch; with them it is an auditable readout rule.</p>
+    <h4>Why three families need all three layers</h4>
+    <p>K&#8326; supplies the Stage, but the family count is not a Stage-only slogan. The Rulebook supplies chirality/no-mirror admissibility, and the Actors supply the spin/twist bundle and index operator. Only the full three-layer Shape produces the exact count. <strong>Caveat:</strong> three is forced given the selected Actor content; the full matter spectrum is not derived from nothing here.</p>
     <details class="worked">
-      <summary>Full worked example &mdash; the actor had to be frozen before the number could count</summary>
-
+      <summary>Full worked example &mdash; why three families need all three layers</summary>
       <h4>Question</h4>
-      <p>The candidate framework places the up quark on a rung of a 13-dimensional ladder. The question is narrow and sharp: does the frozen shape read out the measured up-quark mass, &mu;<sub>u</sub>(M<sub>Z</sub>) &approx; 1.27 &plusmn; 0.43 MeV, without any free coefficient inserted after the fact?</p>
-
-      <h4>The hidden assumption</h4>
-      <p>The tempting move is to compare the raw 13D ladder value directly to a 4D running mass. That silently assumes the two are the same kind of quantity. They are not: the raw ladder value lives in the internal geometry, and the running mass lives in the 4D theory at M<sub>Z</sub>. Comparing them directly would let any correction factor be reverse-engineered to close the gap &mdash; the classic object-drift and scale-drift failures at once.</p>
-
-      <h4>The candidate space</h4>
-      <p>What is allowed to fix the readout is not "any decimal that works." The candidate correction has to come from the finite structure already named in the frozen shape: the K&#8326; = SU(3)/T&sup2; flavor geometry, the A&#8322; chamber plane, the S<sub>3</sub> Weyl chambers, and the F&#8314; flavor chamber. The one-chamber 4D shadow of that finite Weyl structure is what supplies a coefficient &mdash; a small, discrete menu, not a continuous dial.</p>
-
-      <h4>Constraints applied (in order)</h4>
-      <p>The Shape layers are filled in first, then the readout is taken:</p>
-      <div class="step-row"><span class="step-num">1</span><div class="step-body"><h4>No actor drift</h4><p>The particle actor is fixed before the target is known: the up rung a = 2, the two-step oriented A&#8322; actor, the Weyl-alternating action, and the canonical one-chamber 4D shadow are all named as the frozen branch.</p></div></div>
-      <div class="step-row"><span class="step-num">2</span><div class="step-body"><h4>No free coefficient</h4><p>The correction coefficient cannot be reverse-engineered; it must fall out of the declared structure.</p></div></div>
-      <div class="step-row"><span class="step-num">3</span><div class="step-body"><h4>Finite-group constraint</h4><p>The coefficient must come from the finite S<sub>3</sub> structure &mdash; a one-chamber shadow of the finite Weyl group S<sub>3</sub>, which has &#124;S<sub>3</sub>&#124; = 6 elements.</p></div></div>
-      <div class="step-row"><span class="step-num">4</span><div class="step-body"><h4>Readout constraint</h4><p>The 13D ladder is compared to a 4D running mass only <em>after</em> the 13D-to-4D transport is declared, and the comparison is made at M<sub>Z</sub>.</p></div></div>
-
+      <p>Why exactly three chiral families, with no mirror partners?</p>
+      <h4>Naive answer</h4>
+      <p>The Stage geometry K&#8326; alone &ldquo;gives three.&rdquo;</p>
+      <h4>Why the naive answer fails</h4>
+      <p>K&#8326; supplies the geometric carrier, but the family count is read through a bundle / index / operator structure. Without the Rulebook and Actors there is no precise chiral bundle, no parity/fold rule, and no Dirac/index operator to compute.</p>
+      <h4>Constraint set</h4>
+      <p>(1) The carrier K&#8326; must supply the relevant color/family geometry. (2) The hypercharge fold must supply one-sidedness / no mirror. (3) The index must be computed on the correct spin/twist bundle. (4) No hidden E: the observed matter content stays given unless a uniqueness theorem derives it.</p>
+      <h4>Candidate class</h4>
+      <p>A. Stage-only geometry claim. B. Stage + informal matter labels. C. Stage + Rulebook + Actors with an index/readout.</p>
+      <h4>Layer check</h4>
+      <p><strong>Stage:</strong> K&#8326; = SU(3)/T&sup2; supplies the geometric color/family carrier; folded S&sup1;<sub>Y</sub>/&#8484;&#8322; supplies chirality-compatible topology. <strong>Rulebook:</strong> no-mirror parity and center/quotient consistency control which modes survive and how charges route. <strong>Actors (load-bearing):</strong> the spin/twist bundle and the Dirac/index operator compute the chiral count &mdash; the operator layer decides what is actually being counted.</p>
+      <h4>Root split</h4>
+      <p><strong>Shape</strong> supplies the full three-layer index calculation. <strong>Granularity</strong> keeps the family count an exact integer: no unpaid labels, no continuous family knobs. <strong>Scale</strong> is not load-bearing here &mdash; this is a count, not a magnitude.</p>
       <h4>Elimination ledger</h4>
       <table>
-        <thead><tr><th>Candidate readout</th><th>Fate</th></tr></thead>
+        <thead><tr><th>Candidate</th><th>Constraint result</th><th>Verdict</th></tr></thead>
         <tbody>
-          <tr><td>Raw 13D ladder value compared directly</td><td><strong>Rejected</strong> &mdash; wrong-ruler comparison; a 13D value is not a 4D running mass.</td></tr>
-          <tr><td>A fitted decimal chosen to hit 1.27 MeV</td><td><strong>Rejected</strong> &mdash; free coefficient, reverse-engineered after the target.</td></tr>
-          <tr><td>The forced 1/&radic;6 = 1/&radic;&#124;S<sub>3</sub>&#124; one-chamber shadow</td><td><strong>Survives</strong> &mdash; forced finite-group geometry, declared before the comparison.</td></tr>
+          <tr><td>Stage-only &ldquo;K&#8326; gives three&rdquo;</td><td>missing bundle / operator / readout</td><td>incomplete</td></tr>
+          <tr><td>Informal labels</td><td>hidden E / target-selection risk</td><td>paid or rejected</td></tr>
+          <tr><td>Full layered index calculation</td><td>exact integer readout given the bundle/actors</td><td>survivor</td></tr>
         </tbody>
       </table>
-
-      <h4>Survivor / endpoint</h4>
-      <p>With the actor frozen and the transport declared, the corrected readout uses the forced dimensionless factor 1/&radic;6 = 1/&radic;&#124;S<sub>3</sub>&#124;, giving &mu;<sub>u</sub>(M<sub>Z</sub>) &approx; 1.295 MeV against the measured 1.27 &plusmn; 0.43 MeV. The honest label is <strong>derived-given-shape</strong>: given the frozen shape, the coefficient is forced finite-group geometry, not a fitted decimal. It is <strong>endpoint-closed inside the framework</strong>, not experimentally confirmed.</p>
-
-      <h4>Measured anchors consumed</h4>
-      <p>One: the measured up-quark running mass &mu;<sub>u</sub>(M<sub>Z</sub>) = 1.27 &plusmn; 0.43 MeV, used as the comparison target and falsifier &mdash; not as an input the coefficient was fitted to.</p>
-
-      <h4>What was NOT claimed</h4>
-      <p>This is a sharp falsifier, not a license to keep adjusting. A tighter future measurement of the up-quark mass can kill this branch. The layers are exactly what make that possible: because the actor and the coefficient were frozen in advance, there is no room to re-read the shape if the number moves.</p>
+      <h4>Survivor</h4>
+      <p>A full-layer index result: three left-handed families and no mirror partner, given the selected/paid Actor content. (Measured sanity: the LEP light-neutrino count &asymp; 2.984 &plusmn; 0.008 leaves no room for full mirror generations.)</p>
+      <h4>Endpoint</h4>
+      <p><strong>SHAPE-FORCED given the selected bundle E</strong> &mdash; not a derivation of E from nothing.</p>
+      <h4>Caveat</h4>
+      <p>Do not say the spectrum itself is derived unless a bundle-uniqueness theorem is actually supplied. Three is forced given E; E is selected, not derived.</p>
     </details>
   </div>
 
   <div class="card">
-    <h4>Scale &mdash; a measured ruler stays a measured ruler</h4>
-    <p>The Planck and electroweak scales are declared as measured rulers, and the hierarchy is simply their ratio &mdash; not a third, from-nothing number. The same discipline holds &Lambda; as measured, with a failed alternative route serving as a check that the geometry is not secretly producing it.</p>
+    <h4>Same Stage, wrong Actor (Gap-01 operator identity)</h4>
+    <p>The Gap-01 a&#8326; lesson is brutal: the same geometry can host different operators. A Bochner ghost is not the physical Lichnerowicz ghost, and a fixed point is not an ordinary boundary problem. The Actor layer decides the object being computed; a number on the wrong object closes nothing. <strong>Caveat:</strong> object identity is a necessary condition, not a magic completion of every route.</p>
     <details class="worked">
-      <summary>Full worked example &mdash; a measured ruler stays a measured ruler</summary>
-
+      <summary>Full worked example &mdash; same Stage, wrong Actor</summary>
       <h4>Question</h4>
-      <p>Two questions of the same kind: why is the electroweak scale so far below the Planck scale &mdash; the hierarchy H = v<sub>EW</sub> / M<sub>Pl</sub> &approx; 2&times;10<sup>&minus;17</sup> &mdash; and why is the cosmological constant &Lambda; the tiny value it is? The scale layers decide, first, whether these are even the right questions to ask of a geometry.</p>
-
-      <h4>The hidden assumption</h4>
-      <p>The trap is to treat a measured magnitude as if it were pure geometry waiting to be derived. If v<sub>EW</sub>, M<sub>Pl</sub>, or &Lambda; can be "predicted from the shape," a value that was in fact read off an experiment gets laundered into a from-nothing success. Scale layers forbid that laundering by typing each quantity before anyone tries to derive it.</p>
-
-      <h4>The candidate space</h4>
-      <p>Before shape decides anything, shape does supply real structure at the electroweak scale: the charge rule Q = T<sub>3</sub> + Y, exactly one massless photon, and the W/Z structure &mdash; confronted by the measured &rho;<sub>0</sub> = 1.00038 &plusmn; 0.00020, which is a test, not a fit. But the <em>magnitudes</em> of the scales themselves are a different kind of object. The candidate answers to "why this magnitude?" are: (a) a genuine from-nothing derivation, or (b) a measured anchor plus arithmetic. Layer 1 forces the choice by typing the quantity.</p>
-
-      <h4>Constraints applied (in order)</h4>
-      <div class="step-row"><span class="step-num">1</span><div class="step-body"><h4>Type the quantity</h4><p>Do not compare dimensionful values as if they were pure geometry. M<sub>Pl</sub>, v<sub>EW</sub>, and &Lambda; are absolute measured magnitudes; H is a dimensionless ratio.</p></div></div>
-      <div class="step-row"><span class="step-num">2</span><div class="step-body"><h4>Declare the ruler</h4><p>Where an absolute scale is needed, name the measured anchor: M<sub>Pl</sub> is measured ruler #1; v<sub>EW</sub> &approx; 246 GeV is measured ruler #2.</p></div></div>
-      <div class="step-row"><span class="step-num">3</span><div class="step-body"><h4>Declare the window</h4><p>State the scheme: M<sub>Z</sub> for running masses and couplings, Planck units for the &Lambda; ratio, the electroweak normalization for v<sub>EW</sub>, and the cosmological extraction method for &Lambda;.</p></div></div>
-      <div class="step-row"><span class="step-num">4</span><div class="step-body"><h4>Declare the predicate</h4><p>Is the comparison exact, within an uncertainty band, a consistency check only, or a measured anchor? For the scales it is: measured anchor.</p></div></div>
-      <div class="step-row"><span class="step-num">5</span><div class="step-body"><h4>Reject laundering</h4><p>Do not call a measured input a prediction.</p></div></div>
-
+      <p>Can a heat-kernel / a&#8326; computation use any convenient operator on the same geometry?</p>
+      <h4>Naive answer</h4>
+      <p>Yes &mdash; if the geometry is the same, a canonical Casimir route, a Bochner ghost, a Levi-Civita route, or the physical Lichnerowicz ghost should be interchangeable.</p>
+      <h4>Why the naive answer fails</h4>
+      <p>Those are different Actor-layer objects. They have different connections, endomorphisms, ghost conventions, bundles, and predicates. A numerical match on the wrong operator is not confirmation; it is an object swap.</p>
+      <h4>Constraint set</h4>
+      <p>(1) Operator specificity &mdash; identify the exact operator. (2) Connection specificity &mdash; Levi-Civita, canonical, Bochner, and Lichnerowicz are not interchangeable by default. (3) Object-class specificity &mdash; orbifold/fixed-point objects must not be treated as ordinary boundaries. (4) Route agreement only after a fingerprint match &mdash; two routes agree only if they compute the same object.</p>
+      <h4>Candidate class</h4>
+      <p>A. Bochner ghost / canonical proxy. B. Physical Lichnerowicz graviton+ghost object. C. Boundary-value reading of the fixed point. D. Equivariant fixed-point object.</p>
+      <h4>Layer check</h4>
+      <p><strong>Stage:</strong> supplies K&#8326; and the geometric / orbifold / fixed-point setting. <strong>Rulebook:</strong> supplies the convention manifest and the object-class classification, blocking boundary-vs-fixed-point swaps. <strong>Actors (load-bearing):</strong> supply the exact graviton+ghost operator, bundle, connection, grading, and ghost convention. This is the decisive layer.</p>
+      <h4>Root split</h4>
+      <p><strong>Shape</strong> must include the operator, connection, and object class in the frozen object. <strong>Granularity</strong> enforces exact object identity by fingerprints &mdash; a wrong-object numeric match closes nothing. <strong>Scale</strong> decides which a&#8326; objects are scale-free rational audit invariants and which dimensionful magnitudes are not valid observables.</p>
       <h4>Elimination ledger</h4>
       <table>
-        <thead><tr><th>Claim about a scale</th><th>Fate</th></tr></thead>
+        <thead><tr><th>Candidate</th><th>Constraint result</th><th>Verdict</th></tr></thead>
         <tbody>
-          <tr><td>Derive v<sub>EW</sub> or M<sub>Pl</sub> from the geometry</td><td><strong>Rejected</strong> &mdash; both are measured rulers; deriving them from nothing would be laundering.</td></tr>
-          <tr><td>H = v<sub>EW</sub> / M<sub>Pl</sub> as a third derived number</td><td><strong>Rejected</strong> &mdash; H is the arithmetic ratio of two measured rulers, not a separate derivation.</td></tr>
-          <tr><td>&Lambda; predicted by an internal dark-energy dial</td><td><strong>Rejected</strong> &mdash; the geometry has no such dial; &Lambda; is measured.</td></tr>
+          <tr><td>Bochner ghost for the physical ghost</td><td>wrong operator / endomorphism</td><td>rejected</td></tr>
+          <tr><td>Canonical proxy for the physical Lichnerowicz route</td><td>not interchangeable on a non-symmetric coset</td><td>rejected unless equivalence proven</td></tr>
+          <tr><td>Boundary-value reading for a fold / fixed point</td><td>wrong object class</td><td>rejected</td></tr>
+          <tr><td>Physical operator + correct fixed-point object</td><td>correct fingerprint</td><td>survivor</td></tr>
         </tbody>
       </table>
-
-      <h4>Survivor / endpoint</h4>
-      <p><strong>Hierarchy.</strong> With both rulers declared measured, H &approx; 2&times;10<sup>&minus;17</sup> is exactly their ratio. The "why the hierarchy number?" demand is answered as a <strong>measured-anchor</strong> discipline &mdash; it does <em>not</em> derive v<sub>EW</sub> from M<sub>Pl</sub>.</p>
-      <p><strong>&Lambda;.</strong> &Lambda; &approx; (2.3 meV)<sup>4</sup> &approx; 10<sup>&minus;122</sup> M<sub>Pl</sub><sup>4</sup> is accepted as a <strong>measured anchor</strong>. The geometry has no internal dark-energy dial. A discreteness route that tried to produce it misses by about 113 orders of magnitude &mdash; and that miss is used as a <em>negative control</em>: it shows the geometry is not secretly generating the observed number by some hidden path.</p>
-
-      <h4>Measured anchors consumed</h4>
-      <p>Three, all taken from observation, none derived: M<sub>Pl</sub> (Planck ruler), v<sub>EW</sub> &approx; 246 GeV (electroweak ruler), and &Lambda; &approx; (2.3 meV)<sup>4</sup>. The measured &rho;<sub>0</sub> = 1.00038 &plusmn; 0.00020 is consumed only as a consistency test of the W/Z structure.</p>
-
-      <h4>What was NOT claimed</h4>
-      <p>No from-nothing prediction of v<sub>EW</sub>, M<sub>Pl</sub>, or &Lambda;. The hierarchy is not overclaimed as a derivation; it is honestly a ratio of measured rulers. Where an absolute scale was needed, a measured anchor was named and labeled as such.</p>
+      <h4>Survivor</h4>
+      <p>Only the exact Actor-layer operator on the correct object-class route can close the audit. A naked dimensionful a&#8326; magnitude in odd dimension has no canonical finite local predicate, so it stays audit-only, not a GeV prediction.</p>
+      <h4>Endpoint</h4>
+      <p><strong>Layer-completeness constraint; object identity enforced.</strong></p>
+      <h4>Caveat</h4>
+      <p>Stating the constraint is not the same as completing every computation. Route reconciliation and exact source certificates may still be owed per dossier. A hash certifies the tested object&rsquo;s identity, not its truth.</p>
     </details>
   </div>
 
   <div class="card">
-    <h4>Granularity &mdash; the zero-size point is not a record</h4>
-    <p>The black-hole singularity appears only when the calculation is allowed to shrink to an exact zero-size point. Granularity blocks that step: a zero-size endpoint is not a finite physical record. The horizon stays real, the exterior stays Schwarzschild, and only the impossible infinite-density point dissolves.</p>
+    <h4>The 1/&radic;6 factor lives in the layers</h4>
+    <p>The raw Stage-only comparison missed the up-quark mass. A fitted 0.40 was forbidden. The accepted correction came from the full three-layer Shape: K&#8326;&rsquo;s S&#8323; chambers, the frozen flavor Rulebook, and the two-step Actor readout force 1/&radic;6 without looking at the measured value. <strong>Caveat:</strong> this rescues one falsifier target-blind; it does not validate the whole theory.</p>
     <details class="worked">
-      <summary>Full worked example &mdash; the zero-size point is not a physical record</summary>
-
+      <summary>Full worked example &mdash; the 1/&radic;6 factor lives in the layers</summary>
       <h4>Question</h4>
-      <p>Classical general relativity predicts an infinite-density, zero-size point at the center of a black hole. Is that singularity a real physical feature the framework must reproduce, or an idealization that fails the granularity floor?</p>
-
-      <h4>The hidden assumption</h4>
-      <p>The singularity is produced by letting the radial coordinate run all the way to r &rarr; 0. That step quietly assumes an exact zero-size limit is a legitimate physical endpoint. Granularity's finite-record layer denies exactly that assumption: an exact zero-size limit is not a finite physical record, so it cannot be an admissible endpoint.</p>
-
-      <h4>The candidate space</h4>
-      <p>The admissible candidates for the interior are the ones that can be recorded at finite cost: a finite-core black-hole interior with the standard exterior retained. The zero-size point is excluded from the class as a non-recordable limit. Crucially, this does <em>not</em> introduce a smallest length &mdash; the floor is on Lorentz-invariant action and information cost, not on distance.</p>
-
-      <h4>Constraints applied (in order)</h4>
-      <div class="step-row"><span class="step-num">1</span><div class="step-body"><h4>Identify the impossible distinction</h4><p>The point singularity requires exact zero size.</p></div></div>
-      <div class="step-row"><span class="step-num">2</span><div class="step-body"><h4>Apply the finite-record constraint</h4><p>Exact zero size is not a finite physical record, so it is not an admissible candidate.</p></div></div>
-      <div class="step-row"><span class="step-num">3</span><div class="step-body"><h4>Preserve finite observables</h4><p>The horizon threshold and the exterior Schwarzschild solution remain real; no solar-system observable is shifted.</p></div></div>
-      <div class="step-row"><span class="step-num">4</span><div class="step-body"><h4>Do not overclaim</h4><p>Entropy, information, and the Page curve are a separate question and are left untouched here.</p></div></div>
-
+      <p>Why did the raw 13D ladder comparison miss the up-quark mass, and why did the correction require the full Shape?</p>
+      <h4>Naive answer</h4>
+      <p>The Stage geometry gives the mass ladder directly, so coefficient 1 should be used. If it misses, fit a correction.</p>
+      <h4>Why the naive answer fails</h4>
+      <p>The measured mass is a 4D running-mass shadow, not the raw 13D ladder object. The transport from 13D to 4D is not automatic; it lives in the Rulebook and Actor layers and must be target-blind. The raw ladder pre-value &asymp; 3.16&ndash;3.17 MeV against the measured 1.27 &plusmn; 0.43 MeV is a &asymp; 4.4&sigma; miss at coefficient 1.</p>
+      <h4>Constraint set</h4>
+      <p>(1) Layer-complete readout &mdash; the raw Stage ladder is not the final observable. (2) Rulebook frozen before comparison &mdash; no new family labels or tolerances after the miss. (3) Actor-specific transport &mdash; identify the lightest up rung as the two-step Weyl-alternating actor. (4) No target-selected correction &mdash; the coefficient must come from the frozen object, not the measured mass. (5) Scale-correct comparison &mdash; compare to the 4D running mass at the stated scale.</p>
+      <h4>Candidate class</h4>
+      <p>A. Raw 13D ladder comparison. B. Fitted factor around 0.40. C. Full three-layer transport with 1/&radic;|S&#8323;|.</p>
+      <h4>Layer check</h4>
+      <p><strong>Stage:</strong> K&#8326; = SU(3)/T&sup2; supplies the A&#8322; chamber geometry and the S&#8323; Weyl chambers. <strong>Rulebook:</strong> the flavor chamber F<sup>+</sup> supplies integer ladders, sector projectors, phase and normalization rules, and the freeze firewall &mdash; no continuous per-family exponent is allowed. <strong>Actors (load-bearing):</strong> the lightest up state is the two-step Weyl-alternating chamber actor, and the one-chamber 4D shadow readout produces the 1/&radic;6 factor.</p>
+      <h4>Root split</h4>
+      <p><strong>Shape</strong> supplies the full three-layer transport object. <strong>Granularity</strong> forbids the fitted factor and keeps the first miss as a real falsifier. <strong>Scale</strong> distinguishes the raw 13D object from the 4D running-mass comparison.</p>
       <h4>Elimination ledger</h4>
       <table>
-        <thead><tr><th>Feature under test</th><th>Fate</th></tr></thead>
+        <thead><tr><th>Candidate</th><th>Layer failure / success</th><th>Verdict</th></tr></thead>
         <tbody>
-          <tr><td>Exact zero-size, infinite-density point</td><td><strong>Dissolves</strong> &mdash; not a finite physical record; a wrong-target continuum idealization.</td></tr>
-          <tr><td>Event horizon</td><td><strong>Retained</strong> &mdash; a finite, recordable threshold; stays real.</td></tr>
-          <tr><td>Exterior Schwarzschild geometry</td><td><strong>Retained</strong> &mdash; unchanged outside the core; no observable shifted.</td></tr>
-          <tr><td>Finite-core interior</td><td><strong>Replaces the point</strong> &mdash; a finite, recordable interior.</td></tr>
+          <tr><td>Raw ladder</td><td>Stage-only; missing transport</td><td>wrong-ruler miss</td></tr>
+          <tr><td>Fitted 0.40</td><td>target-selected; unpaid per-family label</td><td>forbidden</td></tr>
+          <tr><td>1/&radic;6</td><td>target-blind from the full S&#8323; Weyl transport</td><td>survivor</td></tr>
         </tbody>
       </table>
-
-      <h4>Survivor / endpoint</h4>
-      <p>The singularity is <strong>dissolved</strong> as a wrong-target continuum idealization: the original "what is at the zero-size point?" is shown to be a question about a non-recordable limit, not a real physical endpoint. The black hole does not vanish &mdash; the horizon remains physical, the exterior remains the standard Schwarzschild solution, and a finite core replaces the point.</p>
-
-      <h4>Measured anchors consumed</h4>
-      <p>None. This is a structural dissolution: it removes an idealization that no measurement ever recorded, while leaving every finite, observable feature exactly where it was.</p>
-
-      <h4>What was NOT claimed</h4>
-      <p>This does <em>not</em> claim to solve black-hole information, entropy, or microstate counting &mdash; the Page-curve and information questions are a separate gate and are not settled here. Granularity is not a smallest length, not a preferred frame, and not a spacetime lattice. Only the impossible zero-size point dissolves.</p>
+      <h4>Survivor</h4>
+      <p>The forced dimensionless factor 1/&radic;6 = 1/&radic;|S&#8323;| (|S&#8323;| = 6), because the finite Weyl group has order 6 and the actor/readout is one-chamber shadow transport. This moves the prediction to m<sub>u</sub>(M<sub>Z</sub>) &asymp; 1.295 MeV, a +0.058&sigma; agreement.</p>
+      <h4>Endpoint</h4>
+      <p><strong>Full-layer resolved branch, still falsifiable.</strong></p>
+      <h4>Caveat</h4>
+      <p>Do not claim the branch is externally validated. This result remains a sharp future-measurement test: a tighter scheme-matched measurement can still kill the branch.</p>
     </details>
   </div>
 </div>
 
-<h2>Where this goes next</h2>
-<p>Each root has its own process page, where the constraints that build it are worked through in full:</p>
-<p>
-  <a href="/process/constraints-to-shape.html" class="btn btn-solid">Constraints &rarr; Shape</a>
-  &nbsp; <a href="/process/constraints-to-scale.html" class="btn">Constraints &rarr; Scale</a>
-  &nbsp; <a href="/process/constraints-to-granularity.html" class="btn">Constraints &rarr; Granularity</a>
-</p>
+<h2>The final test</h2>
+<p>A claim is layer-complete only if the reader can answer all of these:</p>
+<ol>
+  <li>What Stage object is being used?</li>
+  <li>What Rulebook / admissibility rule permits it?</li>
+  <li>What Actor / operator / readout computes it?</li>
+  <li>What finite labels are paid?</li>
+  <li>What scale anchor or scheme is used, if a magnitude appears?</li>
+  <li>What observable or audit record tests it?</li>
+  <li>What changes if any layer is perturbed?</li>
+  <li>What is <em>not</em> claimed?</li>
+</ol>
+
+<nav class="process-next-links" aria-label="Related process pages">
+  <div class="card-grid">
+    <div class="card">
+      <h4><a href="/process/constraints-to-shape.html">Constraints to Shape</a></h4>
+      <p>How constraints froze the Stage carrier &mdash; K&#8326; = SU(3)/T&sup2; over CP2, the folded hypercharge circle over a bare one &mdash; as a category-relative survivor, not an absolute uniqueness proof.</p>
+    </div>
+    <div class="card">
+      <h4><a href="/process/constraints-to-granularity.html">Constraints to Granularity</a></h4>
+      <p>How the same method fixes a frame-independent floor on action and record cost &mdash; a named root posit, not a smallest length, a lattice, or a preferred frame; &#8463; is its measured size residue.</p>
+    </div>
+    <div class="card">
+      <h4><a href="/process/constraints-to-scale.html">Constraints to Scale</a></h4>
+      <p>How unit-gauge invariance forces at least one absolute anchor whose existence is theorem-grade but whose value M<sub>Pl</sub> is measured &mdash; the hierarchy H &asymp; 2 &times; 10<sup>&minus;17</sup> is a ratio of two measured rulers, not a third predicted number.</p>
+    </div>
+  </div>
+</nav>
 
 <div class="honesty-box">
-  <strong>Honest status.</strong> This is an internal endpoint / audit framework for a candidate theory of everything, not peer-reviewed external validation and nothing here is experimentally confirmed. Layers are how the framework holds <em>itself</em> to account: every claim above carries an explicit status &mdash; <em>derived-given-shape</em> or <em>derived-given-anchor</em> when a shape or anchor is granted, <em>measured anchor</em> where a value is taken from observation, and <em>dissolved</em> where the original question is shown to be the wrong target. The shape is <strong>selected and frozen inside a declared candidate class</strong>, not proven unique among every possible theory; the maximal torus T&sup2; being the unique clean <em>abelian</em> SU(3) isotropy is a narrower, sourced claim, and completeness over all conceivable carriers stays open.
+  <strong>Read this as an audit, not a verdict from nature.</strong> This is an internal, endpoint-closed candidate framework &mdash; a candidate GUT / candidate quantum framework / candidate TOE &mdash; not peer-reviewed and not experimentally confirmed. The layers are about object-completeness and audit discipline; they are never proof that the theory is true. Anchored is not derived, selected is not forced, frozen-and-reproducible is not proven unique, and dissolved is not solved. Where a claim is forced it is labelled shape-forced given the selected content; where a value comes from observation it is a measured anchor; where the survivor stands it stands as selected inside the declared candidate family, not proven unique among every possible theory.
 </div>
 
 </main>
