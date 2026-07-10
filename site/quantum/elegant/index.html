@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quantum mechanics isn't weird — it's elegant</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 256px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:64rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:14.5px;margin:0 0 6px;line-height:1.25;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+</head><body>
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="/">&#9632; A Framework for a Theory of Everything</a></div>
+<div class="ann-group">Start here</div>
+<a href="/">Home — intro</a>
+<a href="/gates/">The Gates — scoreboard</a>
+<a href="/residuals/">The Residuals — attack list</a>
+<div class="ann-group">The honest rule-set</div>
+<a href="/anchors/">The Anchors</a>
+<a href="/walls/">The Walls</a>
+<a href="/closure/">The Closure system</a>
+<a href="/closure/walls/">&mdash; closure paths</a>
+<div class="ann-group">The physics</div>
+<a href="/shape/">The Shape (13D)</a>
+<a href="/scale/">The Scale</a>
+<a href="/granularity/">The Granularity</a>
+<a href="/paying/">What &ldquo;paying&rdquo; means</a>
+<a href="/layer2/">The Second-Layer Roots</a>
+<a href="/gut/">GUT &mdash; Paper 1</a>
+<a href="/forces/">Forces &mdash; Paper 2</a>
+<a href="/quantum/" class="current">Quantum &mdash; Paper 3</a>
+<a href="/toe/">TOE &mdash; complete statement</a>
+<a href="/particles/">Particles &mdash; spectrum</a>
+<div class="ann-group">Reference</div>
+<a href="/articles/">Dossiers &amp; articles</a>
+<a href="/scripts/">Scripts</a>
+<a href="/supporting/">Supporting</a>
+<a href="/supplemental/">Supplemental (full overview)</a>
+</nav>
+<main class="anchor-content">
+<style>
+.qe{max-width:none;}
+.qe h1{font-size:2.05em;line-height:1.14;margin:.15em 0 .1em;border-bottom:none;font-family:"Helvetica Neue",Arial,sans-serif;}
+.qe .sub{font-size:1.12em;color:#33415c;font-style:italic;margin:.35em 0 1.3em;line-height:1.45;}
+.qe .thesis{font-size:1.06em;line-height:1.6;background:#f7fbff;border:1px solid #d7e6f5;border-left:4px solid #0b62c4;border-radius:8px;padding:1em 1.15em;margin:1.2em 0 1.6em;color:#1e2b3a;}
+.qe .thesis strong{color:#0b3a63;}
+.qe .grouphdr{font-size:.82em;text-transform:uppercase;letter-spacing:.09em;color:#8a6d1f;font-weight:800;margin:2.1em 0 .5em;font-family:"Helvetica Neue",Arial,sans-serif;border-bottom:1px solid #ecdcb3;padding-bottom:.3em;}
+.qe details{border:1px solid #dfe4ea;border-radius:9px;margin:.7em 0;background:#fff;overflow:hidden;}
+.qe details[open]{border-color:#c3d3e6;box-shadow:0 1px 4px rgba(20,50,90,.06);}
+.qe summary{cursor:pointer;list-style:none;padding:.85em 1.05em;font-family:"Helvetica Neue",Arial,sans-serif;font-weight:700;font-size:1.06em;color:#16233a;display:flex;gap:.6em;align-items:baseline;}
+.qe summary::-webkit-details-marker{display:none;}
+.qe summary .num{flex:0 0 auto;display:inline-block;min-width:1.7em;height:1.7em;line-height:1.7em;text-align:center;border-radius:50%;background:#eef4fb;color:#0b62c4;font-size:.86em;font-weight:800;}
+.qe summary .weird{color:#7a869a;font-weight:500;font-style:italic;}
+.qe summary::after{content:"+";margin-left:auto;color:#b0bccb;font-weight:800;font-size:1.2em;}
+.qe details[open] summary::after{content:"\2212";}
+.qe .body{padding:.2em 1.15em 1.05em;border-top:1px solid #eef1f5;}
+.qe .wsw,.qe .wgs{margin:.85em 0 .2em;}
+.qe .lbl{display:inline-block;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.72em;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:.16em .5em;border-radius:4px;margin-bottom:.35em;}
+.qe .wsw .lbl{background:#fdecea;color:#b3261e;}
+.qe .wgs .lbl{background:#e7f4ec;color:#137333;}
+.qe .take{margin:.9em 0 .2em;padding:.6em .9em;background:#f6f8fa;border-left:3px solid #8a99ab;border-radius:0 6px 6px 0;font-size:.97em;color:#2a3542;}
+.qe .take b{color:#16233a;}
+.qe .prov{margin:.75em 0 .1em;font-size:.92em;color:#3a4656;}
+.qe .prov a{font-weight:600;}
+.qe .cav{margin:.55em 0 .1em;font-size:.9em;color:#5a6472;font-style:italic;}
+.qe .close{margin:2.2em 0 1em;padding:1.15em 1.25em;background:#f7fbf9;border:1px solid #cfe6da;border-radius:9px;line-height:1.6;}
+.qe .close h2{border-bottom:none;margin:0 0 .4em;font-size:1.35em;}
+.qe .close .foot{margin-top:.9em;font-size:.96em;color:#3a4656;}
+.qe .analogy{color:#3a4656;}
+.qe p{margin:.6rem 0;}
+</style>
+
+<div class="qe">
+
+<h1>Quantum mechanics isn't weird &mdash; it's elegant</h1>
+<p class="sub">The same frozen 13-dimensional geometry that builds the Standard Model &mdash; four-dimensional spacetime &times; the flag manifold K&#8326; = SU(3)/T&sup2; &times; a 2-sphere &times; a folded hypercharge circle &mdash; turns quantum mechanics' famous paradoxes into ordinary geometry.</p>
+
+<div class="thesis">
+<p>Gravity once looked like magic. Newton himself was uneasy that masses seemed to tug on each other <em>instantly, across empty space</em>, with no mechanism &mdash; "action at a distance" he could not defend. Then Einstein showed there was no tugging at all: mass bends the geometry of spacetime, and things simply follow the shape. The mystery didn't get solved so much as <strong>dissolved</strong> &mdash; it was never a force reaching across a void, it was geometry seen in the wrong language.</p>
+<p><strong>Quantum mechanics is the same transition, waiting to happen.</strong> Superposition, collapse, "spooky" entanglement, intrinsic randomness &mdash; each looks paradoxical only when a globally constrained geometry is described with local, incomplete coordinates. Below are the ten most-cited ways quantum mechanics "seems weird," and what one fixed 13-dimensional geometry says about each. The first six <em>reframe</em>; the last four <em>compute or dissolve</em>, each with a real number and an openable proof.</p>
+</div>
+
+<div class="grouphdr">Six paradoxes that dissolve into ordinary geometry</div>
+
+<details open>
+<summary><span class="num">1</span><span>Superposition <span class="weird">&mdash; "a particle in two places at once"</span></span></summary>
+<div class="body">
+<p class="wsw"><span class="lbl">Why it seems weird</span></p>
+<p>The textbook says a system is literally in a superposition of mutually exclusive states &mdash; "here and there," "spin up and spin down" &mdash; until measured. We're told to accept this as a brute fact, even though nothing in everyday reality does contradictory things at once.</p>
+<p class="wgs"><span class="lbl">What the geometry says</span></p>
+<p>Nothing is duplicated and nothing is smeared. A quantum "state" is the set of <em>admissible geometric configurations</em> all consistent with the same boundary information. Until more constraints appear, the theory must account for every consistent completion &mdash; and superposition is just the bookkeeping language for that set. The coefficients are consistency weights, not a physical object sloshing between places.</p>
+<p class="analogy">The everyday analogy: specify the boundary of a surface without fixing its interior. Many surfaces fit the same rim &mdash; but no single surface is "doing many things at once." Nobody calls that paradoxical in classical geometry.</p>
+<p class="take"><b>Takeaway:</b> Superposition doesn't mean "many realities coexist" &mdash; it means the geometry isn't yet fully constrained.</p>
+</div>
+</details>
+
+<details>
+<summary><span class="num">2</span><span>Wavefunction collapse <span class="weird">&mdash; "looking changes reality"</span></span></summary>
+<div class="body">
+<p class="wsw"><span class="lbl">Why it seems weird</span></p>
+<p>In the standard story, measurement causes an abrupt, non-unitary "collapse" &mdash; with no equation of motion, triggered by an ill-defined act of "observation," breaking the otherwise smooth evolution. It is widely called the deepest conceptual problem in physics.</p>
+<p class="wgs"><span class="lbl">What the geometry says</span></p>
+<p>Nothing collapses. A measurement is the formation of a stable, redundant geometric <em>record</em>. Once that record exists, only configurations compatible with it remain admissible &mdash; the set of allowed configurations simply shrinks. It is <em>constraint addition</em>, not a physical jump; conditionalizing on a record that now exists, the same non-mysterious move as updating a probability once you learn a new fact.</p>
+<p>And this is neither decoherence-alone nor many-worlds. Decoherence explains why alternatives stop <em>interfering</em>, but leaves the global state a superposition &mdash; it never says why one outcome is definite. Many-worlds keeps every branch equally real. Here the record <em>excludes</em> incompatible sectors rather than merely hiding them, which is what supplies definiteness: interference becomes impossible <em>and</em> exactly one outcome remains admissible.</p>
+<p class="analogy">The analogy: an event horizon. Nothing singular happens locally as you cross it &mdash; but which configurations are globally accessible changes. Collapse is that kind of change, not a shock.</p>
+<p class="take"><b>Takeaway:</b> Collapse is a record forming and the admissible set shrinking &mdash; logical restriction, not a physical jump; definiteness because incompatible sectors are excluded, not just unobserved.</p>
+</div>
+</details>
+
+<details>
+<summary><span class="num">3</span><span>Entanglement <span class="weird">&mdash; "spooky action at a distance"</span></span></summary>
+<div class="body">
+<p class="wsw"><span class="lbl">Why it seems weird</span></p>
+<p>Entangled particles show correlations that look like measuring one <em>instantly</em> affects the other, however far apart. Einstein called it "spooky action at a distance," and after decades it still reads as an influence racing across space.</p>
+<p class="wgs"><span class="lbl">What the geometry says</span></p>
+<p>There is no influence and no signal &mdash; because there are not really two separate objects. Distant regions can be constrained by the <em>same</em> topological structure in the higher-dimensional geometry: they are one object with a shared global consistency condition. Measuring one region doesn't transmit anything to the other; it reveals which globally consistent configuration was already in force. Causality and the no-signalling theorem stay exactly intact.</p>
+<p class="analogy">The clean analogy: cut a single sheet of paper in two and mail the halves across the world. Seeing that your half's torn edge zigs left tells you instantly the other zags right &mdash; but nothing traveled. Both edges were always parts of one object.</p>
+<p class="take"><b>Takeaway:</b> Entanglement is the global consistency of one geometric object &mdash; no signal, nothing crosses the gap.</p>
+</div>
+</details>
+
+<details>
+<summary><span class="num">4</span><span>Randomness <span class="weird">&mdash; "nature rolls dice"</span></span></summary>
+<div class="body">
+<p class="wsw"><span class="lbl">Why it seems weird</span></p>
+<p>Quantum mechanics insists outcomes are <em>intrinsically</em> random &mdash; not merely unknown &mdash; which is jarring next to the clockwork determinism of the rest of physics. "God does not play dice," and yet the rule seems to be exactly that.</p>
+<p class="wgs"><span class="lbl">What the geometry says</span></p>
+<p>Randomness isn't fundamental chaos &mdash; it's <em>underdetermination</em>. When several geometric completions are admissible and no further invariant distinguishes them, the only consistent description is a probabilistic one. The probabilities aren't mysterious or free: they are the unique measure the geometry allows over the admissible set. (And on a discrete outcome set that measure is forced to be a <em>square</em> &mdash; see #7.)</p>
+<p class="analogy">The analogy: if several shapes fit the same boundary and nothing tells them apart, the "randomness" of which you get reflects incomplete specification &mdash; not a dice-rolling universe.</p>
+<p class="take"><b>Takeaway:</b> Randomness is geometry underdetermining the outcome; the probabilities are the one measure it permits.</p>
+</div>
+</details>
+
+<details>
+<summary><span class="num">5</span><span>The observer problem <span class="weird">&mdash; "consciousness collapses the wavefunction"</span></span></summary>
+<div class="body">
+<p class="wsw"><span class="lbl">Why it seems weird</span></p>
+<p>Some readings hand the observer a magic role &mdash; a conscious mind, by looking, brings physical reality into being. That smuggles philosophy into physics and makes the world sound as if it needs a watcher.</p>
+<p class="wgs"><span class="lbl">What the geometry says</span></p>
+<p>An observer is nothing special: just an ordinary subsystem that becomes <em>correlated with a record</em> and is thereby restricted to a particular invariant sector. What creates constraints is a physical interaction forming a stable record &mdash; automatically, whether or not anyone is watching. Different observers may access different parts of the same geometry, but the geometry itself is observer-independent. No mind required.</p>
+<p class="analogy">The analogy: someone inside a black-hole horizon has access to different information than someone outside &mdash; but the spacetime exists independently of both. Perspective differs; reality doesn't wait on a viewer.</p>
+<p class="take"><b>Takeaway:</b> The "observer" is an ordinary subsystem correlated with a record; the geometry needs no watcher.</p>
+</div>
+</details>
+
+<details>
+<summary><span class="num">6</span><span>Apparent faster-than-light influence <span class="weird">&mdash; "QM breaks relativity"</span></span></summary>
+<div class="body">
+<p class="wsw"><span class="lbl">Why it seems weird</span></p>
+<p>Entanglement correlations and delayed-choice experiments are often said to act "instantaneously," seeming to defy relativity. The usual patch &mdash; "quantum mechanics is nonlocal, but only in a way you can't use to signal" &mdash; satisfies almost no one.</p>
+<p class="wgs"><span class="lbl">What the geometry says</span></p>
+<p>Nothing travels faster than light &mdash; the distance is being measured in the wrong space. Relativity limits propagation with respect to distance <em>in 4D spacetime</em>, but spacetime is only a <em>projection</em> of the full geometry. Two events that look far apart in 4D can be geometrically nearby in the full configuration space. What looks like instantaneous influence is a short path in the full geometry projecting to a long path in spacetime. No signal crosses a large distance quickly; the distance itself was misidentified &mdash; and relativity stays exact, it was just applied to an incomplete description.</p>
+<p class="analogy">The analogy: two points on opposite edges of a folded sheet can sit a hair apart through the fold, while a bug crawling along the surface measures them as far. The shortcut is invisible in the flattened-out projection.</p>
+<p class="take"><b>Takeaway:</b> Apparent superluminality is a projection artifact &mdash; a short path in the full geometry looks long in 4D; relativity is untouched.</p>
+</div>
+</details>
+
+<div class="grouphdr">Four that the geometry doesn't just reframe &mdash; it computes or dissolves</div>
+
+<details>
+<summary><span class="num">7</span><span>Why probability is a <em>square</em> <span class="weird">&mdash; the Born rule</span></span></summary>
+<div class="body">
+<p class="wsw"><span class="lbl">Why it seems weird</span></p>
+<p>For a century, "the probability is the amplitude <em>squared</em>" has been stapled to the front of quantum mechanics as an unexplained postulate &mdash; true because experiment says so, with no reason why the exponent is 2 and not 1, or 1.9, or anything else.</p>
+<p class="wgs"><span class="lbl">What the geometry says</span></p>
+<p>It has to be a square. Demand real, non-negative weights that compose across independent systems on a <em>discrete</em>, finite outcome set, and exactly one weighting rule survives the elimination: exponent exactly <strong>two</strong>. A continuum of candidate rules cannot survive on a discrete outcome set &mdash; so this is a forced consequence, not a free postulate. And experiment already pins it: the Sorkin three-way-interference parameter, which vanishes if and only if the exponent is exactly 2, is measured to be <strong>&asymp; 0</strong> (Sinha <em>et&nbsp;al.</em> 2010, and tighter repetitions).</p>
+<p>The honesty, in plain view: this <em>reduces</em> the axiom's size &mdash; it does not make it vanish. One named posit remains, <strong>BORN-A1 (non-contextuality)</strong>, disclosed openly and split into two named legs, with an explicit countermodel <em>proving</em> that leg is not free (nothing is smuggled). A shrunk, disclosed axiom &mdash; not a rule from nothing.</p>
+<p class="prov"><em>Proven:</em> <a href="/gates/dossiers/born.html">the Born-rule gate &amp; dossier</a>.</p>
+<p class="cav">Honest caveat: this is a reduction to one named non-contextuality posit, not a rule-free derivation &mdash; stated as such.</p>
+<p class="take"><b>Takeaway:</b> On a grainy, discrete world, exponent 2 is the <em>only</em> survivor &mdash; and triple-slit experiments already agree.</p>
+</div>
+</details>
+
+<details>
+<summary><span class="num">8</span><span>Where Planck's constant &#295; comes from <span class="weird">&mdash; "the quantum of action, just handed to us"</span></span></summary>
+<div class="body">
+<p class="wsw"><span class="lbl">Why it seems weird</span></p>
+<p>&#295; sets the scale of everything quantum, yet textbooks only ever <em>measure</em> it and type it in. Nothing explains why the world has a smallest quantum of action at all, or where that scale comes from.</p>
+<p class="wgs"><span class="lbl">What the geometry says</span></p>
+<p>At the bottom of the construction is one value-free primitive: distinguishing anything costs a finite minimum &mdash; a floor <strong>&Delta;&#8320; &gt; 0</strong> on a Lorentz-scalar action/cost. (Crucially, it is <em>not</em> a smallest length, not a spatial lattice, not a preferred frame, and not a claim that spacetime is pixelated &mdash; a length floor would pick a frame; a cost floor does not.) <strong>&#295; is the measured <em>residue</em> of that finite cost-floor</strong> &mdash; its size, read from the world exactly the way the meter and the second are read, and never derived. That's the honest verb: &#295; enters as a measured anchor, and the framework says so.</p>
+<p>Why it's a real posit and not sleight of hand: two negative-control countermodels prove that finiteness <em>alone</em> does not force a <em>uniform</em> floor &mdash; so positing the uniform floor is a genuine, non-trivial primitive, credentialed rather than assumed away.</p>
+<p class="prov"><em>Proven:</em> <a href="/granularity/">The Granularity</a> (the cost-floor primitive); the granularity root in <a href="/gates/dossiers/deeproot-granularity.html">its dossier</a>.</p>
+<p class="cav">Honest caveat: &#295; is a measured residue, not a derived number; the uniform-floor law is one named posit, credentialed by negative controls.</p>
+<p class="take"><b>Takeaway:</b> &#295; is the measured fingerprint of a finite cost-floor &mdash; the size of the one axiom at the bottom, never a fitted or derived value.</p>
+</div>
+</details>
+
+<details>
+<summary><span class="num">9</span><span>The infinities of quantum gravity <span class="weird">&mdash; "the theory blows up at short distances"</span></span></summary>
+<div class="body">
+<p class="wsw"><span class="lbl">Why it seems weird</span></p>
+<p>For 90 years, trying to marry gravity to quantum theory produced infinities &mdash; push to ever-shorter distances and the answers diverge without limit. It's the classic reason quantum gravity is said to be "non-renormalizable" and broken.</p>
+<p class="wgs"><span class="lbl">What the geometry says</span></p>
+<p>The infinities are an artifact of one inherited assumption: that you can zoom in <em>forever</em>. Drop it. If there is a smallest operationally-recordable cell &mdash; anchored near the compactification scale <strong>~6&times;10&#185;&#8310; GeV</strong> &mdash; then the entire infinite tower of short-distance divergences never even arises. Because the floor is on a Lorentz-scalar action cost, not a coordinate length, it picks no preferred frame and makes no claim that spacetime is a lattice. As a bonus, the standard one-loop UV obstruction turns out not even to be well-posed here: at an odd dimension count (D&nbsp;=&nbsp;13) the quantity it compares isn't defined. The divergence class is <em>dissolved</em> &mdash; an ill-posed demand removed, honestly, not a fine-tuned cancellation.</p>
+<p class="prov"><em>Proven:</em> gate <a href="/gates/dossiers/uqf9.html">UQF-9 (short-distance / Seeley&#8211;DeWitt structure)</a> and <a href="/gates/dossiers/uqf5c.html">UQF-5C (ultraviolet completion)</a>; <a href="/granularity/">The Granularity</a>.</p>
+<p class="cav">Honest caveat: dissolving the divergence class does not exhibit a full non-perturbative UV completion &mdash; the strong-coupling completion stays the same shared wall every approach faces, handed off openly.</p>
+<p class="take"><b>Takeaway:</b> Give reality a finest grain and the 90-year infinities were never real &mdash; they were the price of assuming infinite zoom.</p>
+</div>
+</details>
+
+<details>
+<summary><span class="num">10</span><span>The graviton drops out ghost-free <span class="weird">&mdash; "gravity resists quantization"</span></span></summary>
+<div class="body">
+<p class="wsw"><span class="lbl">Why it seems weird</span></p>
+<p>The graviton is famously the hardest thing to add to a theory without everything blowing up &mdash; ghosts, extra polarizations, broken causality. Making gravity quantum-consistent is where most unification programs quietly die.</p>
+<p class="wgs"><span class="lbl">What the geometry says</span></p>
+<p>You don't add it &mdash; it falls out. Feed the fixed geometry into the standard small-ripple machinery and it automatically returns a <strong>spin-2</strong> wave with exactly <strong>two polarizations</strong>, moving at the <strong>speed of light</strong>, reproducing linearized Einstein gravity at long distance &mdash; none of it chosen by hand, and <strong>ghost-free</strong>. The operator and path-integral quantizations agree &mdash; the exact cross-check that fails when a quantization is ill-defined. And the correct limit is confirmed at record precision: the <strong>gravitational-wave speed equals light speed to ~1 part in 10&#185;&#8309;</strong> (GW170817, the 2017 neutron-star merger).</p>
+<p class="prov"><em>Proven:</em> gate <a href="/gates/dossiers/uqf5a-5b.html">UQF-5A / 5B (graviton sector)</a>; GW170817 above-cutoff causality in <a href="/gates/">UQF-14 on the Gates scoreboard</a>.</p>
+<p class="cav">Honest caveat: this is the linearized graviton and its correct GR limit; the fully non-perturbative UV completion is the same shared Clay-class wall every approach lacks, handed off honestly.</p>
+<p class="take"><b>Takeaway:</b> The graviton isn't bolted on &mdash; it drops out of the same shape that makes electrons, ghost-free, and matches the 2017 merger to fifteen decimal places.</p>
+</div>
+</details>
+
+<div class="close">
+<h2>The honest note</h2>
+<p>Six of these are <em>reframings</em>: they take a paradox that only looks paradoxical in local, incomplete coordinates and show it as ordinary geometry &mdash; the same move that turned gravity's "action at a distance" into curved spacetime. The last four go further and <em>compute or dissolve</em>: the Born exponent is forced to 2 (and measured &asymp; 0 by triple-slit), &#295; is pinned as the measured residue of a cost-floor, the quantum-gravity infinities are dissolved by a finest grain, and the graviton drops out ghost-free and light-speed. Every one of those four carries an openable proof.</p>
+<p class="foot">And the edges stay in plain view, because they're what make the rest believable: the Born rule keeps its one disclosed axiom (non-contextuality), &#295; is a measured anchor rather than a derived number, and the non-perturbative UV completion of gravity is a shared open wall. Across the whole framework the board stands at <strong>33 requirement-gates: all 33 resolved at +0, 0 anchored at +1, 0 open</strong> &mdash; and <strong>0 of 33 physics-closed</strong>: no experimental confirmation, no peer review yet. Nothing here is peer-reviewed. It is a complete, gate-verified, reviewable <em>candidate</em> &mdash; offered so you can check it, not take our word.</p>
+<p class="foot"><strong>Go deeper:</strong> the full argument, the gate-by-gate proofs, and the "where quantum mechanics shrugs" evidence cards are in <a href="/quantum/v2/">Quantum &mdash; the complete version</a>. The per-gate honest status, each endpoint with its residual shown, is the <a href="/gates/">Gates endpoint scoreboard</a>.</p>
+</div>
+
+</div>
+</main>
+</div>
+</body></html>

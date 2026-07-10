@@ -123,6 +123,33 @@ details.objection a{color:#0b5;}
 .honest-box{border:1px solid #d8d3c7;border-left:4px solid #6b3f2a;background:#fbf3ea;border-radius:0 6px 6px 0;padding:.9em 1.2em;margin:1rem 0;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.92rem;color:#222;}
 .honest-box a{color:#0b5;font-weight:600;}
 </style>
+<style>
+/* ---- Home-page (W8) "four most amazing things" 2x2 grid (additive only) ---- */
+.amazing-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9em;margin:1.4rem 0 1.2rem;}
+.amazing-card{border:1px solid #d8d3c7;border-left:4px solid #0b5;background:#f7fdf9;border-radius:0 6px 6px 0;padding:1em 1.2em;font-family:"Helvetica Neue",Arial,sans-serif;}
+.amazing-card .ac-num{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:#6b3f2a;font-weight:700;margin-bottom:.3em;}
+.amazing-card .ac-title{display:block;font-size:1.06rem;font-weight:800;color:#1b1f23;line-height:1.28;margin-bottom:.4em;}
+.amazing-card .ac-desc{display:block;font-size:.88rem;color:#333;line-height:1.5;}
+.amazing-card .ac-desc a{color:#0b5;font-weight:600;}
+.amazing-card .ac-desc .ac-caveat{color:#555;font-style:italic;}
+@media(max-width:720px){.amazing-grid{grid-template-columns:1fr;}}
+</style>
+<style>
+/* ---- Home-page three-deep-roots row (additive only) ---- */
+.roots-row{display:flex;flex-wrap:wrap;gap:.9em;margin:1.3rem 0 1.2rem;}
+.roots-lead{font-family:"Helvetica Neue",Arial,sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:#6b3f2a;font-weight:700;flex:1 1 100%;margin:0 0 .1em;}
+.root-card{flex:1 1 14rem;display:block;border:1px solid #d8d3c7;border-left:4px solid #6b3f2a;background:#fbf3ea;border-radius:0 6px 6px 0;padding:.9em 1.1em;text-decoration:none;font-family:"Helvetica Neue",Arial,sans-serif;transition:background .15s;}
+.root-card:hover{background:#f6ead9;text-decoration:none;}
+.root-card.root-primary{flex-basis:16rem;border-left-color:#0b5;background:#f7fdf9;}
+.root-card.root-primary:hover{background:#eef7f1;}
+.root-card .rc-tag{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:#6b3f2a;font-weight:700;margin-bottom:.25em;}
+.root-card.root-primary .rc-tag{color:#0b5;}
+.root-card .rc-title{display:block;font-size:1.04rem;font-weight:800;color:#1b1f23;margin-bottom:.3em;line-height:1.25;}
+.root-card .rc-desc{display:block;font-size:.85rem;color:#333;line-height:1.5;}
+@media(max-width:720px){.root-card,.root-card.root-primary{flex-basis:100%;}}
+.roots-foot{flex:1 1 100%;margin:.3em 0 0;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.85rem;}
+.roots-foot a{color:#0b5;font-weight:600;}
+</style>
 </head><body>
 
 <div class="site-topbar">
@@ -164,10 +191,10 @@ details.objection a{color:#0b5;}
 </div>
 
 <div class="feature-card-wrap">
-  <a class="feature-card" href="/process/what-geometry-forces.html">
+  <a class="feature-card" href="/process/">
     <span class="fc-kicker">Key insight</span>
-    <span class="fc-title">What the geometry forces, and what it measures &rarr;</span>
-    <span class="fc-desc">The geometry forces the <strong>counts</strong> &mdash; three families as a topological integer, the gauge group, the dimensions &mdash; but not the <strong>constants</strong> (couplings, masses, &Lambda;), which stay measured. <em>Topology is rigid; magnitudes flow</em> &mdash; and even the top-quark Yukawa, the one continuous candidate with a dynamical mechanism, was tested and stays measured.</span>
+    <span class="fc-title">Shadows of one deeper structure &rarr;</span>
+    <span class="fc-desc">It began with a simple thought experiment: what if the universe&rsquo;s hardest mysteries are shadows of one deeper structure? We followed that question through quantum theory, particle physics, hidden dimensions, and the beginning of time &mdash; testing every step, trying to make the idea fail. But the more we pushed, the more the numbers kept pointing back to the same possibility: that our 4D world may be a projection of a deeper, more elegant geometry.</span>
   </a>
 </div>
 
@@ -204,11 +231,58 @@ details.objection a{color:#0b5;}
 <section class="hero">
   <p class="masthead-kicker">Is the universe elegant &mdash; or just weird?</p>
   <h1>A Framework for a Theory of Everything</h1>
-  <p class="lede">One frozen 13-dimensional shape &mdash; chosen once, hash-locked, never re-tuned &mdash; hands back gravity and the entire Standard Model from the same object. A handful of measured anchors go in; twenty-plus correct numbers come out, from every quark and lepton mixing angle to the Higgs scale, many within a fraction of a standard deviation. When its hardest number missed by ~4.4&sigma;, the framework published the miss on its own front page &mdash; then resolved it to <strong>+0.058&sigma;</strong> with a factor read off the shape's own symmetry, derived without looking at the measured value. The full reproduction packet is public and fails closed on any tampering: don't take our word &mdash; run it.</p>
+  <p class="lede">We have built a candidate TOE/GUT/quantum framework &mdash; not by declaring one, but by repeatedly trying to break the idea and watching the same structure keep surviving.</p>
 
-  <div class="hero-number">
-    <span class="hn-big">N<sub>eff</sub> = 3.044, computed two independent ways</span>
-    <span class="hn-cap">The effective number of relativistic neutrino species comes out to <strong>3.044</strong> from a record-cost ledger &mdash; the identical value standard cosmology gets from entropy conservation across e<sup>+</sup>e<sup>&minus;</sup> annihilation, and consistent with Planck's measured <strong>2.99&nbsp;&plusmn;&nbsp;0.17</strong>. A famously precise, non-integer number you cannot reach by dimensional analysis. <a href="https://physics.magflowmeters.com/early-universe/tests/">Proven: the two-route derivation, side by side &rarr;</a></span>
+  <h2>What We Built</h2>
+  <p class="lede">This project began as a simple thought experiment: what if the deepest mysteries in physics are not separate problems, but different shadows of the same underlying structure?</p>
+  <p class="lede">We tried to answer that question the hard way. Instead of choosing a theory and defending it, we built a gate-by-gate framework designed to prove us wrong. Every claim had to survive constraints, match observables, avoid hidden assumptions, and either produce a number, dissolve as a malformed question, reduce to an axiom, or remain honestly open.</p>
+  <p class="lede">What emerged was unexpected: a higher-dimensional geometric framework in which our familiar 4D universe appears to be a projection or low-energy readout of a deeper structure. That structure began behaving like a candidate <a href="/toe/v2/">Theory of Everything</a>: it connects geometry, quantum measurement, particle structure, cosmology, and the limits of observation inside one disciplined framework.</p>
+  <p class="lede">It also began behaving like a candidate <a href="/gut/v2/">Grand Unified Theory</a>. The same geometric machinery that started as a constraint problem began touching the Standard Model: charge structure, particle sectors, flavor patterns, mixing angles, and low-energy observables. We don't claim final proof &mdash; nothing here is peer-reviewed or physics-closed yet &mdash; but every one of the 33 gates now reaches a resolved endpoint, and when we tried to break the framework, the numbers kept landing where they should.</p>
+  <p class="lede">And it began behaving like a candidate <a href="/quantum/v2/">quantum theory of records and measurement</a>. Instead of treating measurement as magic, the framework asks when distinctions become physically recordable. This led to a different way of thinking about the beginning of the universe: the Big Bang may mark the boundary where backward reconstruction reaches the point that measurement itself stops being physically meaningful.</p>
+  <p class="lede">The honest claim is not &ldquo;we are done.&rdquo; The honest claim is stronger than that: we built a candidate unified framework, attacked it from many directions, and the structure kept producing surprising coherence.</p>
+
+  <h2>Things that surprised us</h2>
+  <div class="amazing-grid">
+    <div class="amazing-card">
+      <span class="ac-num">One</span>
+      <span class="ac-title">The entire Standard Model, read off one geometry.</span>
+      <span class="ac-desc">Every force and particle &mdash; and why there are <strong>exactly three families of matter</strong>, forced as a whole number (a topological index that evaluates to <strong>&minus;3</strong>) that cannot be dialed. The geometry forces the counts; the constants stay measured. <a href="https://physics.magflowmeters.com/particles/">Proven: the spectrum, family by family &rarr;</a> <span class="ac-caveat">The index is computed given the observed matter content &mdash; not &ldquo;three from nothing.&rdquo;</span></span>
+    </div>
+    <div class="amazing-card">
+      <span class="ac-num">Two</span>
+      <span class="ac-title">The age of the universe &mdash; a second, independent way &mdash; and what came before.</span>
+      <span class="ac-desc">A method sharing no machinery with standard cosmology rebuilds the timeline and lands on the same <strong>13.8-billion-year-old</strong> universe: <strong>44 milestones checked blind, 30 agree, 0 disagree</strong>. And it says plainly what the Big Bang was &mdash; the beginning of the <em>knowable</em>, the first payable record, not the beginning of time. <a href="https://physics.magflowmeters.com/early-universe/tests/">Proven: the 44-milestone scoreboard &rarr;</a> <span class="ac-caveat">14 rows remain honestly indeterminate; not peer-reviewed.</span></span>
+    </div>
+    <div class="amazing-card">
+      <span class="ac-num">Three</span>
+      <span class="ac-title">Quantum mechanics isn't weird &mdash; it's elegant.</span>
+      <span class="ac-desc">The things everyone finds baffling &mdash; superposition, &ldquo;spooky action,&rdquo; collapse, randomness &mdash; aren't nature being strange. They're one geometry described in the wrong, <em>local</em> language; even probability being the <strong>square</strong> comes out forced, not postulated. <a href="https://physics.magflowmeters.com/quantum/elegant/">See quantum mechanics made elegant &rarr;</a> <span class="ac-caveat">The Born-rule reduction rests on one named posit (non-contextuality), shown in the open.</span></span>
+    </div>
+    <div class="amazing-card">
+      <span class="ac-num">Four</span>
+      <span class="ac-title">It's not just math on paper &mdash; the same geometry builds things.</span>
+      <span class="ac-desc">Pointed at engineering, the same frozen shape designs a fault-tolerant quantum computer &mdash; a flat <strong>10&ndash;14 physical qubits per protected qubit</strong> at any size &mdash; and reproduces <strong>64 of 64</strong> classic spacecraft-navigation gravity tests. <a href="https://physics.magflowmeters.com/tests/quantum-computer.html">Proven: the QEC design &rarr;</a> &middot; <a href="https://physics.magflowmeters.com/tests/nasa-calculators.html">the 64/64 calculators &rarr;</a> <span class="ac-caveat">The QEC result is validated in simulation (Stim/PyMatching), not a physical chip; the calculators are mission-grade, not mission-certified.</span></span>
+    </div>
+  </div>
+
+  <div class="roots-row">
+    <span class="roots-lead">The three deep roots &mdash; everything rests on these</span>
+    <a class="root-card root-primary" href="https://physics.magflowmeters.com/shape/">
+      <span class="rc-tag">The Shape</span>
+      <span class="rc-title">One frozen 13-dimensional geometry</span>
+      <span class="rc-desc">The single hash-locked object &mdash; 4D spacetime &times; K&#8326; = SU(3)/T&sup2;, a 2-sphere, a folded hypercharge circle &mdash; that hands back gravity and the whole Standard Model. Selected by the constraints as the most economical complete carrier, not proven unique.</span>
+    </a>
+    <a class="root-card" href="https://physics.magflowmeters.com/scale/">
+      <span class="rc-tag">The Scale</span>
+      <span class="rc-title">One absolute measured ruler</span>
+      <span class="rc-desc">A single dimensionful scale that sets the size of everything else. Anchored to measurement, honestly &mdash; never derived from nothing; at least one absolute ruler is always required.</span>
+    </a>
+    <a class="root-card" href="https://physics.magflowmeters.com/granularity/">
+      <span class="rc-tag">The Granularity</span>
+      <span class="rc-title">A finite finest grain</span>
+      <span class="rc-desc">A cost-floor on distinguishable records &mdash; a smallest payable step, not a smallest length or a preferred frame. Posited as a primitive and credentialed by negative-control counter-models, not by a minimality proof.</span>
+    </a>
+    <p class="roots-foot"><a href="https://physics.magflowmeters.com/anchors/">See how every result is anchored to two layers &rarr;</a></p>
   </div>
 
   <p><strong>Download the physics and point it at your own problem.</strong> The frozen geometry, the anchors, and a how-to-use-the-math note ship as a packet you can run tonight; the reviewer packet sits beside it so an AI can reproduce the cold read from scratch.</p>
@@ -230,12 +304,12 @@ details.objection a{color:#0b5;}
 </section>
 
 <section>
-  <h2>How was this even possible?</h2>
-  <p>The honest answer is that the method is <strong>elimination, not invention</strong>. List what any theory of everything must deliver, eliminate every candidate that cannot survive the constraints, and keep the one shape that does &mdash; and elimination is exactly what machines are good at: enumerable, checkable, repeatable. The <strong>era</strong> made it feasible: an AI can hold the whole requirement bill at once, grind the elimination ledgers, and check every step, while the human supplies the questions, the standards, and the refusal to accept vibes. That last point turns the usual objection on its head &mdash; nothing here asks you to trust the author, because every step is machine-checkable precisely <em>because</em> it was machine-built. The <strong>discipline</strong> is what makes it credible: freeze-before-compare, fail-closed SHA-256 hashes, misses published on the front page, and a public list of the framework's own refuted claims &mdash; the process was built so that cheating would be visible. And the <strong>shape was found, not chosen</strong>: the cheaper-looking rival CP&sup2; was built end-to-end and broke at the gauge gate, while the survivor was frozen once and never re-tuned.</p>
-  <details class="objection">
-    <summary>&ldquo;One person plus an AI closed a complete theory-of-everything requirement bill? That's the crank prior.&rdquo;</summary>
-    <p>It would be &mdash; if this asked for trust. It asks for the opposite. The geometry was frozen behind SHA-256 fingerprints <em>before</em> comparison, so retuning and tampering are formally the same act, and a single deterministic script regenerates every published number byte-for-byte and fails closed on any mismatch. The arithmetic also runs the wrong way for a fabrication: a handful of measured anchors in, twenty-plus correct numbers out. A crank optimizes for a clean scoreboard; this one publishes its own misses and its own refuted claims. <a href="https://physics.magflowmeters.com/process/">See exactly how each result was reached &rarr;</a></p>
-  </details>
+  <h2>Shape, Granularity, and Scale</h2>
+  <p>At the foundation of this project are three building blocks: Shape, Granularity, and Scale.</p>
+  <p>Shape is the structure of reality: what exists, how it is connected, what rules it follows, and how it can project into the 4D world we observe. Without Shape, there is no object for physics to describe — no geometry, no fields, no particles, no rulebook.</p>
+  <p>Granularity is the idea that physical distinctions are not free. To say that two things are different, the universe must be able to encode, preserve, transmit, or measure that difference. Without Granularity, physics quietly assumes infinite precision everywhere — even in places, like the beginning of the universe, where measurement itself may stop being meaningful.</p>
+  <p>Scale is what turns structure into measurable physics. It tells us how big, how energetic, how far, how strong, and in what units. Without Scale, a theory might have beautiful patterns, but it cannot make contact with experiments, constants, particle masses, cosmology, or real observations.</p>
+  <p>Together, these three pieces made the physics possible: <a href="/shape/">the Shape →</a> &middot; <a href="/granularity/">the Granularity →</a> &middot; <a href="/scale/">the Scale →</a></p>
 </section>
 
 <section>
@@ -256,7 +330,7 @@ details.objection a{color:#0b5;}
   </details>
   <details class="objection">
     <summary>&ldquo;Cherry-picked tests.&rdquo;</summary>
-    <p>The exam is published before the grades, three times over. The 33 gates are the complete typed bill of what a quantum theory, a GUT, and a TOE must each deliver, passed in full. The full observational surface &mdash; 362 measured observables across 11 domains &mdash; is on the site, with only ~12&ndash;14 spent as inputs. The early-universe board shows its whole denominator: 44 tests, 30 agree, 14 honestly indeterminate, 0 disagree. A cherry-picker shows you the numerator; this shows the exam. <a href="https://physics.magflowmeters.com/tests/">See the tests &rarr;</a></p>
+    <p>The exam is published before the grades, three times over. The 33 gates are the complete typed bill of what a quantum theory, a GUT, and a TOE must each deliver, passed in full. The full observational surface &mdash; <a href="/observables/">362 measured observables across 11 domains</a> &mdash; is on the site, with only ~12&ndash;14 spent as inputs. The early-universe board shows its whole denominator: 44 tests, 30 agree, 14 honestly indeterminate, 0 disagree. A cherry-picker shows you the numerator; this shows the exam. <a href="https://physics.magflowmeters.com/tests/">See the tests &rarr;</a></p>
   </details>
 </section>
 
