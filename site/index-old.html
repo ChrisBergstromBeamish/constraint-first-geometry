@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Is the universe elegant — or just weird?</title>
+<script>window.MathJax = {tex:{inlineMath:[["\\(","\\)"],["$","$"]],displayMath:[["\\[","\\]"],["$$","$$"]],processEscapes:true,tags:"none"},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  @page { margin: 18mm 16mm; }
+  html { font-size: 10.5pt; }
+  body { font-family: Georgia, "Times New Roman", serif; line-height: 1.5;
+         color: #161616; max-width: 52rem; margin: 0 auto; padding: 1.2rem 1.4rem 4rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1.6rem 0 0.6rem; border-bottom: 2px solid #222; padding-bottom: .3rem; }
+  h2 { font-size: 1.4rem; margin: 1.7rem 0 .5rem; border-bottom: 1px solid #bbb; padding-bottom: .2rem; }
+  h3 { font-size: 1.15rem; margin: 1.3rem 0 .4rem; }
+  h4,h5,h6 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+  h1,h2,h3,h4 { page-break-after: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  p { margin: .55rem 0; }
+  a { color: #0b5; text-decoration: none; } a:hover { text-decoration: underline; }
+  table { border-collapse: collapse; width: 100%; margin: .9rem 0; font-size: .82rem;
+          page-break-inside: avoid; font-family: "Helvetica Neue", Arial, sans-serif; }
+  th, td { border: 1px solid #999; padding: .28rem .45rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; } tr:nth-child(even) td { background: #fafafa; }
+  code { font-family: "Consolas", "SF Mono", monospace; font-size: .85em; background: #f4f4f4;
+         padding: .05rem .25rem; border-radius: 3px; }
+  pre { background: #f6f8fa; border: 1px solid #ddd; border-radius: 5px; padding: .7rem .9rem;
+        overflow-x: auto; font-size: .78rem; line-height: 1.4; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+  pre code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid #0b5; margin: .8rem 0; padding: .2rem 1rem; background: #f7fdf9; color: #333; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 1.6rem 0; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  img { max-width: 100%; }
+  .render-banner { font-family: Arial, sans-serif; font-size: .72rem; color: #777;
+                   border: 1px dashed #bbb; border-radius: 5px; padding: .4rem .7rem; margin-bottom: 1.2rem; background:#fcfcfc; }
+</style>
+<style>
+body{max-width:none !important;margin:0 !important;padding:0 !important;}
+.anchor-layout{display:flex;align-items:flex-start;}
+.anchor-nav{position:sticky;top:0;align-self:flex-start;flex:0 0 256px;max-height:100vh;overflow:auto;
+  padding:18px 14px;border-right:1px solid #ddd;background:#fcfcfc;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.4;}
+.anchor-content{flex:1 1 auto;min-width:0;max-width:64rem;margin:0 auto;padding:1.2rem 1.6rem 4rem;}
+.anchor-nav a{display:block;padding:3px 8px;color:#161616;text-decoration:none;border-radius:5px;}
+.anchor-nav a:hover{background:#eef7f1;text-decoration:none;}
+.anchor-nav a.current{background:#dff3e7;font-weight:700;}
+.ann-title{font-weight:800;font-size:14.5px;margin:0 0 6px;line-height:1.25;}
+.ann-title a{color:#0b5;padding:0;}
+.ann-group{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:#888;margin:13px 0 4px;font-weight:700;}
+@media(max-width:860px){.anchor-layout{display:block;}.anchor-nav{position:static;max-height:none;flex:none;border-right:0;border-bottom:1px solid #ddd;}.anchor-content{max-width:none;}}
+</style>
+<style>
+/* ---- Canonical top-nav bridge (site-wide sections) ---- */
+.site-topbar{background:#1b1f23;color:#eee;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.78rem;}
+.site-topbar-inner{max-width:76rem;margin:0 auto;padding:.4em 1.2em;display:flex;flex-wrap:wrap;gap:.5em 1.2em;align-items:center;justify-content:space-between;}
+.site-topbar .stamp{color:#e7c9a9;letter-spacing:.01em;}
+.site-topbar .stamp b{color:#fff;font-weight:700;}
+.site-topbar .topbar-site{color:#c9c2b3;}
+header.site-header-bridge{background:#fbfaf7;border-bottom:1px solid #d8d3c7;font-family:"Helvetica Neue",Arial,sans-serif;}
+.bridge-brand-row{max-width:76rem;margin:0 auto;padding:.85em 1.2em .5em;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:.4em;}
+.bridge-brand-row a.bridge-title{color:#1b1f23;text-decoration:none;font-weight:700;font-size:1.15rem;}
+.bridge-brand-row .bridge-tag{font-family:Georgia,serif;font-style:italic;color:#4a5056;font-size:.85rem;}
+nav.site-main-nav{max-width:76rem;margin:0 auto;padding:0 1.2em;}
+nav.site-main-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.15em;border-top:1px solid #d8d3c7;}
+nav.site-main-nav li{margin:0;}
+nav.site-main-nav a{display:block;padding:.65em .8em;color:#1b1f23;text-decoration:none;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.85rem;font-weight:600;border-bottom:3px solid transparent;white-space:nowrap;}
+nav.site-main-nav a:hover{border-bottom-color:#6b3f2a;color:#6b3f2a;}
+nav.site-main-nav a[aria-current="page"]{border-bottom-color:#0b5;color:#0b5;}
+.start-callout{max-width:64rem;margin:1.2rem auto 0;padding:0 1.6rem;}
+.start-callout .box{border:1px solid #d8d3c7;border-left:4px solid #0b5;background:#f7fdf9;border-radius:0 6px 6px 0;padding:.9em 1.2em;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.88rem;color:#222;}
+.start-callout .box strong.cta{font-size:1.02em;}
+.start-callout .box a{color:#0b5;font-weight:700;text-decoration:none;}
+.start-callout .box a:hover{text-decoration:underline;}
+.start-callout .sections{margin:.5em 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.3em 1.1em;}
+.start-callout .sections li{margin:0;}
+@media(max-width:860px){.bridge-brand-row{padding:.7em 1em .4em;} nav.site-main-nav a{padding:.55em .6em;font-size:.8rem;}}
+.feature-card-wrap{max-width:64rem;margin:1rem auto 0;padding:0 1.6rem;}
+.feature-card{display:block;border:1px solid #d8d3c7;border-left:4px solid #6b3f2a;background:#fbf3ea;border-radius:0 6px 6px 0;padding:1em 1.2em;text-decoration:none;font-family:"Helvetica Neue",Arial,sans-serif;transition:background .15s;}
+.feature-card:hover{background:#f6ead9;text-decoration:none;}
+.feature-card .fc-kicker{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:#6b3f2a;font-weight:700;margin-bottom:.2em;}
+.feature-card .fc-title{display:block;font-size:1.08rem;font-weight:700;color:#1b1f23;margin-bottom:.3em;}
+.feature-card .fc-desc{display:block;font-size:.9rem;color:#333;line-height:1.5;}
+</style>
+<style>
+.hero{margin:1.4rem 0 1.9rem;}
+.masthead-kicker{font-family:"Helvetica Neue",Arial,sans-serif;font-size:.95rem;font-style:italic;color:#6b3f2a;letter-spacing:.01em;margin:0 0 .35rem;}
+.hero h1{margin-top:.2rem;}
+.lede{font-size:1.06rem;line-height:1.62;color:#222;}
+main.anchor-content > section{margin:1.7rem 0;}
+.prev-version{font-family:"Helvetica Neue",Arial,sans-serif;font-size:.8rem;color:#888;border-top:1px solid #e2ded4;margin-top:2.4rem;padding-top:.8rem;}
+.prev-version a{color:#0b5;}
+</style>
+</head><body>
+
+<div class="site-topbar">
+  <div class="site-topbar-inner">
+    <span class="stamp">&#9873; <b>Not peer-reviewed</b> &middot; nothing physics-closed</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+<header class="site-header-bridge">
+  <div class="bridge-brand-row">
+    <a class="bridge-title" href="/">A Framework for a Theory of Everything</a>
+    <span class="bridge-tag">Is the universe elegant &mdash; or just weird?</span>
+  </div>
+  <nav class="site-main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/" aria-current="page">Home</a></li>
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/">Early &amp; Distant Universe</a></li>
+      <li><a href="/horizons/">Horizons</a></li>
+    </ul>
+  </nav>
+</header>
+<div class="start-callout">
+  <div class="box">
+    <strong class="cta">New here? <a href="/process/">Start with The Process &rarr;</a></strong>
+    <span>Or jump to:</span>
+    <ul class="sections">
+      <li><a href="/process/">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/early-universe/">Early &amp; Distant Universe</a></li>
+      <li><a href="/horizons/">Horizons</a></li>
+      <li><a href="/AI-testing/">AI Testing</a></li>
+      <li><a href="/building-blocks/">Building Blocks</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="feature-card-wrap">
+  <a class="feature-card" href="/process/what-geometry-forces.html">
+    <span class="fc-kicker">Key insight</span>
+    <span class="fc-title">What the geometry forces, and what it measures &rarr;</span>
+    <span class="fc-desc">The geometry forces the <strong>counts</strong> &mdash; three families as a topological integer, the gauge group, the dimensions &mdash; but not the <strong>constants</strong> (couplings, masses, &Lambda;), which stay measured. <em>Topology is rigid; magnitudes flow</em> &mdash; and even the top-quark Yukawa, the one continuous candidate with a dynamical mechanism, was tested and stays measured.</span>
+  </a>
+</div>
+
+<div class="anchor-layout">
+<nav class="anchor-nav">
+<div class="ann-title"><a href="/">&#9632; A Framework for a Theory of Everything</a></div>
+<div class="ann-group">Start here</div>
+<a href="/" class="current">Home — intro</a>
+<a href="/gates/">The Gates — scoreboard</a>
+<a href="/residuals/">The Residuals — attack list</a>
+<div class="ann-group">The honest rule-set</div>
+<a href="/anchors/">The Anchors</a>
+<a href="/walls/">The Walls</a>
+<a href="/closure/">The Closure system</a>
+<a href="/closure/walls/">&mdash; closure paths</a>
+<div class="ann-group">The physics</div>
+<a href="/shape/">The Shape (13D)</a>
+<a href="/scale/">The Scale</a>
+<a href="/granularity/">The Granularity</a>
+<a href="/paying/">What &ldquo;paying&rdquo; means</a>
+<a href="/layer2/">The Second-Layer Roots</a>
+<a href="/gut/">GUT &mdash; Paper 1</a>
+<a href="/forces/">Forces &mdash; Paper 2</a>
+<a href="/quantum/">Quantum &mdash; Paper 3</a>
+<a href="/toe/">TOE &mdash; complete statement</a>
+<a href="/particles/">Particles &mdash; spectrum</a>
+<div class="ann-group">Reference</div>
+<a href="/articles/">Dossiers &amp; articles</a>
+<a href="/scripts/">Scripts</a>
+<a href="/supporting/">Supporting</a>
+<a href="/supplemental/">Supplemental (full overview)</a>
+</nav>
+<main class="anchor-content">
+<section class="hero">
+  <p class="masthead-kicker">Is the universe elegant &mdash; or just weird?</p>
+  <h1>A Framework for a Theory of Everything</h1>
+  <p class="lede">This site is the end product of one stubborn question &mdash; is there a simple, elegant order hiding under the mess of modern physics? &mdash; chased through a chain of thought experiments. What you are reading is a complete, gate-verified, reviewable <em>candidate</em>: not proven truth, but a single closed account of physics laid out so anyone can check it. The board stands at <strong>all 33 questions closed at honest endpoints &mdash; all 33 resolved outright &mdash; with the former falsifier resolved by a published symmetry factor and kept in plain view as a sharp falsifiable prediction</strong>.</p>
+</section>
+
+<section>
+  <h2>Where it started: a sphere that collapses on itself</h2>
+  <p>Picture a sphere packed with masses, and let them fall inward. As they collapse they speed up, and their kinetic energy &mdash; their mass-energy &mdash; grows. Naively the source should get stronger. Yet draw two imaginary <a href="https://physics.magflowmeters.com/process/thought-experiment.html">Gaussian surfaces</a> around the whole thing and the gravitational field between them never changes, at any instant. General relativity enforces it: the exterior of a spherical mass is static no matter what the interior does (Birkhoff's theorem), and every bit of kinetic energy gained is paid for, exactly, out of gravitational binding energy. The books balance to the penny.</p>
+  <p>The point is not the collapse &mdash; it is what the collapse is <em>not allowed</em> to do. One conservation constraint forces the entire internal bookkeeping without anyone solving the dynamics of the fall, and it exposes a hidden assumption we all carry: that a hotter, heavier interior ought to be visible from outside. It isn't. As Sherlock Holmes put it: <em>when you have eliminated the impossible, whatever remains, however improbable, must be the truth.</em> The whole program is that one move chased down &mdash; hold the geometry fixed, ask <em>what has to be true</em>, read off the consequences &mdash; driven by three relentless questions: <em>What hidden assumptions are we making? What actually has to be true? And what obvious assumption is so obvious we don't recognize it &mdash; and is quietly false?</em></p>
+</section>
+
+<section>
+  <h2>Constructing a geometry from constraints</h2>
+  <p>Take four plain requirements a workable universe has to meet &mdash; invariance, nonseparability, finiteness, units-covariance &mdash; and run them together as a filter over candidate geometries. The field collapses a long way, to a small selected family, and the most economical survivor is a single frozen 13-dimensional shape. The honest word is <em>selected</em>, not <em>derived</em>: it is frozen and independently reproducible, but not proven to be the only shape that could work. <a href="https://physics.magflowmeters.com/process/constraints-to-shape.html">See the four constraints narrow the field, step by step &rarr;</a></p>
+</section>
+
+<section>
+  <h2>The quest: from a thought experiment to three theories</h2>
+  <p>From there the method was pointed at the hardest open targets in physics, using answers from thought experiments as signposts through what otherwise looks like messy randomness &mdash; a sea of quantum mechanics littered with cats that might be dead, alive, or both. Each theory descends from the <em>same</em> frozen shape, with no adjustable dials, only a short list of measured rulers.</p>
+  <ul>
+    <li><strong>The GUT &mdash; forces as geometry.</strong> The one shape hands back the Standard-Model gauge group as its own symmetries, forces exactly three generations of matter as a whole-number topological count, and reads off every charge so all anomalies cancel &mdash; with the full pattern of quark and neutrino mixing and both CP phases from a single constant and a single angle. <a href="https://physics.magflowmeters.com/gut/v2/">Read the GUT &rarr;</a> &middot; <a href="https://physics.magflowmeters.com/articles/GUT.html">Read the Derivation (long, designed for AI) &rarr;</a> &middot; <a href="https://physics.magflowmeters.com/articles/MINIMAL_SHAPE_AI.html">The search for the minimally complex shape that satisfied the constraints &rarr;</a></li>
+    <li><strong>Quantum &mdash; the consistency layer.</strong> The same geometry passes every demand a quantum theory of the forces must meet, from one object: real, non-negative probabilities; the Born rule reduced to a single named assumption; a graviton falling out automatically, spin-two and light-speed, reproducing Einstein gravity. <a href="https://physics.magflowmeters.com/quantum/v2/">Read the Quantum argument &rarr;</a> &middot; <a href="https://physics.magflowmeters.com/articles/Quantum.html">Read the Derivation (long, designed for AI) &rarr;</a></li>
+    <li><strong>The TOE &mdash; offered for review.</strong> One closed account: forces, matter, flavor, a well-behaved quantum theory with gravity, and the large-scale cosmos. Because outputs far outnumber inputs, the fit is a genuine constraint, not curve-fitting. <a href="https://physics.magflowmeters.com/toe/v2/">Read the complete theory &rarr;</a> &middot; <a href="https://physics.magflowmeters.com/articles/TOE.html">Read the Derivation (long, designed for AI) &rarr;</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2>The building blocks</h2>
+  <p>Every result is anchored on two groups of building blocks: <strong>three fundamental axioms</strong> &mdash; the deep roots the framework bottoms out in &mdash; and a named set of <strong>measured observables</strong>. Nothing is derived from nothing. The three axioms are not deduced; they are honestly <em>arrived at</em> &mdash; the Shape <em>selected by constraints</em>, the Scale <em>anchored to measurement</em>, the Granularity <em>posited as a primitive</em>. Their credibility is that, once fixed, the same three axioms and the same handful of measured anchors are load-bearing, at full precision, across many gates at once. <a href="/building-blocks/">See the building blocks &rarr;</a></p>
+</section>
+
+<section>
+  <h2>How the work is graded: gates and endpoints</h2>
+  <p>The framework is audited as <strong>33 gates</strong> &mdash; the distinct claims a complete theory must settle. Each is graded not by "solved / unsolved" but by the exact <em>endpoint</em> it reaches, and every row shows the precise step that remains. The honesty rule kept everywhere: <em>anchored is not closed, selected is not forced, dissolved is not solved.</em> A gate closes only when every leg reaches a terminal endpoint &mdash; a complete chain onto an anchor already in use, a problem <em>dissolved</em> because a hidden idealization created it, a value that simply <em>is</em> a measured invariant, a reduction to a named external theorem, or an honest close at the cost of one named axiom. Every closure is anchored: usually a deep root plus a measured observable.</p>
+  <h3>The results</h3>
+  <p>Reconciled across all 33 gates: <strong>all 33 reach a closed terminal &mdash; 33 resolved at +0, 0 anchored at +1, none open.</strong> The three hardest-won rows are shown in plain sight:</p>
+  <ul>
+    <li><strong>The former standing falsifier, resolved (flavor closure, SG-8).</strong> The frozen structure that nails |V<sub>cb</sub>| to ~0.005&sigma; and the Jarlskog CP invariant to ~0.21&sigma; also forced an up-quark mass near <strong>3.16 MeV</strong> against a measured <strong>1.27&nbsp;&plusmn;&nbsp;0.43 MeV</strong> &mdash; a ~4.4&sigma; miss published in plain view, not retuned or dropped. It has since been resolved: a dimensionless factor 1/&radic;6, fixed target-blind by the six-element symmetry of the flavor shape, moves the prediction to <strong>1.295 MeV (+0.058&sigma;)</strong> &mdash; still a sharp, falsifiable prediction. A construction rigid enough to be wrong is rigid enough to be tested.</li>
+    <li><strong>Black-hole microstates, Gap-13 &mdash; closed.</strong> The Bekenstein&ndash;Hawking area law <em>S = A/4G</em> is reproduced on the frozen geometry and a presumed boundary obstruction shown to be a phantom, so the leading entropy obligation is discharged; the one remaining leg is a named external Euclidean-quantum-gravity replica-saddle result the framework does not own &mdash; closed as a certified-irreducible external dependency, named openly rather than faked green, with the subleading and Page-curve quantities carried as non-gating finite exhibits.</li>
+    <li><strong>Global anomalies, UQF-4 &mdash; closed, fully resolved.</strong> The perturbative anomaly ledger cancels for the exact one-generation matter content the geometry selects (six terms to zero, two independent routes), and the deeper non-perturbative (bordism) leg is now resolved too: in the full <em>BPU(3)</em> target ring the degree-5 host class <em>y</em><sub>2</sub>&middot;<em>x</em><sub>3</sub> vanishes (from <em>y</em><sub>2</sub><sup>2</sup> = 0, so 2&thinsp;<em>y</em><sub>2</sub>&middot;<em>x</em><sub>3</sub> = 0; the <em>c</em><sub>1</sub>&middot;<em>x</em><sub>3</sub> = 0 relation, Fan 2503.23399 recovering Kono&ndash;Mimura&ndash;Shimada at <em>p</em>&thinsp;=&thinsp;3), so there is no class to host a residue &mdash; a closed terminal with no live falsifier.</li>
+  </ul>
+  <p>See the full scoreboard, row by row, at <a href="https://physics.magflowmeters.com/gates/">The Gates</a>.</p>
+</section>
+
+<section>
+  <h2>How the closure process worked</h2>
+  <p>Every hard result was reached the same way &mdash; <strong>constraints first, computation second</strong> &mdash; through a human&ndash;AI collaboration run as a chain of thought experiments. For each blocker, the AI posed the open question as a concrete thought experiment the geometry had to handle; the author answered with a thought experiment of his own that showed the way through; the AI turned that answer into the physics and into a closure argument that could be graded.</p>
+  <ul>
+    <li>Every open question ends in one labeled outcome &mdash; proved, reduced to a constraint, closed against a measured anchor, left open with a named path, or refuted. Nothing sits in an unlabeled middle.</li>
+    <li>Every claim carries its status and a pointer to what it rests on. Proposing a result and accepting it are kept separate: an independent check must pass a finding before its status can change.</li>
+    <li>Predictions are frozen before the answer is read, so nothing can be tuned to fit; the real test is over-determination. Falsifiers and refutations are kept on the record.</li>
+  </ul>
+  <p><a href="https://physics.magflowmeters.com/process/">Read the full process, in order &rarr;</a></p>
+</section>
+
+<section>
+  <h2>The strategies behind a closure</h2>
+  <p>The framework does not claim to solve every deep problem from nothing &mdash; impossible, since every result rests on a floor of measured facts. Each stubborn wall is routed to one honest, named endpoint. The main lever is <strong>dissolution by granularity</strong>: many famous "catastrophes" are failures not of the world but of an infinitely idealized picture of it &mdash; put a finite cost-floor under the accounting and the infinite-precision scenario simply does not exist. The close second is <strong>constraint-elimination</strong>, held to a strict bar: "only one option survived my list" forces nothing unless the list is provably complete. <strong>Anchoring</strong> then fills in the details. The focusing tool throughout is the hidden-assumption question, sharpened by thought experiments: <em>what obvious thing am I taking for granted that is actually false?</em> <a href="https://physics.magflowmeters.com/closure/">See the closure system &rarr;</a></p>
+</section>
+
+<section>
+  <h2>How to prove us wrong</h2>
+  <p>Everything here is built to be broken. The whole structure rests on three load-bearing axioms; dislodge one and the board falls. The most compelling evidence is the <strong>cosmology blind tests</strong>: the early universe reconstructed from a single idea &mdash; when can it first hold a stable, distinguishable record? &mdash; lands on the standard timeline, <strong>30 agree, 0 disagree, 14 open</strong> across 44 milestones (<a href="https://physics.magflowmeters.com/early-universe/tests/">the scoreboard</a>). Two measured inputs return <a href="https://physics.magflowmeters.com/tests/two-to-nine.html">19-or-more independent flavor quantities</a>. And the ordinary physics is auditable too &mdash; a relativistic-optics <a href="https://physics.magflowmeters.com/tests/nasa-calculators.html">NASA-style calculator suite</a> passes 64/64 classic benchmarks, and the same geometry pointed at <a href="https://physics.magflowmeters.com/tests/quantum-computer.html">quantum error correction</a> gives a stable overhead floor at scale (a simulated design result, not a chip).</p>
+</section>
+
+<section>
+  <h2>What stands behind each axiom</h2>
+  <p>The evidence for each axiom is different, and honestly labeled &mdash; none is a proof that its axiom is the unique or simplest possible choice. <strong>Shape</strong> has a reviewable <a href="https://physics.magflowmeters.com/anchors/shape-minimality-challenge.html">economy audit</a> with two of its three internal carriers forced by architecture-neutral theorems &mdash; a <em>selection</em>, not a uniqueness proof. <strong>Scale</strong> offers a floor argument: at least one absolute ruler <em>must</em> exist (argued from first principles), but its value is measured, never derived. <strong>Granularity</strong> is credentialed by negative controls &mdash; two worked counter-models show mere finiteness does not force a uniform smallest step, which is exactly why it must be its own named axiom rather than assumed for free. The full evidence, at full precision, is on the <a href="/building-blocks/">building blocks</a> page.</p>
+</section>
+<div class="prev-version">This is the current front page. The earlier single-page version is preserved unchanged at <a href="/v1/">the previous home &rarr;</a>.</div>
+</main>
+</div>
+</body></html>
