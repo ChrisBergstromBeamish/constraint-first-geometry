@@ -304,6 +304,15 @@
     .layout{grid-template-columns:1fr;}
     .subnav{position:static;}
   }
+
+  details.worked{border:1px solid var(--line);border-radius:4px;background:#fff;margin:0.7em 0 0;padding:0 1.1em;}
+  details.worked[open]{padding-bottom:1.1em;}
+  details.worked>summary{cursor:pointer;font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;font-weight:700;font-size:0.9rem;color:var(--accent-2);padding:0.8em 0;}
+  details.worked>summary:hover{color:var(--accent);}
+  details.worked h4{margin:1.1em 0 0.25em;font-size:1.02rem;}
+  details.worked table{margin:0.7em 0;font-size:0.92rem;}
+  .process-next-links{margin:1.6em 0;display:flex;flex-wrap:wrap;gap:0.6em;}
+  .eyebrow{font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);font-weight:700;margin:0 0 0.2em;}
 </style>
 </head>
 <body>
@@ -347,6 +356,15 @@
         <li><a href="/process/gut-quantum-toe.html">4. GUT / Quantum / TOE</a></li>
         <li><a href="/process/the-process-we-built.html">5. The process we built</a></li>
         <li><a href="/process/closure-paths.html">6. Closure paths</a></li>
+      </ul>
+    </div>
+    <div class="subnav-box" style="margin-top:1em;">
+      <h2>Constraints &rarr; the roots</h2>
+      <ul>
+        <li><a href="/process/constraints-to-shape.html" aria-current="page">Constraints &rarr; Shape</a></li>
+        <li><a href="/process/constraints-to-granularity.html">Constraints &rarr; Granularity</a></li>
+        <li><a href="/process/constraints-to-scale.html">Constraints &rarr; Scale</a></li>
+        <li><a href="/process/constraints-to-layers.html">Constraints &rarr; Layers</a></li>
       </ul>
     </div>
   </aside>
@@ -422,6 +440,156 @@
       candidates; completeness over all conceivable carriers remains open — which is exactly why the honest
       word above stays "selected."</p>
     </div>
+
+    <h2>Worked examples: how constraints actually chose the shape</h2>
+<p>The callout above states the outcome; these two examples show the work. In each case the process starts with a shelf of candidate carriers, charges every hidden assumption, tests the survivor against the physics the register already demands, and freezes what is left without re-tuning it. The first example is a rival that looked cheaper and broke once the whole bill was charged. The second is the survivor that carried the register and was frozen once, then reused downstream unchanged.</p>
+
+<div class="card-grid">
+  <div class="card">
+    <h4>The cheaper-looking rival broke when the register was charged</h4>
+    <p>CP&sup2; = SU(3)/U(2) is the tempting move: it carries SU(3) exactly and is two dimensions cheaper than the flag manifold. It breaks by two independent, both-sourced routes. <strong>Route A (the coset).</strong> Its isotropy U(2) is <em>non-abelian</em>, hence gauge-active under the centralizer rule, so it forces either an extra unwanted SU(2)&times;U(1) &mdash; gauge recovery (Gate&nbsp;2) fails &mdash; or it isotropy-locks weak and hypercharge into color, violating admissibility. The maximal torus T&sup2; is the <em>unique</em> purely-abelian SU(3) isotropy, so K&#8326; = SU(3)/T&sup2; is the unique clean SU(3) carrier. <strong>Route B (the full build).</strong> Built end-to-end as a complete model (Witten 1981, CP&sup2; &times; S&sup2; &times; S&sup1;), it <em>passes</em> the gauge gate but fails chirality (Gate&nbsp;4): on CP&sup2; the family count is a continuous bundle-moduli choice &mdash; "three by dial." The gate's demand is on the <em>kind</em> of number: a deformation-proof integer. Three by dial fails even when it equals three.</p>
+    <details class="worked">
+      <summary>Full worked example &mdash; why CP&sup2; is eliminated at the gauge and chirality gates</summary>
+
+      <h4>1. Question</h4>
+      <p>Why not choose a smaller, cheaper-looking internal shape than K&#8326;? CP&sup2; = SU(3)/U(2) carries the strong-force symmetry SU(3) exactly and does it in only four internal dimensions &mdash; two fewer than the six-dimensional flag manifold. On raw dimension count it looks like the economical winner.</p>
+
+      <h4>2. The hidden assumption</h4>
+      <p>The tempting move hides one assumption: <em>the simplest-looking geometry is automatically the best geometry.</em> The process replaces it with a stricter test: the winning geometry is the shortest honest description that still carries the <em>full</em> required physics &mdash; gauge pattern, rank, carriers, chiral families, and no unpaid symmetry directions. Cheap is charged only after complete.</p>
+
+      <h4>3. The candidate space</h4>
+      <p>The enumerated shelf of SU(3)-carrier candidates includes CP&sup2; = SU(3)/U(2) (the cheaper four-dimensional carrier) and the flag manifold K&#8326; = SU(3)/T&sup2; (six-dimensional). The source names other rivals on the same shelf &mdash; flat tori, the six-sphere, CP&sup3;, SU(3)-less candidates, and higher Grassmannians &mdash; each eliminated for carrying the wrong symmetry algebra or the wrong family count. This example follows the closest rival, CP&sup2;.</p>
+
+      <h4>4. Constraints applied (in order)</h4>
+      <p>The constraints are charged in sequence, capability before economy:</p>
+      <ol>
+        <li><strong>Carrier</strong> &mdash; the shape must carry the observed Standard Model content.</li>
+        <li><strong>Gauge recovery (Gate&nbsp;2)</strong> &mdash; the geometry must return the Standard Model gauge pattern with no extra summand.</li>
+        <li><strong>No free label</strong> &mdash; every symmetry direction the isotropy generates must be paid for; an unpaid one is a failure, not a feature.</li>
+        <li><strong>Chirality / no mirrors (Gate&nbsp;4)</strong> &mdash; the family count must be a deformation-proof topological integer, not a tunable choice.</li>
+        <li><strong>Economy</strong> &mdash; only once capability is satisfied may description length decide between survivors.</li>
+      </ol>
+
+      <h4>5. Elimination ledger</h4>
+      <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>Candidate</th><th>Carries SU(3)?</th><th>Gauge gate (2)</th><th>Chirality gate (4)</th><th>Verdict</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CP&sup2; = SU(3)/U(2) &mdash; the cheaper 4D carrier</td>
+            <td>yes</td>
+            <td><strong>Route A:</strong> fails &mdash; U(2) is non-abelian, gauge-active, forces an unwanted SU(2)&times;U(1) or locks weak/hyper into color</td>
+            <td><strong>Route B:</strong> fails &mdash; family count is a continuous bundle-moduli choice ("three by dial"), not a forced integer</td>
+            <td><strong>Eliminated</strong> (two independent reasons)</td>
+          </tr>
+          <tr>
+            <td>K&#8326; = SU(3)/T&sup2; &mdash; the 6D flag manifold</td>
+            <td>yes</td>
+            <td>passes &mdash; T&sup2; is the unique purely-abelian SU(3) isotropy, no extra summand</td>
+            <td>passes &mdash; frozen-bundle index = &minus;3, three families as a topological integer with no dial</td>
+            <td><strong>Retained</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <p>The two routes are worth keeping separate because they charge CP&sup2; independently. Route A is architecture-neutral: it does not depend on the anti-fitting rule at all, only on the fact that a non-abelian isotropy inside color is gauge-active. Route B is the end-to-end verdict: build the whole model honestly &mdash; CP&sup2; &times; S&sup2; &times; S&sup1; &mdash; let it pass the gauge gate, and watch it fail chirality because the three families are a dial rather than a fixed integer.</p>
+
+      <h4>6. Survivor / endpoint</h4>
+      <p>The endpoint is <em>not</em> "CP&sup2; is impossible in any theory." It is narrower and honest: CP&sup2; is <strong>eliminated inside the declared candidate class</strong> because it fails the framework's gauge-recovery demand as a coset and fails the chirality demand as a full build. T&sup2; is the unique <em>purely-abelian</em> SU(3) isotropy, so K&#8326; = SU(3)/T&sup2; is the clean SU(3) carrier that survives. K&#8326; pays two extra dimensions for that forcedness &mdash; and buys a deformation-proof integer in return.</p>
+
+      <h4>7. Measured anchors consumed</h4>
+      <p>The elimination itself consumes no fitted number; it turns on the <em>kind</em> of quantity the family count is (topological integer vs. continuous dial). The relevant measured anchor enters only as a downstream consistency check: the LEP light-neutrino count N<sub>&nu;</sub> &asymp; 2.984 &plusmn; 0.008 from the Z invisible width, consistent with exactly three families and no mirror partners. It is a check, not the lever &mdash; the count is forced by the geometry's index, not fitted to the measurement.</p>
+
+      <h4>8. What was NOT claimed</h4>
+      <div class="honesty-box">
+        <strong>Boundaries kept visible.</strong> This does not claim CP&sup2; is mathematically invalid, nor that it can never be useful in any theory &mdash; only that it fails this framework's declared carrier, gauge, and chirality demands. It does not claim the end-to-end CP&sup2; build fails the <em>gauge</em> gate: the source is explicit that it passes Gate&nbsp;2 and fails Gate&nbsp;4. And it does not claim K&#8326; is proven unique among every imaginable compactification &mdash; the elimination runs over the enumerated shelf of SU(3)-carrier candidates; completeness over all conceivable carriers remains open. The narrower, sourced statement &mdash; T&sup2; is the unique <em>abelian</em> SU(3) isotropy &mdash; is the one that is forced.
+      </div>
+    </details>
+  </div>
+
+  <div class="card">
+    <h4>The survivor was frozen, not tuned</h4>
+    <p>The carrier that survived is 4D spacetime &times; K&#8326; = SU(3)/T&sup2; &times; S&sup2; &times; the folded hypercharge circle S&sup1;<sub>Y</sub>/&#8484;&#8322; &mdash; thirteen dimensions in all. It is not tuned to fit results; it is <em>frozen once</em>, as the boxed active branch, and then reused unchanged. The spin-&#8450; / Borel&ndash;Weil&ndash;Bott index on the frozen bundle is &minus;3: three chiral families as a topological integer, with no dial to two or four. From that same unmodified shape the process reads the gauge multiset {su(3), su(2), u(1)} &mdash; 8 + 3 + 1 = 12 generators, rank 4, no extra summand &mdash; then hypercharge and anomaly closure, flavor, and proton safety, all downstream and all attached back to the one frozen object. The honest claim is not global uniqueness; it is that this was the leanest complete carrier left standing once every cost was charged.</p>
+    <details class="worked">
+      <summary>Full worked example &mdash; why the 13D carrier was frozen once and reused</summary>
+
+      <h4>1. Question</h4>
+      <p>Why did the process settle on exactly this thirteen-dimensional carrier &mdash; 4D spacetime &times; K&#8326; = SU(3)/T&sup2; &times; S&sup2; &times; S&sup1;<sub>Y</sub>/&#8484;&#8322; &mdash; and not on something with fewer visible pieces?</p>
+
+      <h4>2. The hidden assumption</h4>
+      <p>The assumption to charge is that <em>a shape can be judged by raw simplicity before checking whether it carries the full physics.</em> The corrected order is the opposite: a shape must first carry the register; only then may economy decide between the shapes that survive.</p>
+
+      <h4>3. The candidate space</h4>
+      <p>The survivor is built from named factors, each doing one job:</p>
+      <ul>
+        <li>4D spacetime &mdash; the four familiar dimensions.</li>
+        <li>K&#8326; = SU(3)/T&sup2; &mdash; the color / strong-force carrier (the flag manifold that beat CP&sup2; in the previous example).</li>
+        <li>S&sup2; &mdash; the weak-force carrier.</li>
+        <li>S&sup1;<sub>Y</sub>/&#8484;&#8322; &mdash; the folded hypercharge circle.</li>
+      </ul>
+      <p>The rival carriers &mdash; CP&sup2;, flat tori, the six-sphere, CP&sup3;, higher Grassmannians &mdash; were charged and eliminated on the same shelf before this product was frozen.</p>
+
+      <h4>4. Constraints applied (in order)</h4>
+      <ol>
+        <li><strong>Carry the observed register.</strong> The shape must support the observed matter and force content.</li>
+        <li><strong>Return the force structure.</strong> Gauge symmetries must be read out of the geometry, not added as labels &mdash; the surviving multiset is {su(3), su(2), u(1)}, 8 + 3 + 1 = 12 generators, rank 4, no extra summand.</li>
+        <li><strong>Return the matter structure.</strong> Three chiral families and the charge routing must survive as topology, not as a tunable choice &mdash; the frozen-bundle index returns &minus;3.</li>
+        <li><strong>Win by honest economy.</strong> Measured Standard Model content is held fixed on both sides; any hand-tuned quantity is charged. Only then does description length decide.</li>
+      </ol>
+
+      <h4>5. Elimination ledger</h4>
+      <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>Requirement charged</th><th>What the frozen 13D carrier returns</th><th>Gate</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Carry the observed shape</td><td>4D &times; K&#8326; &times; S&sup2; &times; S&sup1;<sub>Y</sub>/&#8484;&#8322;, frozen as the boxed active branch</td><td>SG-1 shape</td></tr>
+          <tr><td>Return the gauge pattern</td><td>{su(3), su(2), u(1)}: 12 generators, rank 4, nothing extra, nothing missing</td><td>SG-2 gauge</td></tr>
+          <tr><td>Return three chiral families</td><td>index = &minus;3, three families as a topological integer, no mirrors</td><td>SG-3 families</td></tr>
+          <tr><td>Route charge and cancel anomalies</td><td>hypercharge routing on the folded circle; six anomaly ledgers cancel exactly</td><td>SG-4 hypercharge / anomaly</td></tr>
+          <tr><td>Reproduce flavor from the same shape</td><td>flavor observables read from the unchanged carrier &mdash; no re-tuning</td><td>SG-8 flavor</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>The audit-critical fact is that the shape in the first row is the shape in every later row. It was frozen once and never edited to make a downstream result come out right.</p>
+
+      <h4>6. Survivor / endpoint</h4>
+      <p>The endpoint label is <strong>derived-given-shape</strong> for what the carrier produces once the shape is granted, and the shape itself is <strong>selected / frozen inside the declared candidate family</strong> &mdash; the leanest complete carrier left standing after every cost was charged. K&#8326; "pays two extra dimensions for forcedness" (six versus CP&sup2;'s four) and buys the deformation-proof integer. That is the trade the process accepted deliberately.</p>
+
+      <h4>7. Measured anchors consumed</h4>
+      <p>The shape-selection step is spectrum-neutral: the observed Standard Model content is referenced as the <em>register the shape must carry</em>, not used as a tunable numeric input. Where measured numbers do enter downstream they enter as anchors and consistency checks &mdash; the light-neutrino count N<sub>&nu;</sub> &asymp; 2.984 &plusmn; 0.008 (a check that three families is right, not the lever that forces it), and, in the flavor layer, the up-quark readout &mu;<sub>u</sub>(M<sub>Z</sub>) &asymp; 1.295 MeV against the measured 1.27 &plusmn; 0.43 MeV. The dimensionless factor that fixes that readout, 1/&radic;6 = 1/&radic;|S<sub>3</sub>|, is forced finite-group geometry (a one-chamber shadow of the Weyl group S<sub>3</sub>), not a fitted decimal &mdash; and it is a sharp falsifier: a tighter future measurement can kill this branch.</p>
+
+      <h4>8. What was NOT claimed</h4>
+      <div class="honesty-box">
+        <strong>Boundaries kept visible.</strong> This does not claim the thirteen dimensions were declared sacred at the start, nor that the shape was conjured with no prior candidate space and no charged assumptions. It does not claim global uniqueness &mdash; the carrier is <em>selected inside the declared candidate family</em>, not proven unique among every possible theory. And it does not claim the measured anchors were fitted: observed content is the register the shape must carry and a consistency check on what it returns, not a dial the shape was tuned against. The honest status is a selected, frozen branch that carries the register &mdash; reported inside an internal endpoint framework, not as external validation.
+      </div>
+    </details>
+  </div>
+</div>
+
+<div class="honesty-box">
+  <strong>Read this as an audit, not a verdict from nature.</strong> These worked examples describe how candidates were charged and how the survivor was frozen inside an internal, endpoint-closed framework &mdash; it is not peer-reviewed and nothing here is experimentally confirmed as a theory of everything. Where a claim is forced it is labelled derived-given-shape; where a value comes from observation it is a measured anchor; where the survivor stands it stands as <em>selected inside the declared candidate family</em>, not proven unique among every possible theory. Open questions are named as open on <a href="/residuals/">Residuals</a>.
+</div>
+
+<nav class="process-next-links" aria-label="Related process pages">
+  <div class="card-grid">
+    <div class="card">
+      <h4><a href="/process/constraints-to-granularity.html">Constraints to Granularity</a></h4>
+      <p>How the same method fixes a frame-independent floor on action and record cost &mdash; not a smallest length, not a lattice, not a preferred frame.</p>
+    </div>
+    <div class="card">
+      <h4><a href="/process/constraints-to-scale.html">Constraints to Scale</a></h4>
+      <p>How shape gives the charge rule Q = T<sub>3</sub> + Y and one massless photon, while the weak and Planck scales stay measured rulers &mdash; the hierarchy is their ratio, not a third derived number.</p>
+    </div>
+    <div class="card">
+      <h4><a href="/process/constraints-to-layers.html">Constraints to Layers</a></h4>
+      <p>How the frozen carrier is reused across every layer downstream &mdash; gauge, families, hypercharge, flavor, and proton safety &mdash; without being re-tuned.</p>
+    </div>
+  </div>
+</nav>
 
     <h2>Why bother with a shape at all</h2>
     <p>A geometry is only interesting if it earns its keep against measurement. The point of selecting a

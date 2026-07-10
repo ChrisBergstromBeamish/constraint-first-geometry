@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Constraints to Layers — A Framework for a Theory of Everything</title>
+<meta name="description" content="How Shape, Scale, and Granularity are turned into enforcement layers that stop object drift, scale drift, and record drift — with worked examples for each root.">
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+  .step-num{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:1.9em; height:1.9em;
+    border-radius:50%;
+    background:var(--accent-2);
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.95rem;
+    margin-right:0.5em;
+    flex:none;
+  }
+  .step-row{
+    display:flex;
+    align-items:flex-start;
+    gap:0.2em;
+    margin:1.1em 0;
+  }
+  .step-row .step-body h4{margin:0 0 0.2em;}
+  .step-row .step-body p{margin:0.2em 0 0; color:var(--ink-soft); font-size:0.96rem;}
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+
+  details.worked{border:1px solid var(--line);border-radius:4px;background:#fff;margin:0.7em 0 0;padding:0 1.1em;}
+  details.worked[open]{padding-bottom:1.1em;}
+  details.worked>summary{cursor:pointer;font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;font-weight:700;font-size:0.9rem;color:var(--accent-2);padding:0.8em 0;}
+  details.worked>summary:hover{color:var(--accent);}
+  details.worked h4{margin:1.1em 0 0.25em;font-size:1.02rem;}
+  details.worked table{margin:0.7em 0;font-size:0.92rem;}
+  .process-next-links{margin:1.6em 0;display:flex;flex-wrap:wrap;gap:0.6em;}
+  .eyebrow{font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);font-weight:700;margin:0 0 0.2em;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">A Framework for a Theory of Everything</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/" aria-current="page">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/">Early &amp; Distant Universe</a></li>
+      
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>The Process</h2>
+      <ul>
+        <li><a href="/process/">Overview</a></li>
+        <li><a href="/process/thought-experiment.html">1. The thought experiment</a></li>
+        <li><a href="/process/constraints-to-shape.html">2. Constraints &rarr; a shape</a></li>
+        <li><a href="/process/testing-the-shape.html">3. Testing the shape</a></li>
+        <li><a href="/process/gut-quantum-toe.html">4. GUT / Quantum / TOE</a></li>
+        <li><a href="/process/the-process-we-built.html">5. The process we built</a></li>
+        <li><a href="/process/closure-paths.html">6. Closure paths</a></li>
+      </ul>
+    </div>
+    <div class="subnav-box" style="margin-top:1em;">
+      <h2>Constraints &rarr; the roots</h2>
+      <ul>
+        <li><a href="/process/constraints-to-shape.html">Constraints &rarr; Shape</a></li>
+        <li><a href="/process/constraints-to-granularity.html">Constraints &rarr; Granularity</a></li>
+        <li><a href="/process/constraints-to-scale.html">Constraints &rarr; Scale</a></li>
+        <li><a href="/process/constraints-to-layers.html" aria-current="page">Constraints &rarr; Layers</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+<h2 style="border-bottom:none;margin-bottom:0.2em;">From constraints to layers</h2>
+<p class="lede">A constraint is only useful if it can be enforced. That is why this candidate framework turns each of its three deep roots into <strong>layers</strong>. Shape is not just "geometry" &mdash; it has an object identity, a frozen branch identity, and a source fingerprint. Scale is not just "a number" &mdash; it has a magnitude type, a scheme and comparison window, and a tolerance rule. Granularity is not just "finite" &mdash; it has a candidate class, a finite record, and a reproducer check. Layers are not decoration. They are the machinery that stops a claim from quietly sliding between meanings between one gate and the next.</p>
+
+<h2>Why layers exist</h2>
+<p>Every root has a soft, everyday reading that a theory can lean on without noticing. "The geometry gives it," "the number matches," "it is finite so it is fine" &mdash; each of those is a place where a result can be smuggled in after the fact. Layers close those gaps by forcing each root to say exactly <em>which</em> object, <em>which</em> scale, and <em>which</em> finite record it is standing on. Concretely, layering stops three failures that otherwise look like success.</p>
+
+<div class="card-grid">
+  <div class="card">
+    <h4>Object drift</h4>
+    <p>Changing the object after a result is known. If "the shape" can be re-read as a slightly different manifold, bundle, or actor once the target number is in view, any near-miss can be nudged onto the answer. Shape layers pin the abstract object, the frozen branch, and a source fingerprint <em>before</em> the comparison, so the actor that produced a number is the same actor that was declared.</p>
+  </div>
+  <div class="card">
+    <h4>Scale drift</h4>
+    <p>Comparing values in the wrong units, scheme, or window. A 13-dimensional ladder value is not a 4D running mass; a Planck-unit ratio is not a low-energy magnitude. Scale layers require the magnitude type, the scheme and comparison window, and the tolerance to be named, so nothing is judged against a ruler it was never built to meet.</p>
+  </div>
+  <div class="card">
+    <h4>Record drift</h4>
+    <p>Treating a mathematical label as physical without a finite record. An exact zero-size point or an unpaid infinity can hide inside a "solution" and be read as real. Granularity layers demand a finite candidate class, a finite record or ledger, and a reproducible certificate &mdash; so a label only counts as physics if something finite actually records it.</p>
+  </div>
+</div>
+
+<div class="callout">
+  <h3>Layers are enforcement, not style</h3>
+  <p>The point of layering is that every gate in this candidate framework must state, out loud, what object it uses, what scale it compares at, and what finite record verifies it. A root with all three layers filled in can be audited by a stranger; a root left as a single vague word cannot. That is the whole difference between a claim that can be checked and one that only sounds checked.</p>
+</div>
+
+<h2>The root-layer table</h2>
+<p>The three roots and their three layers, side by side. Read each row left to right: the abstract thing, the frozen version of it, and the finite artifact that proves the same thing was used.</p>
+
+<table>
+  <thead>
+    <tr><th>Root</th><th>Layer 1</th><th>Layer 2</th><th>Layer 3</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Shape</strong></td>
+      <td>Abstract object identity</td>
+      <td>Frozen branch / version identity</td>
+      <td>Executable / source fingerprint</td>
+    </tr>
+    <tr>
+      <td><strong>Scale</strong></td>
+      <td>Magnitude type</td>
+      <td>Scheme / normalization / comparison window</td>
+      <td>Predicate / tolerance / uncertainty</td>
+    </tr>
+    <tr>
+      <td><strong>Granularity</strong></td>
+      <td>Finite candidate class / no unpaid labels</td>
+      <td>Finite record / ledger</td>
+      <td>Reproducer / certificate</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Shape layers</h2>
+<p>Shape layers keep the object fixed. Before any number is compared, the shape has to answer three questions, and the answers are frozen so they cannot be revised once the target is in view.</p>
+<div class="step-row">
+  <span class="step-num">1</span>
+  <div class="step-body">
+    <h4>What is the object?</h4>
+    <p>The abstract identity. For this framework the frozen internal carrier is the flag manifold K&#8326; = SU(3)/T&sup2;, together with a 2-sphere and a folded circle over four-dimensional spacetime &mdash; 4D &times; K&#8326; &times; S&sup2; &times; S&sup1;<sub>Y</sub>/Z<sub>2</sub>, thirteen dimensions in all. The object is named as a specific structure, not as "the geometry."</p>
+  </div>
+</div>
+<div class="step-row">
+  <span class="step-num">2</span>
+  <div class="step-body">
+    <h4>Which branch or version is frozen?</h4>
+    <p>The exact active branch. The carrier is frozen <em>once</em> as the boxed active branch and re-used downstream unchanged &mdash; the same shape carries the gauge recovery, the family count, the hypercharge and anomaly ledgers, the flavor readouts, and proton safety. There is no second, differently-tuned copy for a later gate.</p>
+  </div>
+</div>
+<div class="step-row">
+  <span class="step-num">3</span>
+  <div class="step-body">
+    <h4>What source or executable record proves the same object was used?</h4>
+    <p>A fingerprint. Frozen ledger rows and a reproducible source artifact stand behind the object, so a reader can confirm that the shape which produced a number is byte-for-byte the shape that was declared, with no post-target modification.</p>
+  </div>
+</div>
+
+<h2>Scale layers</h2>
+<p>Scale layers keep the comparison honest about units. Before a value is called a match, scale has to answer three questions.</p>
+<div class="step-row">
+  <span class="step-num">1</span>
+  <div class="step-body">
+    <h4>Is this dimensionless or dimensionful?</h4>
+    <p>The magnitude type. A dimensionless structural ratio, an absolute measured magnitude, a running mass at a stated energy, a cosmological density, and a scale-free curvature invariant are five different kinds of quantity and cannot be compared as if they were one.</p>
+  </div>
+</div>
+<div class="step-row">
+  <span class="step-num">2</span>
+  <div class="step-body">
+    <h4>What scheme, normalization, and window apply?</h4>
+    <p>The comparison context. Running masses and couplings are compared at M<sub>Z</sub>; a &Lambda; ratio is stated in Planck units; the electroweak normalization runs through v<sub>EW</sub>; a projected 13D value is only comparable after its declared 13D-to-4D readout map. The window is named before the value is judged.</p>
+  </div>
+</div>
+<div class="step-row">
+  <span class="step-num">3</span>
+  <div class="step-body">
+    <h4>What tolerance or uncertainty defines success?</h4>
+    <p>The predicate. Success is spelled out as a measured uncertainty band, a &sigma; pull, an exact structural equality, a consistency check only, or a measured anchor taken from observation &mdash; never an unstated "close enough."</p>
+  </div>
+</div>
+
+<h2>Granularity layers</h2>
+<p>Granularity layers keep labels from posing as physics. It is a frame-independent floor on action, information, and record cost &mdash; <strong>not</strong> a smallest length, <strong>not</strong> a preferred frame, <strong>not</strong> a spacetime lattice. Before a mathematical feature is treated as real, granularity has to answer three questions.</p>
+<div class="step-row">
+  <span class="step-num">1</span>
+  <div class="step-body">
+    <h4>What is the finite candidate class?</h4>
+    <p>The admissible set. Only configurations that can be recorded at finite cost are allowed in; idealizations that require an exact continuum limit are excluded from the candidate class.</p>
+  </div>
+</div>
+<div class="step-row">
+  <span class="step-num">2</span>
+  <div class="step-body">
+    <h4>What labels are forbidden unless paid for?</h4>
+    <p>No unpaid labels. A quantity written as exactly zero size, or an infinity carried along for convenience, is not automatically physical. If a label is to count, a finite record or ledger has to pay for it.</p>
+  </div>
+</div>
+<div class="step-row">
+  <span class="step-num">3</span>
+  <div class="step-body">
+    <h4>What ledger or reproducer records the check?</h4>
+    <p>A certificate. A reproducible argument shows where the offending limit entered, why it violates the finite-cost floor, and what finite structure remains &mdash; and it keeps that check separate from neighboring questions it does not settle.</p>
+  </div>
+</div>
+
+<h2>Worked examples</h2>
+<p>One worked example per root, each showing the same discipline: name the object, the scale, or the record; apply the constraints in order; and read off the honest endpoint. Open a card for the full walk-through.</p>
+
+<div class="card-grid">
+  <div class="card">
+    <h4>Shape &mdash; freeze the actor before the number counts</h4>
+    <p>The up-quark correction only became admissible after the K&#8326; chamber, the S<sub>3</sub> Weyl group, the two-step A&#8322; actor, and the one-chamber shadow were named as the object being read. Without those layers, the 1/&radic;6 factor would look like a patch; with them it is an auditable readout rule.</p>
+    <details class="worked">
+      <summary>Full worked example &mdash; the actor had to be frozen before the number could count</summary>
+
+      <h4>Question</h4>
+      <p>The candidate framework places the up quark on a rung of a 13-dimensional ladder. The question is narrow and sharp: does the frozen shape read out the measured up-quark mass, &mu;<sub>u</sub>(M<sub>Z</sub>) &approx; 1.27 &plusmn; 0.43 MeV, without any free coefficient inserted after the fact?</p>
+
+      <h4>The hidden assumption</h4>
+      <p>The tempting move is to compare the raw 13D ladder value directly to a 4D running mass. That silently assumes the two are the same kind of quantity. They are not: the raw ladder value lives in the internal geometry, and the running mass lives in the 4D theory at M<sub>Z</sub>. Comparing them directly would let any correction factor be reverse-engineered to close the gap &mdash; the classic object-drift and scale-drift failures at once.</p>
+
+      <h4>The candidate space</h4>
+      <p>What is allowed to fix the readout is not "any decimal that works." The candidate correction has to come from the finite structure already named in the frozen shape: the K&#8326; = SU(3)/T&sup2; flavor geometry, the A&#8322; chamber plane, the S<sub>3</sub> Weyl chambers, and the F&#8314; flavor chamber. The one-chamber 4D shadow of that finite Weyl structure is what supplies a coefficient &mdash; a small, discrete menu, not a continuous dial.</p>
+
+      <h4>Constraints applied (in order)</h4>
+      <p>The Shape layers are filled in first, then the readout is taken:</p>
+      <div class="step-row"><span class="step-num">1</span><div class="step-body"><h4>No actor drift</h4><p>The particle actor is fixed before the target is known: the up rung a = 2, the two-step oriented A&#8322; actor, the Weyl-alternating action, and the canonical one-chamber 4D shadow are all named as the frozen branch.</p></div></div>
+      <div class="step-row"><span class="step-num">2</span><div class="step-body"><h4>No free coefficient</h4><p>The correction coefficient cannot be reverse-engineered; it must fall out of the declared structure.</p></div></div>
+      <div class="step-row"><span class="step-num">3</span><div class="step-body"><h4>Finite-group constraint</h4><p>The coefficient must come from the finite S<sub>3</sub> structure &mdash; a one-chamber shadow of the finite Weyl group S<sub>3</sub>, which has &#124;S<sub>3</sub>&#124; = 6 elements.</p></div></div>
+      <div class="step-row"><span class="step-num">4</span><div class="step-body"><h4>Readout constraint</h4><p>The 13D ladder is compared to a 4D running mass only <em>after</em> the 13D-to-4D transport is declared, and the comparison is made at M<sub>Z</sub>.</p></div></div>
+
+      <h4>Elimination ledger</h4>
+      <table>
+        <thead><tr><th>Candidate readout</th><th>Fate</th></tr></thead>
+        <tbody>
+          <tr><td>Raw 13D ladder value compared directly</td><td><strong>Rejected</strong> &mdash; wrong-ruler comparison; a 13D value is not a 4D running mass.</td></tr>
+          <tr><td>A fitted decimal chosen to hit 1.27 MeV</td><td><strong>Rejected</strong> &mdash; free coefficient, reverse-engineered after the target.</td></tr>
+          <tr><td>The forced 1/&radic;6 = 1/&radic;&#124;S<sub>3</sub>&#124; one-chamber shadow</td><td><strong>Survives</strong> &mdash; forced finite-group geometry, declared before the comparison.</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Survivor / endpoint</h4>
+      <p>With the actor frozen and the transport declared, the corrected readout uses the forced dimensionless factor 1/&radic;6 = 1/&radic;&#124;S<sub>3</sub>&#124;, giving &mu;<sub>u</sub>(M<sub>Z</sub>) &approx; 1.295 MeV against the measured 1.27 &plusmn; 0.43 MeV. The honest label is <strong>derived-given-shape</strong>: given the frozen shape, the coefficient is forced finite-group geometry, not a fitted decimal. It is <strong>endpoint-closed inside the framework</strong>, not experimentally confirmed.</p>
+
+      <h4>Measured anchors consumed</h4>
+      <p>One: the measured up-quark running mass &mu;<sub>u</sub>(M<sub>Z</sub>) = 1.27 &plusmn; 0.43 MeV, used as the comparison target and falsifier &mdash; not as an input the coefficient was fitted to.</p>
+
+      <h4>What was NOT claimed</h4>
+      <p>This is a sharp falsifier, not a license to keep adjusting. A tighter future measurement of the up-quark mass can kill this branch. The layers are exactly what make that possible: because the actor and the coefficient were frozen in advance, there is no room to re-read the shape if the number moves.</p>
+    </details>
+  </div>
+
+  <div class="card">
+    <h4>Scale &mdash; a measured ruler stays a measured ruler</h4>
+    <p>The Planck and electroweak scales are declared as measured rulers, and the hierarchy is simply their ratio &mdash; not a third, from-nothing number. The same discipline holds &Lambda; as measured, with a failed alternative route serving as a check that the geometry is not secretly producing it.</p>
+    <details class="worked">
+      <summary>Full worked example &mdash; a measured ruler stays a measured ruler</summary>
+
+      <h4>Question</h4>
+      <p>Two questions of the same kind: why is the electroweak scale so far below the Planck scale &mdash; the hierarchy H = v<sub>EW</sub> / M<sub>Pl</sub> &approx; 2&times;10<sup>&minus;17</sup> &mdash; and why is the cosmological constant &Lambda; the tiny value it is? The scale layers decide, first, whether these are even the right questions to ask of a geometry.</p>
+
+      <h4>The hidden assumption</h4>
+      <p>The trap is to treat a measured magnitude as if it were pure geometry waiting to be derived. If v<sub>EW</sub>, M<sub>Pl</sub>, or &Lambda; can be "predicted from the shape," a value that was in fact read off an experiment gets laundered into a from-nothing success. Scale layers forbid that laundering by typing each quantity before anyone tries to derive it.</p>
+
+      <h4>The candidate space</h4>
+      <p>Before shape decides anything, shape does supply real structure at the electroweak scale: the charge rule Q = T<sub>3</sub> + Y, exactly one massless photon, and the W/Z structure &mdash; confronted by the measured &rho;<sub>0</sub> = 1.00038 &plusmn; 0.00020, which is a test, not a fit. But the <em>magnitudes</em> of the scales themselves are a different kind of object. The candidate answers to "why this magnitude?" are: (a) a genuine from-nothing derivation, or (b) a measured anchor plus arithmetic. Layer 1 forces the choice by typing the quantity.</p>
+
+      <h4>Constraints applied (in order)</h4>
+      <div class="step-row"><span class="step-num">1</span><div class="step-body"><h4>Type the quantity</h4><p>Do not compare dimensionful values as if they were pure geometry. M<sub>Pl</sub>, v<sub>EW</sub>, and &Lambda; are absolute measured magnitudes; H is a dimensionless ratio.</p></div></div>
+      <div class="step-row"><span class="step-num">2</span><div class="step-body"><h4>Declare the ruler</h4><p>Where an absolute scale is needed, name the measured anchor: M<sub>Pl</sub> is measured ruler #1; v<sub>EW</sub> &approx; 246 GeV is measured ruler #2.</p></div></div>
+      <div class="step-row"><span class="step-num">3</span><div class="step-body"><h4>Declare the window</h4><p>State the scheme: M<sub>Z</sub> for running masses and couplings, Planck units for the &Lambda; ratio, the electroweak normalization for v<sub>EW</sub>, and the cosmological extraction method for &Lambda;.</p></div></div>
+      <div class="step-row"><span class="step-num">4</span><div class="step-body"><h4>Declare the predicate</h4><p>Is the comparison exact, within an uncertainty band, a consistency check only, or a measured anchor? For the scales it is: measured anchor.</p></div></div>
+      <div class="step-row"><span class="step-num">5</span><div class="step-body"><h4>Reject laundering</h4><p>Do not call a measured input a prediction.</p></div></div>
+
+      <h4>Elimination ledger</h4>
+      <table>
+        <thead><tr><th>Claim about a scale</th><th>Fate</th></tr></thead>
+        <tbody>
+          <tr><td>Derive v<sub>EW</sub> or M<sub>Pl</sub> from the geometry</td><td><strong>Rejected</strong> &mdash; both are measured rulers; deriving them from nothing would be laundering.</td></tr>
+          <tr><td>H = v<sub>EW</sub> / M<sub>Pl</sub> as a third derived number</td><td><strong>Rejected</strong> &mdash; H is the arithmetic ratio of two measured rulers, not a separate derivation.</td></tr>
+          <tr><td>&Lambda; predicted by an internal dark-energy dial</td><td><strong>Rejected</strong> &mdash; the geometry has no such dial; &Lambda; is measured.</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Survivor / endpoint</h4>
+      <p><strong>Hierarchy.</strong> With both rulers declared measured, H &approx; 2&times;10<sup>&minus;17</sup> is exactly their ratio. The "why the hierarchy number?" demand is answered as a <strong>measured-anchor</strong> discipline &mdash; it does <em>not</em> derive v<sub>EW</sub> from M<sub>Pl</sub>.</p>
+      <p><strong>&Lambda;.</strong> &Lambda; &approx; (2.3 meV)<sup>4</sup> &approx; 10<sup>&minus;122</sup> M<sub>Pl</sub><sup>4</sup> is accepted as a <strong>measured anchor</strong>. The geometry has no internal dark-energy dial. A discreteness route that tried to produce it misses by about 113 orders of magnitude &mdash; and that miss is used as a <em>negative control</em>: it shows the geometry is not secretly generating the observed number by some hidden path.</p>
+
+      <h4>Measured anchors consumed</h4>
+      <p>Three, all taken from observation, none derived: M<sub>Pl</sub> (Planck ruler), v<sub>EW</sub> &approx; 246 GeV (electroweak ruler), and &Lambda; &approx; (2.3 meV)<sup>4</sup>. The measured &rho;<sub>0</sub> = 1.00038 &plusmn; 0.00020 is consumed only as a consistency test of the W/Z structure.</p>
+
+      <h4>What was NOT claimed</h4>
+      <p>No from-nothing prediction of v<sub>EW</sub>, M<sub>Pl</sub>, or &Lambda;. The hierarchy is not overclaimed as a derivation; it is honestly a ratio of measured rulers. Where an absolute scale was needed, a measured anchor was named and labeled as such.</p>
+    </details>
+  </div>
+
+  <div class="card">
+    <h4>Granularity &mdash; the zero-size point is not a record</h4>
+    <p>The black-hole singularity appears only when the calculation is allowed to shrink to an exact zero-size point. Granularity blocks that step: a zero-size endpoint is not a finite physical record. The horizon stays real, the exterior stays Schwarzschild, and only the impossible infinite-density point dissolves.</p>
+    <details class="worked">
+      <summary>Full worked example &mdash; the zero-size point is not a physical record</summary>
+
+      <h4>Question</h4>
+      <p>Classical general relativity predicts an infinite-density, zero-size point at the center of a black hole. Is that singularity a real physical feature the framework must reproduce, or an idealization that fails the granularity floor?</p>
+
+      <h4>The hidden assumption</h4>
+      <p>The singularity is produced by letting the radial coordinate run all the way to r &rarr; 0. That step quietly assumes an exact zero-size limit is a legitimate physical endpoint. Granularity's finite-record layer denies exactly that assumption: an exact zero-size limit is not a finite physical record, so it cannot be an admissible endpoint.</p>
+
+      <h4>The candidate space</h4>
+      <p>The admissible candidates for the interior are the ones that can be recorded at finite cost: a finite-core black-hole interior with the standard exterior retained. The zero-size point is excluded from the class as a non-recordable limit. Crucially, this does <em>not</em> introduce a smallest length &mdash; the floor is on Lorentz-invariant action and information cost, not on distance.</p>
+
+      <h4>Constraints applied (in order)</h4>
+      <div class="step-row"><span class="step-num">1</span><div class="step-body"><h4>Identify the impossible distinction</h4><p>The point singularity requires exact zero size.</p></div></div>
+      <div class="step-row"><span class="step-num">2</span><div class="step-body"><h4>Apply the finite-record constraint</h4><p>Exact zero size is not a finite physical record, so it is not an admissible candidate.</p></div></div>
+      <div class="step-row"><span class="step-num">3</span><div class="step-body"><h4>Preserve finite observables</h4><p>The horizon threshold and the exterior Schwarzschild solution remain real; no solar-system observable is shifted.</p></div></div>
+      <div class="step-row"><span class="step-num">4</span><div class="step-body"><h4>Do not overclaim</h4><p>Entropy, information, and the Page curve are a separate question and are left untouched here.</p></div></div>
+
+      <h4>Elimination ledger</h4>
+      <table>
+        <thead><tr><th>Feature under test</th><th>Fate</th></tr></thead>
+        <tbody>
+          <tr><td>Exact zero-size, infinite-density point</td><td><strong>Dissolves</strong> &mdash; not a finite physical record; a wrong-target continuum idealization.</td></tr>
+          <tr><td>Event horizon</td><td><strong>Retained</strong> &mdash; a finite, recordable threshold; stays real.</td></tr>
+          <tr><td>Exterior Schwarzschild geometry</td><td><strong>Retained</strong> &mdash; unchanged outside the core; no observable shifted.</td></tr>
+          <tr><td>Finite-core interior</td><td><strong>Replaces the point</strong> &mdash; a finite, recordable interior.</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Survivor / endpoint</h4>
+      <p>The singularity is <strong>dissolved</strong> as a wrong-target continuum idealization: the original "what is at the zero-size point?" is shown to be a question about a non-recordable limit, not a real physical endpoint. The black hole does not vanish &mdash; the horizon remains physical, the exterior remains the standard Schwarzschild solution, and a finite core replaces the point.</p>
+
+      <h4>Measured anchors consumed</h4>
+      <p>None. This is a structural dissolution: it removes an idealization that no measurement ever recorded, while leaving every finite, observable feature exactly where it was.</p>
+
+      <h4>What was NOT claimed</h4>
+      <p>This does <em>not</em> claim to solve black-hole information, entropy, or microstate counting &mdash; the Page-curve and information questions are a separate gate and are not settled here. Granularity is not a smallest length, not a preferred frame, and not a spacetime lattice. Only the impossible zero-size point dissolves.</p>
+    </details>
+  </div>
+</div>
+
+<h2>Where this goes next</h2>
+<p>Each root has its own process page, where the constraints that build it are worked through in full:</p>
+<p>
+  <a href="/process/constraints-to-shape.html" class="btn btn-solid">Constraints &rarr; Shape</a>
+  &nbsp; <a href="/process/constraints-to-scale.html" class="btn">Constraints &rarr; Scale</a>
+  &nbsp; <a href="/process/constraints-to-granularity.html" class="btn">Constraints &rarr; Granularity</a>
+</p>
+
+<div class="honesty-box">
+  <strong>Honest status.</strong> This is an internal endpoint / audit framework for a candidate theory of everything, not peer-reviewed external validation and nothing here is experimentally confirmed. Layers are how the framework holds <em>itself</em> to account: every claim above carries an explicit status &mdash; <em>derived-given-shape</em> or <em>derived-given-anchor</em> when a shape or anchor is granted, <em>measured anchor</em> where a value is taken from observation, and <em>dissolved</em> where the original question is shown to be the wrong target. The shape is <strong>selected and frozen inside a declared candidate class</strong>, not proven unique among every possible theory; the maximal torus T&sup2; being the unique clean <em>abelian</em> SU(3) isotropy is a narrower, sourced claim, and completeness over all conceivable carriers stays open.
+</div>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">One but Separate</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>

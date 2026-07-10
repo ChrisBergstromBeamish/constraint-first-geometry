@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Constraints to Granularity — A Framework for a Theory of Everything</title>
+<meta name="description" content="How the framework moves from broad constraints to Granularity: a frame-independent floor on record cost, not a smallest length — with worked examples of what it dissolves and what it does not.">
+<style>
+  :root{
+    --ink:#1b1f23;
+    --ink-soft:#4a5056;
+    --paper:#fbfaf7;
+    --paper-alt:#f2efe8;
+    --line:#d8d3c7;
+    --accent:#6b3f2a;
+    --accent-2:#1f4e5f;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: Georgia, 'Times New Roman', Cambria, serif;
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-2);}
+  a:hover{color:var(--accent);}
+  h1,h2,h3,h4{
+    font-family: 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    line-height:1.25;
+    font-weight:700;
+    color:var(--ink);
+  }
+  code, pre{
+    font-family: Consolas, 'Courier New', monospace;
+    background:var(--paper-alt);
+    border:1px solid var(--line);
+    border-radius:3px;
+  }
+  code{padding:0.05em 0.35em; font-size:0.92em;}
+  pre{padding:0.9em 1em; overflow-x:auto;}
+  table{border-collapse:collapse; width:100%;}
+  th,td{border:1px solid var(--line); padding:0.5em 0.7em; text-align:left; vertical-align:top;}
+  th{background:var(--paper-alt);}
+  blockquote{
+    margin:1em 0;
+    padding:0.4em 1.1em;
+    border-left:3px solid var(--accent);
+    background:var(--paper-alt);
+    color:var(--ink-soft);
+  }
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+  }
+  .skip-link:focus{
+    left:8px; top:8px; background:#fff; padding:8px 12px; z-index:999; border:1px solid var(--line);
+  }
+  .topbar{
+    background:var(--ink);
+    color:#eee;
+    font-family:'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+    font-size:0.82rem;
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0.4em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6em 1.2em;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5em;
+    color:#e7c9a9;
+    letter-spacing:0.01em;
+  }
+  .stamp b{color:#fff; font-weight:700;}
+  .topbar-site{color:#c9c2b3;}
+  header.site-header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-row{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:1.1em 1.2em 0.6em;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.4em;
+  }
+  .brand-row h1{
+    margin:0;
+    font-size:1.5rem;
+    letter-spacing:0.01em;
+  }
+  .brand-row h1 a{color:var(--ink); text-decoration:none;}
+  .brand-tag{
+    font-family: Georgia, serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  nav.main-nav{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.2em;
+    border-top:1px solid var(--line);
+  }
+  nav.main-nav li{margin:0;}
+  nav.main-nav a{
+    display:block;
+    padding:0.8em 0.9em;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  nav.main-nav a:hover{
+    border-bottom-color:var(--accent);
+    color:var(--accent);
+  }
+  nav.main-nav a[aria-current="page"]{
+    border-bottom-color:var(--accent-2);
+    color:var(--accent-2);
+  }
+  .layout{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em 3em;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:2.4em;
+    align-items:start;
+  }
+  .subnav{
+    position:sticky;
+    top:1.2em;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.88rem;
+  }
+  .subnav-box{
+    border:1px solid var(--line);
+    background:var(--paper-alt);
+    border-radius:4px;
+    padding:1em 1.1em;
+  }
+  .subnav-box h2{
+    margin:0 0 0.6em;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+  .subnav-box ul{list-style:none; margin:0; padding:0;}
+  .subnav-box li{margin:0.35em 0;}
+  .subnav-box a{
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .subnav-box a:hover{color:var(--accent); text-decoration:underline;}
+  .subnav-box a[aria-current="page"]{
+    color:var(--accent-2);
+    font-weight:700;
+  }
+  .subnav-empty{
+    color:var(--ink-soft);
+    font-style:italic;
+    font-size:0.85rem;
+  }
+  main{min-width:0;}
+  main h2{
+    margin-top:1.9em;
+    padding-bottom:0.25em;
+    border-bottom:1px solid var(--line);
+    font-size:1.5rem;
+  }
+  main h2:first-child{margin-top:0;}
+  main h3{font-size:1.18rem; margin-top:1.5em;}
+  main p{margin:0.9em 0;}
+  .lede{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .callout{
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent-2);
+    background:var(--paper-alt);
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:0 4px 4px 0;
+  }
+  .callout h3, .callout h4{margin-top:0;}
+  .honesty-box{
+    border:1px dashed var(--accent);
+    background:#fbf3ea;
+    padding:1em 1.2em;
+    margin:1.4em 0;
+    border-radius:4px;
+    font-size:0.95rem;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:1em;
+    margin:1.4em 0;
+  }
+  .card{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:1em 1.1em;
+    border-radius:4px;
+  }
+  .card h4{margin:0 0 0.4em; font-size:1.02rem;}
+  .card p{margin:0.4em 0 0; font-size:0.93rem; color:var(--ink-soft);}
+  .btn{
+    display:inline-block;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:0.7em 1.3em;
+    border-radius:4px;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    background:transparent;
+  }
+  .btn:hover{background:var(--accent-2); color:#fff;}
+  .btn-solid{background:var(--accent-2); color:#fff;}
+  .btn-solid:hover{background:var(--accent);}
+  .step-num{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:1.9em; height:1.9em;
+    border-radius:50%;
+    background:var(--accent-2);
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-weight:700;
+    font-size:0.95rem;
+    margin-right:0.5em;
+    flex:none;
+  }
+  .step-row{
+    display:flex;
+    align-items:flex-start;
+    gap:0.2em;
+    margin:1.1em 0;
+  }
+  .step-row .step-body h4{margin:0 0 0.2em;}
+  .step-row .step-body p{margin:0.2em 0 0; color:var(--ink-soft); font-size:0.96rem;}
+  footer.site-footer{
+    background:var(--ink);
+    color:#cfc9bd;
+    font-size:0.85rem;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:2em 1.2em;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6em 3em;
+    justify-content:space-between;
+  }
+  footer.site-footer a{color:#e7c9a9;}
+  footer.site-footer h5{
+    margin:0 0 0.5em;
+    color:#fff;
+    font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;
+    font-size:0.8rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .footer-honesty{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 1.2em 1.6em;
+    font-size:0.8rem;
+    color:#a49c8c;
+  }
+  .footer-honesty .stamp{color:#e7c9a9;}
+  .footer-honesty .stamp b{color:#fff;}
+  @media (max-width:820px){
+    .layout{grid-template-columns:1fr;}
+    .subnav{position:static;}
+  }
+
+  details.worked{border:1px solid var(--line);border-radius:4px;background:#fff;margin:0.7em 0 0;padding:0 1.1em;}
+  details.worked[open]{padding-bottom:1.1em;}
+  details.worked>summary{cursor:pointer;font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;font-weight:700;font-size:0.9rem;color:var(--accent-2);padding:0.8em 0;}
+  details.worked>summary:hover{color:var(--accent);}
+  details.worked h4{margin:1.1em 0 0.25em;font-size:1.02rem;}
+  details.worked table{margin:0.7em 0;font-size:0.92rem;}
+  .process-next-links{margin:1.6em 0;display:flex;flex-wrap:wrap;gap:0.6em;}
+  .eyebrow{font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);font-weight:700;margin:0 0 0.2em;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · nothing physics-CLOSED</span>
+    <span class="topbar-site">physics.magflowmeters.com</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-row">
+    <h1><a href="/">A Framework for a Theory of Everything</a></h1>
+    <span class="brand-tag">a constraint-first program, shown honestly</span>
+  </div>
+  <nav class="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/process/" aria-current="page">The Process</a></li>
+      <li><a href="/tests/">The Tests</a></li>
+      <li><a href="/anchors/">Foundational Constraints</a></li>
+      <li><a href="/gates/">Gates</a></li>
+      <li><a href="/early-universe/">Early &amp; Distant Universe</a></li>
+      
+      <li><a href="/consciousness/">Consciousness</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="subnav" aria-label="Section navigation">
+    <div class="subnav-box">
+      <h2>The Process</h2>
+      <ul>
+        <li><a href="/process/">Overview</a></li>
+        <li><a href="/process/thought-experiment.html">1. The thought experiment</a></li>
+        <li><a href="/process/constraints-to-shape.html">2. Constraints &rarr; a shape</a></li>
+        <li><a href="/process/testing-the-shape.html">3. Testing the shape</a></li>
+        <li><a href="/process/gut-quantum-toe.html">4. GUT / Quantum / TOE</a></li>
+        <li><a href="/process/the-process-we-built.html">5. The process we built</a></li>
+        <li><a href="/process/closure-paths.html">6. Closure paths</a></li>
+      </ul>
+    </div>
+    <div class="subnav-box" style="margin-top:1em;">
+      <h2>Constraints &rarr; the roots</h2>
+      <ul>
+        <li><a href="/process/constraints-to-shape.html">Constraints &rarr; Shape</a></li>
+        <li><a href="/process/constraints-to-granularity.html" aria-current="page">Constraints &rarr; Granularity</a></li>
+        <li><a href="/process/constraints-to-scale.html">Constraints &rarr; Scale</a></li>
+        <li><a href="/process/constraints-to-layers.html">Constraints &rarr; Layers</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main-content">
+
+<h2 style="border-bottom:none;margin-bottom:0.2em;">From constraints to granularity</h2>
+<p class="lede">Physics often writes as if every distinction can be made with infinite precision. This candidate framework asks a harder question: when is a distinction physically real enough to count? The answer it reaches is <strong>Granularity</strong>. A physical difference is not free &mdash; it must be recordable at finite cost. That cost floor is not a smallest length and not a hidden grid in spacetime; it is a frame-independent limit on how finely reality can be distinguished, recorded, and compared.</p>
+
+<h2>The problem</h2>
+<p>Many hard physics questions quietly assume <em>infinite distinguishability</em> &mdash; that reality can hold apart any two states the mathematics can label apart, no matter how finely. That assumption is doing silent work in a whole cluster of famous puzzles:</p>
+<ul>
+  <li>exact continuum fields treated as physical states;</li>
+  <li>exact zero-size black-hole singularities;</li>
+  <li>exact pre-record states of the early universe;</li>
+  <li>exact continuum Yang&ndash;Mills limits;</li>
+  <li>exact labels that no measurement could ever pay for.</li>
+</ul>
+<p>These are not all the same problem, and Granularity does not pretend they are. What they share is one hidden assumption: that a mathematical distinction automatically counts as a physical distinction. Once that assumption is made visible, each puzzle can be sorted &mdash; some are real physics that stays real, and some are wrong-target idealizations that dissolve.</p>
+
+<h2>The hidden assumption</h2>
+<blockquote>
+  <p>The hidden assumption was that if the math can label two things differently, the universe must be able to make that distinction physically real.</p>
+</blockquote>
+<p>Granularity challenges exactly that step. It does not forbid fine distinctions; it asks the universe to <em>pay</em> for them. A label that no possible finite record could ever carry is not promoted to a physical degree of freedom just because a symbol for it exists.</p>
+
+<h2>The constraints that force granularity</h2>
+<p>Granularity is not an extra postulate bolted on for convenience. It is what survives when a short step-down sequence of consistency demands is applied to the idea of a &ldquo;physical distinction&rdquo; itself.</p>
+
+<div class="step-row">
+  <span class="step-num">1</span>
+  <div class="step-body">
+    <h4>Record constraint</h4>
+    <p>Physical facts must terminate in finite records. A difference that is never encoded, preserved, transmitted, compared, or measured anywhere in the universe has no place where it could be a fact.</p>
+  </div>
+</div>
+<div class="step-row">
+  <span class="step-num">2</span>
+  <div class="step-body">
+    <h4>Observer constraint</h4>
+    <p>The record must not depend on a preferred frame. Whatever floor exists on distinguishability has to read the same to every observer &mdash; it is frame-independent, not a grid that privileges one rest frame or one slicing of spacetime.</p>
+  </div>
+</div>
+<div class="step-row">
+  <span class="step-num">3</span>
+  <div class="step-body">
+    <h4>Cost constraint</h4>
+    <p>Distinguishability has a nonzero physical cost. Telling two states apart consumes action and information; the cost cannot be driven to zero, so infinitely fine distinctions cannot be had for free.</p>
+  </div>
+</div>
+<div class="step-row">
+  <span class="step-num">4</span>
+  <div class="step-body">
+    <h4>No-free-label constraint</h4>
+    <p>Labels with no record channel do not count as physical degrees of freedom. If nothing in the world could ever carry the distinction, it is bookkeeping, not physics, and it may not be smuggled in as if it were real.</p>
+  </div>
+</div>
+<div class="step-row">
+  <span class="step-num">5</span>
+  <div class="step-body">
+    <h4>Continuum-control constraint</h4>
+    <p>Limits that demand infinite refinement must be justified, not assumed. A calculation is not allowed to quietly take a quantity all the way to zero size or infinite precision unless that limit corresponds to a finite physical record.</p>
+  </div>
+</div>
+
+<h2>What granularity does &mdash; and does not do</h2>
+<p>Applied honestly, Granularity closes or reframes questions in three ways. It is a sorting rule, not a magic solvent.</p>
+<div class="card-grid">
+  <div class="card">
+    <h4>It dissolves impossible distinctions</h4>
+    <p>When a puzzle only exists because a distinction was pushed finer than any finite record could carry, that distinction is a wrong target. The original question is shown to be impossible to ask physically &mdash; it is <em>dissolved</em>, not left open.</p>
+  </div>
+  <div class="card">
+    <h4>It converts continuum demands into finite-record questions</h4>
+    <p>A demand for an exact continuum limit is re-read as a question about what stays true at finite resolution. That version is often well-posed and answerable, even when the idealized limit remains a known frontier problem.</p>
+  </div>
+  <div class="card">
+    <h4>It prevents free labels from being smuggled in</h4>
+    <p>Exact labels with no record channel cannot be quietly added as physical degrees of freedom. This keeps the framework from paying itself imaginary information and inflating what it claims to explain.</p>
+  </div>
+</div>
+
+<div class="honesty-box">
+  <strong>Granularity is not a universal escape hatch.</strong> It does not replace calculation, measurement, or source certification. It only applies when the original question depends on distinctions finer than any finite physical record can carry. Where a puzzle turns on ordinary, recordable physics, Granularity says nothing and the work still has to be done the hard way.
+</div>
+
+<div class="honesty-box">
+  <strong>What the floor is &mdash; and what it is not.</strong> Granularity is a frame-independent floor on action, information, and record cost. The natural scale of that floor is set by Planck's constant &#8463;, the measured quantum of action. It is <em>not</em> a smallest length, <em>not</em> a preferred frame, and <em>not</em> a spacetime lattice. Nothing here posits a shortest distance or a privileged grid; the claim is only that finite records cost a nonzero, observer-independent amount of action and information.
+</div>
+
+<h2>Worked examples</h2>
+<div class="card-grid">
+  <div class="card">
+    <h4>The singularity was a wrong-target limit</h4>
+    <p>The infinite-density point appears only if the calculation is allowed to shrink all the way to zero size. Granularity blocks that move: the zero-size limit is not a finite physical record. The horizon stays real and the exterior remains Schwarzschild; only the impossible point-singularity dissolves.</p>
+    <details class="worked">
+      <summary>Full worked example &mdash; the zero-size point is not a physical record</summary>
+
+      <h4>1. Question</h4>
+      <p>Classical general relativity, taken literally, predicts that the interior of a black hole ends in a
+      singularity: a point of zero size and infinite density where curvature blows up without bound. Is that
+      point a real physical feature of the world, or an artifact of pushing a calculation past where it can
+      correspond to anything recordable? The question this example owns is narrow and precise:
+      <em>does the exact zero-size point survive the demand that physical facts terminate in finite records?</em></p>
+
+      <h4>2. The hidden assumption</h4>
+      <p>The singularity is produced by letting the radial coordinate run all the way to r &rarr; 0 &mdash; an
+      exact zero-size endpoint. The hidden assumption is the general one named on this page: that because the
+      mathematics can write r = 0, the universe must be able to instantiate a distinction at exactly zero size.
+      Granularity refuses that step. An exact zero-size limit is not a finite physical record; it is the point
+      at which the continuum idealization stops corresponding to anything the universe could encode, preserve,
+      or measure.</p>
+
+      <h4>3. The candidate space</h4>
+      <p>Hold the black hole fixed and ask what interior completions are admissible once no unpaid, non-recordable
+      labels are allowed:</p>
+      <ul>
+        <li>a finite-core black-hole interior (a bounded, finite region replacing the point);</li>
+        <li>the standard exterior geometry and horizon, retained unchanged;</li>
+        <li>the exact zero-size point &mdash; <em>excluded</em>, as a non-recordable limit.</li>
+      </ul>
+      <p>Crucially, no smallest length is introduced to do this. The floor is not on distance; it is on
+      Lorentz-invariant action and information cost. The candidate space is narrowed by asking what remains a
+      finite record, not by imposing a shortest ruler.</p>
+
+      <h4>4. Constraints applied (in order)</h4>
+      <ol>
+        <li><strong>Identify the impossible distinction.</strong> The point singularity requires an exact zero
+        size &mdash; a distinction taken to infinite fineness.</li>
+        <li><strong>Apply the finite-record constraint.</strong> Exact zero size is not a finite physical
+        record, so it fails the record and continuum-control constraints at once.</li>
+        <li><strong>Preserve finite observables.</strong> Everything that <em>is</em> recorded &mdash; the
+        horizon threshold, the exterior curvature, every solar-system observable &mdash; is kept exactly as it
+        was.</li>
+        <li><strong>Do not overclaim.</strong> Entropy, microstate counting, and the information/Page-curve
+        question are a separate gate and are explicitly left untouched here.</li>
+      </ol>
+
+      <h4>5. Elimination ledger</h4>
+      <table>
+        <thead>
+          <tr><th>Candidate feature</th><th>Constraint tested</th><th>Verdict</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Exact zero-size point (r&nbsp;=&nbsp;0)</td><td>Record / continuum-control</td><td>Dissolved &mdash; not a finite physical record</td></tr>
+          <tr><td>Exterior Schwarzschild geometry</td><td>Preserve finite observables</td><td>Retained, unchanged</td></tr>
+          <tr><td>Horizon threshold</td><td>Preserve finite observables</td><td>Retained, still physical</td></tr>
+          <tr><td>Curvature formula outside the core</td><td>Preserve finite observables</td><td>Retained, unchanged</td></tr>
+          <tr><td>Finite-core interior replacement</td><td>No unpaid labels</td><td>Admissible &mdash; recordable, bounded region</td></tr>
+          <tr><td>Solar-system predictions</td><td>Preserve finite observables</td><td>Unshifted</td></tr>
+        </tbody>
+      </table>
+
+      <h4>6. Survivor / endpoint</h4>
+      <p>The exact singularity dissolves as a wrong-target continuum idealization. The black hole does not vanish:
+      the horizon remains physical, the exterior remains the standard Schwarzschild solution, and a finite core
+      replaces the impossible infinite-density point. The honest label here is <strong>dissolved</strong> &mdash;
+      the original question (&ldquo;what happens <em>at</em> the zero-size point?&rdquo;) is shown to be a
+      distinction the universe cannot carry, rather than a question left open or a number computed. This is a
+      dissolution <em>given</em> Granularity, not an experimentally confirmed statement about black-hole
+      interiors.</p>
+
+      <h4>7. Measured anchors consumed</h4>
+      <p>None are fitted in this example. The scale of the action/information floor is set by the measured
+      quantum of action, Planck's constant &#8463;; the exterior geometry and horizon are the standard,
+      already-tested predictions and are consumed only as constraints to preserve, not as tunable inputs. No new
+      free parameter is introduced to make the point dissolve.</p>
+
+      <h4>8. What was NOT claimed</h4>
+      <p>This does <em>not</em> solve black-hole information, entropy, or microstate counting &mdash; that is a
+      separate gate (Gap-13) and is untouched here. It does not claim the finite-core interior has been observed,
+      nor that any solar-system or horizon observable changes. It introduces no smallest length and no preferred
+      frame. The only thing that disappears is the exact infinite-density point; everything recordable stays
+      exactly where it was.</p>
+    </details>
+  </div>
+
+  <div class="card">
+    <h4>The continuum wall was named instead of hidden</h4>
+    <p>At finite resolution, the strong-force gap is well-posed. The unsolved part is the exact continuum limit &mdash; the shared Yang&ndash;Mills frontier, not a private failure of this framework. Granularity does not pretend to solve that open problem; it identifies precisely which version of the question the framework actually owns, and certifies the rest as a known outside wall rather than quietly assuming it away.</p>
+  </div>
+</div>
+
+<h2>The other three roots</h2>
+<p>Granularity is one of three roots this program grew from the same constraint set. Each has its own process page, and each shares the same honest-status discipline.</p>
+<div class="card-grid">
+  <div class="card">
+    <h4><a href="/process/constraints-to-shape.html">Constraints &rarr; a shape</a></h4>
+    <p>How the same demands narrow the space of geometries to a selected higher-dimensional carrier &mdash; K&#8326; = SU(3)/T&sup2; and its factors &mdash; selected inside a candidate class, not proven unique over all theories.</p>
+  </div>
+  <div class="card">
+    <h4><a href="/process/constraints-to-scale.html">Constraints &rarr; a scale</a></h4>
+    <p>Where the framework uses measured rulers &mdash; M<sub>Pl</sub> and v<sub>EW</sub> &mdash; and why the hierarchy H = v<sub>EW</sub>/M<sub>Pl</sub> &asymp; 2&times;10<sup>&minus;17</sup> is the ratio of two measured numbers, not a third derived one.</p>
+  </div>
+  <div class="card">
+    <h4><a href="/process/constraints-to-layers.html">Constraints &rarr; layers</a></h4>
+    <p>How constraints stack into layers that keep infinitely precise mathematical labels from being treated as physical records &mdash; the setting in which the black-hole dissolution above is worked in full.</p>
+  </div>
+</div>
+<p>
+  <a href="/process/constraints-to-shape.html" class="btn">Constraints &rarr; a shape</a>
+  &nbsp; <a href="/process/constraints-to-scale.html" class="btn">Constraints &rarr; a scale</a>
+  &nbsp; <a href="/process/constraints-to-layers.html" class="btn">Constraints &rarr; layers</a>
+</p>
+
+<div class="honesty-box">
+  <strong>What this page is, and is not.</strong> This is an internal endpoint and audit framework for a
+  <em>candidate</em> theory of everything &mdash; a way of stating, for each question, whether it is
+  derived-given-shape, derived-given-anchor, measured, dissolved, or certified as a known outside wall. It is
+  <em>not</em> peer-reviewed external validation, and nothing here is experimentally confirmed or physics-closed.
+  Granularity dissolving the exact singularity is a result <em>inside</em> this framework; it stands or falls
+  with the framework, and it is presented that way on purpose.
+</div>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Contact</h5>
+      <p style="margin:0;">Chris Bergstrom<br>
+      <a href="mailto:cbergstr@gmail.com">cbergstr@gmail.com</a><br>
+      <a href="https://physics.magflowmeters.com">physics.magflowmeters.com</a></p>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <p style="margin:0;">
+        <a href="/">Home</a> ·
+        <a href="/process/">The Process</a> ·
+        <a href="/tests/">The Tests</a><br>
+        <a href="/anchors/">Foundational Constraints</a> ·
+        <a href="/gates/">Gates</a><br>
+        <a href="/early-universe/">Early &amp; Distant Universe</a> ·
+        <a href="/emergent-separability/">One but Separate</a> ·
+        <a href="/consciousness/">Consciousness</a>
+      </p>
+    </div>
+    <div>
+      <h5>Status</h5>
+      <p style="margin:0;">An independent, ongoing research program.<br>
+      Findings are reported as derived, reduced, open, or refuted — never rounded up.</p>
+    </div>
+  </div>
+  <div class="footer-honesty">
+    <span class="stamp">⚑ <b>Not peer-reviewed</b> · nothing here is physics-CLOSED.</span>
+    All claims carry an honest status label; open questions are named as open, not implied closed.
+  </div>
+</footer>
+
+</body>
+</html>
