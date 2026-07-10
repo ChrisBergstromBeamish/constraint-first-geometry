@@ -148,7 +148,7 @@ following are <strong>DERIVED-GIVEN-E</strong>:</p>
 </tbody>
 </table>
 <h2>§5. The live blockers + the fail-closed forcing harness (continuation path)</h2>
-<p>Four rows decide whether SG-8 can ever move past OPEN: <strong>R2, R3, R6, R7.</strong> A <strong>fail-closed forcing packet</strong>
+<p>Three rows decide whether SG-8 can move past OPEN: <strong>R2, R3, R7</strong> (R6 — the m_u row — has since CLOSED at +0.058σ; its verifier is retained in the forcing packet for provenance). A <strong>fail-closed forcing packet</strong>
 (<code>SG8_R7_R3_R6_forcing_packet</code>, published) was built and <strong>independently verified to fail-closed</strong> — its three
 verifiers correctly report <code>BLOCKED_MISSING_ARTIFACTS</code> (R7), <code>BLOCKED_MISSING_INPUTS</code> (R3),
 <code>BLOCKED_MISSING_TOP_INPUT_OR_TRANSPORT</code> (R6) with <strong>no false PASS</strong>. Dropping the real files into
@@ -157,7 +157,7 @@ The continuation artifacts needed: the R7 CSVs + <code>reproduce_all.py</code>; 
 eigenvalues, Δm² convention, M_U, R₀⁻¹); the R6 frozen R1.7 transport recipe (hash <code>f531205a9159</code>).</p>
 <h2>§6. Honest gate roll-up</h2>
 <p><strong>SG-8: OPEN</strong> (least-closed residual). The ratio/mixing/phase <strong>leg</strong> is DERIVED-GIVEN-E (with the §2 caveats);
-the gate is held OPEN by R2/R6 (OPEN) and R3/R7 (BLOCKED). Axiom floor = {AXIOM-MODULAR-FIXED-POINT,
+the gate is held OPEN by R2 (OPEN) and R3/R7 (BLOCKED); R6 — the m_u row — is CLOSED at +0.058σ via the symmetry-derived 1/√6 = 1/√|S₃| Weyl-shadow transport. Axiom floor = {AXIOM-MODULAR-FIXED-POINT,
 AXIOM-LEXMIN-LADDER, weak AXIOM-FPLUS-LOCK}. No fitted number (N_d/N_e/N_ν, M_R, m_u) was renamed geometric; no
 new axiom banked for an unrun computation. <strong>No status was ever upgraded.</strong> Serious candidate / partial-unification signal —
 <strong>NOT validated.</strong></p>

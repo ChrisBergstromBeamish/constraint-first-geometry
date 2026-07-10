@@ -64,7 +64,7 @@ K(t,x,x)\ \sim\ (4\pi t)^{-D/2}\sum_{k=0}^{\infty} a_{2k}(x)\,t^{k},\qquad t\to0
 $$
 The coefficients <span class="arithmatex">\(a_{2k}\)</span> are local, universal polynomials in the curvature of the base manifold, the curvature <span class="arithmatex">\(\Omega\)</span> of the connection <span class="arithmatex">\(\nabla\)</span>, and the endomorphism <span class="arithmatex">\(E\)</span>, together with their covariant derivatives, fixed entirely by locality, diffeomorphism/gauge covariance, ellipticity of <span class="arithmatex">\(\Delta_{\rm bundle}\)</span>, and dimensional homogeneity (each term in <span class="arithmatex">\(a_{2k}\)</span> has total mass dimension <span class="arithmatex">\(2k\)</span>). <span class="arithmatex">\(a_6\)</span> — the coefficient at <span class="arithmatex">\(2k=6\)</span>, sometimes written <span class="arithmatex">\(E_3\)</span> in Gilkey's own notation — is the first coefficient that is genuinely <em>cubic</em> in curvature: it is a fixed linear combination of the nine independent weight-6 (mass-dimension-6) local invariants
 $$
-\mathrm{Scal}^3,\ \ \mathrm{Scal}\cdot|\mathrm{Ric}|^2,\ \ \mathrm{Scal}\cdot|\mathrm{Riem}|^2,\ \ \mathrm{Ric}^{ab}\mathrm{Ric}<em>b{}^c\mathrm{Ric}_c{}^a,\ \ \mathrm{Ric}^{ab}\mathrm{Ric}^{cd}R</em>{acbd},\ \ \mathrm{Ric}^{ab}R_a{}^{cde}R_{bcde},
+\mathrm{Scal}^3,\ \ \mathrm{Scal}\cdot|\mathrm{Ric}|^2,\ \ \mathrm{Scal}\cdot|\mathrm{Riem}|^2,\ \ \mathrm{Ric}^{ab}\mathrm{Ric}_b{}^c\mathrm{Ric}_c{}^a,\ \ \mathrm{Ric}^{ab}\mathrm{Ric}^{cd}R_{acbd},\ \ \mathrm{Ric}^{ab}R_a{}^{cde}R_{bcde},
 $$
 $$
 K_1\equiv R_{ab}{}^{cd}R_{cd}{}^{ef}R_{ef}{}^{ab}=8\,\mathrm{tr}(R_{\rm op}^3),\qquad K_2\equiv R_{abcd}R_{aecf}R_{ebfd},\qquad |\nabla\mathrm{Riem}|^2,
@@ -229,7 +229,7 @@ a_6^{\rm phys} = a_6[\text{graviton}] \;-\; 2\cdot a_6[\text{ghost}] \;+\; 0\cdo
 $$</p>
 <p><strong>Graviton.</strong> The de Donder-gauge (harmonic, <span class="arithmatex">\(\alpha=1\)</span>) Lichnerowicz operator acting on <span class="arithmatex">\(\mathrm{Sym}^2(T)\)</span>, the symmetric-tensor bundle of dimension <span class="arithmatex">\(91 = 13\cdot14/2\)</span> (the combinatorial count of symmetric pairs on the full 13-dimensional tangent space). Restricted to the transverse-traceless sector <span class="arithmatex">\(\mathrm{Sym}^2_0(T)\)</span> (dimension 20 on the internal 6-space), the Lichnerowicz endomorphism
 $$
-(E_L h)<em>{ab} = \mathrm{Ric}</em>{ac}h^c{}<em>b + \mathrm{Ric}</em>{bc}h^c{}<em>a - 2R</em>{acbd}h^{cd}
+(E_L h)_{ab} = \mathrm{Ric}_{ac}h^c{}_b + \mathrm{Ric}_{bc}h^c{}_a - 2R_{acbd}h^{cd}
 $$
 has spectrum <span class="arithmatex">\(\{1/6\ (\times6),\ 5/12\ (\times6),\ 7/6\ (\times6),\ 17/12\ (\times2)\}\)</span> on <span class="arithmatex">\(\mathrm{Sym}^2_0\)</span> (with a further pure-trace mode <span class="arithmatex">\(5/3\ (\times1)\)</span> appearing in the full dimension-21 <span class="arithmatex">\(\mathrm{Sym}^2\)</span> spectrum), giving traces <span class="arithmatex">\(\mathrm{tr}\,E_L = 40/3\)</span>, <span class="arithmatex">\(\mathrm{tr}\,E_L^2 = 241/18\)</span>.</p>
 <p><strong>Ghost.</strong> The Faddeev–Popov vector ghost lives on <span class="arithmatex">\(T\)</span>, dimension <span class="arithmatex">\(13\)</span>, entering with multiplier <span class="arithmatex">\(-2\)</span> (the standard FP double-counting weight). Its Weitzenböck endomorphism is <span class="arithmatex">\(E=\mathrm{Ric}=(5/12)\,\mathrm{Id}\)</span> (eigenvalue <span class="arithmatex">\(5/12\)</span>, multiplicity 6 on <span class="arithmatex">\(K_6\)</span>), giving <span class="arithmatex">\(\mathrm{tr}\,E = 5/2\)</span>, <span class="arithmatex">\(\mathrm{tr}\,E^2 = 25/24\)</span>, and curvature-operator trace <span class="arithmatex">\(\mathrm{tr}(\Omega_{ab}\Omega^{ab}) = -|\mathrm{Riem}|^2 = -23/12\)</span>. This is the <em>physical</em> Faddeev–Popov ghost; an earlier Bochner-ghost stand-in that substituted <span class="arithmatex">\(E=0\)</span> for this physical <span class="arithmatex">\(E=\mathrm{Ric}\)</span> produced a different, now-superseded number (<span class="arithmatex">\(149/1008\)</span>) and is flagged here only as the historical source of a since-explained cross-route mismatch, not a live input.</p>
@@ -309,7 +309,7 @@ $$
 <span class="arithmatex">\(g=(-B)|_{\mathfrak m}\)</span>, evaluated at the Weyl-rigid symmetric chamber center <span class="arithmatex">\(\vec u=(1,1,1)\)</span>,
 gives the frozen curvature inputs the <span class="arithmatex">\(a_6\)</span> functional contracts:
 $$
-\dim K_6=6,\quad \mathrm{Ric}<em>i=\tfrac{5}{12},\quad \mathrm{Scal}=\tfrac52,\quad
+\dim K_6=6,\quad \mathrm{Ric}_i=\tfrac{5}{12},\quad \mathrm{Scal}=\tfrac52,\quad
 \mathrm{Scal}^2=\tfrac{25}{4},\quad |\mathrm{Ric}|^2=\tfrac{25}{24},\quad
 |\mathrm{Riem}|^2=\tfrac{23}{12},
 $$
@@ -321,7 +321,7 @@ $$
 The cubic curvature invariants — the genuinely <span class="arithmatex">\(a_6\)</span>-specific ingredients, since <span class="arithmatex">\(a_6\)</span> is the
 first coefficient sensitive to curvature-cubed terms — are
 $$
-K_1\equiv R</em>{ab}{}^{cd}R_{cd}{}^{ef}R_{ef}{}^{ab}=-\frac{113}{72},\qquad
+K_1\equiv R_{ab}{}^{cd}R_{cd}{}^{ef}R_{ef}{}^{ab}=-\frac{113}{72},\qquad
 K_2\equiv R_{abcd}R_{aecf}R_{ebfd}=-\frac{5}{72},\qquad
 |\nabla\mathrm{Riem}|^2=\frac14,
 $$
@@ -332,10 +332,10 @@ is built from are all exact rationals on this frozen geometry:
 $$
 \mathrm{Scal}^3=\frac{125}{8},\ \ \mathrm{Scal}\,|\mathrm{Ric}|^2=\frac{125}{48},\ \
 \mathrm{Scal}\,|\mathrm{Riem}|^2=\frac{115}{24},\ \
-\mathrm{Ric}^{ab}\mathrm{Ric}<em>b{}^c\mathrm{Ric}_c{}^a=\frac{125}{288},
+\mathrm{Ric}^{ab}\mathrm{Ric}_b{}^c\mathrm{Ric}_c{}^a=\frac{125}{288},
 $$
 $$
-\mathrm{Ric}^{ab}\mathrm{Ric}^{cd}R</em>{acbd}=\frac{125}{288},\qquad
+\mathrm{Ric}^{ab}\mathrm{Ric}^{cd}R_{acbd}=\frac{125}{288},\qquad
 \mathrm{Ric}^{ab}R_a{}^{cde}R_{bcde}=\frac{115}{144},
 $$
 together with <span class="arithmatex">\(K_1,K_2,|\nabla\mathrm{Riem}|^2\)</span> above and the topological Euler characteristics
@@ -536,7 +536,7 @@ Z_2\)</span> reflection on a closed manifold</strong>, governed by Donnelly's eq
 Lefschetz fixed-point formula. The decisive, fully finite check: the twisted trace on the flat
 parent circle,
 $$
-\mathrm{Tr}<em>\sigma(e^{-tD})\Big|</em>{S^1_R/\mathbb Z_2} = 1\quad\text{exactly, for all }t,
+\mathrm{Tr}_\sigma(e^{-tD})\Big|_{S^1_R/\mathbb Z_2} = 1\quad\text{exactly, for all }t,
 $$
 because only the single fixed mode <span class="arithmatex">\(n=0\)</span> survives the trace (cosine modes contribute <span class="arithmatex">\(+1\)</span>, sine
 modes contribute <span class="arithmatex">\(-1\)</span>, and they cancel pairwise for every <span class="arithmatex">\(n\neq0\)</span>). A <span class="arithmatex">\(t\)</span>-independent trace forces
@@ -972,10 +972,10 @@ $$
 $$
 $$
 \mathrm{Scal}\,|\mathrm{Riem}|^2=\frac{115}{24}=4.791\overline6,\qquad
-\mathrm{Ric}^{ab}\mathrm{Ric}<em>b{}^c\mathrm{Ric}_c{}^a=\frac{125}{288}=0.4340277\overline7,
+\mathrm{Ric}^{ab}\mathrm{Ric}_b{}^c\mathrm{Ric}_c{}^a=\frac{125}{288}=0.4340277\overline7,
 $$
 $$
-\mathrm{Ric}^{ab}\mathrm{Ric}^{cd}R</em>{acbd}=\frac{125}{288}=0.4340277\overline7,\qquad
+\mathrm{Ric}^{ab}\mathrm{Ric}^{cd}R_{acbd}=\frac{125}{288}=0.4340277\overline7,\qquad
 \mathrm{Ric}^{ab}R_a{}^{cde}R_{bcde}=\frac{115}{144}=0.798611\overline1,
 $$
 $$
@@ -992,7 +992,7 @@ held back and nothing supplied from outside this list.</p>
 curvature engine originally carried the two naturally-reductive <span class="arithmatex">\(1/4\)</span>-weight curvature terms
 with the wrong relative sign, producing
 $$
-\left.\frac{|\mathrm{Riem}|^2}{\mathrm{Scal}^2}\right|<em>{\rm as\text{-}shipped}=\frac{31}{147},
+\left.\frac{|\mathrm{Riem}|^2}{\mathrm{Scal}^2}\right|_{\rm as\text{-}shipped}=\frac{31}{147},
 $$
 a value that <strong>violates the first Bianchi identity</strong> (<span class="arithmatex">\(R_{a[bcd]}=0\)</span>) at residual
 <span class="arithmatex">\(1/7=0.142857\ldots\)</span> — a structural, non-numerical-noise violation. The first Bianchi identity
@@ -1001,7 +1001,7 @@ value "should" be; catching the error this way is target-blind by construction, 
 <span class="arithmatex">\(a_6\)</span> number was consulted to find it. The one-line sign correction (Besse, Proposition 7.38;
 Kobayashi–Nomizu Vol. II) restores
 $$
-\left.\frac{|\mathrm{Riem}|^2}{\mathrm{Scal}^2}\right|</em>{\rm corrected}=\frac{23}{75},
+\left.\frac{|\mathrm{Riem}|^2}{\mathrm{Scal}^2}\right|_{\rm corrected}=\frac{23}{75},
 $$
 with first-Bianchi residual <span class="arithmatex">\(3.05\times10^{-16}\)</span> (machine zero), preserves Einstein isotropy
 (all three Ricci eigenvalues equal <span class="arithmatex">\(5/12\)</span>; <span class="arithmatex">\(\mathrm{Scal}/\mathrm{Ric}_i=6\)</span> exactly), and
@@ -1013,7 +1013,7 @@ consistency theorem (first Bianchi) is supposed to catch, and it did.</p>
 <p><strong>Graviton (Lichnerowicz) bundle spectrum</strong>, the endomorphism <span class="arithmatex">\(E_L\)</span> for the graviton leg,
 diagonalized on the transverse-traceless sub-bundle <span class="arithmatex">\(\mathrm{Sym}^2_0(T)\)</span> (real dimension 20):
 $$
-(E_Lh)<em>{ab}=\mathrm{Ric}</em>{ac}h^c{}<em>b+\mathrm{Ric}</em>{bc}h^c{}<em>a-2R</em>{acbd}h^{cd},
+(E_Lh)_{ab}=\mathrm{Ric}_{ac}h^c{}_b+\mathrm{Ric}_{bc}h^c{}_a-2R_{acbd}h^{cd},
 $$
 with exact eigenvalue (×multiplicity) spectrum
 $$
@@ -1295,12 +1295,12 @@ unfinished calculation, and it is why the magnitude leg's terminal is
 <p><strong>Labeled consistency coefficients, never gap-closing.</strong> Fixing one specific, non-canonical
 regulator choice does produce a number, recorded here purely for transparency:
 $$
-\mathrm{tr}[a_6]<em>{\rm as\text{-}shipped}\approx-2.817995812\times10^{94}\ \mathrm{GeV}^6
+\mathrm{tr}[a_6]_{\rm as\text{-}shipped}\approx-2.817995812\times10^{94}\ \mathrm{GeV}^6
 \ (\text{computed on the Bianchi-violating }31/147\text{ tensor; its
 }\texttt{COMPLETE_CROSSCHECKED}\text{ label is retracted}),
 $$
 $$
-\mathrm{tr}[a_6]</em>{\rm R3\text{-}corrected}\approx-2.995681680\times10^{94}\ \mathrm{GeV}^6,
+\mathrm{tr}[a_6]_{\rm R3\text{-}corrected}\approx-2.995681680\times10^{94}\ \mathrm{GeV}^6,
 $$
 a <span class="arithmatex">\(+6.305\%\)</span> shift under the Bianchi correction of §III.5, sign preserved throughout. Both
 numbers are quoted only to illustrate, under one concrete scheme, the scale of the underlying
@@ -1696,14 +1696,14 @@ Write down Gilkey's Theorem 4.8.16 (equivalently Vassilevich eq. 4.29) for <span
 <p><strong>Step 3 — Derive the <span class="arithmatex">\(K_6\)</span> curvature data independently of any <span class="arithmatex">\(a_6\)</span> target.</strong>
 Using the <span class="arithmatex">\(A_2\)</span> root system of <span class="arithmatex">\(SU(3)\)</span> (simple roots <span class="arithmatex">\(\alpha_1=(1,-1,0)\)</span>, <span class="arithmatex">\(\alpha_2=(0,1,-1)\)</span>, positive roots <span class="arithmatex">\(\{\alpha_1,\alpha_2,\alpha_1+\alpha_2\}\)</span>, Weyl group <span class="arithmatex">\(S_3\)</span>, <span class="arithmatex">\(\|\rho\|^2=2\)</span>) and the Wang–Ziller/Nomizu formulas for the invariant metric on <span class="arithmatex">\(T(K_6)=\mathfrak m_1\oplus\mathfrak m_2\oplus\mathfrak m_3\)</span> at the symmetric chamber center <span class="arithmatex">\(\vec u=(1,1,1)\)</span>, compute:
 $$
-\dim K_6=6,\quad \mathrm{Ric}<em>i=\frac5{12},\quad \mathrm{Scal}=\frac52,\quad \mathrm{Scal}^2=\frac{25}4,\quad |\mathrm{Ric}|^2=\frac{25}{24},\quad |\mathrm{Riem}|^2=\frac{23}{12}.
+\dim K_6=6,\quad \mathrm{Ric}_i=\frac5{12},\quad \mathrm{Scal}=\frac52,\quad \mathrm{Scal}^2=\frac{25}4,\quad |\mathrm{Ric}|^2=\frac{25}{24},\quad |\mathrm{Riem}|^2=\frac{23}{12}.
 $$
 <strong>Immediately run Check 1 (First Bianchi identity) on this Riemann tensor before proceeding.</strong> If the naturally-reductive curvature terms are written with the sign convention of Besse Prop. 7.38 / Kobayashi–Nomizu, the check passes to <span class="arithmatex">\(3\times10^{-16}\)</span> and <span class="arithmatex">\(|\mathrm{Riem}|^2/\mathrm{Scal}^2=23/75\)</span>; if the opposite sign is used, the check fails at the <span class="arithmatex">\(1/7\)</span> level and returns <span class="arithmatex">\(31/147\)</span> — a reader landing on <span class="arithmatex">\(31/147\)</span> has the sign backwards and must flip it before continuing. Then compute the cubic invariants <span class="arithmatex">\(K_1=-113/72\)</span>, <span class="arithmatex">\(K_2=-5/72\)</span>, and <span class="arithmatex">\(|\nabla\mathrm{Riem}|^2=1/4\)</span> (run Check 2, the second Bianchi identity, here — zero violations expected), and the nine weight-6 contractions:
 $$
 \mathrm{Scal}^3=\frac{125}8,\ \ \mathrm{Scal}\,|\mathrm{Ric}|^2=\frac{125}{48},\ \ \mathrm{Scal}\,|\mathrm{Riem}|^2=\frac{115}{24},\ \ |\mathrm{Ric}|^3=\frac{125}{288},
 $$
 $$
-\mathrm{Ric}^{ab}\mathrm{Ric}^{cd}R</em>{acbd}=\frac{125}{288},\ \ \mathrm{Ric}^{ab}R_a{}^{cde}R_{bcde}=\frac{115}{144},\ \ K_1=-\frac{113}{72},\ \ K_2=-\frac5{72},\ \ |\nabla\mathrm{Riem}|^2=\frac14.
+\mathrm{Ric}^{ab}\mathrm{Ric}^{cd}R_{acbd}=\frac{125}{288},\ \ \mathrm{Ric}^{ab}R_a{}^{cde}R_{bcde}=\frac{115}{144},\ \ K_1=-\frac{113}{72},\ \ K_2=-\frac5{72},\ \ |\nabla\mathrm{Riem}|^2=\frac14.
 $$
 As a cross-check, verify the Einstein-metric classification (Check 3): solving the general-chamber Ricci equations should return exactly four invariant Einstein metrics, <span class="arithmatex">\((1,1,1)\)</span> plus the three permutations of <span class="arithmatex">\((1,1,2)\)</span>.</p>
 <p><strong>Step 4 — Assemble the Lichnerowicz and ghost spectra.</strong>
@@ -1912,7 +1912,7 @@ incidental fact. On a non-symmetric naturally reductive space the Levi-Civita co
 that actually defines the Riemannian heat kernel whose coefficients are <span class="arithmatex">\(a_{2k}\)</span> — differs from the
 canonical one by the standard Nomizu reductive-connection tensor
 $$
-\nabla^{\rm LC}<em>XY=\nabla^{\rm can}_XY+\Lambda(X)Y,\qquad \Lambda(X)Y=\tfrac12\,[X,Y]</em>{\mathfrak m}
+\nabla^{\rm LC}_XY=\nabla^{\rm can}_XY+\Lambda(X)Y,\qquad \Lambda(X)Y=\tfrac12\,[X,Y]_{\mathfrak m}
 \quad(X,Y\in\mathfrak m),
 $$
 (Kobayashi–Nomizu II, Ch. X; Besse 7.24 — textbook, not novel). Because <span class="arithmatex">\(\Lambda\)</span> is built from the
@@ -2275,7 +2275,7 @@ $$
 This nonzero, exactly-rational gap is itself a certified, non-vacuous result (a "falsification test": deliberately dropping the Levi-Civita correction reproduces the naive canonical value and makes the <span class="arithmatex">\(1/24\)</span> discrepancy reappear on demand, confirming the correction is real and correctly isolated, not an artifact of bookkeeping).</p>
 <p>What remains uncomputed is the <strong>first-order graviton/ghost analogue of this same correction</strong> — concretely, the off-diagonal matrix elements
 $$
--2\sum_i\Lambda(e_i)\,\nabla^{\rm can}<em>{e_i}\Big|</em>{T}\qquad\text{(ghost)}\qquad\text{and}\qquad -2\sum_i\Lambda(e_i)\,\nabla^{\rm can}<em>{e_i}\Big|</em>{\mathrm{Sym}^2(T)}\qquad\text{(graviton)},
+-2\sum_i\Lambda(e_i)\,\nabla^{\rm can}_{e_i}\Big|_{T}\qquad\text{(ghost)}\qquad\text{and}\qquad -2\sum_i\Lambda(e_i)\,\nabla^{\rm can}_{e_i}\Big|_{\mathrm{Sym}^2(T)}\qquad\text{(graviton)},
 $$
 which require the explicit <span class="arithmatex">\(SU(3)\)</span> Gelfand–Tsetlin ladder matrix elements connecting adjacent GT patterns across the five Weyl-inequivalent <span class="arithmatex">\(T^2\)</span> weight classes that appear in the Peter–Weyl decomposition of sections on <span class="arithmatex">\(K_6\)</span>. These matrix elements are not unknown in principle — the <span class="arithmatex">\(SU(3)\)</span> lowering-operator formula that generates them is exact and standard — but they have <strong>not yet been enumerated</strong> for the specific graviton and ghost bundle sections in play here. The graviton fibre data needed to set up this computation is already in hand (the Lichnerowicz spectrum on <span class="arithmatex">\(\mathrm{Sym}^2_0\)</span>, <span class="arithmatex">\(\mathrm{tr}\,E_L=40/3\)</span>, <span class="arithmatex">\(\mathrm{tr}\,E_L^2=241/18\)</span>); what is missing is the off-diagonal hopping term itself.</p>
 <p><strong>This is a named computation-debt, not a hidden gap, and not a wall.</strong> It does not block the keystone ratio <span class="arithmatex">\(a_6/a_0=-6373/630\)</span>, which is already reported and certified via the Route A (Gilkey invariant-contraction) and Route B (Peter–Weyl spectral peel) machinery credentialed on the sphere calibrations above; it would, if completed, provide a <strong>third, structurally independent</strong> cross-check strengthening the already-certified graded value, exactly on the model of the sphere calibrations. The falsifiable bet is stated plainly: derive the GT off-diagonal matrix elements, assemble the second-order correction to the graviton and ghost <span class="arithmatex">\(a_6\)</span> legs, and check whether the resulting graded ratio reconciles with the already-certified <span class="arithmatex">\(-6373/630\)</span> within a pre-registered tolerance of <span class="arithmatex">\(10^{-6}\)</span>, without any back-solving to the known target. Two honest outcomes are possible, and both are acceptable endpoints: success strengthens the keystone from a two-route-agreed value to a three-route-agreed value; a legitimate failure to reconcile within tolerance would not erase the keystone (which does not depend on this correction being small — it is already computed from the full forced Gilkey functional) but would instead demote the open question of <em>why</em> a naive perturbative treatment of the correction disagrees, which reduces to a named axiom (AXIOM-HEATKERNEL-SCHEME-OBJECT) about the scheme choice rather than reopening the derivation. Either way, the certified scale-free keystone ratio is unaffected by the outcome of this bet — it is a strengthening opportunity on a magnitude question, not a load-bearing dependency of the ratio itself.</p>
